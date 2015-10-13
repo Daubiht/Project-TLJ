@@ -1,0 +1,11 @@
+bonhomme ou femme, choisit la classen le nom, les stats de base, skill de base
+QCM pour définir la vie du mec et personnalisé l'aventure du joueur
+d'abord un jeune aventurier qui fait des donjons courts avec peu de récompense
+remplis des quêtes pour gagner des sous
+vas de ville en ville pour trouver quêtes, donjon et compagnon
+génération aléatoire de compagnon dans les tavernes
+ville ayant armurier, forgeron, magicien pour potion
+système de notification
+evenement aléatoire style raid de bandit ou quête limité dans le temps 
+système de jour/nuit avant avantage ou désavantage pour certain perso
+deux systèmes de combat, un automatique et un style FF (style FF priorité)
