@@ -17,14 +17,36 @@ namespace Inventory.FC
         readonly Dictionary<string, int> _stats = new Dictionary<string, int>();
         readonly Dictionary<string, int> _required = new Dictionary<string, int>();
 
-        public Item(string name, int weight, int value, string description, int statsNumbers, string statsNames, string requiredNames, int requiredNumbers)
+        public Item(string name, int weight, int value, string description)
         {
             _name = name;
             _weight = weight;
             _value = value;
             _description = description;
-            _stats.Add(statsNames, statsNumbers);
-            _required.Add(requiredNames, requiredNumbers);
+        }
+
+        public void AddRequired(string name, int numb)
+        {
+            if (_required.ContainsKey(name))
+            {
+                _required[name] += numb;
+            }
+            else
+            {
+                _required.Add(name, numb);
+            }
+        }
+
+        public void AddStats(string name, int numb)
+        {
+            if (_stats.ContainsKey(name))
+            {
+                _stats[name] += numb;
+            }
+            else
+            {
+                _stats.Add(name, numb);
+            }
         }
 
         public string GetName
@@ -47,7 +69,7 @@ namespace Inventory.FC
             get { return _description; }
         }
 
-        public Dictionary<string, int> GetStatsBonus
+        public Dictionary<string, int> GetStats
         {
             get { return _stats; }
         }

@@ -8,7 +8,7 @@ namespace Inventory.FC
     /// <summary>
     /// Class that manage an inventory
     /// </summary>
-    public class Inventory
+    public class Invent
     {
         readonly Dictionary<Item, int> _inventory = new Dictionary<Item, int>();
         int _weight = 100;
@@ -65,6 +65,15 @@ namespace Inventory.FC
         public int GetGold
         {
             get { return _gold; }
+        }
+
+        public bool GetItem(Item item)
+        {
+            if (_inventory.ContainsKey(item))
+            {
+                return true;
+            }
+            return false;
         }
     }
 }
