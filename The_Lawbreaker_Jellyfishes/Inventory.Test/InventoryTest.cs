@@ -15,14 +15,14 @@ namespace Inventory.Test
         {
             Item itemtest = new Item("épée", 10, 120, "Epee standard");
 
-            itemtest.AddRequired("attaque de base", 7);
-            itemtest.AddStats("attaque de base", 5);
+            itemtest.AddRequired("attaque physique", 7);
+            itemtest.AddStats("attaque physique", 5);
 
             Dictionary<string, int> stat = new Dictionary<string, int>();
-            stat.Add("attaque de base", 5);
+            stat.Add("attaque physique", 5);
 
             Dictionary<string, int> required = new Dictionary<string, int>();
-            required.Add("attaque de base", 7);
+            required.Add("attaque physique", 7);
 
             Assert.AreEqual("épée", itemtest.GetName);
             Assert.AreEqual(120, itemtest.GetValue);
@@ -36,13 +36,44 @@ namespace Inventory.Test
         public void Test_Inventory_AddItem()
         {
             Item itemtest = new Item("épée", 10, 120, "Epee standard");
-            itemtest.AddRequired("attaque de base", 7);
-            itemtest.AddStats("attaque de base", 5);
+            itemtest.AddRequired("attaque physique", 7);
+            itemtest.AddStats("attaque physique", 5);
 
             Invent invent = new Invent();
             invent.AddItem(itemtest, 2);
 
             Assert.AreEqual(true, invent.GetItem(itemtest));
+        }
+
+        [Test]
+        public void Test_Inventory_RemoveItem()
+        {
+            Item itemtest = new Item("épée", 10, 120, "Epee standard");
+            itemtest.AddRequired("attaque physique", 7);
+            itemtest.AddStats("attaque physique", 5);
+
+            Invent invent = new Invent();
+            invent.AddItem(itemtest, 2);
+
+            Assert.AreEqual(true, invent.GetItem(itemtest));
+            Assert.AreEqual(1, invent.RemoveItem(itemtest));
+        }
+
+        [Test]
+        public void Test_Inventory_AddGold()
+        {
+            Invent invent = new Invent();
+            invent.AddGold(10);
+            Assert.AreEqual(10, invent.GetGold);
+        }
+
+        [Test]
+        public void Test_Inventory_RemoveGold()
+        {
+            Invent invent = new Invent();
+            invent.AddGold(100);
+            invent.RemoveGold(10);
+            Assert.AreEqual(90, invent.GetGold);
         }
     }
 }

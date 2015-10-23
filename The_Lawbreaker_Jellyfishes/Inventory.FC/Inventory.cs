@@ -38,18 +38,20 @@ namespace Inventory.FC
             return null;
         }
 
-        public bool RemoveItem(Item item)
+        public int RemoveItem(Item item)
         {
             if(_inventory[item] > 1)
             {
                 _inventory[item]--;
-                return true;
+                return _inventory[item];
             }
             else if(_inventory[item] < 1)
             {
-                return _inventory.Remove(item);
+                _inventory.Remove(item);
+                return 0;
             }
-            return false;
+
+            throw new InvalidOperationException();
         }
 
         public int RemoveGold(int RemoveGold)
