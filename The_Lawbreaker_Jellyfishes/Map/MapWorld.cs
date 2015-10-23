@@ -11,14 +11,8 @@ namespace Map
     /// </summary>
     public class MapWorld
     {
-
         readonly Dictionary<MapIsland, MapIsland[]> _islands = new Dictionary<MapIsland, MapIsland[]>();
         MapIsland _actualIsland;
-
-        public MapWorld(MapIsland island, MapIsland[] listReachable)
-        {
-
-        }
 
         public MapIsland ActualIsland
         {
