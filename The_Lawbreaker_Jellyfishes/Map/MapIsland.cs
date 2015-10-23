@@ -14,7 +14,6 @@ namespace Map
         {
             _name = name;
             _context = context;
-
         }
     }
 }
