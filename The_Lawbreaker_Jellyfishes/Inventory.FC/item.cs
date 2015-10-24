@@ -14,15 +14,17 @@ namespace Inventory.FC
         readonly int _weight;
         readonly int _value;
         readonly string _description;
+        readonly string _type;
         readonly Dictionary<string, int> _stats = new Dictionary<string, int>();
         readonly Dictionary<string, int> _required = new Dictionary<string, int>();
 
-        public Item(string name, int weight, int value, string description)
+        public Item(string name, int weight, int value, string description, string type)
         {
             _name = name;
             _weight = weight;
             _value = value;
             _description = description;
+            _type = type;
         }
 
         public void AddRequired(string name, int numb)
@@ -77,6 +79,11 @@ namespace Inventory.FC
         public Dictionary<string, int> GetRequired
         {
             get { return _required; }
+        }
+
+        public string Type
+        {
+            get { return _type; }
         }
     }
 }
