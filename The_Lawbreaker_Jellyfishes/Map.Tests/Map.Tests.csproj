@@ -43,9 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MapIslandTest.cs" />
-    <Compile Include="MapWorldTest.cs" />
-    <Compile Include="MapCityTest.cs" />
+    <Compile Include="MapTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

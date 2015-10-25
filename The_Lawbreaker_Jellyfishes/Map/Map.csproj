@@ -40,9 +40,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MapCity.cs" />
+    <Compile Include="MapInstance.cs" />
     <Compile Include="MapIsland.cs" />
     <Compile Include="MapWorld.cs" />
+    <Compile Include="MapZone.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
