@@ -13,13 +13,18 @@ namespace Map
     public class MapWorld
     {
         readonly Dictionary<MapIsland, List<MapIsland>> _islands = new Dictionary<MapIsland, List<MapIsland>>();
-        MapIsland _actualIsland;
+        MapIsland _actualIsland = null;
 
         public MapIsland ActualIsland
         {
             get { return _actualIsland; }
             set
             {
+                if(_actualIsland == null)
+                {
+                    _actualIsland = value;
+                }
+
                 for(int i = 0; i < _islands[_actualIsland].Count; i++)
                 {
                     if (_islands[_actualIsland][i] == value)
@@ -29,6 +34,11 @@ namespace Map
                     }
                 }
             }
+        }
+
+        public Dictionary<MapIsland, List<MapIsland>> Islands
+        {
+            get { return _islands; }
         }
 
         /// <summary>
@@ -51,7 +61,7 @@ namespace Map
                 newIsland.AddCity(newCity);
 
                 List<MapInstance> listInstanceForThisIsland = new List<MapInstance>();
-                for(int i2 = 0; i < listInstancesNames[i].Count; i2++)
+                for(int i2 = 0; i2 < listInstancesNames[i].Count; i2++)
                 {
                     MapInstance newInstance = new MapInstance(newIsland, listInstancesNames[i][i2], listsPacksZones[i][i2]);
                     listInstanceForThisIsland.Add(newInstance);
@@ -66,7 +76,7 @@ namespace Map
             for(int i = 0; i < listIsland.Length; i ++)
             {
                 List<MapIsland> listlink = new List<MapIsland>();
-                for (int i2 = 0; i < ListsLinks[i].Count; i2++)
+                for (int i2 = 0; i2 < ListsLinks[i].Count; i2++)
                 {
                     listlink.Add(listIsland[ListsLinks[i][i2]]);
                 }

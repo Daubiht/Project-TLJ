@@ -19,6 +19,16 @@ namespace Map
             _listZones = listzone;
         }
 
+        public string InstanceName
+        {
+            get { return _name; }
+        }
+
+        public Dictionary<MapZone, List<MapZone>> listZones
+        {
+            get { return _listZones; }
+        }
+
         public MapZone ActualZone
         {
             get { return _actualZone; }
@@ -26,7 +36,7 @@ namespace Map
             {
                 for (int i = 0; i < _listZones[_actualZone].Count; i++)
                 {
-                    if (_listZones[_actualZone][i] == value)
+                    if ((_listZones[_actualZone][i] == value) && (_context.ActualPlace == this))
                     {
                         _actualZone = value;
                         //Provok an event when arrive

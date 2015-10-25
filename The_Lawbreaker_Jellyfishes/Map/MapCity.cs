@@ -19,10 +19,26 @@ namespace Map
             _listServices = listServices;
         }
 
+        public string CityName
+        {
+            get { return _name; }
+        }
+
+        public List<Services> listServices
+        {
+            get { return _listServices; }
+        }
+
         public Services ActualService
         {
             get { return _actualService; }
-            set { _actualService = value; }
+            set
+            {
+                if (_context.ActualPlace == this)
+                {
+                    _actualService = value;
+                }
+            }
         }
     }
 }

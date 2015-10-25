@@ -19,6 +19,21 @@ namespace Map
             _context = context;
         }
 
+        public string IslandName
+        {
+            get { return _name; }
+        }
+
+        public MapCity IslandCity
+        {
+            get { return _city; }
+        }
+
+        public List<MapInstance> IslandInstances
+        {
+            get { return _listInstance; }
+        }
+
         public MapCity AddCity(MapCity city)
         {
             _city = city;
@@ -34,7 +49,14 @@ namespace Map
         public object ActualPlace
         {
             get { return _actualPlace; }
-            set { _actualPlace = value; }
+            set
+            {
+                if (_context.ActualIsland == this)
+                {
+                    _actualPlace = value;
+                }
+            }
+
         }
     }
 }
