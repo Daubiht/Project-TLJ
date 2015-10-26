@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Team;
 
-namespace 
+
+namespace LogicalGame
 {
     /// <summary>
     /// Class that manage an inventory
@@ -14,9 +14,9 @@ namespace
         readonly Dictionary<Item, int> _inventory = new Dictionary<Item, int>();
         int _weight = 100;
         int _gold = 0;
-        team _context;
+        Team _context;
 
-        public Invent(team context)
+        public Invent(Team context)
         {
             _context = context;
         }

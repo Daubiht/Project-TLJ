@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using Inventory.FC;
 
-namespace Team
+namespace LogicalGame
 {
-    public class team
+    public class Team
     {
         string _name;
         int _maxMembers = 4;
@@ -17,7 +17,7 @@ namespace Team
         /// CONSTRUCTOR
         /// </summary>
 
-        public team(string name, Member mainCharacter)
+        public Team(string name, Member mainCharacter)
         {
             _name = name;
             _membersList.Add(mainCharacter, mainCharacter.Name);
