@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Team;
 
 namespace Inventory.FC
 {
@@ -13,6 +14,12 @@ namespace Inventory.FC
         readonly Dictionary<Item, int> _inventory = new Dictionary<Item, int>();
         int _weight = 100;
         int _gold = 0;
+        team _context;
+
+        public Invent(team context)
+        {
+            _context = context;
+        }
 
         public Item AddItem(Item item, int quantity)
         {

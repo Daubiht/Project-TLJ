@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using Inventory.FC;
 
-namespace Team.FC
+namespace Team
 {
-    public class Team
+    public class team
     {
         string _name;
         int _maxMembers = 4;
@@ -17,11 +17,11 @@ namespace Team.FC
         /// CONSTRUCTOR
         /// </summary>
 
-        public Team(string name, Member mainCharacter)
+        public team(string name, Member mainCharacter)
         {
             _name = name;
             _membersList.Add(mainCharacter, mainCharacter.Name);
-            Invent _inventTeam = new Invent();
+            Invent _inventTeam = new Invent(this);
         }
 
         /// <summary>
