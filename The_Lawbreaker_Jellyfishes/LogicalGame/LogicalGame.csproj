@@ -48,6 +48,7 @@
     <Compile Include="Maps\MapWorld.cs" />
     <Compile Include="Maps\MapZone.cs" />
     <Compile Include="Maps\Services.cs" />
+    <Compile Include="Militia.cs" />
     <Compile Include="Notifications\ListNotifications.cs" />
     <Compile Include="Notifications\Notification.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
