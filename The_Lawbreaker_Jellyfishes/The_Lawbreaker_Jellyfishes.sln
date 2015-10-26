@@ -3,10 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inventory.FC", "Inventory.FC\Inventory.FC.csproj", "{BA2F09DF-E119-4799-8725-CED41BAC1ECB}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inventory.Test", "Inventory.Test\Inventory.Test.csproj", "{DE7CC39A-BD41-41C3-BA82-A29F21CB9A12}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notification", "Notification\Notification.csproj", "{6F01383E-8D40-40D1-95ED-508DE8911AAE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notification.Test", "Notification.Test\Notification.Test.csproj", "{81FFECF9-7D29-41DA-825C-4691D5DC691B}"
@@ -17,14 +13,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{BA2F09DF-E119-4799-8725-CED41BAC1ECB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BA2F09DF-E119-4799-8725-CED41BAC1ECB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BA2F09DF-E119-4799-8725-CED41BAC1ECB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BA2F09DF-E119-4799-8725-CED41BAC1ECB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DE7CC39A-BD41-41C3-BA82-A29F21CB9A12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DE7CC39A-BD41-41C3-BA82-A29F21CB9A12}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DE7CC39A-BD41-41C3-BA82-A29F21CB9A12}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DE7CC39A-BD41-41C3-BA82-A29F21CB9A12}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6F01383E-8D40-40D1-95ED-508DE8911AAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6F01383E-8D40-40D1-95ED-508DE8911AAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6F01383E-8D40-40D1-95ED-508DE8911AAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
