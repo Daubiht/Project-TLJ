@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using NUnit.Framework;
 
-namespace Notification.Test
+namespace LogicalGame.Test
 {
     [TestFixture]
     public class NotificationTest

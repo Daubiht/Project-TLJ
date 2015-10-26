@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Notification
+namespace LogicalGame
 {
     public class Notification
     {

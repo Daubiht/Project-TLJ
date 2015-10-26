@@ -2,16 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using NUnit.Framework;
 using LogicalGame;
 
-namespace Map.Tests
+namespace Inventory.Test
 {
-    [TestFixture]
-    public class MapTest
+    public class CreateFakeWorld
     {
-        [Test]
-        public void Test_Upload_An_Island()
+        public MapWorld CreateFakeWorld()
         {
             //Parameter islandsNames
             List<string> islandsNames = new List<string>();
@@ -54,30 +51,30 @@ namespace Map.Tests
             //parameter listsPacksZones
             List<List<Dictionary<MapZone, List<MapZone>>>> listsPackZone = new List<List<Dictionary<MapZone, List<MapZone>>>>();
 
-                //Ponyo
+            //Ponyo
             List<Dictionary<MapZone, List<MapZone>>> list_Dictio_Of_Zone_And_Links_Of_Ponyo_Instances = new List<Dictionary<MapZone, List<MapZone>>>();
-                    //instance 1
+            //instance 1
             Dictionary<MapZone, List<MapZone>> dictio_of_zone_and_link_for_ponyo_1_instance = new Dictionary<MapZone, List<MapZone>>();
-                        //zone 1 inst 1
-                        MapZone zonePonyo1_1 = new MapZone();
-                        //zone 2 inst 1
-                        MapZone zonePonyo2_1 = new MapZone();
-                        //zone 3 inst 1
-                        MapZone zonePonyo3_1 = new MapZone();
+            //zone 1 inst 1
+            MapZone zonePonyo1_1 = new MapZone();
+            //zone 2 inst 1
+            MapZone zonePonyo2_1 = new MapZone();
+            //zone 3 inst 1
+            MapZone zonePonyo3_1 = new MapZone();
 
-                        List<MapZone> linkzonePonyo1_1 = new List<MapZone>();
-                        linkzonePonyo1_1.Add(zonePonyo2_1);
-                        linkzonePonyo1_1.Add(zonePonyo3_1);
-                        List<MapZone> linkzonePonyo2_1 = new List<MapZone>();
-                        linkzonePonyo2_1.Add(zonePonyo1_1);
-                        linkzonePonyo2_1.Add(zonePonyo3_1);
-                        List<MapZone> linkzonePonyo3_1 = new List<MapZone>();
-                        linkzonePonyo3_1.Add(zonePonyo1_1);
-                        linkzonePonyo3_1.Add(zonePonyo2_1);
+            List<MapZone> linkzonePonyo1_1 = new List<MapZone>();
+            linkzonePonyo1_1.Add(zonePonyo2_1);
+            linkzonePonyo1_1.Add(zonePonyo3_1);
+            List<MapZone> linkzonePonyo2_1 = new List<MapZone>();
+            linkzonePonyo2_1.Add(zonePonyo1_1);
+            linkzonePonyo2_1.Add(zonePonyo3_1);
+            List<MapZone> linkzonePonyo3_1 = new List<MapZone>();
+            linkzonePonyo3_1.Add(zonePonyo1_1);
+            linkzonePonyo3_1.Add(zonePonyo2_1);
 
-                        dictio_of_zone_and_link_for_ponyo_1_instance.Add(zonePonyo1_1, linkzonePonyo1_1);
-                        dictio_of_zone_and_link_for_ponyo_1_instance.Add(zonePonyo2_1, linkzonePonyo2_1);
-                        dictio_of_zone_and_link_for_ponyo_1_instance.Add(zonePonyo3_1, linkzonePonyo3_1);
+            dictio_of_zone_and_link_for_ponyo_1_instance.Add(zonePonyo1_1, linkzonePonyo1_1);
+            dictio_of_zone_and_link_for_ponyo_1_instance.Add(zonePonyo2_1, linkzonePonyo2_1);
+            dictio_of_zone_and_link_for_ponyo_1_instance.Add(zonePonyo3_1, linkzonePonyo3_1);
 
             //instance 2
             Dictionary<MapZone, List<MapZone>> dictio_of_zone_and_link_for_ponyo_2_instance = new Dictionary<MapZone, List<MapZone>>();
@@ -141,38 +138,7 @@ namespace Map.Tests
             MapWorld world = new MapWorld();
             world.UploadIsland(islandsNames, listCitiesServices, citiesNames, listInstancesNames, listsPackZone, listsLinks);
 
-            //initialise island
-            Dictionary<MapIsland, List<MapIsland>> Islands = world.Islands;
-
-            foreach(MapIsland island in Islands.Keys)
-            {
-                if(island.IslandName == "Ponyoland")
-                {
-                    world.ChangeActualIsland(island, false) ;
-                }
-            }
-
-            //change island
-            foreach (MapIsland island in Islands.Keys)
-            {
-                if (island.IslandName == "Terres désolées")
-                {
-                    world.ChangeActualIsland(island, false);
-                }
-            }
-
-            //change city
-            world.ActualIsland.ActualPlace = world.ActualIsland.IslandCity;
-
-            //change instance
-            List<MapInstance> listinstance = world.ActualIsland.IslandInstances;
-            foreach(MapInstance instance in listinstance)
-            {
-                if (instance.InstanceName == "Le grand rien")
-                {
-                    world.ActualIsland.ActualPlace = instance;
-                }
-            }
+            return world;
         }
     }
 }

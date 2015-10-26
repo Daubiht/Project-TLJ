@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Inventory.FC
+namespace LogicalGame
 {
     /// <summary>
     /// Class that creates objet item with a name, weight, value, description, bonus stat and required stat

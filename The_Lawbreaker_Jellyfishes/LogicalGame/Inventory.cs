@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Inventory.FC
+namespace LogicalGame
 {
     /// <summary>
     /// Class that manage an inventory

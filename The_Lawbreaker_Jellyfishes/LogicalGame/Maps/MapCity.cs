@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Map
+namespace LogicalGame
 {
     public class MapCity
     {
@@ -39,6 +39,11 @@ namespace Map
                     _actualService = value;
                 }
             }
+        }
+
+        public MapIsland ActualIsland
+        {
+            get { return _context; }
         }
     }
 }
