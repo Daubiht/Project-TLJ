@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using Team;
 
-namespace Inventory.FC
+namespace 
 {
     /// <summary>
     /// Class that manage an inventory
