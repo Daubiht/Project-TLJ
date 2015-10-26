@@ -3,11 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogicalGame", "Inventory.FC\LogicalGame.csproj", "{BA2F09DF-E119-4799-8725-CED41BAC1ECB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogicalGame", "LogicalGame\LogicalGame.csproj", "{BA2F09DF-E119-4799-8725-CED41BAC1ECB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inventory.Test", "Inventory.Test\Inventory.Test.csproj", "{DE7CC39A-BD41-41C3-BA82-A29F21CB9A12}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Team.FC", "Team\Team.FC.csproj", "{63FE8C56-C480-44E6-9403-249D3ED4CE2D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogicalGame.Test", "LogicalGame.Test\LogicalGame.Test.csproj", "{DE7CC39A-BD41-41C3-BA82-A29F21CB9A12}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +21,6 @@ Global
 		{DE7CC39A-BD41-41C3-BA82-A29F21CB9A12}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DE7CC39A-BD41-41C3-BA82-A29F21CB9A12}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DE7CC39A-BD41-41C3-BA82-A29F21CB9A12}.Release|Any CPU.Build.0 = Release|Any CPU
-		{63FE8C56-C480-44E6-9403-249D3ED4CE2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{63FE8C56-C480-44E6-9403-249D3ED4CE2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{63FE8C56-C480-44E6-9403-249D3ED4CE2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{63FE8C56-C480-44E6-9403-249D3ED4CE2D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -50,7 +50,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Inventory.FC\LogicalGame.csproj">
+    <ProjectReference Include="..\LogicalGame\LogicalGame.csproj">
       <Project>{ba2f09df-e119-4799-8725-ced41bac1ecb}</Project>
       <Name>LogicalGame</Name>
     </ProjectReference>
