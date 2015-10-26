@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{DE7CC39A-BD41-41C3-BA82-A29F21CB9A12}</ProjectGuid>
+    <ProjectGuid>{BA2F09DF-E119-4799-8725-CED41BAC1ECB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Inventory.Test</RootNamespace>
-    <AssemblyName>Inventory.Test</AssemblyName>
+    <RootNamespace>Inventory.FC</RootNamespace>
+    <AssemblyName>Inventory.FC</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,10 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="nunit.framework, Version=2.6.4.14350, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
-      <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -43,17 +39,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="InventoryTest.cs" />
+    <Compile Include="Inventory.cs" />
+    <Compile Include="Item.cs" />
+    <Compile Include="ListItems.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Inventory.FC\LogicalGame.csproj">
-      <Project>{ba2f09df-e119-4799-8725-ced41bac1ecb}</Project>
-      <Name>LogicalGame</Name>
-    </ProjectReference>
+    <Compile Include="Team.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
