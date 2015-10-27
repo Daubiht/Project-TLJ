@@ -8,7 +8,7 @@ namespace Inventory.Test
 {
     public class CreateFakeWorld
     {
-        public MapWorld CreateFakeWorld()
+        public MapWorld GetFakeWorld()
         {
             //Parameter islandsNames
             List<string> islandsNames = new List<string>();
