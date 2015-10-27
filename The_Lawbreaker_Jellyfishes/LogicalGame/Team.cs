@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Inventory.FC;
 
 namespace LogicalGame
 {
@@ -9,7 +10,6 @@ namespace LogicalGame
     {
         string _name;
         int _maxMembers = 4;
-        Invent _inventTeam;
 
         readonly Dictionary<Member, string> _membersList = new Dictionary<Member, string>();
 
@@ -21,7 +21,7 @@ namespace LogicalGame
         {
             _name = name;
             _membersList.Add(mainCharacter, mainCharacter.Name);
-            _inventTeam = new Invent();
+            Invent _inventTeam = new Invent(this);
         }
 
         /// <summary>
@@ -50,13 +50,9 @@ namespace LogicalGame
         // Get the position of the member
         public bool GetPosition(Member M)
         {
-            return M.FrontPosition;
+            M.FrontPosition;
         }
 
-        public Invent Inventory
-        {
-            get { return _inventTeam; }
-        }
 
         /// <summary>
         /// PROPERTIES
