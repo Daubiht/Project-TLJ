@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Inventory.FC;
 
-namespace Team.FC
+namespace LogicalGame
 {
     public class Team
     {
         string _name;
         int _maxMembers = 4;
+        Invent _inventTeam;
 
         readonly Dictionary<Member, string> _membersList = new Dictionary<Member, string>();
 
@@ -21,7 +21,7 @@ namespace Team.FC
         {
             _name = name;
             _membersList.Add(mainCharacter, mainCharacter.Name);
-            Invent _inventTeam = new Invent();
+            _inventTeam = new Invent();
         }
 
         /// <summary>
@@ -50,9 +50,13 @@ namespace Team.FC
         // Get the position of the member
         public bool GetPosition(Member M)
         {
-            M.FrontPosition;
+            return M.FrontPosition;
         }
 
+        public Invent Inventory
+        {
+            get { return _inventTeam; }
+        }
 
         /// <summary>
         /// PROPERTIES

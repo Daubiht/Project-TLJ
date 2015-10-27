@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using NUnit.Framework;
-using Inventory.FC;
 
-namespace Inventory.Test
+namespace LogicalGame.Test
 {
     [TestFixture]
     public class InventoryTest

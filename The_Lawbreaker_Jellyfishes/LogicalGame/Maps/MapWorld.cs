@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.IO;
 
-namespace Map
+namespace LogicalGame
 {
     /// <summary>
     /// Repertory each islands and reachable islands
@@ -18,22 +18,28 @@ namespace Map
         public MapIsland ActualIsland
         {
             get { return _actualIsland; }
-            set
-            {
-                if(_actualIsland == null)
-                {
-                    _actualIsland = value;
-                }
+        }
 
-                for(int i = 0; i < _islands[_actualIsland].Count; i++)
+        public MapIsland ChangeActualIsland(MapIsland I, bool militia)
+        {
+            if (_actualIsland == null)
+            {
+                _actualIsland = I;
+            }
+
+            for (int i = 0; i < _islands[_actualIsland].Count; i++)
+            {
+                if (_islands[_actualIsland][i] == I)
                 {
-                    if (_islands[_actualIsland][i] == value)
+                    if(militia == false)
                     {
                         //Provok event when a change is done
-                        _actualIsland = value;
                     }
+                    _actualIsland = I;
+                    return I;
                 }
             }
+            throw new ArgumentException();
         }
 
         public Dictionary<MapIsland, List<MapIsland>> Islands
