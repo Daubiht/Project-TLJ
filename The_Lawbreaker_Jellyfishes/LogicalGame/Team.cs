@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Inventory.FC;
 
 namespace LogicalGame
 {
@@ -38,20 +37,20 @@ namespace LogicalGame
         // Remove members
         public void RemoveMembers(Member MemberToRemove)
         {
-            _membersList.Remove(MemberToRemove.Name);
+            //_membersList.Remove(MemberToRemove.Name);
         }
 
         // Change the position of the member
         public void ChangePositionMember(Member ConcernedMember, bool IsFront)
         {
-            ConcernedMember.FrontPostion = IsFront;
+            ConcernedMember.FrontPosition = IsFront;
         }
 
         // Get the position of the member
-        public bool GetPosition(Member M)
-        {
-            M.FrontPosition;
-        }
+        //public bool GetPosition(Member M)
+        //{
+        //    M.FrontPosition;
+        //}
 
 
         /// <summary>

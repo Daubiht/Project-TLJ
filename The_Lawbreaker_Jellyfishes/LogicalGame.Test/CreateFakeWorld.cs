@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using LogicalGame;
 
-namespace Inventory.Test
+namespace LogicalGame.Test
 {
     public class CreateFakeWorld
     {
@@ -49,12 +49,12 @@ namespace Inventory.Test
             listInstancesNames.Add(listInstanceGazTown);
 
             //parameter listsPacksZones
-            List<List<Dictionary<MapZone, List<MapZone>>>> listsPackZone = new List<List<Dictionary<MapZone, List<MapZone>>>>();
+            List<List<Dictionary<string, MapZone>>> listsPackZone = new List<List<Dictionary<string, MapZone>>>();
 
             //Ponyo
             List<Dictionary<MapZone, List<MapZone>>> list_Dictio_Of_Zone_And_Links_Of_Ponyo_Instances = new List<Dictionary<MapZone, List<MapZone>>>();
             //instance 1
-            Dictionary<MapZone, List<MapZone>> dictio_of_zone_and_link_for_ponyo_1_instance = new Dictionary<MapZone, List<MapZone>>();
+            List<List<MapZone>> dictio_of_zone_and_link_for_ponyo_1_instance = new List<List<MapZone>>();
             //zone 1 inst 1
             MapZone zonePonyo1_1 = new MapZone();
             //zone 2 inst 1
@@ -72,12 +72,12 @@ namespace Inventory.Test
             linkzonePonyo3_1.Add(zonePonyo1_1);
             linkzonePonyo3_1.Add(zonePonyo2_1);
 
-            dictio_of_zone_and_link_for_ponyo_1_instance.Add(zonePonyo1_1, linkzonePonyo1_1);
-            dictio_of_zone_and_link_for_ponyo_1_instance.Add(zonePonyo2_1, linkzonePonyo2_1);
-            dictio_of_zone_and_link_for_ponyo_1_instance.Add(zonePonyo3_1, linkzonePonyo3_1);
+            dictio_of_zone_and_link_for_ponyo_1_instance.Add(linkzonePonyo1_1);
+            dictio_of_zone_and_link_for_ponyo_1_instance.Add(linkzonePonyo2_1);
+            dictio_of_zone_and_link_for_ponyo_1_instance.Add(linkzonePonyo3_1);
 
             //instance 2
-            Dictionary<MapZone, List<MapZone>> dictio_of_zone_and_link_for_ponyo_2_instance = new Dictionary<MapZone, List<MapZone>>();
+            List<List<MapZone>> dictio_of_zone_and_link_for_ponyo_2_instance = new List<List<MapZone>>();
             //zone 1 inst 2
             MapZone zonePonyo1_2 = new MapZone();
             //zone 2 inst 2
@@ -95,9 +95,9 @@ namespace Inventory.Test
             linkzonePonyo3_2.Add(zonePonyo1_2);
             linkzonePonyo3_2.Add(zonePonyo2_2);
 
-            dictio_of_zone_and_link_for_ponyo_2_instance.Add(zonePonyo1_2, linkzonePonyo1_2);
-            dictio_of_zone_and_link_for_ponyo_2_instance.Add(zonePonyo2_2, linkzonePonyo2_2);
-            dictio_of_zone_and_link_for_ponyo_2_instance.Add(zonePonyo3_2, linkzonePonyo3_2);
+            dictio_of_zone_and_link_for_ponyo_2_instance.Add(linkzonePonyo1_2);
+            dictio_of_zone_and_link_for_ponyo_2_instance.Add(linkzonePonyo2_2);
+            dictio_of_zone_and_link_for_ponyo_2_instance.Add(linkzonePonyo3_2);
 
             list_Dictio_Of_Zone_And_Links_Of_Ponyo_Instances.Add(dictio_of_zone_and_link_for_ponyo_1_instance);
             list_Dictio_Of_Zone_And_Links_Of_Ponyo_Instances.Add(dictio_of_zone_and_link_for_ponyo_2_instance);

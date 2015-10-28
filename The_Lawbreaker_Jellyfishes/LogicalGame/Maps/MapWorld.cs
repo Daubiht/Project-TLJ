@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,37 +12,41 @@ namespace LogicalGame
     /// </summary>
     public class MapWorld
     {
-        readonly Dictionary<MapIsland, List<MapIsland>> _islands = new Dictionary<MapIsland, List<MapIsland>>();
-        MapIsland _actualIsland = null;
+        readonly Dictionary<string, MapIsland> _islands = new Dictionary<string, MapIsland>();
+        string _actualIsland = null;
 
-        public MapIsland ActualIsland
+        public string ActualIsland
         {
             get { return _actualIsland; }
         }
 
-        public MapIsland ChangeActualIsland(MapIsland I, bool militia)
+        public string ChangeActualIsland(MapIsland I, bool militia)
         {
             if (_actualIsland == null)
             {
-                _actualIsland = I;
+                _actualIsland = I.IslandName;
+                return I.IslandName;
             }
-
-            for (int i = 0; i < _islands[_actualIsland].Count; i++)
+            else
             {
-                if (_islands[_actualIsland][i] == I)
+
+                for (int i = 0; i < I.ListLink.Count; i++)
                 {
-                    if(militia == false)
+                    if (_islands[_actualIsland].ListLink[i].IslandName == I.IslandName)
                     {
-                        //Provok event when a change is done
+                        if (militia == false)
+                        {
+                            //Provok event when a change is done
+                        }
+                        _actualIsland = I.IslandName;
+                        return I.IslandName;
                     }
-                    _actualIsland = I;
-                    return I;
                 }
+                throw new ArgumentException();
             }
-            throw new ArgumentException();
         }
 
-        public Dictionary<MapIsland, List<MapIsland>> Islands
+        public Dictionary<string, MapIsland> Islands
         {
             get { return _islands; }
         }
@@ -54,7 +58,7 @@ namespace LogicalGame
         /// - create service for create city and put it in island
         /// </summary>
         /// <returns>dictionnary of each island and theirs links</returns>
-        public Dictionary<MapIsland, List<MapIsland>> UploadIsland(List<string> islandsNames, List<List<Services>> listCitiesServices, List<string> citiesNames, List<List<string>> listInstancesNames, List<List<Dictionary<MapZone, List<MapZone>>>> listsPacksZones, List<List<int>> ListsLinks)
+        public Dictionary<string, MapIsland> UploadIsland(List<string> islandsNames, List<List<Services>> listCitiesServices, List<string> citiesNames, List<List<string>> listInstancesNames, List<List<Dictionary<string, MapZone>>> listsPacksZones, List<List<int>> ListsLinks)
         {
             MapIsland[] listIsland = new MapIsland[islandsNames.Count];
 
@@ -86,7 +90,8 @@ namespace LogicalGame
                 {
                     listlink.Add(listIsland[ListsLinks[i][i2]]);
                 }
-                _islands.Add(listIsland[i], listlink);
+                _islands.Add(listIsland[i].IslandName, listIsland[i]);
+                listIsland[i].ListLink = listlink;
             }
 
             return _islands;

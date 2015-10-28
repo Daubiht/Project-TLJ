@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using NUnit.Framework;
 
-namespace Inventory.Test
+namespace LogicalGame.Test
 {
     [TestFixture]
     public class MilitiaTest

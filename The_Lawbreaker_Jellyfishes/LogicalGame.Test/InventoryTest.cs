@@ -38,7 +38,7 @@ namespace LogicalGame.Test
             itemtest.AddRequired("attaque physique", 7);
             itemtest.AddStats("attaque physique", 5);
 
-            Invent invent = new Invent();
+            Invent invent = new Invent(null);
             invent.AddItem(itemtest, 2);
 
             Assert.AreEqual(true, invent.GetItem(itemtest));
@@ -51,7 +51,7 @@ namespace LogicalGame.Test
             itemtest.AddRequired("attaque physique", 7);
             itemtest.AddStats("attaque physique", 5);
 
-            Invent invent = new Invent();
+            Invent invent = new Invent(null);
             invent.AddItem(itemtest, 2);
 
             Assert.AreEqual(true, invent.GetItem(itemtest));
@@ -61,7 +61,7 @@ namespace LogicalGame.Test
         [Test]
         public void Test_Inventory_AddGold()
         {
-            Invent invent = new Invent();
+            Invent invent = new Invent(null);
             invent.AddGold(10);
             Assert.AreEqual(10, invent.GetGold);
         }
@@ -69,7 +69,7 @@ namespace LogicalGame.Test
         [Test]
         public void Test_Inventory_RemoveGold()
         {
-            Invent invent = new Invent();
+            Invent invent = new Invent(null);
             invent.AddGold(100);
             invent.RemoveGold(10);
             Assert.AreEqual(90, invent.GetGold);
