@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Event.cs" />
     <Compile Include="Inventory.cs" />
     <Compile Include="Items\Item.cs" />
     <Compile Include="Items\ListItems.cs" />
@@ -52,6 +53,7 @@
     <Compile Include="Maps\Services.cs" />
     <Compile Include="Member.cs" />
     <Compile Include="Merchant.cs" />
+    <Compile Include="Monsters.cs" />
     <Compile Include="Notifications\ListNotifications.cs" />
     <Compile Include="Notifications\Notification.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

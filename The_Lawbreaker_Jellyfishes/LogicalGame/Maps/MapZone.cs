@@ -14,5 +14,10 @@ namespace LogicalGame
             get { return _listLink; }
             set { _listLink = value; }
         }
+
+        public Event Event(MapInstance Inst, bool MoveIsland) 
+        {
+            throw new NotImplementedException();
+        }
     }
 }
