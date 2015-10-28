@@ -9,10 +9,10 @@ namespace LogicalGame
     {
         readonly MapIsland _context;
         readonly string _name;
-        readonly Dictionary<string, MapZone> _listZones;
+        readonly List<MapZone> _listZones;
         MapZone _actualZone;
 
-        public MapInstance(MapIsland context, string name, Dictionary<string, MapZone> listzone)
+        public MapInstance(MapIsland context, string name, List<MapZone> listzone)
         {
             _name = name;
             _context = context;
@@ -24,7 +24,7 @@ namespace LogicalGame
             get { return _name; }
         }
 
-        public Dictionary<string, MapZone> listZones
+        public List<MapZone> listZones
         {
             get { return _listZones; }
         }

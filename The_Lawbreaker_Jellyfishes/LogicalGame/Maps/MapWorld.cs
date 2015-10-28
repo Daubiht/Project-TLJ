@@ -58,7 +58,7 @@ namespace LogicalGame
         /// - create service for create city and put it in island
         /// </summary>
         /// <returns>dictionnary of each island and theirs links</returns>
-        public Dictionary<string, MapIsland> UploadIsland(List<string> islandsNames, List<List<Services>> listCitiesServices, List<string> citiesNames, List<List<string>> listInstancesNames, List<List<Dictionary<string, MapZone>>> listsPacksZones, List<List<int>> ListsLinks)
+        public Dictionary<string, MapIsland> UploadIsland(List<string> islandsNames, List<List<Services>> listCitiesServices, List<string> citiesNames, List<List<string>> listInstancesNames, List<List<List<MapZone>>> listsPacksZones, List<List<int>> ListsLinks)
         {
             MapIsland[] listIsland = new MapIsland[islandsNames.Count];
 

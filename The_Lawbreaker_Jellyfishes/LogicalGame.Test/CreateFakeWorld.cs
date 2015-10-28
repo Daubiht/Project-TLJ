@@ -49,10 +49,10 @@ namespace LogicalGame.Test
             listInstancesNames.Add(listInstanceGazTown);
 
             //parameter listsPacksZones
-            List<List<Dictionary<string, MapZone>>> listsPackZone = new List<List<Dictionary<string, MapZone>>>();
+            List<List<List<List<MapZone>>>> listsPackZone = new List<List<List<List<MapZone>>>>();
 
             //Ponyo
-            List<Dictionary<MapZone, List<MapZone>>> list_Dictio_Of_Zone_And_Links_Of_Ponyo_Instances = new List<Dictionary<MapZone, List<MapZone>>>();
+            List<List<List<MapZone>>> list_Dictio_Of_Zone_And_Links_Of_Ponyo_Instances = new List<List<List<MapZone>>>();
             //instance 1
             List<List<MapZone>> dictio_of_zone_and_link_for_ponyo_1_instance = new List<List<MapZone>>();
             //zone 1 inst 1
@@ -105,9 +105,9 @@ namespace LogicalGame.Test
             listsPackZone.Add(list_Dictio_Of_Zone_And_Links_Of_Ponyo_Instances);
 
             //gazTown
-            List<Dictionary<MapZone, List<MapZone>>> list_Dictio_Of_Zone_And_Links_Of_GazTown_Instances = new List<Dictionary<MapZone, List<MapZone>>>();
+            List<List<List<MapZone>>> list_Dictio_Of_Zone_And_Links_Of_GazTown_Instances = new List<List<List<MapZone>>>();
             //instance 1
-            Dictionary<MapZone, List<MapZone>> dictio_of_zone_and_link_for_GazTown_1_instance = new Dictionary<MapZone, List<MapZone>>();
+            List<List<MapZone>> dictio_of_zone_and_link_for_GazTown_1_instance = new List<List<MapZone>> ();
             //zone 1 inst 1
             MapZone zoneGazTown1_1 = new MapZone();
             MapZone zoneGazTown2_1 = new MapZone();
