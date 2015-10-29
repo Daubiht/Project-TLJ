@@ -7,12 +7,12 @@ namespace LogicalGame
 {
     public class Event
     {
-        public Event(int result)
+        public Event(double result)
         {
             //if else than a fight
         }
 
-        public Event(int result, Monsters[] M)
+        public Event(double result, Monsters[] M)
         {
             //if a fight
         }

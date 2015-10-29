@@ -45,7 +45,7 @@ namespace LogicalGame
                     return Z;
                 }
             }
-            throw new NotImplementedException();
+            throw new ArgumentException();
         }
     }
 }

@@ -46,7 +46,6 @@
     <Compile Include="CreateFakeWorld.cs" />
     <Compile Include="InventoryTest.cs" />
     <Compile Include="MapTest.cs" />
-    <Compile Include="MilitiaTest.cs" />
     <Compile Include="NotificationTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

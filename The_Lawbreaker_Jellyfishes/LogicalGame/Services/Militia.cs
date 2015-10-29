@@ -16,7 +16,7 @@ namespace LogicalGame
 
         public void UseMilitia(Team T, MapIsland I)
         {
-            T.Inventory.RemoveGold(10);
+            T.Invent.RemoveGold(10);
             _context.ActualIsland.ActualWorld.ChangeActualIsland(I, true);
         }
     }

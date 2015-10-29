@@ -9,7 +9,7 @@ namespace LogicalGame
     {
         string _name;
         int _maxMembers = 4;
-
+        Invent _inventTeam;
         readonly Dictionary<Member, string> _membersList = new Dictionary<Member, string>();
 
         /// <summary>
@@ -20,7 +20,7 @@ namespace LogicalGame
         {
             _name = name;
             _membersList.Add(mainCharacter, mainCharacter.Name);
-            Invent _inventTeam = new Invent(this);
+            _inventTeam = new Invent(this);
         }
 
         /// <summary>
@@ -65,6 +65,11 @@ namespace LogicalGame
         public int MaxMembers
         {
             get { return _maxMembers; }
+        }
+
+        public Invent Invent
+        {
+            get { return _inventTeam; }
         }
     }
 }
