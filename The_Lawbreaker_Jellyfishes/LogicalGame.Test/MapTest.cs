@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using NUnit.Framework;
 using LogicalGame;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace LogicalGame.Test
 {
@@ -14,8 +17,10 @@ namespace LogicalGame.Test
         public void Test_Upload_An_Island()
         {
             //call UploadIsland
-            CreateFakeWorld createFackWorld = new CreateFakeWorld();
-            MapWorld world = createFackWorld.GetFakeWorld();
+            IFormatter formatter = new BinaryFormatter();
+            Stream stream = new FileStream("../../../world.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
+            MapWorld world = (MapWorld)formatter.Deserialize(stream);
+            stream.Close();
 
             //initialise island
             Dictionary<string, MapIsland> Islands = world.Islands;

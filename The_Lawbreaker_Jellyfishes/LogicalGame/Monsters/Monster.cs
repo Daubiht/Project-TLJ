@@ -25,6 +25,6 @@ namespace LogicalGame
 
         bool _frontPosition;
 
-        readonly Dictionary<String, Skill> _skills;
+        //readonly Dictionary<String, Skill> _skills;
     }
 }

@@ -12,7 +12,7 @@ namespace LogicalGame
             //if else than a fight
         }
 
-        public Event(double result, Monsters[] M)
+        public Event(double result, Monster[] M)
         {
             //if a fight
         }
