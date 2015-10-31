@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace LogicalGame
 {
@@ -9,19 +12,14 @@ namespace LogicalGame
     {
         readonly List<Monster> _listMonsters = new List<Monster>();
 
-        public List<Monster> AddMonster(Monster M)
+        public ListMonsters()
         {
-            _listMonsters.Add(M);
-            return _listMonsters;
-        }
-        public List<Monster> AddMonster(List<Monster> M)
-        {
-            for(int i = 0; i < M.Count; i++)
-            {
-                _listMonsters.Add(M[i]);
+            IFormatter formatter = new BinaryFormatter();
+            Stream stream = new FileStream("../../../monsters.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
+            List<Monster> listMonsters = (List<Monster>)formatter.Deserialize(stream);
+            stream.Close();
 
-            }
-            return _listMonsters;
+            _listMonsters = listMonsters;
         }
 
         public List<Monster> GetListMonsters

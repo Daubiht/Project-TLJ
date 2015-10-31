@@ -41,10 +41,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Items\CreateItems.cs" />
+    <Compile Include="Maps\CreateWorld.cs" />
     <Compile Include="Event.cs" />
     <Compile Include="Inventory.cs" />
     <Compile Include="Items\Item.cs" />
     <Compile Include="Items\ListItems.cs" />
+    <Compile Include="Monsters\CreateMonsters.cs" />
     <Compile Include="Monsters\ListMonsters.cs" />
     <Compile Include="Maps\MapCity.cs" />
     <Compile Include="Maps\MapInstance.cs" />

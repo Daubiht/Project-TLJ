@@ -43,7 +43,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CreateFakeWorld.cs" />
     <Compile Include="InventoryTest.cs" />
     <Compile Include="MapTest.cs" />
     <Compile Include="NotificationTest.cs" />

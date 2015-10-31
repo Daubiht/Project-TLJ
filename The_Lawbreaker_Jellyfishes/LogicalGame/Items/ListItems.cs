@@ -3,51 +3,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.IO;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace LogicalGame
 {
     public class ListItems
     {
-        readonly List<Item> _listitems = new List<Item>();
+        readonly List<Item> _listItems = new List<Item>();
 
         public ListItems()
         {
-            using (TextReader tr = new StreamReader(@"../../../listItems.txt"))
-            {
-                string line;
-                while ((line = tr.ReadLine()) != null)
-                {
-                    if (line[0] != '*')
-                    {
-                        string[] lineSplited = line.Split('|');
-                        Item newItem = new Item(lineSplited[0], int.Parse(lineSplited[1]), int.Parse(lineSplited[2]), lineSplited[3], lineSplited[4]);
+            IFormatter formatter = new BinaryFormatter();
+            Stream stream = new FileStream("../../../items.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
+            List<Item> listItems = (List<Item>)formatter.Deserialize(stream);
+            stream.Close();
 
-                        if (lineSplited[5] != "empty")
-                        {
-                            string[] statSplitted = lineSplited[5].Split('&');
-                            for (int i = 0; i < statSplitted.Length; i++, i++)
-                            {
-                                newItem.AddStats(statSplitted[i + 1], int.Parse(statSplitted[i]));
-                            }
-                        }
-
-                        if (lineSplited[6] != "empty")
-                        {
-                            string[] requiredSplitted = lineSplited[6].Split('&');
-                            for (int i = 0; i < requiredSplitted.Length; i++, i++)
-                            {
-                                newItem.AddRequired(requiredSplitted[i + 1], int.Parse(requiredSplitted[i]));
-                            }
-                        }
-                        _listitems.Add(newItem);
-                    }
-                }
-            }
+            _listItems = listItems;
         }
 
-        public List<Item> GetItems
+        public List<Item> Items
         {
-            get { return _listitems; }
+            get { return _listItems; }
         }
     }
 }

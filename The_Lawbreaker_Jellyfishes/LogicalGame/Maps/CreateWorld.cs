@@ -9,9 +9,9 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace LogicalGame.Test
 {
-    public class CreateFakeWorld
+    public class CreateWorld
     {
-        public MapWorld GetFakeWorld()
+        public CreateWorld()
         {
             //Parameter islandsNames
             List<string> islandsNames = new List<string>();
@@ -130,12 +130,12 @@ namespace LogicalGame.Test
             MapWorld world = new MapWorld();
             world.UploadIsland(islandsNames, listCitiesServices, citiesNames, listInstancesNames, listsZones, ListsZonesLink, listsIslandsLink);
 
+            //Serialise
             IFormatter formatter = new BinaryFormatter();
             Stream stream = new FileStream("../../../world.bin", FileMode.Create, FileAccess.Write, FileShare.None);
             formatter.Serialize(stream, world);
             stream.Close();
 
-            return world;
         }
     }
 }
