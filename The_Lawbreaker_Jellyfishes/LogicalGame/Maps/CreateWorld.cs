@@ -20,14 +20,6 @@ namespace LogicalGame.Test
             islandsNames.Add("L'île perdue");
             islandsNames.Add("Genefort");
 
-            //Parameter listCitiesServices
-            List<List<Services>> listCitiesServices = new List<List<Services>>();
-            for(int i = 0; i < 4; i++)
-            {
-                List<Services> list_listCitiesServices = new List<Services>();
-                listCitiesServices.Add(list_listCitiesServices);
-            }
-
             //Parameter citiesNames
             List<string> citiesNames = new List<string>();
             citiesNames.Add("Ponyo");
@@ -128,7 +120,7 @@ namespace LogicalGame.Test
 
             //call UploadIsland
             MapWorld world = new MapWorld();
-            world.UploadIsland(islandsNames, listCitiesServices, citiesNames, listInstancesNames, listsZones, ListsZonesLink, listsIslandsLink);
+            world.UploadIsland(islandsNames, citiesNames, listInstancesNames, listsZones, ListsZonesLink, listsIslandsLink);
 
             //Serialise
             IFormatter formatter = new BinaryFormatter();

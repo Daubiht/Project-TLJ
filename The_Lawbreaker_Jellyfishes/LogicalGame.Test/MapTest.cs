@@ -16,6 +16,7 @@ namespace LogicalGame.Test
         [Test]
         public void Test_Upload_An_Island()
         {
+            CreateWorld newWorld = new CreateWorld();
             //get world.bin
             IFormatter formatter = new BinaryFormatter();
             Stream stream = new FileStream("../../../world.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
