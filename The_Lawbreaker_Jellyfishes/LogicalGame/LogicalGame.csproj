@@ -55,7 +55,6 @@
     <Compile Include="Maps\MapWorld.cs" />
     <Compile Include="Maps\MapZone.cs" />
     <Compile Include="Services\Militia.cs" />
-    <Compile Include="Services\Services.cs" />
     <Compile Include="Member.cs" />
     <Compile Include="Services\Merchant.cs" />
     <Compile Include="Monsters\Monster.cs" />
