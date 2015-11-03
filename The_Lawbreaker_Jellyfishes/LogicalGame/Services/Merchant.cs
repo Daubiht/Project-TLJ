@@ -12,39 +12,41 @@ namespace LogicalGame
     public class Merchant
     {
 
-        List<Item> _sellableItems = new List<Item>();
+        readonly List<Item> _sellableItems;
         Team _currentTeam;
         MapCity _contextCity;
         
         // Constructor
         public Merchant(Team currentTeam, MapCity contextCity)
         {
+            _currentTeam = currentTeam;
+            _contextCity = contextCity;
             ListItems l = new ListItems();
             
             if(contextCity.CityName == "Ponyo")
             {
-                List<int> itemsSellable = new List<int>(0);
+                List<int> itemsSellable = new List<int>();
+                itemsSellable.Add(0);
                 _sellableItems = l.ItemsYouWant(itemsSellable);
             }
             else if (contextCity.CityName == "Gaz Town")
             {
-                List<int> itemsSellable = new List<int>(1);
+                List<int> itemsSellable = new List<int>();
+                itemsSellable.Add(1);
                 _sellableItems = l.ItemsYouWant(itemsSellable);
 
             }
             else if (contextCity.CityName == "Ville perdue")
             {
-                List<int> itemsSellable = new List<int>(2);
+                List<int> itemsSellable = new List<int>();
+                itemsSellable.Add(2);
                 _sellableItems = l.ItemsYouWant(itemsSellable);
 
             }
             else if (contextCity.CityName == "Laurento")
             {
-                throw new NotImplementedException();
+                //throw new NotImplementedException();
             }
-
-            _currentTeam = currentTeam;
-            _contextCity = contextCity;
         }
 
         // Methodes

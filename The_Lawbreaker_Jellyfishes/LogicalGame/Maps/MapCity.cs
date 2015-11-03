@@ -16,10 +16,10 @@ namespace LogicalGame
 
         public MapCity(MapIsland context, string name, List<Services> listServices)
         {
-            _merchant = new Merchant(null, this);
             _name = name;
             _context = context;
             _listServices = listServices;
+            _merchant = new Merchant(null, this);
         }
 
         public string CityName
