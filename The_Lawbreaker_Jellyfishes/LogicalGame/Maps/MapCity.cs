@@ -13,7 +13,7 @@ namespace LogicalGame
         readonly List<Services> _listServices;
         Services _actualService;
 
-        public MapCity(MapIsland context, string name, List<Services> listServices)
+        public MapCity(MapIsland context, string name)
         {
             _name = name;
             _context = context;
