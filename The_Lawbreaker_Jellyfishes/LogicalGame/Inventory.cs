@@ -2,17 +2,27 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace LogicalGame
 {
     /// <summary>
     /// Class that manage an inventory
     /// </summary>
+    [Serializable]
     public class Invent
     {
         readonly Dictionary<Item, int> _inventory = new Dictionary<Item, int>();
         int _weight = 100;
         int _gold = 0;
+        readonly Team _context;
+
+        public Invent(Team context)
+        {
+            _context = context;
+        }
 
         public Item AddItem(Item item, int quantity)
         {

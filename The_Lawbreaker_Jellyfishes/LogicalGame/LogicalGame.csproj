@@ -7,8 +7,8 @@
     <ProjectGuid>{BA2F09DF-E119-4799-8725-CED41BAC1ECB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Inventory.FC</RootNamespace>
-    <AssemblyName>Inventory.FC</AssemblyName>
+    <RootNamespace>LogicalGame</RootNamespace>
+    <AssemblyName>LogicalGame</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -41,16 +41,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Items\CreateItems.cs" />
+    <Compile Include="Maps\CreateWorld.cs" />
+    <Compile Include="Event.cs" />
     <Compile Include="Inventory.cs" />
     <Compile Include="Items\Item.cs" />
     <Compile Include="Items\ListItems.cs" />
+    <Compile Include="Monsters\CreateMonsters.cs" />
+    <Compile Include="Monsters\ListMonsters.cs" />
     <Compile Include="Maps\MapCity.cs" />
     <Compile Include="Maps\MapInstance.cs" />
     <Compile Include="Maps\MapIsland.cs" />
     <Compile Include="Maps\MapWorld.cs" />
     <Compile Include="Maps\MapZone.cs" />
-    <Compile Include="Maps\Services.cs" />
-    <Compile Include="Merchant.cs" />
+    <Compile Include="Services\Militia.cs" />
+    <Compile Include="Services\Services.cs" />
+    <Compile Include="Member.cs" />
+    <Compile Include="Services\Merchant.cs" />
+    <Compile Include="Monsters\Monster.cs" />
     <Compile Include="Notifications\ListNotifications.cs" />
     <Compile Include="Notifications\Notification.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

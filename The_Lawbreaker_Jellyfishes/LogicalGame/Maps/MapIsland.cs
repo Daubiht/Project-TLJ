@@ -5,6 +5,7 @@ using System.Text;
 
 namespace LogicalGame
 {
+    [Serializable]
     public class MapIsland
     {
         readonly MapWorld _context;
@@ -12,11 +13,18 @@ namespace LogicalGame
         List<MapInstance> _listInstance;
         MapCity _city;
         object _actualPlace;
+        List<MapIsland> _listLink;
 
         public MapIsland(MapWorld context, string name)
         {
             _name = name;
             _context = context;
+        }
+
+        public List<MapIsland> ListLink
+        {
+            get { return _listLink; }
+            set { _listLink = value; }
         }
 
         public MapWorld ActualWorld
@@ -56,7 +64,7 @@ namespace LogicalGame
             get { return _actualPlace; }
             set
             {
-                if (_context.ActualIsland == this)
+                if (_context.ActualIsland == _name)
                 {
                     _actualPlace = value;
                 }

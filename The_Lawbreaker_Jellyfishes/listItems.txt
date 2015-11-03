@@ -1,4 +1,0 @@
-*nom de l'item | poids | valeur | description | type | chiffre & nom du bonus & chiffre2 & nom du bonus2 | chiffre & stat requis & chiffre2 & stat requis2
-Dague en bois|5|1|Petite dague en bois, peu efficace en combat mais tres belle ouvrage|arme|10&attaque physique|2&attaque physique
-Bandage|1|5|Bandage rudimentaire permettant d'arreter un saignement|consommable|10&vie|empty
-Collier en argent|2|120|Collier en argent n'ayant aucune utilite autre que la beaute du metal|bijoux|empty|10&attaque magique

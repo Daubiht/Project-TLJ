@@ -7,8 +7,8 @@
     <ProjectGuid>{DE7CC39A-BD41-41C3-BA82-A29F21CB9A12}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Inventory.Test</RootNamespace>
-    <AssemblyName>Inventory.Test</AssemblyName>
+    <RootNamespace>LogicalGame.Test</RootNamespace>
+    <AssemblyName>LogicalGame.Test</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -43,10 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CreateFakeWorld.cs" />
     <Compile Include="InventoryTest.cs" />
-    <Compile Include="MapsTests\MapTest.cs" />
-    <Compile Include="MilitiaTest.cs" />
+    <Compile Include="MapTest.cs" />
     <Compile Include="NotificationTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -2,12 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace LogicalGame
 {
     /// <summary>
     /// Class that creates objet item with a name, weight, value, description, bonus stat and required stat
     /// </summary>
+    [Serializable]
     public class Item
     {
         readonly string _name;
