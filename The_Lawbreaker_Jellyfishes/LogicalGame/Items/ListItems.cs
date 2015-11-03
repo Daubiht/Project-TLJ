@@ -26,5 +26,16 @@ namespace LogicalGame
         {
             get { return _listItems; }
         }
+
+        public List<Item> ItemsYouWant (List<int> listInt)
+        {
+            List<Item> items = new List<Item>(); 
+
+            for ( int i = 0; i < listInt.Count; i++)
+            {
+                items.Add(_listItems[listInt[i]]);
+            }
+            return items;
+        }
     }
 }

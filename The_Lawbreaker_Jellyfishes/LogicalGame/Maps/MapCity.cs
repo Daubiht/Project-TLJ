@@ -12,9 +12,11 @@ namespace LogicalGame
         readonly string _name;
         readonly List<Services> _listServices;
         Services _actualService;
+        Merchant _merchant;
 
         public MapCity(MapIsland context, string name, List<Services> listServices)
         {
+            _merchant = new Merchant(null, this);
             _name = name;
             _context = context;
             _listServices = listServices;
@@ -28,6 +30,11 @@ namespace LogicalGame
         public List<Services> listServices
         {
             get { return _listServices; }
+        }
+
+        public Merchant Merchant
+        {
+            get { return _merchant; }
         }
 
         public Services ActualService

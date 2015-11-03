@@ -2,20 +2,47 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace LogicalGame
 {
-    class Merchant
+    [Serializable]
+    public class Merchant
     {
-        ListItems _listOfAllItems;
+
+        List<Item> _sellableItems = new List<Item>();
         Team _currentTeam;
         MapCity _contextCity;
-
-
+        
         // Constructor
-        public Merchant(ListItems listOfAllItems, Team currentTeam, MapCity contextCity)
+        public Merchant(Team currentTeam, MapCity contextCity)
         {
-            _listOfAllItems = listOfAllItems;
+            ListItems l = new ListItems();
+            
+            if(contextCity.CityName == "Ponyo")
+            {
+                List<int> itemsSellable = new List<int>(0);
+                _sellableItems = l.ItemsYouWant(itemsSellable);
+            }
+            else if (contextCity.CityName == "Gaz Town")
+            {
+                List<int> itemsSellable = new List<int>(1);
+                _sellableItems = l.ItemsYouWant(itemsSellable);
+
+            }
+            else if (contextCity.CityName == "Ville perdue")
+            {
+                List<int> itemsSellable = new List<int>(2);
+                _sellableItems = l.ItemsYouWant(itemsSellable);
+
+            }
+            else if (contextCity.CityName == "Laurento")
+            {
+                throw new NotImplementedException();
+            }
+
             _currentTeam = currentTeam;
             _contextCity = contextCity;
         }
@@ -35,5 +62,12 @@ namespace LogicalGame
             //_currentTeam.InventTeam.RemoveItem(ItemSold);
         }
 
+        // Properties
+
+        // Get list of items sellable
+        public List<Item> GetItemsAvailable
+        {
+            get{ return _sellableItems; }
+        }
     }
 }
