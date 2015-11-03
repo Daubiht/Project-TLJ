@@ -28,9 +28,10 @@ namespace LogicalGame
             listItem.Add(item3);
 
             IFormatter formatter = new BinaryFormatter();
-            Stream stream = new FileStream("../../../items.bin", FileMode.Create, FileAccess.Write, FileShare.None);
-            formatter.Serialize(stream, listItem);
-            stream.Close();
+            using (Stream stream = new FileStream("../../../items.bin", FileMode.Create, FileAccess.Write, FileShare.None))
+            {
+                formatter.Serialize(stream, listItem);
+            }
         }
     }
 }
