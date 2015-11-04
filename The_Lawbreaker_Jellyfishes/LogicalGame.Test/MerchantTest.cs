@@ -36,7 +36,7 @@ namespace LogicalGame.Test
 
             }
 
-            Assert.NotNull(world.Islands[world.ActualIsland].IslandCity.Merchant.GetItemsAvailable  );
+            Assert.AreEqual("Dague en bois", world.Islands[world.ActualIsland].IslandCity.Merchant.GetItemsAvailable[0].GetName);
         }
     }
 }
