@@ -50,18 +50,19 @@ namespace LogicalGame
 
         public int RemoveItem(Item item)
         {
-            if(_inventory[item] > 1)
-            {
-                _inventory[item]--;
-                return _inventory[item];
+            if ( _inventory.ContainsKey(item)) { 
+                if(_inventory[item] > 1)
+                {
+                    _inventory[item]--;
+                    return _inventory[item];
+                }
+                else if(_inventory[item] == 1)
+                {
+                    _inventory.Remove(item);
+                    return 0;
+                }
             }
-            else if(_inventory[item] < 1)
-            {
-                _inventory.Remove(item);
-                return 0;
-            }
-
-            throw new InvalidOperationException();
+            throw new Exception();
         }
 
         public int RemoveGold(int RemoveGold)
@@ -86,6 +87,11 @@ namespace LogicalGame
                 return true;
             }
             return false;
+        }
+
+        public Dictionary<Item,int> Inventory
+        {
+            get { return _inventory; }
         }
     }
 }

@@ -100,6 +100,8 @@ namespace LogicalGame
                 _islands.Add(listIsland[i].IslandName, listIsland[i]);
                 listIsland[i].ListLink = listlink;
             }
+            
+
 
             return _islands;
         }

@@ -15,9 +15,11 @@ namespace LogicalGame
         public ListItems()
         {
             IFormatter formatter = new BinaryFormatter();
-            Stream stream = new FileStream("../../../items.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
-            List<Item> listItems = (List<Item>)formatter.Deserialize(stream);
-            stream.Close();
+            List<Item> listItems;
+            using (Stream stream = new FileStream("../../../items.bin", FileMode.Open, FileAccess.Read, FileShare.Read))
+            {
+                listItems = (List<Item>) formatter.Deserialize(stream);
+            }
 
             _listItems = listItems;
         }
@@ -25,6 +27,17 @@ namespace LogicalGame
         public List<Item> Items
         {
             get { return _listItems; }
+        }
+
+        public List<Item> ItemsYouWant (List<int> listInt)
+        {
+            List<Item> items = new List<Item>(); 
+
+            for (int i = 0; i < listInt.Count; i++)
+            {
+                items.Add(_listItems[listInt[i]]);
+            }
+            return items;
         }
     }
 }

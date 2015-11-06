@@ -2,15 +2,19 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace LogicalGame
 {
+    [Serializable]
     public class Team
     {
         string _name;
         int _maxMembers = 4;
         Invent _inventTeam;
-        readonly Dictionary<Member, string> _membersList = new Dictionary<Member, string>();
+        readonly List<Member> _membersList = new List<Member>();
 
         /// <summary>
         /// CONSTRUCTOR
@@ -19,7 +23,7 @@ namespace LogicalGame
         public Team(string name, Member mainCharacter)
         {
             _name = name;
-            _membersList.Add(mainCharacter, mainCharacter.Name);
+            _membersList.Add(mainCharacter);
             _inventTeam = new Invent(this);
         }
 
@@ -31,7 +35,7 @@ namespace LogicalGame
         public void AddMembers(Member MemberToAdd)
         {
             if (_membersList.Count < _maxMembers)
-                _membersList.Add(MemberToAdd, MemberToAdd.Name);
+                _membersList.Add(MemberToAdd);
         }
 
         // Remove members
@@ -70,6 +74,11 @@ namespace LogicalGame
         public Invent Invent
         {
             get { return _inventTeam; }
+        }
+
+        public List<Member> Members
+        {
+            get { return _membersList; }
         }
     }
 }

@@ -19,9 +19,11 @@ namespace LogicalGame.Test
             CreateWorld newWorld = new CreateWorld();
             //get world.bin
             IFormatter formatter = new BinaryFormatter();
-            Stream stream = new FileStream("../../../world.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
-            MapWorld world = (MapWorld)formatter.Deserialize(stream);
-            stream.Close();
+            MapWorld world;
+            using (Stream stream = new FileStream("../../../world.bin", FileMode.Open, FileAccess.Read, FileShare.Read))
+            {
+                world = (MapWorld)formatter.Deserialize(stream);
+            }
 
             //initialise island
             Dictionary<string, MapIsland> Islands = world.Islands;

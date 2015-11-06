@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="InventoryTest.cs" />
     <Compile Include="MapTest.cs" />
+    <Compile Include="MerchantTest.cs" />
     <Compile Include="NotificationTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

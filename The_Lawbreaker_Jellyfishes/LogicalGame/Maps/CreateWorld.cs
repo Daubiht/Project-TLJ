@@ -124,9 +124,10 @@ namespace LogicalGame.Test
 
             //Serialise
             IFormatter formatter = new BinaryFormatter();
-            Stream stream = new FileStream("../../../world.bin", FileMode.Create, FileAccess.Write, FileShare.None);
-            formatter.Serialize(stream, world);
-            stream.Close();
+            using( Stream stream = new FileStream("../../../world.bin", FileMode.Create, FileAccess.Write, FileShare.None))
+            {
+                formatter.Serialize(stream, world);
+            }
 
         }
     }
