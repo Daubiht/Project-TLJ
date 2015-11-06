@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using NUnit.Framework;
-using perso;
 using LogicalGame;
 
-namespace ITI.TLJ.perso
+namespace LogicalGame.Test
 {
     [TestFixture]
     public class MonsterTest

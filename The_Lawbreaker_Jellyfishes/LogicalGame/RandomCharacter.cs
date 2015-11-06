@@ -1,11 +1,10 @@
-﻿using ITI.TLJ.perso;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
 
-namespace ITI.TLJ.perso
+namespace LogicalGame
 {
     public class RandomCharacter
     {
@@ -73,7 +72,7 @@ namespace ITI.TLJ.perso
             // Random race
             race = races[ran.Next(0, races.Count())];
 
-            perso = new ITI.TLJ.perso.Character(name, race, isFemale);
+            perso = new Character(name, race, isFemale);
 
             // Random level
             perso.LevelUp(ran.Next(levelMin, levelMax));

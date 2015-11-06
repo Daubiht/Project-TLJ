@@ -1,12 +1,11 @@
 ﻿using LogicalGame;
-using perso;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ITI.TLJ.perso
+namespace LogicalGame
 {
     public class Character
     {

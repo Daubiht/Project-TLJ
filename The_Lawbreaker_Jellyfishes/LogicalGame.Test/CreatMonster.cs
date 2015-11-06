@@ -1,5 +1,4 @@
-﻿using ITI.TLJ.perso;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +7,7 @@ using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 
-namespace persoTest
+namespace LogicalGame.Test
 {
     [TestFixture]
     class CreatMonster

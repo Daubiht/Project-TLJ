@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using NUnit.Framework;
 
-namespace ITI.TLJ.perso
+namespace LogicalGame.Test
 {
     [TestFixture]
     public class persoTest
@@ -12,7 +12,7 @@ namespace ITI.TLJ.perso
         [Test]
         public void Create_a_new_perso_with_a_name_and_level_one()
         {
-            Perso p1 = new Perso("George", "Dwarf");
+            Character p1 = new Character("George", "Dwarf", true);
 
             Assert.AreEqual("George", p1.Name);
             Assert.AreEqual(1, p1.Level);
@@ -21,7 +21,7 @@ namespace ITI.TLJ.perso
         [Test]
         public void A_perso_can_earn_xp_and_level_up()
         {
-            Perso p1 = new Perso("George", "Dwarf");
+            Character p1 = new Character("George", "Dwarf", true);
 
             p1.EarnXp(25);
             Assert.AreEqual(p1.CurentXp, 25);
@@ -34,8 +34,8 @@ namespace ITI.TLJ.perso
         [Test]
         public void A_perso_can_have_skills()
         {
-            Perso p1 = new Perso("George", "Dwarf");
-            Skill s1 = new Skill("Attaque");
+            Character p1 = new Character("George", "Dwarf", true);
+            Skill s1 = new Skill("Attaque", null, 0, 1, null, new int[4]);
 
             p1.AddSkill("Attaque", s1);
 
@@ -46,10 +46,11 @@ namespace ITI.TLJ.perso
         [Test]
         public void A_perso_can_increase_his_stats()
         {
-            Perso p1 = new Perso("George", "Dwarf");
+            Character p1 = new Character("George", "Dwarf", true);
 
             p1.EarnXp(00);
-            Assert.AreEqual(p1.IncreasePA(), 11);
+
+            Assert.AreEqual(p1.StatsUp(1,0,0,0,0,0)[0], 11);
             Assert.AreEqual(p1.IncreasePA(), 12);
             Assert.AreEqual(p1.IncreasePA(), 13);
             Assert.AreEqual(p1.IncreasePA(), 14);

@@ -1,12 +1,10 @@
-﻿using ITI.TLJ.perso;
-using NUnit.Framework;
-using perso;
+﻿using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace persoTest
+namespace LogicalGame.Test
 {
     [TestFixture]
     class MortuaryTest

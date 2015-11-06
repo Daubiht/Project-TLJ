@@ -8,6 +8,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace LogicalGame
 {
+    [Serializable]
     public class ListMonsters
     {
         readonly List<Monster> _listMonsters = new List<Monster>();
@@ -15,11 +16,9 @@ namespace LogicalGame
         public ListMonsters()
         {
             IFormatter formatter = new BinaryFormatter();
-            List<Monster> listMonsters;
-            using (Stream stream = new FileStream("../../../monsters.bin", FileMode.Open, FileAccess.Read, FileShare.Read))
-            {
-                listMonsters = (List<Monster>) formatter.Deserialize(stream);
-            }
+            Stream stream = new FileStream("../../../monsters.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
+            List<Monster> listMonsters = (List<Monster>)formatter.Deserialize(stream);
+            stream.Close();
 
             _listMonsters = listMonsters;
         }
