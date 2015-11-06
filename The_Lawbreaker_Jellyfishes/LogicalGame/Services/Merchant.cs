@@ -54,14 +54,26 @@ namespace LogicalGame
         // Buy an item
         public void BuyItems(Item ItemBought, int quantity)
         {
-            //_currentTeam.InventTeam.AddItem(ItemBought, quantity);
+            // check if the list of sellable items contains the wanted item
+            if ( _sellableItems.Contains(ItemBought) )
+            {   
+                // calcul the total price
+                int totalPrice = ItemBought.GetValue * quantity;
+
+                // Check if the invent team has enought money
+                if ( totalPrice < _currentTeam.Invent.GetGold )
+                {
+                    _currentTeam.Invent.AddItem(ItemBought, quantity);
+                    _currentTeam.Invent.RemoveGold(totalPrice);
+                }
+            }
         }
 
         // Sell an item
         public void SellItems(Item ItemSold)
         {
-            //_currentTeam.InventTeam.AddGold(ItemSold.GetValue);
-            //_currentTeam.InventTeam.RemoveItem(ItemSold);
+            _currentTeam.Invent.AddGold(ItemSold.GetValue);
+            _currentTeam.Invent.RemoveItem(ItemSold);
         }
 
         // Properties
@@ -70,6 +82,14 @@ namespace LogicalGame
         public List<Item> GetItemsAvailable
         {
             get{ return _sellableItems; }
+        }
+
+
+        // Temporary property for the MerchantTest 
+        public Team Team
+        {
+            get { return _currentTeam; }
+            set { _currentTeam = value;  }
         }
     }
 }
