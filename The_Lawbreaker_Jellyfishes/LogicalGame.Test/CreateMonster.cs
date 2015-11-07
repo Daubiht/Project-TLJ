@@ -10,7 +10,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 namespace LogicalGame.Test
 {
     [TestFixture]
-    class CreatMonster
+    class CreateMonster
     {
         [Test]
         public void Creat_a_list_of_Monster_and_serializ_it ()

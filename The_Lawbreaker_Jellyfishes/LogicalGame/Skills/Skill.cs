@@ -30,9 +30,7 @@ namespace LogicalGame
         /// <param name="target">0 Sois même, 1 Allié, 2 Enemie</param>
         /// <param name="position">0 Toute || 1 CaC || 2 Po </param>
         /// <param name="effect"></param>
-        /// <param name="cost"></param>
-        /// <param name="previousSkills"></param>
-        /// <param name="nextSkills"></param>
+        /// <param name="cost">0 Health || 1 Stamina</param>
         public Skill (string name, int[] statRequired, int target, int position, int[][] effect, int[] cost)
         {
             _name = name;

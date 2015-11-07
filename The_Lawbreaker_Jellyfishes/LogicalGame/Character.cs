@@ -426,5 +426,47 @@ namespace LogicalGame
 
             return false;
         }
+
+        public bool UseConsumable (Item item)
+        {
+            if (item.Type != "consumable")
+            {
+                return false;
+            }
+            foreach (var effect in item.GetStats)
+            {
+                if (effect.Key == "heal")
+                {
+                    _healthPoint += effect.Value;
+                    if (_healthPoint > _maxHealthPoint)
+                    {
+                        _healthPoint = _maxHealthPoint;
+                    }
+                }
+                else if (effect.Key == "regainStamina")
+                {
+                    _staminaPoint += effect.Value;
+                    if (_staminaPoint > _maxStaminaPoint)
+                    {
+                        _staminaPoint = _maxStaminaPoint;
+                    }
+                }
+                else if (effect.Key == "resurection")
+                {
+                    
+                    if (_isAlive == true)
+                    {
+                        return false;
+                    }
+
+                    _isAlive = true;
+                    _healthPoint = _maxHealthPoint / 2;
+                }
+            }
+
+            return true;
+        }
+
+
     }
 }
