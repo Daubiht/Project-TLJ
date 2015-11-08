@@ -11,16 +11,15 @@ using System.Runtime.Serialization.Formatters.Binary;
 namespace LogicalGame.Test
 {
     [TestFixture]
-    public class MapTest
+    public class MapTests
     {
         [Test]
         public void Test_Upload_An_Island()
         {
-            CreateWorld newWorld = new CreateWorld();
             //get world.bin
             IFormatter formatter = new BinaryFormatter();
             MapWorld world;
-            using (Stream stream = new FileStream("../../../world.bin", FileMode.Open, FileAccess.Read, FileShare.Read))
+            using (Stream stream = new FileStream("../../../Ressources/world.bin", FileMode.Open, FileAccess.Read, FileShare.Read))
             {
                 world = (MapWorld)formatter.Deserialize(stream);
             }

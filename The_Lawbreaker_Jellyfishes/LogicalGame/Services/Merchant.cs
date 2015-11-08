@@ -17,9 +17,9 @@ namespace LogicalGame
         MapCity _contextCity;
         
         // Constructor
-        public Merchant(Team currentTeam, MapCity contextCity)
+        public Merchant(MapCity contextCity)
         {
-            _currentTeam = currentTeam;
+            _currentTeam = contextCity.ActualIsland.ActualWorld.Team;
             _contextCity = contextCity;
             ListItems l = new ListItems();
             

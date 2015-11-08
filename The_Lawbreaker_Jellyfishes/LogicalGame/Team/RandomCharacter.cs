@@ -38,7 +38,7 @@ namespace LogicalGame
             // Random name
             if (isFemale == true)
             {
-                path = "../../../nameListF.txt";
+                path = "../../../Ressources/nameListF.txt";
 
                 if (!File.Exists(path) || new FileInfo(path).Length == 0)
                 {
@@ -53,7 +53,7 @@ namespace LogicalGame
             }
             else
             {
-                path = "../../../nameListM.txt";
+                path = "../../../Ressources/nameListM.txt";
 
                 if (!File.Exists(path) || new FileInfo(path).Length == 0)
                 {

@@ -6,18 +6,22 @@ using System.Text;
 
 namespace LogicalGame
 {
+    [Serializable]
     public class Mortuary
     {
         int _numberBodyMax;
         int _numberBody;
         readonly List<Character> _bodyList;
+        readonly MapCity _context;
+        readonly Team _team;
 
-        public Mortuary ()
+        public Mortuary (MapCity context)
         {
             _numberBodyMax = 10;
             _numberBody = 0;
             _bodyList = new List<Character>();
-
+            _context = context;
+            if(context != null) { _team = context.ActualIsland.ActualWorld.Team; }
         }
 
         public bool DepositBody (Character c)
@@ -34,7 +38,7 @@ namespace LogicalGame
             return true;
         }
 
-        public bool takeBackBody(Character c, Team t)
+        public bool takeBackBody(Character c)
         {
             // Si la team est full ALORS renvoit false
             //SINON renvoit vrai et ajoute le mec à la team
@@ -44,7 +48,7 @@ namespace LogicalGame
                 return false;
             }
 
-            t.AddMembers(c);
+            _team.AddMembers(c);
             _bodyList.Remove(c);
             return true;
         }

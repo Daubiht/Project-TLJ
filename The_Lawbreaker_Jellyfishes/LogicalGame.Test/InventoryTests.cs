@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using LogicalGame.test;
 using NUnit.Framework;
 
 namespace LogicalGame.Test
 {
     [TestFixture]
-    public class InventoryTest
+    public class InventoryTests
     {
         [Test]
         public void Test_Create_Item()

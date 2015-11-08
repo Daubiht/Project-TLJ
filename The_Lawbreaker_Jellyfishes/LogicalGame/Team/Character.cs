@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace LogicalGame
 {
+    [Serializable]
     public class Character
     {
         Team _team;
@@ -35,6 +36,7 @@ namespace LogicalGame
 
         bool _frontPosition;
         bool _isAlive;
+        bool _isMain;
 
         readonly Dictionary<String, Skill> _skills;
         readonly Dictionary<string, Item> _stuffs;
@@ -81,6 +83,12 @@ namespace LogicalGame
         {
             get {return _team; }
             set { _team = value; }
+        }
+
+        public bool IsMain 
+        {
+            get { return _isMain; }
+            set { _isMain = value; }
         }
 
         public void KickFromTeam ()

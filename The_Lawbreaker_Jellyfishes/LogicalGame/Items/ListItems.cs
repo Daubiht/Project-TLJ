@@ -16,7 +16,7 @@ namespace LogicalGame
         {
             IFormatter formatter = new BinaryFormatter();
             List<Item> listItems;
-            using (Stream stream = new FileStream("../../../items.bin", FileMode.Open, FileAccess.Read, FileShare.Read))
+            using (Stream stream = new FileStream("../../../Ressources/items.bin", FileMode.Open, FileAccess.Read, FileShare.Read))
             {
                 listItems = (List<Item>) formatter.Deserialize(stream);
             }

@@ -8,7 +8,7 @@ using LogicalGame;
 namespace LogicalGame.Test
 {
     [TestFixture]
-    public class MonsterTest
+    public class MonsterTests
     {
         [Test]
         public void Create_a_new_Monster_with_a_name()

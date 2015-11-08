@@ -5,12 +5,15 @@ using System.Text;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
+using NUnit.Framework;
 
-namespace LogicalGame
+namespace LogicalGame.test
 {
+    [TestFixture]
     public class CreateItems
     {
-        public CreateItems()
+        [Test]
+        public void Create_items_and_serializ()
         {
             List<Item> listItem = new List<Item>();
 
@@ -28,7 +31,7 @@ namespace LogicalGame
             listItem.Add(item3);
 
             IFormatter formatter = new BinaryFormatter();
-            using (Stream stream = new FileStream("../../../items.bin", FileMode.Create, FileAccess.Write, FileShare.None))
+            using (Stream stream = new FileStream("../../../Ressources/items.bin", FileMode.Create, FileAccess.Write, FileShare.None))
             {
                 formatter.Serialize(stream, listItem);
             }

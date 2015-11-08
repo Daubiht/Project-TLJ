@@ -7,7 +7,7 @@ using NUnit.Framework;
 namespace LogicalGame.Test
 {
     [TestFixture]
-    public class persoTest
+    public class PersoTests
     {
         [Test]
         public void Create_a_new_perso_with_a_name_and_level_one()

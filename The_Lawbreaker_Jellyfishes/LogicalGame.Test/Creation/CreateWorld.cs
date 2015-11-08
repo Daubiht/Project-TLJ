@@ -2,16 +2,18 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using LogicalGame;
+using NUnit.Framework;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 
 namespace LogicalGame.Test
 {
+    [TestFixture]
     public class CreateWorld
     {
-        public CreateWorld()
+        [Test]
+        public void Create_world_and_serialize()
         {
             //Parameter islandsNames
             List<string> islandsNames = new List<string>();
@@ -71,7 +73,7 @@ namespace LogicalGame.Test
                         list_list_listsZones.Add(zone);
                     }
 
-                    for(int i3 = 0; i3 < 3; i3++)
+                    for (int i3 = 0; i3 < 3; i3++)
                     {
                         List<MapZone> list_list_list_listsZonesLink = new List<MapZone>();
 
@@ -124,11 +126,10 @@ namespace LogicalGame.Test
 
             //Serialise
             IFormatter formatter = new BinaryFormatter();
-            using( Stream stream = new FileStream("../../../world.bin", FileMode.Create, FileAccess.Write, FileShare.None))
+            using (Stream stream = new FileStream("../../../Ressources/world.bin", FileMode.Create, FileAccess.Write, FileShare.None))
             {
                 formatter.Serialize(stream, world);
             }
-
         }
     }
 }

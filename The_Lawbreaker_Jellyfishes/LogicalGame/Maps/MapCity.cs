@@ -12,12 +12,14 @@ namespace LogicalGame
         readonly string _name;
 
         Merchant _merchant;
+        Mortuary _mortuary;
 
         public MapCity(MapIsland context, string name)
         {
             _name = name;
             _context = context;
-            _merchant = new Merchant(null, this);
+            _merchant = new Merchant(this);
+            _mortuary = new Mortuary(this);
         }
 
         public string CityName

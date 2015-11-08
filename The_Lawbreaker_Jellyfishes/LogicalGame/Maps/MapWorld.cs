@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.IO;
+ using System.Security.Policy;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace LogicalGame
 {
@@ -14,21 +17,18 @@ namespace LogicalGame
     public class MapWorld
     {
         readonly Dictionary<string, MapIsland> _islands = new Dictionary<string, MapIsland>();
-        string _actualIsland = null;
+        string _actualIsland = "Ponyoland";
+        Team _team = new Team("team1");
+        ListNotifications _notifs = new ListNotifications();
 
         public string ActualIsland
         {
             get { return _actualIsland; }
         }
 
-        public string ChangeActualIsland(MapIsland I, bool militia)
+        public void ChangeActualIsland(MapIsland I, bool militia)
         {
-            if (_actualIsland == null)
-            {
-                _actualIsland = I.IslandName;
-                return I.IslandName;
-            }
-            else
+            if (_actualIsland != I.IslandName)
             {
 
                 for (int i = 0; i < I.ListLink.Count; i++)
@@ -40,16 +40,33 @@ namespace LogicalGame
                             //Provok event when a change is done
                         }
                         _actualIsland = I.IslandName;
-                        return I.IslandName;
                     }
                 }
-                throw new ArgumentException();
             }
         }
 
         public Dictionary<string, MapIsland> Islands
         {
             get { return _islands; }
+        }
+
+        public bool Save()
+        {
+            string path = @"../../../Saves";
+
+            IFormatter formatter = new BinaryFormatter();
+
+            //Save World
+            using (Stream stream = new FileStream(path+"/Save "+_team.MainCharacter.Name+".bin", FileMode.Create, FileAccess.Write, FileShare.None))
+            {
+                formatter.Serialize(stream, this);
+            }
+            return true;
+        }
+
+        public Team Team
+        {
+            get { return _team; }
         }
 
         /// <summary>

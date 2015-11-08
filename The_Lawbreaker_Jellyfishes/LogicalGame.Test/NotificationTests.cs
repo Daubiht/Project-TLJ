@@ -7,7 +7,7 @@ using NUnit.Framework;
 namespace LogicalGame.Test
 {
     [TestFixture]
-    public class NotificationTest
+    public class NotificationTests
     {
         [Test]
         public void Test_on_Notification()

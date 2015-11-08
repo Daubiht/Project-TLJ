@@ -5,6 +5,7 @@ using System.Text;
 
 namespace LogicalGame
 {
+    [Serializable]
     public class ListNotifications
     {
         readonly List<Notification> _listNotif = new List<Notification>();

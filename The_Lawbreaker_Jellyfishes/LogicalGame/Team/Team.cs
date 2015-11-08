@@ -20,10 +20,9 @@ namespace LogicalGame
         /// CONSTRUCTOR
         /// </summary>
 
-        public Team(string name, Character mainCharacter)
+        public Team(string name)
         {
             _name = name;
-            _membersList.Add(mainCharacter);
             _inventTeam = new Invent(this);
         }
 
@@ -64,6 +63,21 @@ namespace LogicalGame
         public string Name
         {
             get { return _name; }
+        }
+
+        public Character MainCharacter
+        {
+            get
+            {
+                foreach (Character member in _membersList)
+                {
+                    if (member.IsMain)
+                    {
+                        return member;
+                    }
+                }
+                throw new Exception();
+            }
         }
 
         public int MaxMembers

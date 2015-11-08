@@ -10,17 +10,16 @@ using System.Runtime.Serialization.Formatters.Binary;
 namespace LogicalGame.Test
 {
     [TestFixture]
-    class MerchantTest
+    class MerchantTests
     {
 
         [Test]
         public void Test_to_know_if_the_merchant_sells_the_correct_items()
         {
-            CreateWorld newWorld = new CreateWorld();
             MapWorld world;
             //get world.bin
             IFormatter formatter = new BinaryFormatter();
-            using (Stream stream = new FileStream("../../../world.bin", FileMode.Open, FileAccess.Read, FileShare.Read))
+            using (Stream stream = new FileStream("../../../Ressources/world.bin", FileMode.Open, FileAccess.Read, FileShare.Read))
             {
                 world = (MapWorld) formatter.Deserialize(stream);
             }
@@ -33,7 +32,6 @@ namespace LogicalGame.Test
                 {
                     world.ChangeActualIsland(island, false);
                 }
-
             }
 
             Assert.AreEqual("Dague en bois", world.Islands[world.ActualIsland].IslandCity.Merchant.GetItemsAvailable[0].GetName);
@@ -44,15 +42,14 @@ namespace LogicalGame.Test
         {
 
             // Create a temporary team for the test without parameters
-            Team team = new Team(null, null);
+            Team team = new Team(null);
             team.Invent.AddGold(100);
 
             // Create a city "Ponyoland" for the test
-            CreateWorld newWorld = new CreateWorld();
             MapWorld world;
             //get world.bin
             IFormatter formatter = new BinaryFormatter();
-            using (Stream stream = new FileStream("../../../world.bin", FileMode.Open, FileAccess.Read, FileShare.Read))
+            using (Stream stream = new FileStream("../../../Ressources/world.bin", FileMode.Open, FileAccess.Read, FileShare.Read))
             {
                 world = (MapWorld)formatter.Deserialize(stream);
             }
