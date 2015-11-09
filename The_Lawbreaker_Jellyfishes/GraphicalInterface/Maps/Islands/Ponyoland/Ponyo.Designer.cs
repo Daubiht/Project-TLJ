@@ -1,4 +1,4 @@
-﻿namespace GraphicalInterface.Maps.Islands.Ponyoland
+﻿namespace GraphicalInterface
 {
     partial class Ponyo
     {
@@ -58,7 +58,7 @@
             // 
             // Taverne
             // 
-            this.Taverne.Location = new System.Drawing.Point(245, 110);
+            this.Taverne.Location = new System.Drawing.Point(256, 141);
             this.Taverne.Name = "Taverne";
             this.Taverne.Size = new System.Drawing.Size(75, 23);
             this.Taverne.TabIndex = 2;

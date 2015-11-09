@@ -9,7 +9,7 @@ using System.Windows.Forms;
 using LogicalGame;
 using GraphicalInterface;
 
-namespace GraphicalInterface.Maps.Islands.Ponyoland
+namespace GraphicalInterface
 {
     public partial class Ponyo : UserControl
     {

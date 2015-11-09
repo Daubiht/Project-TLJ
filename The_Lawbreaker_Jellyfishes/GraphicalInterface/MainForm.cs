@@ -20,14 +20,17 @@ namespace GraphicalInterface
         {
             InitializeComponent();
 
-            IFormatter formatter = new BinaryFormatter();
-            using (Stream stream = new FileStream("../../../Ressources/world.bin", FileMode.Open, FileAccess.Read, FileShare.Read))
-            {
-                _w = (MapWorld)formatter.Deserialize(stream);
-            }
-            
-            World UCW = new World(_w, this, false);
-            Controls.Add(UCW);
+            LoadGame uc = new LoadGame();
+            Controls.Add(uc);
+
+            //IFormatter formatter = new BinaryFormatter();
+            //using (Stream stream = new FileStream("../../../Ressources/world.bin", FileMode.Open, FileAccess.Read, FileShare.Read))
+            //{
+            //    _w = (MapWorld)formatter.Deserialize(stream);
+            //}
+
+            //World UCW = new World(_w, this, false);
+            //Controls.Add(UCW);
         }
 
         public void ChangeUC(UserControl UCI)

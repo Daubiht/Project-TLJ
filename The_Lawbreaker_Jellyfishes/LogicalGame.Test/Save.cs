@@ -24,7 +24,7 @@ namespace LogicalGame.Test
             Character MainC = new Character("Plopi", "dwarf", true);
             MainC.IsMain = true;
             world.Team.AddMembers(MainC);
-            world.Save();
+            world.Save(1);
         }
     }
 }

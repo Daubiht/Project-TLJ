@@ -8,7 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using LogicalGame;
 
-namespace GraphicalInterface.Maps.Islands.Ponyoland.Instances
+namespace GraphicalInterface
 {
     public partial class ValleeDePonyo : UserControl
     {

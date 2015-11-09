@@ -7,9 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using LogicalGame;
-using GraphicalInterface.Maps;
 
-namespace GraphicalInterface.Maps.Islands.Ponyoland.Instances
+namespace GraphicalInterface
 {
     public partial class ForetDePonyo : UserControl
     {

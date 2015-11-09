@@ -1,4 +1,4 @@
-﻿namespace GraphicalInterface.Maps.Islands.Ponyoland.Instances
+﻿namespace GraphicalInterface
 {
     partial class ForetDePonyo
     {

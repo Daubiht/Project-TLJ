@@ -6,8 +6,6 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using GraphicalInterface.Maps.Islands.Ponyoland;
-using GraphicalInterface.Maps.Islands.Ponyoland.Instances;
 using LogicalGame;
 
 namespace GraphicalInterface

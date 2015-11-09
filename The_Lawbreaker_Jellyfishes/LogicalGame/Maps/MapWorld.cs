@@ -50,14 +50,14 @@ namespace LogicalGame
             get { return _islands; }
         }
 
-        public bool Save()
+        public bool Save(int nbrSlot)
         {
-            string path = @"../../../Saves";
+            string path = @"../../../Saves/"+nbrSlot+" - "+_team.MainCharacter.Name+".save";
 
             IFormatter formatter = new BinaryFormatter();
 
             //Save World
-            using (Stream stream = new FileStream(path+"/Save "+_team.MainCharacter.Name+".bin", FileMode.Create, FileAccess.Write, FileShare.None))
+            using (Stream stream = new FileStream(path, FileMode.Create, FileAccess.Write, FileShare.None))
             {
                 formatter.Serialize(stream, this);
             }

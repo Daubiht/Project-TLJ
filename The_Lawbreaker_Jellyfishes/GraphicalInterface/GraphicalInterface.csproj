@@ -44,6 +44,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Home\LoadGame.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Home\LoadGame.Designer.cs">
+      <DependentUpon>LoadGame.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,6 +94,9 @@
     <Compile Include="Maps\World.Designer.cs">
       <DependentUpon>World.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Home\LoadGame.resx">
+      <DependentUpon>LoadGame.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
