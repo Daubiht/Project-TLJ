@@ -7,9 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using LogicalGame;
-using System.IO;
-using System.Runtime.Serialization;
-using System.Runtime.Serialization.Formatters.Binary;
 
 namespace GraphicalInterface
 {
@@ -20,23 +17,25 @@ namespace GraphicalInterface
         {
             InitializeComponent();
 
-            LoadGame uc = new LoadGame();
+            LoadGame uc = new LoadGame(this);
             Controls.Add(uc);
-
-            //IFormatter formatter = new BinaryFormatter();
-            //using (Stream stream = new FileStream("../../../Ressources/world.bin", FileMode.Open, FileAccess.Read, FileShare.Read))
-            //{
-            //    _w = (MapWorld)formatter.Deserialize(stream);
-            //}
-
-            //World UCW = new World(_w, this, false);
-            //Controls.Add(UCW);
         }
 
-        public void ChangeUC(UserControl UCI)
+        public void ChangeUC(UserControl UCI, bool Menu)
         {
             Controls.Clear();
             Controls.Add(UCI);
+            if (Menu)
+            {
+                Menu UCM = new Menu(_w, this);
+                Controls.Add(UCM);
+            }
+        }
+
+        public MapWorld world
+        {
+            get { return _w; }
+            set { _w = value; }
         }
     }
 }

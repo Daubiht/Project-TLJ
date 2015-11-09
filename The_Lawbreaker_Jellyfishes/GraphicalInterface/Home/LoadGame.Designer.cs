@@ -37,6 +37,7 @@
             // 
             // slot1
             // 
+            this.slot1.Enabled = false;
             this.slot1.Location = new System.Drawing.Point(113, 24);
             this.slot1.Name = "slot1";
             this.slot1.Size = new System.Drawing.Size(178, 64);
@@ -47,39 +48,47 @@
             // 
             // slot2
             // 
+            this.slot2.Enabled = false;
             this.slot2.Location = new System.Drawing.Point(113, 94);
             this.slot2.Name = "slot2";
             this.slot2.Size = new System.Drawing.Size(178, 64);
             this.slot2.TabIndex = 0;
             this.slot2.Text = "Slot 2 - Vide";
             this.slot2.UseVisualStyleBackColor = true;
+            this.slot2.Click += new System.EventHandler(this.slot2_Click);
             // 
             // slot3
             // 
+            this.slot3.Enabled = false;
             this.slot3.Location = new System.Drawing.Point(113, 164);
             this.slot3.Name = "slot3";
             this.slot3.Size = new System.Drawing.Size(178, 64);
             this.slot3.TabIndex = 0;
             this.slot3.Text = "Slot 3 - Vide";
             this.slot3.UseVisualStyleBackColor = true;
+            this.slot3.Click += new System.EventHandler(this.slot3_Click);
             // 
             // slot4
             // 
+            this.slot4.Enabled = false;
             this.slot4.Location = new System.Drawing.Point(113, 234);
             this.slot4.Name = "slot4";
             this.slot4.Size = new System.Drawing.Size(178, 64);
             this.slot4.TabIndex = 0;
             this.slot4.Text = "Slot 4 - Vide";
             this.slot4.UseVisualStyleBackColor = true;
+            this.slot4.Click += new System.EventHandler(this.slot4_Click);
             // 
             // slot5
             // 
+            this.slot5.Enabled = false;
             this.slot5.Location = new System.Drawing.Point(113, 304);
             this.slot5.Name = "slot5";
             this.slot5.Size = new System.Drawing.Size(178, 64);
             this.slot5.TabIndex = 0;
             this.slot5.Text = "Slot 5 - Vide";
             this.slot5.UseVisualStyleBackColor = true;
+            this.slot5.Click += new System.EventHandler(this.slot5_Click);
             // 
             // LoadGame
             // 

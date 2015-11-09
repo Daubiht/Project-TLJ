@@ -26,13 +26,13 @@ namespace GraphicalInterface
         private void Retour_Click(object sender, EventArgs e)
         {
             GraphicalInterface.Ponyoland uc = new GraphicalInterface.Ponyoland(_contextForm, _contextWorld);
-            _contextForm.ChangeUC(uc);
+            _contextForm.ChangeUC(uc, true);
         }
 
         private void Milice_Click(object sender, EventArgs e)
         {
             Militia uc = new Militia(_contextForm, _contextWorld);
-            _contextForm.ChangeUC(uc);
+            _contextForm.ChangeUC(uc, true);
         }
     }
 }

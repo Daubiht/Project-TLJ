@@ -26,11 +26,10 @@ namespace LogicalGame
             get { return _actualIsland; }
         }
 
-        public void ChangeActualIsland(MapIsland I, bool militia)
+        public bool ChangeActualIsland(MapIsland I, bool militia)
         {
             if (_actualIsland != I.IslandName)
             {
-
                 for (int i = 0; i < I.ListLink.Count; i++)
                 {
                     if (_islands[_actualIsland].ListLink[i].IslandName == I.IslandName)
@@ -40,9 +39,16 @@ namespace LogicalGame
                             //Provok event when a change is done
                         }
                         _actualIsland = I.IslandName;
+                        return true;
                     }
                 }
             }
+            return false;
+        }
+
+        public ListNotifications Notifs
+        {
+            get { return _notifs; }
         }
 
         public Dictionary<string, MapIsland> Islands
@@ -54,9 +60,17 @@ namespace LogicalGame
         {
             string path = @"../../../Saves/"+nbrSlot+" - "+_team.MainCharacter.Name+".save";
 
-            IFormatter formatter = new BinaryFormatter();
+            string[] fileName = Directory.GetFiles(@"../../../Saves");
+            for (int i = 0; i < fileName.Length; i++)
+            {
+                fileName[i] = fileName[i].Substring(15);
+                if ((int)Char.GetNumericValue(fileName[i][0]) == nbrSlot && _team.MainCharacter.Name != fileName[i].Substring(4, fileName[i].Length - 9))
+                {
+                    File.Delete(@"../../../Saves/"+fileName[i]);
+                }
+            }
 
-            //Save World
+            IFormatter formatter = new BinaryFormatter();
             using (Stream stream = new FileStream(path, FileMode.Create, FileAccess.Write, FileShare.None))
             {
                 formatter.Serialize(stream, this);

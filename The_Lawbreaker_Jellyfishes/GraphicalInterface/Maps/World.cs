@@ -33,7 +33,6 @@ namespace GraphicalInterface
                 IlePerdue.Text = "L'île perdue";
                 IleDevastee.Text = "L'île dévastée";
                 Genefort.Text = "Genefort";
-
             }
             else if(_w.ActualIsland == "L'île dévastée")
             {
@@ -48,7 +47,6 @@ namespace GraphicalInterface
                 Ponyoland.Text = "Ponyoland";
                 IleDevastee.Text = "L'île dévastée";
                 Genefort.Text = "Genefort";
-
             }
             else if (_w.ActualIsland == "Genefort")
             {
@@ -65,15 +63,8 @@ namespace GraphicalInterface
             {
                 if (island.IslandName == IslandName)
                 {
-                    _w.ChangeActualIsland(island, _militia);
-                    if (_militia == true)
-                    {
-                        _militia = false;
-                    }
-                    else
-                    {
-                        ok.Visible = true;
-                    }
+                    if (_w.ChangeActualIsland(island, _militia)) ok.Visible = true;
+                    if (_militia) _militia = false;
                     World_Load(null, null);
                 }
             }
@@ -84,7 +75,7 @@ namespace GraphicalInterface
             if (_w.ActualIsland == "Ponyoland")
             {
                 Ponyoland uc = new Ponyoland(_contextForm, _w);
-                _contextForm.ChangeUC(uc);
+                _contextForm.ChangeUC(uc, true);
             }
             else
             {

@@ -40,7 +40,7 @@ namespace LogicalGame
         // Remove members
         public void RemoveMembers(Character MemberToRemove)
         {
-            //_membersList.Remove(MemberToRemove.Name);
+            _membersList.Remove(MemberToRemove);
         }
 
         // Change the position of the member

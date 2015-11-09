@@ -80,6 +80,24 @@
     <Compile Include="Maps\Islands\Ponyoland\Ponyoland.Designer.cs">
       <DependentUpon>Ponyoland.cs</DependentUpon>
     </Compile>
+    <Compile Include="Menu\Menu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Menu\Menu.Designer.cs">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\Notifications.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Menu\Notifications.Designer.cs">
+      <DependentUpon>Notifications.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\Save.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Menu\Save.Designer.cs">
+      <DependentUpon>Save.cs</DependentUpon>
+    </Compile>
     <Compile Include="Services\Militia.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -111,6 +129,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Maps\Islands\Ponyoland\Ponyoland.resx">
       <DependentUpon>Ponyoland.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu\Menu.resx">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu\Notifications.resx">
+      <DependentUpon>Notifications.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu\Save.resx">
+      <DependentUpon>Save.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -25,25 +25,25 @@ namespace GraphicalInterface
         private void ValleeDePonyo_Click(object sender, EventArgs e)
         {
             ValleeDePonyo uc = new ValleeDePonyo(_contextForm, _contextWorld);
-            _contextForm.ChangeUC(uc);
+            _contextForm.ChangeUC(uc, true);
         }
 
         private void Ponyo_Click(object sender, EventArgs e)
         {
             Ponyo uc = new Ponyo(_contextForm, _contextWorld);
-            _contextForm.ChangeUC(uc);
+            _contextForm.ChangeUC(uc, true);
         }
 
         private void ForetDePonyo_Click(object sender, EventArgs e)
         {
             ForetDePonyo uc = new ForetDePonyo(_contextForm, _contextWorld);
-            _contextForm.ChangeUC(uc);
+            _contextForm.ChangeUC(uc, true);
         }
 
         private void Retour_Click(object sender, EventArgs e)
         {
             World uc = new World(_contextWorld, _contextForm, false);
-            _contextForm.ChangeUC(uc);
+            _contextForm.ChangeUC(uc, true);
         }
     }
 }

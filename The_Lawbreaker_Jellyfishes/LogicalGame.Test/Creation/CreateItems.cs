@@ -7,7 +7,7 @@ using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using NUnit.Framework;
 
-namespace LogicalGame.test
+namespace LogicalGame.Test
 {
     [TestFixture]
     public class CreateItems

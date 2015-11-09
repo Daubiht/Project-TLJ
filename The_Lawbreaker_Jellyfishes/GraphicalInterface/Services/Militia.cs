@@ -25,13 +25,13 @@ namespace GraphicalInterface
         private void Retour_Click(object sender, EventArgs e)
         {
             Ponyo uc = new Ponyo(_contextForm, _contextWorld);
-            _contextForm.ChangeUC(uc);
+            _contextForm.ChangeUC(uc, true);
         }
 
         private void Utilise_Click(object sender, EventArgs e)
         {
             World uc = new World(_contextWorld, _contextForm, true);
-            _contextForm.ChangeUC(uc);
+            _contextForm.ChangeUC(uc, true);
         }
     }
 }

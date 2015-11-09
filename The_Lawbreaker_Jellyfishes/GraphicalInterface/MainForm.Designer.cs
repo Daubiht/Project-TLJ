@@ -30,14 +30,14 @@
         {
             this.SuspendLayout();
             // 
-            // Form1
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(384, 362);
-            this.MaximumSize = new System.Drawing.Size(400, 400);
-            this.MinimumSize = new System.Drawing.Size(400, 400);
-            this.Name = "Form1";
+            this.ClientSize = new System.Drawing.Size(409, 437);
+            this.MaximumSize = new System.Drawing.Size(425, 475);
+            this.MinimumSize = new System.Drawing.Size(425, 475);
+            this.Name = "MainForm";
             this.Text = "Form1";
             this.ResumeLayout(false);
 

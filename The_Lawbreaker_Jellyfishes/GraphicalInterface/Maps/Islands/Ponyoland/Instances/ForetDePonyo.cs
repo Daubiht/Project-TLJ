@@ -25,7 +25,7 @@ namespace GraphicalInterface
         private void Retour_Click(object sender, EventArgs e)
         {
             GraphicalInterface.Ponyoland uc = new GraphicalInterface.Ponyoland(_contextForm, _contextWorld);
-            _contextForm.ChangeUC(uc);
+            _contextForm.ChangeUC(uc, true);
         }
     }
 }
