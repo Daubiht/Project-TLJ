@@ -13,6 +13,7 @@ namespace LogicalGame
     {
         string _name;
         int _maxMembers = 4;
+        int _currentNumMembers = 0;
         Invent _inventTeam;
         readonly List<Character> _membersList = new List<Character>();
 
@@ -25,6 +26,7 @@ namespace LogicalGame
             _name = name;
             _membersList.Add(mainCharacter);
             _inventTeam = new Invent(this);
+            _currentNumMembers += 1;
         }
 
         /// <summary>
@@ -35,13 +37,20 @@ namespace LogicalGame
         public void AddMembers(Character MemberToAdd)
         {
             if (_membersList.Count < _maxMembers)
+            { 
                 _membersList.Add(MemberToAdd);
+                _currentNumMembers += 1;
+            }
         }
 
         // Remove members
         public void RemoveMembers(Character MemberToRemove)
         {
-            //_membersList.Remove(MemberToRemove.Name);
+            // Verify if the member to remove is in the team
+            if (_membersList.Contains(MemberToRemove)){
+                _membersList.Remove(MemberToRemove);
+                _currentNumMembers -= 1;
+            }
         }
 
         // Change the position of the member
@@ -51,11 +60,10 @@ namespace LogicalGame
         }
 
         // Get the position of the member
-        //public bool GetPosition(Member M)
-        //{
-        //    M.FrontPosition;
-        //}
-
+        public bool GetPosition(Character c)
+        {
+            return c.FrontPosition;
+        }
 
         /// <summary>
         /// PROPERTIES
@@ -79,6 +87,11 @@ namespace LogicalGame
         public List<Character> Members
         {
             get { return _membersList; }
+        }
+
+        public int NumOfMembersInTeam
+        {
+            get { return _currentNumMembers; }
         }
     }
 }
