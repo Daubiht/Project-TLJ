@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using NUnit.Framework;
 
@@ -135,6 +138,45 @@ namespace LogicalGame.Test
             Assert.AreEqual(item3.GetStats, listitems.Items[2].GetStats);
             Assert.AreEqual(item3.GetRequired, listitems.Items[2].GetRequired);
             Assert.AreEqual(item3.Type, listitems.Items[2].Type);
+        }
+
+        [Test]
+        public void Test_add_items_in_plopi_game()
+        {
+            MapWorld w;
+
+            IFormatter formatter = new BinaryFormatter();
+            using (Stream stream = new FileStream("../../../Saves/1 - Plopi.save", FileMode.Open, FileAccess.Read, FileShare.Read))
+            {
+                w = (MapWorld)formatter.Deserialize(stream);
+            }
+
+            for (int i = 0; i < 20; i++)
+            {
+                Item item = new Item("Plop"+i, 2, 100, "testdefolie", "typetest");
+                w.Team.Invent.AddItem(item, 2);
+            }
+
+            Assert.IsNotEmpty(w.Team.Invent.Inventory);
+
+            using (Stream stream = new FileStream("../../../Saves/1 - Plopi.save", FileMode.Create, FileAccess.Write, FileShare.None))
+            {
+                formatter.Serialize(stream, w);
+            }
+        }
+
+        [Test]
+        public void Test_if_good_serializ()
+        {
+            MapWorld w;
+
+            IFormatter formatter = new BinaryFormatter();
+            using (Stream stream = new FileStream("../../../Saves/1 - Plopi.save", FileMode.Open, FileAccess.Read, FileShare.Read))
+            {
+                w = (MapWorld)formatter.Deserialize(stream);
+            }
+
+            Assert.IsNotEmpty(w.Team.Invent.Inventory);
         }
     }
 }

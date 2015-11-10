@@ -63,8 +63,11 @@ namespace GraphicalInterface
             {
                 if (island.IslandName == IslandName)
                 {
-                    if (_w.ChangeActualIsland(island, _militia)) ok.Visible = true;
-                    if (_militia) _militia = false;
+                    if (_w.ChangeActualIsland(island, _militia))
+                    {
+                        if(_militia == false) ok.Visible = true;
+                        _militia = false;
+                    }
                     World_Load(null, null);
                 }
             }

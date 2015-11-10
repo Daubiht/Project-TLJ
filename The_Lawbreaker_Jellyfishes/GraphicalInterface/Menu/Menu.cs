@@ -29,7 +29,8 @@ namespace GraphicalInterface
 
         private void inventaire_Click(object sender, EventArgs e)
         {
-
+            Inventory uc = new Inventory(_contextForm, _contextWorld);
+            _contextForm.ChangeUC(uc, true);
         }
 
         private void notifications_Click(object sender, EventArgs e)

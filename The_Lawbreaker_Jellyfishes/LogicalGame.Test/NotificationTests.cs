@@ -40,8 +40,6 @@ namespace LogicalGame.Test
                 w = (MapWorld)formatter.Deserialize(stream);
             }
 
-            Assert.IsEmpty(w.Notifs.ListNotif);
-
             w.Notifs.AddNotif("Invasion", "Des démons attaquent la ville de Ponyo !");
 
             Assert.IsNotEmpty(w.Notifs.ListNotif);

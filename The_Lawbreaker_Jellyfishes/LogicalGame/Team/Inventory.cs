@@ -15,7 +15,7 @@ namespace LogicalGame
     public class Invent
     {
         readonly Dictionary<Item, int> _inventory = new Dictionary<Item, int>();
-        int _weight = 100;
+        int _MaxWeight = 100;
         int _gold = 0;
         readonly Team _context;
 
@@ -26,23 +26,19 @@ namespace LogicalGame
 
         public Item AddItem(Item item, int quantity)
         {
-            int additional = 0;
-            foreach (Item items in _inventory.Keys)
-            {
-                additional += items.GetWeight;
-            }
+            int additional = weight + item.GetWeight;
 
-            if (additional < _weight)
+            if (additional < _MaxWeight)
             {
-                if (_inventory.ContainsKey(item))
+                foreach (Item itemFromInvent in _inventory.Keys)
                 {
-                    _inventory[item] = quantity;
+                    if (item.GetName == itemFromInvent.GetName)
+                    {
+                        _inventory[item] = quantity;
+                        return item;
+                    }
                 }
-                else
-                {
-                    _inventory.Add(item, quantity);
-                }
-
+                _inventory.Add(item, quantity);
                 return item;
             }
             return null;
@@ -92,6 +88,24 @@ namespace LogicalGame
         public Dictionary<Item,int> Inventory
         {
             get { return _inventory; }
+        }
+
+        public int MaxWeight
+        {
+            get { return _MaxWeight; }
+        }
+
+        public int weight
+        {
+            get
+            {
+                int w = 0;
+                foreach (Item i in _inventory.Keys)
+                {
+                    w += i.GetWeight * _inventory[i];
+                }
+                return w;
+            }
         }
     }
 }

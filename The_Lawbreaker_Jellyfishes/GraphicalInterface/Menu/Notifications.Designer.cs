@@ -38,6 +38,7 @@
             this.notif8 = new System.Windows.Forms.Label();
             this.notif9 = new System.Windows.Forms.Label();
             this.notif10 = new System.Windows.Forms.Label();
+            this.retour = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // notif1
@@ -130,10 +131,21 @@
             this.notif10.Size = new System.Drawing.Size(300, 30);
             this.notif10.TabIndex = 0;
             // 
+            // retour
+            // 
+            this.retour.Location = new System.Drawing.Point(322, 3);
+            this.retour.Name = "retour";
+            this.retour.Size = new System.Drawing.Size(75, 23);
+            this.retour.TabIndex = 1;
+            this.retour.Text = "Retour";
+            this.retour.UseVisualStyleBackColor = true;
+            this.retour.Click += new System.EventHandler(this.retour_Click);
+            // 
             // Notifications
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.retour);
             this.Controls.Add(this.notif10);
             this.Controls.Add(this.notif9);
             this.Controls.Add(this.notif8);
@@ -164,5 +176,6 @@
         private System.Windows.Forms.Label notif8;
         private System.Windows.Forms.Label notif9;
         private System.Windows.Forms.Label notif10;
+        private System.Windows.Forms.Button retour;
     }
 }

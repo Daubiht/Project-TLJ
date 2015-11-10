@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using LogicalGame;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Threading;
 
 namespace GraphicalInterface
 {
@@ -42,9 +43,16 @@ namespace GraphicalInterface
                 if (btn.Checked)
                 {
                     _contextWorld.Save((int)Char.GetNumericValue(btn.Name[btn.Name.Length - 1]));
+                    label1.Visible = true;
                 }
             }
 
+        }
+
+        private void retour_Click(object sender, EventArgs e)
+        {
+            World uc = new World(_contextWorld, _contextForm, false);
+            _contextForm.ChangeUC(uc, true);
         }
     }
 }

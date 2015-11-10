@@ -50,6 +50,12 @@
     <Compile Include="Home\LoadGame.Designer.cs">
       <DependentUpon>LoadGame.cs</DependentUpon>
     </Compile>
+    <Compile Include="Menu\Inventory.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Menu\Inventory.Designer.cs">
+      <DependentUpon>Inventory.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,6 +135,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Maps\Islands\Ponyoland\Ponyoland.resx">
       <DependentUpon>Ponyoland.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu\Inventory.resx">
+      <DependentUpon>Inventory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu\Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
