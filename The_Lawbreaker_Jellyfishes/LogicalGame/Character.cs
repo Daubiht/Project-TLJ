@@ -35,6 +35,7 @@ namespace LogicalGame
 
         bool _frontPosition;
         bool _isAlive;
+        bool _isMain;
 
         readonly Dictionary<String, Skill> _skills;
         readonly Dictionary<string, Item> _stuffs;
@@ -80,7 +81,7 @@ namespace LogicalGame
         public Team InTeam
         {
             get {return _team; }
-            set { _team = value; }
+            set { _team = value;}
         }
 
         public void KickFromTeam ()
@@ -107,6 +108,12 @@ namespace LogicalGame
         {
             get { return _level; }
             set { _level = value; }
+        }
+
+        public bool IsMain
+        {
+            get { return _isMain; }
+            set { _isMain = value; }
         }
 
         public int PhysicalAttack
@@ -192,6 +199,11 @@ namespace LogicalGame
         public void WearItem (Item item)
         {
             _stuffs[item.Type] = item;
+        }
+
+        public void UnwearIyem (string type)
+        {
+            _stuffs[type] = null;
         }
 
         public int LevelUp(int num)
