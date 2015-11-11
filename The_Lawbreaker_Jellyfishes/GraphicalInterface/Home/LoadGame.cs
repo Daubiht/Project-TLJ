@@ -37,7 +37,7 @@ namespace GraphicalInterface
         {
             MapWorld w;
             IFormatter formatter = new BinaryFormatter();
-            using (Stream stream = new FileStream("../../../Saves/" + slot.Text + ".save", FileMode.Open, FileAccess.Read, FileShare.Read))
+            using (Stream stream = new FileStream("../../../Saves/1 - Plopi.save", FileMode.Open, FileAccess.Read, FileShare.Read))
             {
                 w = (MapWorld)formatter.Deserialize(stream);
             }

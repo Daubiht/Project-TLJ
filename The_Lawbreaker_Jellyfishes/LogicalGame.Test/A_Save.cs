@@ -10,7 +10,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 namespace LogicalGame.Test
 {
     [TestFixture]
-    class Save
+    class A_Save
     {
         [Test]
         public void test_save_methode()

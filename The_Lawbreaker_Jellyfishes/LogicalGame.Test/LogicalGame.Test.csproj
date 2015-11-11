@@ -56,7 +56,7 @@
     <Compile Include="PersoTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RandomCharacterTests.cs" />
-    <Compile Include="Save.cs" />
+    <Compile Include="A_Save.cs" />
     <Compile Include="SkillsTests.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -26,12 +26,42 @@ namespace GraphicalInterface
         {
             label1.Text = "Poids : " + _contextWorld.Team.Invent.weight + "/" + _contextWorld.Team.Invent.MaxWeight;
 
+            ToolTip toolTip = new ToolTip();
+            toolTip.InitialDelay = 500;
+            toolTip.ReshowDelay = 500;
+            toolTip.ShowAlways = true;
+
             int i = 0;
             int j = 0;
-            foreach (var item in _contextWorld.Team.Invent.Inventory.Keys)
+            foreach (Item item in _contextWorld.Team.Invent.Inventory.Keys)
             {
                 Button b = new Button();
+
+                string infoItem = item.GetName + " " + "(" + item.Type + ")" + Environment.NewLine + item.GetDescription +
+                                  Environment.NewLine + "Valeur : " + item.GetValue + " Poids : " + item.GetWeight;
+
+                if (item.GetRequired.Count != 0)
+                {
+                    infoItem += Environment.NewLine + "Requis :";
+                    foreach (string requi in item.GetRequired.Keys)
+                    {
+                        infoItem += Environment.NewLine + item.GetRequired[requi] + " " + requi;
+                    }
+                }
+
+                if (item.GetStats.Count != 0)
+                {
+                    infoItem += Environment.NewLine + "Bonus :";
+                    foreach (string bonus in item.GetStats.Keys)
+                    {
+                        infoItem += Environment.NewLine + item.GetStats[bonus] + " " + bonus;
+                    }
+                }
+
+                toolTip.SetToolTip(b, infoItem);
+                b.Tag = item;
                 panel1.Controls.Add(b);
+
                 b.Width = 75;
                 b.Height = 50;
                 if (i > 4)
@@ -41,9 +71,16 @@ namespace GraphicalInterface
                 }
                 b.Left = i*75;
                 b.Top = j*50;
+
                 b.Text = item.GetName + " - x" + _contextWorld.Team.Invent.Inventory[item];
                 i++;
             }
         }
+
+        private void retour_Click(object sender, EventArgs e)
+        {
+            _contextForm.ExitMenu(this);
+        }
+
     }
 }

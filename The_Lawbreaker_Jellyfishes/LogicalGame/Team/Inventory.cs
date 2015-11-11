@@ -26,7 +26,7 @@ namespace LogicalGame
 
         public Item AddItem(Item item, int quantity)
         {
-            int additional = weight + item.GetWeight;
+            int additional = weight + (item.GetWeight * quantity);
 
             if (additional < _MaxWeight)
             {
@@ -34,7 +34,7 @@ namespace LogicalGame
                 {
                     if (item.GetName == itemFromInvent.GetName)
                     {
-                        _inventory[item] = quantity;
+                        _inventory[itemFromInvent] += quantity;
                         return item;
                     }
                 }

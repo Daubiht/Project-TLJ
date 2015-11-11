@@ -30,19 +30,19 @@ namespace GraphicalInterface
         private void inventaire_Click(object sender, EventArgs e)
         {
             Inventory uc = new Inventory(_contextForm, _contextWorld);
-            _contextForm.ChangeUC(uc, true);
+            _contextForm.ToMenu(uc);
         }
 
         private void notifications_Click(object sender, EventArgs e)
         {
             Notifications uc = new Notifications(_contextWorld, _contextForm);
-            _contextForm.ChangeUC(uc, true);
+            _contextForm.ToMenu(uc);
         }
 
         private void sauvegarde_Click(object sender, EventArgs e)
         {
             Save uc = new Save(_contextWorld, _contextForm);
-            _contextForm.ChangeUC(uc, true);
+            _contextForm.ToMenu(uc);
         }
     }
 }

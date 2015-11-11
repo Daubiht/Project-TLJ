@@ -32,6 +32,24 @@ namespace GraphicalInterface
             }
         }
 
+        public void ToMenu(UserControl UCM)
+        {
+            foreach (UserControl uc in Controls)
+            {
+                uc.Visible = false;
+            }
+            Controls.Add(UCM);
+        }
+
+        public void ExitMenu(UserControl ucm)
+        {
+            Controls.Remove(ucm);
+            foreach (UserControl uc in Controls)
+            {
+                uc.Visible = true;
+            }
+        }
+
         public MapWorld world
         {
             get { return _w; }

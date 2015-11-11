@@ -51,8 +51,7 @@ namespace GraphicalInterface
 
         private void retour_Click(object sender, EventArgs e)
         {
-            World uc = new World(_contextWorld, _contextForm, false);
-            _contextForm.ChangeUC(uc, true);
+            _contextForm.ExitMenu(this);
         }
     }
 }

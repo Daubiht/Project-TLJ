@@ -151,11 +151,14 @@ namespace LogicalGame.Test
                 w = (MapWorld)formatter.Deserialize(stream);
             }
 
-            for (int i = 0; i < 20; i++)
+            for (int i = 0; i < 38; i++)
             {
                 Item item = new Item("Plop"+i, 2, 100, "testdefolie", "typetest");
-                w.Team.Invent.AddItem(item, 2);
+                w.Team.Invent.AddItem(item, 1);
             }
+
+            ListItems l = new ListItems();
+            w.Team.Invent.AddItem(l.Items[0], 1);
 
             Assert.IsNotEmpty(w.Team.Invent.Inventory);
 
@@ -163,20 +166,6 @@ namespace LogicalGame.Test
             {
                 formatter.Serialize(stream, w);
             }
-        }
-
-        [Test]
-        public void Test_if_good_serializ()
-        {
-            MapWorld w;
-
-            IFormatter formatter = new BinaryFormatter();
-            using (Stream stream = new FileStream("../../../Saves/1 - Plopi.save", FileMode.Open, FileAccess.Read, FileShare.Read))
-            {
-                w = (MapWorld)formatter.Deserialize(stream);
-            }
-
-            Assert.IsNotEmpty(w.Team.Invent.Inventory);
         }
     }
 }
