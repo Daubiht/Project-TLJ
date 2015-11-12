@@ -30,7 +30,6 @@ namespace GraphicalInterface
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.jeter = new System.Windows.Forms.Button();
             this.retour = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -41,12 +40,15 @@ namespace GraphicalInterface
             // 
             // jeter
             // 
+            this.jeter.BackColor = System.Drawing.Color.Transparent;
+            this.jeter.ForeColor = System.Drawing.Color.Black;
             this.jeter.Location = new System.Drawing.Point(3, 8);
             this.jeter.Name = "jeter";
             this.jeter.Size = new System.Drawing.Size(75, 23);
             this.jeter.TabIndex = 0;
             this.jeter.Text = "Jeter";
-            this.jeter.UseVisualStyleBackColor = true;
+            this.jeter.UseVisualStyleBackColor = false;
+            this.jeter.Click += new System.EventHandler(this.jeter_Click);
             // 
             // retour
             // 

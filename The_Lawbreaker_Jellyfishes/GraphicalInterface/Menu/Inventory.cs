@@ -31,6 +31,8 @@ namespace GraphicalInterface
             toolTip.ReshowDelay = 500;
             toolTip.ShowAlways = true;
 
+            panel1.Controls.Clear();
+
             int i = 0;
             int j = 0;
             foreach (Item item in _contextWorld.Team.Invent.Inventory.Keys)
@@ -57,11 +59,12 @@ namespace GraphicalInterface
                         infoItem += Environment.NewLine + item.GetStats[bonus] + " " + bonus;
                     }
                 }
-
+                
                 toolTip.SetToolTip(b, infoItem);
                 b.Tag = item;
                 panel1.Controls.Add(b);
 
+                b.Click += Remove_It;
                 b.Width = 75;
                 b.Height = 50;
                 if (i > 4)
@@ -82,5 +85,28 @@ namespace GraphicalInterface
             _contextForm.ExitMenu(this);
         }
 
+        private void jeter_Click(object sender, EventArgs e)
+        {
+            if (((Button) sender).BackColor != Color.DarkRed)
+            {
+                ((Button) sender).BackColor = Color.DarkRed;
+                ((Button) sender).ForeColor = Color.White;
+            }
+            else
+            {
+                ((Button) sender).BackColor = Color.Transparent;
+                ((Button) sender).ForeColor = Color.Black;
+            }
+        }
+
+        private void Remove_It(object sender, EventArgs e)
+        {
+            if (jeter.BackColor == Color.DarkRed)
+            {
+                Item i = ((Button) sender).Tag as Item;
+                _contextWorld.Team.Invent.RemoveItem(i);
+                Inventory_Load(null, null);
+            }
+        }
     }
 }

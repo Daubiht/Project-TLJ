@@ -50,10 +50,10 @@ namespace LogicalGame
         }
 
         // Get the position of the member
-        //public bool GetPosition(Member M)
-        //{
-        //    M.FrontPosition;
-        //}
+        public bool GetPosition(Character C)
+        {
+            return C.FrontPosition;
+        }
 
 
         /// <summary>
