@@ -29,6 +29,43 @@ namespace LogicalGame.Test
             citiesNames.Add("Ville perdue");
             citiesNames.Add("Laurento");
 
+            //Parameter list_listSellableItem
+            ListItems l = new ListItems();
+            List<List<Merchant>> listMerchants = new List<List<Merchant>>();
+
+
+            List<Merchant> merchantsPonyo = new List<Merchant>();
+            List<Item> listitemPonyo = new List<Item>();
+            listitemPonyo.Add(l.Items[0]);
+            Merchant armePonyo = new Merchant("Vendeur d'arme", listitemPonyo);
+            merchantsPonyo.Add(armePonyo);
+
+
+            List<Merchant> merchantsIleDevastee = new List<Merchant>();
+            List<Item> listitemIleDevastee = new List<Item>();
+            listitemIleDevastee.Add(l.Items[1]);
+            Merchant armeIleDevastee = new Merchant("Général", listitemIleDevastee);
+            merchantsIleDevastee.Add(armeIleDevastee);
+
+
+            List<Merchant> merchantsIlePerdue = new List<Merchant>();
+            List<Item> listitemIlePerdu = new List<Item>();
+            listitemIlePerdu.Add(l.Items[2]);
+            Merchant armeIlePerdue = new Merchant("Général", listitemIlePerdu);
+            merchantsIlePerdue.Add(armeIlePerdue);
+
+
+            List<Merchant> merchantsGenefort = new List<Merchant>();
+            List<Item> listitemGenefort = new List<Item>();
+            listitemGenefort.Add(l.Items[0]);
+            Merchant armeGenefort = new Merchant("Vendeur d'arme", listitemGenefort);
+            merchantsGenefort.Add(armeGenefort);
+
+            listMerchants.Add(merchantsPonyo);
+            listMerchants.Add(merchantsIleDevastee);
+            listMerchants.Add(merchantsIlePerdue);
+            listMerchants.Add(merchantsGenefort);
+
             //Parameter listInstancesNames
             List<List<string>> listInstancesNames = new List<List<string>>();
             List<string> list_listInstancesNames_1 = new List<string>();
@@ -122,7 +159,7 @@ namespace LogicalGame.Test
 
             //call UploadIsland
             MapWorld world = new MapWorld();
-            world.UploadIsland(islandsNames, citiesNames, listInstancesNames, listsZones, ListsZonesLink, listsIslandsLink);
+            world.UploadIsland(islandsNames, citiesNames,listMerchants, listInstancesNames, listsZones, ListsZonesLink, listsIslandsLink);
 
             //Serialise
             IFormatter formatter = new BinaryFormatter();

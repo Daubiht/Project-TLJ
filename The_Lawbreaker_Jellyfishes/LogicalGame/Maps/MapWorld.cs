@@ -90,7 +90,7 @@ namespace LogicalGame
         /// - create service for create city and put it in island
         /// </summary>
         /// <returns>dictionnary of each island and theirs links</returns>
-        public Dictionary<string, MapIsland> UploadIsland(List<string> islandsNames,List<string> citiesNames, List<List<string>> listInstancesNames, List<List<List<MapZone>>> listsZones, List<List<List<List<MapZone>>>> ListsZonesLink, List<List<int>> ListsIslandsLink)
+        public Dictionary<string, MapIsland> UploadIsland(List<string> islandsNames,List<string> citiesNames, List<List<Merchant>> listMerchants, List<List<string>> listInstancesNames, List<List<List<MapZone>>> listsZones, List<List<List<List<MapZone>>>> ListsZonesLink, List<List<int>> ListsIslandsLink)
         {
             MapIsland[] listIsland = new MapIsland[islandsNames.Count];
 
@@ -99,7 +99,12 @@ namespace LogicalGame
             {
                 MapIsland newIsland = new MapIsland(this, islandsNames[i]);
 
-                MapCity newCity = new MapCity(newIsland, citiesNames[i]);
+                MapCity newCity = new MapCity(newIsland, citiesNames[i], listMerchants[i]);
+                foreach (Merchant m in newCity.Merchant)
+                {
+                    m.City = newCity;
+                }
+
                 newIsland.AddCity(newCity);
 
                 List<MapInstance> listInstanceForThisIsland = new List<MapInstance>();
@@ -131,9 +136,6 @@ namespace LogicalGame
                 _islands.Add(listIsland[i].IslandName, listIsland[i]);
                 listIsland[i].ListLink = listlink;
             }
-            
-
-
             return _islands;
         }
 

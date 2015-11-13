@@ -143,10 +143,9 @@ namespace LogicalGame.Test
         [Test]
         public void Test_add_items_in_plopi_game()
         {
-            MapWorld w;
-
             IFormatter formatter = new BinaryFormatter();
-            using (Stream stream = new FileStream("../../../Saves/1 - Plopi.save", FileMode.Open, FileAccess.Read, FileShare.Read))
+            MapWorld w;
+            using (Stream stream = new FileStream("../../../Ressources/world.bin", FileMode.Open, FileAccess.Read, FileShare.Read))
             {
                 w = (MapWorld)formatter.Deserialize(stream);
             }
@@ -162,10 +161,10 @@ namespace LogicalGame.Test
 
             Assert.IsNotEmpty(w.Team.Invent.Inventory);
 
-            using (Stream stream = new FileStream("../../../Saves/1 - Plopi.save", FileMode.Create, FileAccess.Write, FileShare.None))
-            {
-                formatter.Serialize(stream, w);
-            }
+            Character MainC1 = new Character("Plopi", "dwarf", true);
+            MainC1.IsMain = true;
+            w.Team.AddMembers(MainC1);
+            w.Save(1);
         }
     }
 }

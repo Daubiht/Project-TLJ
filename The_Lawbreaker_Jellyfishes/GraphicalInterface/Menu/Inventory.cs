@@ -27,7 +27,7 @@ namespace GraphicalInterface
             label1.Text = "Poids : " + _contextWorld.Team.Invent.weight + "/" + _contextWorld.Team.Invent.MaxWeight;
 
             ToolTip toolTip = new ToolTip();
-            toolTip.InitialDelay = 500;
+            toolTip.InitialDelay = 250;
             toolTip.ReshowDelay = 500;
             toolTip.ShowAlways = true;
 
@@ -40,7 +40,7 @@ namespace GraphicalInterface
                 Button b = new Button();
 
                 string infoItem = item.GetName + " " + "(" + item.Type + ")" + Environment.NewLine + item.GetDescription +
-                                  Environment.NewLine + "Valeur : " + item.GetValue + " Poids : " + item.GetWeight;
+                                  Environment.NewLine + "Valeur : " + item.GetValue + Environment.NewLine + "Poids : " + item.GetWeight;
 
                 if (item.GetRequired.Count != 0)
                 {
