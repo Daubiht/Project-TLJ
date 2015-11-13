@@ -16,7 +16,7 @@ namespace LogicalGame
         public SkillList ()
         {
             IFormatter formatter = new BinaryFormatter();
-            Stream stream = new FileStream("../../../skillList.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
+            Stream stream = new FileStream("../../../Ressources/skillList.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
             skillList = (Dictionary<string, Skill>)formatter.Deserialize(stream);
             stream.Close();
         }
@@ -51,7 +51,7 @@ namespace LogicalGame
         public void Serializ ()
         {
             IFormatter formatter = new BinaryFormatter();
-            Stream stream = new FileStream("../../../skillList.bin", FileMode.Create, FileAccess.Write, FileShare.None);
+            Stream stream = new FileStream("../../../Ressources/skillList.bin", FileMode.Create, FileAccess.Write, FileShare.None);
             formatter.Serialize(stream, skillList);
             stream.Close();
         }

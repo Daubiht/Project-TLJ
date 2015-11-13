@@ -5,6 +5,7 @@ using System.Text;
 
 namespace LogicalGame
 {
+    [Serializable]
     public class ListNotifications
     {
         readonly List<Notification> _listNotif = new List<Notification>();
@@ -14,7 +15,7 @@ namespace LogicalGame
             Notification newNotif = new Notification(name, description);
             _listNotif.Add(newNotif);
 
-            if (_listNotif.Count == 11) this.RemoveNotif();
+            if (_listNotif.Count == 11) RemoveNotif();
 
             return newNotif;
         }

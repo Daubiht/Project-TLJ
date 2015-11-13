@@ -5,6 +5,7 @@ using System.Text;
 
 namespace LogicalGame
 {
+    [Serializable]
     public class Notification
     {
         readonly string _name;

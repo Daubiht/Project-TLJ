@@ -11,13 +11,15 @@ namespace LogicalGame
         readonly MapIsland _context;
         readonly string _name;
 
-        Merchant _merchant;
+        List<Merchant> _merchants;
+        Mortuary _mortuary;
 
-        public MapCity(MapIsland context, string name)
+        public MapCity(MapIsland context, string name, List<Merchant> Merchants)
         {
             _name = name;
             _context = context;
-            _merchant = new Merchant(null, this);
+            _merchants = Merchants;
+            _mortuary = new Mortuary(this);
         }
 
         public string CityName
@@ -25,9 +27,9 @@ namespace LogicalGame
             get { return _name; }
         }
 
-        public Merchant Merchant
+        public List<Merchant> Merchant
         {
-            get { return _merchant; }
+            get { return _merchants; }
         }
 
         public MapIsland ActualIsland

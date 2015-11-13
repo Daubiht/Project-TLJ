@@ -15,38 +15,13 @@ namespace LogicalGame
         readonly List<Item> _sellableItems;
         Team _currentTeam;
         MapCity _contextCity;
+        string _name;
         
         // Constructor
-        public Merchant(Team currentTeam, MapCity contextCity)
+        public Merchant(string name, List<Item> itemSellable)
         {
-            _currentTeam = currentTeam;
-            _contextCity = contextCity;
-            ListItems l = new ListItems();
-            
-            if(contextCity.CityName == "Ponyo")
-            {
-                List<int> itemsSellable = new List<int>();
-                itemsSellable.Add(0);
-                _sellableItems = l.ItemsYouWant(itemsSellable);
-            }
-            else if (contextCity.CityName == "Gaz Town")
-            {
-                List<int> itemsSellable = new List<int>();
-                itemsSellable.Add(1);
-                _sellableItems = l.ItemsYouWant(itemsSellable);
-
-            }
-            else if (contextCity.CityName == "Ville perdue")
-            {
-                List<int> itemsSellable = new List<int>();
-                itemsSellable.Add(2);
-                _sellableItems = l.ItemsYouWant(itemsSellable);
-
-            }
-            else if (contextCity.CityName == "Laurento")
-            {
-                //throw new NotImplementedException();
-            }
+            _sellableItems = itemSellable;
+            _name = name;
         }
 
         // Methodes
@@ -90,6 +65,17 @@ namespace LogicalGame
         {
             get { return _currentTeam; }
             set { _currentTeam = value;  }
+        }
+
+        public string Name
+        {
+            get { return _name; }
+        }
+
+        public MapCity City
+        {
+            get { return _contextCity; }
+            set { _contextCity = value; }
         }
     }
 }

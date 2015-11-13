@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{724E78D0-4CC6-487E-9A8E-C8327314A0CB}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GraphicalInterface</RootNamespace>
+    <AssemblyName>GraphicalInterface</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Home\LoadGame.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Home\LoadGame.Designer.cs">
+      <DependentUpon>LoadGame.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\Inventory.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Menu\Inventory.Designer.cs">
+      <DependentUpon>Inventory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maps\Islands\Ponyoland\Instances\ForetDePonyo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Maps\Islands\Ponyoland\Instances\ForetDePonyo.Designer.cs">
+      <DependentUpon>ForetDePonyo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maps\Islands\Ponyoland\Instances\ValleeDePonyo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Maps\Islands\Ponyoland\Instances\ValleeDePonyo.Designer.cs">
+      <DependentUpon>ValleeDePonyo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maps\Islands\Ponyoland\Ponyo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Maps\Islands\Ponyoland\Ponyo.Designer.cs">
+      <DependentUpon>Ponyo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maps\Islands\Ponyoland\Ponyoland.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Maps\Islands\Ponyoland\Ponyoland.Designer.cs">
+      <DependentUpon>Ponyoland.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\Menu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Menu\Menu.Designer.cs">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\Notifications.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Menu\Notifications.Designer.cs">
+      <DependentUpon>Notifications.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\Save.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Menu\Save.Designer.cs">
+      <DependentUpon>Save.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Services\Militia.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Services\Militia.Designer.cs">
+      <DependentUpon>Militia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Maps\World.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Maps\World.Designer.cs">
+      <DependentUpon>World.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Home\LoadGame.resx">
+      <DependentUpon>LoadGame.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maps\Islands\Ponyoland\Instances\ForetDePonyo.resx">
+      <DependentUpon>ForetDePonyo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maps\Islands\Ponyoland\Instances\ValleeDePonyo.resx">
+      <DependentUpon>ValleeDePonyo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maps\Islands\Ponyoland\Ponyo.resx">
+      <DependentUpon>Ponyo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maps\Islands\Ponyoland\Ponyoland.resx">
+      <DependentUpon>Ponyoland.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu\Inventory.resx">
+      <DependentUpon>Inventory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu\Menu.resx">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu\Notifications.resx">
+      <DependentUpon>Notifications.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu\Save.resx">
+      <DependentUpon>Save.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Maps\World.resx">
+      <DependentUpon>World.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Services\Militia.resx">
+      <DependentUpon>Militia.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LogicalGame\LogicalGame.csproj">
+      <Project>{ba2f09df-e119-4799-8725-ced41bac1ecb}</Project>
+      <Name>LogicalGame</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

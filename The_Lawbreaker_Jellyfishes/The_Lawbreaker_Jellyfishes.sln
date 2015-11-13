@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogicalGame", "LogicalGame\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogicalGame.Test", "LogicalGame.Test\LogicalGame.Test.csproj", "{DE7CC39A-BD41-41C3-BA82-A29F21CB9A12}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphicalInterface", "GraphicalInterface\GraphicalInterface.csproj", "{724E78D0-4CC6-487E-9A8E-C8327314A0CB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{DE7CC39A-BD41-41C3-BA82-A29F21CB9A12}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DE7CC39A-BD41-41C3-BA82-A29F21CB9A12}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DE7CC39A-BD41-41C3-BA82-A29F21CB9A12}.Release|Any CPU.Build.0 = Release|Any CPU
+		{724E78D0-4CC6-487E-9A8E-C8327314A0CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{724E78D0-4CC6-487E-9A8E-C8327314A0CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{724E78D0-4CC6-487E-9A8E-C8327314A0CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{724E78D0-4CC6-487E-9A8E-C8327314A0CB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

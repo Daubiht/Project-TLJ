@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.IO;
+ using System.Security.Policy;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace LogicalGame
 {
@@ -14,23 +17,19 @@ namespace LogicalGame
     public class MapWorld
     {
         readonly Dictionary<string, MapIsland> _islands = new Dictionary<string, MapIsland>();
-        string _actualIsland = null;
+        string _actualIsland = "Ponyoland";
+        Team _team = new Team("team1");
+        ListNotifications _notifs = new ListNotifications();
 
         public string ActualIsland
         {
             get { return _actualIsland; }
         }
 
-        public string ChangeActualIsland(MapIsland I, bool militia)
+        public bool ChangeActualIsland(MapIsland I, bool militia)
         {
-            if (_actualIsland == null)
+            if (_actualIsland != I.IslandName)
             {
-                _actualIsland = I.IslandName;
-                return I.IslandName;
-            }
-            else
-            {
-
                 for (int i = 0; i < I.ListLink.Count; i++)
                 {
                     if (_islands[_actualIsland].ListLink[i].IslandName == I.IslandName)
@@ -40,16 +39,48 @@ namespace LogicalGame
                             //Provok event when a change is done
                         }
                         _actualIsland = I.IslandName;
-                        return I.IslandName;
+                        return true;
                     }
                 }
-                throw new ArgumentException();
             }
+            return false;
+        }
+
+        public ListNotifications Notifs
+        {
+            get { return _notifs; }
         }
 
         public Dictionary<string, MapIsland> Islands
         {
             get { return _islands; }
+        }
+
+        public bool Save(int nbrSlot)
+        {
+            string path = @"../../../Saves/"+nbrSlot+" - "+_team.MainCharacter.Name+".save";
+
+            string[] fileName = Directory.GetFiles(@"../../../Saves");
+            for (int i = 0; i < fileName.Length; i++)
+            {
+                fileName[i] = fileName[i].Substring(15);
+                if ((int)Char.GetNumericValue(fileName[i][0]) == nbrSlot && _team.MainCharacter.Name != fileName[i].Substring(4, fileName[i].Length - 9))
+                {
+                    File.Delete(@"../../../Saves/"+fileName[i]);
+                }
+            }
+
+            IFormatter formatter = new BinaryFormatter();
+            using (Stream stream = new FileStream(path, FileMode.Create, FileAccess.Write, FileShare.None))
+            {
+                formatter.Serialize(stream, this);
+            }
+            return true;
+        }
+
+        public Team Team
+        {
+            get { return _team; }
         }
 
         /// <summary>
@@ -59,7 +90,7 @@ namespace LogicalGame
         /// - create service for create city and put it in island
         /// </summary>
         /// <returns>dictionnary of each island and theirs links</returns>
-        public Dictionary<string, MapIsland> UploadIsland(List<string> islandsNames,List<string> citiesNames, List<List<string>> listInstancesNames, List<List<List<MapZone>>> listsZones, List<List<List<List<MapZone>>>> ListsZonesLink, List<List<int>> ListsIslandsLink)
+        public Dictionary<string, MapIsland> UploadIsland(List<string> islandsNames,List<string> citiesNames, List<List<Merchant>> listMerchants, List<List<string>> listInstancesNames, List<List<List<MapZone>>> listsZones, List<List<List<List<MapZone>>>> ListsZonesLink, List<List<int>> ListsIslandsLink)
         {
             MapIsland[] listIsland = new MapIsland[islandsNames.Count];
 
@@ -68,7 +99,12 @@ namespace LogicalGame
             {
                 MapIsland newIsland = new MapIsland(this, islandsNames[i]);
 
-                MapCity newCity = new MapCity(newIsland, citiesNames[i]);
+                MapCity newCity = new MapCity(newIsland, citiesNames[i], listMerchants[i]);
+                foreach (Merchant m in newCity.Merchant)
+                {
+                    m.City = newCity;
+                }
+
                 newIsland.AddCity(newCity);
 
                 List<MapInstance> listInstanceForThisIsland = new List<MapInstance>();
@@ -100,9 +136,6 @@ namespace LogicalGame
                 _islands.Add(listIsland[i].IslandName, listIsland[i]);
                 listIsland[i].ListLink = listlink;
             }
-            
-
-
             return _islands;
         }
 
