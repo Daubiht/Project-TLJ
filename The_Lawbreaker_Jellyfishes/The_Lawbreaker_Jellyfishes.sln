@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogicalGame.Test", "Logical
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphicalInterface", "GraphicalInterface\GraphicalInterface.csproj", "{724E78D0-4CC6-487E-9A8E-C8327314A0CB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TLJ.UI", "TLJ.UI.Test\TLJ.UI.csproj", "{C35A862F-1A56-4602-ABCC-24F9E56C81B5}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,10 +27,6 @@ Global
 		{724E78D0-4CC6-487E-9A8E-C8327314A0CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{724E78D0-4CC6-487E-9A8E-C8327314A0CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{724E78D0-4CC6-487E-9A8E-C8327314A0CB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C35A862F-1A56-4602-ABCC-24F9E56C81B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C35A862F-1A56-4602-ABCC-24F9E56C81B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C35A862F-1A56-4602-ABCC-24F9E56C81B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C35A862F-1A56-4602-ABCC-24F9E56C81B5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

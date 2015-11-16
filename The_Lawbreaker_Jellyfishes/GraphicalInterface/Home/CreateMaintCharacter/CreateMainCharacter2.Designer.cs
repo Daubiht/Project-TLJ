@@ -1,4 +1,4 @@
-﻿namespace TLJ.UI.Test.CreaMaintCaracter
+﻿namespace GraphicalInterface
 {
     partial class CreateMainCharacter2
     {

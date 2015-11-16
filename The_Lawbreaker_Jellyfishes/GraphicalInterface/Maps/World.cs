@@ -27,33 +27,16 @@ namespace GraphicalInterface
 
         private void World_Load(object sender, EventArgs e)
         {
-            if (_w.ActualIsland == "Ponyoland")
+            foreach (Button button in Controls)
             {
-                Ponyoland.Text = "Ponyoland(*)";
-                IlePerdue.Text = "L'île perdue";
-                IleDevastee.Text = "L'île dévastée";
-                Genefort.Text = "Genefort";
-            }
-            else if(_w.ActualIsland == "L'île dévastée")
-            {
-                IleDevastee.Text = "L'île dévastée(*)";
-                IlePerdue.Text = "L'île perdue";
-                Ponyoland.Text = "Ponyoland";
-                Genefort.Text = "Genefort";
-            }
-            else if (_w.ActualIsland == "L'île perdue")
-            {
-                IlePerdue.Text = "L'île perdue(*)";
-                Ponyoland.Text = "Ponyoland";
-                IleDevastee.Text = "L'île dévastée";
-                Genefort.Text = "Genefort";
-            }
-            else if (_w.ActualIsland == "Genefort")
-            {
-                Genefort.Text = "Genefort(*)";
-                IlePerdue.Text = "L'île perdue";
-                Ponyoland.Text = "Ponyoland";
-                IleDevastee.Text = "L'île dévastée";
+                if (button.Text == _w.ActualIsland)
+                {
+                    button.ForeColor = SystemColors.HotTrack;
+                }
+                else
+                {
+                    button.ForeColor = SystemColors.ControlText;
+                }
             }
         }
 
