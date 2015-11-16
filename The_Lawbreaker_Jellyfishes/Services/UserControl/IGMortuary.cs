@@ -29,7 +29,7 @@ namespace Services
 
         
 
-        public IGMortuary()
+        public IGMortuary(Team team)
         {
             t.AddMembers(p);
             t.AddMembers(g);

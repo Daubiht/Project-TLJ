@@ -1,13 +1,13 @@
 ﻿namespace Services
 {
-    partial class Services
+    partial class IGTeamManagement
     {
-        /// <summary>
+        /// <summary> 
         /// Variable nécessaire au concepteur.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
+        /// <summary> 
         /// Nettoyage des ressources utilisées.
         /// </summary>
         /// <param name="disposing">true si les ressources managées doivent être supprimées ; sinon, false.</param>
@@ -20,24 +20,23 @@
             base.Dispose(disposing);
         }
 
-        #region Code généré par le Concepteur Windows Form
+        #region Code généré par le Concepteur de composants
 
-        /// <summary>
-        /// Méthode requise pour la prise en charge du concepteur - ne modifiez pas
+        /// <summary> 
+        /// Méthode requise pour la prise en charge du concepteur - ne modifiez pas 
         /// le contenu de cette méthode avec l'éditeur de code.
         /// </summary>
         private void InitializeComponent()
         {
             this.SuspendLayout();
             // 
-            // Services
+            // IGTeamManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(404, 403);
-            this.Name = "Services";
-            this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Services_Load);
+            this.Name = "IGTeamManagement";
+            this.Size = new System.Drawing.Size(400, 400);
+            this.Load += new System.EventHandler(this.IGTeamManagement_Load);
             this.ResumeLayout(false);
 
         }
@@ -45,4 +44,3 @@
         #endregion
     }
 }
-

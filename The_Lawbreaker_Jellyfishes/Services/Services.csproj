@@ -44,6 +44,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IGFiltredInventory.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="IGFiltredInventory.Designer.cs">
+      <DependentUpon>IGFiltredInventory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\IGCharactereManagement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl\IGCharactereManagement.Designer.cs">
+      <DependentUpon>IGCharactereManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\IGTeamManagement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl\IGTeamManagement.Designer.cs">
+      <DependentUpon>IGTeamManagement.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\IGMerchant.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -70,6 +88,15 @@
     <Compile Include="UserControl\Taverne.Designer.cs">
       <DependentUpon>Taverne.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="IGFiltredInventory.resx">
+      <DependentUpon>IGFiltredInventory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl\IGCharactereManagement.resx">
+      <DependentUpon>IGCharactereManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl\IGTeamManagement.resx">
+      <DependentUpon>IGTeamManagement.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControl\IGMerchant.resx">
       <DependentUpon>IGMerchant.cs</DependentUpon>
     </EmbeddedResource>

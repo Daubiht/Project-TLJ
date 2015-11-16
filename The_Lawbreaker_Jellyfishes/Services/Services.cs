@@ -13,10 +13,15 @@ namespace Services
     public partial class Services : Form
     {
         static Character c = new Character("George", "Dwarf", true);
+        static Character d = new Character("Georgina", "Dwarf", true);
+        static Character f = new Character("Georgette", "Dwarf", true);
+        static Character g = new Character("Georgeo", "Dwarf", true);
         static Team t = new Team("lol", c);
         public static Taverne taverne = new Taverne(t);
 
-        Merchant m = new Merchant(t, null);
+        ListItems listItems = new ListItems();
+
+        Merchant m = new Merchant(t);
 
         public Services()
         {
@@ -25,13 +30,21 @@ namespace Services
 
         private void Services_Load(object sender, EventArgs e)
         {
-            m.
+            m.AddItem(listItems.Items[0]);
+            m.AddItem(listItems.Items[1]);
+            m.AddItem(listItems.Items[2]);
 
-            IGMortuary mortuary = new IGMortuary();
-            IGMerchant merchant = new IGMerchant(t, );
+            t.Invent.AddGold(10000);
+
+            t.AddMembers(d);
+            t.AddMembers(f);
+
+            IGMortuary mortuary = new IGMortuary(t);
+            IGMerchant merchant = new IGMerchant(t, m);
             taverne.Load += new System.EventHandler(Taverne.Taverne_Load);
+            IGTeamManagement tm = new IGTeamManagement(t);
 
-            Controls.Add(merchant);
+            Controls.Add(tm);
         }
 
         //=====================TAVERNE========================

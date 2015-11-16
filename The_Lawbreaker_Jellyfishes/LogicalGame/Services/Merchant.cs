@@ -17,56 +17,36 @@ namespace LogicalGame
         MapCity _contextCity;
         
         // Constructor
-        public Merchant(Team currentTeam, MapCity contextCity)
+        public Merchant(Team currentTeam)
         {
             _currentTeam = currentTeam;
-            _contextCity = contextCity;
             ListItems l = new ListItems();
-            
-            if(contextCity.CityName == "Ponyo")
-            {
-                List<int> itemsSellable = new List<int>();
-                itemsSellable.Add(0);
-                _sellableItems = l.ItemsYouWant(itemsSellable);
-            }
-            else if (contextCity.CityName == "Gaz Town")
-            {
-                List<int> itemsSellable = new List<int>();
-                itemsSellable.Add(1);
-                _sellableItems = l.ItemsYouWant(itemsSellable);
-
-            }
-            else if (contextCity.CityName == "Ville perdue")
-            {
-                List<int> itemsSellable = new List<int>();
-                itemsSellable.Add(2);
-                _sellableItems = l.ItemsYouWant(itemsSellable);
-
-            }
-            else if (contextCity.CityName == "Laurento")
-            {
-                //throw new NotImplementedException();
-            }
+            _sellableItems = new List<Item>();
         }
 
         // Methodes
 
         // Buy an item
-        public void BuyItems(Item ItemBought, int quantity)
+        public bool BuyItems(Item ItemBought, int quantity)
         {
             // check if the list of sellable items contains the wanted item
             if ( _sellableItems.Contains(ItemBought) )
             {   
                 // calcul the total price
                 int totalPrice = ItemBought.GetValue * quantity;
+                int totalWeight = ItemBought.GetWeight;
 
                 // Check if the invent team has enought money
-                if ( totalPrice < _currentTeam.Invent.GetGold )
+                if ( totalPrice < _currentTeam.Invent.GetGold)
                 {
                     _currentTeam.Invent.AddItem(ItemBought, quantity);
                     _currentTeam.Invent.RemoveGold(totalPrice);
+
+                    return true;
                 }
             }
+
+            return false;
         }
 
         // Sell an item
@@ -82,6 +62,16 @@ namespace LogicalGame
         public List<Item> GetItemsAvailable
         {
             get{ return _sellableItems; }
+        }
+
+        public Item AddItem (Item item)
+        {
+            if (!_sellableItems.Contains(item))
+            {
+                _sellableItems.Add(item);
+                return item;
+            }
+            return null;
         }
 
 
