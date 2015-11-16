@@ -6,10 +6,9 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using TLJ.UI.Test.CreaMaintCaracter;
 using LogicalGame;
 
-namespace TLJ.UI.Test
+namespace GraphicalInterface
 {
     public partial class CreateMainCharacter1 : UserControl
     {
@@ -24,11 +23,14 @@ namespace TLJ.UI.Test
         string _race;
 
         Character _C1;
+        private MainForm _context;
 
         // CONSTRUCTOR
-        public CreateMainCharacter1()
+        public CreateMainCharacter1(MainForm context)
         {
             InitializeComponent();
+
+            _context = context;
 
             // Validate button is grey
             ValidButton.Enabled = false;
@@ -87,17 +89,15 @@ namespace TLJ.UI.Test
         private void Valid_Click(object sender, EventArgs e)
         {
             _C1 = new Character(_name, _race, _isFemale);
-            CreateMainCharacter2 cMC2 = new CreateMainCharacter2(_C1);
-            Parent.Controls.Add(cMC2);
-            Parent.Controls.Remove(this);
+            CreateMainCharacter2 uc = new CreateMainCharacter2(_C1, _context);
+            _context.ChangeUC(uc, false);
         }
 
         // Create Back button
         private void button1_Click(object sender, EventArgs e)
         {
-            ReceptionScreen rS = new ReceptionScreen();
-            Parent.Controls.Add(rS);
-            Parent.Controls.Remove(this);
+            ReceptionScreen uc = new ReceptionScreen(_context);
+            _context.ChangeUC(uc, false);
         }
 
         private void ButtonWoman_CheckedChanged(object sender, EventArgs e)

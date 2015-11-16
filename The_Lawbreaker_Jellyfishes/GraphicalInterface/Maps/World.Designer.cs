@@ -37,6 +37,7 @@
             // 
             // Ponyoland
             // 
+            this.Ponyoland.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.Ponyoland.Location = new System.Drawing.Point(154, 60);
             this.Ponyoland.Name = "Ponyoland";
             this.Ponyoland.Size = new System.Drawing.Size(118, 31);

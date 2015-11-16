@@ -42,7 +42,8 @@ namespace GraphicalInterface
             {
                 if (btn.Checked)
                 {
-                    _contextWorld.Save((int)Char.GetNumericValue(btn.Name[btn.Name.Length - 1]));
+                    int plop = (int) Char.GetNumericValue(btn.Name[btn.Name.Length - 1]);
+                    _contextWorld.Save(plop);
                     label1.Visible = true;
                 }
             }

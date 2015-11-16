@@ -17,8 +17,8 @@ namespace GraphicalInterface
         {
             InitializeComponent();
 
-            LoadGame uc = new LoadGame(this);
-            Controls.Add(uc);
+            ReceptionScreen uc = new ReceptionScreen(this);
+            ChangeUC(uc, false);
         }
 
         public void ChangeUC(UserControl UCI, bool Menu)
