@@ -72,12 +72,16 @@ namespace LogicalGame
             _frontPosition = true;
 
             _skills = new Dictionary<string, Skill>();
+            _stuffs = new Dictionary<string, Item>();
         }
 
         //==================================================
         //               Get some stuff
         //==================================================
-
+        public Dictionary<string, Item> Stuffs
+        {
+            get { return _stuffs; }
+        }
         public Team InTeam
         {
             get {return _team; }
@@ -196,13 +200,21 @@ namespace LogicalGame
         //           Treatement of data
         //======================================
 
-        public void WearItem (Item item)
+        public bool WearItem (Item item)
         {
+            if (_team == null)
+            {
+                return false;
+            }
+
+            _team.Invent.RemoveItem(item);
             _stuffs[item.Type] = item;
+            return true;
         }
 
         public void UnwearIyem (string type)
         {
+            _team.Invent.AddItem(_stuffs[type], 1);
             _stuffs[type] = null;
         }
 
@@ -441,7 +453,7 @@ namespace LogicalGame
 
         public bool UseConsumable (Item item)
         {
-            if (item.Type != "consumable")
+            if (item.Type != "consommable")
             {
                 return false;
             }

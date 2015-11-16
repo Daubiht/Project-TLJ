@@ -22,6 +22,7 @@ namespace LogicalGame
 
         public Team(string name, Character mainCharacter)
         {
+            mainCharacter.InTeam = this;
             _name = name;
             _membersList.Add(mainCharacter);
             _inventTeam = new Invent(this);
@@ -36,6 +37,7 @@ namespace LogicalGame
         {
             if (_membersList.Count < _maxMembers)
             {
+                MemberToAdd.InTeam = this;
                 _membersList.Add(MemberToAdd);
                 MemberToAdd.InTeam = this;
             }
@@ -48,6 +50,7 @@ namespace LogicalGame
             {
                 return false;
             }
+            MemberToRemove.InTeam = null;
             _membersList.Remove(MemberToRemove);
             MemberToRemove.KickFromTeam();
             return true;

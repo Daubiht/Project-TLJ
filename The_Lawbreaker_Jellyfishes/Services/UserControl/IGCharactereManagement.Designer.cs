@@ -47,14 +47,29 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.Gauche = new System.Windows.Forms.Button();
             this.Corps = new System.Windows.Forms.Button();
             this.Droite = new System.Windows.Forms.Button();
             this.Tete = new System.Windows.Forms.Button();
             this.Jambes = new System.Windows.Forms.Button();
             this.Cou = new System.Windows.Forms.Button();
             this.Retour = new System.Windows.Forms.Button();
+            this.BHP = new System.Windows.Forms.Button();
+            this.PPlus = new System.Windows.Forms.Panel();
+            this.BRP = new System.Windows.Forms.Button();
+            this.BSP = new System.Windows.Forms.Button();
+            this.BDP = new System.Windows.Forms.Button();
+            this.BAPP = new System.Windows.Forms.Button();
+            this.BAMP = new System.Windows.Forms.Button();
+            this.BHM = new System.Windows.Forms.Button();
+            this.BRM = new System.Windows.Forms.Button();
+            this.BSM = new System.Windows.Forms.Button();
+            this.BDM = new System.Windows.Forms.Button();
+            this.BAPM = new System.Windows.Forms.Button();
+            this.BAMM = new System.Windows.Forms.Button();
+            this.LStatPoint = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
+            this.PPlus.SuspendLayout();
             this.SuspendLayout();
             // 
             // LName
@@ -205,6 +220,14 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.LStatPoint);
+            this.panel1.Controls.Add(this.BAMM);
+            this.panel1.Controls.Add(this.BAPM);
+            this.panel1.Controls.Add(this.BDM);
+            this.panel1.Controls.Add(this.BSM);
+            this.panel1.Controls.Add(this.BRM);
+            this.panel1.Controls.Add(this.BHM);
+            this.panel1.Controls.Add(this.PPlus);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.LMagic);
             this.panel1.Controls.Add(this.label2);
@@ -220,7 +243,7 @@
             this.panel1.Controls.Add(this.label7);
             this.panel1.Location = new System.Drawing.Point(24, 108);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(201, 215);
+            this.panel1.Size = new System.Drawing.Size(237, 215);
             this.panel1.TabIndex = 13;
             // 
             // button1
@@ -240,21 +263,22 @@
             this.button2.TabIndex = 15;
             this.button2.Text = "Poulet";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button3
+            // Gauche
             // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(257, 186);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(35, 35);
-            this.button3.TabIndex = 16;
-            this.button3.Text = "@";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.Gauche_Click);
+            this.Gauche.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Gauche.Location = new System.Drawing.Point(267, 186);
+            this.Gauche.Name = "Gauche";
+            this.Gauche.Size = new System.Drawing.Size(35, 35);
+            this.Gauche.TabIndex = 16;
+            this.Gauche.Text = "@";
+            this.Gauche.UseVisualStyleBackColor = true;
+            this.Gauche.Click += new System.EventHandler(this.Gauche_Click);
             // 
             // Corps
             // 
-            this.Corps.Location = new System.Drawing.Point(298, 186);
+            this.Corps.Location = new System.Drawing.Point(308, 186);
             this.Corps.Name = "Corps";
             this.Corps.Size = new System.Drawing.Size(35, 35);
             this.Corps.TabIndex = 17;
@@ -264,7 +288,7 @@
             // 
             // Droite
             // 
-            this.Droite.Location = new System.Drawing.Point(339, 186);
+            this.Droite.Location = new System.Drawing.Point(349, 186);
             this.Droite.Name = "Droite";
             this.Droite.Size = new System.Drawing.Size(35, 35);
             this.Droite.TabIndex = 18;
@@ -274,7 +298,7 @@
             // 
             // Tete
             // 
-            this.Tete.Location = new System.Drawing.Point(298, 145);
+            this.Tete.Location = new System.Drawing.Point(308, 145);
             this.Tete.Name = "Tete";
             this.Tete.Size = new System.Drawing.Size(35, 35);
             this.Tete.TabIndex = 19;
@@ -284,7 +308,7 @@
             // 
             // Jambes
             // 
-            this.Jambes.Location = new System.Drawing.Point(298, 227);
+            this.Jambes.Location = new System.Drawing.Point(308, 227);
             this.Jambes.Name = "Jambes";
             this.Jambes.Size = new System.Drawing.Size(35, 35);
             this.Jambes.TabIndex = 20;
@@ -294,13 +318,13 @@
             // 
             // Cou
             // 
-            this.Cou.Location = new System.Drawing.Point(339, 145);
+            this.Cou.Location = new System.Drawing.Point(349, 145);
             this.Cou.Name = "Cou";
             this.Cou.Size = new System.Drawing.Size(35, 35);
             this.Cou.TabIndex = 21;
             this.Cou.Text = "\'o\'";
             this.Cou.UseVisualStyleBackColor = true;
-            this.Cou.Click += new System.EventHandler(this.Cou_Click);
+            this.Cou.Click += new System.EventHandler(this.Bijou_Click);
             // 
             // Retour
             // 
@@ -312,6 +336,168 @@
             this.Retour.UseVisualStyleBackColor = true;
             this.Retour.Click += new System.EventHandler(this.Retour_Click);
             // 
+            // BHP
+            // 
+            this.BHP.Location = new System.Drawing.Point(3, 5);
+            this.BHP.Name = "BHP";
+            this.BHP.Size = new System.Drawing.Size(18, 20);
+            this.BHP.TabIndex = 13;
+            this.BHP.Tag = "0";
+            this.BHP.Text = "+";
+            this.BHP.UseVisualStyleBackColor = true;
+            this.BHP.Click += new System.EventHandler(this.Plus_Click);
+            // 
+            // PPlus
+            // 
+            this.PPlus.Controls.Add(this.BAMP);
+            this.PPlus.Controls.Add(this.BAPP);
+            this.PPlus.Controls.Add(this.BDP);
+            this.PPlus.Controls.Add(this.BSP);
+            this.PPlus.Controls.Add(this.BRP);
+            this.PPlus.Controls.Add(this.BHP);
+            this.PPlus.Location = new System.Drawing.Point(207, 46);
+            this.PPlus.Name = "PPlus";
+            this.PPlus.Size = new System.Drawing.Size(23, 166);
+            this.PPlus.TabIndex = 13;
+            this.PPlus.Visible = false;
+            // 
+            // BRP
+            // 
+            this.BRP.Location = new System.Drawing.Point(3, 32);
+            this.BRP.Name = "BRP";
+            this.BRP.Size = new System.Drawing.Size(18, 20);
+            this.BRP.TabIndex = 14;
+            this.BRP.Tag = "1";
+            this.BRP.Text = "+";
+            this.BRP.UseVisualStyleBackColor = true;
+            this.BRP.Click += new System.EventHandler(this.Plus_Click);
+            // 
+            // BSP
+            // 
+            this.BSP.Location = new System.Drawing.Point(3, 62);
+            this.BSP.Name = "BSP";
+            this.BSP.Size = new System.Drawing.Size(18, 20);
+            this.BSP.TabIndex = 15;
+            this.BSP.Tag = "2";
+            this.BSP.Text = "+";
+            this.BSP.UseVisualStyleBackColor = true;
+            this.BSP.Click += new System.EventHandler(this.Plus_Click);
+            // 
+            // BDP
+            // 
+            this.BDP.Location = new System.Drawing.Point(3, 91);
+            this.BDP.Name = "BDP";
+            this.BDP.Size = new System.Drawing.Size(18, 20);
+            this.BDP.TabIndex = 16;
+            this.BDP.Tag = "3";
+            this.BDP.Text = "+";
+            this.BDP.UseVisualStyleBackColor = true;
+            this.BDP.Click += new System.EventHandler(this.Plus_Click);
+            // 
+            // BAPP
+            // 
+            this.BAPP.Location = new System.Drawing.Point(3, 120);
+            this.BAPP.Name = "BAPP";
+            this.BAPP.Size = new System.Drawing.Size(18, 20);
+            this.BAPP.TabIndex = 17;
+            this.BAPP.Tag = "4";
+            this.BAPP.Text = "+";
+            this.BAPP.UseVisualStyleBackColor = true;
+            this.BAPP.Click += new System.EventHandler(this.Plus_Click);
+            // 
+            // BAMP
+            // 
+            this.BAMP.Location = new System.Drawing.Point(3, 146);
+            this.BAMP.Name = "BAMP";
+            this.BAMP.Size = new System.Drawing.Size(18, 20);
+            this.BAMP.TabIndex = 18;
+            this.BAMP.Tag = "5";
+            this.BAMP.Text = "+";
+            this.BAMP.UseVisualStyleBackColor = true;
+            this.BAMP.Click += new System.EventHandler(this.Plus_Click);
+            // 
+            // BHM
+            // 
+            this.BHM.Location = new System.Drawing.Point(186, 51);
+            this.BHM.Name = "BHM";
+            this.BHM.Size = new System.Drawing.Size(18, 20);
+            this.BHM.TabIndex = 19;
+            this.BHM.Tag = "0";
+            this.BHM.Text = "-";
+            this.BHM.UseVisualStyleBackColor = true;
+            this.BHM.Visible = false;
+            this.BHM.Click += new System.EventHandler(this.Minus_Click);
+            // 
+            // BRM
+            // 
+            this.BRM.Location = new System.Drawing.Point(186, 78);
+            this.BRM.Name = "BRM";
+            this.BRM.Size = new System.Drawing.Size(18, 20);
+            this.BRM.TabIndex = 20;
+            this.BRM.Tag = "1";
+            this.BRM.Text = "-";
+            this.BRM.UseVisualStyleBackColor = true;
+            this.BRM.Visible = false;
+            this.BRM.Click += new System.EventHandler(this.Minus_Click);
+            // 
+            // BSM
+            // 
+            this.BSM.Location = new System.Drawing.Point(186, 108);
+            this.BSM.Name = "BSM";
+            this.BSM.Size = new System.Drawing.Size(18, 20);
+            this.BSM.TabIndex = 21;
+            this.BSM.Tag = "2";
+            this.BSM.Text = "-";
+            this.BSM.UseVisualStyleBackColor = true;
+            this.BSM.Visible = false;
+            this.BSM.Click += new System.EventHandler(this.Minus_Click);
+            // 
+            // BDM
+            // 
+            this.BDM.Location = new System.Drawing.Point(186, 137);
+            this.BDM.Name = "BDM";
+            this.BDM.Size = new System.Drawing.Size(18, 20);
+            this.BDM.TabIndex = 22;
+            this.BDM.Tag = "3";
+            this.BDM.Text = "-";
+            this.BDM.UseVisualStyleBackColor = true;
+            this.BDM.Visible = false;
+            this.BDM.Click += new System.EventHandler(this.Minus_Click);
+            // 
+            // BAPM
+            // 
+            this.BAPM.Location = new System.Drawing.Point(186, 166);
+            this.BAPM.Name = "BAPM";
+            this.BAPM.Size = new System.Drawing.Size(18, 20);
+            this.BAPM.TabIndex = 23;
+            this.BAPM.Tag = "4";
+            this.BAPM.Text = "-";
+            this.BAPM.UseVisualStyleBackColor = true;
+            this.BAPM.Visible = false;
+            this.BAPM.Click += new System.EventHandler(this.Minus_Click);
+            // 
+            // BAMM
+            // 
+            this.BAMM.Location = new System.Drawing.Point(186, 192);
+            this.BAMM.Name = "BAMM";
+            this.BAMM.Size = new System.Drawing.Size(18, 20);
+            this.BAMM.TabIndex = 24;
+            this.BAMM.Tag = "5";
+            this.BAMM.Text = "-";
+            this.BAMM.UseVisualStyleBackColor = true;
+            this.BAMM.Visible = false;
+            this.BAMM.Click += new System.EventHandler(this.Minus_Click);
+            // 
+            // LStatPoint
+            // 
+            this.LStatPoint.AutoSize = true;
+            this.LStatPoint.Location = new System.Drawing.Point(160, 13);
+            this.LStatPoint.Name = "LStatPoint";
+            this.LStatPoint.Size = new System.Drawing.Size(63, 13);
+            this.LStatPoint.TabIndex = 25;
+            this.LStatPoint.Text = "Stats Points";
+            this.LStatPoint.Visible = false;
+            // 
             // IGCharactereManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -322,7 +508,7 @@
             this.Controls.Add(this.Tete);
             this.Controls.Add(this.Droite);
             this.Controls.Add(this.Corps);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.Gauche);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.panel1);
@@ -334,6 +520,7 @@
             this.Load += new System.EventHandler(this.IGCharactereManagement_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.PPlus.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -360,12 +547,26 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button Gauche;
         private System.Windows.Forms.Button Corps;
         private System.Windows.Forms.Button Droite;
         private System.Windows.Forms.Button Tete;
         private System.Windows.Forms.Button Jambes;
         private System.Windows.Forms.Button Cou;
         private System.Windows.Forms.Button Retour;
+        private System.Windows.Forms.Button BAMM;
+        private System.Windows.Forms.Button BAPM;
+        private System.Windows.Forms.Button BDM;
+        private System.Windows.Forms.Button BSM;
+        private System.Windows.Forms.Button BRM;
+        private System.Windows.Forms.Button BHM;
+        private System.Windows.Forms.Panel PPlus;
+        private System.Windows.Forms.Button BAMP;
+        private System.Windows.Forms.Button BAPP;
+        private System.Windows.Forms.Button BDP;
+        private System.Windows.Forms.Button BSP;
+        private System.Windows.Forms.Button BRP;
+        private System.Windows.Forms.Button BHP;
+        private System.Windows.Forms.Label LStatPoint;
     }
 }
