@@ -59,7 +59,6 @@ namespace LogicalGame
             get{ return _sellableItems; }
         }
 
-
         // Temporary property for the MerchantTest 
         public Team Team
         {
