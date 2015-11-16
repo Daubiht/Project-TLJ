@@ -35,6 +35,7 @@ namespace LogicalGame
 
         bool _frontPosition;
         bool _isAlive;
+        bool _isMain;
 
         readonly Dictionary<String, Skill> _skills;
         readonly Dictionary<string, Item> _stuffs;
@@ -71,16 +72,20 @@ namespace LogicalGame
             _frontPosition = true;
 
             _skills = new Dictionary<string, Skill>();
+            _stuffs = new Dictionary<string, Item>();
         }
 
         //==================================================
         //               Get some stuff
         //==================================================
-
+        public Dictionary<string, Item> Stuffs
+        {
+            get { return _stuffs; }
+        }
         public Team InTeam
         {
             get {return _team; }
-            set { _team = value; }
+            set { _team = value;}
         }
 
         public void KickFromTeam ()
@@ -107,6 +112,12 @@ namespace LogicalGame
         {
             get { return _level; }
             set { _level = value; }
+        }
+
+        public bool IsMain
+        {
+            get { return _isMain; }
+            set { _isMain = value; }
         }
 
         public int PhysicalAttack
@@ -189,9 +200,22 @@ namespace LogicalGame
         //           Treatement of data
         //======================================
 
-        public void WearItem (Item item)
+        public bool WearItem (Item item)
         {
+            if (_team == null)
+            {
+                return false;
+            }
+
+            _team.Invent.RemoveItem(item);
             _stuffs[item.Type] = item;
+            return true;
+        }
+
+        public void UnwearIyem (string type)
+        {
+            _team.Invent.AddItem(_stuffs[type], 1);
+            _stuffs[type] = null;
         }
 
         public int LevelUp(int num)
@@ -429,7 +453,7 @@ namespace LogicalGame
 
         public bool UseConsumable (Item item)
         {
-            if (item.Type != "consumable")
+            if (item.Type != "consommable")
             {
                 return false;
             }

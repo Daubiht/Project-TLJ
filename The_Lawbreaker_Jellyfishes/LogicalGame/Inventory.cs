@@ -36,7 +36,7 @@ namespace LogicalGame
             {
                 if (_inventory.ContainsKey(item))
                 {
-                    _inventory[item] = quantity;
+                    _inventory[item] = _inventory[item] + quantity;
                 }
                 else
                 {

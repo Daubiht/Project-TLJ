@@ -17,7 +17,7 @@ namespace LogicalGame
         {
             _name = name;
             _context = context;
-            _merchant = new Merchant(null, this);
+            _merchant = new Merchant(null);
         }
 
         public string CityName
