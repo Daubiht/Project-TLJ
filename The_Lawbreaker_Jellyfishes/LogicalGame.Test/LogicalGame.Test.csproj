@@ -43,17 +43,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CreatMonster.cs" />
-    <Compile Include="InventoryTest.cs" />
-    <Compile Include="MapTest.cs" />
-    <Compile Include="MerchantTest.cs" />
-    <Compile Include="MonsterTest.cs" />
-    <Compile Include="MortuaryTest.cs" />
-    <Compile Include="NotificationTest.cs" />
-    <Compile Include="persoTest.cs" />
+    <Compile Include="Creation\CreateItems.cs" />
+    <Compile Include="Creation\CreateMonsters.cs" />
+    <Compile Include="Creation\CreateSkills.cs" />
+    <Compile Include="Creation\CreateWorld.cs" />
+    <Compile Include="InventoryTests.cs" />
+    <Compile Include="MapTests.cs" />
+    <Compile Include="MerchantTests.cs" />
+    <Compile Include="MonsterTests.cs" />
+    <Compile Include="MortuaryTests.cs" />
+    <Compile Include="NotificationTests.cs" />
+    <Compile Include="persoTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RandomCharacter.Tests.cs" />
-    <Compile Include="Skills.Test.cs" />
+    <Compile Include="RandomCharacterTests.cs" />
+    <Compile Include="SkillsTests.cs" />
+    <Compile Include="TeamTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -64,6 +68,7 @@
       <Name>LogicalGame</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
