@@ -44,22 +44,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Home\CreateMaintCharacter\CreateMainCharacter1.cs">
+    <Compile Include="Home\CreateMainCharacter\CreateMainCharacter1.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Home\CreateMaintCharacter\CreateMainCharacter1.Designer.cs">
+    <Compile Include="Home\CreateMainCharacter\CreateMainCharacter1.Designer.cs">
       <DependentUpon>CreateMainCharacter1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Home\CreateMaintCharacter\CreateMainCharacter2.cs">
+    <Compile Include="Home\CreateMainCharacter\CreateMainCharacter2.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Home\CreateMaintCharacter\CreateMainCharacter2.Designer.cs">
+    <Compile Include="Home\CreateMainCharacter\CreateMainCharacter2.Designer.cs">
       <DependentUpon>CreateMainCharacter2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Home\CreateMaintCharacter\CreateMainCharacter3.cs">
+    <Compile Include="Home\CreateMainCharacter\CreateMainCharacter3.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Home\CreateMaintCharacter\CreateMainCharacter3.Designer.cs">
+    <Compile Include="Home\CreateMainCharacter\CreateMainCharacter3.Designer.cs">
       <DependentUpon>CreateMainCharacter3.cs</DependentUpon>
     </Compile>
     <Compile Include="Home\LoadGame.cs">
@@ -142,13 +142,13 @@
     <Compile Include="Maps\World.Designer.cs">
       <DependentUpon>World.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Home\CreateMaintCharacter\CreateMainCharacter1.resx">
+    <EmbeddedResource Include="Home\CreateMainCharacter\CreateMainCharacter1.resx">
       <DependentUpon>CreateMainCharacter1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Home\CreateMaintCharacter\CreateMainCharacter2.resx">
+    <EmbeddedResource Include="Home\CreateMainCharacter\CreateMainCharacter2.resx">
       <DependentUpon>CreateMainCharacter2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Home\CreateMaintCharacter\CreateMainCharacter3.resx">
+    <EmbeddedResource Include="Home\CreateMainCharacter\CreateMainCharacter3.resx">
       <DependentUpon>CreateMainCharacter3.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Home\LoadGame.resx">

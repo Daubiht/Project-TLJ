@@ -60,7 +60,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.PseudoField.Location = new System.Drawing.Point(52, 3);
             this.PseudoField.Name = "PseudoField";
-            this.PseudoField.Size = new System.Drawing.Size(126, 20);
+            this.PseudoField.Size = new System.Drawing.Size(177, 20);
             this.PseudoField.TabIndex = 1;
             this.PseudoField.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -100,7 +100,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ComboBoxRace.Location = new System.Drawing.Point(52, 130);
             this.ComboBoxRace.Name = "ComboBoxRace";
-            this.ComboBoxRace.Size = new System.Drawing.Size(126, 21);
+            this.ComboBoxRace.Size = new System.Drawing.Size(177, 21);
             this.ComboBoxRace.TabIndex = 7;
             this.ComboBoxRace.SelectedIndexChanged += new System.EventHandler(this.ComboBoxRace_SelectedIndexChanged);
             // 
@@ -111,7 +111,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ValidButton.Location = new System.Drawing.Point(159, 255);
             this.ValidButton.Name = "ValidButton";
-            this.ValidButton.Size = new System.Drawing.Size(67, 34);
+            this.ValidButton.Size = new System.Drawing.Size(70, 34);
             this.ValidButton.TabIndex = 8;
             this.ValidButton.Text = "Valider";
             this.ValidButton.UseVisualStyleBackColor = true;
@@ -124,7 +124,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.BackButton.Location = new System.Drawing.Point(3, 255);
             this.BackButton.Name = "BackButton";
-            this.BackButton.Size = new System.Drawing.Size(67, 34);
+            this.BackButton.Size = new System.Drawing.Size(70, 34);
             this.BackButton.TabIndex = 9;
             this.BackButton.Text = "Retour";
             this.BackButton.UseVisualStyleBackColor = true;
@@ -146,7 +146,7 @@
             // ButtonWoman
             // 
             this.ButtonWoman.AutoSize = true;
-            this.ButtonWoman.Location = new System.Drawing.Point(119, 72);
+            this.ButtonWoman.Location = new System.Drawing.Point(170, 72);
             this.ButtonWoman.Name = "ButtonWoman";
             this.ButtonWoman.Size = new System.Drawing.Size(59, 17);
             this.ButtonWoman.TabIndex = 11;
@@ -167,9 +167,9 @@
             this.Controls.Add(this.Sex);
             this.Controls.Add(this.PseudoField);
             this.Controls.Add(this.Pseudo);
-            this.Location = new System.Drawing.Point(80, 40);
+            this.Location = new System.Drawing.Point(90, 50);
             this.Name = "CreateMainCharacter1";
-            this.Size = new System.Drawing.Size(229, 292);
+            this.Size = new System.Drawing.Size(232, 292);
             this.ResumeLayout(false);
             this.PerformLayout();
 

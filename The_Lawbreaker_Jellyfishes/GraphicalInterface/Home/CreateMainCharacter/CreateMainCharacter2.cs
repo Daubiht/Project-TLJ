@@ -14,7 +14,8 @@ namespace GraphicalInterface
     {
 
         // Number of points we can assign to basic stats
-        int _assignedStats = 10;
+        static int _assignedStats1 = 10;
+        int _assignedStats = _assignedStats1;
 
         // At the begining every basic stats is equal to _defaultStat
         static int _defaultStat = 5;
@@ -59,6 +60,56 @@ namespace GraphicalInterface
 
             // Disabled button Next by default
             buttonNext.Enabled = false;
+
+            // Create tooltip to display more informations about the basic stats
+
+            // tooltip for health
+            ToolTip TooltipHealth = new ToolTip(); 
+            TooltipHealth.InitialDelay = 250;
+            TooltipHealth.ReshowDelay = 500;
+            TooltipHealth.ShowAlways = true;
+            TooltipHealth.AutoPopDelay = 32000;
+            TooltipHealth.SetToolTip(TextLife, "Nombre de point de vie (PV)");
+
+            // tooltip for robustness
+            ToolTip TooltipRobustness = new ToolTip(); 
+            TooltipRobustness.InitialDelay = 250;
+            TooltipRobustness.ReshowDelay = 500;
+            TooltipRobustness.ShowAlways = true;
+            TooltipRobustness.AutoPopDelay = 32000;
+            TooltipRobustness.SetToolTip(TextRobustness, "Augmente la résistance aux attaques");
+
+            // tooltip for stamina
+            ToolTip TooltipStamina = new ToolTip();
+            TooltipStamina.InitialDelay = 250;
+            TooltipStamina.ReshowDelay = 500;
+            TooltipStamina.ShowAlways = true;
+            TooltipStamina.AutoPopDelay = 32000;
+            TooltipStamina.SetToolTip(TextStamina, "Permet d'utiliser des compétences spéciales");
+
+            // tooltip for physic attack
+            ToolTip TooltipPhysicAttack = new ToolTip();
+            TooltipPhysicAttack.InitialDelay = 250;
+            TooltipPhysicAttack.ReshowDelay = 500;
+            TooltipPhysicAttack.ShowAlways = true;
+            TooltipPhysicAttack.AutoPopDelay = 32000;
+            TooltipPhysicAttack.SetToolTip(TextPhysicalDamage, "Les attaques physiques sont plus puissantes");
+
+            // tooltip for magic attack
+            ToolTip TooltipMagicAttack = new ToolTip();
+            TooltipMagicAttack.InitialDelay = 250;
+            TooltipMagicAttack.ReshowDelay = 500;
+            TooltipMagicAttack.ShowAlways = true;
+            TooltipMagicAttack.AutoPopDelay = 32000;
+            TooltipMagicAttack.SetToolTip(TextMagicDamage, "Les attaques magiques sont plus puissantes");
+
+            // tooltip for dodge
+            ToolTip TooltipDodge = new ToolTip();
+            TooltipDodge.InitialDelay = 250;
+            TooltipDodge.ReshowDelay = 500;
+            TooltipDodge.ShowAlways = true;
+            TooltipDodge.AutoPopDelay = 32000;
+            TooltipDodge.SetToolTip(TextDodge, "Le joueur a plus de chance d'esquiver les attaques ennemis");
         }
 
         // __________________Check if we must disabled [-] buttons ____________________
@@ -249,6 +300,36 @@ namespace GraphicalInterface
             resultatEsquive.Text = _dodge.ToString();
             mEsquive.Enabled = CheckMinusButton(_dodge);
             CheckPlusButton();
+        }
+
+        // [Reset] button
+        private void buttonReset_Click(object sender, EventArgs e)
+        {
+            _assignedStats = _assignedStats1;
+            assignedStats.Text = _assignedStats.ToString();
+
+            _health = _defaultStat;
+            _robustness = _defaultStat;
+            _stamina = _defaultStat;
+            _physicalAttack = _defaultStat;
+            _magicAttack = _defaultStat;
+            _dodge = _defaultStat;
+
+            resultatVie.Text = _health.ToString();
+            resultatRobustesse.Text = _robustness.ToString();
+            resultatFatigue.Text = _stamina.ToString();
+            resultatAttaquePhysique.Text = _physicalAttack.ToString();
+            resultatAttaqueMagique.Text = _magicAttack.ToString();
+            resultatEsquive.Text = _dodge.ToString();
+
+            CheckPlusButton();
+
+            mVie.Enabled = false;
+            mRobustesse.Enabled = false;
+            mFatigue.Enabled = false;
+            mAttaquePhysique.Enabled = false;
+            mAttaqueMagique.Enabled = false;
+            mEsquive.Enabled = false;
         }
     }
 }

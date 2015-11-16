@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.Stats = new System.Windows.Forms.Label();
-            this.Life = new System.Windows.Forms.Label();
-            this.Robustness = new System.Windows.Forms.Label();
-            this.Dodge = new System.Windows.Forms.Label();
-            this.Fatigue = new System.Windows.Forms.Label();
-            this.PhysicalDamage = new System.Windows.Forms.Label();
-            this.MagicDamage = new System.Windows.Forms.Label();
+            this.TextLife = new System.Windows.Forms.Label();
+            this.TextRobustness = new System.Windows.Forms.Label();
+            this.TextDodge = new System.Windows.Forms.Label();
+            this.TextStamina = new System.Windows.Forms.Label();
+            this.TextPhysicalDamage = new System.Windows.Forms.Label();
+            this.TextMagicDamage = new System.Windows.Forms.Label();
             this.assignedStats = new System.Windows.Forms.Label();
             this.resultatVie = new System.Windows.Forms.Label();
             this.resultatRobustesse = new System.Windows.Forms.Label();
@@ -56,6 +56,7 @@
             this.pEsquive = new System.Windows.Forms.Button();
             this.buttonNext = new System.Windows.Forms.Button();
             this.button14 = new System.Windows.Forms.Button();
+            this.buttonReset = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Stats
@@ -70,85 +71,90 @@
             this.Stats.TabIndex = 1;
             this.Stats.Text = "ATTRIBUTION DES STATISQUES";
             // 
-            // Life
+            // TextLife
             // 
-            this.Life.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.TextLife.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.Life.AutoSize = true;
-            this.Life.Location = new System.Drawing.Point(3, 58);
-            this.Life.Name = "Life";
-            this.Life.Size = new System.Drawing.Size(22, 13);
-            this.Life.TabIndex = 2;
-            this.Life.Text = "Vie";
+            this.TextLife.AutoSize = true;
+            this.TextLife.Location = new System.Drawing.Point(3, 58);
+            this.TextLife.Name = "TextLife";
+            this.TextLife.Padding = new System.Windows.Forms.Padding(0, 0, 65, 0);
+            this.TextLife.Size = new System.Drawing.Size(87, 13);
+            this.TextLife.TabIndex = 2;
+            this.TextLife.Text = "Vie";
             // 
-            // Robustness
+            // TextRobustness
             // 
-            this.Robustness.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.TextRobustness.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.Robustness.AutoSize = true;
-            this.Robustness.Location = new System.Drawing.Point(3, 86);
-            this.Robustness.Name = "Robustness";
-            this.Robustness.Size = new System.Drawing.Size(63, 13);
-            this.Robustness.TabIndex = 3;
-            this.Robustness.Text = "Robustesse";
+            this.TextRobustness.AutoSize = true;
+            this.TextRobustness.Location = new System.Drawing.Point(3, 86);
+            this.TextRobustness.Name = "TextRobustness";
+            this.TextRobustness.Padding = new System.Windows.Forms.Padding(0, 0, 25, 0);
+            this.TextRobustness.Size = new System.Drawing.Size(88, 13);
+            this.TextRobustness.TabIndex = 3;
+            this.TextRobustness.Text = "Robustesse";
             // 
-            // Dodge
+            // TextDodge
             // 
-            this.Dodge.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.TextDodge.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.Dodge.AutoSize = true;
-            this.Dodge.Location = new System.Drawing.Point(3, 198);
-            this.Dodge.Name = "Dodge";
-            this.Dodge.Size = new System.Drawing.Size(45, 13);
-            this.Dodge.TabIndex = 4;
-            this.Dodge.Text = "Esquive";
+            this.TextDodge.AutoSize = true;
+            this.TextDodge.Location = new System.Drawing.Point(3, 198);
+            this.TextDodge.Name = "TextDodge";
+            this.TextDodge.Padding = new System.Windows.Forms.Padding(0, 0, 40, 0);
+            this.TextDodge.Size = new System.Drawing.Size(85, 13);
+            this.TextDodge.TabIndex = 4;
+            this.TextDodge.Text = "Esquive";
             // 
-            // Fatigue
+            // TextStamina
             // 
-            this.Fatigue.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.TextStamina.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.Fatigue.AutoSize = true;
-            this.Fatigue.Location = new System.Drawing.Point(3, 114);
-            this.Fatigue.Name = "Fatigue";
-            this.Fatigue.Size = new System.Drawing.Size(42, 13);
-            this.Fatigue.TabIndex = 5;
-            this.Fatigue.Text = "Fatigue";
+            this.TextStamina.AutoSize = true;
+            this.TextStamina.Location = new System.Drawing.Point(3, 114);
+            this.TextStamina.Name = "TextStamina";
+            this.TextStamina.Padding = new System.Windows.Forms.Padding(0, 0, 45, 0);
+            this.TextStamina.Size = new System.Drawing.Size(87, 13);
+            this.TextStamina.TabIndex = 5;
+            this.TextStamina.Text = "Fatigue";
             // 
-            // PhysicalDamage
+            // TextPhysicalDamage
             // 
-            this.PhysicalDamage.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.TextPhysicalDamage.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.PhysicalDamage.AutoSize = true;
-            this.PhysicalDamage.Location = new System.Drawing.Point(3, 142);
-            this.PhysicalDamage.Name = "PhysicalDamage";
-            this.PhysicalDamage.Size = new System.Drawing.Size(89, 13);
-            this.PhysicalDamage.TabIndex = 6;
-            this.PhysicalDamage.Text = "Attaque physique";
+            this.TextPhysicalDamage.AutoSize = true;
+            this.TextPhysicalDamage.Location = new System.Drawing.Point(3, 142);
+            this.TextPhysicalDamage.Name = "TextPhysicalDamage";
+            this.TextPhysicalDamage.Size = new System.Drawing.Size(89, 13);
+            this.TextPhysicalDamage.TabIndex = 6;
+            this.TextPhysicalDamage.Text = "Attaque physique";
             // 
-            // MagicDamage
+            // TextMagicDamage
             // 
-            this.MagicDamage.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.TextMagicDamage.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.MagicDamage.AutoSize = true;
-            this.MagicDamage.Location = new System.Drawing.Point(3, 170);
-            this.MagicDamage.Name = "MagicDamage";
-            this.MagicDamage.Size = new System.Drawing.Size(87, 13);
-            this.MagicDamage.TabIndex = 7;
-            this.MagicDamage.Text = "Attaque magique";
+            this.TextMagicDamage.AutoSize = true;
+            this.TextMagicDamage.Location = new System.Drawing.Point(3, 170);
+            this.TextMagicDamage.Name = "TextMagicDamage";
+            this.TextMagicDamage.Size = new System.Drawing.Size(87, 13);
+            this.TextMagicDamage.TabIndex = 7;
+            this.TextMagicDamage.Text = "Attaque magique";
             // 
             // assignedStats
             // 
             this.assignedStats.AutoSize = true;
-            this.assignedStats.Location = new System.Drawing.Point(67, 34);
+            this.assignedStats.Location = new System.Drawing.Point(80, 30);
             this.assignedStats.Name = "assignedStats";
-            this.assignedStats.Size = new System.Drawing.Size(0, 13);
+            this.assignedStats.Size = new System.Drawing.Size(19, 13);
             this.assignedStats.TabIndex = 8;
+            this.assignedStats.Text = "20";
             // 
             // resultatVie
             // 
@@ -344,10 +350,21 @@
             this.button14.UseVisualStyleBackColor = true;
             this.button14.Click += new System.EventHandler(this.button14_Click);
             // 
+            // buttonReset
+            // 
+            this.buttonReset.Location = new System.Drawing.Point(105, 28);
+            this.buttonReset.Name = "buttonReset";
+            this.buttonReset.Size = new System.Drawing.Size(69, 19);
+            this.buttonReset.TabIndex = 29;
+            this.buttonReset.Text = "RESET";
+            this.buttonReset.UseVisualStyleBackColor = true;
+            this.buttonReset.Click += new System.EventHandler(this.buttonReset_Click);
+            // 
             // CreateMainCharacter2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.buttonReset);
             this.Controls.Add(this.button14);
             this.Controls.Add(this.buttonNext);
             this.Controls.Add(this.pEsquive);
@@ -369,12 +386,12 @@
             this.Controls.Add(this.resultatRobustesse);
             this.Controls.Add(this.resultatVie);
             this.Controls.Add(this.assignedStats);
-            this.Controls.Add(this.MagicDamage);
-            this.Controls.Add(this.PhysicalDamage);
-            this.Controls.Add(this.Fatigue);
-            this.Controls.Add(this.Dodge);
-            this.Controls.Add(this.Robustness);
-            this.Controls.Add(this.Life);
+            this.Controls.Add(this.TextMagicDamage);
+            this.Controls.Add(this.TextPhysicalDamage);
+            this.Controls.Add(this.TextStamina);
+            this.Controls.Add(this.TextDodge);
+            this.Controls.Add(this.TextRobustness);
+            this.Controls.Add(this.TextLife);
             this.Controls.Add(this.Stats);
             this.Location = new System.Drawing.Point(80, 40);
             this.Name = "CreateMainCharacter2";
@@ -387,12 +404,12 @@
         #endregion
 
         private System.Windows.Forms.Label Stats;
-        private System.Windows.Forms.Label Life;
-        private System.Windows.Forms.Label Robustness;
-        private System.Windows.Forms.Label Dodge;
-        private System.Windows.Forms.Label Fatigue;
-        private System.Windows.Forms.Label PhysicalDamage;
-        private System.Windows.Forms.Label MagicDamage;
+        private System.Windows.Forms.Label TextLife;
+        private System.Windows.Forms.Label TextRobustness;
+        private System.Windows.Forms.Label TextDodge;
+        private System.Windows.Forms.Label TextStamina;
+        private System.Windows.Forms.Label TextPhysicalDamage;
+        private System.Windows.Forms.Label TextMagicDamage;
         private System.Windows.Forms.Label assignedStats;
         private System.Windows.Forms.Label resultatVie;
         private System.Windows.Forms.Label resultatRobustesse;
@@ -414,5 +431,6 @@
         private System.Windows.Forms.Button pEsquive;
         private System.Windows.Forms.Button buttonNext;
         private System.Windows.Forms.Button button14;
+        private System.Windows.Forms.Button buttonReset;
     }
 }
