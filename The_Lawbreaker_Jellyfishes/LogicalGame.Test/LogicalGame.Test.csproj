@@ -51,6 +51,7 @@
     <Compile Include="MapTests.cs" />
     <Compile Include="MerchantTests.cs" />
     <Compile Include="MonsterTests.cs" />
+    <Compile Include="CharacterTest.cs" />
     <Compile Include="MortuaryTests.cs" />
     <Compile Include="NotificationTests.cs" />
     <Compile Include="persoTests.cs" />

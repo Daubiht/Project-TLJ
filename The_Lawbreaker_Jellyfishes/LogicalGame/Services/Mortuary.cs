@@ -26,13 +26,16 @@ namespace LogicalGame
 
         public bool DepositBody (Character c)
         {
-            if (c.isAlive == true || _numberBody >= _numberBodyMax)
+            if (c.isAlive == true || _bodyList.Count >= _numberBodyMax || c.IsMain == true)
             {
                 return false;
             }
             if (c.InTeam != null)
             {
-                c.InTeam.RemoveMembers(c);
+                if (!c.InTeam.RemoveMembers(c))
+                {
+                    return false;
+                }
             }
             _bodyList.Add(c);
             return true;
@@ -43,7 +46,7 @@ namespace LogicalGame
             // Si la team est full ALORS renvoit false
             //SINON renvoit vrai et ajoute le mec à la team
 
-            if (!_bodyList.Contains(c)) 
+            if (!_bodyList.Contains(c) || t.Members.Count >= 4) 
             {
                 return false;
             }

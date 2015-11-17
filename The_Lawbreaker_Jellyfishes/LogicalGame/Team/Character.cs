@@ -73,16 +73,20 @@ namespace LogicalGame
             _frontPosition = true;
 
             _skills = new Dictionary<string, Skill>();
+            _stuffs = new Dictionary<string, Item>();
         }
 
         //==================================================
         //               Get some stuff
         //==================================================
-
+        public Dictionary<string, Item> Stuffs
+        {
+            get { return _stuffs; }
+        }
         public Team InTeam
         {
             get {return _team; }
-            set { _team = value; }
+            set { _team = value;}
         }
 
         public bool IsMain 
@@ -115,6 +119,12 @@ namespace LogicalGame
         {
             get { return _level; }
             set { _level = value; }
+        }
+
+        public bool IsMain
+        {
+            get { return _isMain; }
+            set { _isMain = value; }
         }
 
         public int PhysicalAttack
@@ -197,9 +207,22 @@ namespace LogicalGame
         //           Treatement of data
         //======================================
 
-        public void WearItem (Item item)
+        public bool WearItem (Item item)
         {
+            if (_team == null)
+            {
+                return false;
+            }
+
+            _team.Invent.RemoveItem(item);
             _stuffs[item.Type] = item;
+            return true;
+        }
+
+        public void UnwearIyem (string type)
+        {
+            _team.Invent.AddItem(_stuffs[type], 1);
+            _stuffs[type] = null;
         }
 
         public int LevelUp(int num)
@@ -434,5 +457,47 @@ namespace LogicalGame
 
             return false;
         }
+
+        public bool UseConsumable (Item item)
+        {
+            if (item.Type != "consommable")
+            {
+                return false;
+            }
+            foreach (var effect in item.GetStats)
+            {
+                if (effect.Key == "heal")
+                {
+                    _healthPoint += effect.Value;
+                    if (_healthPoint > _maxHealthPoint)
+                    {
+                        _healthPoint = _maxHealthPoint;
+                    }
+                }
+                else if (effect.Key == "regainStamina")
+                {
+                    _staminaPoint += effect.Value;
+                    if (_staminaPoint > _maxStaminaPoint)
+                    {
+                        _staminaPoint = _maxStaminaPoint;
+                    }
+                }
+                else if (effect.Key == "resurection")
+                {
+                    
+                    if (_isAlive == true)
+                    {
+                        return false;
+                    }
+
+                    _isAlive = true;
+                    _healthPoint = _maxHealthPoint / 2;
+                }
+            }
+
+            return true;
+        }
+
+
     }
 }
