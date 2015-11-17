@@ -26,7 +26,7 @@ namespace LogicalGame.Test
             item2.AddStats("vie", 10);
             listItem.Add(item2);
 
-            Item item3 = new Item("Collier en argent", 2, 120, "Collier en argent emettant une étrange lueur", "bijoux");
+            Item item3 = new Item("Collier en argent", 2, 120, "Collier en argent emettant une étrange lueur", "bijou");
             item3.AddRequired("attaque magique", 10);
             listItem.Add(item3);
 

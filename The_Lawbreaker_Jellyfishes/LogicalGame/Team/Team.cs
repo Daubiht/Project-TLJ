@@ -34,7 +34,10 @@ namespace LogicalGame
         public void AddMembers(Character MemberToAdd)
         {
             if (_membersList.Count < _maxMembers)
+            {
                 _membersList.Add(MemberToAdd);
+                MemberToAdd.InTeam = this;
+            }
         }
 
         // Remove members

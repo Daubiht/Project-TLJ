@@ -33,6 +33,7 @@
             this.slot3 = new System.Windows.Forms.Button();
             this.slot4 = new System.Windows.Forms.Button();
             this.slot5 = new System.Windows.Forms.Button();
+            this.retour = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // slot1
@@ -90,10 +91,21 @@
             this.slot5.UseVisualStyleBackColor = true;
             this.slot5.Click += new System.EventHandler(this.slot5_Click);
             // 
+            // retour
+            // 
+            this.retour.Location = new System.Drawing.Point(322, 3);
+            this.retour.Name = "retour";
+            this.retour.Size = new System.Drawing.Size(75, 23);
+            this.retour.TabIndex = 1;
+            this.retour.Text = "Retour";
+            this.retour.UseVisualStyleBackColor = true;
+            this.retour.Click += new System.EventHandler(this.retour_Click);
+            // 
             // LoadGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.retour);
             this.Controls.Add(this.slot5);
             this.Controls.Add(this.slot4);
             this.Controls.Add(this.slot3);
@@ -114,5 +126,6 @@
         private System.Windows.Forms.Button slot3;
         private System.Windows.Forms.Button slot4;
         private System.Windows.Forms.Button slot5;
+        private System.Windows.Forms.Button retour;
     }
 }

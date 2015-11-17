@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using GraphicalInterface;
 using LogicalGame;
 
 namespace Services
@@ -14,28 +15,21 @@ namespace Services
     {
         Team t;
         Character c;
+        MainForm _contextForm;
         string filtre;
 
-        public FiltredInventory(Team team, Character chara, string type)
+        public FiltredInventory(Team team, Character chara, string type, MainForm contextForm)
         {
             t = team;
             c = chara;
             filtre = type;
-
+            _contextForm = contextForm;
             InitializeComponent();
         }
 
         private void BRetour_Click(object sender, EventArgs e)
         {
-            CharactereManagement cm = new CharactereManagement(c, t);
-            Control parent = Parent;
-            parent.Controls.Clear();
-            parent.Controls.Add(cm);
-        }
-
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-
+            _contextForm.ExitMenu(this);
         }
 
         private void Wear_Click (object sender, EventArgs e)

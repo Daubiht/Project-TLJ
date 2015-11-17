@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using GraphicalInterface;
 using LogicalGame;
 
 namespace Services
@@ -14,13 +15,15 @@ namespace Services
     {
         Character c;
         Team t;
+        MainForm _contextForm;
         int[] statsUped = new int[] { 0, 0, 0, 0, 0, 0 };
         int statPoint;
 
-        public CharactereManagement(Character chara, Team team)
+        public CharactereManagement(Character chara, Team team, MainForm contextForm)
         {
             c = chara;
             t = team;
+            _contextForm = contextForm;
             statPoint = c.StatsPoint;
 
             InitializeComponent();
@@ -156,10 +159,7 @@ namespace Services
 
         private void Retour_Click(object sender, EventArgs e)
         {
-            TeamManagement tm = new TeamManagement(t, null);
-            Control parent = Parent;
-            parent.Controls.Clear();
-            parent.Controls.Add(tm);
+            _contextForm.ExitMenu(this);
 
             if (statsUped != new int[] { 0,0,0,0,0,0})
             {
@@ -169,10 +169,8 @@ namespace Services
 
         internal void Stuffs (string type)
         {
-            FiltredInventory tm = new FiltredInventory(t, c, type);
-            Control parent = Parent;
-            parent.Controls.Clear();
-            parent.Controls.Add(tm);
+            FiltredInventory tm = new FiltredInventory(t, c, type, _contextForm);
+            _contextForm.ChangeUC(tm, false, true);
         }
 
         private void Gauche_Click(object sender, EventArgs e)

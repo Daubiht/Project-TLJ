@@ -28,15 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.panel1 = new System.Windows.Forms.Panel();
             this.Retour = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(394, 363);
+            this.panel1.TabIndex = 0;
+            // 
             // Retour
             // 
-            this.Retour.Location = new System.Drawing.Point(322, 374);
+            this.Retour.Location = new System.Drawing.Point(322, 372);
             this.Retour.Name = "Retour";
             this.Retour.Size = new System.Drawing.Size(75, 23);
-            this.Retour.TabIndex = 0;
+            this.Retour.TabIndex = 1;
             this.Retour.Text = "Retour";
             this.Retour.UseVisualStyleBackColor = true;
             this.Retour.Click += new System.EventHandler(this.Retour_Click);
@@ -46,15 +54,16 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.Retour);
+            this.Controls.Add(this.panel1);
             this.Name = "TeamManagement";
             this.Size = new System.Drawing.Size(400, 400);
-            this.Load += new System.EventHandler(this.IGTeamManagement_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
+        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button Retour;
     }
 }

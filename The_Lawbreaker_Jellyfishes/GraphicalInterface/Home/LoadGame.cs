@@ -84,5 +84,11 @@ namespace GraphicalInterface
         {
             ChooseGame((Button)sender);
         }
+
+        private void retour_Click(object sender, EventArgs e)
+        {
+            ReceptionScreen uc = new ReceptionScreen(_contextForm);
+            _contextForm.ChangeUC(uc, false);
+        }
     }
 }

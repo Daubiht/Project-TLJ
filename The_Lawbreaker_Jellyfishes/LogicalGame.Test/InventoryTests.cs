@@ -127,7 +127,7 @@ namespace LogicalGame.Test
             CreateItems c = new CreateItems();
             ListItems listitems = new ListItems();
             List<Item> wantedList = new List<Item>();
-            Item item3 = new Item("Collier en argent", 2, 120, "Collier en argent emettant une étrange lueur", "bijoux");
+            Item item3 = new Item("Collier en argent", 2, 120, "Collier en argent emettant une étrange lueur", "bijou");
             item3.AddRequired("attaque magique", 10);
             wantedList.Add(item3);
 

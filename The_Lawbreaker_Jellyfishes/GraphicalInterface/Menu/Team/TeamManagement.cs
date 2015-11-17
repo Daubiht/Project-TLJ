@@ -22,6 +22,7 @@ namespace Services
             _t = team;
             _contextForm = contextForm;
             InitializeComponent();
+            ReloadTeamManagement();
         }
 
         internal void Info_Click (object sender, EventArgs e)
@@ -29,10 +30,8 @@ namespace Services
             Button button = (Button)sender;
             Character c = (Character)button.Tag;
 
-            CharactereManagement cm = new CharactereManagement(c, _t);
-            Control parent = Parent;
-            parent.Controls.Clear();
-            parent.Controls.Add(cm);
+            CharactereManagement cm = new CharactereManagement(c, _t, _contextForm);
+            _contextForm.ChangeUC(cm, false, true);
         }
 
         internal void Position_Click(object sender, EventArgs e)
@@ -45,9 +44,10 @@ namespace Services
             ReloadTeamManagement();
         }
 
-        internal void ReloadTeamManagement ()
+        internal void ReloadTeamManagement()
         {
-            Controls.Clear();
+            panel1.Controls.Clear();
+
             int i = 0;
 
             foreach (Character chara in _t.Members)
@@ -62,7 +62,7 @@ namespace Services
                 bg.Controls.Add(infos);
                 bg.Controls.Add(position);
                 bg.Controls.Add(level);
-                Controls.Add(bg);
+                panel1.Controls.Add(bg);
 
                 bg.Top = (i * 70);
                 bg.Width = bg.Parent.Width;
@@ -105,14 +105,9 @@ namespace Services
             }
         }
 
-        private void IGTeamManagement_Load(object sender, EventArgs e)
-        {
-            ReloadTeamManagement();
-        }
-
         private void Retour_Click(object sender, EventArgs e)
         {
-            
+            _contextForm.ExitMenu(this);
         }
     }
 }
