@@ -30,7 +30,8 @@ namespace GraphicalInterface
             toolTip.InitialDelay = 250;
             toolTip.ReshowDelay = 500;
             toolTip.ShowAlways = true;
-
+            toolTip.AutoPopDelay = 32000;
+            
             panel1.Controls.Clear();
 
             int i = 0;

@@ -34,11 +34,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(409, 437);
+            this.ClientSize = new System.Drawing.Size(409, 436);
             this.MaximumSize = new System.Drawing.Size(425, 475);
             this.MinimumSize = new System.Drawing.Size(425, 475);
             this.Name = "MainForm";
-            this.Text = "Form1";
+            this.Text = "The Lawbreaker Jellyfishes";
             this.ResumeLayout(false);
 
         }

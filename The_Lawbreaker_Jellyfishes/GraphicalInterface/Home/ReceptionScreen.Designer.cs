@@ -71,6 +71,7 @@
             this.Controls.Add(this.Leave);
             this.Controls.Add(this.ChargeParty);
             this.Controls.Add(this.NewParty);
+            this.Location = new System.Drawing.Point(80, 70);
             this.Name = "ReceptionScreen";
             this.Size = new System.Drawing.Size(243, 279);
             this.ResumeLayout(false);
