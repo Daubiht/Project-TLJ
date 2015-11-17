@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using LogicalGame;
+using Services;
 
 namespace GraphicalInterface
 {
@@ -24,25 +25,26 @@ namespace GraphicalInterface
 
         private void equipe_Click(object sender, EventArgs e)
         {
-
+            TeamManagement uc = new TeamManagement(_contextWorld.Team, _contextForm);
+            _contextForm.ToMenu(uc, false);
         }
 
         private void inventaire_Click(object sender, EventArgs e)
         {
             Inventory uc = new Inventory(_contextForm, _contextWorld);
-            _contextForm.ToMenu(uc);
+            _contextForm.ToMenu(uc, false);
         }
 
         private void notifications_Click(object sender, EventArgs e)
         {
             Notifications uc = new Notifications(_contextWorld, _contextForm);
-            _contextForm.ToMenu(uc);
+            _contextForm.ToMenu(uc, false);
         }
 
         private void sauvegarde_Click(object sender, EventArgs e)
         {
             Save uc = new Save(_contextWorld, _contextForm);
-            _contextForm.ToMenu(uc);
+            _contextForm.ToMenu(uc, false);
         }
     }
 }

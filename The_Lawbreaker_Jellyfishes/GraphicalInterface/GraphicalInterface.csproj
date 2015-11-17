@@ -128,6 +128,30 @@
     <Compile Include="Menu\Save.Designer.cs">
       <DependentUpon>Save.cs</DependentUpon>
     </Compile>
+    <Compile Include="Menu\Team\CharactereManagement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Menu\Team\CharactereManagement.Designer.cs">
+      <DependentUpon>CharactereManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\Team\FiltredInventory.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Menu\Team\FiltredInventory.Designer.cs">
+      <DependentUpon>FiltredInventory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\Team\TeamManagement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Menu\Team\TeamManagement.Designer.cs">
+      <DependentUpon>TeamManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Services\Merchant.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Services\Merchant.Designer.cs">
+      <DependentUpon>Merchant.cs</DependentUpon>
+    </Compile>
     <Compile Include="Services\Militia.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -184,6 +208,15 @@
     <EmbeddedResource Include="Menu\Save.resx">
       <DependentUpon>Save.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Menu\Team\CharactereManagement.resx">
+      <DependentUpon>CharactereManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu\Team\FiltredInventory.resx">
+      <DependentUpon>FiltredInventory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu\Team\TeamManagement.resx">
+      <DependentUpon>TeamManagement.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -196,6 +229,9 @@
     </Compile>
     <EmbeddedResource Include="Maps\World.resx">
       <DependentUpon>World.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Services\Merchant.resx">
+      <DependentUpon>Merchant.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Services\Militia.resx">
       <DependentUpon>Militia.cs</DependentUpon>

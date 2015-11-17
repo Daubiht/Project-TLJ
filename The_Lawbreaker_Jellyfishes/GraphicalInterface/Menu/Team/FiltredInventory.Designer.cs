@@ -1,6 +1,6 @@
 ﻿namespace Services
 {
-    partial class IGFiltredInventory
+    partial class FiltredInventory
     {
         /// <summary> 
         /// Variable nécessaire au concepteur.

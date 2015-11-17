@@ -32,7 +32,13 @@ namespace GraphicalInterface
         private void Milice_Click(object sender, EventArgs e)
         {
             Militia uc = new Militia(_contextForm, _contextWorld);
-            _contextForm.ChangeUC(uc, true);
+            _contextForm.ToMenu(uc, true);
+        }
+
+        private void Marchand_Click(object sender, EventArgs e)
+        {
+            Merchant uc = new Merchant(_contextForm, _contextWorld.Islands[_contextWorld.ActualIsland].IslandCity.Merchant[0], _contextWorld);
+            _contextForm.ToMenu(uc, true);
         }
     }
 }

@@ -121,12 +121,6 @@ namespace LogicalGame
             set { _level = value; }
         }
 
-        public bool IsMain
-        {
-            get { return _isMain; }
-            set { _isMain = value; }
-        }
-
         public int PhysicalAttack
         {
             get { return _physicalAttack; }
@@ -460,7 +454,7 @@ namespace LogicalGame
 
         public bool UseConsumable (Item item)
         {
-            if (item.Type != "consommable")
+            if (item.Type != "consumable")
             {
                 return false;
             }

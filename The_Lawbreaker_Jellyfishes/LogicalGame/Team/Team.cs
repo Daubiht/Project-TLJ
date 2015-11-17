@@ -38,10 +38,13 @@ namespace LogicalGame
         }
 
         // Remove members
-        public void RemoveMembers(Character MemberToRemove)
+        public bool RemoveMembers(Character MemberToRemove)
         {
-            if(MemberToRemove.IsMain == false)
-            _membersList.Remove(MemberToRemove);
+            if (MemberToRemove.IsMain == false)
+            {
+                return _membersList.Remove(MemberToRemove);
+            }
+            return false;
         }
 
         // Change the position of the member

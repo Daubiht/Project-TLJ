@@ -16,7 +16,7 @@ namespace LogicalGame
     {
         readonly Dictionary<Item, int> _inventory = new Dictionary<Item, int>();
         int _MaxWeight = 100;
-        int _gold = 0;
+        int _gold = 100;
         readonly Team _context;
 
         public Invent(Team context)

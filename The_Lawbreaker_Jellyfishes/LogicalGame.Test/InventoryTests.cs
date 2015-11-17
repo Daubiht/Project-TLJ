@@ -66,7 +66,7 @@ namespace LogicalGame.Test
         {
             Invent invent = new Invent(null);
             invent.AddGold(10);
-            Assert.AreEqual(10, invent.GetGold);
+            Assert.AreEqual(110, invent.GetGold);
         }
 
         [Test]
@@ -75,7 +75,7 @@ namespace LogicalGame.Test
             Invent invent = new Invent(null);
             invent.AddGold(100);
             invent.RemoveGold(10);
-            Assert.AreEqual(90, invent.GetGold);
+            Assert.AreEqual(190, invent.GetGold);
         }
 
         [Test]

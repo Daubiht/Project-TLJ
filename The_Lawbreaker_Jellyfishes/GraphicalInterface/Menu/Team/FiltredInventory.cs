@@ -10,13 +10,13 @@ using LogicalGame;
 
 namespace Services
 {
-    public partial class IGFiltredInventory : UserControl
+    public partial class FiltredInventory : UserControl
     {
         Team t;
         Character c;
         string filtre;
 
-        public IGFiltredInventory(Team team, Character chara, string type)
+        public FiltredInventory(Team team, Character chara, string type)
         {
             t = team;
             c = chara;
@@ -27,7 +27,7 @@ namespace Services
 
         private void BRetour_Click(object sender, EventArgs e)
         {
-            IGCharactereManagement cm = new IGCharactereManagement(c, t);
+            CharactereManagement cm = new CharactereManagement(c, t);
             Control parent = Parent;
             parent.Controls.Clear();
             parent.Controls.Add(cm);

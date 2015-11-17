@@ -10,14 +10,14 @@ using LogicalGame;
 
 namespace Services
 {
-    public partial class IGCharactereManagement : UserControl
+    public partial class CharactereManagement : UserControl
     {
         Character c;
         Team t;
         int[] statsUped = new int[] { 0, 0, 0, 0, 0, 0 };
         int statPoint;
 
-        public IGCharactereManagement(Character chara, Team team)
+        public CharactereManagement(Character chara, Team team)
         {
             c = chara;
             t = team;
@@ -156,7 +156,7 @@ namespace Services
 
         private void Retour_Click(object sender, EventArgs e)
         {
-            IGTeamManagement tm = new IGTeamManagement(t);
+            TeamManagement tm = new TeamManagement(t, null);
             Control parent = Parent;
             parent.Controls.Clear();
             parent.Controls.Add(tm);
@@ -169,7 +169,7 @@ namespace Services
 
         internal void Stuffs (string type)
         {
-            IGFiltredInventory tm = new IGFiltredInventory(t, c, type);
+            FiltredInventory tm = new FiltredInventory(t, c, type);
             Control parent = Parent;
             parent.Controls.Clear();
             parent.Controls.Add(tm);

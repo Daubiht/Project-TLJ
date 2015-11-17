@@ -6,19 +6,21 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using GraphicalInterface;
 using LogicalGame;
 
 namespace Services
 {
-    public partial class IGTeamManagement : UserControl
+    public partial class TeamManagement : UserControl
     {
-        Team t;
+        Team _t;
+        private MainForm _contextForm;
         EventHandlerList hl = new EventHandlerList();
 
-        public IGTeamManagement(Team team)
+        public TeamManagement(Team team, MainForm contextForm)
         {
-            t = team;
-
+            _t = team;
+            _contextForm = contextForm;
             InitializeComponent();
         }
 
@@ -27,7 +29,7 @@ namespace Services
             Button button = (Button)sender;
             Character c = (Character)button.Tag;
 
-            IGCharactereManagement cm = new IGCharactereManagement(c, t);
+            CharactereManagement cm = new CharactereManagement(c, _t);
             Control parent = Parent;
             parent.Controls.Clear();
             parent.Controls.Add(cm);
@@ -48,7 +50,7 @@ namespace Services
             Controls.Clear();
             int i = 0;
 
-            foreach (Character chara in t.Members)
+            foreach (Character chara in _t.Members)
             {
                 GroupBox bg = new GroupBox();
                 Label name = new Label();
@@ -106,6 +108,11 @@ namespace Services
         private void IGTeamManagement_Load(object sender, EventArgs e)
         {
             ReloadTeamManagement();
+        }
+
+        private void Retour_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

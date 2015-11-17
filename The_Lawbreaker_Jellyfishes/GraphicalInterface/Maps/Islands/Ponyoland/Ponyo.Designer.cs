@@ -45,6 +45,7 @@
             this.Marchand.TabIndex = 0;
             this.Marchand.Text = "Marchand";
             this.Marchand.UseVisualStyleBackColor = true;
+            this.Marchand.Click += new System.EventHandler(this.Marchand_Click);
             // 
             // Milice
             // 

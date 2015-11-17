@@ -8,24 +8,24 @@ using System.Text;
 using System.Windows.Forms;
 using LogicalGame;
 
-namespace Services
+namespace GraphicalInterface
 {
-    public partial class IGMerchant : UserControl
+    public partial class Merchant : UserControl
     {
-        Team t;
-        Merchant m;
+        private MainForm _contextForm;
+        private MapWorld _contextWorld;
 
-        public IGMerchant(Team team, Merchant merchant)
+        Team t;
+        LogicalGame.Merchant m;
+
+        public Merchant(MainForm contextForm, LogicalGame.Merchant merchant, MapWorld contextWorld)
         {
-            t = team;
+            t = contextWorld.Team;
             m = merchant;
+            _contextForm = contextForm;
+            _contextWorld = contextWorld;
 
             InitializeComponent();
-        }
-
-        internal void ReloadMerchant ()
-        {
-
         }
 
         internal void Buy_Click (object sender, EventArgs e)
@@ -277,6 +277,11 @@ namespace Services
 
                 LoadItemToSell();
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            _contextForm.ExitMenu(this);
         }
     }
 }

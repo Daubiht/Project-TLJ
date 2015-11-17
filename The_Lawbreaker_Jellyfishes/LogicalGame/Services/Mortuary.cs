@@ -32,10 +32,7 @@ namespace LogicalGame
             }
             if (c.InTeam != null)
             {
-                if (!c.InTeam.RemoveMembers(c))
-                {
-                    return false;
-                }
+                return !c.InTeam.RemoveMembers(c);
             }
             _bodyList.Add(c);
             return true;
@@ -46,7 +43,7 @@ namespace LogicalGame
             // Si la team est full ALORS renvoit false
             //SINON renvoit vrai et ajoute le mec à la team
 
-            if (!_bodyList.Contains(c) || t.Members.Count >= 4) 
+            if (!_bodyList.Contains(c) || _team.Members.Count >= 4) 
             {
                 return false;
             }

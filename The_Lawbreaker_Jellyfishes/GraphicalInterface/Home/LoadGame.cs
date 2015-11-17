@@ -12,6 +12,7 @@ using LogicalGame;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Windows.Forms.VisualStyles;
 
 namespace GraphicalInterface
 {
@@ -36,8 +37,20 @@ namespace GraphicalInterface
         private void ChooseGame(Button slot)
         {
             MapWorld w;
+            string path = "";
+
             IFormatter formatter = new BinaryFormatter();
-            using (Stream stream = new FileStream("../../../Saves/1 - Plopi.save", FileMode.Open, FileAccess.Read, FileShare.Read))
+
+            string[] fileName = Directory.GetFiles(@"../../../Saves");
+            foreach (string file in fileName)
+            {
+                if ((int)Char.GetNumericValue(file[15]) == (int)Char.GetNumericValue(slot.Text[0]))
+                {
+                    path = file;
+                }
+            }
+
+            using (Stream stream = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.Read))
             {
                 w = (MapWorld)formatter.Deserialize(stream);
             }

@@ -1,6 +1,6 @@
 ﻿namespace Services
 {
-    partial class IGCharactereManagement
+    partial class CharactereManagement
     {
         /// <summary> 
         /// Variable nécessaire au concepteur.

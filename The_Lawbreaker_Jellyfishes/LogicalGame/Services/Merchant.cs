@@ -74,7 +74,11 @@ namespace LogicalGame
         public MapCity City
         {
             get { return _contextCity; }
-            set { _contextCity = value; }
+            set
+            {
+                _contextCity = value;
+                _currentTeam = _contextCity.ActualIsland.ActualWorld.Team;
+            }
         }
     }
 }
