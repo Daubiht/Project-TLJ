@@ -38,7 +38,7 @@ namespace GraphicalInterface
             {
                 if (uc.Visible)
                 {
-                    Controls.Clear();
+                    Controls.Remove(uc);
                 }
             }
 

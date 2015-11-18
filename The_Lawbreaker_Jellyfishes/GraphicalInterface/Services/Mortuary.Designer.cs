@@ -1,6 +1,6 @@
-﻿namespace Services
+﻿namespace GraphicalInterface
 {
-    public partial class IGMortuary
+    public partial class Mortuary
     {
         /// <summary> 
         /// Variable nécessaire au concepteur.
@@ -32,7 +32,7 @@
             this.TCMortuary = new System.Windows.Forms.TabControl();
             this.TCMPage1 = new System.Windows.Forms.TabPage();
             this.TCMPage2 = new System.Windows.Forms.TabPage();
-            this.label2 = new System.Windows.Forms.Label();
+            this.retour = new System.Windows.Forms.Button();
             this.TCMortuary.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -77,25 +77,25 @@
             this.TCMPage2.Text = "Equipe";
             this.TCMPage2.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // retour
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(333, 53);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "label2";
+            this.retour.Location = new System.Drawing.Point(331, 3);
+            this.retour.Name = "retour";
+            this.retour.Size = new System.Drawing.Size(75, 23);
+            this.retour.TabIndex = 4;
+            this.retour.Text = "Retour";
+            this.retour.UseVisualStyleBackColor = true;
+            this.retour.Click += new System.EventHandler(this.retour_Click);
             // 
-            // IGMortuary
+            // Mortuary
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.retour);
             this.Controls.Add(this.TCMortuary);
             this.Controls.Add(this.label1);
-            this.Name = "IGMortuary";
+            this.Name = "Mortuary";
             this.Size = new System.Drawing.Size(410, 470);
-            this.Load += new System.EventHandler(Taverne.Taverne_Load);
             this.TCMortuary.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -107,6 +107,6 @@
         private System.Windows.Forms.TabControl TCMortuary;
         private System.Windows.Forms.TabPage TCMPage1;
         private System.Windows.Forms.TabPage TCMPage2;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button retour;
     }
 }

@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using LogicalGame;
 using GraphicalInterface;
+using Services;
 
 namespace GraphicalInterface
 {
@@ -38,6 +39,18 @@ namespace GraphicalInterface
         private void Marchand_Click(object sender, EventArgs e)
         {
             Merchant uc = new Merchant(_contextForm, _contextWorld.Islands[_contextWorld.ActualIsland].IslandCity.Merchant[0], _contextWorld);
+            _contextForm.ToMenu(uc, true);
+        }
+
+        private void Morgue_Click(object sender, EventArgs e)
+        {
+            Mortuary uc = new Mortuary(_contextWorld.Team, _contextForm, _contextWorld.Islands[_contextWorld.ActualIsland].IslandCity.Mortuary);
+            _contextForm.ToMenu(uc, true);
+        }
+
+        private void Taverne_Click(object sender, EventArgs e)
+        {
+            Taverne uc = new Taverne(_contextWorld.Team, _contextForm);
             _contextForm.ToMenu(uc, true);
         }
     }

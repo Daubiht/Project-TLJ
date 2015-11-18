@@ -29,14 +29,8 @@ namespace Services
 
         private void BRetour_Click(object sender, EventArgs e)
         {
-            _contextForm.ExitMenu(this);
-        }
-
-        private void Wear_Click (object sender, EventArgs e)
-        {
-            Button button = (Button)sender;
-            Item item = (Item)button.Tag;
-            c.WearItem(item);
+            CharacterManagement uc = new CharacterManagement(c, t, _contextForm);
+            _contextForm.ChangeUC(uc, false, true);
         }
 
         private void Equip_Click (object sender, EventArgs e)

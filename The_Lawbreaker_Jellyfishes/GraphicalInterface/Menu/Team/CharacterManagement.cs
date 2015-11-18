@@ -11,7 +11,7 @@ using LogicalGame;
 
 namespace Services
 {
-    public partial class CharactereManagement : UserControl
+    public partial class CharacterManagement : UserControl
     {
         Character c;
         Team t;
@@ -19,7 +19,7 @@ namespace Services
         int[] statsUped = new int[] { 0, 0, 0, 0, 0, 0 };
         int statPoint;
 
-        public CharactereManagement(Character chara, Team team, MainForm contextForm)
+        public CharacterManagement(Character chara, Team team, MainForm contextForm)
         {
             c = chara;
             t = team;
@@ -159,9 +159,10 @@ namespace Services
 
         private void Retour_Click(object sender, EventArgs e)
         {
-            _contextForm.ExitMenu(this);
+            TeamManagement uc = new TeamManagement(t, _contextForm);
+            _contextForm.ChangeUC(uc, false, true);
 
-            if (statsUped != new int[] { 0,0,0,0,0,0})
+            if (statsUped != new int[] { 0,0,0,0,0,0 })
             {
                 c.StatsUp(statsUped[4], statsUped[5], statsUped[0], statsUped[1], statsUped[2], statsUped[3]);
             }

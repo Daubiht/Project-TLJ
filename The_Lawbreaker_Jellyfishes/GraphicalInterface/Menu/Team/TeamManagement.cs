@@ -30,7 +30,7 @@ namespace Services
             Button button = (Button)sender;
             Character c = (Character)button.Tag;
 
-            CharactereManagement cm = new CharactereManagement(c, _t, _contextForm);
+            CharacterManagement cm = new CharacterManagement(c, _t, _contextForm);
             _contextForm.ChangeUC(cm, false, true);
         }
 
