@@ -45,6 +45,7 @@
             this.Marchand.TabIndex = 0;
             this.Marchand.Text = "Marchand";
             this.Marchand.UseVisualStyleBackColor = true;
+            this.Marchand.Click += new System.EventHandler(this.Marchand_Click);
             // 
             // Milice
             // 
@@ -64,6 +65,7 @@
             this.Taverne.TabIndex = 2;
             this.Taverne.Text = "Taverne";
             this.Taverne.UseVisualStyleBackColor = true;
+            this.Taverne.Click += new System.EventHandler(this.Taverne_Click);
             // 
             // Coursier
             // 
@@ -91,6 +93,7 @@
             this.Morgue.TabIndex = 5;
             this.Morgue.Text = "Morgue";
             this.Morgue.UseVisualStyleBackColor = true;
+            this.Morgue.Click += new System.EventHandler(this.Morgue_Click);
             // 
             // Retour
             // 

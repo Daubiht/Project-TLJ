@@ -128,6 +128,30 @@
     <Compile Include="Menu\Save.Designer.cs">
       <DependentUpon>Save.cs</DependentUpon>
     </Compile>
+    <Compile Include="Menu\Team\CharacterManagement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Menu\Team\CharacterManagement.Designer.cs">
+      <DependentUpon>CharacterManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\Team\FiltredInventory.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Menu\Team\FiltredInventory.Designer.cs">
+      <DependentUpon>FiltredInventory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\Team\TeamManagement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Menu\Team\TeamManagement.Designer.cs">
+      <DependentUpon>TeamManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Services\Merchant.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Services\Merchant.Designer.cs">
+      <DependentUpon>Merchant.cs</DependentUpon>
+    </Compile>
     <Compile Include="Services\Militia.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -141,6 +165,18 @@
     </Compile>
     <Compile Include="Maps\World.Designer.cs">
       <DependentUpon>World.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Services\Mortuary.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Services\Mortuary.Designer.cs">
+      <DependentUpon>Mortuary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Services\Taverne.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Services\Taverne.Designer.cs">
+      <DependentUpon>Taverne.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Home\CreateMainCharacter\CreateMainCharacter1.resx">
       <DependentUpon>CreateMainCharacter1.cs</DependentUpon>
@@ -184,6 +220,15 @@
     <EmbeddedResource Include="Menu\Save.resx">
       <DependentUpon>Save.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Menu\Team\CharacterManagement.resx">
+      <DependentUpon>CharacterManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu\Team\FiltredInventory.resx">
+      <DependentUpon>FiltredInventory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu\Team\TeamManagement.resx">
+      <DependentUpon>TeamManagement.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -197,8 +242,17 @@
     <EmbeddedResource Include="Maps\World.resx">
       <DependentUpon>World.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Services\Merchant.resx">
+      <DependentUpon>Merchant.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Services\Militia.resx">
       <DependentUpon>Militia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Services\Mortuary.resx">
+      <DependentUpon>Mortuary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Services\Taverne.resx">
+      <DependentUpon>Taverne.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

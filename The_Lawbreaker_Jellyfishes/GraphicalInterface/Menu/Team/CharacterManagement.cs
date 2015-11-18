@@ -6,21 +6,24 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using GraphicalInterface;
 using LogicalGame;
 
 namespace Services
 {
-    public partial class IGCharactereManagement : UserControl
+    public partial class CharacterManagement : UserControl
     {
         Character c;
         Team t;
+        MainForm _contextForm;
         int[] statsUped = new int[] { 0, 0, 0, 0, 0, 0 };
         int statPoint;
 
-        public IGCharactereManagement(Character chara, Team team)
+        public CharacterManagement(Character chara, Team team, MainForm contextForm)
         {
             c = chara;
             t = team;
+            _contextForm = contextForm;
             statPoint = c.StatsPoint;
 
             InitializeComponent();
@@ -156,12 +159,10 @@ namespace Services
 
         private void Retour_Click(object sender, EventArgs e)
         {
-            IGTeamManagement tm = new IGTeamManagement(t);
-            Control parent = Parent;
-            parent.Controls.Clear();
-            parent.Controls.Add(tm);
+            TeamManagement uc = new TeamManagement(t, _contextForm);
+            _contextForm.ChangeUC(uc, false, true);
 
-            if (statsUped != new int[] { 0,0,0,0,0,0})
+            if (statsUped != new int[] { 0,0,0,0,0,0 })
             {
                 c.StatsUp(statsUped[4], statsUped[5], statsUped[0], statsUped[1], statsUped[2], statsUped[3]);
             }
@@ -169,10 +170,8 @@ namespace Services
 
         internal void Stuffs (string type)
         {
-            IGFiltredInventory tm = new IGFiltredInventory(t, c, type);
-            Control parent = Parent;
-            parent.Controls.Clear();
-            parent.Controls.Add(tm);
+            FiltredInventory tm = new FiltredInventory(t, c, type, _contextForm);
+            _contextForm.ChangeUC(tm, false, true);
         }
 
         private void Gauche_Click(object sender, EventArgs e)

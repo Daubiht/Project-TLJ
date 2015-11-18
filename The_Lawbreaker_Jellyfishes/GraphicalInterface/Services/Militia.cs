@@ -24,8 +24,7 @@ namespace GraphicalInterface
 
         private void Retour_Click(object sender, EventArgs e)
         {
-            Ponyo uc = new Ponyo(_contextForm, _contextWorld);
-            _contextForm.ChangeUC(uc, true);
+            _contextForm.ExitMenu(this);
         }
 
         private void Utilise_Click(object sender, EventArgs e)

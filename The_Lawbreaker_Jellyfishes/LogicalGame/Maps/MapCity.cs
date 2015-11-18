@@ -36,5 +36,10 @@ namespace LogicalGame
         {
             get { return _context; }
         }
+
+        public Mortuary Mortuary
+        {
+            get { return _mortuary; }
+        }
     }
 }

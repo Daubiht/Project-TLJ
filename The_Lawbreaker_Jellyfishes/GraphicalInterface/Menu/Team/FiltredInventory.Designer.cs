@@ -1,6 +1,6 @@
 ﻿namespace Services
 {
-    partial class IGFiltredInventory
+    partial class FiltredInventory
     {
         /// <summary> 
         /// Variable nécessaire au concepteur.
@@ -67,7 +67,6 @@
             this.inventory.Name = "inventory";
             this.inventory.Size = new System.Drawing.Size(392, 240);
             this.inventory.TabIndex = 2;
-            this.inventory.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // BRetour
             // 

@@ -1,6 +1,6 @@
-﻿namespace Services
+﻿namespace GraphicalInterface
 {
-    partial class IGMerchant
+    partial class Merchant
     {
         /// <summary> 
         /// Variable nécessaire au concepteur.
@@ -46,6 +46,7 @@
             this.button1.TabIndex = 0;
             this.button1.Text = "Retour";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label1
             // 

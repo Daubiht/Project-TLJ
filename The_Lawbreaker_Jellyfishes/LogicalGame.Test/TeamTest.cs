@@ -59,7 +59,7 @@ namespace LogicalGame.Test
             Team team = new Team("Team1");
             Invent inventory = new Invent(team);
             team.Invent.AddGold(100);
-            Assert.AreEqual(100, team.Invent.GetGold);        
+            Assert.AreEqual(200, team.Invent.GetGold);        
         }
         [Test] 
         public void Test_to_verify_we_cant_add_members_if_the_team_is_full()

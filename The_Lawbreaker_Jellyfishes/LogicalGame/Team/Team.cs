@@ -34,14 +34,20 @@ namespace LogicalGame
         public void AddMembers(Character MemberToAdd)
         {
             if (_membersList.Count < _maxMembers)
+            {
                 _membersList.Add(MemberToAdd);
+                MemberToAdd.InTeam = this;
+            }
         }
 
         // Remove members
-        public void RemoveMembers(Character MemberToRemove)
+        public bool RemoveMembers(Character MemberToRemove)
         {
-            if(MemberToRemove.IsMain == false)
-            _membersList.Remove(MemberToRemove);
+            if (MemberToRemove.IsMain == false)
+            {
+                return _membersList.Remove(MemberToRemove);
+            }
+            return false;
         }
 
         // Change the position of the member

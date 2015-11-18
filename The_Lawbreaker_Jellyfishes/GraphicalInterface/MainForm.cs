@@ -32,11 +32,36 @@ namespace GraphicalInterface
             }
         }
 
-        public void ToMenu(UserControl UCM)
+        public void ChangeUC(UserControl UCI, bool Menu, bool multipleMenu)
         {
             foreach (UserControl uc in Controls)
             {
-                uc.Visible = false;
+                if (uc.Visible)
+                {
+                    Controls.Remove(uc);
+                }
+            }
+
+            Controls.Add(UCI);
+            if (Menu)
+            {
+                Menu UCM = new Menu(_w, this);
+                Controls.Add(UCM);
+            }
+        }
+
+        public void ToMenu(UserControl UCM, bool Menu)
+        {
+            foreach (UserControl uc in Controls)
+            {
+                if ((uc is Menu) && Menu)
+                {
+                    uc.Visible = true;
+                }
+                else
+                {
+                    uc.Visible = false;
+                }
             }
             Controls.Add(UCM);
         }

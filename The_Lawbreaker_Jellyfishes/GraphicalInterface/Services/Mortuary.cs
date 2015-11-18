@@ -9,45 +9,24 @@ using System.Windows.Forms;
 using LogicalGame;
 
 
-namespace Services
+namespace GraphicalInterface
 {
-    public partial class IGMortuary : UserControl
+    public partial class Mortuary : UserControl
     {
-        static Character c = new Character("Pjvdnl", "Dwarf", true);
-        Mortuary m = new Mortuary();
-        Team t = new Team("lol", c);
+        private LogicalGame.Mortuary m;
+        private Team t;
+        private MainForm _contextForm;
         EventHandlerList hl = new EventHandlerList();
-
-        Character p = new Character("George", "Dwarf", true);
-        Character g = new Character("sgsdf", "Dwarf", true);
-        Character h = new Character("sgsdsdff", "Dwarf", true);
-        Character k = new Character("sgssdfsdf", "Dwarf", true);
-        Character n = new Character("sgqsdsdf", "Dwarf", true);
-        Character o = new Character("sgshjkdf", "Dwarf", true);
 
         int i;
 
-        
-
-        public IGMortuary(Team team)
+        public Mortuary(Team team, MainForm contextForm, LogicalGame.Mortuary mortuary)
         {
-            t.AddMembers(p);
-            t.AddMembers(g);
-            t.AddMembers(h);
-            t.AddMembers(k);
-
-            p.isAlive = false;
-            g.isAlive = false;
-            k.isAlive = false;
-
-            m.DepositBody(k);
+            t = team;
+            m = mortuary;
+            _contextForm = contextForm;
 
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void stock_click(object sender, EventArgs e)
@@ -86,9 +65,8 @@ namespace Services
                 member = m.BodyList[i];
                 if (member.Name == name)
                 {
-                    Console.WriteLine(m.takeBackBody(member, t));
+                    m.takeBackBody(member);
                 }
-
             }
 
             ReloadList();
@@ -182,6 +160,11 @@ namespace Services
                 l.Width = this.Width;
                 TCMPage2.Controls.Add(l);
             }
+        }
+
+        private void retour_Click(object sender, EventArgs e)
+        {
+            _contextForm.ExitMenu(this);
         }
     }
 }

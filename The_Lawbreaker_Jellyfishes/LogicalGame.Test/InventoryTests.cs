@@ -66,7 +66,7 @@ namespace LogicalGame.Test
         {
             Invent invent = new Invent(null);
             invent.AddGold(10);
-            Assert.AreEqual(10, invent.GetGold);
+            Assert.AreEqual(110, invent.GetGold);
         }
 
         [Test]
@@ -75,7 +75,7 @@ namespace LogicalGame.Test
             Invent invent = new Invent(null);
             invent.AddGold(100);
             invent.RemoveGold(10);
-            Assert.AreEqual(90, invent.GetGold);
+            Assert.AreEqual(190, invent.GetGold);
         }
 
         [Test]
@@ -127,7 +127,7 @@ namespace LogicalGame.Test
             CreateItems c = new CreateItems();
             ListItems listitems = new ListItems();
             List<Item> wantedList = new List<Item>();
-            Item item3 = new Item("Collier en argent", 2, 120, "Collier en argent emettant une étrange lueur", "bijoux");
+            Item item3 = new Item("Collier en argent", 2, 120, "Collier en argent emettant une étrange lueur", "bijou");
             item3.AddRequired("attaque magique", 10);
             wantedList.Add(item3);
 

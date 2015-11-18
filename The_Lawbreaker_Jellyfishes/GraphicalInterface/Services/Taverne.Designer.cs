@@ -1,4 +1,4 @@
-﻿namespace Services
+﻿namespace GraphicalInterface
 {
     partial class Taverne
     {
@@ -31,6 +31,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.LError = new System.Windows.Forms.Label();
             this.GBCharacter = new System.Windows.Forms.GroupBox();
+            this.retour = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -62,15 +63,27 @@
             this.GBCharacter.TabIndex = 2;
             this.GBCharacter.TabStop = false;
             // 
+            // retour
+            // 
+            this.retour.Location = new System.Drawing.Point(332, 3);
+            this.retour.Name = "retour";
+            this.retour.Size = new System.Drawing.Size(75, 23);
+            this.retour.TabIndex = 3;
+            this.retour.Text = "Retour";
+            this.retour.UseVisualStyleBackColor = true;
+            this.retour.Click += new System.EventHandler(this.retour_Click);
+            // 
             // Taverne
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.retour);
             this.Controls.Add(this.GBCharacter);
             this.Controls.Add(this.LError);
             this.Controls.Add(this.label1);
             this.Name = "Taverne";
             this.Size = new System.Drawing.Size(410, 470);
+            this.Load += new System.EventHandler(this.Taverne_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -81,5 +94,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label LError;
         private System.Windows.Forms.GroupBox GBCharacter;
+        private System.Windows.Forms.Button retour;
     }
 }

@@ -9,28 +9,24 @@ using System.Windows.Forms;
 using LogicalGame;
 using System.Threading;
 
-namespace Services
+namespace GraphicalInterface
 {
     public partial class Taverne : UserControl
     {
-        static Team t;
-        internal static List<Character> randomCharacterList = new List<Character>();
+        Team t;
+        private MainForm _contextForm;
+        internal List<Character> randomCharacterList = new List<Character>();
 
-        public Taverne(Team team)
+        public Taverne(Team team, MainForm contextForm)
         {
             t = team;
+            _contextForm = contextForm;
             InitializeComponent();
         }
 
-
-        private void label1_Click(object sender, EventArgs e)
+        public void ReloadTavern()
         {
-
-        }
-
-        public static void ReloadTavern()
-        {
-            Services.taverne.GBCharacter.Controls.Clear();
+            GBCharacter.Controls.Clear();
             for (int i = 0; i < randomCharacterList.Count; i++)
             {
 
@@ -54,14 +50,14 @@ namespace Services
                 get.Left = 100;
                 get.Top = get.Parent.Height / 2 - get.Width / 2;
 
-                Services.taverne.GBCharacter.Controls.Add(bg);
+                GBCharacter.Controls.Add(bg);
 
                 bg.Top = (i * 100);
                 bg.Width = bg.Parent.Width;
             }
         }
 
-        public static void Taverne_Load(object sender, EventArgs e)
+        public void Taverne_Load(object sender, EventArgs e)
         {
             
             Random ran = new Random();
@@ -77,10 +73,9 @@ namespace Services
             }
 
             ReloadTavern();
-
         }
 
-        private static void engageMembre (object sender, EventArgs e)
+        private void engageMembre (object sender, EventArgs e)
         {
             Button button = ((Button)sender);
             string name = button.Parent.Controls.Find(button.Name, false)[0].Text;
@@ -104,12 +99,17 @@ namespace Services
                     }
                     else
                     {
-                        Services.taverne.LError.Visible = true;
+                        LError.Visible = true;
                     }
                 }
             }
 
             ReloadTavern();
+        }
+
+        private void retour_Click(object sender, EventArgs e)
+        {
+            _contextForm.ExitMenu(this);
         }
     }
 }
