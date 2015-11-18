@@ -106,7 +106,7 @@ namespace GraphicalInterface
 
         #endregion
 
-        private System.Windows.Forms.Button jeter;
+        internal System.Windows.Forms.Button jeter;
         private System.Windows.Forms.Button retour;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
