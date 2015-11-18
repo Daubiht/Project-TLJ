@@ -37,6 +37,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.retour = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.quit = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -131,7 +132,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label1.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.label1.Location = new System.Drawing.Point(327, 368);
             this.label1.Name = "label1";
@@ -140,10 +141,21 @@
             this.label1.Text = "Game saved";
             this.label1.Visible = false;
             // 
+            // quit
+            // 
+            this.quit.Location = new System.Drawing.Point(322, 51);
+            this.quit.Name = "quit";
+            this.quit.Size = new System.Drawing.Size(75, 23);
+            this.quit.TabIndex = 6;
+            this.quit.Text = "Quitter";
+            this.quit.UseVisualStyleBackColor = true;
+            this.quit.Click += new System.EventHandler(this.quit_Click);
+            // 
             // Save
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.quit);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.retour);
             this.Controls.Add(this.panel1);
@@ -168,5 +180,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button retour;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button quit;
     }
 }
