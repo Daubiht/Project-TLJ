@@ -1,10 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using LogicalGame;
 using Services;
@@ -31,7 +25,7 @@ namespace GraphicalInterface
 
         private void inventaire_Click(object sender, EventArgs e)
         {
-            Inventory uc = new Inventory(_contextForm, _contextWorld);
+            Inventory uc = new Inventory(_contextForm, _contextWorld.Team.Invent);
             _contextForm.ToMenu(uc, false);
         }
 

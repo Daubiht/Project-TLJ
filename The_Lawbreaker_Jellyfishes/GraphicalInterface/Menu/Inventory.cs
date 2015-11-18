@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using LogicalGame;
 
@@ -12,19 +7,19 @@ namespace GraphicalInterface
 {
     public partial class Inventory : UserControl
     {
-        MapWorld _contextWorld;
+        Invent _inventory;
         MainForm _contextForm;
 
-        public Inventory(MainForm contextForm, MapWorld contextWorld)
+        public Inventory(MainForm contextForm, Invent inventory)
         {
             InitializeComponent();
-            _contextWorld = contextWorld;
+            _inventory = inventory;
             _contextForm = contextForm;
         }
 
         private void Inventory_Load(object sender, EventArgs e)
         {
-            label1.Text = "Poids : " + _contextWorld.Team.Invent.weight + "/" + _contextWorld.Team.Invent.MaxWeight;
+            label1.Text = "Poids : " + _inventory.weight + "/" + _inventory.MaxWeight;
 
             ToolTip toolTip = new ToolTip();
             toolTip.InitialDelay = 250;
@@ -36,7 +31,7 @@ namespace GraphicalInterface
 
             int i = 0;
             int j = 0;
-            foreach (Item item in _contextWorld.Team.Invent.Inventory.Keys)
+            foreach (Item item in _inventory.Inventory.Keys)
             {
                 Button b = new Button();
 
@@ -62,12 +57,11 @@ namespace GraphicalInterface
                 }
                 
                 toolTip.SetToolTip(b, infoItem);
-                b.Tag = item;
-                panel1.Controls.Add(b);
 
-                b.Click += Remove_It;
                 b.Width = 75;
                 b.Height = 50;
+                b.Tag = item;
+                panel1.Controls.Add(b);
                 if (i > 4)
                 {
                     i = 0;
@@ -75,8 +69,9 @@ namespace GraphicalInterface
                 }
                 b.Left = i*75;
                 b.Top = j*50;
+                b.Text = item.GetName + " - x" + _inventory.Inventory[item];
 
-                b.Text = item.GetName + " - x" + _contextWorld.Team.Invent.Inventory[item];
+
                 i++;
             }
         }
@@ -85,28 +80,25 @@ namespace GraphicalInterface
         {
             _contextForm.ExitMenu(this);
         }
-
-        private void jeter_Click(object sender, EventArgs e)
-        {
-            if (((Button) sender).BackColor != Color.DarkRed)
-            {
-                ((Button) sender).BackColor = Color.DarkRed;
-                ((Button) sender).ForeColor = Color.White;
-            }
-            else
-            {
-                ((Button) sender).BackColor = Color.Transparent;
-                ((Button) sender).ForeColor = Color.Black;
-            }
-        }
-
         private void Remove_It(object sender, EventArgs e)
         {
             if (jeter.BackColor == Color.DarkRed)
             {
-                Item i = ((Button) sender).Tag as Item;
-                _contextWorld.Team.Invent.RemoveItem(i);
-                Inventory_Load(null, null);
+                Item i = ((Button)sender).Tag as Item;
+                _inventory.RemoveItem(i);
+            }
+        }
+        private void jeter_Click(object sender, EventArgs e)
+        {
+            if (((Button)sender).BackColor != Color.DarkRed)
+            {
+                ((Button)sender).BackColor = Color.DarkRed;
+                ((Button)sender).ForeColor = Color.White;
+            }
+            else
+            {
+                ((Button)sender).BackColor = Color.Transparent;
+                ((Button)sender).ForeColor = Color.Black;
             }
         }
     }

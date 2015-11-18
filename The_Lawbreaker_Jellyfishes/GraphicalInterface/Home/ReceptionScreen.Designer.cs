@@ -30,7 +30,7 @@
         {
             this.NewParty = new System.Windows.Forms.Button();
             this.ChargeParty = new System.Windows.Forms.Button();
-            this.Leave = new System.Windows.Forms.Button();
+            this.quitButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // NewParty
@@ -54,21 +54,22 @@
             this.ChargeParty.UseVisualStyleBackColor = true;
             this.ChargeParty.Click += new System.EventHandler(this.button2_Click);
             // 
-            // Leave
+            // quitButton
             // 
-            this.Leave.Location = new System.Drawing.Point(0, 207);
-            this.Leave.Name = "Leave";
-            this.Leave.Size = new System.Drawing.Size(243, 71);
-            this.Leave.TabIndex = 2;
-            this.Leave.Text = "Quitter";
-            this.Leave.UseVisualStyleBackColor = true;
-            this.Leave.Click += new System.EventHandler(this.Leave_Click);
+            this.quitButton.Location = new System.Drawing.Point(0, 207);
+            this.quitButton.Name = "Leave";
+            this.quitButton.Size = new System.Drawing.Size(243, 71);
+            this.quitButton.TabIndex = 2;
+            this.quitButton.Text = "Quitter";
+            this.quitButton.UseVisualStyleBackColor = true;
+            this.quitButton.Click += new System.EventHandler(this.Leave_Click);
+            
             // 
             // ReceptionScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.Leave);
+            this.Controls.Add(this.quitButton);
             this.Controls.Add(this.ChargeParty);
             this.Controls.Add(this.NewParty);
             this.Location = new System.Drawing.Point(80, 70);
@@ -82,6 +83,6 @@
 
         private System.Windows.Forms.Button NewParty;
         private System.Windows.Forms.Button ChargeParty;
-        private System.Windows.Forms.Button Leave;
+        private System.Windows.Forms.Button quitButton;
     }
 }
