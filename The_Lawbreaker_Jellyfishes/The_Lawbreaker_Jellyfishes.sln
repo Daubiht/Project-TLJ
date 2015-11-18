@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogicalGame.Test", "Logical
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Services.csproj", "{5C04531D-9842-477E-8BA5-3CA1F10920E0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkillsManager", "SkillsManager\SkillsManager.csproj", "{863E7128-121E-4E80-B450-EB5981A09A4F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{5C04531D-9842-477E-8BA5-3CA1F10920E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5C04531D-9842-477E-8BA5-3CA1F10920E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5C04531D-9842-477E-8BA5-3CA1F10920E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{863E7128-121E-4E80-B450-EB5981A09A4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{863E7128-121E-4E80-B450-EB5981A09A4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{863E7128-121E-4E80-B450-EB5981A09A4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{863E7128-121E-4E80-B450-EB5981A09A4F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -23,7 +23,7 @@ namespace LogicalGame
 
         public Skill Add (Skill skill)
         {
-            if (skillList.ContainsValue(skill))
+            if (skillList.ContainsValue(skill) || skillList.ContainsKey(skill.Name))
             {
                 return null;
             }

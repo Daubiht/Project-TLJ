@@ -53,6 +53,7 @@ namespace LogicalGame
         public int[] statRequired
         {
             get { return _statRequired; }
+            set { _statRequired = value; }
         }
 
         public int[][] Effect
