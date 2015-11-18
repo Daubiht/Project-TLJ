@@ -54,5 +54,10 @@ namespace GraphicalInterface
         {
             _contextForm.ExitMenu(this);
         }
+
+        private void quit_Click(object sender, EventArgs e)
+        {
+            _contextForm.Close();
+        }
     }
 }
