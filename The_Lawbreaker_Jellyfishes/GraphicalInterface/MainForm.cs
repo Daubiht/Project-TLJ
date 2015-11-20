@@ -34,11 +34,14 @@ namespace GraphicalInterface
 
         public void ChangeUC(UserControl UCI, bool Menu, bool multipleMenu)
         {
-            foreach (UserControl uc in Controls)
+            
+            for (int i = 0; i <Controls.Count; i++)
             {
+                UserControl uc = (UserControl)Controls[i];
                 if (uc.Visible)
                 {
                     Controls.Remove(uc);
+                    i--;
                 }
             }
 

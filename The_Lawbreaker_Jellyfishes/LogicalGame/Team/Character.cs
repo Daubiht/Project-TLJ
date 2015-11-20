@@ -110,6 +110,16 @@ namespace LogicalGame
             get { return _staminaPoint; }
         }
 
+        public int MaxHealthPoint
+        {
+            get { return _maxHealthPoint; }
+        }
+
+        public int MaxStaminaPoint
+        {
+            get { return _maxStaminaPoint; }
+        }
+
         public string Name
         {
             get { return _name; }

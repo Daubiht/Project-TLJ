@@ -52,21 +52,50 @@ namespace Services
 
             foreach (Character chara in _t.Members)
             {
+                
                 GroupBox bg = new GroupBox();
                 Label name = new Label();
                 Label level = new Label();
                 Button infos = new Button();
                 Button position = new Button();
+                ProgressBar health = new ProgressBar();
+                ProgressBar stamina = new ProgressBar();
 
                 bg.Controls.Add(name);
                 bg.Controls.Add(infos);
                 bg.Controls.Add(position);
                 bg.Controls.Add(level);
+                bg.Controls.Add(stamina);
+                bg.Controls.Add(health);
                 panel1.Controls.Add(bg);
 
                 bg.Top = (i * 70);
                 bg.Width = bg.Parent.Width;
                 bg.Height = 70;
+
+                position.Width = 30;
+                position.Left = name.Right;
+                position.Top = bg.Height / 2 - position.Height / 2;
+                position.Click += new EventHandler(Position_Click);
+                position.Tag = chara;
+
+                level.Text = "Niveau " + chara.Level;
+                level.Top = bg.Height / 2 - level.Height / 2;
+                level.Left = position.Right + 30;
+                level.Width = 70;
+
+                health.Maximum = chara.MaxHealthPoint;
+                health.Value = chara.HealthPoint;
+                health.Top = 12;
+                health.Left = level.Right + 10;
+                health.Height = 10;
+                
+
+                stamina.Maximum = chara.MaxStaminaPoint;
+                stamina.Value = chara.StaminaPoint;
+                stamina.Top = bg.Height - stamina.Height - 10;
+                stamina.Left = level.Right + 10;
+                stamina.Height = 10;
 
                 infos.Height = 30;
                 infos.Width = 30;
@@ -78,6 +107,8 @@ namespace Services
                 name.Top = bg.Height / 2 - name.Height / 2;
                 name.Text = chara.Name;
                 name.Name = "name";
+                name.Left = 5;
+                name.Width = 70;
 
                 if (chara.FrontPosition)
                 {
@@ -87,19 +118,6 @@ namespace Services
                 {
                     position.Text = "B";
                 }
-                position.Width = 30;
-                position.Left = name.Right;
-                position.Top = bg.Height / 2 - position.Height / 2;
-                position.Click += new EventHandler(Position_Click);
-                position.Tag = chara;
-
-                name.Top = bg.Height / 2 - name.Height / 2;
-                name.Text = chara.Name;
-                name.Name = "name";
-
-                level.Text = "Niveau " + chara.Level;
-                level.Top = bg.Height / 2 - level.Height / 2;
-                level.Left = position.Right + 30;
 
                 i++;
             }
