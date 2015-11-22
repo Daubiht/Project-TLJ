@@ -58,6 +58,7 @@ namespace GraphicalInterface
                 
                 toolTip.SetToolTip(b, infoItem);
 
+                b.Click += Remove_It;
                 b.Width = 75;
                 b.Height = 50;
                 b.Tag = item;
@@ -86,6 +87,7 @@ namespace GraphicalInterface
             {
                 Item i = ((Button)sender).Tag as Item;
                 _inventory.RemoveItem(i);
+                Inventory_Load(sender, e);
             }
         }
         private void jeter_Click(object sender, EventArgs e)

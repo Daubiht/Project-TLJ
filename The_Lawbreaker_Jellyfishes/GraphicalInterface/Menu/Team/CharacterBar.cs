@@ -1,15 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using LogicalGame;
-using Services;
 
-namespace GraphicalInterface.Services
+namespace GraphicalInterface
 {
     public partial class CharacterBar : UserControl
     {
@@ -21,11 +14,12 @@ namespace GraphicalInterface.Services
         {
             _c = c;
             _contextForm = contextForm;
+            _context = context;
 
             InitializeComponent();
 
             LName.Text = c.Name;
-            LLevel.Text = "Niveau " + c.Level.ToString();
+            LLevel.Text = "Niveau " + c.Level;
             PBHealth.Maximum = c.MaxHealthPoint;
             PBHealth.Value = c.HealthPoint;
             PBStamina.Maximum = c.MaxStaminaPoint;

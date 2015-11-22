@@ -1,22 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using GraphicalInterface;
 using LogicalGame;
-using GraphicalInterface.Services;
 
-namespace Services
+namespace GraphicalInterface
 {
     public partial class TeamManagement : UserControl
     {
         Team _t;
         private MainForm _contextForm;
-        EventHandlerList hl = new EventHandlerList();
 
         public TeamManagement(Team team, MainForm contextForm)
         {
@@ -25,9 +17,7 @@ namespace Services
             InitializeComponent();
             ReloadTeamManagement();
         }
-
         
-
         internal void ReloadTeamManagement()
         {
             PTeam.Controls.Clear();

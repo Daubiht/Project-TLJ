@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
-using GraphicalInterface;
 using LogicalGame;
 
-namespace Services
+namespace GraphicalInterface
 {
     public partial class FiltredInventory : UserControl
     {

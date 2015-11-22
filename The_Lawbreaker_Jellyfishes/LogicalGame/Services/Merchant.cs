@@ -8,7 +8,7 @@ namespace LogicalGame
     {
 
         readonly List<Item> _sellableItems;
-        Team _currentTeam;
+        Invent _invent;
         MapCity _contextCity;
         string _name;
         
@@ -23,18 +23,18 @@ namespace LogicalGame
 
         // Buy an item
         public void BuyItems(Item ItemBought, int quantity)
-        {
-            // check if the list of sellable items contains the wanted item
-            if ( _sellableItems.Contains(ItemBought) )
-            {   
-                // calcul the total price
-                int totalPrice = ItemBought.GetValue * quantity;
+        { 
+            // calcul the total price
+            int totalPrice = ItemBought.GetValue * quantity;
 
-                // Check if the invent team has enought money
-                if ( totalPrice < _currentTeam.Invent.GetGold )
+            // Check if the invent team has enought money
+            if ( totalPrice < _invent.GetGold )
+            {
+                int compare = _invent.weight + (ItemBought.GetWeight*quantity);
+                if (_invent.MaxWeight > compare )
                 {
-                    _currentTeam.Invent.AddItem(ItemBought, quantity);
-                    _currentTeam.Invent.RemoveGold(totalPrice);
+                    _invent.AddItem(ItemBought, quantity);
+                    _invent.RemoveGold(totalPrice);
                 }
             }
         }
@@ -42,8 +42,8 @@ namespace LogicalGame
         // Sell an item
         public void SellItems(Item ItemSold)
         {
-            _currentTeam.Invent.AddGold(ItemSold.GetValue);
-            _currentTeam.Invent.RemoveItem(ItemSold);
+            _invent.AddGold(ItemSold.GetValue);
+            _invent.RemoveItem(ItemSold);
         }
 
         // Properties
@@ -55,10 +55,10 @@ namespace LogicalGame
         }
 
         // Temporary property for the MerchantTest 
-        public Team Team
+        public Invent Invent
         {
-            get { return _currentTeam; }
-            set { _currentTeam = value;  }
+            get { return _invent; }
+            set { _invent = value;  }
         }
 
         public string Name
@@ -72,7 +72,7 @@ namespace LogicalGame
             set
             {
                 _contextCity = value;
-                _currentTeam = _contextCity.ActualIsland.ActualWorld.Team;
+                _invent = _contextCity.ActualIsland.ActualWorld.Team.Invent;
             }
         }
     }

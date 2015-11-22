@@ -64,7 +64,7 @@ namespace LogicalGame.Test
             
             // Here we get the merchant in the island Ponyoland
             Merchant merchant = world.Islands[world.ActualIsland].IslandCity.Merchant[0];
-            merchant.Team = team;
+            merchant.Invent = team.Invent;
 
             // Test if the team really got 100 gold
             Assert.AreEqual(200, team.Invent.GetGold);

@@ -7,7 +7,6 @@ namespace LogicalGame
     public class Mortuary
     {
         int _numberBodyMax;
-        int _numberBody;
         readonly List<Character> _bodyList;
         readonly MapCity _context;
         readonly Team _team;
@@ -15,7 +14,6 @@ namespace LogicalGame
         public Mortuary (MapCity context)
         {
             _numberBodyMax = 10;
-            _numberBody = 0;
             _bodyList = new List<Character>();
             _context = context;
             if(context != null) { _team = context.ActualIsland.ActualWorld.Team; }
@@ -23,7 +21,7 @@ namespace LogicalGame
 
         public bool DepositBody (Character c)
         {
-            if (c.isAlive == true || _bodyList.Count >= _numberBodyMax || c.IsMain == true)
+            if (c.isAlive || _bodyList.Count >= _numberBodyMax || c.IsMain)
             {
                 return false;
             }
