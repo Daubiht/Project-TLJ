@@ -104,13 +104,18 @@ namespace Services
 
             statPoint++;
 
+            if (statPoint == c.StatsPoint)
+            {
+                BConfirm.Visible = false;
+            }
+
             LHealth.Text = (c.Stats[0] + statsUped[0]).ToString();
             LRobustness.Text = (c.Stats[1] + statsUped[1]).ToString();
             LStamina.Text = (c.Stats[2] + statsUped[2]).ToString();
             LDodge.Text = (c.Stats[3] + statsUped[3]).ToString();
             LPhysical.Text = (c.Stats[4] + statsUped[4]).ToString();
             LMagic.Text = (c.Stats[5] + statsUped[5]).ToString();
-            LStatPoint.Text = statPoint.ToString();
+            LStatPoint.Text = statPoint.ToString() + " Point(s)";
         }
 
         private void Plus_Click(object sender, EventArgs e)
@@ -142,6 +147,7 @@ namespace Services
                     break;
             }
 
+            BConfirm.Visible = true;
             statPoint--;
 
             if (statPoint == 0)
@@ -155,18 +161,13 @@ namespace Services
             LDodge.Text = (c.Stats[3] + statsUped[3]).ToString();
             LPhysical.Text = (c.Stats[4] + statsUped[4]).ToString();
             LMagic.Text = (c.Stats[5] + statsUped[5]).ToString();
-            LStatPoint.Text = statPoint.ToString();
+            LStatPoint.Text = statPoint.ToString() + " Point(s)";
         }
 
         private void Retour_Click(object sender, EventArgs e)
         {
             TeamManagement uc = new TeamManagement(t, _contextForm);
             _contextForm.ChangeUC(uc, false, true);
-
-            if (statsUped != new int[] { 0,0,0,0,0,0 })
-            {
-                c.StatsUp(statsUped[4], statsUped[5], statsUped[0], statsUped[1], statsUped[2], statsUped[3]);
-            }
         }
 
         internal void Stuffs (string type)
@@ -215,6 +216,24 @@ namespace Services
             t.RemoveMembers(c);
 
             Retour_Click(new object(), new EventArgs());
+        }
+
+        private void BConfirm_Click(object sender, EventArgs e)
+        {
+            if (statsUped != new int[] { 0, 0, 0, 0, 0, 0 })
+            {
+                c.StatsUp(statsUped[4], statsUped[5], statsUped[0], statsUped[1], statsUped[2], statsUped[3]);
+            }
+
+            BConfirm.Visible = false;
+            BHM.Visible = false;
+            BRM.Visible = false;
+            BSM.Visible = false;
+            BDM.Visible = false;
+            BAPM.Visible = false;
+            BAMM.Visible = false;
+
+            if (c.StatsPoint <= 0) LStatPoint.Visible = false;
         }
     }
 }

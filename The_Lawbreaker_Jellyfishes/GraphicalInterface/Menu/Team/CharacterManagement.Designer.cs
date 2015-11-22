@@ -69,6 +69,7 @@
             this.Cou = new System.Windows.Forms.Button();
             this.Retour = new System.Windows.Forms.Button();
             this.BFired = new System.Windows.Forms.Button();
+            this.BConfirm = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.PPlus.SuspendLayout();
             this.SuspendLayout();
@@ -86,7 +87,7 @@
             // LLevel
             // 
             this.LLevel.AutoSize = true;
-            this.LLevel.Location = new System.Drawing.Point(37, 81);
+            this.LLevel.Location = new System.Drawing.Point(33, 62);
             this.LLevel.Name = "LLevel";
             this.LLevel.Size = new System.Drawing.Size(33, 13);
             this.LLevel.TabIndex = 1;
@@ -95,7 +96,7 @@
             // LXP
             // 
             this.LXP.AutoSize = true;
-            this.LXP.Location = new System.Drawing.Point(168, 81);
+            this.LXP.Location = new System.Drawing.Point(164, 62);
             this.LXP.Name = "LXP";
             this.LXP.Size = new System.Drawing.Size(21, 13);
             this.LXP.TabIndex = 2;
@@ -221,6 +222,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.BConfirm);
             this.panel1.Controls.Add(this.LStatPoint);
             this.panel1.Controls.Add(this.BAMM);
             this.panel1.Controls.Add(this.BAPM);
@@ -242,9 +244,9 @@
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.LHealth);
             this.panel1.Controls.Add(this.label7);
-            this.panel1.Location = new System.Drawing.Point(24, 108);
+            this.panel1.Location = new System.Drawing.Point(20, 89);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(237, 215);
+            this.panel1.Size = new System.Drawing.Size(237, 252);
             this.panel1.TabIndex = 13;
             // 
             // LStatPoint
@@ -509,6 +511,17 @@
             this.BFired.UseVisualStyleBackColor = true;
             this.BFired.Click += new System.EventHandler(this.BFired_Click);
             // 
+            // BConfirm
+            // 
+            this.BConfirm.Location = new System.Drawing.Point(78, 220);
+            this.BConfirm.Name = "BConfirm";
+            this.BConfirm.Size = new System.Drawing.Size(75, 23);
+            this.BConfirm.TabIndex = 26;
+            this.BConfirm.Text = "Confirmer";
+            this.BConfirm.UseVisualStyleBackColor = true;
+            this.BConfirm.Visible = false;
+            this.BConfirm.Click += new System.EventHandler(this.BConfirm_Click);
+            // 
             // CharacterManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -581,5 +594,6 @@
         private System.Windows.Forms.Button BHP;
         private System.Windows.Forms.Label LStatPoint;
         private System.Windows.Forms.Button BFired;
+        private System.Windows.Forms.Button BConfirm;
     }
 }
