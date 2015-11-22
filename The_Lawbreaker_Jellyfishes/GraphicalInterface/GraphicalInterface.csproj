@@ -146,6 +146,12 @@
     <Compile Include="Menu\Team\TeamManagement.Designer.cs">
       <DependentUpon>TeamManagement.cs</DependentUpon>
     </Compile>
+    <Compile Include="CharacterBar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CharacterBar.Designer.cs">
+      <DependentUpon>CharacterBar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Services\CharacterInformations.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -247,6 +253,9 @@
     </Compile>
     <EmbeddedResource Include="Maps\World.resx">
       <DependentUpon>World.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CharacterBar.resx">
+      <DependentUpon>CharacterBar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Services\CharacterInformations.resx">
       <DependentUpon>CharacterInformations.cs</DependentUpon>
