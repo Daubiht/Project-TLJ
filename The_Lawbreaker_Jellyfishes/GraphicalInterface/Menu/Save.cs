@@ -49,7 +49,8 @@ namespace GraphicalInterface
 
         private void quit_Click(object sender, EventArgs e)
         {
-            _contextForm.Close();
+            ReceptionScreen uc = new ReceptionScreen(_contextForm);
+            _contextForm.ChangeUC(uc, false);
         }
     }
 }

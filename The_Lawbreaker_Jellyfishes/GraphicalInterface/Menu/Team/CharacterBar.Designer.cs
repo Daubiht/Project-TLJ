@@ -1,4 +1,4 @@
-﻿namespace GraphicalInterface.Services
+﻿namespace GraphicalInterface
 {
     partial class CharacterBar
     {
