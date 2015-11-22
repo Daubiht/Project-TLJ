@@ -30,8 +30,8 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.LError = new System.Windows.Forms.Label();
-            this.GBCharacter = new System.Windows.Forms.GroupBox();
             this.retour = new System.Windows.Forms.Button();
+            this.PTavern = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // label1
@@ -55,14 +55,6 @@
             this.LError.Text = "Votre équipe est pleine, vous ne pouvez plus engager de membre";
             this.LError.Visible = false;
             // 
-            // GBCharacter
-            // 
-            this.GBCharacter.Location = new System.Drawing.Point(3, 87);
-            this.GBCharacter.Name = "GBCharacter";
-            this.GBCharacter.Size = new System.Drawing.Size(407, 383);
-            this.GBCharacter.TabIndex = 2;
-            this.GBCharacter.TabStop = false;
-            // 
             // retour
             // 
             this.retour.Location = new System.Drawing.Point(332, 3);
@@ -73,12 +65,20 @@
             this.retour.UseVisualStyleBackColor = true;
             this.retour.Click += new System.EventHandler(this.retour_Click);
             // 
+            // PTavern
+            // 
+            this.PTavern.AutoScroll = true;
+            this.PTavern.Location = new System.Drawing.Point(0, 102);
+            this.PTavern.Name = "PTavern";
+            this.PTavern.Size = new System.Drawing.Size(410, 309);
+            this.PTavern.TabIndex = 4;
+            // 
             // Taverne
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.PTavern);
             this.Controls.Add(this.retour);
-            this.Controls.Add(this.GBCharacter);
             this.Controls.Add(this.LError);
             this.Controls.Add(this.label1);
             this.Name = "Taverne";
@@ -93,7 +93,7 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label LError;
-        private System.Windows.Forms.GroupBox GBCharacter;
         private System.Windows.Forms.Button retour;
+        private System.Windows.Forms.Panel PTavern;
     }
 }
