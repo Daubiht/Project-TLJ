@@ -48,7 +48,7 @@
             // 
             this.LError.AutoSize = true;
             this.LError.ForeColor = System.Drawing.Color.Red;
-            this.LError.Location = new System.Drawing.Point(44, 71);
+            this.LError.Location = new System.Drawing.Point(43, 58);
             this.LError.Name = "LError";
             this.LError.Size = new System.Drawing.Size(316, 13);
             this.LError.TabIndex = 1;
@@ -68,9 +68,9 @@
             // PTavern
             // 
             this.PTavern.AutoScroll = true;
-            this.PTavern.Location = new System.Drawing.Point(0, 102);
+            this.PTavern.Location = new System.Drawing.Point(0, 74);
             this.PTavern.Name = "PTavern";
-            this.PTavern.Size = new System.Drawing.Size(410, 309);
+            this.PTavern.Size = new System.Drawing.Size(410, 319);
             this.PTavern.TabIndex = 4;
             // 
             // Taverne

@@ -41,7 +41,7 @@ namespace GraphicalInterface
                 PTavern.Controls.Add(bg);
 
                 bg.Height = 70;
-                bg.Top = i * (bg.Height +5);
+                bg.Top = i * (bg.Height +2);
                 bg.Width = bg.Parent.Width;
 
                 bg.Controls.Add(name);
