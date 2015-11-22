@@ -39,6 +39,7 @@ namespace Services
             LDodge.Text = c.Dodge.ToString();
             LPhysical.Text = c.PhysicalAttack.ToString();
             LMagic.Text = c.MagicAttack.ToString();
+            if (c.IsMain == true) BFired.Visible = false;
 
             if ( c.StatsPoint > 0)
             {
@@ -201,6 +202,13 @@ namespace Services
         private void button2_Click(object sender, EventArgs e)
         {
             Stuffs("consommable");
+        }
+
+        private void BFired_Click(object sender, EventArgs e)
+        {
+            t.RemoveMembers(c);
+
+            Retour_Click(new object(), new EventArgs());
         }
     }
 }

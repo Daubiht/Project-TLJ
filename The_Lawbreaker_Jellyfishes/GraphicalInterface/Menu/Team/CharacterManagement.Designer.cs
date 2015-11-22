@@ -68,6 +68,7 @@
             this.Jambes = new System.Windows.Forms.Button();
             this.Cou = new System.Windows.Forms.Button();
             this.Retour = new System.Windows.Forms.Button();
+            this.BFired = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.PPlus.SuspendLayout();
             this.SuspendLayout();
@@ -498,10 +499,21 @@
             this.Retour.UseVisualStyleBackColor = true;
             this.Retour.Click += new System.EventHandler(this.Retour_Click);
             // 
+            // BFired
+            // 
+            this.BFired.Location = new System.Drawing.Point(308, 57);
+            this.BFired.Name = "BFired";
+            this.BFired.Size = new System.Drawing.Size(75, 23);
+            this.BFired.TabIndex = 23;
+            this.BFired.Text = "Renvoyer";
+            this.BFired.UseVisualStyleBackColor = true;
+            this.BFired.Click += new System.EventHandler(this.BFired_Click);
+            // 
             // CharacterManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.BFired);
             this.Controls.Add(this.Retour);
             this.Controls.Add(this.Cou);
             this.Controls.Add(this.Jambes);
@@ -568,5 +580,6 @@
         private System.Windows.Forms.Button BRP;
         private System.Windows.Forms.Button BHP;
         private System.Windows.Forms.Label LStatPoint;
+        private System.Windows.Forms.Button BFired;
     }
 }

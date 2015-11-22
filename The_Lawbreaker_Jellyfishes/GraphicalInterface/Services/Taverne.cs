@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using LogicalGame;
 using System.Threading;
+using Services;
 
 namespace GraphicalInterface
 {
@@ -27,29 +28,53 @@ namespace GraphicalInterface
 
                 GroupBox bg = new GroupBox();
                 Label name = new Label();
+                Label level = new Label();
                 Button get = new Button();
+                Button BInformation = new Button();
                 EventHandler eh = new EventHandler(engageMembre);
-
-                get.Height = 30;
-                get.Width = 30;
-                get.Click += eh;
-                get.Name = "name" + i;
-
-                name.Top = 50;
-                name.Text = randomCharacterList[i].Name;
-                name.Name = "name" + i;
-
-                bg.Controls.Add(name);
-                bg.Controls.Add(get);
-
-                get.Left = 100;
-                get.Top = get.Parent.Height / 2 - get.Width / 2;
 
                 GBCharacter.Controls.Add(bg);
 
                 bg.Top = (i * 100);
                 bg.Width = bg.Parent.Width;
+
+                bg.Controls.Add(name);
+                bg.Controls.Add(get);
+                bg.Controls.Add(BInformation);
+                bg.Controls.Add(level);
+
+                get.Text = "Recruter";
+                get.Click += eh;
+                get.Name = "name" + i;
+                get.Top = BInformation.Parent.Height / 2 - BInformation.Height / 2 - BInformation.Height;
+                get.Left = bg.Width - get.Width - 10; ;
+
+                name.Top = bg.Height / 2 - name.Height / 2; ;
+                name.Text = randomCharacterList[i].Name;
+                name.Name = "name" + i;
+
+                level.Text = "Niveau " + randomCharacterList[i].Level.ToString();
+                level.Top = bg.Height / 2 - level.Height / 2;
+                level.Left = name.Right + 10;
+
+                BInformation.Click += BInformation_Click;
+                BInformation.Tag = randomCharacterList[i];
+                BInformation.Text = "Informations";
+                BInformation.Left = bg.Width - BInformation.Width - 10;
+                BInformation.Top = bg.Height / 2 - BInformation.Height / 2 + 10;
+
+                
+
+               
             }
+        }
+
+        internal void BInformation_Click (object sender, EventArgs e)
+        {
+            Character c = (Character)((Button)sender).Tag;
+
+            CharacterInformations uc = new CharacterInformations(c, t, _contextForm);
+            _contextForm.ChangeUC(uc, false, true);
         }
 
         public void Taverne_Load(object sender, EventArgs e)
