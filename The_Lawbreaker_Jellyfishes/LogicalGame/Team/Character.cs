@@ -214,6 +214,7 @@ namespace LogicalGame
                 return false;
             }
 
+            if (_stuffs[item.Type] != null) UnwearIyem(item.Type);
             _team.Invent.RemoveItem(item);
             _stuffs[item.Type] = item;
             return true;

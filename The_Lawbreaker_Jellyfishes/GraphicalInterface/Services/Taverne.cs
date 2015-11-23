@@ -22,32 +22,33 @@ namespace GraphicalInterface
 
         public void ReloadTavern()
         {
-            GBCharacter.Controls.Clear();
+            PTavern.Controls.Clear();
             for (int i = 0; i < randomCharacterList.Count; i++)
             {
 
                 GroupBox bg = new GroupBox();
                 Label name = new Label();
                 Label level = new Label();
-                Button get = new Button();
+                Button BRecrut = new Button();
                 Button BInformation = new Button();
                 EventHandler eh = new EventHandler(engageMembre);
 
-                GBCharacter.Controls.Add(bg);
+                PTavern.Controls.Add(bg);
 
-                bg.Top = (i * 100);
+                bg.Height = 70;
+                bg.Top = i * (bg.Height +2);
                 bg.Width = bg.Parent.Width;
 
                 bg.Controls.Add(name);
-                bg.Controls.Add(get);
+                bg.Controls.Add(BRecrut);
                 bg.Controls.Add(BInformation);
                 bg.Controls.Add(level);
 
-                get.Text = "Recruter";
-                get.Click += eh;
-                get.Name = "name" + i;
-                get.Top = BInformation.Parent.Height / 2 - BInformation.Height / 2 - BInformation.Height;
-                get.Left = bg.Width - get.Width - 10; ;
+                BRecrut.Text = "Recruter";
+                BRecrut.Click += eh;
+                BRecrut.Name = "name" + i;
+                BRecrut.Top = 10;
+                BRecrut.Left = bg.Width - BRecrut.Width - 10; ;
 
                 name.Top = bg.Height / 2 - name.Height / 2; ;
                 name.Text = randomCharacterList[i].Name;
@@ -61,11 +62,7 @@ namespace GraphicalInterface
                 BInformation.Tag = randomCharacterList[i];
                 BInformation.Text = "Informations";
                 BInformation.Left = bg.Width - BInformation.Width - 10;
-                BInformation.Top = bg.Height / 2 - BInformation.Height / 2 + 10;
-
-                
-
-               
+                BInformation.Top = bg.Height - BInformation.Height - 5;               
             }
         }
 
@@ -107,10 +104,6 @@ namespace GraphicalInterface
                 member = randomCharacterList[i];
                 if (member.Name == name && find == false)
                 {
-                    
-                    Console.WriteLine(button.Name);
-                    Console.WriteLine(member.Name);
-                    Console.WriteLine(name);
                     find = true;
                     if (t.Members.Count < 4)
                     {
