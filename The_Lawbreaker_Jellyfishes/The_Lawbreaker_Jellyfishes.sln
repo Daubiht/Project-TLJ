@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Servic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkillsManager", "SkillsManager\SkillsManager.csproj", "{863E7128-121E-4E80-B450-EB5981A09A4F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MapEditor", "MapEditor\MapEditor.csproj", "{CC991AE8-AEBD-4D16-A50B-6A8C4CEF1074}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{863E7128-121E-4E80-B450-EB5981A09A4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{863E7128-121E-4E80-B450-EB5981A09A4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{863E7128-121E-4E80-B450-EB5981A09A4F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC991AE8-AEBD-4D16-A50B-6A8C4CEF1074}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC991AE8-AEBD-4D16-A50B-6A8C4CEF1074}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC991AE8-AEBD-4D16-A50B-6A8C4CEF1074}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC991AE8-AEBD-4D16-A50B-6A8C4CEF1074}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
