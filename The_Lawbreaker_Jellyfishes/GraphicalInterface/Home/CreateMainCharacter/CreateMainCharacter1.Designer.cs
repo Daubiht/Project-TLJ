@@ -59,6 +59,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.PseudoField.Location = new System.Drawing.Point(52, 3);
+            this.PseudoField.MaxLength = 10;
             this.PseudoField.Name = "PseudoField";
             this.PseudoField.Size = new System.Drawing.Size(177, 20);
             this.PseudoField.TabIndex = 1;
