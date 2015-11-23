@@ -31,7 +31,7 @@ namespace LogicalGame
             if ( totalPrice < _invent.GetGold )
             {
                 int compare = _invent.weight + (ItemBought.GetWeight*quantity);
-                if (_invent.MaxWeight > compare )
+                if (_invent.MaxWeight >= compare )
                 {
                     _invent.AddItem(ItemBought, quantity);
                     _invent.RemoveGold(totalPrice);
