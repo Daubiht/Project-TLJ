@@ -207,20 +207,26 @@ namespace LogicalGame
         //           Treatement of data
         //======================================
 
-        public bool WearItem (Item item)
+        public bool WearItem (Item item, string place)
         {
             if (_team == null)
             {
                 return false;
             }
 
-            if (_stuffs.ContainsKey(item.Type) && _stuffs[item.Type] != null) UnwearIyem(item.Type);
+            if (place == null)
+            {
+                place = item.Type;
+
+            }
+
+            if (_stuffs.ContainsKey(place) && _stuffs[place] != null) UnwearItem(place);
             _team.Invent.RemoveItem(item);
-            _stuffs[item.Type] = item;
+            _stuffs[place] = item;
             return true;
         }
 
-        public void UnwearIyem (string type)
+        public void UnwearItem (string type)
         {
             _team.Invent.AddItem(_stuffs[type], 1);
             _stuffs[type] = null;

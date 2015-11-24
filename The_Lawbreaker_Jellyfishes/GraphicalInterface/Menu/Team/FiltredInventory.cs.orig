@@ -80,8 +80,8 @@ namespace GraphicalInterface
             Item item = (Item)button.Tag;
             Object[] tag = new Object[2];
 
+<<<<<<< HEAD
             string infoItem = item.GetName + Environment.NewLine;
-            tag[0] = item;
             if (item.GetRequired.Count != 0)
             {
                 infoItem += Environment.NewLine + "Requis :";
@@ -101,6 +101,10 @@ namespace GraphicalInterface
             }
 
             LNewName.Text = infoItem;
+=======
+            tag[0] = item;
+            LNewName.Text = item.GetName;
+>>>>>>> Correction_by_Léo
             LNewName.Left = LNewName.Parent.Width / 2 - LNewName.Width / 2;
             BEquip.Visible = true;
             BEquip.Tag = tag;
@@ -135,8 +139,7 @@ namespace GraphicalInterface
             }
             else
             {
-                BDesequip.Tag = c.Stuffs[filtre];
-
+<<<<<<< HEAD
                 string infoItem = c.Stuffs[filtre].GetName + Environment.NewLine;
                 if (c.Stuffs[filtre].GetRequired.Count != 0)
                 {
@@ -157,6 +160,11 @@ namespace GraphicalInterface
                 }
 
                 LOldName.Text = infoItem;
+=======
+                BDesequip.Tag = c.Stuffs[filtre];
+
+                LOldName.Text = c.Stuffs[filtre].GetName;
+>>>>>>> Correction_by_Léo
                 LOldName.Left = LOldName.Parent.Width / 2 - LOldName.Width / 2;
                 LOldName.Top = 10;
 
