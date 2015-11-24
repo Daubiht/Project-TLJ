@@ -108,7 +108,7 @@
             this.PageSell.Text = "Vendre";
             this.PageSell.UseVisualStyleBackColor = true;
             // 
-            // IGMerchant
+            // Merchant
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -117,7 +117,7 @@
             this.Controls.Add(this.LGold);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
-            this.Name = "IGMerchant";
+            this.Name = "Merchant";
             this.Size = new System.Drawing.Size(400, 400);
             this.Load += new System.EventHandler(this.IGMerchant_Load);
             this.tabControl1.ResumeLayout(false);

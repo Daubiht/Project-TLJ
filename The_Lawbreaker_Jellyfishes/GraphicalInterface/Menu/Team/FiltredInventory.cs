@@ -74,7 +74,26 @@ namespace GraphicalInterface
             Button button = (Button)sender;
             Item item = (Item)button.Tag;
 
-            LNewName.Text = item.GetName;
+            string infoItem = item.GetName + Environment.NewLine;
+            if (item.GetRequired.Count != 0)
+            {
+                infoItem += Environment.NewLine + "Requis :";
+                foreach (string requi in item.GetRequired.Keys)
+                {
+                    infoItem += Environment.NewLine + item.GetRequired[requi] + " " + requi;
+                }
+            }
+
+            if (item.GetStats.Count != 0)
+            {
+                infoItem += Environment.NewLine + "Bonus :";
+                foreach (string bonus in item.GetStats.Keys)
+                {
+                    infoItem += Environment.NewLine + item.GetStats[bonus] + " " + bonus;
+                }
+            }
+
+            LNewName.Text = infoItem;
             LNewName.Left = LNewName.Parent.Width / 2 - LNewName.Width / 2;
             BEquip.Visible = true;
             BEquip.Tag = item;
@@ -108,7 +127,26 @@ namespace GraphicalInterface
             }
             else
             {
-                LOldName.Text = c.Stuffs[filtre].GetName;
+                string infoItem = c.Stuffs[filtre].GetName + Environment.NewLine;
+                if (c.Stuffs[filtre].GetRequired.Count != 0)
+                {
+                    infoItem += Environment.NewLine + "Requis :";
+                    foreach (string requi in c.Stuffs[filtre].GetRequired.Keys)
+                    {
+                        infoItem += Environment.NewLine + c.Stuffs[filtre].GetRequired[requi] + " " + requi;
+                    }
+                }
+
+                if (c.Stuffs[filtre].GetStats.Count != 0)
+                {
+                    infoItem += Environment.NewLine + "Bonus :";
+                    foreach (string bonus in c.Stuffs[filtre].GetStats.Keys)
+                    {
+                        infoItem += Environment.NewLine + c.Stuffs[filtre].GetStats[bonus] + " " + bonus;
+                    }
+                }
+
+                LOldName.Text = infoItem;
                 LOldName.Left = LOldName.Parent.Width / 2 - LOldName.Width / 2;
                 LOldName.Top = 10;
 

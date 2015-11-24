@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.PInfoOldItem = new System.Windows.Forms.Panel();
+            this.BDesequip = new System.Windows.Forms.Button();
+            this.LOldName = new System.Windows.Forms.Label();
             this.PInfoItem = new System.Windows.Forms.Panel();
+            this.BEquip = new System.Windows.Forms.Button();
+            this.LNewName = new System.Windows.Forms.Label();
             this.inventory = new System.Windows.Forms.Panel();
             this.BRetour = new System.Windows.Forms.Button();
-            this.LNewName = new System.Windows.Forms.Label();
-            this.LOldName = new System.Windows.Forms.Label();
-            this.BEquip = new System.Windows.Forms.Button();
             this.LError = new System.Windows.Forms.Label();
-            this.BDesequip = new System.Windows.Forms.Button();
             this.PInfoOldItem.SuspendLayout();
             this.PInfoItem.SuspendLayout();
             this.SuspendLayout();
@@ -51,6 +51,26 @@
             this.PInfoOldItem.Size = new System.Drawing.Size(195, 120);
             this.PInfoOldItem.TabIndex = 0;
             // 
+            // BDesequip
+            // 
+            this.BDesequip.Location = new System.Drawing.Point(51, 92);
+            this.BDesequip.Name = "BDesequip";
+            this.BDesequip.Size = new System.Drawing.Size(75, 23);
+            this.BDesequip.TabIndex = 2;
+            this.BDesequip.Text = "Déséquiper";
+            this.BDesequip.UseVisualStyleBackColor = true;
+            this.BDesequip.Visible = false;
+            this.BDesequip.Click += new System.EventHandler(this.Desequip_Click);
+            // 
+            // LOldName
+            // 
+            this.LOldName.AutoSize = true;
+            this.LOldName.Location = new System.Drawing.Point(74, 9);
+            this.LOldName.Name = "LOldName";
+            this.LOldName.Size = new System.Drawing.Size(0, 13);
+            this.LOldName.TabIndex = 1;
+            this.LOldName.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // PInfoItem
             // 
             this.PInfoItem.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -60,6 +80,26 @@
             this.PInfoItem.Name = "PInfoItem";
             this.PInfoItem.Size = new System.Drawing.Size(195, 120);
             this.PInfoItem.TabIndex = 1;
+            // 
+            // BEquip
+            // 
+            this.BEquip.Location = new System.Drawing.Point(58, 92);
+            this.BEquip.Name = "BEquip";
+            this.BEquip.Size = new System.Drawing.Size(75, 23);
+            this.BEquip.TabIndex = 1;
+            this.BEquip.Text = "Equiper";
+            this.BEquip.UseVisualStyleBackColor = true;
+            this.BEquip.Visible = false;
+            this.BEquip.Click += new System.EventHandler(this.Equip_Click);
+            // 
+            // LNewName
+            // 
+            this.LNewName.AutoSize = true;
+            this.LNewName.Location = new System.Drawing.Point(73, 9);
+            this.LNewName.Name = "LNewName";
+            this.LNewName.Size = new System.Drawing.Size(0, 13);
+            this.LNewName.TabIndex = 0;
+            this.LNewName.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // inventory
             // 
@@ -78,33 +118,6 @@
             this.BRetour.UseVisualStyleBackColor = true;
             this.BRetour.Click += new System.EventHandler(this.BRetour_Click);
             // 
-            // LNewName
-            // 
-            this.LNewName.AutoSize = true;
-            this.LNewName.Location = new System.Drawing.Point(73, 9);
-            this.LNewName.Name = "LNewName";
-            this.LNewName.Size = new System.Drawing.Size(0, 13);
-            this.LNewName.TabIndex = 0;
-            // 
-            // LOldName
-            // 
-            this.LOldName.AutoSize = true;
-            this.LOldName.Location = new System.Drawing.Point(74, 9);
-            this.LOldName.Name = "LOldName";
-            this.LOldName.Size = new System.Drawing.Size(0, 13);
-            this.LOldName.TabIndex = 1;
-            // 
-            // BEquip
-            // 
-            this.BEquip.Location = new System.Drawing.Point(58, 92);
-            this.BEquip.Name = "BEquip";
-            this.BEquip.Size = new System.Drawing.Size(75, 23);
-            this.BEquip.TabIndex = 1;
-            this.BEquip.Text = "Equiper";
-            this.BEquip.UseVisualStyleBackColor = true;
-            this.BEquip.Visible = false;
-            this.BEquip.Click += new System.EventHandler(this.Equip_Click);
-            // 
             // LError
             // 
             this.LError.AutoSize = true;
@@ -116,18 +129,7 @@
             this.LError.Text = "label1";
             this.LError.Visible = false;
             // 
-            // BDesequip
-            // 
-            this.BDesequip.Location = new System.Drawing.Point(51, 92);
-            this.BDesequip.Name = "BDesequip";
-            this.BDesequip.Size = new System.Drawing.Size(75, 23);
-            this.BDesequip.TabIndex = 2;
-            this.BDesequip.Text = "Déséquiper";
-            this.BDesequip.UseVisualStyleBackColor = true;
-            this.BDesequip.Visible = false;
-            this.BDesequip.Click += new System.EventHandler(this.Desequip_Click);
-            // 
-            // IGFiltredInventory
+            // FiltredInventory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -136,7 +138,7 @@
             this.Controls.Add(this.inventory);
             this.Controls.Add(this.PInfoItem);
             this.Controls.Add(this.PInfoOldItem);
-            this.Name = "IGFiltredInventory";
+            this.Name = "FiltredInventory";
             this.Size = new System.Drawing.Size(400, 400);
             this.Load += new System.EventHandler(this.IGFiltredInventory_Load);
             this.PInfoOldItem.ResumeLayout(false);
