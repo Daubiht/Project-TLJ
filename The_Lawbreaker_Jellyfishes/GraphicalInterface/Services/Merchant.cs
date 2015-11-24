@@ -165,7 +165,7 @@ namespace GraphicalInterface
                 minus.Tag = quantity;
                 minus.Click += new EventHandler(Minus_Click);
 
-                cost.Text = "" + i.GetValue + " PO";
+                cost.Text = Convert.ToInt32(i.GetValue * 0.8) + " PO";
                 cost.Width = 70;
                 cost.Left = minus.Left - cost.Width;
 

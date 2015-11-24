@@ -42,7 +42,7 @@ namespace LogicalGame
         // Sell an item
         public void SellItems(Item ItemSold)
         {
-            _invent.AddGold(ItemSold.GetValue);
+            _invent.AddGold(Convert.ToInt32(ItemSold.GetValue * 0.8));
             _invent.RemoveItem(ItemSold);
         }
 

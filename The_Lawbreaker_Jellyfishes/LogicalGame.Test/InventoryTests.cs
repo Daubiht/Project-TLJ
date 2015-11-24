@@ -82,7 +82,7 @@ namespace LogicalGame.Test
             ListItems listitems = new ListItems();
 
             List<Item> wantedList = new List<Item>();
-            Item item1 = new Item("Dague en bois", 5, 1, "Petite dague en bois, peu efficace en combat mais tres belle ouvrage", "arme");
+            Item item1 = new Item("Dague en bois", 5, 10, "Petite dague en bois, peu efficace en combat mais tres belle ouvrage", "arme");
 
             item1.AddStats("attaque physique", 5);
             item1.AddStats("esquive", 2);

@@ -54,7 +54,6 @@
     <Compile Include="CharacterTest.cs" />
     <Compile Include="MortuaryTests.cs" />
     <Compile Include="NotificationTests.cs" />
-    <Compile Include="persoTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RandomCharacterTests.cs" />
     <Compile Include="SkillsTests.cs" />
