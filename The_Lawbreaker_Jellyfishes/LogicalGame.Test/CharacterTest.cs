@@ -46,17 +46,17 @@ namespace LogicalGame.Test
 
             p1.EarnXp(00);
 
-            Assert.AreEqual(p1.StatsUp(1,0,0,0,0,0)[0], 11);
+            Assert.AreEqual(p1.StatsUp(1,0,0,0,0,0)[0], 6);
+            Assert.AreEqual(p1.IncreasePA(), 7);
+            Assert.AreEqual(p1.IncreasePA(), 8);
+            Assert.AreEqual(p1.IncreasePA(), 9);
+            Assert.AreEqual(p1.IncreasePA(), 10);
+            Assert.AreEqual(p1.IncreasePA(), 11);
             Assert.AreEqual(p1.IncreasePA(), 12);
             Assert.AreEqual(p1.IncreasePA(), 13);
             Assert.AreEqual(p1.IncreasePA(), 14);
             Assert.AreEqual(p1.IncreasePA(), 15);
-            Assert.AreEqual(p1.IncreasePA(), 16);
-            Assert.AreEqual(p1.IncreasePA(), 17);
-            Assert.AreEqual(p1.IncreasePA(), 18);
-            Assert.AreEqual(p1.IncreasePA(), 19);
-            Assert.AreEqual(p1.IncreasePA(), 20);
-            Assert.AreEqual(p1.IncreasePA(), 20);
+            Assert.AreEqual(p1.IncreasePA(), 15);
 
         }
 
