@@ -45,6 +45,8 @@
             this.LPhysical = new System.Windows.Forms.Label();
             this.LMagic = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.stuffstat1 = new System.Windows.Forms.Label();
+            this.BConfirm = new System.Windows.Forms.Button();
             this.LStatPoint = new System.Windows.Forms.Label();
             this.BAMM = new System.Windows.Forms.Button();
             this.BAPM = new System.Windows.Forms.Button();
@@ -69,7 +71,11 @@
             this.Cou = new System.Windows.Forms.Button();
             this.Retour = new System.Windows.Forms.Button();
             this.BFired = new System.Windows.Forms.Button();
-            this.BConfirm = new System.Windows.Forms.Button();
+            this.stuffstat2 = new System.Windows.Forms.Label();
+            this.stuffstat3 = new System.Windows.Forms.Label();
+            this.stuffstat4 = new System.Windows.Forms.Label();
+            this.stuffstat5 = new System.Windows.Forms.Label();
+            this.stuffstat6 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.PPlus.SuspendLayout();
             this.SuspendLayout();
@@ -169,7 +175,7 @@
             // LHealth
             // 
             this.LHealth.AutoSize = true;
-            this.LHealth.Location = new System.Drawing.Point(160, 51);
+            this.LHealth.Location = new System.Drawing.Point(116, 51);
             this.LHealth.Name = "LHealth";
             this.LHealth.Size = new System.Drawing.Size(22, 13);
             this.LHealth.TabIndex = 9;
@@ -178,7 +184,7 @@
             // LRobustness
             // 
             this.LRobustness.AutoSize = true;
-            this.LRobustness.Location = new System.Drawing.Point(160, 78);
+            this.LRobustness.Location = new System.Drawing.Point(116, 78);
             this.LRobustness.Name = "LRobustness";
             this.LRobustness.Size = new System.Drawing.Size(22, 13);
             this.LRobustness.TabIndex = 10;
@@ -187,7 +193,7 @@
             // LStamina
             // 
             this.LStamina.AutoSize = true;
-            this.LStamina.Location = new System.Drawing.Point(160, 108);
+            this.LStamina.Location = new System.Drawing.Point(116, 111);
             this.LStamina.Name = "LStamina";
             this.LStamina.Size = new System.Drawing.Size(22, 13);
             this.LStamina.TabIndex = 11;
@@ -196,7 +202,7 @@
             // LDodge
             // 
             this.LDodge.AutoSize = true;
-            this.LDodge.Location = new System.Drawing.Point(160, 137);
+            this.LDodge.Location = new System.Drawing.Point(116, 138);
             this.LDodge.Name = "LDodge";
             this.LDodge.Size = new System.Drawing.Size(22, 13);
             this.LDodge.TabIndex = 12;
@@ -205,7 +211,7 @@
             // LPhysical
             // 
             this.LPhysical.AutoSize = true;
-            this.LPhysical.Location = new System.Drawing.Point(160, 166);
+            this.LPhysical.Location = new System.Drawing.Point(116, 166);
             this.LPhysical.Name = "LPhysical";
             this.LPhysical.Size = new System.Drawing.Size(22, 13);
             this.LPhysical.TabIndex = 12;
@@ -214,7 +220,7 @@
             // LMagic
             // 
             this.LMagic.AutoSize = true;
-            this.LMagic.Location = new System.Drawing.Point(160, 194);
+            this.LMagic.Location = new System.Drawing.Point(116, 194);
             this.LMagic.Name = "LMagic";
             this.LMagic.Size = new System.Drawing.Size(22, 13);
             this.LMagic.TabIndex = 12;
@@ -222,6 +228,12 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.stuffstat6);
+            this.panel1.Controls.Add(this.stuffstat5);
+            this.panel1.Controls.Add(this.stuffstat4);
+            this.panel1.Controls.Add(this.stuffstat3);
+            this.panel1.Controls.Add(this.stuffstat2);
+            this.panel1.Controls.Add(this.stuffstat1);
             this.panel1.Controls.Add(this.BConfirm);
             this.panel1.Controls.Add(this.LStatPoint);
             this.panel1.Controls.Add(this.BAMM);
@@ -248,6 +260,26 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(237, 252);
             this.panel1.TabIndex = 13;
+            // 
+            // stuffstat1
+            // 
+            this.stuffstat1.AutoSize = true;
+            this.stuffstat1.Location = new System.Drawing.Point(152, 51);
+            this.stuffstat1.Name = "stuffstat1";
+            this.stuffstat1.Size = new System.Drawing.Size(13, 13);
+            this.stuffstat1.TabIndex = 27;
+            this.stuffstat1.Text = "a";
+            // 
+            // BConfirm
+            // 
+            this.BConfirm.Location = new System.Drawing.Point(78, 220);
+            this.BConfirm.Name = "BConfirm";
+            this.BConfirm.Size = new System.Drawing.Size(75, 23);
+            this.BConfirm.TabIndex = 26;
+            this.BConfirm.Text = "Confirmer";
+            this.BConfirm.UseVisualStyleBackColor = true;
+            this.BConfirm.Visible = false;
+            this.BConfirm.Click += new System.EventHandler(this.BConfirm_Click);
             // 
             // LStatPoint
             // 
@@ -511,16 +543,50 @@
             this.BFired.UseVisualStyleBackColor = true;
             this.BFired.Click += new System.EventHandler(this.BFired_Click);
             // 
-            // BConfirm
+            // stuffstat2
             // 
-            this.BConfirm.Location = new System.Drawing.Point(78, 220);
-            this.BConfirm.Name = "BConfirm";
-            this.BConfirm.Size = new System.Drawing.Size(75, 23);
-            this.BConfirm.TabIndex = 26;
-            this.BConfirm.Text = "Confirmer";
-            this.BConfirm.UseVisualStyleBackColor = true;
-            this.BConfirm.Visible = false;
-            this.BConfirm.Click += new System.EventHandler(this.BConfirm_Click);
+            this.stuffstat2.AutoSize = true;
+            this.stuffstat2.Location = new System.Drawing.Point(152, 78);
+            this.stuffstat2.Name = "stuffstat2";
+            this.stuffstat2.Size = new System.Drawing.Size(13, 13);
+            this.stuffstat2.TabIndex = 27;
+            this.stuffstat2.Text = "a";
+            // 
+            // stuffstat3
+            // 
+            this.stuffstat3.AutoSize = true;
+            this.stuffstat3.Location = new System.Drawing.Point(152, 111);
+            this.stuffstat3.Name = "stuffstat3";
+            this.stuffstat3.Size = new System.Drawing.Size(13, 13);
+            this.stuffstat3.TabIndex = 27;
+            this.stuffstat3.Text = "a";
+            // 
+            // stuffstat4
+            // 
+            this.stuffstat4.AutoSize = true;
+            this.stuffstat4.Location = new System.Drawing.Point(152, 138);
+            this.stuffstat4.Name = "stuffstat4";
+            this.stuffstat4.Size = new System.Drawing.Size(13, 13);
+            this.stuffstat4.TabIndex = 27;
+            this.stuffstat4.Text = "a";
+            // 
+            // stuffstat5
+            // 
+            this.stuffstat5.AutoSize = true;
+            this.stuffstat5.Location = new System.Drawing.Point(152, 166);
+            this.stuffstat5.Name = "stuffstat5";
+            this.stuffstat5.Size = new System.Drawing.Size(13, 13);
+            this.stuffstat5.TabIndex = 27;
+            this.stuffstat5.Text = "a";
+            // 
+            // stuffstat6
+            // 
+            this.stuffstat6.AutoSize = true;
+            this.stuffstat6.Location = new System.Drawing.Point(152, 194);
+            this.stuffstat6.Name = "stuffstat6";
+            this.stuffstat6.Size = new System.Drawing.Size(13, 13);
+            this.stuffstat6.TabIndex = 27;
+            this.stuffstat6.Text = "a";
             // 
             // CharacterManagement
             // 
@@ -595,5 +661,11 @@
         private System.Windows.Forms.Label LStatPoint;
         private System.Windows.Forms.Button BFired;
         private System.Windows.Forms.Button BConfirm;
+        private System.Windows.Forms.Label stuffstat1;
+        private System.Windows.Forms.Label stuffstat6;
+        private System.Windows.Forms.Label stuffstat5;
+        private System.Windows.Forms.Label stuffstat4;
+        private System.Windows.Forms.Label stuffstat3;
+        private System.Windows.Forms.Label stuffstat2;
     }
 }

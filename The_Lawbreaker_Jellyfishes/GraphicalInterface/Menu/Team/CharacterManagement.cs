@@ -39,7 +39,56 @@ namespace GraphicalInterface
             LDodge.Text = c.Dodge.ToString();
             LPhysical.Text = c.PhysicalAttack.ToString();
             LMagic.Text = c.MagicAttack.ToString();
-            if (c.IsMain == true) BFired.Visible = false;
+
+            int HealthStatStuff = 0;
+            int StaminaStatStuff = 0;
+            int RobustnessStatStuff = 0;
+            int DodgeStatStuff = 0;
+            int PhysicalStatStuff = 0;
+            int MagicStatStuff = 0;
+
+            foreach (Item i in c.Stuffs.Values)
+            {
+                if (i != null)
+                {
+                    foreach (string effect in i.GetStats.Keys)
+                    {
+                        if (effect == "attaque physique")
+                        {
+                            PhysicalStatStuff = i.GetStats[effect];
+                        }
+                        else if (effect == "attaque magique")
+                        {
+                            MagicStatStuff = i.GetStats[effect];
+                        }
+                        else if (effect == "esquive")
+                        {
+                            DodgeStatStuff = i.GetStats[effect];
+                        }
+                        else if (effect == "robustesse")
+                        {
+                            RobustnessStatStuff = i.GetStats[effect];
+                        }
+                        else if (effect == "fatigue")
+                        {
+                            StaminaStatStuff = i.GetStats[effect];
+                        }
+                        else if (effect == "vie")
+                        {
+                            HealthStatStuff = i.GetStats[effect];
+                        }
+                    }
+                }
+            }
+
+            stuffstat1.Text = "(+" + HealthStatStuff + ")";
+            stuffstat2.Text = "(+" + StaminaStatStuff + ")";
+            stuffstat3.Text = "(+" + RobustnessStatStuff + ")";
+            stuffstat4.Text = "(+" + DodgeStatStuff + ")";
+            stuffstat5.Text = "(+" + PhysicalStatStuff + ")";
+            stuffstat6.Text = "(+" + MagicStatStuff + ")";
+
+            if (c.IsMain) BFired.Visible = false;
 
             if ( c.StatsPoint > 0)
             {
