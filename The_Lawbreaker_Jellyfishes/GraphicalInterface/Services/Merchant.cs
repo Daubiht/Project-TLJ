@@ -122,8 +122,6 @@ namespace GraphicalInterface
                 ToolTip toolTip = new ToolTip();
                 Label cost = new Label();
 
-                string infoItem;
-
                 PObj.BorderStyle = BorderStyle.FixedSingle;
                 PObj.Top = j * 55;
                 PObj.Width = 387;
@@ -171,13 +169,35 @@ namespace GraphicalInterface
 
                 cost.Top = (PObj.Height / 2) - (cost.Height / 2);
 
-                infoItem = i.GetDescription;
+                string infoItem = i.GetName + " " + "(" + i.Type + ")" + Environment.NewLine + i.GetDescription +
+                                  Environment.NewLine + "Valeur : " + i.GetValue + Environment.NewLine + "Poids : " + i.GetWeight;
+
+                if (i.GetRequired.Count != 0)
+                {
+                    infoItem += Environment.NewLine + "Requis :";
+                    foreach (string requi in i.GetRequired.Keys)
+                    {
+                        infoItem += Environment.NewLine + i.GetRequired[requi] + " " + requi;
+                    }
+                }
+
+                if (i.GetStats.Count != 0)
+                {
+                    infoItem += Environment.NewLine + "Bonus :";
+                    foreach (string bonus in i.GetStats.Keys)
+                    {
+                        infoItem += Environment.NewLine + i.GetStats[bonus] + " " + bonus;
+                    }
+                }
 
                 toolTip.InitialDelay = 500;
                 toolTip.ReshowDelay = 500;
                 toolTip.ShowAlways = true;
                 toolTip.SetToolTip(PObj, infoItem);
-
+                toolTip.SetToolTip(name, infoItem);
+                toolTip.SetToolTip(sell, infoItem);
+                toolTip.SetToolTip(LQuantity, infoItem);
+                toolTip.SetToolTip(cost, infoItem);
 
                 PObj.Controls.Add(name);
                 PObj.Controls.Add(sell);
@@ -208,8 +228,6 @@ namespace GraphicalInterface
                 TextBox quantity = new TextBox();
                 ToolTip toolTip = new ToolTip();
                 Label cost = new Label();
-
-                string infoItem;
 
                 PObj.BorderStyle = BorderStyle.FixedSingle;
                 PObj.Top = i * 55;
@@ -251,12 +269,35 @@ namespace GraphicalInterface
                 cost.Left = minus.Left - cost.Width;
                 cost.Top = (PObj.Height / 2) - (cost.Height / 2);
 
-                infoItem = items[i].GetDescription;
+                string infoItem = items[i].GetName + " " + "(" + items[i].Type + ")" + Environment.NewLine + items[i].GetDescription +
+                  Environment.NewLine + "Valeur : " + items[i].GetValue + Environment.NewLine + "Poids : " + items[i].GetWeight;
+
+                if (items[i].GetRequired.Count != 0)
+                {
+                    infoItem += Environment.NewLine + "Requis :";
+                    foreach (string requi in items[i].GetRequired.Keys)
+                    {
+                        infoItem += Environment.NewLine + items[i].GetRequired[requi] + " " + requi;
+                    }
+                }
+
+                if (items[i].GetStats.Count != 0)
+                {
+                    infoItem += Environment.NewLine + "Bonus :";
+                    foreach (string bonus in items[i].GetStats.Keys)
+                    {
+                        infoItem += Environment.NewLine + items[i].GetStats[bonus] + " " + bonus;
+                    }
+                }
 
                 toolTip.InitialDelay = 500;
                 toolTip.ReshowDelay = 500;
                 toolTip.ShowAlways = true;
                 toolTip.SetToolTip(PObj, infoItem);
+                toolTip.SetToolTip(name, infoItem);
+                toolTip.SetToolTip(buy, infoItem);
+                toolTip.SetToolTip(quantity, infoItem);
+                toolTip.SetToolTip(cost, infoItem);
 
                 PObj.Controls.Add(name);
                 PObj.Controls.Add(buy);
