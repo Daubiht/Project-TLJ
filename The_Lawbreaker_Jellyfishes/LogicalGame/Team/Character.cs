@@ -218,7 +218,7 @@ namespace LogicalGame
                 return false;
             }
 
-            if (_stuffs[item.Type] != null) UnwearIyem(item.Type);
+            if (_stuffs.ContainsKey(item.Type) && _stuffs[item.Type] != null) UnwearIyem(item.Type);
             _team.Invent.RemoveItem(item);
             _stuffs[item.Type] = item;
             return true;
@@ -254,7 +254,7 @@ namespace LogicalGame
             _currentXp += xp;
 
         }
-
+         
         public Skill AddSkill (string name, Skill skill)
         {
             int[] stat = skill.statRequired;

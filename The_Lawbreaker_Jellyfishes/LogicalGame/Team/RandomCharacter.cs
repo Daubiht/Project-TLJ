@@ -147,14 +147,17 @@ namespace LogicalGame
             }
             while (perso.SkillPoint > 0 && st.Count > 0)
             {
-                s = st[ran.Next(0, st.Count)];
-
-                while (perso.AddSkill(s.Name, s) == null)
-                {
-                    s = s.PreviousSkill;
-                }
+                int rannbr = ran.Next(0, st.Count);
+                s = st[rannbr];
+                if (s != null)
+                { 
+                    while (perso.AddSkill(s.Name, s) == null)
+                    {
+                        s = s.PreviousSkill;
+                    }
 
                     st.Remove(s);
+                }
             }
 
             return perso;
