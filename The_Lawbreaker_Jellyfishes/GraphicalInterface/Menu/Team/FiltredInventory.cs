@@ -17,6 +17,7 @@ namespace Services
         Character c;
         MainForm _contextForm;
         string filtre;
+        string place;
 
         public FiltredInventory(Team team, Character chara, string type, MainForm contextForm)
         {
@@ -36,7 +37,8 @@ namespace Services
         private void Equip_Click (object sender, EventArgs e)
         {
             Button button = (Button)sender;
-            Item item = (Item)button.Tag;
+            Item item = (Item)((Object[])button.Tag)[0];
+            Object[] tag;
 
             if (filtre == "consommable")
             {
@@ -52,7 +54,10 @@ namespace Services
             }
             else
             {
-                if (!c.WearItem(item))
+                tag = (Object[])button.Tag;
+                if (button.Tag != null) place = (string)tag[1];
+
+                if (!c.WearItem(item, filtre))
                 {
                     LError.Text = "Impossible d'équiper cet objet";
                     LError.Visible = true;
@@ -72,7 +77,7 @@ namespace Services
             LNewName.Text = "";
             BEquip.Visible = false;
 
-            c.UnwearIyem(filtre);
+            c.UnwearItem(filtre);
             Reload();
         }
 
@@ -80,11 +85,13 @@ namespace Services
         {
             Button button = (Button)sender;
             Item item = (Item)button.Tag;
+            Object[] tag = new Object[2];
 
+            tag[0] = item;
             LNewName.Text = item.GetName;
             LNewName.Left = LNewName.Parent.Width / 2 - LNewName.Width / 2;
             BEquip.Visible = true;
-            BEquip.Tag = item;
+            BEquip.Tag = tag;
         }
 
         private void Reload ()
@@ -105,6 +112,7 @@ namespace Services
                 PInfoItem.Left = 5;
                 BEquip.Text = "Utiliser";
             }
+
             // Recup of current stuff
             if (!c.Stuffs.ContainsKey(filtre) || c.Stuffs[filtre] == null)
             {
@@ -115,19 +123,27 @@ namespace Services
             }
             else
             {
+                BDesequip.Tag = c.Stuffs[filtre];
+
                 LOldName.Text = c.Stuffs[filtre].GetName;
                 LOldName.Left = LOldName.Parent.Width / 2 - LOldName.Width / 2;
                 LOldName.Top = 10;
 
                 BDesequip.Visible = true;
-                BDesequip.Tag = c.Stuffs[filtre];
             }
 
             int i = 0;
             int j = 0;
+            string ffiltre = filtre;
+
+            if (ffiltre == "gauche" || ffiltre == "droite")
+            {
+                ffiltre = "arme";
+            }
+
             foreach (Item item in t.Invent.Inventory.Keys)
             {
-                if (item.Type == filtre)
+                if (item.Type == ffiltre)
                 {
                     Button b = new Button();
 

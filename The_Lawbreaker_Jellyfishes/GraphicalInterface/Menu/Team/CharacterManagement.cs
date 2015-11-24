@@ -45,6 +45,7 @@ namespace Services
             LDodge.Text = c.Dodge.ToString();
             LPhysical.Text = c.PhysicalAttack.ToString();
             LMagic.Text = c.MagicAttack.ToString();
+
             if (c.IsMain == true) BFired.Visible = false;
 
             if ( c.StatsPoint > 0)
@@ -54,8 +55,8 @@ namespace Services
                 LStatPoint.Text = c.StatsPoint + " Point(s)";
             }
 
-            if (c.Stuffs.ContainsKey("arme") && c.Stuffs["arme"] != null) toolTip.SetToolTip(Gauche, c.Stuffs["arme"].GetName);
-            if (c.Stuffs.ContainsKey("arme") && c.Stuffs["arme"] != null) toolTip.SetToolTip(Droite, c.Stuffs["arme"].GetName);
+            if (c.Stuffs.ContainsKey("gauche") && c.Stuffs["gauche"] != null) toolTip.SetToolTip(Gauche, c.Stuffs["gauche"].GetName);
+            if (c.Stuffs.ContainsKey("droite") && c.Stuffs["droite"] != null) toolTip.SetToolTip(Droite, c.Stuffs["droite"].GetName);
             if (c.Stuffs.ContainsKey("bijou") && c.Stuffs["bijou"] != null) toolTip.SetToolTip(Cou, c.Stuffs["bijou"].GetName);
             if (c.Stuffs.ContainsKey("jambes") && c.Stuffs["jambes"] != null) toolTip.SetToolTip(Jambes, c.Stuffs["jambes"].GetName);
             if (c.Stuffs.ContainsKey("corps") && c.Stuffs["corps"] != null) toolTip.SetToolTip(Corps, c.Stuffs["corps"].GetName);
@@ -178,12 +179,12 @@ namespace Services
 
         private void Gauche_Click(object sender, EventArgs e)
         {
-            Stuffs("arme");
+            Stuffs("gauche");
         }
 
         private void Droite_Click(object sender, EventArgs e)
         {
-            Stuffs("arme");
+            Stuffs("droite");
         }
 
         private void Tete_Click(object sender, EventArgs e)
