@@ -72,6 +72,7 @@
             // 
             this.RBVitality.AutoSize = true;
             this.RBVitality.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.RBVitality.Checked = true;
             this.RBVitality.Location = new System.Drawing.Point(87, 56);
             this.RBVitality.Name = "RBVitality";
             this.RBVitality.Size = new System.Drawing.Size(56, 17);
@@ -89,7 +90,6 @@
             this.RBDefensePosition.Name = "RBDefensePosition";
             this.RBDefensePosition.Size = new System.Drawing.Size(111, 17);
             this.RBDefensePosition.TabIndex = 56;
-            this.RBDefensePosition.TabStop = true;
             this.RBDefensePosition.Text = "Position défensive";
             this.RBDefensePosition.UseVisualStyleBackColor = true;
             // 
@@ -101,7 +101,6 @@
             this.RBEffort.Name = "RBEffort";
             this.RBEffort.Size = new System.Drawing.Size(50, 17);
             this.RBEffort.TabIndex = 57;
-            this.RBEffort.TabStop = true;
             this.RBEffort.Text = "Effort";
             this.RBEffort.UseVisualStyleBackColor = true;
             // 
@@ -113,7 +112,6 @@
             this.RBConcentredHit.Name = "RBConcentredHit";
             this.RBConcentredHit.Size = new System.Drawing.Size(115, 17);
             this.RBConcentredHit.TabIndex = 58;
-            this.RBConcentredHit.TabStop = true;
             this.RBConcentredHit.Text = "Frappe concentrée";
             this.RBConcentredHit.UseVisualStyleBackColor = true;
             // 
@@ -125,7 +123,6 @@
             this.RBEnergeticShot.Name = "RBEnergeticShot";
             this.RBEnergeticShot.Size = new System.Drawing.Size(96, 17);
             this.RBEnergeticShot.TabIndex = 59;
-            this.RBEnergeticShot.TabStop = true;
             this.RBEnergeticShot.Text = "Tir énergétique";
             this.RBEnergeticShot.UseVisualStyleBackColor = true;
             // 
@@ -137,7 +134,6 @@
             this.RBInstinct.Name = "RBInstinct";
             this.RBInstinct.Size = new System.Drawing.Size(59, 17);
             this.RBInstinct.TabIndex = 60;
-            this.RBInstinct.TabStop = true;
             this.RBInstinct.Text = "Instinct";
             this.RBInstinct.UseVisualStyleBackColor = true;
             // 

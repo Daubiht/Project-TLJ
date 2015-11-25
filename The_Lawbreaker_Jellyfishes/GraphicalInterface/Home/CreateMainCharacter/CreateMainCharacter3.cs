@@ -12,19 +12,26 @@ namespace GraphicalInterface
 
         Character _C1;
         private MainForm _context;
+        SkillList _skillList;
+        int[] _statsFromScreen2; // used to reset all the basic stats to +5 if the user come back to screen 2
 
         // Constructor
-        public CreateMainCharacter3(Character CreatedCharacter, MainForm context)
+        public CreateMainCharacter3(Character CreatedCharacter, MainForm context, int[] stat)
         {
             InitializeComponent();
             _C1 = CreatedCharacter;
             _context = context;
+            _statsFromScreen2 = stat;
+            _skillList = new SkillList();
 
+
+            // A tooltip is a bubble where we display informations when the mouse is on a checkbox
+            // One tooltip for one radio button
             ToolTip toolTipVitality = new ToolTip();
             toolTipVitality.InitialDelay = 250;
             toolTipVitality.ReshowDelay = 500;
             toolTipVitality.ShowAlways = true;
-            toolTipVitality.AutoPopDelay = 32000;
+            toolTipVitality.AutoPopDelay = 32000; // We display informations during 32 seconds
             toolTipVitality.SetToolTip(RBVitality, "Passif" + Environment.NewLine + "Description :  +X PV" + Environment.NewLine + "Coût : aucun" + Environment.NewLine +
                 "Position : toutes" + Environment.NewLine + "Cible : soi-même");
 
@@ -72,13 +79,17 @@ namespace GraphicalInterface
         // _______________________ Back button _____________________
         private void buttonBack_Click(object sender, EventArgs e)
         {
+            // we reset all the basic stats that screen 2 gave to screen 3, example : physical attack +25 will be reset to +5
+            _C1.StatsDown(_statsFromScreen2[0]-_statsFromScreen2[6], _statsFromScreen2[1] - _statsFromScreen2[6], _statsFromScreen2[2] - _statsFromScreen2[6], _statsFromScreen2[3] - _statsFromScreen2[6], _statsFromScreen2[4] - _statsFromScreen2[6], _statsFromScreen2[5] - _statsFromScreen2[6]);
             CreateMainCharacter2 uc = new CreateMainCharacter2(_C1, _context);
             _context.ChangeUC(uc, false);
         }
         // _____________________ Next button ___________________
         private void buttonNext_Click(object sender, EventArgs e)
         {
-            int i = CheckSkillChoosen;
+            // Choose the skill
+            ChosenSkill();
+            // Define the character as the main
             _C1.IsMain = true;
 
             IFormatter formatter = new BinaryFormatter();
@@ -94,19 +105,15 @@ namespace GraphicalInterface
             _context.ChangeUC(uc, true);
         }
 
-        // Check what skill the user chose
-        private int CheckSkillChoosen
+        // Here we assign the chosen skill to the character
+        private void ChosenSkill()
         {
-            get
-            {
-                if (RBVitality.Checked) return 1;
-                if (RBDefensePosition.Checked) return 2;
-                if (RBEffort.Checked) return 3;
-                if (RBConcentredHit.Checked) return 4;
-                if (RBEnergeticShot.Checked) return 5;
-                if (RBInstinct.Checked) return 6;
-                return 0;
-            }
+            if (RBVitality.Checked) _C1.AddSkill(_skillList.ObtainList["Vitalité"].Name, _skillList.ObtainList["Vitalité"]);
+            if (RBDefensePosition.Checked) _C1.AddSkill(_skillList.ObtainList["Position défensive"].Name, _skillList.ObtainList["Position défensive"]);
+            if (RBEffort.Checked) _C1.AddSkill(_skillList.ObtainList["Infatigable"].Name, _skillList.ObtainList["Infatigable"]);
+            if (RBConcentredHit.Checked) _C1.AddSkill(_skillList.ObtainList["slash"].Name, _skillList.ObtainList["slash"]);
+            if (RBEnergeticShot.Checked) _C1.AddSkill(_skillList.ObtainList["energy ball"].Name, _skillList.ObtainList["energy ball"]);
+            if (RBInstinct.Checked) _C1.AddSkill(_skillList.ObtainList["Instinct"].Name, _skillList.ObtainList["Instinct"]);
         }
     }
 }
