@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 using LogicalGame;
 
@@ -86,8 +87,25 @@ namespace GraphicalInterface
             if (jeter.BackColor == Color.DarkRed)
             {
                 Item i = ((Button)sender).Tag as Item;
-                _inventory.RemoveItem(i);
-                Inventory_Load(sender, e);
+                if (_inventory.RemoveItem(i) == 0)
+                {
+                    int j = 0;
+                    int k = 0;
+
+                    panel1.Controls.Remove((Button) sender);
+
+                    foreach (Button button in panel1.Controls)
+                    {
+                        if (j > 4)
+                        {
+                            j = 0;
+                            k++;
+                        }
+                        button.Left = j * 75;
+                        button.Top = k * 50;
+                        j++;
+                    }
+                }
             }
         }
         private void jeter_Click(object sender, EventArgs e)
