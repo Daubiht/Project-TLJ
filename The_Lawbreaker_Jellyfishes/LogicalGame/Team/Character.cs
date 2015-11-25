@@ -505,6 +505,41 @@ namespace LogicalGame
             return true;
         }
 
+        // This method allow the character to attack a monster
+        public void Attack(Monster[] MonsterToKill)
+        {
+            // Repertory every alive FRONT MONSTERS, list used by FRONT MEMBERS
+            List<Monster> listFrontMonsters = new List<Monster>();
+            // Repertory every alive FRONT AND HIDDEN MONSTERS, list used by HIDDEN MEMBERS
+            List<Monster> listFrontHiddenMonsters = new List<Monster>();
 
+            foreach (Monster m in MonsterToKill)
+            {
+                // Add alive front monsters
+               if( m.Alive == true && m.FrontPosition == true ) listFrontMonsters.Add(m);
+               // Add alive front and hidden monsters
+               if( m.Alive == true ) listFrontHiddenMonsters.Add(m);
+            }
+            // Check if the member is alive to attack
+            if (_isAlive == true)
+            {
+                // Check if the member is in front position
+                if(_frontPosition == true)
+                {
+                    Random rdm = new Random();
+                    // Generate a random index which represent the targetted monster 
+                    int indexRdmMonster = rdm.Next(0, listFrontMonsters.Count - 1);
+                    listFrontMonsters[indexRdmMonster].Hurt(_physicalAttack);
+                }
+                // Check if the member is in hidden position
+                if (_frontPosition == false)
+                {
+                    Random rdm = new Random();
+                    // Generate a random index which represent the targetted monster 
+                    int indexRdmMonster = rdm.Next(0, listFrontHiddenMonsters.Count - 1);
+                    listFrontHiddenMonsters[indexRdmMonster].Hurt(_physicalAttack);
+                }
+            }
+        }
     }
 }

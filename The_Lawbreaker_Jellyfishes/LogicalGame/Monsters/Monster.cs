@@ -23,6 +23,7 @@ namespace LogicalGame
         int _maxStaminaPoint;
 
         bool _frontPosition;
+        bool _isAlive;
 
         readonly Dictionary<String, Skill> _skills;
         readonly Dictionary<Item, int> _drop;
@@ -49,6 +50,7 @@ namespace LogicalGame
             _healthPoint = stamina;
 
             _frontPosition = true;
+            _isAlive = true;
 
             _skills = new Dictionary<string, Skill>();
             _drop = new Dictionary<Item, int>();
@@ -135,6 +137,11 @@ namespace LogicalGame
             return false;
         }
 
+        public bool Alive
+        {
+            get { return _isAlive; }
+        }
+
         //======================================
         //           Treatement of data
         //======================================
@@ -182,6 +189,23 @@ namespace LogicalGame
             return null;
         }
 
+        public int Hurt(int damage)
+        {
+            if (damage < 0)
+            {
+                throw new ArgumentException();
+            }
+
+            _healthPoint -= damage;
+
+            if (_healthPoint <= 0)
+            {
+                _healthPoint = 0;
+                _isAlive = false;
+            }
+            return _healthPoint;
+        }
+
         public void RemoveSkill (Skill skill)
         {
             _skills.Remove(skill.Name);
@@ -210,6 +234,44 @@ namespace LogicalGame
             }
 
             return false;
+        }
+
+        // This methods allows the monster to attack a member of the team
+        public void Attack(Team teamToAttack)
+        {
+            // List to repertory every alive FRONT MEMBERS, list used by FRONT MONSTERS
+            List<Character> listFrontFMembers = new List<Character>();
+            // List to repertory every alive FRONT AND HIDDEN MEMBERS, list used by HIDDEN MONSTERS
+            List<Character> listFrontHiddenMembers = new List<Character>();
+
+            // Classify front or hidden members of the team
+            foreach ( Character c in teamToAttack.Members)
+            {
+                // Classify alive front members, this list is used for monsters in front position
+                if ( c.FrontPosition == true & c.isAlive == true ) listFrontFMembers.Add(c); 
+                // Classify alive front + hidden members, this list is used for monsters in hidden position
+                if ( c.isAlive == true ) listFrontHiddenMembers.Add(c);
+            }
+            // if the monster is alive he can attack
+            if ( _isAlive )
+            {
+                // If the monster is in front position he can only attack front member
+                if( _frontPosition == true )
+                {
+                    Random rdm = new Random();
+                    // Generate a random index which represent the targetted member 
+                    int indexRdmMember = rdm.Next(0, listFrontFMembers.Count - 1);
+                    listFrontFMembers[indexRdmMember].Hurt(_physicalAttack);
+                }
+                // If the monster is in hidden position he can attack front or hidden members
+                if ( _frontPosition == false )
+                {
+                    Random rdm = new Random();
+                    // Generate a random index which represent the targetted member 
+                    int indexRdmMember = rdm.Next(0, listFrontHiddenMembers.Count - 1);
+                    listFrontHiddenMembers[indexRdmMember].Hurt(_physicalAttack);
+                }
+            }
         }
     }
 }
