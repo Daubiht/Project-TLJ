@@ -196,14 +196,14 @@ namespace LogicalGame
                 throw new ArgumentException();
             }
 
-            _healthPoint -= damage;
+            _health -= damage;
 
-            if (_healthPoint <= 0)
+            if (_health <= 0)
             {
-                _healthPoint = 0;
+                _health = 0;
                 _isAlive = false;
             }
-            return _healthPoint;
+            return _health;
         }
 
         public void RemoveSkill (Skill skill)

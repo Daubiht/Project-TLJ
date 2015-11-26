@@ -15,12 +15,12 @@ namespace LogicalGame
 
         // current team who fights
         Team _team;
-        Monster[] _monsters;
+        List<Monster> _monsters;
 
         // Constructor
-        public Fight(Monster[] monsterToKill, Team TeamWhoFights)
+        public Fight(List<Monster> MonstersToKill, Team TeamWhoFights)
         {
-            _monsters = monsterToKill;
+            _monsters = MonstersToKill;
             _team = TeamWhoFights;
             _isEndFight = false;
         }
@@ -39,6 +39,7 @@ namespace LogicalGame
                 }
                 // Check who attacks
                 IsTeamToAttack();
+
                 gameLoop();
             }
         }
@@ -86,6 +87,10 @@ namespace LogicalGame
             // its team's turn to attack
             else if ( _isTeamToAttack == true)
             {
+                foreach ( Character c in _team.Members )
+                {
+                    c.Attack(_monsters);
+                }
                 _isTeamToAttack = false;
             }
         }

@@ -506,7 +506,7 @@ namespace LogicalGame
         }
 
         // This method allow the character to attack a monster
-        public void Attack(Monster[] MonsterToKill)
+        public void Attack(List<Monster> MonsterToKill)
         {
             // Repertory every alive FRONT MONSTERS, list used by FRONT MEMBERS
             List<Monster> listFrontMonsters = new List<Monster>();
