@@ -158,6 +158,12 @@
     <Compile Include="Services\CharacterInformations.Designer.cs">
       <DependentUpon>CharacterInformations.cs</DependentUpon>
     </Compile>
+    <Compile Include="Services\ItemInformations.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Services\ItemInformations.Designer.cs">
+      <DependentUpon>ItemInformations.cs</DependentUpon>
+    </Compile>
     <Compile Include="Services\Merchant.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -259,6 +265,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Services\CharacterInformations.resx">
       <DependentUpon>CharacterInformations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Services\ItemInformations.resx">
+      <DependentUpon>ItemInformations.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Services\Merchant.resx">
       <DependentUpon>Merchant.cs</DependentUpon>

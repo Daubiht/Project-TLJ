@@ -32,10 +32,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.LGold = new System.Windows.Forms.Label();
             this.LError = new System.Windows.Forms.Label();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.ItemLists = new System.Windows.Forms.TabControl();
             this.PageBuy = new System.Windows.Forms.TabPage();
             this.PageSell = new System.Windows.Forms.TabPage();
-            this.tabControl1.SuspendLayout();
+            this.ItemLists.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -69,22 +69,23 @@
             // 
             this.LError.AutoSize = true;
             this.LError.ForeColor = System.Drawing.Color.Red;
-            this.LError.Location = new System.Drawing.Point(132, 45);
+            this.LError.Location = new System.Drawing.Point(136, 14);
             this.LError.Name = "LError";
             this.LError.Size = new System.Drawing.Size(29, 13);
             this.LError.TabIndex = 4;
             this.LError.Text = "Error";
             this.LError.Visible = false;
             // 
-            // tabControl1
+            // ItemLists
             // 
-            this.tabControl1.Controls.Add(this.PageBuy);
-            this.tabControl1.Controls.Add(this.PageSell);
-            this.tabControl1.Location = new System.Drawing.Point(3, 61);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(397, 339);
-            this.tabControl1.TabIndex = 5;
+            this.ItemLists.Controls.Add(this.PageBuy);
+            this.ItemLists.Controls.Add(this.PageSell);
+            this.ItemLists.Location = new System.Drawing.Point(3, 61);
+            this.ItemLists.Name = "ItemLists";
+            this.ItemLists.SelectedIndex = 0;
+            this.ItemLists.Size = new System.Drawing.Size(397, 339);
+            this.ItemLists.TabIndex = 5;
+            this.ItemLists.SelectedIndexChanged += new System.EventHandler(this.TableChanged);
             // 
             // PageBuy
             // 
@@ -94,6 +95,7 @@
             this.PageBuy.Padding = new System.Windows.Forms.Padding(3);
             this.PageBuy.Size = new System.Drawing.Size(389, 313);
             this.PageBuy.TabIndex = 0;
+            this.PageBuy.Tag = "Buy";
             this.PageBuy.Text = "Acheter";
             this.PageBuy.UseVisualStyleBackColor = true;
             // 
@@ -105,22 +107,23 @@
             this.PageSell.Padding = new System.Windows.Forms.Padding(3);
             this.PageSell.Size = new System.Drawing.Size(389, 313);
             this.PageSell.TabIndex = 1;
+            this.PageSell.Tag = "Sell";
             this.PageSell.Text = "Vendre";
             this.PageSell.UseVisualStyleBackColor = true;
             // 
-            // IGMerchant
+            // Merchant
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.ItemLists);
             this.Controls.Add(this.LError);
             this.Controls.Add(this.LGold);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
-            this.Name = "IGMerchant";
+            this.Name = "Merchant";
             this.Size = new System.Drawing.Size(400, 400);
             this.Load += new System.EventHandler(this.IGMerchant_Load);
-            this.tabControl1.ResumeLayout(false);
+            this.ItemLists.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -132,7 +135,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label LGold;
         private System.Windows.Forms.Label LError;
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl ItemLists;
         private System.Windows.Forms.TabPage PageBuy;
         private System.Windows.Forms.TabPage PageSell;
     }
