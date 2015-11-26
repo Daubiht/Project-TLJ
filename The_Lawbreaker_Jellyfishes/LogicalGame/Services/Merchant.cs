@@ -9,7 +9,6 @@ namespace LogicalGame
 
         readonly List<Item> _sellableItems;
         Invent _invent;
-        MapCity _contextCity;
         string _name;
         
         // Constructor
@@ -54,7 +53,6 @@ namespace LogicalGame
             get{ return _sellableItems; }
         }
 
-        // Temporary property for the MerchantTest 
         public Invent Invent
         {
             get { return _invent; }
@@ -64,16 +62,6 @@ namespace LogicalGame
         public string Name
         {
             get { return _name; }
-        }
-
-        public MapCity City
-        {
-            get { return _contextCity; }
-            set
-            {
-                _contextCity = value;
-                _invent = _contextCity.ActualIsland.ActualWorld.Team.Invent;
-            }
         }
     }
 }

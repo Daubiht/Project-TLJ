@@ -10,13 +10,14 @@ namespace GraphicalInterface
     {
         private MainForm _contextForm;
 
-        Team _t;
+        Invent _invent;
         LogicalGame.Merchant m;
 
-        public Merchant(MainForm contextForm, LogicalGame.Merchant merchant, Team t)
+        public Merchant(MainForm contextForm, LogicalGame.Merchant merchant, Invent invent)
         {
-            _t = t;
+            _invent = invent;
             m = merchant;
+            m.Invent = _invent;
             _contextForm = contextForm;
 
             InitializeComponent();
@@ -31,7 +32,7 @@ namespace GraphicalInterface
 
             m.BuyItems(item, quantity);
 
-            LGold.Text = _t.Invent.GetGold.ToString();
+            LGold.Text = _invent.GetGold.ToString();
             LoadItemToSell();
 
         }
@@ -43,11 +44,11 @@ namespace GraphicalInterface
             int quantity = int.Parse(button.Parent.Controls.Find("quantity", false)[0].Text);
             Item item = (Item)button.Tag;
 
-            Console.WriteLine(_t.Invent.Inventory.ContainsKey(item));
-            Console.WriteLine(_t.Invent.Inventory[item]);
+            Console.WriteLine(_invent.Inventory.ContainsKey(item));
+            Console.WriteLine(_invent.Inventory[item]);
             Console.WriteLine(quantity);
 
-            if (_t.Invent.Inventory.ContainsKey(item) && quantity <= _t.Invent.Inventory[item])
+            if (_invent.Inventory.ContainsKey(item) && quantity <= _invent.Inventory[item])
             {
                 for (int i = 0; i < quantity; i++)
                 {
@@ -60,7 +61,7 @@ namespace GraphicalInterface
                 LError.Visible = true;
             }
 
-            LGold.Text = _t.Invent.GetGold.ToString();
+            LGold.Text = _invent.GetGold.ToString();
             LoadItemToSell();
 
         }
@@ -73,7 +74,7 @@ namespace GraphicalInterface
 
             int quant = int.Parse(quantity.Text) + 1;
 
-            if (quant <= _t.Invent.Inventory[(Item)tag[1]])
+            if (quant <= _invent.Inventory[(Item)tag[1]])
             {
                 quantity.Text = "" + quant;
             }
@@ -104,7 +105,7 @@ namespace GraphicalInterface
 
         internal void LoadItemToSell()
         {
-            Dictionary<Item, int> items = _t.Invent.Inventory;
+            Dictionary<Item, int> items = _invent.Inventory;
             int j = 0;
 
             PageSell.Controls.Clear();
@@ -209,7 +210,7 @@ namespace GraphicalInterface
 
                 PageSell.Controls.Add(PObj);
 
-                LGold.Text = _t.Invent.GetGold.ToString();
+                LGold.Text = _invent.GetGold.ToString();
                 j++;
             }
         }
@@ -308,7 +309,7 @@ namespace GraphicalInterface
 
                 PageBuy.Controls.Add(PObj);
 
-                LGold.Text = _t.Invent.GetGold.ToString();
+                LGold.Text = _invent.GetGold.ToString();
 
                 LoadItemToSell();
             }

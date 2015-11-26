@@ -97,11 +97,6 @@ namespace LogicalGame
                 MapIsland newIsland = new MapIsland(this, islandsNames[i]);
 
                 MapCity newCity = new MapCity(newIsland, citiesNames[i], listMerchants[i]);
-                foreach (Merchant m in newCity.Merchant)
-                {
-                    m.City = newCity;
-                }
-
                 newIsland.AddCity(newCity);
 
                 List<MapInstance> listInstanceForThisIsland = new List<MapInstance>();
