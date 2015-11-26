@@ -30,7 +30,7 @@ namespace GraphicalInterface
 
         private void Marchand_Click(object sender, EventArgs e)
         {
-            Merchant uc = new Merchant(_contextForm, _contextWorld.Islands[_contextWorld.ActualIsland].IslandCity.Merchant[0], _contextWorld.Team);
+            Merchant uc = new Merchant(_contextForm, _contextWorld.Islands[_contextWorld.ActualIsland].IslandCity.Merchant[0], _contextWorld.Team.Invent);
             _contextForm.ToMenu(uc, true);
         }
 
