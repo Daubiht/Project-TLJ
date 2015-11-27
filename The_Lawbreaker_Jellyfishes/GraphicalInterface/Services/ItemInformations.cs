@@ -29,6 +29,11 @@ namespace GraphicalInterface.Services
             set { LName.Text = value; }
         }
 
+        public Label ItemNameLabel
+        {
+            get { return LName; }
+        }
+
         public string ItemPrice
         {
             get { return LPrice.Text; }

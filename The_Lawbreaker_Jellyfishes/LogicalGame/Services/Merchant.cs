@@ -27,7 +27,7 @@ namespace LogicalGame
             int totalPrice = ItemBought.GetValue * quantity;
 
             // Check if the invent team has enought money
-            if ( totalPrice < _invent.GetGold )
+            if (totalPrice < _invent.GetGold)
             {
                 int compare = _invent.weight + (ItemBought.GetWeight*quantity);
                 if (_invent.MaxWeight >= compare )

@@ -98,6 +98,10 @@ namespace LogicalGame
 
                 MapCity newCity = new MapCity(newIsland, citiesNames[i], listMerchants[i]);
                 newIsland.AddCity(newCity);
+                foreach(Merchant m in listMerchants[i])
+                {
+                    m.Invent = _team.Invent;
+                }
 
                 List<MapInstance> listInstanceForThisIsland = new List<MapInstance>();
                 for(int i2 = 0; i2 < listInstancesNames[i].Count; i2++)
