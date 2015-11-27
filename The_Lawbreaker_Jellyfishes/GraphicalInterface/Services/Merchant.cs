@@ -11,16 +11,15 @@ namespace GraphicalInterface
     {
         private MainForm _contextForm;
 
-        Team _t;
+        Invent _invent;
         LogicalGame.Merchant m;
 
-        public Merchant(MainForm contextForm, LogicalGame.Merchant merchant, Team t)
+        public Merchant(MainForm contextForm, LogicalGame.Merchant merchant, Invent invent)
         {
-            _t = t;
+            _invent = invent;
             m = merchant;
             _contextForm = contextForm;
 
-            m.Invent = t.Invent;
 
             InitializeComponent();
         }
@@ -34,7 +33,7 @@ namespace GraphicalInterface
 
             m.BuyItems(item, quantity);
 
-            LGold.Text = _t.Invent.GetGold.ToString();
+            LGold.Text = _invent.GetGold.ToString();
             LoadItemToSell();
 
         }
@@ -46,16 +45,16 @@ namespace GraphicalInterface
             int quantity = int.Parse(button.Parent.Controls.Find("NQuantity", false)[0].Text);
             Item item = (Item)button.Tag;
 
-            if (_t.Invent.Inventory.ContainsKey(item) && quantity <= _t.Invent.Inventory[item])
+            if (_invent.Inventory.ContainsKey(item) && quantity <= _invent.Inventory[item])
             {
                 for (int i = 0; i < quantity; i++)
                 {
                     m.SellItems(item);
                 }
-                if (_t.Invent.Inventory.ContainsKey(item) && _t.Invent.Inventory[item] > 0)
+                if (_invent.Inventory.ContainsKey(item) && _invent.Inventory[item] > 0)
                 {
-                    ((ItemInformations)button.Parent).ItemQuantityLabel.Text = "x " + _t.Invent.Inventory[item].ToString();
-                    ((ItemInformations)button.Parent).ItemMaximumQuantity = _t.Invent.Inventory[item];
+                    ((ItemInformations)button.Parent).ItemQuantityLabel.Text = "x " + _invent.Inventory[item].ToString();
+                    ((ItemInformations)button.Parent).ItemMaximumQuantity = _invent.Inventory[item];
                 }
                 else if (PageSell.Controls.Contains(button.Parent)) PageSell.Controls.Remove(button.Parent);
             }
@@ -65,7 +64,7 @@ namespace GraphicalInterface
                 LError.Visible = true;
             }
 
-            LGold.Text = _t.Invent.GetGold.ToString() + " PO";
+            LGold.Text = _invent.GetGold.ToString() + " PO";
             Arange();
 
         }
@@ -85,7 +84,7 @@ namespace GraphicalInterface
 
         internal void LoadItemToSell()
         {
-            Dictionary<Item, int> items = _t.Invent.Inventory;
+            Dictionary<Item, int> items = _invent.Inventory;
             int j = 0;
 
             PageSell.Controls.Clear();
@@ -96,8 +95,6 @@ namespace GraphicalInterface
                 Item item = i;
                 ToolTip toolTip = new ToolTip();
                 ItemInformations UCItem = new ItemInformations();
-
-                string infoItem;
 
                 UCItem.Top = j * (3 + UCItem.Height);
 
@@ -110,23 +107,41 @@ namespace GraphicalInterface
 
                 UCItem.ItemPrice = "" + item.GetValue + " PO";
 
-                infoItem = item.GetDescription;
+                string infoItem = i.GetName + " " + "(" + i.Type + ")" + Environment.NewLine + i.GetDescription + Environment.NewLine + "Valeur : " + i.GetValue + Environment.NewLine + "Poids : " + i.GetWeight;
+
+                if (i.GetRequired.Count != 0)
+                {
+                    infoItem += Environment.NewLine + "Requis :";
+                    foreach (string requi in i.GetRequired.Keys)
+                    {
+                        infoItem += Environment.NewLine + i.GetRequired[requi] + " " + requi;
+                    }
+                }
+
+                if (i.GetStats.Count != 0)
+                {
+                    infoItem += Environment.NewLine + "Bonus :";
+                    foreach (string bonus in i.GetStats.Keys)
+                    {
+                        infoItem += Environment.NewLine + i.GetStats[bonus] + " " + bonus;
+                    }
+                }
 
                 UCItem.ItemTag = item;
 
-                UCItem.ItemMaximumQuantity = _t.Invent.Inventory[i];
+                UCItem.ItemMaximumQuantity = _invent.Inventory[i];
 
                 toolTip.InitialDelay = 500;
                 toolTip.ReshowDelay = 500;
                 toolTip.ShowAlways = true;
                 toolTip.SetToolTip(UCItem, infoItem);
-
+                toolTip.SetToolTip(UCItem.ItemNameLabel, infoItem);
 
                 PageSell.Controls.Add(UCItem);
                 UCItem.ItemActionName = "Vendre";
                 UCItem.ItemAction(new EventHandler(Sell_Click));
 
-                LGold.Text = _t.Invent.GetGold.ToString() + " PO";
+                LGold.Text = _invent.GetGold.ToString() + " PO";
 
                 j++;
             }
@@ -142,8 +157,6 @@ namespace GraphicalInterface
                 ToolTip toolTip = new ToolTip();
                 ItemInformations UCItem = new ItemInformations();
 
-                string infoItem;
-
                 UCItem.Top = i * 55;
 
                 UCItem.ItemName = items[i].GetName;
@@ -154,7 +167,25 @@ namespace GraphicalInterface
 
                 UCItem.ItemPrice = "" + items[i].GetValue + " PO";
 
-                infoItem = items[i].GetDescription;
+                string infoItem = items[i].GetName + " " + "(" + items[i].Type + ")" + Environment.NewLine + items[i].GetDescription + Environment.NewLine + "Valeur : " + items[i].GetValue + Environment.NewLine + "Poids : " + items[i].GetWeight;
+
+                if (items[i].GetRequired.Count != 0)
+                {
+                    infoItem += Environment.NewLine + "Requis :";
+                    foreach (string requi in items[i].GetRequired.Keys)
+                    {
+                        infoItem += Environment.NewLine + items[i].GetRequired[requi] + " " + requi;
+                    }
+                }
+
+                if (items[i].GetStats.Count != 0)
+                {
+                    infoItem += Environment.NewLine + "Bonus :";
+                    foreach (string bonus in items[i].GetStats.Keys)
+                    {
+                        infoItem += Environment.NewLine + items[i].GetStats[bonus] + " " + bonus;
+                    }
+                }
 
                 UCItem.ItemTag = item;
 
@@ -162,12 +193,13 @@ namespace GraphicalInterface
                 toolTip.ReshowDelay = 500;
                 toolTip.ShowAlways = true;
                 toolTip.SetToolTip(UCItem, infoItem);
+                toolTip.SetToolTip(UCItem.ItemNameLabel, infoItem);
 
                 PageBuy.Controls.Add(UCItem);
                 UCItem.ItemActionName = "Acheter";
                 UCItem.ItemAction(new EventHandler(Buy_Click));
 
-                LGold.Text = _t.Invent.GetGold.ToString() + " PO";
+                LGold.Text = _invent.GetGold.ToString() + " PO";
             }
         }
         private void IGMerchant_Load(object sender, EventArgs e)
