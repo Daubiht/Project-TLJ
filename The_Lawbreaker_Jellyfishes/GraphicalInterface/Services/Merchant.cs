@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using LogicalGame;
+using GraphicalInterface.Services;
 
 namespace GraphicalInterface
 {
@@ -10,15 +11,16 @@ namespace GraphicalInterface
     {
         private MainForm _contextForm;
 
-        Invent _invent;
+        Team _t;
         LogicalGame.Merchant m;
 
-        public Merchant(MainForm contextForm, LogicalGame.Merchant merchant, Invent invent)
+        public Merchant(MainForm contextForm, LogicalGame.Merchant merchant, Team t)
         {
-            _invent = invent;
+            _t = t;
             m = merchant;
-            m.Invent = _invent;
             _contextForm = contextForm;
+
+            m.Invent = t.Invent;
 
             InitializeComponent();
         }
@@ -27,12 +29,12 @@ namespace GraphicalInterface
         {
             Button button = (Button)sender;
 
-            int quantity = int.Parse(button.Parent.Controls.Find("quantity", false)[0].Text);
+            int quantity = int.Parse(button.Parent.Controls.Find("NQuantity", false)[0].Text);
             Item item = (Item)button.Tag;
 
             m.BuyItems(item, quantity);
 
-            LGold.Text = _invent.GetGold.ToString();
+            LGold.Text = _t.Invent.GetGold.ToString();
             LoadItemToSell();
 
         }
@@ -41,277 +43,154 @@ namespace GraphicalInterface
         {
             Button button = (Button)sender;
 
-            int quantity = int.Parse(button.Parent.Controls.Find("quantity", false)[0].Text);
+            int quantity = int.Parse(button.Parent.Controls.Find("NQuantity", false)[0].Text);
             Item item = (Item)button.Tag;
 
-            Console.WriteLine(_invent.Inventory.ContainsKey(item));
-            Console.WriteLine(_invent.Inventory[item]);
-            Console.WriteLine(quantity);
-
-            if (_invent.Inventory.ContainsKey(item) && quantity <= _invent.Inventory[item])
+            if (_t.Invent.Inventory.ContainsKey(item) && quantity <= _t.Invent.Inventory[item])
             {
                 for (int i = 0; i < quantity; i++)
                 {
                     m.SellItems(item);
                 }
+                if (_t.Invent.Inventory.ContainsKey(item) && _t.Invent.Inventory[item] > 0)
+                {
+                    ((ItemInformations)button.Parent).ItemQuantityLabel.Text = "x " + _t.Invent.Inventory[item].ToString();
+                    ((ItemInformations)button.Parent).ItemMaximumQuantity = _t.Invent.Inventory[item];
+                }
+                else if (PageSell.Controls.Contains(button.Parent)) PageSell.Controls.Remove(button.Parent);
             }
             else
             {
-                LError.Text = "Hum...il y a un soucis LOL";
+                LError.Text = "Hum...il y a un soucis. C'est pluôt génant";
                 LError.Visible = true;
             }
 
-            LGold.Text = _invent.GetGold.ToString();
-            LoadItemToSell();
+            LGold.Text = _t.Invent.GetGold.ToString() + " PO";
+            Arange();
 
         }
 
-        internal void Plus_Click_Sell(object sender, EventArgs e)
+        internal void Arange ()
         {
-            Button button = (Button)sender;
-            Object[] tag = (Object[])button.Tag;
-            TextBox quantity = (TextBox)tag[0];
 
-            int quant = int.Parse(quantity.Text) + 1;
+            TabPage page = ItemLists.SelectedTab;
+            int i = 0;
 
-            if (quant <= _invent.Inventory[(Item)tag[1]])
+            foreach (Control item in page.Controls)
             {
-                quantity.Text = "" + quant;
-            }
-        }
-
-        internal void Plus_Click (object sender, EventArgs e)
-        {
-            Button button = (Button)sender;
-            Object[] tag = (Object[])button.Tag;
-            TextBox quantity = (TextBox)tag[0];
-            int quant = int.Parse(quantity.Text) + 1;
-
-            quantity.Text = quant.ToString();
-        }
-
-        internal void Minus_Click(object sender, EventArgs e)
-        {
-            Button button = (Button)sender;
-
-            TextBox quantity = (TextBox)button.Tag;
-
-            if (int.Parse(quantity.Text) - 1 > 0)
-            {
-                int quant = int.Parse(quantity.Text) - 1;
-                quantity.Text = quant.ToString();
+                item.Top = i * (item.Height + 3);
+                i++;
             }
         }
 
         internal void LoadItemToSell()
         {
-            Dictionary<Item, int> items = _invent.Inventory;
+            Dictionary<Item, int> items = _t.Invent.Inventory;
             int j = 0;
 
             PageSell.Controls.Clear();
 
             foreach (Item i in items.Keys)
             {
-                
-                Panel PObj = new Panel();
-                Label name = new Label();
-                Label LQuantity = new Label();
-                Button sell = new Button();
-                Button plus = new Button();
-                Button minus = new Button();
-                TextBox quantity = new TextBox();
+
+                Item item = i;
                 ToolTip toolTip = new ToolTip();
-                Label cost = new Label();
+                ItemInformations UCItem = new ItemInformations();
 
-                PObj.BorderStyle = BorderStyle.FixedSingle;
-                PObj.Top = j * 55;
-                PObj.Width = 387;
-                PObj.Height = 50;
-                PObj.BackColor = Color.FromArgb(250, 244, 211);
+                string infoItem;
 
-                name.Text = i.GetName;
-                name.Top = PObj.Height / 2 - name.Height / 2;
+                UCItem.Top = j * (3 + UCItem.Height);
 
-                sell.Text = "Vendre";
-                sell.Top = (PObj.Height / 2) - (sell.Height / 2);
-                sell.Left = PObj.Width - sell.Width - 10;
-                sell.Tag = i;
-                sell.Click += new EventHandler(Sell_Click);
+                UCItem.ItemName = item.GetName;
 
-                quantity.Text = "1";
-                quantity.Width = 20;
-                quantity.Top = (PObj.Height / 2) - (quantity.Height / 2);
-                quantity.Left = PObj.Width - sell.Width - quantity.Width - 50;
-                quantity.Name = "quantity";
+                UCItem.ItemQuantity = "1";
 
-                LQuantity.Text = "x " + items[i];
-                LQuantity.Width = 40;
-                LQuantity.Top = (PObj.Height / 2) - (LQuantity.Height / 2);
-                LQuantity.Left = name.Right + 10;
+                UCItem.ItemQuantityInvent = "x " + items[i].ToString();
+                UCItem.ItemQuantityInventVisible = true;
 
-                plus.Text = "+";
-                plus.Left = quantity.Left + quantity.Width + 5;
-                plus.Top = (PObj.Height / 2) - (plus.Height / 2);
-                plus.Width = 20;
-                plus.Tag = new Object[] { quantity, i };
-                plus.Click += new EventHandler(Plus_Click_Sell);
+                UCItem.ItemPrice = "" + item.GetValue + " PO";
 
-                minus.Text = "-";
-                minus.Width = 20;
-                minus.Left = quantity.Left - minus.Width - 5;
-                minus.Top = (PObj.Height / 2) - (minus.Height / 2);
-                minus.TabIndex = 0;
-                minus.Tag = quantity;
-                minus.Click += new EventHandler(Minus_Click);
+                infoItem = item.GetDescription;
 
-                cost.Text = Convert.ToInt32(i.GetValue * 0.8) + " PO";
-                cost.Width = 70;
-                cost.Left = minus.Left - cost.Width;
+                UCItem.ItemTag = item;
 
-                cost.Top = (PObj.Height / 2) - (cost.Height / 2);
-
-                string infoItem = i.GetName + " " + "(" + i.Type + ")" + Environment.NewLine + i.GetDescription +
-                                  Environment.NewLine + "Valeur : " + i.GetValue + Environment.NewLine + "Poids : " + i.GetWeight;
-
-                if (i.GetRequired.Count != 0)
-                {
-                    infoItem += Environment.NewLine + "Requis :";
-                    foreach (string requi in i.GetRequired.Keys)
-                    {
-                        infoItem += Environment.NewLine + i.GetRequired[requi] + " " + requi;
-                    }
-                }
-
-                if (i.GetStats.Count != 0)
-                {
-                    infoItem += Environment.NewLine + "Bonus :";
-                    foreach (string bonus in i.GetStats.Keys)
-                    {
-                        infoItem += Environment.NewLine + i.GetStats[bonus] + " " + bonus;
-                    }
-                }
+                UCItem.ItemMaximumQuantity = _t.Invent.Inventory[i];
 
                 toolTip.InitialDelay = 500;
                 toolTip.ReshowDelay = 500;
                 toolTip.ShowAlways = true;
-                toolTip.SetToolTip(PObj, infoItem);
-                toolTip.SetToolTip(name, infoItem);
-                toolTip.SetToolTip(sell, infoItem);
-                toolTip.SetToolTip(LQuantity, infoItem);
-                toolTip.SetToolTip(cost, infoItem);
+                toolTip.SetToolTip(UCItem, infoItem);
 
-                PObj.Controls.Add(name);
-                PObj.Controls.Add(sell);
-                PObj.Controls.Add(quantity);
-                PObj.Controls.Add(LQuantity);
-                PObj.Controls.Add(plus);
-                PObj.Controls.Add(minus);
-                PObj.Controls.Add(cost);
 
-                PageSell.Controls.Add(PObj);
+                PageSell.Controls.Add(UCItem);
+                UCItem.ItemActionName = "Vendre";
+                UCItem.ItemAction(new EventHandler(Sell_Click));
 
-                LGold.Text = _invent.GetGold.ToString();
+                LGold.Text = _t.Invent.GetGold.ToString() + " PO";
+
                 j++;
             }
         }
 
-        private void IGMerchant_Load(object sender, EventArgs e)
+        private void LoadItemToBuy()
         {
             List<Item> items = m.GetItemsAvailable;
 
-            for (int i = 0; i < items.Count ; i++)
+            for (int i = 0; i < items.Count; i++)
             {
-                Panel PObj = new Panel();
-                Label name = new Label();
-                Button plus = new Button();
-                Button minus = new Button();
-                Button buy = new Button();
-                TextBox quantity = new TextBox();
+                Item item = items[i];
                 ToolTip toolTip = new ToolTip();
-                Label cost = new Label();
+                ItemInformations UCItem = new ItemInformations();
 
-                PObj.BorderStyle = BorderStyle.FixedSingle;
-                PObj.Top = i * 55;
-                PObj.Width = 387;
-                PObj.Height = 50;
-                PObj.BackColor = Color.FromArgb(250, 244, 211);
+                string infoItem;
 
-                name.Text = items[i].GetName;
-                name.Top = PObj.Height / 2 - name.Height / 2;
+                UCItem.Top = i * 55;
 
-                buy.Text = "Acheter";
-                buy.Top = (PObj.Height / 2) - (buy.Height / 2);
-                buy.Left = PObj.Width - buy.Width - 10;
-                buy.Tag = items[i];
-                buy.Click += new EventHandler(Buy_Click);
+                UCItem.ItemName = items[i].GetName;
 
-                quantity.Text = "1";
-                quantity.Width = 20;
-                quantity.Top = (PObj.Height / 2) - (quantity.Height / 2);
-                quantity.Left = PObj.Width - buy.Width - quantity.Width - 50;
-                quantity.Name = "quantity";
+                UCItem.ItemQuantity = "1";
 
-                plus.Text = "+";
-                plus.Left = quantity.Left + quantity.Width + 5;
-                plus.Top = (PObj.Height / 2) - (plus.Height / 2);
-                plus.Width = 20;
-                plus.Tag = new Object[] { quantity, i };
-                plus.Click += new EventHandler(Plus_Click);
+                UCItem.ItemQuantityInventVisible = false;
 
-                minus.Text = "-";
-                minus.Width = 20;
-                minus.Left = quantity.Left - minus.Width - 5;
-                minus.Top = (PObj.Height / 2) - (minus.Height / 2);
-                minus.TabIndex = 0;
-                minus.Tag = quantity;
-                minus.Click += new EventHandler(Minus_Click);
+                UCItem.ItemPrice = "" + items[i].GetValue + " PO";
 
-                cost.Text = "" + items[i].GetValue + " PO";
-                cost.Left = minus.Left - cost.Width;
-                cost.Top = (PObj.Height / 2) - (cost.Height / 2);
+                infoItem = items[i].GetDescription;
 
-                string infoItem = items[i].GetName + " " + "(" + items[i].Type + ")" + Environment.NewLine + items[i].GetDescription +
-                  Environment.NewLine + "Valeur : " + items[i].GetValue + Environment.NewLine + "Poids : " + items[i].GetWeight;
-
-                if (items[i].GetRequired.Count != 0)
-                {
-                    infoItem += Environment.NewLine + "Requis :";
-                    foreach (string requi in items[i].GetRequired.Keys)
-                    {
-                        infoItem += Environment.NewLine + items[i].GetRequired[requi] + " " + requi;
-                    }
-                }
-
-                if (items[i].GetStats.Count != 0)
-                {
-                    infoItem += Environment.NewLine + "Bonus :";
-                    foreach (string bonus in items[i].GetStats.Keys)
-                    {
-                        infoItem += Environment.NewLine + items[i].GetStats[bonus] + " " + bonus;
-                    }
-                }
+                UCItem.ItemTag = item;
 
                 toolTip.InitialDelay = 500;
                 toolTip.ReshowDelay = 500;
                 toolTip.ShowAlways = true;
-                toolTip.SetToolTip(PObj, infoItem);
-                toolTip.SetToolTip(name, infoItem);
-                toolTip.SetToolTip(buy, infoItem);
-                toolTip.SetToolTip(quantity, infoItem);
-                toolTip.SetToolTip(cost, infoItem);
+                toolTip.SetToolTip(UCItem, infoItem);
 
-                PObj.Controls.Add(name);
-                PObj.Controls.Add(buy);
-                PObj.Controls.Add(quantity);
-                PObj.Controls.Add(plus);
-                PObj.Controls.Add(minus);
-                PObj.Controls.Add(cost);
+                PageBuy.Controls.Add(UCItem);
+                UCItem.ItemActionName = "Acheter";
+                UCItem.ItemAction(new EventHandler(Buy_Click));
 
-                PageBuy.Controls.Add(PObj);
-
-                LGold.Text = _invent.GetGold.ToString();
-
+                LGold.Text = _t.Invent.GetGold.ToString() + " PO";
+            }
+        }
+        private void IGMerchant_Load(object sender, EventArgs e)
+        {
+            if ((String)ItemLists.SelectedTab.Tag == "Sell")
+            {
                 LoadItemToSell();
+            }
+            else
+            {
+                LoadItemToBuy();
+            }
+        }
+
+        private void TableChanged (object sender, EventArgs e)
+        {
+            if ((String)ItemLists.SelectedTab.Tag == "Sell")
+            {
+                LoadItemToSell();
+            }
+            else
+            {
+                LoadItemToBuy();
             }
         }
 

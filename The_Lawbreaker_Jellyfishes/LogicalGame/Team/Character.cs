@@ -335,6 +335,12 @@ namespace LogicalGame
             _robustness -= R;
             _stamina -= S;
             _dodge -= D;
+
+            _maxStaminaPoint += 1 * S;
+            _staminaPoint += 1 * S;
+            _maxStaminaPoint += 1 * H;
+            _staminaPoint += 1 * H;
+
             return new int[] { _physicalAttack, _magicAttack, _health, _robustness, _stamina, _dodge };
         }
 
@@ -364,8 +370,8 @@ namespace LogicalGame
             {
                 _statsPoint--;
                 _stamina++;
-                _maxStaminaPoint += 10;
-                _staminaPoint += 10;
+                _maxStaminaPoint += 1;
+                _staminaPoint += 1;
             }
 
             return _stamina;
@@ -376,8 +382,8 @@ namespace LogicalGame
             {
                 _statsPoint--;
                 _health++;
-                _maxHealthPoint += 10;
-                _healthPoint += 10;
+                _maxHealthPoint += 3;
+                _healthPoint += 3;
             }
 
             return _health;
@@ -447,13 +453,13 @@ namespace LogicalGame
                         _staminaPoint -= skill.Cost[1];
                         if (skill.Effect != null)
                         {
-                            if (skill.Effect[0][0] == 0)
+                            if (skill.Effect[0] != 0)
                             {
-                                target.Hurt((skill.Effect[0][1] / 100) * _physicalAttack);
+                                target.Hurt((skill.Effect[0] / 100) * _physicalAttack);
                             }
-                            else if (skill.Effect[0][0] == 1)
+                            else if (skill.Effect[1] != 0)
                             {
-                                target.Heal((skill.Effect[0][1] / 100) * _magicAttack);
+                                target.Heal((skill.Effect[1] / 100) * _magicAttack);
                             }
                         }
 

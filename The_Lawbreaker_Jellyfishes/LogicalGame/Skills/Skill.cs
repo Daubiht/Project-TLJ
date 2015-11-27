@@ -7,7 +7,7 @@ namespace LogicalGame
     {
         string _name;
         int[] _statRequired;
-        int[][] _effect;
+        int[] _effect;
         int _position;
         int _target;
         int[] _cost;
@@ -25,7 +25,7 @@ namespace LogicalGame
         /// <param name="position">0 Toute || 1 CaC || 2 Po </param>
         /// <param name="effect"></param>
         /// <param name="cost">0 Health || 1 Stamina</param>
-        public Skill (string name, int[] statRequired, int target, int position, int[][] effect, int[] cost)
+        public Skill (string name, int[] statRequired, int target, int position, int[] effect, int[] cost)
         {
             _name = name;
             _statRequired = statRequired;
@@ -37,8 +37,6 @@ namespace LogicalGame
             _nextSkill = null;
         }
 
-        
-
         public string Name
         {
             get { return _name; }
@@ -49,7 +47,7 @@ namespace LogicalGame
             get { return _statRequired; }
         }
 
-        public int[][] Effect
+        public int[] Effect
         {
             get { return _effect; }
         }
