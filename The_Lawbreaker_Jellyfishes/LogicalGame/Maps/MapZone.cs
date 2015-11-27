@@ -29,19 +29,5 @@ namespace LogicalGame
             set { _listLink = value; }
         }
 
-        /// <summary>
-        /// 3.0 = meet elder with ressurect stuff
-        /// </summary>
-        /// <param name="MoveIsland">If he's between islands or in an instance, change balance between fight and meet</param>
-        /// <returns>The started event</returns>
-        //public Event Event(bool MoveIsland) 
-        //{
-        //    //MoveIsland false : x+ % combat, x- % rencontre
-        //    //MoveIsland true : x= % combat, x= % rencontre
-        //    //depending on context for choose monster
-
-
-        //    return E;
-        //}
     }
 }
