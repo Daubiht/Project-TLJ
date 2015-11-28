@@ -17,10 +17,10 @@ namespace LogicalGame.Test
         {
             List<Monster> listMonsters = new List<Monster>();
 
-            Monster m1 = new Monster("Slime Immature", "slime", 10, 0, 100, 0, 5, 5);
-            Monster m2 = new Monster("Behemoth", "Démon", 1000, 1000, 100000, 10000, 300, 200);
-            Monster m3 = new Monster("Zombie rigolo", "Undead", 20, 0, 500, 0, 5, 5);
-            Monster m4 = new Monster("Chaman Sombre", "Mage", 100, 300, 4500, 10000, 50, 100);
+            Monster m1 = new Monster("Slime Immature", 1, "slime", 10, 0, 100, 0, 5, 5);
+            Monster m2 = new Monster("Behemoth", 2, "Démon", 1000, 1000, 100000, 10000, 300, 200);
+            Monster m3 = new Monster("Zombie rigolo", 3, "Undead", 20, 0, 500, 0, 5, 5);
+            Monster m4 = new Monster("Chaman Sombre", 4, "Mage", 100, 300, 4500, 10000, 50, 100);
 
             listMonsters.Add(m1);
             listMonsters.Add(m2);

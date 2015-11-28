@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using NUnit.Framework;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Threading;
 
 namespace LogicalGame.Test
 {
@@ -59,6 +61,23 @@ namespace LogicalGame.Test
                     world.Islands[world.ActualIsland].ActualPlace = instance;
                 }
             }
+
+        }
+
+        [Test]
+        public void Launch_Event_MapZone()
+        {
+            MapZone zoneTest = new MapZone(null, false, 2);
+
+            for (int i = 0; i < 3; i++)
+            {
+                Console.WriteLine("Difficulty : {0}", i);
+                foreach (Monster m in zoneTest.EventFightRandom(i))
+                {
+                    Console.WriteLine("Name {0}, Level {1}, Race {2}", m.Name, m.Level, m.Race);
+                }
+            }
+
         }
     }
 }

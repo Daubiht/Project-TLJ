@@ -106,7 +106,7 @@ namespace LogicalGame.Test
 
                     for (int i3 = 0; i3 < 3; i3++)
                     {
-                        MapZone zone = new MapZone(null, false);
+                        MapZone zone = new MapZone(null, false, i3);
                         list_list_listsZones.Add(zone);
                     }
 

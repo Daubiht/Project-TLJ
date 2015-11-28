@@ -42,7 +42,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Team\Character.cs" />
-    <Compile Include="Event.cs" />
     <Compile Include="Team\Inventory.cs" />
     <Compile Include="Items\Item.cs" />
     <Compile Include="Items\ListItems.cs" />

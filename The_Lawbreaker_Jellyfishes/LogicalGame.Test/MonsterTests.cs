@@ -8,7 +8,7 @@ namespace LogicalGame.Test
         [Test]
         public void Create_a_new_Monster_with_a_name()
         {
-            Monster m1 = new Monster("George", "Dwarf", 150, 10, 500, 100, 100, 20);
+            Monster m1 = new Monster("George", 2, "Dwarf", 150, 10, 500, 100, 100, 20);
 
             Assert.AreEqual("George", m1.Name);
             Assert.AreEqual("Dwarf" , m1.Race);
@@ -23,7 +23,7 @@ namespace LogicalGame.Test
         [Test]
         public void A_Monster_can_have_skills()
         {
-            Monster m1 = new Monster("George", "Dwarf", 150, 10, 500, 100, 100, 20);
+            Monster m1 = new Monster("George", 2, "Dwarf", 150, 10, 500, 100, 100, 20);
 
             Skill s1 = new Skill("Attaque", null, 0, 1, null, new int[4]);
 
@@ -36,7 +36,7 @@ namespace LogicalGame.Test
         [Test]
         public void A_Monster_can_have_Item_to_drop()
         {
-            Monster m1 = new Monster("George", "Dwarf", 150, 10, 500, 100, 100, 20);
+            Monster m1 = new Monster("George", 2, "Dwarf", 150, 10, 500, 100, 100, 20);
 
             Item item1 = new Item("Epée", 10, 10, "C'est une épée quoi...", "arme");
             Item item2 = new Item("Epée", 10, 10, "C'est une épée quoi...", "arme");
