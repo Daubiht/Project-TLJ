@@ -34,6 +34,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,6 +45,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Fight\Fight.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Fight\Fight.Designer.cs">
+      <DependentUpon>Fight.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fight\PanelCharacter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Fight\PanelCharacter.Designer.cs">
+      <DependentUpon>PanelCharacter.cs</DependentUpon>
+    </Compile>
     <Compile Include="Home\CreateMainCharacter\CreateMainCharacter1.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -190,6 +203,9 @@
     <Compile Include="Services\Taverne.Designer.cs">
       <DependentUpon>Taverne.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Fight\Fight.resx">
+      <DependentUpon>Fight.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Home\CreateMainCharacter\CreateMainCharacter1.resx">
       <DependentUpon>CreateMainCharacter1.cs</DependentUpon>
     </EmbeddedResource>

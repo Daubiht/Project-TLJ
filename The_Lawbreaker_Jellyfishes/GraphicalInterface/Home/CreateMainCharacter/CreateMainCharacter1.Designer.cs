@@ -110,6 +110,7 @@
             this.ValidButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.ValidButton.BackColor = System.Drawing.SystemColors.Control;
             this.ValidButton.Location = new System.Drawing.Point(159, 255);
             this.ValidButton.Name = "ValidButton";
             this.ValidButton.Size = new System.Drawing.Size(70, 34);

@@ -64,7 +64,7 @@ namespace LogicalGame
             _maxStaminaPoint = 100;
             _maxHealthPoint = 100;
             _staminaPoint = 100;
-            _healthPoint = 100;
+            _healthPoint = 1000;
 
             _frontPosition = true;
 
@@ -520,7 +520,7 @@ namespace LogicalGame
                // Add alive front and hidden monsters
                if( m.Alive == true && m.FrontPosition == false ) listHiddenMonsters.Add(m);
             }
-            // if all FRONT MONSTERS ARE DEAD, every HIDDEN MONSTERS will be in FRONT POSITION
+            // if all FRONT MONSTERS ARE DEAD, every HIDDEN MONSTERS will be set in FRONT POSITION
             if ( listFrontMonsters.Count == 0 )
             {
                 foreach ( Monster m in listHiddenMonsters )
@@ -529,30 +529,16 @@ namespace LogicalGame
                     m.FrontPosition = true;
                     // Add the monster in the front monster list
                     listFrontMonsters.Add(m);
-                    // Delete the monsters in the hidden monster list
-                    listHiddenMonsters.Remove(m);
                 }
             }
 
             // Check if the member is alive to attack
             if ( _isAlive == true )
             {
-                // Check if the member is in front position
-                if( _frontPosition == true )
-                {
-                    Random rdm = new Random();
-                    // Generate a random index which represent the targetted monster in FRONT POSITIONn
-                    int indexRdmMonster = rdm.Next(0, listFrontMonsters.Count);
-                    listFrontMonsters[indexRdmMonster].Hurt(_physicalAttack);
-                }
-                // Check if the member is in hidden position
-                else if ( _frontPosition == false )
-                {
-                    Random rdm = new Random();
-                    // Generate a random index which represent the targetted monster in FRONT OR HIDDEN POSITION
-                    int indexRdmMonster = rdm.Next(0, listFrontHiddenMonsters.Count);
-                    listFrontHiddenMonsters[indexRdmMonster].Hurt(_physicalAttack);
-                }
+                Random rdm = new Random();
+                // Generate a random index which represent the targetted monster in FRONT POSITION
+                int indexRdmMonster = rdm.Next(0, listFrontMonsters.Count);
+                listFrontMonsters[indexRdmMonster].Hurt(_physicalAttack);
             }
         }
     }

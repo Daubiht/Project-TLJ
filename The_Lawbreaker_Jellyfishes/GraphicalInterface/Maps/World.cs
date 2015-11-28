@@ -81,7 +81,7 @@ namespace GraphicalInterface
 
         private void ok_Click(object sender, EventArgs e)
         {
-            ok.Visible = false;
+            // ok.Visible = false;
         }
     }
 }
