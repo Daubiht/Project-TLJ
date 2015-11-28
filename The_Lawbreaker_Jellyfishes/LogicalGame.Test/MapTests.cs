@@ -74,7 +74,7 @@ namespace LogicalGame.Test
                 Console.WriteLine("Difficulty : {0}", i);
                 foreach (Monster m in zoneTest.EventFightRandom(i))
                 {
-                    Console.WriteLine("Name {0}, Level {1}, Race {2}", m.Name, m.Level, m.Race);
+                    Console.WriteLine("Name {0}, Level {1}, Race {2}, Front Position ? {3}", m.Name, m.Level, m.Race, m.FrontPosition);
                 }
             }
 

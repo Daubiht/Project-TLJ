@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 
 namespace LogicalGame
@@ -61,6 +62,26 @@ namespace LogicalGame
                 int wanted = rand.Next(0, listMByLevel.Count);
                 Thread.Sleep(50);
                 listMForFight.Add(listMByLevel[wanted]);
+            }
+
+            foreach (Monster m in listMForFight)
+            {
+                if (m.MagicAttack > m.PhysicalAttack)
+                {
+                    m.FrontPosition = false;
+                }
+                else
+                {
+                    m.FrontPosition = true;
+                }
+            }
+
+            if(listMForFight.All(m => m.FrontPosition == false))
+            {
+                foreach (Monster m in listMForFight)
+                {
+                    m.FrontPosition = true;
+                }
             }
 
             return listMForFight;
