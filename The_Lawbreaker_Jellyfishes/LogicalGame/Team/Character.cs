@@ -505,38 +505,52 @@ namespace LogicalGame
             return true;
         }
 
-        // This method allow the character to attack a monster
+        // This method allows the character to attack a monster
         public void Attack(List<Monster> MonsterToKill)
         {
             // Repertory every alive FRONT MONSTERS, list used by FRONT MEMBERS
             List<Monster> listFrontMonsters = new List<Monster>();
             // Repertory every alive FRONT AND HIDDEN MONSTERS, list used by HIDDEN MEMBERS
-            List<Monster> listFrontHiddenMonsters = new List<Monster>();
+            List<Monster> listHiddenMonsters = new List<Monster>();
 
-            foreach (Monster m in MonsterToKill)
+            foreach ( Monster m in MonsterToKill )
             {
                 // Add alive front monsters
                if( m.Alive == true && m.FrontPosition == true ) listFrontMonsters.Add(m);
                // Add alive front and hidden monsters
-               if( m.Alive == true ) listFrontHiddenMonsters.Add(m);
+               if( m.Alive == true && m.FrontPosition == false ) listHiddenMonsters.Add(m);
             }
+            // if all FRONT MONSTERS ARE DEAD, every HIDDEN MONSTERS will be in FRONT POSITION
+            if ( listFrontMonsters.Count == 0 )
+            {
+                foreach ( Monster m in listHiddenMonsters )
+                {
+                    // Change the position of the hidden monster in front
+                    m.FrontPosition = true;
+                    // Add the monster in the front monster list
+                    listFrontMonsters.Add(m);
+                    // Delete the monsters in the hidden monster list
+                    listHiddenMonsters.Remove(m);
+                }
+            }
+
             // Check if the member is alive to attack
-            if (_isAlive == true)
+            if ( _isAlive == true )
             {
                 // Check if the member is in front position
-                if(_frontPosition == true)
+                if( _frontPosition == true )
                 {
                     Random rdm = new Random();
-                    // Generate a random index which represent the targetted monster 
-                    int indexRdmMonster = rdm.Next(0, listFrontMonsters.Count - 1);
+                    // Generate a random index which represent the targetted monster in FRONT POSITIONn
+                    int indexRdmMonster = rdm.Next(0, listFrontMonsters.Count);
                     listFrontMonsters[indexRdmMonster].Hurt(_physicalAttack);
                 }
                 // Check if the member is in hidden position
-                if (_frontPosition == false)
+                else if ( _frontPosition == false )
                 {
                     Random rdm = new Random();
-                    // Generate a random index which represent the targetted monster 
-                    int indexRdmMonster = rdm.Next(0, listFrontHiddenMonsters.Count - 1);
+                    // Generate a random index which represent the targetted monster in FRONT OR HIDDEN POSITION
+                    int indexRdmMonster = rdm.Next(0, listFrontHiddenMonsters.Count);
                     listFrontHiddenMonsters[indexRdmMonster].Hurt(_physicalAttack);
                 }
             }
