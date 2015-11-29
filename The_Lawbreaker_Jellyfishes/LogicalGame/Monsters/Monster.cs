@@ -239,17 +239,17 @@ namespace LogicalGame
         // This methods allows the monster to attack a member of the team
         public void Attack(Team teamToAttack)
         {
-            // List to repertory every ALIVE FRONT MEMBERS, list used by FRONT MONSTERS
+            // List to repertory every ALIVE FRONT MEMBERS
             List<Character> listFrontMembers = new List<Character>();
-            // List to repertory every ALIVE FRONT AND HIDDEN MEMBERS, list used by HIDDEN MONSTERS
+            // List to repertory every ALIVE FRONT AND HIDDEN MEMBERS
             List<Character> listFrontHiddenMembers = new List<Character>();
 
             // Classify front or hidden members of the team
             foreach ( Character c in teamToAttack.Members)
             {
-                // Classify alive front members, this list is used for monsters in front position
+                // Classify alive front members
                 if ( c.FrontPosition == true & c.isAlive == true ) listFrontMembers.Add(c); 
-                // Classify alive front + hidden members, this list is used for monsters in hidden position
+                // Classify alive front + hidden members
                 else if ( c.isAlive == true ) listFrontHiddenMembers.Add(c);
             }
 

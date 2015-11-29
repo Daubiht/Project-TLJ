@@ -64,7 +64,7 @@ namespace LogicalGame
             _maxStaminaPoint = 100;
             _maxHealthPoint = 100;
             _staminaPoint = 100;
-            _healthPoint = 1000;
+            _healthPoint = 100;
 
             _frontPosition = true;
 
@@ -508,9 +508,9 @@ namespace LogicalGame
         // This method allows the character to attack a monster
         public void Attack(List<Monster> MonsterToKill)
         {
-            // Repertory every alive FRONT MONSTERS, list used by FRONT MEMBERS
+            // Repertory every alive FRONT MONSTERS
             List<Monster> listFrontMonsters = new List<Monster>();
-            // Repertory every alive FRONT AND HIDDEN MONSTERS, list used by HIDDEN MEMBERS
+            // Repertory every alive FRONT AND HIDDEN MONSTERS
             List<Monster> listHiddenMonsters = new List<Monster>();
 
             foreach ( Monster m in MonsterToKill )

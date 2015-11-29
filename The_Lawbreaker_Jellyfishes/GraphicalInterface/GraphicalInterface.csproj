@@ -45,16 +45,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Fight\Fight.cs">
+    <Compile Include="FightIGFolder\FightMenu.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Fight\Fight.Designer.cs">
-      <DependentUpon>Fight.cs</DependentUpon>
+    <Compile Include="FightIGFolder\FightMenu.Designer.cs">
+      <DependentUpon>FightMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Fight\PanelCharacter.cs">
+    <Compile Include="FightIGFolder\FightUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Fight\PanelCharacter.Designer.cs">
+    <Compile Include="FightIGFolder\FightUserControl.Designer.cs">
+      <DependentUpon>FightUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FightIGFolder\PanelCharacter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FightIGFolder\PanelCharacter.Designer.cs">
       <DependentUpon>PanelCharacter.cs</DependentUpon>
     </Compile>
     <Compile Include="Home\CreateMainCharacter\CreateMainCharacter1.cs">
@@ -203,8 +209,14 @@
     <Compile Include="Services\Taverne.Designer.cs">
       <DependentUpon>Taverne.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Fight\Fight.resx">
-      <DependentUpon>Fight.cs</DependentUpon>
+    <EmbeddedResource Include="FightIGFolder\FightMenu.resx">
+      <DependentUpon>FightMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FightIGFolder\FightUserControl.resx">
+      <DependentUpon>FightUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FightIGFolder\PanelCharacter.resx">
+      <DependentUpon>PanelCharacter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Home\CreateMainCharacter\CreateMainCharacter1.resx">
       <DependentUpon>CreateMainCharacter1.cs</DependentUpon>

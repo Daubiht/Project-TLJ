@@ -6,19 +6,15 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using LogicalGame;
 
 namespace GraphicalInterface.Fight
 {
-    public partial class Fight : UserControl
+    public partial class PanelCharacter : UserControl
     {
-        public Fight()
+        public PanelCharacter(Character MemberToDisplay)
         {
             InitializeComponent();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

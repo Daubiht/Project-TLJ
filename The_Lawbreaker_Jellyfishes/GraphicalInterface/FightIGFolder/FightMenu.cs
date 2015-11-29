@@ -9,11 +9,12 @@ using System.Windows.Forms;
 
 namespace GraphicalInterface.Fight
 {
-    public partial class PanelCharacter : UserControl
+    public partial class FightMenu : UserControl
     {
-        public PanelCharacter()
+        public FightMenu()
         {
             InitializeComponent();
         }
+
     }
 }

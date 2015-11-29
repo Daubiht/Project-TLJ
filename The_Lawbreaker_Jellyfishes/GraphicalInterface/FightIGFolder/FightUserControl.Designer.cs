@@ -1,6 +1,6 @@
-﻿namespace GraphicalInterface.Fight
+﻿namespace GraphicalInterface.FightIGFolder
 {
-    partial class PanelCharacter
+    partial class FightUserControl
     {
         /// <summary> 
         /// Variable nécessaire au concepteur.
@@ -28,8 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // FightUserControl
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Name = "FightUserControl";
+            this.Size = new System.Drawing.Size(400, 400);
+            this.ResumeLayout(false);
+
         }
 
         #endregion
