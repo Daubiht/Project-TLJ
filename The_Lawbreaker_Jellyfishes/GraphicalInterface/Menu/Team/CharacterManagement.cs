@@ -278,5 +278,11 @@ namespace GraphicalInterface
 
             if (c.StatsPoint <= 0) LStatPoint.Visible = false;
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            skillsForm skillsform = new skillsForm();
+            skillsform.Show();
+        }
     }
 }

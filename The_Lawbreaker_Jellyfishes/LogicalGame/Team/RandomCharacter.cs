@@ -7,10 +7,7 @@ namespace LogicalGame
 {
     public class RandomCharacter
     {
-        public RandomCharacter ()
-        {
-
-        }
+        Random ran = new Random();
 
         // Return a random character with a level between two values
         public Character New (int levelMin, int levelMax)
@@ -24,7 +21,7 @@ namespace LogicalGame
             int statValue;
             string[] races = new string[] { "Dwarf", "Elves", "Human", "Giant" };
             Character perso;
-            Random ran = new Random();
+
             int[] statUped = new int[6];
             string name;
 

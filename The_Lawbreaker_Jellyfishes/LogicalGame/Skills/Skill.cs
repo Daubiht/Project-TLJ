@@ -20,7 +20,7 @@ namespace LogicalGame
         /// 
         /// </summary>
         /// <param name="name"></param>
-        /// <param name="statRequired"></param>
+        /// <param name="statRequired">0 Physique || 1 Magic || 2 Health || 3 Stamina || 4 Robustness || 5 Dodge </param>
         /// <param name="target">0 Sois même, 1 Allié, 2 Enemie</param>
         /// <param name="position">0 Toute || 1 CaC || 2 Po </param>
         /// <param name="effect"></param>

@@ -196,6 +196,18 @@
     <Compile Include="Services\Taverne.Designer.cs">
       <DependentUpon>Taverne.cs</DependentUpon>
     </Compile>
+    <Compile Include="Menu\Team\SkillTree.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Menu\Team\SkillTree.Designer.cs">
+      <DependentUpon>SkillTree.cs</DependentUpon>
+    </Compile>
+    <Compile Include="skillsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="skillsForm.Designer.cs">
+      <DependentUpon>skillsForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Home\CreateMainCharacter\CreateMainCharacter1.resx">
       <DependentUpon>CreateMainCharacter1.cs</DependentUpon>
     </EmbeddedResource>
@@ -280,6 +292,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Services\Taverne.resx">
       <DependentUpon>Taverne.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu\Team\SkillTree.resx">
+      <DependentUpon>SkillTree.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="skillsForm.resx">
+      <DependentUpon>skillsForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
