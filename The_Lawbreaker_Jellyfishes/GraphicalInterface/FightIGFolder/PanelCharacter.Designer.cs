@@ -37,17 +37,18 @@
             // 
             // labelCharName
             // 
-            this.labelCharName.AutoSize = true;
-            this.labelCharName.Location = new System.Drawing.Point(3, 0);
+            this.labelCharName.Dock = System.Windows.Forms.DockStyle.Top;
+            this.labelCharName.Location = new System.Drawing.Point(0, 0);
             this.labelCharName.Name = "labelCharName";
-            this.labelCharName.Size = new System.Drawing.Size(103, 13);
+            this.labelCharName.Size = new System.Drawing.Size(67, 13);
             this.labelCharName.TabIndex = 0;
-            this.labelCharName.Text = "Nom du personnage";
+            this.labelCharName.Text = "JEROMETE";
+            this.labelCharName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelHPText
             // 
             this.labelHPText.AutoSize = true;
-            this.labelHPText.Location = new System.Drawing.Point(15, 25);
+            this.labelHPText.Location = new System.Drawing.Point(2, 19);
             this.labelHPText.Name = "labelHPText";
             this.labelHPText.Size = new System.Drawing.Size(22, 13);
             this.labelHPText.TabIndex = 1;
@@ -56,7 +57,7 @@
             // labelHPResult
             // 
             this.labelHPResult.AutoSize = true;
-            this.labelHPResult.Location = new System.Drawing.Point(63, 25);
+            this.labelHPResult.Location = new System.Drawing.Point(42, 19);
             this.labelHPResult.Name = "labelHPResult";
             this.labelHPResult.Size = new System.Drawing.Size(19, 13);
             this.labelHPResult.TabIndex = 2;
@@ -65,7 +66,7 @@
             // labelStaminaText
             // 
             this.labelStaminaText.AutoSize = true;
-            this.labelStaminaText.Location = new System.Drawing.Point(15, 48);
+            this.labelStaminaText.Location = new System.Drawing.Point(2, 37);
             this.labelStaminaText.Name = "labelStaminaText";
             this.labelStaminaText.Size = new System.Drawing.Size(42, 13);
             this.labelStaminaText.TabIndex = 3;
@@ -74,7 +75,7 @@
             // labelStaminaResult
             // 
             this.labelStaminaResult.AutoSize = true;
-            this.labelStaminaResult.Location = new System.Drawing.Point(63, 48);
+            this.labelStaminaResult.Location = new System.Drawing.Point(42, 38);
             this.labelStaminaResult.Name = "labelStaminaResult";
             this.labelStaminaResult.Size = new System.Drawing.Size(19, 13);
             this.labelStaminaResult.TabIndex = 4;
@@ -90,7 +91,7 @@
             this.Controls.Add(this.labelHPText);
             this.Controls.Add(this.labelCharName);
             this.Name = "PanelCharacter";
-            this.Size = new System.Drawing.Size(108, 71);
+            this.Size = new System.Drawing.Size(67, 53);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -27,7 +27,6 @@ namespace LogicalGame.Test
             // Create team
             Team _team = new Team("MyTeam");
 
-
             // Set positions to monsters
             m1.FrontPosition = true;
             m2.FrontPosition = false;

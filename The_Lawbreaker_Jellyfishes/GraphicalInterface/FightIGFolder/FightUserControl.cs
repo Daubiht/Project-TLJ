@@ -18,39 +18,149 @@ namespace GraphicalInterface.FightIGFolder
         Team _team;
         LogicalGame.Fight _fight;
 
-        // List used to place front members on the screen
-        List<Character> _frontMembers;
-        // List used to place hidden members on the screen
-        List<Character> _hiddenMembers;
-        // Set the panel characters on the good positions X on the screen
-        //     3        1       2       4
-        int _posX3, _posX1, _posX2, _posX4;
-        int _posY;
-        
+
+        // List used to select FRONT MEMBERS
+        List<Character> _frontMembers = new List<Character>();
+        // list used to select HIDDEN MEMBERS
+        List<Character> _hiddenMembers = new List<Character>();
+        // List used to select FRONT MONSTERS
+        List<Monster> _frontMonsters = new List<Monster>();
+        // list used to select HIDDEN MONSTERS
+        List<Monster> _hiddenMonsters = new List<Monster>();
+
+
+        // Set X positions of members and monsters
+        int _posX1Member = 160, _posX2Member = 118, _posX3Member = 65, _posX4Member = 33;
+        // Set Y position of monsters
+        int _posYFrontMonster = 92, _posYHiddenMonster = 15;
+        // Set Y position of members
+        int _posYFrontMember = 194, _posYHiddenMember = 263;
+        // Set the space between each panel
+        int _spaceBetweenPanels = 85;
+
+        bool _isAllMembersFrontPositionFalse;
+        bool _isAllMonstersFrontPositionFalse;
+
         // CONSTRUCTOR
         public FightUserControl(List<Monster> MonstersToKill, Team TeamWhoFight)
         {
             InitializeComponent();
-
+            // Get the monsters list and and team
             _monsters = MonstersToKill;
             _team = TeamWhoFight;
             LogicalGame.Fight _fight = new LogicalGame.Fight(_monsters, _team);
 
-            // Select members to place them in front or hidden list
-            foreach ( Character c in _team.Members )
+            // Check if all 4 members's front position are setted to false, if yes, we set all front position to true
+            if (_team.Members.Count == 4)
             {
-                if ( c.FrontPosition == true ) _frontMembers.Add(c);
-                else if ( c.FrontPosition == false ) _hiddenMembers.Add(c);
+                foreach ( Character c in _team.Members)
+                {
+                    // if one member's front position is true, we don't modify the front position
+                    if (c.FrontPosition == true)
+                    {
+                        _isAllMembersFrontPositionFalse = false;
+                        break;
+                    }
+                    // if all member's front position are false, we set all them to true
+                    else _isAllMembersFrontPositionFalse = true;
+                }
+                // Change all position to true
+                if ( _isAllMembersFrontPositionFalse == true)           
+                    foreach (Character c in _team.Members) c.FrontPosition = true;
             }
 
-            foreach ( Character c in _frontMembers )
+            // Check if all 4 monster's front position are setted to false, if yes, we set all front position to true
+            if (_monsters.Count == 4)
             {
-                if ( c.IsMain == true )
+                foreach ( Monster m in _monsters)
                 {
-                    PanelCharacter p = new PanelCharacter(c);
-                    p.Location = new Point(_posX1, _posY);
+                    // if one monster's front position is true, we don't modify the front position
+                    if (m.FrontPosition == true)
+                    {
+                        _isAllMonstersFrontPositionFalse = false;
+                        break;
+                    }
+                    // if all monster's front position are false, we set all them to true
+                    else _isAllMonstersFrontPositionFalse = true;
                 }
+                // Change all position to true
+                if (_isAllMonstersFrontPositionFalse == true)           
+                    foreach (Monster m in _monsters) m.FrontPosition = true;
+            }
 
+            // Select members to place them in front or hidden member list
+            foreach ( Character c in _team.Members )
+            {
+                // Select FRONT MEMBERS
+                if ( c.FrontPosition == true ) _frontMembers.Add(c);
+                // Select HIDDEN MEMBERS
+                else if ( c.FrontPosition == false ) _hiddenMembers.Add(c);
+            }
+            // Select monsters to place them in front or hidden monster list
+            foreach ( Monster m in _monsters)
+            {
+                // Select FRONT MONSTERS
+                if (m.FrontPosition == true) _frontMonsters.Add(m);
+                // Select HIDDEN MONSTERS
+                else if (m.FrontPosition == false) _hiddenMonsters.Add(m);
+            }
+
+            // Place all members and monsters on the screen with the good positions
+            SetPanelPosition(_frontMembers, _posYFrontMember);
+            SetPanelPosition(_hiddenMembers, _posYHiddenMember);
+            SetPanelPosition(_frontMonsters, _posYFrontMonster);
+            SetPanelPosition(_hiddenMonsters, _posYHiddenMonster);
+        }
+
+        // Method who sets the PANEL'S POSITION
+        public void SetPanelPosition<T>(List<T> MonsterOrMemberList, int posY)
+        { 
+            // Place the 1 front member/monster in the middle
+            if (MonsterOrMemberList.Count == 1)
+            {
+                int localPosX1Member = _posX1Member;
+                foreach (T t in MonsterOrMemberList)
+                {
+                    PanelCharacter p = new PanelCharacter(t);
+                    p.Location = new Point(localPosX1Member, posY);
+                    Controls.Add(p);
+                }
+            }
+            // Place the 2 front members/monster in the middle
+            else if (MonsterOrMemberList.Count == 2)
+            {
+                int localPosX2Member = _posX2Member;
+                foreach (T t in MonsterOrMemberList)
+                {
+                    PanelCharacter p = new PanelCharacter(t);
+                    p.Location = new Point(localPosX2Member, posY);
+                    Controls.Add(p);
+                    localPosX2Member += _spaceBetweenPanels;
+                }
+            }
+            // Place 3 front members/monster in the middle
+            else if (MonsterOrMemberList.Count == 3)
+            {
+                int localPosX3Member = _posX3Member;
+                foreach (T t in MonsterOrMemberList)
+                {
+                    PanelCharacter p = new PanelCharacter(t);
+                    p.Location = new Point(localPosX3Member, posY);
+                    Controls.Add(p);
+                    localPosX3Member += _spaceBetweenPanels;
+                }
+            }
+            // Place 4 front members/monster
+            else if (MonsterOrMemberList.Count == 4)
+            {
+                int localPosX4Member = _posX4Member;
+                foreach (T t in MonsterOrMemberList)
+                {
+                    PanelCharacter p = new PanelCharacter(t);
+                    p.Location = new Point(localPosX4Member, posY);
+                    Controls.Add(p);
+                    localPosX4Member += _spaceBetweenPanels;
+                }
             }
         }
     }

@@ -101,6 +101,7 @@
             // fdgdfgfdgfdToolStripMenuItem
             // 
             this.fdgdfgfdgfdToolStripMenuItem.Name = "fdgdfgfdgfdToolStripMenuItem";
+            this.fdgdfgfdgfdToolStripMenuItem.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.fdgdfgfdgfdToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.fdgdfgfdgfdToolStripMenuItem.Text = "fdgdfgfdgfd";
             // 
@@ -146,25 +147,25 @@
             // hgjhgjToolStripMenuItem
             // 
             this.hgjhgjToolStripMenuItem.Name = "hgjhgjToolStripMenuItem";
-            this.hgjhgjToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+            this.hgjhgjToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.hgjhgjToolStripMenuItem.Text = "hgjhgj";
             // 
             // ghjhgjToolStripMenuItem
             // 
             this.ghjhgjToolStripMenuItem.Name = "ghjhgjToolStripMenuItem";
-            this.ghjhgjToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+            this.ghjhgjToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.ghjhgjToolStripMenuItem.Text = "ghjhgj";
             // 
             // ghjghToolStripMenuItem
             // 
             this.ghjghToolStripMenuItem.Name = "ghjghToolStripMenuItem";
-            this.ghjghToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+            this.ghjghToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.ghjghToolStripMenuItem.Text = "ghjgh";
             // 
             // dfgdfToolStripMenuItem1
             // 
             this.dfgdfToolStripMenuItem1.Name = "dfgdfToolStripMenuItem1";
-            this.dfgdfToolStripMenuItem1.Size = new System.Drawing.Size(108, 22);
+            this.dfgdfToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.dfgdfToolStripMenuItem1.Text = "dfgdf";
             // 
             // toolStrip2
