@@ -11,6 +11,7 @@ namespace LogicalGame
         List<MapZone> _listLink = new List<MapZone>();
         MapInstance _context;
         int _zoneLevel;
+        Random _rand;
 
         public MapZone(MapInstance context, bool WithInstance, int zoneLevel)
         {
@@ -18,6 +19,11 @@ namespace LogicalGame
             if(WithInstance)
             {
                 _context = context;
+                _rand = _context.MapIsland.ActualWorld.Random;
+            } 
+            else
+            {
+                _rand = new Random();
             }
         }
 
@@ -43,8 +49,6 @@ namespace LogicalGame
         {
             if(difficulty > 2 || difficulty < 0) throw  new ArgumentException();
 
-            Random rand = new Random();
-
             ListMonsters EntirelistM = new ListMonsters();
             List<Monster> listMByLevel = EntirelistM.GetListMonsters.FindAll(
                 delegate (Monster m)
@@ -53,13 +57,13 @@ namespace LogicalGame
                 }
             );
 
-            int nbrM = rand.Next(1 + difficulty, 3 + difficulty);
+            int nbrM = _rand.Next(1 + difficulty, 3 + difficulty);
 
             List<Monster> listMForFight = new List<Monster>();
 
             for(int i = 0; i < nbrM; i ++)
             {
-                int wanted = rand.Next(0, listMByLevel.Count);
+                int wanted = _rand.Next(0, listMByLevel.Count);
                 Thread.Sleep(50);
                 listMForFight.Add(listMByLevel[wanted]);
             }
@@ -85,6 +89,26 @@ namespace LogicalGame
             }
 
             return listMForFight;
+        }
+
+        public Merchant EventMerchant()
+        {
+            ListItems listItems = new ListItems();
+            List<Item> listSellable = new List<Item>();
+
+            int nbrItems = _rand.Next(0, 6);
+
+            for(int i = 0; i < nbrItems; i++)
+            {
+                int wanted = _rand.Next(0, listItems.Items.Count);
+
+                if(!listSellable.Contains(listItems.Items[wanted]))
+                {
+                    listSellable.Add(listItems.Items[wanted]);
+                }
+            }
+
+            return new Merchant("Marchand itinérant", listSellable);
         }
     }
 }

@@ -17,6 +17,7 @@ namespace LogicalGame
         string _actualIsland = "Ponyoland";
         Team _team = new Team("team1");
         ListNotifications _notifs = new ListNotifications();
+        Random _rand = new Random();
 
         public string ActualIsland
         {
@@ -51,6 +52,11 @@ namespace LogicalGame
         public Dictionary<string, MapIsland> Islands
         {
             get { return _islands; }
+        }
+
+        public Random Random
+        {
+            get { return _rand; }
         }
 
         public bool Save(int nbrSlot)

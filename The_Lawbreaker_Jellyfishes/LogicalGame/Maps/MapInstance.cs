@@ -46,5 +46,10 @@ namespace LogicalGame
             }
             throw new ArgumentException();
         }
+
+        public MapIsland MapIsland
+        {
+            get { return _context; }
+        }
     }
 }

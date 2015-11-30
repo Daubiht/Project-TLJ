@@ -65,7 +65,7 @@ namespace LogicalGame.Test
         }
 
         [Test]
-        public void Launch_Event_MapZone()
+        public void Launch_EventFight_MapZone()
         {
             MapZone zoneTest = new MapZone(null, false, 2);
 
@@ -78,6 +78,23 @@ namespace LogicalGame.Test
                 }
             }
 
+        }
+
+        [Test]
+        public void Launch_EventMerchant_MapZone()
+        {
+            MapZone zoneTest = new MapZone(null, false, 2);
+
+            for (int i = 0; i < 3; i++)
+            {
+                Merchant merchant = zoneTest.EventMerchant();
+                Console.WriteLine("Merchant {0}", i);
+
+                foreach (Item item in merchant.GetItemsAvailable)
+                {
+                    Console.Write("Name {0}, Description {1}", item.GetName, item.GetDescription);
+                }
+            }
         }
     }
 }
