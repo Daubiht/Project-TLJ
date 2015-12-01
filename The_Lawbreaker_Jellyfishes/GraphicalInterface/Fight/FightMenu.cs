@@ -15,8 +15,16 @@ namespace GraphicalInterface.Fighting
         public FightMenu(Character selectedMember)
         {
             InitializeComponent();
+            // Display the name of the character
             labelCharName.Text = selectedMember.Name;
-            this.Location = new Point(0, 400-this.Height);
+            // Set the X and Y location of the fight menu
+            Location = new Point(0, 440-Height);
+            // By default an arrow is displayd near the toolstrip, here we hide the arrows
+            toolStripSkills.ShowDropDownArrow = false;
+            toolStripInventory.ShowDropDownArrow = false;
+            // We set the value of the HP BAR
+            progressBar1.Maximum = selectedMember.MaxHealthPoint;
+            progressBar1.Value = selectedMember.HealthPoint;
         }
     }
 }

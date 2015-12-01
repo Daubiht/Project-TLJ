@@ -105,13 +105,13 @@ namespace GraphicalInterface
             m1.FrontPosition = true;
             m2.FrontPosition = true;
             m3.FrontPosition = true;
-            m4.FrontPosition = false;
+            m4.FrontPosition = true;
             // Set positions to members
             c1.IsMain = true;
             c1.FrontPosition = true;
             c2.FrontPosition = false;
             c3.FrontPosition = false;
-            c4.FrontPosition = false;
+            c4.FrontPosition = true;
 
             // Add monsters in list
             _monsters.Add(m1);

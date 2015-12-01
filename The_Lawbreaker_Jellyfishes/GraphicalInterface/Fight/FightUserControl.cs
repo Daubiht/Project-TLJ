@@ -32,11 +32,11 @@ namespace GraphicalInterface.Fighting
 
 
         // Set X positions of members and monsters
-        int _posX1Member = 160, _posX2Member = 118, _posX3Member = 65, _posX4Member = 33;
+        int _posX1Member = 170, _posX2Member = 130, _posX3Member = 85, _posX4Member = 45;
         // Set Y position of monsters
-        int _posYFrontMonster = 92, _posYHiddenMonster = 15;
+        int _posYFrontMonster = 112, _posYHiddenMonster = 25;
         // Set Y position of members
-        int _posYFrontMember = 194, _posYHiddenMember = 263;
+        int _posYFrontMember = 214, _posYHiddenMember = 293;
         // Set the space between each panel
         int _spaceBetweenPanels = 85;
 

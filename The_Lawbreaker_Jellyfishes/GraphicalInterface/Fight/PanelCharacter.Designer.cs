@@ -90,7 +90,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.Controls.Add(this.labelStaminaResult);
             this.Controls.Add(this.labelStaminaText);
             this.Controls.Add(this.labelHPResult);

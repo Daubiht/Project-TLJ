@@ -34,9 +34,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.Name = "FightUserControl";
-            this.Size = new System.Drawing.Size(400, 400);
+            this.Size = new System.Drawing.Size(425, 475);
             this.ResumeLayout(false);
 
         }
