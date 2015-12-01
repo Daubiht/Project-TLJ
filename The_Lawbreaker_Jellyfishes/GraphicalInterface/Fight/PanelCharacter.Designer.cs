@@ -1,4 +1,4 @@
-﻿namespace GraphicalInterface.Fight
+﻿namespace GraphicalInterface.Fighting
 {
     partial class PanelCharacter
     {
@@ -38,6 +38,7 @@
             // labelCharName
             // 
             this.labelCharName.Dock = System.Windows.Forms.DockStyle.Top;
+            this.labelCharName.Enabled = false;
             this.labelCharName.Location = new System.Drawing.Point(0, 0);
             this.labelCharName.Name = "labelCharName";
             this.labelCharName.Size = new System.Drawing.Size(67, 13);
@@ -48,6 +49,7 @@
             // labelHPText
             // 
             this.labelHPText.AutoSize = true;
+            this.labelHPText.Enabled = false;
             this.labelHPText.Location = new System.Drawing.Point(2, 19);
             this.labelHPText.Name = "labelHPText";
             this.labelHPText.Size = new System.Drawing.Size(22, 13);
@@ -57,6 +59,7 @@
             // labelHPResult
             // 
             this.labelHPResult.AutoSize = true;
+            this.labelHPResult.Enabled = false;
             this.labelHPResult.Location = new System.Drawing.Point(42, 19);
             this.labelHPResult.Name = "labelHPResult";
             this.labelHPResult.Size = new System.Drawing.Size(19, 13);
@@ -66,6 +69,7 @@
             // labelStaminaText
             // 
             this.labelStaminaText.AutoSize = true;
+            this.labelStaminaText.Enabled = false;
             this.labelStaminaText.Location = new System.Drawing.Point(2, 37);
             this.labelStaminaText.Name = "labelStaminaText";
             this.labelStaminaText.Size = new System.Drawing.Size(42, 13);
@@ -75,6 +79,7 @@
             // labelStaminaResult
             // 
             this.labelStaminaResult.AutoSize = true;
+            this.labelStaminaResult.Enabled = false;
             this.labelStaminaResult.Location = new System.Drawing.Point(42, 38);
             this.labelStaminaResult.Name = "labelStaminaResult";
             this.labelStaminaResult.Size = new System.Drawing.Size(19, 13);
@@ -85,6 +90,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.HotTrack;
             this.Controls.Add(this.labelStaminaResult);
             this.Controls.Add(this.labelStaminaText);
             this.Controls.Add(this.labelHPResult);
@@ -92,6 +98,7 @@
             this.Controls.Add(this.labelCharName);
             this.Name = "PanelCharacter";
             this.Size = new System.Drawing.Size(67, 53);
+            this.Load += new System.EventHandler(this.PanelCharacter_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -2,8 +2,9 @@
 using System.Drawing;
 using System.Windows.Forms;
 using LogicalGame;
-using GraphicalInterface.FightIGFolder;
+using GraphicalInterface;
 using System.Collections.Generic;
+using GraphicalInterface.Fighting;
 
 namespace GraphicalInterface
 {
@@ -83,7 +84,7 @@ namespace GraphicalInterface
 
         private void ok_Click(object sender, EventArgs e)
         {
-            // Create monster
+            // Create monsters
             List<Monster> _monsters = new List<Monster>();
 
             // Create monsters

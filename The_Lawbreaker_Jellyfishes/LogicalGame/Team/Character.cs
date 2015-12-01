@@ -505,6 +505,7 @@ namespace LogicalGame
             return true;
         }
 
+        //____________________MEMBERS ATTACKS MONSTER AUTOMATICALLY, DELETE THIS METHOD____________________
         // This method allows the character to attack a monster
         public void Attack(List<Monster> MonsterToKill)
         {
@@ -540,6 +541,11 @@ namespace LogicalGame
                 int indexRdmMonster = rdm.Next(0, listFrontMonsters.Count);
                 listFrontMonsters[indexRdmMonster].Hurt(_physicalAttack);
             }
+        }
+        //__________________ MEMBERS ATTACKS MONSTER USING THE MOUSE USER__________________
+        public void AttackMonster(Monster AttackedMonster)
+        {
+            AttackedMonster.Hurt(_physicalAttack);
         }
     }
 }

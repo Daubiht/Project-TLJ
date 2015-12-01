@@ -7,6 +7,11 @@ namespace LogicalGame
 {
     public class Fight
     {
+        // Get the member who attack, used in the method who gets the member who attacks
+        Character _memberWhoAttacks;
+        // Get the attacked monster by the member chosen by the player
+        Monster _attackedMonster;
+
         // bool _is EndFight is true if all the team die or if all monsters die or the team run away
         bool _isEndFight;
 
@@ -39,14 +44,12 @@ namespace LogicalGame
                 }
                 // Check who attacks
                 IsTeamToAttack();
-
                 gameLoop();
-            }
-            
+            } 
         }
 
         /// <summary>
-        /// METHODS
+        // METHODS
         /// </summary>
 
         // Check if all MONSTERS are dead
@@ -94,6 +97,20 @@ namespace LogicalGame
                 }
                 _isTeamToAttack = false;
             }
+        }
+
+        // ____________METHODS TO ATTACK MONSTER BY USING THE MOUSE CLICK OF THE PLAYER 
+        public void GetMemberWhoAttack(Character MemberWhoAttacks)
+        {
+            _memberWhoAttacks = MemberWhoAttacks;
+        }
+        public void GetAttackedMonster(Monster AttackedMonster)
+        {
+            _attackedMonster = AttackedMonster;
+        }
+        public void AttackAMonster(Character MemberWhoAttacks, Monster AttackedMonster)
+        {
+            MemberWhoAttacks.AttackMonster(AttackedMonster);
         }
     }
 }

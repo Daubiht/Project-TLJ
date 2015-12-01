@@ -45,22 +45,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FightIGFolder\FightMenu.cs">
+    <Compile Include="Fight\FightMenu.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="FightIGFolder\FightMenu.Designer.cs">
+    <Compile Include="Fight\FightMenu.Designer.cs">
       <DependentUpon>FightMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="FightIGFolder\FightUserControl.cs">
+    <Compile Include="Fight\FightUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="FightIGFolder\FightUserControl.Designer.cs">
+    <Compile Include="Fight\FightUserControl.Designer.cs">
       <DependentUpon>FightUserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="FightIGFolder\PanelCharacter.cs">
+    <Compile Include="Fight\PanelCharacter.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="FightIGFolder\PanelCharacter.Designer.cs">
+    <Compile Include="Fight\PanelCharacter.Designer.cs">
       <DependentUpon>PanelCharacter.cs</DependentUpon>
     </Compile>
     <Compile Include="Home\CreateMainCharacter\CreateMainCharacter1.cs">
@@ -209,13 +209,13 @@
     <Compile Include="Services\Taverne.Designer.cs">
       <DependentUpon>Taverne.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="FightIGFolder\FightMenu.resx">
+    <EmbeddedResource Include="Fight\FightMenu.resx">
       <DependentUpon>FightMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FightIGFolder\FightUserControl.resx">
+    <EmbeddedResource Include="Fight\FightUserControl.resx">
       <DependentUpon>FightUserControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FightIGFolder\PanelCharacter.resx">
+    <EmbeddedResource Include="Fight\PanelCharacter.resx">
       <DependentUpon>PanelCharacter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Home\CreateMainCharacter\CreateMainCharacter1.resx">

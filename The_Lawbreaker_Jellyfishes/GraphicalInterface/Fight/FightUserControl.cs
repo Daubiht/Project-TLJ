@@ -7,17 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using LogicalGame;
-using GraphicalInterface.Fight;
+using GraphicalInterface;
 
-namespace GraphicalInterface.FightIGFolder
+namespace GraphicalInterface.Fighting
 {
     public partial class FightUserControl : UserControl
     {
 
         List<Monster> _monsters;
         Team _team;
-        LogicalGame.Fight _fight;
+        Fight _fight;
 
+        // Fight menu displays attack, skill, informations about the selected member
+        FightMenu _currentMemberMenu;
 
         // List used to select FRONT MEMBERS
         List<Character> _frontMembers = new List<Character>();
@@ -48,7 +50,7 @@ namespace GraphicalInterface.FightIGFolder
             // Get the monsters list and and team
             _monsters = MonstersToKill;
             _team = TeamWhoFight;
-            LogicalGame.Fight _fight = new LogicalGame.Fight(_monsters, _team);
+            _fight = new Fight(_monsters, _team);
 
             // Check if all 4 members's front position are setted to false, if yes, we set all front position to true
             if (_team.Members.Count == 4)
@@ -121,7 +123,7 @@ namespace GraphicalInterface.FightIGFolder
                 int localPosX1Member = _posX1Member;
                 foreach (T t in MonsterOrMemberList)
                 {
-                    PanelCharacter p = new PanelCharacter(t);
+                    PanelCharacter p = new PanelCharacter(t, _fight, this);
                     p.Location = new Point(localPosX1Member, posY);
                     Controls.Add(p);
                 }
@@ -132,7 +134,7 @@ namespace GraphicalInterface.FightIGFolder
                 int localPosX2Member = _posX2Member;
                 foreach (T t in MonsterOrMemberList)
                 {
-                    PanelCharacter p = new PanelCharacter(t);
+                    PanelCharacter p = new PanelCharacter(t, _fight, this);
                     p.Location = new Point(localPosX2Member, posY);
                     Controls.Add(p);
                     localPosX2Member += _spaceBetweenPanels;
@@ -144,7 +146,7 @@ namespace GraphicalInterface.FightIGFolder
                 int localPosX3Member = _posX3Member;
                 foreach (T t in MonsterOrMemberList)
                 {
-                    PanelCharacter p = new PanelCharacter(t);
+                    PanelCharacter p = new PanelCharacter(t, _fight, this);
                     p.Location = new Point(localPosX3Member, posY);
                     Controls.Add(p);
                     localPosX3Member += _spaceBetweenPanels;
@@ -156,12 +158,20 @@ namespace GraphicalInterface.FightIGFolder
                 int localPosX4Member = _posX4Member;
                 foreach (T t in MonsterOrMemberList)
                 {
-                    PanelCharacter p = new PanelCharacter(t);
+                    PanelCharacter p = new PanelCharacter(t, _fight, this);
                     p.Location = new Point(localPosX4Member, posY);
                     Controls.Add(p);
                     localPosX4Member += _spaceBetweenPanels;
                 }
             }
+        }
+
+        // Create fight menu
+        public void CreateFightMenu(Character DisplayedCharacter)
+        {
+            Controls.Remove(_currentMemberMenu);
+            _currentMemberMenu = new FightMenu(DisplayedCharacter);
+            Controls.Add(_currentMemberMenu);
         }
     }
 }
