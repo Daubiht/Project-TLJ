@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading;
 
@@ -44,16 +45,24 @@ namespace LogicalGame
         /// the difficulty is a possibility, not an obligation (except for boss)
         /// </summary>
         /// <param name="difficulty">0 easy, 1 normal, 2 hard</param>
-        /// <returns></returns>
-        public List<Monster> EventFightRandom(int difficulty)
+        /// <param name="type">input race to get specific monster or put it null</param>
+        /// <returns>List of monster to fight</returns>
+        public List<Monster> EventFightRandom(int difficulty, string race)
         {
-            if(difficulty > 2 || difficulty < 0) throw  new ArgumentException();
+            if (difficulty > 2 || difficulty < 0) throw new ArgumentException();
 
             ListMonsters EntirelistM = new ListMonsters();
             List<Monster> listMByLevel = EntirelistM.GetListMonsters.FindAll(
                 delegate (Monster m)
                 {
-                    return m.Level >= (_zoneLevel) && m.Level <= (_zoneLevel + difficulty);
+                    if (race == null)
+                    {
+                        return m.Level >= (_zoneLevel) && m.Level <= (_zoneLevel + difficulty);
+                    } 
+                    else
+                    {
+                        return race == m.Race;
+                    }
                 }
             );
 
@@ -61,10 +70,9 @@ namespace LogicalGame
 
             List<Monster> listMForFight = new List<Monster>();
 
-            for(int i = 0; i < nbrM; i ++)
+            for (int i = 0; i < nbrM; i++)
             {
                 int wanted = _rand.Next(0, listMByLevel.Count);
-                Thread.Sleep(50);
                 listMForFight.Add(listMByLevel[wanted]);
             }
 
@@ -80,7 +88,7 @@ namespace LogicalGame
                 }
             }
 
-            if(listMForFight.All(m => m.FrontPosition == false))
+            if (listMForFight.All(m => m.FrontPosition == false))
             {
                 foreach (Monster m in listMForFight)
                 {
@@ -96,7 +104,7 @@ namespace LogicalGame
             ListItems listItems = new ListItems();
             List<Item> listSellable = new List<Item>();
 
-            int nbrItems = _rand.Next(0, 6);
+            int nbrItems = _rand.Next(1, 6);
 
             for(int i = 0; i < nbrItems; i++)
             {
@@ -109,6 +117,17 @@ namespace LogicalGame
             }
 
             return new Merchant("Marchand itinérant", listSellable);
+        }
+
+        public string[] EventElder()
+        {
+            string[] riddles = File.ReadAllLines(@"../../../Ressources/enigme.txt");
+
+            int Wanted = _rand.Next(0, riddles.Length / 2);
+
+            string[] riddleAndAnswer = { riddles[Wanted * 2], riddles[Wanted * 2 + 1]};
+
+            return riddleAndAnswer;
         }
     }
 }

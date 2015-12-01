@@ -72,12 +72,18 @@ namespace LogicalGame.Test
             for (int i = 0; i < 3; i++)
             {
                 Console.WriteLine("Difficulty : {0}", i);
-                foreach (Monster m in zoneTest.EventFightRandom(i))
+                foreach (Monster monster in zoneTest.EventFightRandom(i, null))
                 {
-                    Console.WriteLine("Name {0}, Level {1}, Race {2}, Front Position ? {3}", m.Name, m.Level, m.Race, m.FrontPosition);
+                    Console.WriteLine("Name {0}, Level {1}, Race {2}, Front Position ? {3}", monster.Name, monster.Level, monster.Race, monster.FrontPosition);
                 }
             }
 
+            List<Monster> m = zoneTest.EventFightRandom(2, "slime");
+            Console.WriteLine("Difficulty : 3");
+            foreach (Monster monster in m)
+            {
+                Console.WriteLine("Name {0}, Level {1}, Race {2}, Front Position ? {3}", monster.Name, monster.Level, monster.Race, monster.FrontPosition);
+            }
         }
 
         [Test]
@@ -88,12 +94,25 @@ namespace LogicalGame.Test
             for (int i = 0; i < 3; i++)
             {
                 Merchant merchant = zoneTest.EventMerchant();
-                Console.WriteLine("Merchant {0}", i);
+                Console.WriteLine("Merchant 1");
 
                 foreach (Item item in merchant.GetItemsAvailable)
                 {
-                    Console.Write("Name {0}, Description {1}", item.GetName, item.GetDescription);
+                    Console.WriteLine("Name {0}, Description {1}", item.GetName, item.GetDescription);
                 }
+            }
+        }
+
+        [Test]
+        public void Launch_EventElder()
+        {
+            MapZone zoneTest = new MapZone(null, false, 2);
+
+            for(int i = 0; i < 3; i++)
+            {
+                Console.WriteLine("Enigme {0}", i);
+                Console.WriteLine(zoneTest.EventElder()[0]);
+                Console.WriteLine(zoneTest.EventElder()[1]);
             }
         }
     }
