@@ -8,8 +8,7 @@ namespace GraphicalInterface
 {
     public partial class Merchant : UserControl
     {
-        private MainForm _contextForm;
-
+        MainForm _contextForm;
         Invent _invent;
         LogicalGame.Merchant m;
 

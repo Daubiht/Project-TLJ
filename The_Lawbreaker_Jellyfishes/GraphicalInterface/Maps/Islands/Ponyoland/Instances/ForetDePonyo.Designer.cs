@@ -33,7 +33,7 @@
             // 
             // Retour
             // 
-            this.Retour.Location = new System.Drawing.Point(155, 115);
+            this.Retour.Location = new System.Drawing.Point(286, 122);
             this.Retour.Name = "Retour";
             this.Retour.Size = new System.Drawing.Size(75, 23);
             this.Retour.TabIndex = 0;
@@ -50,6 +50,7 @@
             this.MinimumSize = new System.Drawing.Size(400, 400);
             this.Name = "ForetDePonyo";
             this.Size = new System.Drawing.Size(400, 400);
+            this.Load += new System.EventHandler(this.ForetDePonyo_Load);
             this.ResumeLayout(false);
 
         }

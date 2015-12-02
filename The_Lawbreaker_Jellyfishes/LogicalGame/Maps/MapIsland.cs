@@ -12,19 +12,11 @@ namespace LogicalGame
         MapCity _city;
         object _actualPlace;
         List<MapIsland> _listLink;
-        int _x;
-        int _y;
 
         public MapIsland(MapWorld context, string name)
         {
             _name = name;
             _context = context;
-        }
-
-        public void Position (int x, int y)
-        {
-            _x = x;
-            _y = y;
         }
 
         public List<MapIsland> ListLink
