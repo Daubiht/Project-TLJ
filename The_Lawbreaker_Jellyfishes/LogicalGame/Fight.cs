@@ -7,12 +7,22 @@ namespace LogicalGame
 {
     public class Fight
     {
-        // Get the member who attack, used in the method who gets the member who attacks
+
+        /// Fields used to attack a monster
+        // Get the member who attacks, used in the method who gets the member who attacks
         Character _memberWhoAttacks;
-        // Get the attacked monster by the member chosen by the player
+        // Skill of the member launched on a monster
+        Skill _selectedSkill;
+        // Member's basic attack used on a monster
+        int _basicAttack;
+
+        // Bool to know if a member is attacking, usefull in case the player clicks everywhere during the fight
+        bool _doesAMemberAttack;
+
+        // Get the attacked monster
         Monster _attackedMonster;
 
-        // bool _is EndFight is true if all the team die or if all monsters die or the team run away
+        // bool _isEndFight is true if all the team die or if all monsters die or the team run away
         bool _isEndFight;
 
         // bool to know if it's the turn of the team to attack
@@ -99,18 +109,38 @@ namespace LogicalGame
             }
         }
 
-        // ____________METHODS TO ATTACK MONSTER BY USING THE MOUSE CLICK OF THE PLAYER 
-        public void GetMemberWhoAttack(Character MemberWhoAttacks)
+        // __________METHODS TO GET THE MEMBER WHO ATTACKS , this method is called when the player clicks on a member's panel
+        public void GetMemberWhoAttack(Character MemberWhoAttacks, Skill SelectedSkill, int BasicAttack)
         {
+            // Get the member who attacks
             _memberWhoAttacks = MemberWhoAttacks;
+            // Get the launched skill
+            _selectedSkill = SelectedSkill;
+            // Get the used basic attack
+            _basicAttack = BasicAttack;
+            // True means "A member of the team is attacking"
+            _doesAMemberAttack = true;
         }
+        //__________METHOD TO GET THE ATTACKED MONSTER, this method is called when the player clicks on a monster's panel
         public void GetAttackedMonster(Monster AttackedMonster)
         {
-            _attackedMonster = AttackedMonster;
+            // Check if the member has not already attacked a monster
+            // And check if a member is attacking, it's avoid the player to click randomly by clicking everywhere on the screen
+            if ( _memberWhoAttacks.DidMemberPlay == false & _doesAMemberAttack == true )
+            {
+                _attackedMonster = AttackedMonster;
+                // Match the member and the monster
+                AttackAMonster(_memberWhoAttacks, _attackedMonster);
+            }
         }
+        // ________METHOD WHO MATCHES THE MEMBER WHO ATTACKS AND THE ATTACKED MONSTER
         public void AttackAMonster(Character MemberWhoAttacks, Monster AttackedMonster)
         {
             MemberWhoAttacks.AttackMonster(AttackedMonster);
+            // When the member finish to attack, now nobody is attacking
+            _doesAMemberAttack = false;
+            // True means "This member just attacked, he won't be able to attack again"
+            MemberWhoAttacks.DidMemberPlay = true;
         }
     }
 }

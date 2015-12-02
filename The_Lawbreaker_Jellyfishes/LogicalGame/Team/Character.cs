@@ -34,6 +34,9 @@ namespace LogicalGame
         bool _isAlive;
         bool _isMain;
 
+        // Bool to know if the member has already attacked a monster, if yes, he cant attack again
+        bool _didPlay;
+
         readonly Dictionary<String, Skill> _skills;
         readonly Dictionary<string, Item> _stuffs;
 
@@ -75,6 +78,16 @@ namespace LogicalGame
         //==================================================
         //               Get some stuff
         //==================================================
+
+
+        // Added by Jerome ===================================
+        // Bool to know if the charater has already plays
+        public bool DidMemberPlay
+        {
+            get { return _didPlay; }
+            set { _didPlay = value; }
+        }
+        // ===========================================
         public Dictionary<string, Item> Stuffs
         {
             get { return _stuffs; }
@@ -84,7 +97,7 @@ namespace LogicalGame
             get {return _team; }
             set { _team = value;}
         }
-
+        
         public bool IsMain 
         {
             get { return _isMain; }
@@ -437,20 +450,26 @@ namespace LogicalGame
 
         public bool UseSkill (Skill skill, Character target)
         {
+            //Check of Target
             if ((target == this && skill.Target == 0) || skill.Target == 1)
             {
+                //Check of cost in Health and Stamina
                 if (IsThisSkill(skill) && skill.Cost[0] <= _healthPoint && skill.Cost[1] <= _staminaPoint)
                 {
+                    //Check of Position of caster and target
                     if ((skill.Position == 0 && _frontPosition == true) || (skill.Position == 1 && _frontPosition == true) || (skill.Position == 2 && _frontPosition == false))
                     {
                         _healthPoint -= skill.Cost[0];
                         _staminaPoint -= skill.Cost[1];
                         if (skill.Effect != null)
                         {
+                            //Apply effect of the used skill
+                            //Hit with Physical Attack
                             if (skill.Effect[0][0] == 0)
                             {
                                 target.Hurt((skill.Effect[0][1] / 100) * _physicalAttack);
                             }
+                            //Heal with Magic Attack
                             else if (skill.Effect[0][0] == 1)
                             {
                                 target.Heal((skill.Effect[0][1] / 100) * _magicAttack);

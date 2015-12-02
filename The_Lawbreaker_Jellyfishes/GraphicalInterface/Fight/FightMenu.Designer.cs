@@ -41,7 +41,8 @@
             this.toolStripInventory = new System.Windows.Forms.ToolStripDropDownButton();
             this.button1 = new System.Windows.Forms.Button();
             this.labelCharName = new System.Windows.Forms.Label();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.progressBarHP = new System.Windows.Forms.ProgressBar();
+            this.progressBarStamina = new System.Windows.Forms.ProgressBar();
             this.toolStrip1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
             this.SuspendLayout();
@@ -69,6 +70,7 @@
             this.toolStripAttack.Name = "toolStripAttack";
             this.toolStripAttack.Size = new System.Drawing.Size(92, 19);
             this.toolStripAttack.Text = "Attaquer";
+            this.toolStripAttack.Click += new System.EventHandler(this.toolStripAttack_Click);
             // 
             // toolStripDefense
             // 
@@ -90,7 +92,7 @@
             this.toolStripSkills.Image = ((System.Drawing.Image)(resources.GetObject("toolStripSkills.Image")));
             this.toolStripSkills.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripSkills.Name = "toolStripSkills";
-            this.toolStripSkills.Size = new System.Drawing.Size(92, 19);
+            this.toolStripSkills.Size = new System.Drawing.Size(93, 19);
             this.toolStripSkills.Text = "Compétences";
             this.toolStripSkills.ToolTipText = "Compétences";
             // 
@@ -159,21 +161,31 @@
             this.labelCharName.Text = "Nom du personnage";
             this.labelCharName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // progressBar1
+            // progressBarHP
             // 
-            this.progressBar1.BackColor = System.Drawing.Color.Cyan;
-            this.progressBar1.ForeColor = System.Drawing.Color.Red;
-            this.progressBar1.Location = new System.Drawing.Point(165, 24);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(100, 31);
-            this.progressBar1.TabIndex = 4;
+            this.progressBarHP.BackColor = System.Drawing.Color.Cyan;
+            this.progressBarHP.ForeColor = System.Drawing.Color.Red;
+            this.progressBarHP.Location = new System.Drawing.Point(142, 24);
+            this.progressBarHP.Name = "progressBarHP";
+            this.progressBarHP.Size = new System.Drawing.Size(137, 10);
+            this.progressBarHP.TabIndex = 4;
+            // 
+            // progressBarStamina
+            // 
+            this.progressBarStamina.BackColor = System.Drawing.Color.Cyan;
+            this.progressBarStamina.ForeColor = System.Drawing.Color.Red;
+            this.progressBarStamina.Location = new System.Drawing.Point(142, 40);
+            this.progressBarStamina.Name = "progressBarStamina";
+            this.progressBarStamina.Size = new System.Drawing.Size(137, 10);
+            this.progressBarStamina.TabIndex = 5;
             // 
             // FightMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PowderBlue;
-            this.Controls.Add(this.progressBar1);
+            this.Controls.Add(this.progressBarStamina);
+            this.Controls.Add(this.progressBarHP);
             this.Controls.Add(this.labelCharName);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.toolStrip2);
@@ -203,6 +215,7 @@
         private System.Windows.Forms.Label labelCharName;
         private System.Windows.Forms.ToolStripButton toolStripAttack;
         private System.Windows.Forms.ToolStripButton toolStripDefense;
-        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.ProgressBar progressBarHP;
+        private System.Windows.Forms.ProgressBar progressBarStamina;
     }
 }
