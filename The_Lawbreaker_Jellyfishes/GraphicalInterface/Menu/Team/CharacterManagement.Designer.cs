@@ -76,6 +76,7 @@
             this.Cou = new System.Windows.Forms.Button();
             this.Retour = new System.Windows.Forms.Button();
             this.BFired = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.PPlus.SuspendLayout();
             this.SuspendLayout();
@@ -589,10 +590,21 @@
             this.BFired.UseVisualStyleBackColor = true;
             this.BFired.Click += new System.EventHandler(this.BFired_Click);
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(308, 97);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 24;
+            this.button3.Text = "LevelUp";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // CharacterManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.BFired);
             this.Controls.Add(this.Retour);
             this.Controls.Add(this.Cou);
@@ -668,5 +680,6 @@
         private System.Windows.Forms.Label stuffstat4;
         private System.Windows.Forms.Label stuffstat3;
         private System.Windows.Forms.Label stuffstat2;
+        private System.Windows.Forms.Button button3;
     }
 }

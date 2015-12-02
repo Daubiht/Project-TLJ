@@ -38,8 +38,6 @@
             this.Name = "skillsForm";
             this.Text = "skillsForm";
             this.Deactivate += new System.EventHandler(this.skillsForm_Deactivate);
-            this.Load += new System.EventHandler(this.skillsForm_Load);
-            this.Leave += new System.EventHandler(this.skillsForm_Leave);
             this.ResumeLayout(false);
 
         }

@@ -1,6 +1,6 @@
 ﻿namespace GraphicalInterface
 {
-    partial class SkillTree
+    partial class SkillsDisplay
     {
         /// <summary> 
         /// Variable nécessaire au concepteur.
@@ -35,9 +35,8 @@
             this.PageS = new System.Windows.Forms.TabPage();
             this.PageR = new System.Windows.Forms.TabPage();
             this.PageD = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
+            this.LSkillPoint = new System.Windows.Forms.Label();
             this.SkillsTab.SuspendLayout();
-            this.PagePA.SuspendLayout();
             this.SuspendLayout();
             // 
             // SkillsTab
@@ -53,10 +52,10 @@
             this.SkillsTab.SelectedIndex = 0;
             this.SkillsTab.Size = new System.Drawing.Size(701, 537);
             this.SkillsTab.TabIndex = 0;
+            this.SkillsTab.SelectedIndexChanged += new System.EventHandler(this.SkillsTab_SelectedIndexChanged);
             // 
             // PagePA
             // 
-            this.PagePA.Controls.Add(this.button1);
             this.PagePA.Location = new System.Drawing.Point(4, 22);
             this.PagePA.Name = "PagePA";
             this.PagePA.Padding = new System.Windows.Forms.Padding(3);
@@ -121,26 +120,27 @@
             this.PageD.Text = "Esquive";
             this.PageD.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // LSkillPoint
             // 
-            this.button1.Location = new System.Drawing.Point(299, 31);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(56, 34);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Coup puissant";
-            this.button1.UseVisualStyleBackColor = true;
+            this.LSkillPoint.AutoSize = true;
+            this.LSkillPoint.Location = new System.Drawing.Point(607, 23);
+            this.LSkillPoint.Name = "LSkillPoint";
+            this.LSkillPoint.Size = new System.Drawing.Size(50, 13);
+            this.LSkillPoint.TabIndex = 1;
+            this.LSkillPoint.Text = "SkillPoint";
             // 
-            // SkillTree
+            // SkillsDisplay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.LSkillPoint);
             this.Controls.Add(this.SkillsTab);
-            this.Name = "SkillTree";
+            this.Name = "SkillsDisplay";
             this.Size = new System.Drawing.Size(707, 576);
             this.Load += new System.EventHandler(this.SkillTree_Load);
             this.SkillsTab.ResumeLayout(false);
-            this.PagePA.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -153,6 +153,6 @@
         private System.Windows.Forms.TabPage PageS;
         private System.Windows.Forms.TabPage PageR;
         private System.Windows.Forms.TabPage PageD;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label LSkillPoint;
     }
 }

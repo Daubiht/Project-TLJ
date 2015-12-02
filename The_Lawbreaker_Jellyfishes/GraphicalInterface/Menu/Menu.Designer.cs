@@ -1,6 +1,6 @@
 ﻿namespace GraphicalInterface
 {
-    partial class Menu
+    public partial class Menu
     {
         /// <summary> 
         /// Required designer variable.

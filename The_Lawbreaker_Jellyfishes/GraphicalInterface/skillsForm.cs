@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LogicalGame;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,16 +12,11 @@ namespace GraphicalInterface
 {
     public partial class skillsForm : Form
     {
-        public skillsForm()
+        public skillsForm(Character chara)
         {
-            SkillTree st = new SkillTree();
-            Controls.Add(st);
+            SkillsDisplay sd = new SkillsDisplay(chara);
+            Controls.Add(sd);
             InitializeComponent();
-        }
-
-        private void skillsForm_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void skillsForm_Leave(object sender, EventArgs e)
