@@ -12,11 +12,24 @@ namespace LogicalGame
         MapCity _city;
         object _actualPlace;
         List<MapIsland> _listLink;
+        int _x;
+        int _y;
 
         public MapIsland(MapWorld context, string name)
         {
             _name = name;
             _context = context;
+        }
+
+        public int pointX
+        {
+            get { return _x; }
+            set { _x = value; }
+        }
+        public int pointY
+        {
+            get { return _y; }
+            set { _y = value; }
         }
 
         public List<MapIsland> ListLink
@@ -62,7 +75,7 @@ namespace LogicalGame
             get { return _actualPlace; }
             set
             {
-                if (_context.ActualIsland == _name)
+                if (((MapIsland)_context.ActualIsland).IslandName == _name)
                 {
                     _actualPlace = value;
                 }

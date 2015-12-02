@@ -13,15 +13,16 @@ namespace LogicalGame
     [Serializable]
     public class MapWorld
     {
-        readonly Dictionary<string, MapIsland> _islands = new Dictionary<string, MapIsland>();
-        string _actualIsland = "Ponyoland";
+        Dictionary<string, MapIsland> _islands = new Dictionary<string, MapIsland>();
+        object _actualIsland;
         Team _team = new Team("team1");
         ListNotifications _notifs = new ListNotifications();
         Random _rand = new Random();
 
-        public string ActualIsland
+        public object ActualIsland
         {
             get { return _actualIsland; }
+            set { _actualIsland = value; }
         }
 
         public bool ChangeActualIsland(MapIsland I, bool militia)
@@ -30,7 +31,7 @@ namespace LogicalGame
             {
                 for (int i = 0; i < I.ListLink.Count; i++)
                 {
-                    if (_islands[_actualIsland].ListLink[i].IslandName == I.IslandName)
+                    if (((MapIsland)_actualIsland).IslandName == I.IslandName)
                     {
                         if (militia == false)
                         {
@@ -52,6 +53,7 @@ namespace LogicalGame
         public Dictionary<string, MapIsland> Islands
         {
             get { return _islands; }
+            set { _islands = value; }
         }
 
         public Random Random
@@ -108,8 +110,9 @@ namespace LogicalGame
                 List<MapInstance> listInstanceForThisIsland = new List<MapInstance>();
                 for(int i2 = 0; i2 < listInstancesNames[i].Count; i2++)
                 {
-                    MapInstance newInstance = new MapInstance(newIsland, listInstancesNames[i][i2], listsZones[i][i2]);
-                    for(int i3 = 0; i3 < newInstance.listZones.Count; i3++)
+                    MapInstance newInstance = new MapInstance(newIsland, listInstancesNames[i][i2]);
+                    newInstance.listZones = listsZones[i][i2];
+                    for (int i3 = 0; i3 < newInstance.listZones.Count; i3++)
                     {
                         newInstance.listZones[i3].ListLink = ListsZonesLink[i][i2][i3];
                         newInstance.listZones[i3].Context = newInstance;

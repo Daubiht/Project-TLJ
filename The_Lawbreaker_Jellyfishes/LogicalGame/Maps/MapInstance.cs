@@ -8,14 +8,26 @@ namespace LogicalGame
     {
         readonly MapIsland _context;
         readonly string _name;
-        readonly List<MapZone> _listZones;
+        List<MapZone> _listZones;
         MapZone _actualZone;
+        int _x;
+        int _y;
 
-        public MapInstance(MapIsland context, string name, List<MapZone> listzone)
+        public MapInstance(MapIsland context, string name)
         {
             _name = name;
             _context = context;
-            _listZones = listzone;
+        }
+
+        public int PointX
+        {
+            get { return _x; }
+            set { _x = value; }
+        }
+        public int PointY
+        {
+            get { return _y; }
+            set { _y = value; }
         }
 
         public string InstanceName
@@ -26,6 +38,7 @@ namespace LogicalGame
         public List<MapZone> listZones
         {
             get { return _listZones; }
+            set { _listZones = value; }
         }
 
         public MapZone ActualZone
