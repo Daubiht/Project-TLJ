@@ -152,12 +152,12 @@ namespace GraphicalInterface
                 BConfirm.Visible = false;
             }
 
-            LHealth.Text = (c.Stats[0] + statsUped[0]).ToString();
-            LRobustness.Text = (c.Stats[1] + statsUped[1]).ToString();
-            LStamina.Text = (c.Stats[2] + statsUped[2]).ToString();
-            LDodge.Text = (c.Stats[3] + statsUped[3]).ToString();
-            LPhysical.Text = (c.Stats[4] + statsUped[4]).ToString();
-            LMagic.Text = (c.Stats[5] + statsUped[5]).ToString();
+            LHealth.Text = (c.Stats[2] + statsUped[0]).ToString();
+            LRobustness.Text = (c.Stats[3] + statsUped[1]).ToString();
+            LStamina.Text = (c.Stats[4] + statsUped[2]).ToString();
+            LDodge.Text = (c.Stats[5] + statsUped[3]).ToString();
+            LPhysical.Text = (c.Stats[0] + statsUped[4]).ToString();
+            LMagic.Text = (c.Stats[1] + statsUped[5]).ToString();
             LStatPoint.Text = statPoint.ToString() + " Point(s)";
         }
 
@@ -198,12 +198,12 @@ namespace GraphicalInterface
                 PPlus.Visible = false;
             }
 
-            LHealth.Text = (c.Stats[0] + statsUped[0]).ToString();
-            LRobustness.Text = (c.Stats[1] + statsUped[1]).ToString();
-            LStamina.Text = (c.Stats[2] + statsUped[2]).ToString();
-            LDodge.Text = (c.Stats[3] + statsUped[3]).ToString();
-            LPhysical.Text = (c.Stats[4] + statsUped[4]).ToString();
-            LMagic.Text = (c.Stats[5] + statsUped[5]).ToString();
+            LHealth.Text = (c.Stats[2] + statsUped[0]).ToString();
+            LRobustness.Text = (c.Stats[3] + statsUped[1]).ToString();
+            LStamina.Text = (c.Stats[4] + statsUped[2]).ToString();
+            LDodge.Text = (c.Stats[5] + statsUped[3]).ToString();
+            LPhysical.Text = (c.Stats[0] + statsUped[4]).ToString();
+            LMagic.Text = (c.Stats[1] + statsUped[5]).ToString();
             LStatPoint.Text = statPoint.ToString() + " Point(s)";
         }
 
@@ -277,6 +277,19 @@ namespace GraphicalInterface
             BAMM.Visible = false;
 
             if (c.StatsPoint <= 0) LStatPoint.Visible = false;
+
+            statsUped = new int[] {0,0,0,0,0,0 };
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            skillsForm skillsform = new skillsForm(c);
+            skillsform.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            c.LevelUp(1);
         }
     }
 }

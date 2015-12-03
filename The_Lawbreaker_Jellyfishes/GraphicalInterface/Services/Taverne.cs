@@ -85,7 +85,7 @@ namespace GraphicalInterface
 
             for (int i = 0 ; i < newCharacterNumber ; i++)
             {
-                Thread.Sleep(30);
+                //Thread.Sleep(30);
                 randomCharacterList.Add(rc.New(1, 10));
             }
 

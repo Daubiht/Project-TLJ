@@ -54,11 +54,40 @@ namespace GraphicalInterface
         {
             Button button = (Button)sender;
             Character c = (Character)button.Tag;
+            Team team = c.InTeam;
+            bool allInBack;
 
             c.FrontPosition = !c.FrontPosition;
 
             if (c.FrontPosition) button.Text = "CaC";
             else button.Text = "PO";
+
+            if (!c.FrontPosition)
+            {
+                allInBack = true;
+                foreach (Character member in team.Members)
+                {
+                    if (member.FrontPosition) allInBack = false;
+                }
+
+                if (allInBack)
+                {
+                    foreach (CharacterBar bar in Parent.Controls)
+                    {
+                        Character currentChara = (Character)bar.Tag;
+                        currentChara.FrontPosition = true;
+                        bar.BPosition.Text = "CaC";
+                    }
+                    ((TeamManagement)(Parent.Parent)).Error.Text = "Attention ! Il faut au moins un membre de l'équipe au corp à corp.";
+                    ((TeamManagement)(Parent.Parent)).Error.Visible = true;
+                }
+                else
+                {
+                    ((TeamManagement)(Parent.Parent)).Error.Visible = false;
+                }
+            }
+
+
         }
     }
 }

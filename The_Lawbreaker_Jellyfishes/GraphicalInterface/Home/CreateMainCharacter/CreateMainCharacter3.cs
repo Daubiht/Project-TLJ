@@ -111,8 +111,8 @@ namespace GraphicalInterface
             if (RBVitality.Checked) _C1.AddSkill(_skillList.ObtainList["Vitalité"].Name, _skillList.ObtainList["Vitalité"]);
             if (RBDefensePosition.Checked) _C1.AddSkill(_skillList.ObtainList["Position défensive"].Name, _skillList.ObtainList["Position défensive"]);
             if (RBEffort.Checked) _C1.AddSkill(_skillList.ObtainList["Infatigable"].Name, _skillList.ObtainList["Infatigable"]);
-            if (RBConcentredHit.Checked) _C1.AddSkill(_skillList.ObtainList["slash"].Name, _skillList.ObtainList["slash"]);
-            if (RBEnergeticShot.Checked) _C1.AddSkill(_skillList.ObtainList["energy ball"].Name, _skillList.ObtainList["energy ball"]);
+            if (RBConcentredHit.Checked) _C1.AddSkill(_skillList.ObtainList["Frappe Concentré"].Name, _skillList.ObtainList["Frappe Concentré"]);
+            if (RBEnergeticShot.Checked) _C1.AddSkill(_skillList.ObtainList["Tir Energetique"].Name, _skillList.ObtainList["Tir Energetique"]);
             if (RBInstinct.Checked) _C1.AddSkill(_skillList.ObtainList["Instinct"].Name, _skillList.ObtainList["Instinct"]);
         }
     }

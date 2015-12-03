@@ -45,6 +45,11 @@
             this.LPhysical = new System.Windows.Forms.Label();
             this.LMagic = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.stuffstat6 = new System.Windows.Forms.Label();
+            this.stuffstat5 = new System.Windows.Forms.Label();
+            this.stuffstat4 = new System.Windows.Forms.Label();
+            this.stuffstat3 = new System.Windows.Forms.Label();
+            this.stuffstat2 = new System.Windows.Forms.Label();
             this.stuffstat1 = new System.Windows.Forms.Label();
             this.BConfirm = new System.Windows.Forms.Button();
             this.LStatPoint = new System.Windows.Forms.Label();
@@ -71,11 +76,7 @@
             this.Cou = new System.Windows.Forms.Button();
             this.Retour = new System.Windows.Forms.Button();
             this.BFired = new System.Windows.Forms.Button();
-            this.stuffstat2 = new System.Windows.Forms.Label();
-            this.stuffstat3 = new System.Windows.Forms.Label();
-            this.stuffstat4 = new System.Windows.Forms.Label();
-            this.stuffstat5 = new System.Windows.Forms.Label();
-            this.stuffstat6 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.PPlus.SuspendLayout();
             this.SuspendLayout();
@@ -260,6 +261,51 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(237, 252);
             this.panel1.TabIndex = 13;
+            // 
+            // stuffstat6
+            // 
+            this.stuffstat6.AutoSize = true;
+            this.stuffstat6.Location = new System.Drawing.Point(152, 194);
+            this.stuffstat6.Name = "stuffstat6";
+            this.stuffstat6.Size = new System.Drawing.Size(13, 13);
+            this.stuffstat6.TabIndex = 27;
+            this.stuffstat6.Text = "a";
+            // 
+            // stuffstat5
+            // 
+            this.stuffstat5.AutoSize = true;
+            this.stuffstat5.Location = new System.Drawing.Point(152, 166);
+            this.stuffstat5.Name = "stuffstat5";
+            this.stuffstat5.Size = new System.Drawing.Size(13, 13);
+            this.stuffstat5.TabIndex = 27;
+            this.stuffstat5.Text = "a";
+            // 
+            // stuffstat4
+            // 
+            this.stuffstat4.AutoSize = true;
+            this.stuffstat4.Location = new System.Drawing.Point(152, 138);
+            this.stuffstat4.Name = "stuffstat4";
+            this.stuffstat4.Size = new System.Drawing.Size(13, 13);
+            this.stuffstat4.TabIndex = 27;
+            this.stuffstat4.Text = "a";
+            // 
+            // stuffstat3
+            // 
+            this.stuffstat3.AutoSize = true;
+            this.stuffstat3.Location = new System.Drawing.Point(152, 111);
+            this.stuffstat3.Name = "stuffstat3";
+            this.stuffstat3.Size = new System.Drawing.Size(13, 13);
+            this.stuffstat3.TabIndex = 27;
+            this.stuffstat3.Text = "a";
+            // 
+            // stuffstat2
+            // 
+            this.stuffstat2.AutoSize = true;
+            this.stuffstat2.Location = new System.Drawing.Point(152, 78);
+            this.stuffstat2.Name = "stuffstat2";
+            this.stuffstat2.Size = new System.Drawing.Size(13, 13);
+            this.stuffstat2.TabIndex = 27;
+            this.stuffstat2.Text = "a";
             // 
             // stuffstat1
             // 
@@ -451,6 +497,7 @@
             this.button1.TabIndex = 14;
             this.button1.Text = "Comp";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -543,55 +590,21 @@
             this.BFired.UseVisualStyleBackColor = true;
             this.BFired.Click += new System.EventHandler(this.BFired_Click);
             // 
-            // stuffstat2
+            // button3
             // 
-            this.stuffstat2.AutoSize = true;
-            this.stuffstat2.Location = new System.Drawing.Point(152, 78);
-            this.stuffstat2.Name = "stuffstat2";
-            this.stuffstat2.Size = new System.Drawing.Size(13, 13);
-            this.stuffstat2.TabIndex = 27;
-            this.stuffstat2.Text = "a";
-            // 
-            // stuffstat3
-            // 
-            this.stuffstat3.AutoSize = true;
-            this.stuffstat3.Location = new System.Drawing.Point(152, 111);
-            this.stuffstat3.Name = "stuffstat3";
-            this.stuffstat3.Size = new System.Drawing.Size(13, 13);
-            this.stuffstat3.TabIndex = 27;
-            this.stuffstat3.Text = "a";
-            // 
-            // stuffstat4
-            // 
-            this.stuffstat4.AutoSize = true;
-            this.stuffstat4.Location = new System.Drawing.Point(152, 138);
-            this.stuffstat4.Name = "stuffstat4";
-            this.stuffstat4.Size = new System.Drawing.Size(13, 13);
-            this.stuffstat4.TabIndex = 27;
-            this.stuffstat4.Text = "a";
-            // 
-            // stuffstat5
-            // 
-            this.stuffstat5.AutoSize = true;
-            this.stuffstat5.Location = new System.Drawing.Point(152, 166);
-            this.stuffstat5.Name = "stuffstat5";
-            this.stuffstat5.Size = new System.Drawing.Size(13, 13);
-            this.stuffstat5.TabIndex = 27;
-            this.stuffstat5.Text = "a";
-            // 
-            // stuffstat6
-            // 
-            this.stuffstat6.AutoSize = true;
-            this.stuffstat6.Location = new System.Drawing.Point(152, 194);
-            this.stuffstat6.Name = "stuffstat6";
-            this.stuffstat6.Size = new System.Drawing.Size(13, 13);
-            this.stuffstat6.TabIndex = 27;
-            this.stuffstat6.Text = "a";
+            this.button3.Location = new System.Drawing.Point(308, 97);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 24;
+            this.button3.Text = "LevelUp";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // CharacterManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.BFired);
             this.Controls.Add(this.Retour);
             this.Controls.Add(this.Cou);
@@ -667,5 +680,6 @@
         private System.Windows.Forms.Label stuffstat4;
         private System.Windows.Forms.Label stuffstat3;
         private System.Windows.Forms.Label stuffstat2;
+        private System.Windows.Forms.Button button3;
     }
 }
