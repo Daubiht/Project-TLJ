@@ -9,7 +9,6 @@ namespace LogicalGame
         readonly MapIsland _context;
         readonly string _name;
         List<MapZone> _listZones;
-        MapZone _actualZone;
         int _x;
         int _y;
 
@@ -41,18 +40,14 @@ namespace LogicalGame
             set { _listZones = value; }
         }
 
-        public MapZone ActualZone
-        {
-            get { return _actualZone; }
-        }
-
         public MapZone ChangeActualZone(MapZone Z)
         {
-            for (int i = 0; i < _actualZone.ListLink.Count; i++)
+            MapZone actualZone = ((MapZone)_context.ActualWorld.ActualPosition);
+            for (int i = 0; i < actualZone.ListLink.Count; i++)
             {
-                if (_actualZone.ListLink[i] == Z)
+                if (actualZone.ListLink[i] == Z)
                 {
-                    _actualZone = Z;
+                    actualZone = Z;
                     //Provok an event when arrive
                     return Z;
                 }

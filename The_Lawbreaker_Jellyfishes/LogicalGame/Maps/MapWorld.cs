@@ -14,30 +14,30 @@ namespace LogicalGame
     public class MapWorld
     {
         Dictionary<string, MapIsland> _islands = new Dictionary<string, MapIsland>();
-        object _actualIsland;
+        object _actualPosition;
         Team _team = new Team("team1");
         ListNotifications _notifs = new ListNotifications();
         Random _rand = new Random();
 
-        public object ActualIsland
+        public object ActualPosition
         {
-            get { return _actualIsland; }
-            set { _actualIsland = value; }
+            get { return _actualPosition; }
+            set { _actualPosition = value; }
         }
 
         public bool ChangeActualIsland(MapIsland I, bool militia)
         {
-            if (((MapIsland)_actualIsland).IslandName != I.IslandName)
+            if (((MapIsland)_actualPosition).IslandName != I.IslandName)
             {
                 for (int i = 0; i < I.ListLink.Count; i++)
                 {
-                    if (((MapIsland)_actualIsland).IslandName == I.IslandName)
+                    if (((MapIsland)_actualPosition).IslandName == I.IslandName)
                     {
                         if (militia == false)
                         {
                             //Provok event when a change is done
                         }
-                        _actualIsland = I.IslandName;
+                        _actualPosition = I;
                         return true;
                     }
                 }
@@ -53,7 +53,11 @@ namespace LogicalGame
         public Dictionary<string, MapIsland> Islands
         {
             get { return _islands; }
-            set { _islands = value; }
+            set
+            {
+                _islands = value;
+                _actualPosition = _islands["island1"];
+            }
         }
 
         public Random Random
@@ -120,7 +124,7 @@ namespace LogicalGame
 
                     listInstanceForThisIsland.Add(newInstance);
                 }
-                newIsland.AddInstances(listInstanceForThisIsland);
+                newIsland.IslandInstances = listInstanceForThisIsland;
 
                 listIsland[i] = newIsland;
             }

@@ -55,6 +55,7 @@ namespace LogicalGame
         public List<MapInstance> IslandInstances
         {
             get { return _listInstance; }
+            set { _listInstance = value; }
         }
 
         public MapCity AddCity(MapCity city)
@@ -62,12 +63,5 @@ namespace LogicalGame
             _city = city;
             return _city;
         }
-
-        public List<MapInstance> AddInstances(List<MapInstance> listInstance)
-        {
-            _listInstance = listInstance;
-            return listInstance;
-        }
-
     }
 }
