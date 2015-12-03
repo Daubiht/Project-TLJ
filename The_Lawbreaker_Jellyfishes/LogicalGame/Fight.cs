@@ -9,7 +9,7 @@ namespace LogicalGame
     public class Fight
     {
         // Put on pause the code until the member attacks a monster
-        ManualResetEvent _suspendEvent = new ManualResetEvent(true);
+        public ManualResetEvent _suspendEvent = new ManualResetEvent(true);
 
         /// Fields used to attack a monster
         // Get the member who attacks, used in the method who gets the member who attacks
@@ -105,18 +105,10 @@ namespace LogicalGame
             // its team's turn to attack
             else if ( _isTeamToAttack == true )
             {
-                foreach( Character member in _team.Members )
-                {
-                    // While a member hasn't play yet, we wait him to attack
-                    while (member.DidMemberPlay == false)
-                    {   // call the team to attack again and again until every member has attacked
-                        //IsTeamToAttack();
-                        // __________________ PUT A WAIT CLICK EVENT HANDLER HERE
-                        _suspendEvent.WaitOne();
-                        
-                        
-                    }
-                }
+                // call the team to attack again and again until every member has attacked
+                // __________________ PUT A WAIT CLICK EVENT HANDLER HERE
+                //_suspendEvent.WaitOne();
+                //gameLoop();
                 _isTeamToAttack = false;
             }
         }
@@ -138,7 +130,7 @@ namespace LogicalGame
         {
             // Check if the member has not already attacked a monster
             // And check if a member is attacking, it's avoid the player to click randomly by clicking everywhere on the screen
-            if ( _memberWhoAttacks.DidMemberPlay == false & _doesAMemberAttack == true )
+            if ( _memberWhoAttacks.DidMemberPlay == false && _doesAMemberAttack == true )
             {
                 _attackedMonster = AttackedMonster;
                 // Match the member and the monster
@@ -154,5 +146,6 @@ namespace LogicalGame
             // True means "This member just attacked, he won't be able to attack again"
             MemberWhoAttacks.DidMemberPlay = true;
         }
+
     }
 }

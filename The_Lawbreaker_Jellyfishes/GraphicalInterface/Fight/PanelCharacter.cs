@@ -22,6 +22,7 @@ namespace GraphicalInterface.Fighting
         // Constructor of panels, in argument we get a monster or a character object
         public PanelCharacter(Object obj, Fight Fight, FightUserControl FightUserControl)
         {
+
             // We need the fight user control to display on it a new fight menu
             _FightUserControl = FightUserControl;
             // We need fight to use some methods
@@ -58,6 +59,7 @@ namespace GraphicalInterface.Fighting
         // Define the treatment of the left click event
         public void SelectMemberMonster(object sender, EventArgs e)
         {
+            _fight._suspendEvent.Set();
             if (_obj is Character)
             {
                 //_fight.GetMemberWhoAttack(_character);
@@ -67,6 +69,7 @@ namespace GraphicalInterface.Fighting
             {
                 _fight.GetAttackedMonster(_monster);
             }
+
         }
     }
 }
