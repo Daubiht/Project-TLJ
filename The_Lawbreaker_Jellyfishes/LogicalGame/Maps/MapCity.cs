@@ -8,6 +8,8 @@ namespace LogicalGame
     {
         readonly MapIsland _context;
         readonly string _name;
+        int _x;
+        int _y;
 
         List<Merchant> _merchants;
         Mortuary _mortuary;
@@ -18,6 +20,17 @@ namespace LogicalGame
             _context = context;
             _merchants = Merchants;
             _mortuary = new Mortuary(this);
+        }
+
+        public int PointX
+        {
+            get { return _x; }
+            set { _x = value; }
+        }
+        public int PointY
+        {
+            get { return _y; }
+            set { _y = value; }
         }
 
         public string CityName

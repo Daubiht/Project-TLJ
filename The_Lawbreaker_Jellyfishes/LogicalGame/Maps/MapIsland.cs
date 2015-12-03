@@ -10,7 +10,6 @@ namespace LogicalGame
         readonly string _name;
         List<MapInstance> _listInstance;
         MapCity _city;
-        object _actualPlace;
         List<MapIsland> _listLink;
         int _x;
         int _y;
@@ -70,17 +69,5 @@ namespace LogicalGame
             return listInstance;
         }
 
-        public object ActualPlace
-        {
-            get { return _actualPlace; }
-            set
-            {
-                if (((MapIsland)_context.ActualIsland).IslandName == _name)
-                {
-                    _actualPlace = value;
-                }
-            }
-
-        }
     }
 }

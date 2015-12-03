@@ -27,7 +27,7 @@ namespace LogicalGame
 
         public bool ChangeActualIsland(MapIsland I, bool militia)
         {
-            if (_actualIsland != I.IslandName)
+            if (((MapIsland)_actualIsland).IslandName != I.IslandName)
             {
                 for (int i = 0; i < I.ListLink.Count; i++)
                 {

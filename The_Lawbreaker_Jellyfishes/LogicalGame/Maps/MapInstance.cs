@@ -50,7 +50,7 @@ namespace LogicalGame
         {
             for (int i = 0; i < _actualZone.ListLink.Count; i++)
             {
-                if ((_actualZone.ListLink[i] == Z) && (_context.ActualPlace == this))
+                if (_actualZone.ListLink[i] == Z)
                 {
                     _actualZone = Z;
                     //Provok an event when arrive
