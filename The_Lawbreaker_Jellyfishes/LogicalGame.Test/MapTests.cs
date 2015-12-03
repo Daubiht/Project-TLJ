@@ -17,7 +17,7 @@ namespace LogicalGame.Test
             //get world.bin
             IFormatter formatter = new BinaryFormatter();
             MapWorld world;
-            using (Stream stream = new FileStream("../../../Ressources/world.bin", FileMode.Open, FileAccess.Read, FileShare.Read))
+            using (Stream stream = new FileStream("../../../Ressources/NewWorld.bin", FileMode.Open, FileAccess.Read, FileShare.Read))
             {
                 world = (MapWorld)formatter.Deserialize(stream);
             }
@@ -25,42 +25,48 @@ namespace LogicalGame.Test
             //initialise island
             Dictionary<string, MapIsland> Islands = world.Islands;
 
+            MapIsland i = null;
             foreach(MapIsland island in Islands.Values)
             {
-                if(island.IslandName == "Ponyoland")
+                if(island.IslandName == "island1")
                 {
                     world.ChangeActualIsland(island, false);
+                    i = island;
                 }
             }
 
-            Assert.AreEqual("Ponyoland", world.ActualIsland);
+            Assert.AreEqual(i, world.ActualPosition);
 
             //change island
             foreach (MapIsland island in Islands.Values)
             {
-                if (island.IslandName == "Terres désolées")
+                if (island.IslandName == "island2")
                 {
                     world.ChangeActualIsland(island, false);
+                    i = island;
                 }
             }
 
-            Assert.AreEqual("Ponyoland", world.ActualIsland);
+            Assert.AreEqual(i, world.ActualPosition);
 
 
             //change city
-            world.Islands[world.ActualIsland].ActualPlace = world.Islands[world.ActualIsland].IslandCity;
+            world.ActualPosition = world.Islands[((MapIsland)world.ActualPosition).IslandName].IslandCity;
 
-            Assert.AreEqual("Ponyo", world.Islands[world.ActualIsland].IslandCity.CityName);
+            Assert.AreEqual("City2",((MapCity)world.ActualPosition).CityName);
 
             //change instance
-            List<MapInstance> listinstance = world.Islands[world.ActualIsland].IslandInstances;
+            world.ActualPosition = world.Islands["island1"];
+            List<MapInstance> listinstance = world.Islands[((MapIsland)world.ActualPosition).IslandName].IslandInstances;
             foreach(MapInstance instance in listinstance)
             {
-                if (instance.InstanceName == "Vallée de Ponyo")
+                if (instance.InstanceName == "island1_instance_1")
                 {
-                    world.Islands[world.ActualIsland].ActualPlace = instance;
+                    world.ActualPosition = instance;
+                    Assert.AreEqual(instance, world.ActualPosition);
                 }
             }
+
 
         }
 

@@ -13,6 +13,8 @@ namespace LogicalGame
         MapInstance _context;
         int _zoneLevel;
         Random _rand;
+        int _x;
+        int _y;
 
         public MapZone(MapInstance context, bool WithInstance, int zoneLevel)
         {
@@ -26,6 +28,17 @@ namespace LogicalGame
             {
                 _rand = new Random();
             }
+        }
+
+        public int PointX
+        {
+            get { return _x; }
+            set { _x = value; }
+        }
+        public int PointY
+        {
+            get { return _y; }
+            set { _y = value; }
         }
 
         public MapInstance Context

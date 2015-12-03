@@ -74,6 +74,12 @@
     <Compile Include="Home\ReceptionScreen.Designer.cs">
       <DependentUpon>ReceptionScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="Maps\Island.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Maps\Island.Designer.cs">
+      <DependentUpon>Island.cs</DependentUpon>
+    </Compile>
     <Compile Include="Menu\Inventory.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -103,12 +109,6 @@
     </Compile>
     <Compile Include="Maps\Islands\Ponyoland\Ponyo.Designer.cs">
       <DependentUpon>Ponyo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Maps\Islands\Ponyoland\Ponyoland.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Maps\Islands\Ponyoland\Ponyoland.Designer.cs">
-      <DependentUpon>Ponyoland.cs</DependentUpon>
     </Compile>
     <Compile Include="Menu\Menu.cs">
       <SubType>UserControl</SubType>
@@ -208,6 +208,9 @@
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Maps\Island.resx">
+      <DependentUpon>Island.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Maps\Islands\Ponyoland\Instances\ForetDePonyo.resx">
       <DependentUpon>ForetDePonyo.cs</DependentUpon>
     </EmbeddedResource>
@@ -216,9 +219,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Maps\Islands\Ponyoland\Ponyo.resx">
       <DependentUpon>Ponyo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Maps\Islands\Ponyoland\Ponyoland.resx">
-      <DependentUpon>Ponyoland.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu\Inventory.resx">
       <DependentUpon>Inventory.cs</DependentUpon>
@@ -288,9 +288,7 @@
       <Name>LogicalGame</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Zones\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

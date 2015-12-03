@@ -13,30 +13,31 @@ namespace LogicalGame
     [Serializable]
     public class MapWorld
     {
-        readonly Dictionary<string, MapIsland> _islands = new Dictionary<string, MapIsland>();
-        string _actualIsland = "Ponyoland";
+        Dictionary<string, MapIsland> _islands = new Dictionary<string, MapIsland>();
+        object _actualPosition;
         Team _team = new Team("team1");
         ListNotifications _notifs = new ListNotifications();
         Random _rand = new Random();
 
-        public string ActualIsland
+        public object ActualPosition
         {
-            get { return _actualIsland; }
+            get { return _actualPosition; }
+            set { _actualPosition = value; }
         }
 
         public bool ChangeActualIsland(MapIsland I, bool militia)
         {
-            if (_actualIsland != I.IslandName)
+            if (((MapIsland)_actualPosition).IslandName != I.IslandName)
             {
                 for (int i = 0; i < I.ListLink.Count; i++)
                 {
-                    if (_islands[_actualIsland].ListLink[i].IslandName == I.IslandName)
+                    if (((MapIsland)_actualPosition).IslandName == I.ListLink[i].IslandName)
                     {
                         if (militia == false)
                         {
                             //Provok event when a change is done
                         }
-                        _actualIsland = I.IslandName;
+                        _actualPosition = I;
                         return true;
                     }
                 }
@@ -52,6 +53,11 @@ namespace LogicalGame
         public Dictionary<string, MapIsland> Islands
         {
             get { return _islands; }
+            set
+            {
+                _islands = value;
+                _actualPosition = _islands["island1"];
+            }
         }
 
         public Random Random
@@ -102,14 +108,15 @@ namespace LogicalGame
             {
                 MapIsland newIsland = new MapIsland(this, islandsNames[i]);
 
-                MapCity newCity = new MapCity(newIsland, citiesNames[i], listMerchants[i]);
-                newIsland.AddCity(newCity);
+                //MapCity newCity = new MapCity(newIsland, citiesNames[i], listMerchants[i]);
+                //newIsland.AddCity(newCity);
 
                 List<MapInstance> listInstanceForThisIsland = new List<MapInstance>();
                 for(int i2 = 0; i2 < listInstancesNames[i].Count; i2++)
                 {
-                    MapInstance newInstance = new MapInstance(newIsland, listInstancesNames[i][i2], listsZones[i][i2]);
-                    for(int i3 = 0; i3 < newInstance.listZones.Count; i3++)
+                    MapInstance newInstance = new MapInstance(newIsland, listInstancesNames[i][i2]);
+                    newInstance.listZones = listsZones[i][i2];
+                    for (int i3 = 0; i3 < newInstance.listZones.Count; i3++)
                     {
                         newInstance.listZones[i3].ListLink = ListsZonesLink[i][i2][i3];
                         newInstance.listZones[i3].Context = newInstance;
@@ -117,7 +124,7 @@ namespace LogicalGame
 
                     listInstanceForThisIsland.Add(newInstance);
                 }
-                newIsland.AddInstances(listInstanceForThisIsland);
+                newIsland.IslandInstances = listInstanceForThisIsland;
 
                 listIsland[i] = newIsland;
             }

@@ -30,13 +30,13 @@ namespace GraphicalInterface
 
         private void Marchand_Click(object sender, EventArgs e)
         {
-            Merchant uc = new Merchant(_contextForm, _contextWorld.Islands[_contextWorld.ActualIsland].IslandCity.Merchant[0], _contextWorld.Team.Invent);
-            _contextForm.ToMenu(uc, true);
+            //Merchant uc = new Merchant(_contextForm, ((MapIsland)_contextWorld.ActualPosition).IslandCity.Merchant[0], _contextWorld.Team.Invent);
+            //_contextForm.ToMenu(uc, true);
         }
 
         private void Morgue_Click(object sender, EventArgs e)
         {
-            Mortuary uc = new Mortuary(_contextWorld.Team, _contextForm, _contextWorld.Islands[_contextWorld.ActualIsland].IslandCity.Mortuary);
+            Mortuary uc = new Mortuary(_contextWorld.Team, _contextForm, ((MapIsland)_contextWorld.ActualPosition).IslandCity.Mortuary);
             _contextForm.ToMenu(uc, true);
         }
 

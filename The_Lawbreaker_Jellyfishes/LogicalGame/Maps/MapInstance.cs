@@ -8,14 +8,25 @@ namespace LogicalGame
     {
         readonly MapIsland _context;
         readonly string _name;
-        readonly List<MapZone> _listZones;
-        MapZone _actualZone;
+        List<MapZone> _listZones;
+        int _x;
+        int _y;
 
-        public MapInstance(MapIsland context, string name, List<MapZone> listzone)
+        public MapInstance(MapIsland context, string name)
         {
             _name = name;
             _context = context;
-            _listZones = listzone;
+        }
+
+        public int PointX
+        {
+            get { return _x; }
+            set { _x = value; }
+        }
+        public int PointY
+        {
+            get { return _y; }
+            set { _y = value; }
         }
 
         public string InstanceName
@@ -26,20 +37,17 @@ namespace LogicalGame
         public List<MapZone> listZones
         {
             get { return _listZones; }
-        }
-
-        public MapZone ActualZone
-        {
-            get { return _actualZone; }
+            set { _listZones = value; }
         }
 
         public MapZone ChangeActualZone(MapZone Z)
         {
-            for (int i = 0; i < _actualZone.ListLink.Count; i++)
+            MapZone actualZone = ((MapZone)_context.ActualWorld.ActualPosition);
+            for (int i = 0; i < actualZone.ListLink.Count; i++)
             {
-                if ((_actualZone.ListLink[i] == Z) && (_context.ActualPlace == this))
+                if (actualZone.ListLink[i] == Z)
                 {
-                    _actualZone = Z;
+                    actualZone = Z;
                     //Provok an event when arrive
                     return Z;
                 }
