@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 
 namespace LogicalGame
 {
     public class Fight
     {
+        // Put on pause the code until the member attacks a monster
+        ManualResetEvent _suspendEvent = new ManualResetEvent(true);
 
         /// Fields used to attack a monster
         // Get the member who attacks, used in the method who gets the member who attacks
@@ -85,25 +88,34 @@ namespace LogicalGame
             }  
             return true; // True means "Yes, all member are dead"
         }
-
         // Check if its monster's turn or team's turn to attack
         public void IsTeamToAttack()
         {
             // its monter's turn to attack
             if ( _isTeamToAttack == false )
             {
+                // Monsters attack members
                 foreach ( Monster m in _monsters)
-                {
                     m.Attack(_team);
-                }
+                // We define that the members hasn't play yet
+                foreach (Character c in _team.Members)
+                    c.DidMemberPlay = false;
                 _isTeamToAttack = true;
             }
             // its team's turn to attack
-            else if ( _isTeamToAttack == true)
+            else if ( _isTeamToAttack == true )
             {
-                foreach ( Character c in _team.Members )
+                foreach( Character member in _team.Members )
                 {
-                    c.Attack(_monsters);
+                    // While a member hasn't play yet, we wait him to attack
+                    while (member.DidMemberPlay == false)
+                    {   // call the team to attack again and again until every member has attacked
+                        //IsTeamToAttack();
+                        // __________________ PUT A WAIT CLICK EVENT HANDLER HERE
+                        _suspendEvent.WaitOne();
+                        
+                        
+                    }
                 }
                 _isTeamToAttack = false;
             }

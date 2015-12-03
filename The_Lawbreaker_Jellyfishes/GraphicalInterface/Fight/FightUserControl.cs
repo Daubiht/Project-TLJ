@@ -30,7 +30,6 @@ namespace GraphicalInterface.Fighting
         // list used to select HIDDEN MONSTERS
         List<Monster> _hiddenMonsters = new List<Monster>();
 
-
         // Set X positions of members and monsters
         int _posX1Member = 170, _posX2Member = 130, _posX3Member = 85, _posX4Member = 45;
         // Set Y position of monsters
@@ -39,6 +38,7 @@ namespace GraphicalInterface.Fighting
         int _posYFrontMember = 214, _posYHiddenMember = 293;
         // Set the space between each panel
         int _spaceBetweenPanels = 85;
+
 
         bool _isAllMembersFrontPositionFalse;
         bool _isAllMonstersFrontPositionFalse;
@@ -70,7 +70,6 @@ namespace GraphicalInterface.Fighting
                 if ( _isAllMembersFrontPositionFalse == true)           
                     foreach (Character c in _team.Members) c.FrontPosition = true;
             }
-
             // Check if all 4 monster's front position are setted to false, if yes, we set all front position to true
             if (_monsters.Count == 4)
             {
@@ -113,7 +112,6 @@ namespace GraphicalInterface.Fighting
             SetPanelPosition(_frontMonsters, _posYFrontMonster);
             SetPanelPosition(_hiddenMonsters, _posYHiddenMonster);
         }
-
         // Method who sets the PANEL'S POSITION
         public void SetPanelPosition<T>(List<T> MonsterOrMemberList, int posY)
         { 
@@ -170,8 +168,16 @@ namespace GraphicalInterface.Fighting
         public void CreateFightMenu(Character DisplayedCharacter)
         {
             Controls.Remove(_currentMemberMenu);
-            _currentMemberMenu = new FightMenu(DisplayedCharacter);
+            _currentMemberMenu = new FightMenu(DisplayedCharacter, _fight);
             Controls.Add(_currentMemberMenu);
         }
+
+        private void FightUserControl_Load(object sender, EventArgs e)
+        {
+            _fight.gameLoop();
+        }
+
+
+
     }
 }

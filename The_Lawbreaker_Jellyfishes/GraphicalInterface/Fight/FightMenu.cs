@@ -13,8 +13,12 @@ namespace GraphicalInterface.Fighting
 {
     public partial class FightMenu : UserControl
     {
-        public FightMenu(Character selectedMember)
+        Character _selectedMember;
+        Fight _fight;
+        public FightMenu(Character selectedMember, Fight fight)
         {
+            _selectedMember = selectedMember;
+            _fight = fight;
             InitializeComponent();
             // Display the name of the character
             labelCharName.Text = selectedMember.Name;
@@ -36,9 +40,9 @@ namespace GraphicalInterface.Fighting
         {
             Click += new EventHandler(BasicAttack);
         }
-        public void BasicAttack()
+        public void BasicAttack(object sender, EventArgs e)
         {
-
+            _fight.GetMemberWhoAttack(_selectedMember, null, _selectedMember.PhysicalAttack);
         }
     }
 
