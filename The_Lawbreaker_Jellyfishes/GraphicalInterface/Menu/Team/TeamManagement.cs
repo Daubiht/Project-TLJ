@@ -18,6 +18,11 @@ namespace GraphicalInterface
             ReloadTeamManagement();
         }
         
+        internal Label Error
+        {
+            get { return LError; }
+        }
+
         internal void ReloadTeamManagement()
         {
             PTeam.Controls.Clear();
@@ -27,6 +32,7 @@ namespace GraphicalInterface
             foreach (Character chara in _t.Members)
             {
                 CharacterBar character = new CharacterBar(chara, _contextForm, this);
+                character.Tag = chara;
 
                 character.Top = i * (character.Height + 5);
 

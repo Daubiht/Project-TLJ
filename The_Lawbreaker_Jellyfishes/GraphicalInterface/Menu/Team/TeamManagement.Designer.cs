@@ -31,13 +31,14 @@
             this.PTeam = new System.Windows.Forms.Panel();
             this.Retour = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.LError = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // PTeam
             // 
-            this.PTeam.Location = new System.Drawing.Point(3, 44);
+            this.PTeam.Location = new System.Drawing.Point(3, 54);
             this.PTeam.Name = "PTeam";
-            this.PTeam.Size = new System.Drawing.Size(397, 322);
+            this.PTeam.Size = new System.Drawing.Size(397, 312);
             this.PTeam.TabIndex = 0;
             // 
             // Retour
@@ -60,10 +61,22 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Equipe";
             // 
+            // LError
+            // 
+            this.LError.AutoSize = true;
+            this.LError.ForeColor = System.Drawing.Color.Red;
+            this.LError.Location = new System.Drawing.Point(7, 35);
+            this.LError.Name = "LError";
+            this.LError.Size = new System.Drawing.Size(29, 13);
+            this.LError.TabIndex = 3;
+            this.LError.Text = "Error";
+            this.LError.Visible = false;
+            // 
             // TeamManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.LError);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Retour);
             this.Controls.Add(this.PTeam);
@@ -79,5 +92,6 @@
         private System.Windows.Forms.Panel PTeam;
         private System.Windows.Forms.Button Retour;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label LError;
     }
 }

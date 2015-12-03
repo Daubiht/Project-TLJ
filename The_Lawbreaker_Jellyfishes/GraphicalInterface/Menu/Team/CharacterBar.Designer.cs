@@ -102,11 +102,11 @@
             // 
             // BPosition
             // 
-            this.BPosition.Location = new System.Drawing.Point(290, 12);
+            this.BPosition.Location = new System.Drawing.Point(290, 11);
             this.BPosition.Name = "BPosition";
             this.BPosition.Size = new System.Drawing.Size(47, 37);
             this.BPosition.TabIndex = 7;
-            this.BPosition.Text = "Infos";
+            this.BPosition.Text = "Pos";
             this.BPosition.UseVisualStyleBackColor = true;
             this.BPosition.Click += new System.EventHandler(this.BPosition_Click);
             // 
