@@ -16,7 +16,7 @@ namespace LogicalGame.Test
             MapWorld world;
             //get world.bin
             IFormatter formatter = new BinaryFormatter();
-            using (Stream stream = new FileStream("../../../Ressources/world.bin", FileMode.Open, FileAccess.Read, FileShare.Read))
+            using (Stream stream = new FileStream("../../../Ressources/NewWorld.bin", FileMode.Open, FileAccess.Read, FileShare.Read))
             {
                 world = (MapWorld) formatter.Deserialize(stream);
             }
@@ -31,7 +31,7 @@ namespace LogicalGame.Test
                 }
             }
 
-            Assert.AreEqual("Dague en bois", world.Islands["island"].IslandCity.Merchant[0].GetItemsAvailable[0].GetName);
+            Assert.AreEqual("Dague en bois", ((Merchant)world.Islands["island1"].IslandCity.Services[0]).GetItemsAvailable[0].GetName);
         }
 
         [Test]
@@ -46,7 +46,7 @@ namespace LogicalGame.Test
             MapWorld world;
             //get world.bin
             IFormatter formatter = new BinaryFormatter();
-            using (Stream stream = new FileStream("../../../Ressources/world.bin", FileMode.Open, FileAccess.Read, FileShare.Read))
+            using (Stream stream = new FileStream("../../../Ressources/NewWorld.bin", FileMode.Open, FileAccess.Read, FileShare.Read))
             {
                 world = (MapWorld)formatter.Deserialize(stream);
             }
@@ -63,7 +63,7 @@ namespace LogicalGame.Test
             }
             
             // Here we get the merchant in the island Ponyoland
-            Merchant merchant = world.Islands["island"].IslandCity.Merchant[0];
+            Merchant merchant = ((Merchant)world.Islands["island1"].IslandCity.Services[0]);
             merchant.Invent = team.Invent;
 
             // Test if the team really got 100 gold

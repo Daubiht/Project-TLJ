@@ -7,10 +7,6 @@ namespace LogicalGame
 {
     public class RandomCharacter
     {
-        public RandomCharacter ()
-        {
-
-        }
 
         // Return a random character with a level between two values
         public Character New (int levelMin, int levelMax)

@@ -20,12 +20,12 @@ namespace LogicalGame
             _context = context;
         }
 
-        public int pointX
+        public int PointX
         {
             get { return _x; }
             set { _x = value; }
         }
-        public int pointY
+        public int PointY
         {
             get { return _y; }
             set { _y = value; }

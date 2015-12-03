@@ -31,7 +31,7 @@ namespace LogicalGame
             {
                 for (int i = 0; i < I.ListLink.Count; i++)
                 {
-                    if (((MapIsland)_actualPosition).IslandName == I.IslandName)
+                    if (((MapIsland)_actualPosition).IslandName == I.ListLink[i].IslandName)
                     {
                         if (militia == false)
                         {
@@ -108,8 +108,8 @@ namespace LogicalGame
             {
                 MapIsland newIsland = new MapIsland(this, islandsNames[i]);
 
-                MapCity newCity = new MapCity(newIsland, citiesNames[i], listMerchants[i]);
-                newIsland.AddCity(newCity);
+                //MapCity newCity = new MapCity(newIsland, citiesNames[i], listMerchants[i]);
+                //newIsland.AddCity(newCity);
 
                 List<MapInstance> listInstanceForThisIsland = new List<MapInstance>();
                 for(int i2 = 0; i2 < listInstancesNames[i].Count; i2++)

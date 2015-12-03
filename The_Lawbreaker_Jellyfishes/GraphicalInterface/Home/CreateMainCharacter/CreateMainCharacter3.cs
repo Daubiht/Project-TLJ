@@ -94,7 +94,7 @@ namespace GraphicalInterface
 
             IFormatter formatter = new BinaryFormatter();
             MapWorld w;
-            using (Stream stream = new FileStream("../../../Ressources/world.bin", FileMode.Open, FileAccess.Read, FileShare.Read))
+            using (Stream stream = new FileStream("../../../Ressources/NewWorld.bin", FileMode.Open, FileAccess.Read, FileShare.Read))
             {
                 w = (MapWorld)formatter.Deserialize(stream);
             }

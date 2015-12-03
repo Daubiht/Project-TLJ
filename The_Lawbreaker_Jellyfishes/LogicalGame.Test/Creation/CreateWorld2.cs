@@ -21,8 +21,8 @@ namespace LogicalGame.Test
 
             //island 1 ------------------------------------------------------------
             MapIsland island = new MapIsland(world, "island1");
-            island.pointX = 118;
-            island.pointY = 31;
+            island.PointX = 118;
+            island.PointY = 31;
 
             //Instance for the Island
             MapInstance instance1 = new MapInstance(island, "island1_instance_1");
@@ -56,26 +56,27 @@ namespace LogicalGame.Test
             merch1.PointY = 100;
 
             //list merchant for city
-            List<Merchant> listmerch = new List<Merchant>();
-            listmerch.Add(merch1);
+            List<object> listservices = new List<object>();
+            listservices.Add(merch1);
 
             //city for the island
-            MapCity city = new MapCity(island, "City1", listmerch);
+            MapCity city = new MapCity(island, "City1", listservices);
             city.PointX = 200;
             city.PointY = 200;
+            island.AddCity(city);
 
             //add island to world
             Islands.Add("island1", island);
 
             //island 2 ------------------------------------------------------------
             island = new MapIsland(world, "island2");
-            island.pointX = 118;
-            island.pointY = 31;
+            island.PointX = 118;
+            island.PointY = 231;
 
             //Instance for the Island
             instance1 = new MapInstance(island, "island2_instance_1");
             instance1.PointX = 130;
-            instance1.PointY = 50;
+            instance1.PointY = 250;
 
             //list zone for instance on the island
             listZone_instance1 = new List<MapZone>();
@@ -104,13 +105,14 @@ namespace LogicalGame.Test
             merch1.PointY = 100;
 
             //list merchant for city
-            listmerch = new List<Merchant>();
-            listmerch.Add(merch1);
+            listservices = new List<object>();
+            listservices.Add(merch1);
 
             //city for the island
-            city = new MapCity(island, "City2", listmerch);
+            city = new MapCity(island, "City2", listservices);
             city.PointX = 200;
             city.PointY = 200;
+            island.AddCity(city);
 
             //add island to world
             Islands.Add("island2", island);
@@ -119,15 +121,16 @@ namespace LogicalGame.Test
 
             //list link between island
             List<MapIsland> listlink = new List<MapIsland>();
-            listlink.Add(world.Islands["island2"]);
-            world.Islands["island1"].ListLink = listlink;
+            listlink.Add(Islands["island2"]);
+            Islands["island1"].ListLink = listlink;
 
             listlink = new List<MapIsland>();
-            listlink.Add(world.Islands["island1"]);
-            world.Islands["island1"].ListLink = listlink;
+            listlink.Add(Islands["island1"]);
+            Islands["island2"].ListLink = listlink;
 
             //add island to world
             world.Islands = Islands;
+            world.ActualPosition = world.Islands["island1"];
 
             //Serialize
             IFormatter formatter = new BinaryFormatter();

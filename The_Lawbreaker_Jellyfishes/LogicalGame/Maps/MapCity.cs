@@ -11,14 +11,14 @@ namespace LogicalGame
         int _x;
         int _y;
 
-        List<Merchant> _merchants;
+        List<object> _services;
         Mortuary _mortuary;
 
-        public MapCity(MapIsland context, string name, List<Merchant> Merchants)
+        public MapCity(MapIsland context, string name, List<object> Services)
         {
             _name = name;
             _context = context;
-            _merchants = Merchants;
+            _services = Services;
             _mortuary = new Mortuary(this);
         }
 
@@ -38,9 +38,9 @@ namespace LogicalGame
             get { return _name; }
         }
 
-        public List<Merchant> Merchant
+        public List<object> Services
         {
-            get { return _merchants; }
+            get { return _services; }
         }
 
         public MapIsland ActualIsland
