@@ -1,6 +1,6 @@
 ﻿namespace GraphicalInterface
 {
-    partial class ForetDePonyo
+    partial class City
     {
         /// <summary> 
         /// Required designer variable.
@@ -33,24 +33,24 @@
             // 
             // Retour
             // 
-            this.Retour.Location = new System.Drawing.Point(286, 122);
+            this.Retour.Location = new System.Drawing.Point(322, 3);
             this.Retour.Name = "Retour";
             this.Retour.Size = new System.Drawing.Size(75, 23);
-            this.Retour.TabIndex = 0;
+            this.Retour.TabIndex = 6;
             this.Retour.Text = "Retour";
             this.Retour.UseVisualStyleBackColor = true;
             this.Retour.Click += new System.EventHandler(this.Retour_Click);
             // 
-            // ForetDePonyo
+            // City
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.Retour);
             this.MaximumSize = new System.Drawing.Size(400, 400);
             this.MinimumSize = new System.Drawing.Size(400, 400);
-            this.Name = "ForetDePonyo";
+            this.Name = "City";
             this.Size = new System.Drawing.Size(400, 400);
-            this.Load += new System.EventHandler(this.ForetDePonyo_Load);
+            this.Load += new System.EventHandler(this.City_Load);
             this.ResumeLayout(false);
 
         }

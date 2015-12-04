@@ -46,24 +46,37 @@ namespace LogicalGame.Test
             listinstances.Add(instance1);
             island.IslandInstances = listinstances;
 
+            //city for the island
+            MapCity city = new MapCity(island, "City1");
+            city.PointX = 100;
+            city.PointY = 200;
+            island.AddCity(city);
+
             //list sellable items for merchant and merch
             ListItems listI = new ListItems();
             List<Item> itemsSell = new List<Item>();
             itemsSell.Add(listI.Items[0]);
 
             Merchant merch1 = new Merchant("Vendeur général", itemsSell);
-            merch1.PointX = 100;
-            merch1.PointY = 100;
+            merch1.PointX = 50;
+            merch1.PointY = 375;
+            merch1.Invent = world.Team.Invent;
+
+            //Add services
+            Mortuary s1 = new Mortuary(city);
+            s1.PointX = 300;
+            s1.PointY = 110;
+
+            Taverne s2 = new Taverne();
+            s2.PointX = 190;
+            s2.PointY = 100;
 
             //list merchant for city
             List<object> listservices = new List<object>();
             listservices.Add(merch1);
-
-            //city for the island
-            MapCity city = new MapCity(island, "City1", listservices);
-            city.PointX = 200;
-            city.PointY = 200;
-            island.AddCity(city);
+            listservices.Add(s1);
+            listservices.Add(s2);
+            city.Services = listservices;
 
             //add island to world
             Islands.Add("island1", island);
@@ -95,24 +108,37 @@ namespace LogicalGame.Test
             listinstances.Add(instance1);
             island.IslandInstances = listinstances;
 
+            //city for the island
+            city = new MapCity(island, "City2");
+            city.PointX = 200;
+            city.PointY = 200;
+            island.AddCity(city);
+
             //list sellable items for merchant and merch
             listI = new ListItems();
             itemsSell = new List<Item>();
-            itemsSell.Add(listI.Items[0]);
+            itemsSell.Add(listI.Items[1]);
 
             merch1 = new Merchant("Vendeur général", itemsSell);
-            merch1.PointX = 100;
-            merch1.PointY = 100;
+            merch1.PointX = 50;
+            merch1.PointY = 375;
+            merch1.Invent = world.Team.Invent;
+
+            //Add services
+            s1 = new Mortuary(city);
+            s1.PointX = 300;
+            s1.PointY = 110;
+
+            s2 = new Taverne();
+            s2.PointX = 190;
+            s2.PointY = 100;
 
             //list merchant for city
             listservices = new List<object>();
             listservices.Add(merch1);
-
-            //city for the island
-            city = new MapCity(island, "City2", listservices);
-            city.PointX = 200;
-            city.PointY = 200;
-            island.AddCity(city);
+            listservices.Add(s1);
+            listservices.Add(s2);
+            city.Services = listservices;
 
             //add island to world
             Islands.Add("island2", island);

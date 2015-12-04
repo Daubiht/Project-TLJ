@@ -1,6 +1,6 @@
 ﻿namespace GraphicalInterface
 {
-    partial class ValleeDePonyo
+    partial class Instance
     {
         /// <summary> 
         /// Required designer variable.
@@ -33,23 +33,24 @@
             // 
             // Retour
             // 
-            this.Retour.Location = new System.Drawing.Point(202, 102);
+            this.Retour.Location = new System.Drawing.Point(322, 3);
             this.Retour.Name = "Retour";
             this.Retour.Size = new System.Drawing.Size(75, 23);
-            this.Retour.TabIndex = 0;
+            this.Retour.TabIndex = 3;
             this.Retour.Text = "Retour";
             this.Retour.UseVisualStyleBackColor = true;
             this.Retour.Click += new System.EventHandler(this.Retour_Click);
             // 
-            // ValleeDePonyo
+            // Instance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.Retour);
             this.MaximumSize = new System.Drawing.Size(400, 400);
             this.MinimumSize = new System.Drawing.Size(400, 400);
-            this.Name = "ValleeDePonyo";
+            this.Name = "Instance";
             this.Size = new System.Drawing.Size(400, 400);
+            this.Load += new System.EventHandler(this.Instance_Load);
             this.ResumeLayout(false);
 
         }

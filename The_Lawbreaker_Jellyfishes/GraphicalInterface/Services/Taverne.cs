@@ -78,7 +78,7 @@ namespace GraphicalInterface
         {
             
             Random ran = new Random();
-            RandomCharacter rc = new RandomCharacter();
+            LogicalGame.Taverne rc = new LogicalGame.Taverne();
             
 
             int newCharacterNumber = ran.Next(2, 5);

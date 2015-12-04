@@ -46,7 +46,6 @@
     <Compile Include="Creation\CreateItems.cs" />
     <Compile Include="Creation\CreateMonsters.cs" />
     <Compile Include="Creation\CreateSkills.cs" />
-    <Compile Include="Creation\CreateWorld.cs" />
     <Compile Include="Creation\CreateWorld2.cs" />
     <Compile Include="InventoryTests.cs" />
     <Compile Include="MapTests.cs" />

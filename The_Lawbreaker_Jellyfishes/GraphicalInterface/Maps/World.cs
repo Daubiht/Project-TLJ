@@ -36,7 +36,7 @@ namespace GraphicalInterface
             }
         }
 
-        public void Refresh()
+        public void Reload()
         {
             foreach (Button isl_Button in Controls)
             {
@@ -69,7 +69,7 @@ namespace GraphicalInterface
                             if (_militia == false) ok.Visible = true;
                             _militia = false;
                         }
-                        Refresh();
+                        Reload();
                     }
                 }
             }

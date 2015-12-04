@@ -5,8 +5,23 @@ using System.Linq;
 
 namespace LogicalGame
 {
-    public class RandomCharacter
+    [Serializable]
+    public class Taverne
     {
+        int _x;
+        int _y;
+
+        public int PointX
+        {
+            get { return _x; }
+            set { _x = value; }
+        }
+
+        public int PointY
+        {
+            get { return _y; }
+            set { _y = value; }
+        }
 
         // Return a random character with a level between two values
         public Character New (int levelMin, int levelMax)

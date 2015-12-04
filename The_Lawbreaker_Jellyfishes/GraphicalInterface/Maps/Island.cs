@@ -48,21 +48,23 @@ namespace GraphicalInterface
             b.Tag = o;
             b.Text = name;
             b.UseVisualStyleBackColor = true;
-            b.Click += new EventHandler(Click);
+            b.Click += new EventHandler(OnClick);
             Controls.Add(b);
         }
 
-        public void Click(object sender, EventArgs e)
+        public void OnClick(object sender, EventArgs e)
         {
             if(((Button)sender).Tag is MapInstance)
             {
-                //Instance uc = new Instance(_contextForm, _w, ((Button)sender).Tag);
-                //_contextForm.ChangeUC(uc, true);
+                _world.ActualPosition = ((MapInstance)((Button)sender).Tag);
+                Instance uc = new Instance(_contextForm, _world, ((MapInstance)((Button)sender).Tag));
+                _contextForm.ChangeUC(uc, true);
             }
             else if (((Button)sender).Tag is MapCity)
             {
-                //City uc = new City(_contextForm, _w, ((Button)sender).Tag);
-                //_contextForm.ChangeUC(uc, true);
+                _world.ActualPosition = ((MapCity)((Button)sender).Tag);
+                City uc = new City(_contextForm, _world, ((MapCity)((Button)sender).Tag));
+                _contextForm.ChangeUC(uc, true);
             }
         }
     }

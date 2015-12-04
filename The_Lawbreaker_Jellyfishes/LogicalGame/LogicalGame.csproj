@@ -53,7 +53,7 @@
     <Compile Include="Monsters\ListMonsters.cs" />
     <Compile Include="Monsters\Monster.cs" />
     <Compile Include="Services\Mortuary.cs" />
-    <Compile Include="Team\RandomCharacter.cs" />
+    <Compile Include="Team\Taverne.cs" />
     <Compile Include="Services\Militia.cs" />
     <Compile Include="Services\Merchant.cs" />
     <Compile Include="Notifications\ListNotifications.cs" />
