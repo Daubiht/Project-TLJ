@@ -29,27 +29,39 @@
         private void InitializeComponent()
         {
             this.LError = new System.Windows.Forms.Label();
+            this.PanelToCenter = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // LError
             // 
             this.LError.AutoSize = true;
             this.LError.ForeColor = System.Drawing.Color.Red;
-            this.LError.Location = new System.Drawing.Point(575, 9);
+            this.LError.Location = new System.Drawing.Point(3, 0);
             this.LError.Name = "LError";
             this.LError.Size = new System.Drawing.Size(29, 13);
             this.LError.TabIndex = 2;
             this.LError.Text = "Error";
             this.LError.Visible = false;
             // 
+            // PanelToCenter
+            // 
+            this.PanelToCenter.AutoScroll = true;
+            this.PanelToCenter.AutoSize = true;
+            this.PanelToCenter.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.PanelToCenter.Location = new System.Drawing.Point(52, 13);
+            this.PanelToCenter.Name = "PanelToCenter";
+            this.PanelToCenter.Size = new System.Drawing.Size(0, 0);
+            this.PanelToCenter.TabIndex = 3;
+            // 
             // SkillsTree
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
+            this.Controls.Add(this.PanelToCenter);
             this.Controls.Add(this.LError);
             this.Name = "SkillsTree";
-            this.Size = new System.Drawing.Size(774, 556);
+            this.Size = new System.Drawing.Size(638, 508);
             this.Load += new System.EventHandler(this.SkillsTree_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -59,5 +71,6 @@
         #endregion
 
         private System.Windows.Forms.Label LError;
+        private System.Windows.Forms.Panel PanelToCenter;
     }
 }

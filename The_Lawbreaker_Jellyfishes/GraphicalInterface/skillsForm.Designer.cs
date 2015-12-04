@@ -37,7 +37,6 @@
             this.ClientSize = new System.Drawing.Size(712, 584);
             this.Name = "skillsForm";
             this.Text = "skillsForm";
-            this.Deactivate += new System.EventHandler(this.skillsForm_Deactivate);
             this.ResumeLayout(false);
 
         }
