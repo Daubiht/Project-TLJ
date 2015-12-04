@@ -13,7 +13,7 @@ namespace GraphicalInterface.Fighting
 {
     public partial class FightUserControl : UserControl
     {
-
+        List<PanelCharacter> _panelMembers;
         List<Monster> _monsters;
         Team _team;
         Fight _fight;
@@ -51,6 +51,7 @@ namespace GraphicalInterface.Fighting
             _monsters = MonstersToKill;
             _team = TeamWhoFight;
             _fight = new Fight(_monsters, _team);
+            _panelMembers = new List<PanelCharacter>();
 
             // Check if all 4 members's front position are setted to false, if yes, we set all front position to true
             if (_team.Members.Count == 4)
@@ -124,6 +125,10 @@ namespace GraphicalInterface.Fighting
                     PanelCharacter p = new PanelCharacter(t, _fight, this);
                     p.Location = new Point(localPosX1Member, posY);
                     Controls.Add(p);
+                    if (t is Character )
+                    {
+                        _panelMembers.Add(p);
+                    }
                 }
             }
             // Place the 2 front members/monster in the middle
@@ -136,6 +141,10 @@ namespace GraphicalInterface.Fighting
                     p.Location = new Point(localPosX2Member, posY);
                     Controls.Add(p);
                     localPosX2Member += _spaceBetweenPanels;
+                    if ( t is Character )
+                    {
+                        _panelMembers.Add(p);
+                    }
                 }
             }
             // Place 3 front members/monster in the middle
@@ -148,6 +157,10 @@ namespace GraphicalInterface.Fighting
                     p.Location = new Point(localPosX3Member, posY);
                     Controls.Add(p);
                     localPosX3Member += _spaceBetweenPanels;
+                    if ( t is Character )
+                    {
+                        _panelMembers.Add(p);
+                    }
                 }
             }
             // Place 4 front members/monster
@@ -160,6 +173,10 @@ namespace GraphicalInterface.Fighting
                     p.Location = new Point(localPosX4Member, posY);
                     Controls.Add(p);
                     localPosX4Member += _spaceBetweenPanels;
+                    if ( t is Character )
+                    {
+                        _panelMembers.Add(p);
+                    }
                 }
             }
         }
@@ -172,12 +189,9 @@ namespace GraphicalInterface.Fighting
             Controls.Add(_currentMemberMenu);
         }
 
-        private void FightUserControl_Load(object sender, EventArgs e)
+        public List<PanelCharacter> GetCharacterPanel
         {
-            _fight.gameLoop();
+            get { return _panelMembers;  }
         }
-
-
-
     }
 }

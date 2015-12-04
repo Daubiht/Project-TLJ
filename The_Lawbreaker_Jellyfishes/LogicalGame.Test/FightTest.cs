@@ -58,7 +58,7 @@ namespace LogicalGame.Test
             Console.WriteLine("Membre  2, vie : {0}, position avant : {1}", _team.Members[1].HealthPoint, _team.Members[1].FrontPosition);
             Console.WriteLine("Membre  3, vie : {0}, position avant : {1} \n", _team.Members[2].HealthPoint, _team.Members[2].FrontPosition);
 
-            fight.gameLoop();
+            //fight.gameLoop();
 
             Console.WriteLine("Après combat");
             Console.WriteLine("Monstre 1, vie : {0}, position avant : {1}", _monsters[0].Health, _monsters[0].FrontPosition);

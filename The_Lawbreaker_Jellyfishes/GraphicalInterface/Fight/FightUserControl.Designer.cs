@@ -37,7 +37,6 @@
             this.BackColor = System.Drawing.SystemColors.Control;
             this.Name = "FightUserControl";
             this.Size = new System.Drawing.Size(425, 475);
-            this.Load += new System.EventHandler(this.FightUserControl_Load);
             this.ResumeLayout(false);
 
         }

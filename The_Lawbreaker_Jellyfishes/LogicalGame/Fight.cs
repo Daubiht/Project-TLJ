@@ -8,9 +8,6 @@ namespace LogicalGame
 {
     public class Fight
     {
-        // Put on pause the code until the member attacks a monster
-        public ManualResetEvent _suspendEvent = new ManualResetEvent(true);
-
         /// Fields used to attack a monster
         // Get the member who attacks, used in the method who gets the member who attacks
         Character _memberWhoAttacks;
@@ -28,9 +25,6 @@ namespace LogicalGame
         // bool _isEndFight is true if all the team die or if all monsters die or the team run away
         bool _isEndFight;
 
-        // bool to know if it's the turn of the team to attack
-        bool _isTeamToAttack;
-
         // current team who fights
         Team _team;
         List<Monster> _monsters;
@@ -42,32 +36,11 @@ namespace LogicalGame
             _team = TeamWhoFights;
             _isEndFight = false;
         }
-        
-        // Main game loop
-        public void gameLoop()
-        {
-            // while the fight is not finished we continue to play
-            while( _isEndFight == false )
-            {
-                // Check if all member are dead or all monster are dead
-                // If one of the bools is true, it means the fight is finished. If not, we continue to play
-                if ( IsAllMemberDie() || IsAllMonsterDie() )
-                {
-                   _isEndFight = true;
-                }
-                // Check who attacks
-                IsTeamToAttack();
-                gameLoop();
-            } 
-        }
-
         /// <summary>
         // METHODS
         /// </summary>
 
         // Check if all MONSTERS are dead
-        // False means "No, some monsters  alive"
-        // True means "Yes, they are all dead"
         public bool IsAllMonsterDie()
         {
             foreach ( Monster m in _monsters)
@@ -78,8 +51,6 @@ namespace LogicalGame
         }
 
         // Check if all MEMBERS are DEAD
-        // False means "No there is still a member alive"
-        // True means "Yes, all member are dead"
         public bool IsAllMemberDie()
         {
             foreach ( Character c in _team.Members)
@@ -88,32 +59,18 @@ namespace LogicalGame
             }  
             return true; // True means "Yes, all member are dead"
         }
-        // Check if its monster's turn or team's turn to attack
-        public void IsTeamToAttack()
+        // Every monster attack
+        public void MonsterAttack()
         {
-            // its monter's turn to attack
-            if ( _isTeamToAttack == false )
-            {
-                // Monsters attack members
-                foreach ( Monster m in _monsters)
-                    m.Attack(_team);
-                // We define that the members hasn't play yet
-                foreach (Character c in _team.Members)
-                    c.DidMemberPlay = false;
-                _isTeamToAttack = true;
-            }
-            // its team's turn to attack
-            else if ( _isTeamToAttack == true )
-            {
-                // call the team to attack again and again until every member has attacked
-                // __________________ PUT A WAIT CLICK EVENT HANDLER HERE
-                //_suspendEvent.WaitOne();
-                //gameLoop();
-                _isTeamToAttack = false;
-            }
+            // Monsters attack members
+            foreach ( Monster m in _monsters)
+                m.Attack(_team);
+            // After all monsters attack, we enabled all the team to play again
+            foreach ( Character c in _team.Members )
+                c.DidMemberPlay = false;
         }
 
-        // __________METHODS TO GET THE MEMBER WHO ATTACKS , this method is called when the player clicks on a member's panel
+        // __________METHODS TO GET THE MEMBER WHO ATTACKS, this method is called when the player clicks on a member's panel
         public void GetMemberWhoAttack(Character MemberWhoAttacks, Skill SelectedSkill, int BasicAttack)
         {
             // Get the member who attacks
@@ -126,26 +83,49 @@ namespace LogicalGame
             _doesAMemberAttack = true;
         }
         //__________METHOD TO GET THE ATTACKED MONSTER, this method is called when the player clicks on a monster's panel
-        public void GetAttackedMonster(Monster AttackedMonster)
+        public bool GetAttackedMonster(Monster AttackedMonster)
         {
-            // Check if the member has not already attacked a monster
-            // And check if a member is attacking, it's avoid the player to click randomly by clicking everywhere on the screen
-            if ( _memberWhoAttacks.DidMemberPlay == false && _doesAMemberAttack == true )
+            // Check if the player has selected a member before clicking on a monster's panel
+            if (_memberWhoAttacks != null)
             {
-                _attackedMonster = AttackedMonster;
-                // Match the member and the monster
-                AttackAMonster(_memberWhoAttacks, _attackedMonster);
+                // Check if the member has not already attacked a monster AND check if a member is attacking, it's avoid the player to click randomly by clicking everywhere on the screen
+                if ( _memberWhoAttacks.DidMemberPlay == false && _doesAMemberAttack == true && AttackedMonster.FrontPosition == true)
+                {
+                    _attackedMonster = AttackedMonster;
+                    // Match the member who is attacking and the attacked monster
+                    if ( HitMonster(_memberWhoAttacks, _attackedMonster) == true )
+                        return true; // True means "All monsters attacked"
+                }
             }
+            return false;
         }
         // ________METHOD WHO MATCHES THE MEMBER WHO ATTACKS AND THE ATTACKED MONSTER
-        public void AttackAMonster(Character MemberWhoAttacks, Monster AttackedMonster)
+        public bool HitMonster(Character MemberWhoAttacks, Monster AttackedMonster)
         {
+            int numberOfMembers = _team.Members.Count();
+            int memberWhoPlayed = 0;
+
             MemberWhoAttacks.AttackMonster(AttackedMonster);
-            // When the member finish to attack, now nobody is attacking
+            // When the member finish to attack, now nobody in the team is attacking
             _doesAMemberAttack = false;
             // True means "This member just attacked, he won't be able to attack again"
             MemberWhoAttacks.DidMemberPlay = true;
+
+            // Check if all member played, if not, the player can continue to attack the monsters
+            foreach ( Character c in _team.Members )
+            {
+                if ( c.DidMemberPlay == true )
+                    memberWhoPlayed += 1;
+            }
+            // If all member played, monsters attack
+            if ( numberOfMembers == memberWhoPlayed )
+            {
+                MonsterAttack();
+                return true; // True means "All monsters attacked" 
+            }
+            return false;
         }
 
+        public Team GetTeam{get { return _team; }}
     }
 }

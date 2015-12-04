@@ -34,14 +34,13 @@ namespace GraphicalInterface.Fighting
             progressBarStamina.Maximum = selectedMember.MaxStaminaPoint;
             progressBarStamina.Value = selectedMember.StaminaPoint;
             ModifyProgressBarColor.SetState(progressBarStamina, 2); // 1 = green, 2 = yellow, 3 = red
+            // We add a left click event on the basic attack button
+            toolStripAttack.Click += new EventHandler(BasicAttack);
         }
-
-        private void toolStripAttack_Click(object sender, EventArgs e)
-        {
-            Click += new EventHandler(BasicAttack);
-        }
+        // Method to get the character who is launching a basic attack
         public void BasicAttack(object sender, EventArgs e)
         {
+
             _fight.GetMemberWhoAttack(_selectedMember, null, _selectedMember.PhysicalAttack);
         }
     }

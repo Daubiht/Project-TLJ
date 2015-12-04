@@ -102,13 +102,13 @@ namespace GraphicalInterface
             Team _team = new Team("MyTeam");
 
             // Set positions to monsters
-            m1.FrontPosition = true;
-            m2.FrontPosition = true;
+            m1.FrontPosition = false;
+            m2.FrontPosition = false;
             m3.FrontPosition = true;
             m4.FrontPosition = true;
             // Set positions to members
             c1.IsMain = true;
-            c1.FrontPosition = true;
+            c1.FrontPosition = false;
             c2.FrontPosition = false;
             c3.FrontPosition = false;
             c4.FrontPosition = true;

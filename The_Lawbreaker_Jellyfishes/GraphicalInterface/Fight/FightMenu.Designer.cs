@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FightMenu));
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripLeft = new System.Windows.Forms.ToolStrip();
             this.toolStripAttack = new System.Windows.Forms.ToolStripButton();
             this.toolStripDefense = new System.Windows.Forms.ToolStripButton();
             this.toolStripSkills = new System.Windows.Forms.ToolStripDropDownButton();
@@ -37,30 +37,30 @@
             this.ghjhgjToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ghjghToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dfgdfToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
+            this.toolStripRight = new System.Windows.Forms.ToolStrip();
             this.toolStripInventory = new System.Windows.Forms.ToolStripDropDownButton();
             this.button1 = new System.Windows.Forms.Button();
             this.labelCharName = new System.Windows.Forms.Label();
             this.progressBarHP = new System.Windows.Forms.ProgressBar();
             this.progressBarStamina = new System.Windows.Forms.ProgressBar();
-            this.toolStrip1.SuspendLayout();
-            this.toolStrip2.SuspendLayout();
+            this.toolStripLeft.SuspendLayout();
+            this.toolStripRight.SuspendLayout();
             this.SuspendLayout();
             // 
-            // toolStrip1
+            // toolStripLeft
             // 
-            this.toolStrip1.AutoSize = false;
-            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripLeft.AutoSize = false;
+            this.toolStripLeft.Dock = System.Windows.Forms.DockStyle.Left;
+            this.toolStripLeft.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.toolStripLeft.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripAttack,
             this.toolStripDefense,
             this.toolStripSkills});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(94, 71);
-            this.toolStrip1.TabIndex = 0;
-            this.toolStrip1.Text = "toolStrip1";
+            this.toolStripLeft.Location = new System.Drawing.Point(0, 0);
+            this.toolStripLeft.Name = "toolStripLeft";
+            this.toolStripLeft.Size = new System.Drawing.Size(94, 71);
+            this.toolStripLeft.TabIndex = 0;
+            this.toolStripLeft.Text = "toolStrip1";
             // 
             // toolStripAttack
             // 
@@ -70,7 +70,6 @@
             this.toolStripAttack.Name = "toolStripAttack";
             this.toolStripAttack.Size = new System.Drawing.Size(92, 19);
             this.toolStripAttack.Text = "Attaquer";
-            this.toolStripAttack.Click += new System.EventHandler(this.toolStripAttack_Click);
             // 
             // toolStripDefense
             // 
@@ -99,38 +98,38 @@
             // hgjhgjToolStripMenuItem
             // 
             this.hgjhgjToolStripMenuItem.Name = "hgjhgjToolStripMenuItem";
-            this.hgjhgjToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+            this.hgjhgjToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.hgjhgjToolStripMenuItem.Text = "hgjhgj";
             // 
             // ghjhgjToolStripMenuItem
             // 
             this.ghjhgjToolStripMenuItem.Name = "ghjhgjToolStripMenuItem";
-            this.ghjhgjToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+            this.ghjhgjToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.ghjhgjToolStripMenuItem.Text = "ghjhgj";
             // 
             // ghjghToolStripMenuItem
             // 
             this.ghjghToolStripMenuItem.Name = "ghjghToolStripMenuItem";
-            this.ghjghToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+            this.ghjghToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.ghjghToolStripMenuItem.Text = "ghjgh";
             // 
             // dfgdfToolStripMenuItem1
             // 
             this.dfgdfToolStripMenuItem1.Name = "dfgdfToolStripMenuItem1";
-            this.dfgdfToolStripMenuItem1.Size = new System.Drawing.Size(108, 22);
+            this.dfgdfToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.dfgdfToolStripMenuItem1.Text = "dfgdf";
             // 
-            // toolStrip2
+            // toolStripRight
             // 
-            this.toolStrip2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.toolStrip2.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripRight.Dock = System.Windows.Forms.DockStyle.Right;
+            this.toolStripRight.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.toolStripRight.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripInventory});
-            this.toolStrip2.Location = new System.Drawing.Point(337, 0);
-            this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(73, 71);
-            this.toolStrip2.TabIndex = 1;
-            this.toolStrip2.Text = "toolStrip2";
+            this.toolStripRight.Location = new System.Drawing.Point(337, 0);
+            this.toolStripRight.Name = "toolStripRight";
+            this.toolStripRight.Size = new System.Drawing.Size(73, 71);
+            this.toolStripRight.TabIndex = 1;
+            this.toolStripRight.Text = "toolStrip2";
             // 
             // toolStripInventory
             // 
@@ -188,14 +187,14 @@
             this.Controls.Add(this.progressBarHP);
             this.Controls.Add(this.labelCharName);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.toolStrip2);
-            this.Controls.Add(this.toolStrip1);
+            this.Controls.Add(this.toolStripRight);
+            this.Controls.Add(this.toolStripLeft);
             this.Name = "FightMenu";
             this.Size = new System.Drawing.Size(410, 71);
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
-            this.toolStrip2.ResumeLayout(false);
-            this.toolStrip2.PerformLayout();
+            this.toolStripLeft.ResumeLayout(false);
+            this.toolStripLeft.PerformLayout();
+            this.toolStripRight.ResumeLayout(false);
+            this.toolStripRight.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -203,13 +202,13 @@
 
         #endregion
 
-        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStrip toolStripLeft;
         private System.Windows.Forms.ToolStripDropDownButton toolStripSkills;
         private System.Windows.Forms.ToolStripMenuItem hgjhgjToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ghjhgjToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ghjghToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dfgdfToolStripMenuItem1;
-        private System.Windows.Forms.ToolStrip toolStrip2;
+        private System.Windows.Forms.ToolStrip toolStripRight;
         private System.Windows.Forms.ToolStripDropDownButton toolStripInventory;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label labelCharName;
