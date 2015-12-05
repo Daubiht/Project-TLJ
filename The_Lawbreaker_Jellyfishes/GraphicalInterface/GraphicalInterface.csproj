@@ -92,6 +92,12 @@
     <Compile Include="Maps\Island.Designer.cs">
       <DependentUpon>Island.cs</DependentUpon>
     </Compile>
+    <Compile Include="Event\Meet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Event\Meet.Designer.cs">
+      <DependentUpon>Meet.cs</DependentUpon>
+    </Compile>
     <Compile Include="Menu\Inventory.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -146,10 +152,10 @@
     <Compile Include="Menu\Team\CharacterBar.Designer.cs">
       <DependentUpon>CharacterBar.cs</DependentUpon>
     </Compile>
-    <Compile Include="Services\CharacterInformations.cs">
+    <Compile Include="Services\Taverne\CharacterInformations.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Services\CharacterInformations.Designer.cs">
+    <Compile Include="Services\Taverne\CharacterInformations.Designer.cs">
       <DependentUpon>CharacterInformations.cs</DependentUpon>
     </Compile>
     <Compile Include="Services\Merchant.cs">
@@ -178,12 +184,15 @@
     <Compile Include="Services\Mortuary.Designer.cs">
       <DependentUpon>Mortuary.cs</DependentUpon>
     </Compile>
-    <Compile Include="Services\Taverne.cs">
+    <Compile Include="Services\Taverne\Taverne.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Services\Taverne.Designer.cs">
+    <Compile Include="Services\Taverne\Taverne.Designer.cs">
       <DependentUpon>Taverne.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Event\Meet.resx">
+      <DependentUpon>Meet.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Home\CreateMainCharacter\CreateMainCharacter1.resx">
       <DependentUpon>CreateMainCharacter1.cs</DependentUpon>
     </EmbeddedResource>
@@ -248,7 +257,7 @@
     <EmbeddedResource Include="Menu\Team\CharacterBar.resx">
       <DependentUpon>CharacterBar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Services\CharacterInformations.resx">
+    <EmbeddedResource Include="Services\Taverne\CharacterInformations.resx">
       <DependentUpon>CharacterInformations.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Services\Merchant.resx">
@@ -260,7 +269,7 @@
     <EmbeddedResource Include="Services\Mortuary.resx">
       <DependentUpon>Mortuary.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Services\Taverne.resx">
+    <EmbeddedResource Include="Services\Taverne\Taverne.resx">
       <DependentUpon>Taverne.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">

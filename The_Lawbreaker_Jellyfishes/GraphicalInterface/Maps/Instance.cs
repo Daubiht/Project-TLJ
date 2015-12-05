@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using LogicalGame;
 
@@ -52,9 +47,64 @@ namespace GraphicalInterface
             Controls.Add(b);
         }
 
+        public void Reload()
+        {
+            foreach (Button zone_b in Controls)
+            {
+                if (zone_b.Tag == (MapZone)_world.ActualPosition)
+                {
+                    zone_b.ForeColor = SystemColors.HotTrack;
+                }
+                else
+                {
+                    zone_b.ForeColor = SystemColors.ControlText;
+                }
+            }
+        }
+
         public void OnClick(object sender, EventArgs e)
         {
+            if (_world.ActualPosition is MapZone)
+            {
+                if ((MapZone)_world.ActualPosition != ((MapZone)((Button)sender).Tag))
+                {
+                    foreach (MapZone zone in _instance.listZones)
+                    {
+                        if (zone == ((MapZone)((Button)sender).Tag))
+                        {
+                            if (_instance.ChangeActualZone(zone))
+                            {
+                                Reload();
+                                int result =_instance.EventRandom();
+                                if (result == 1)
+                                {
+                                    Merchant uc = new Merchant(_contextForm, zone.EventMerchant(), _world.Team.Invent);
+                                    _contextForm.ToMenu(uc, true);
+                                }
+                                else if(result == 2)
+                                {
+                                    //Elder uc = new Elder();
+                                    //_contextForm.ToMenu(uc, true);
+                                }
+                                else if(result == 3)
+                                {
+                                    //Fight uc = new Fight();
+                                    //_contextForm.ToMenu(uc, false);
+                                }
 
+                            }
+                        }
+                    }
+                }
+            }
+            else
+            {
+                if(((MapZone)((Button)sender).Tag) == _instance.listZones[0])
+                {
+                    _world.ActualPosition = ((MapZone)((Button)sender).Tag);
+                    Reload();
+                }
+            }
         }
     }
 }

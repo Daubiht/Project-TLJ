@@ -34,14 +34,24 @@ namespace LogicalGame.Test
             MapZone zone1 = new MapZone(instance1, true, 1);
             zone1.PointX = 50;
             zone1.PointY = 50;
-            listZone_instance1.Add(zone1);
 
             MapZone zone2 = new MapZone(instance1, true, 2);
             zone2.PointX = 150;
             zone2.PointY = 150;
+
+            List<MapZone> listlink = new List<MapZone>();
+            listlink.Add(zone2);
+            zone1.ListLink = listlink;
+
+            listlink = new List<MapZone>();
+            listlink.Add(zone1);
+            zone2.ListLink = listlink;
+
+            listZone_instance1.Add(zone1);
             listZone_instance1.Add(zone2);
 
             instance1.listZones = listZone_instance1;
+
             List<MapInstance> listinstances = new List<MapInstance>();
             listinstances.Add(instance1);
             island.IslandInstances = listinstances;
@@ -96,14 +106,24 @@ namespace LogicalGame.Test
             zone1 = new MapZone(instance1, true, 1);
             zone1.PointX = 50;
             zone1.PointY = 50;
-            listZone_instance1.Add(zone1);
 
             zone2 = new MapZone(instance1, true, 2);
             zone2.PointX = 150;
             zone2.PointY = 150;
+
+            listlink = new List<MapZone>();
+            listlink.Add(zone2);
+            zone1.ListLink = listlink;
+
+            listlink = new List<MapZone>();
+            listlink.Add(zone1);
+            zone2.ListLink = listlink;
+
+            listZone_instance1.Add(zone1);
             listZone_instance1.Add(zone2);
 
             instance1.listZones = listZone_instance1;
+
             listinstances = new List<MapInstance>();
             listinstances.Add(instance1);
             island.IslandInstances = listinstances;
@@ -146,13 +166,13 @@ namespace LogicalGame.Test
             //End-----------------------------------------------
 
             //list link between island
-            List<MapIsland> listlink = new List<MapIsland>();
-            listlink.Add(Islands["island2"]);
-            Islands["island1"].ListLink = listlink;
+            List<MapIsland> listlinkis = new List<MapIsland>();
+            listlinkis.Add(Islands["island2"]);
+            Islands["island1"].ListLink = listlinkis;
 
-            listlink = new List<MapIsland>();
-            listlink.Add(Islands["island1"]);
-            Islands["island2"].ListLink = listlink;
+            listlinkis = new List<MapIsland>();
+            listlinkis.Add(Islands["island1"]);
+            Islands["island2"].ListLink = listlinkis;
 
             //add island to world
             world.Islands = Islands;
