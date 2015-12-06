@@ -28,7 +28,6 @@ namespace GraphicalInterface.Fighting
             toolStripSkills.ShowDropDownArrow = false;
             toolStripInventory.ShowDropDownArrow = false;
             // We set the value of the HP BAR
-            progressBarHP.Maximum = selectedMember.MaxHealthPoint;
             progressBarHP.Value = selectedMember.HealthPoint;
             // We set the value of the STAMINA BAR
             progressBarStamina.Maximum = selectedMember.MaxStaminaPoint;
@@ -40,7 +39,6 @@ namespace GraphicalInterface.Fighting
         // Method to get the character who is launching a basic attack
         public void BasicAttack(object sender, EventArgs e)
         {
-
             _fight.GetMemberWhoAttack(_selectedMember, null, _selectedMember.PhysicalAttack);
         }
     }

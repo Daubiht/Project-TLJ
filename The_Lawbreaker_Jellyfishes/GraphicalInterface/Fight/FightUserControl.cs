@@ -39,7 +39,7 @@ namespace GraphicalInterface.Fighting
         // Set the space between each panel
         int _spaceBetweenPanels = 85;
 
-
+        // This bools are used to avoid bugs, if 4 members/monsters are set to hidden position, they will be set in front position
         bool _isAllMembersFrontPositionFalse;
         bool _isAllMonstersFrontPositionFalse;
 

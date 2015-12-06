@@ -67,7 +67,10 @@ namespace LogicalGame
                 m.Attack(_team);
             // After all monsters attack, we enabled all the team to play again
             foreach ( Character c in _team.Members )
-                c.DidMemberPlay = false;
+            {
+                if( c.isAlive == true )
+                    c.DidMemberPlay = false;
+            }
         }
 
         // __________METHODS TO GET THE MEMBER WHO ATTACKS, this method is called when the player clicks on a member's panel
@@ -88,8 +91,8 @@ namespace LogicalGame
             // Check if the player has selected a member before clicking on a monster's panel
             if (_memberWhoAttacks != null)
             {
-                // Check if the member has not already attacked a monster AND check if a member is attacking, it's avoid the player to click randomly by clicking everywhere on the screen
-                if ( _memberWhoAttacks.DidMemberPlay == false && _doesAMemberAttack == true && AttackedMonster.FrontPosition == true)
+                // Check if the member is ALIVE has NOT ALREADY ATTACKED a monster AND check if a member is attacking, it's avoid the player to click randomly by clicking everywhere on the screen
+                if ( _memberWhoAttacks.isAlive == true && _memberWhoAttacks.DidMemberPlay == false && _doesAMemberAttack == true && AttackedMonster.FrontPosition == true)
                 {
                     _attackedMonster = AttackedMonster;
                     // Match the member who is attacking and the attacked monster
@@ -102,7 +105,9 @@ namespace LogicalGame
         // ________METHOD WHO MATCHES THE MEMBER WHO ATTACKS AND THE ATTACKED MONSTER
         public bool HitMonster(Character MemberWhoAttacks, Monster AttackedMonster)
         {
+            // Count how many member is in the team
             int numberOfMembers = _team.Members.Count();
+            // Count how many player has launched an attack
             int memberWhoPlayed = 0;
 
             MemberWhoAttacks.AttackMonster(AttackedMonster);
@@ -125,7 +130,10 @@ namespace LogicalGame
             }
             return false;
         }
-
+        //
         public Team GetTeam{get { return _team; }}
+
+        // 1 DEFINE MONSTER MEMBER DEAD
+        // 2 PUT HIDDEN MONSTER IN FRONT WHEN ALL FRONT MONSTERS DEAD
     }
 }

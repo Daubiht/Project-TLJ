@@ -88,7 +88,7 @@ namespace GraphicalInterface
             List<Monster> _monsters = new List<Monster>();
 
             // Create monsters
-            Monster m1 = new Monster("M1", "slime", 5, 0, 100, 0, 5, 5);
+            Monster m1 = new Monster("M1", "slime", 5, 0, 20, 0, 5, 5);
             Monster m2 = new Monster("M2", "slime", 5, 0, 100, 0, 5, 5);
             Monster m3 = new Monster("M3", "slime", 5, 0, 100, 0, 5, 5);
             Monster m4 = new Monster("M4", "slime", 5, 0, 100, 0, 5, 5);
@@ -102,16 +102,16 @@ namespace GraphicalInterface
             Team _team = new Team("MyTeam");
 
             // Set positions to monsters
-            m1.FrontPosition = false;
+            m1.FrontPosition = true;
             m2.FrontPosition = false;
-            m3.FrontPosition = true;
-            m4.FrontPosition = true;
+            m3.FrontPosition = false;
+            m4.FrontPosition = false;
             // Set positions to members
             c1.IsMain = true;
-            c1.FrontPosition = false;
+            c1.FrontPosition = true;
             c2.FrontPosition = false;
             c3.FrontPosition = false;
-            c4.FrontPosition = true;
+            c4.FrontPosition = false;
 
             // Add monsters in list
             _monsters.Add(m1);
