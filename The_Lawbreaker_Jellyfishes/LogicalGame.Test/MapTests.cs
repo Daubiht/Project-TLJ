@@ -121,5 +121,37 @@ namespace LogicalGame.Test
                 Console.WriteLine(zoneTest.EventElder()[1]);
             }
         }
+
+        [Test]
+        public void Launch_randomEvent()
+        {
+            MapIsland islandtest = new MapIsland(null, "islandTest");
+            MapZone zoneTest = new MapZone(null, false, 2);
+            List<MapZone> list = new List<MapZone>();
+            list.Add(zoneTest);
+
+            MapInstance instanceTest = new MapInstance(null, "test");
+            instanceTest.listZones = list;
+
+            Console.WriteLine("visited");
+            for (int i = 0; i < 10; i++)
+            {
+                Console.Write(instanceTest.EventRandom(true));
+            }
+
+            Console.WriteLine(Environment.NewLine + "No island, not visited");
+            list.Remove(zoneTest);
+            instanceTest.listZones = list;
+            for (int i = 0; i < 10; i++)
+            {
+                Console.Write(instanceTest.EventRandom(false));
+            }
+
+            Console.WriteLine(Environment.NewLine + "Island, not visited");
+            for (int i = 0; i < 10; i++)
+            {
+                Console.Write(instanceTest.EventRandom(false));
+            }
+        }
     }
 }

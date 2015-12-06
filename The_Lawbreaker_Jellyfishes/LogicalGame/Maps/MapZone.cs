@@ -12,6 +12,7 @@ namespace LogicalGame
         MapInstance _context;
         int _zoneLevel;
         Random _rand;
+        bool _visited;
         int _x;
         int _y;
 
@@ -27,6 +28,12 @@ namespace LogicalGame
             {
                 _rand = new Random();
             }
+        }
+
+        public bool Visited
+        {
+            get { return _visited; }
+            set { _visited = value; }
         }
 
         public int PointX

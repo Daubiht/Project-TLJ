@@ -17,6 +17,7 @@ namespace GraphicalInterface
             _contextForm = context;
             _world = world;
             _instance = instance;
+            label1.Text = "Cette zone semble déserte" + Environment.NewLine + "vous pouvez continuer votre chemin.";
         }
 
         private void Retour_Click(object sender, EventArgs e)
@@ -49,15 +50,18 @@ namespace GraphicalInterface
 
         public void Reload()
         {
-            foreach (Button zone_b in Controls)
+            foreach (object zone_b in Controls)
             {
-                if (zone_b.Tag == (MapZone)_world.ActualPosition)
+                if (zone_b is Button)
                 {
-                    zone_b.ForeColor = SystemColors.HotTrack;
-                }
-                else
-                {
-                    zone_b.ForeColor = SystemColors.ControlText;
+                    if (((Button)zone_b).Tag == (MapZone)_world.ActualPosition)
+                    {
+                        ((Button)zone_b).ForeColor = SystemColors.HotTrack;
+                    }
+                    else
+                    {
+                        ((Button)zone_b).ForeColor = SystemColors.ControlText;
+                    }
                 }
             }
         }
@@ -75,7 +79,9 @@ namespace GraphicalInterface
                             if (_instance.ChangeActualZone(zone))
                             {
                                 Reload();
-                                int result =_instance.EventRandom();
+                                int result =_instance.EventRandom(zone.Visited);
+                                zone.Visited = true;
+
                                 if (result == 1)
                                 {
                                     Merchant uc = new Merchant(_contextForm, zone.EventMerchant(), _world.Team.Invent);
@@ -87,6 +93,11 @@ namespace GraphicalInterface
                                     //_contextForm.ToMenu(uc, true);
                                 }
                                 else if(result == 3)
+                                {
+                                    //message : Zone déserte
+                                    label1.Visible = true;
+                                }
+                                else if(result == 4)
                                 {
                                     //Fight uc = new Fight();
                                     //_contextForm.ToMenu(uc, false);
@@ -105,6 +116,11 @@ namespace GraphicalInterface
                     Reload();
                 }
             }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            label1.Visible = false;
         }
     }
 }

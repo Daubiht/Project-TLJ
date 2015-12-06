@@ -45,28 +45,36 @@ namespace LogicalGame
 
         /// <summary>
         /// Choose randomly the event
-        /// 1 : Merchant, 2 : Olderman, 3 : Fight
+        /// 1 : Merchant, 2 : Olderman, 3 : Nothing, 4 : Fight
         /// </summary>
-        /// <returns>1 : Merchant, 2 : Olderman, 3 : Fight</returns>
-        public int EventRandom()
+        /// <returns></returns>
+        public int EventRandom(bool visited)
         {
             int percent = _rand.Next(0, 101);
             int merch;
             int older;
+            int empty;
 
-            if (_context == null)
+            if (visited)
+            {
+                merch = 5;
+                older = 5;
+                empty = 85;
+            }
+            else if (_context == null)
             {
                 merch = 15;
-                older = 30;
+                older = 15;
+                empty = 15;
             }
             else
             {
-                merch = 10;
-                older = 20;
-
+                merch = 6;
+                older = 6;
+                empty = 5;
             }
 
-            if (percent <= older)
+            if (percent <= older + merch)
             {
                 if (percent <= merch)
                 {
@@ -76,6 +84,10 @@ namespace LogicalGame
                 {
                     return 2;
                 }
+            }
+            else if(percent < 100 - empty)
+            {
+                return 4;
             }
             else
             {
