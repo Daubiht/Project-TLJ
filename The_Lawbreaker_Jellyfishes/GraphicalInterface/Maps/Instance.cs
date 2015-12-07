@@ -17,7 +17,6 @@ namespace GraphicalInterface
             _contextForm = context;
             _world = world;
             _instance = instance;
-            label1.Text = "Cette zone semble déserte" + Environment.NewLine + "vous pouvez continuer votre chemin.";
         }
 
         private void Retour_Click(object sender, EventArgs e)
@@ -79,30 +78,9 @@ namespace GraphicalInterface
                             if (_instance.ChangeActualZone(zone))
                             {
                                 Reload();
-                                int result =_instance.EventRandom(zone.Visited);
+                                Meet uc = new Meet(_instance.EventRandom(zone.Visited), _contextForm, _world, zone);
                                 zone.Visited = true;
-
-                                if (result == 1)
-                                {
-                                    Merchant uc = new Merchant(_contextForm, zone.EventMerchant(), _world.Team.Invent);
-                                    _contextForm.ToMenu(uc, true);
-                                }
-                                else if(result == 2)
-                                {
-                                    //Elder uc = new Elder();
-                                    //_contextForm.ToMenu(uc, true);
-                                }
-                                else if(result == 3)
-                                {
-                                    //message : Zone déserte
-                                    label1.Visible = true;
-                                }
-                                else if(result == 4)
-                                {
-                                    //Fight uc = new Fight();
-                                    //_contextForm.ToMenu(uc, false);
-                                }
-
+                                _contextForm.ToMenu(uc, false);
                             }
                         }
                     }
@@ -116,11 +94,6 @@ namespace GraphicalInterface
                     Reload();
                 }
             }
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-            label1.Visible = false;
         }
     }
 }

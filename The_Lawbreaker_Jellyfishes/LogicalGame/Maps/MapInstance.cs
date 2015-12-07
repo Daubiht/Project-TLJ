@@ -45,53 +45,62 @@ namespace LogicalGame
 
         /// <summary>
         /// Choose randomly the event
-        /// 1 : Merchant, 2 : Olderman, 3 : Nothing, 4 : Fight
+        /// 1 : Merchant, 2 : Elderman, 3 : Nothing, 4 : Fight, 5 : Thiefs
         /// </summary>
         /// <returns></returns>
         public int EventRandom(bool visited)
         {
-            int percent = _rand.Next(0, 101);
+            int percent = new Random().Next(0, 101);
             int merch;
-            int older;
+            int elder;
             int empty;
+            int thief;
+            int fight;
 
             if (visited)
             {
                 merch = 5;
-                older = 5;
-                empty = 85;
+                elder = 5;
+                empty = 80;
+                thief = 5;
+                fight = 5;
             }
             else if (_context == null)
             {
                 merch = 15;
-                older = 15;
+                elder = 15;
                 empty = 15;
+                thief = 15;
+                fight = 40;
             }
             else
             {
                 merch = 6;
-                older = 6;
+                elder = 6;
                 empty = 5;
+                thief = 8;
+                fight = 75;
             }
 
-            if (percent <= older + merch)
+            if (percent < merch)
             {
-                if (percent <= merch)
-                {
-                    return 1;
-                }
-                else
-                {
-                    return 2;
-                }
+                return 1;
             }
-            else if(percent < 100 - empty)
+            else if(percent > merch && percent < elder+merch)
+            {
+                return 2;
+            }
+            else if(percent > elder+merch && percent < empty+elder+merch)
+            {
+                return 3;
+            }
+            else if(percent > empty+elder+merch && percent < fight+empty+elder+merch)
             {
                 return 4;
             }
             else
             {
-                return 3;
+                return 5;
             }
         }
 
