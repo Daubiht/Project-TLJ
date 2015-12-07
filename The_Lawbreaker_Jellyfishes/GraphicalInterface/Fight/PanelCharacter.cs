@@ -75,16 +75,27 @@ namespace GraphicalInterface.Fighting
                 if ( _fight.GetAttackedMonster(_monster) == true ) // True means "All monsters attacked, so we need to refresh the character's panels to display new HP point and stamina"
                 {
                     foreach ( PanelCharacter pC in _FightUserControl.GetCharacterPanel )
+                    {
                         // We refresh informations on the character's panels
                         pC.RefreshInformation();
+                        // We color all the panels character who are alive to say they can play again
+                        if ( pC.GetCharacter.isAlive == true)
+                            pC.BackColor = Color.LightSkyBlue;
+                    }
                 }
-                // After the character attacked, we actualize the HP of the monster
+                // If the members who attack didn't succeed to attack because he selected the wrong monster, the selector is still on his panel
+                if ( _fight.MemberWhoIsAttacking.SuccedAttack == false )
+                {
+                    foreach (PanelCharacter p in _FightUserControl.GetCharacterPanel )
+                        if ( _fight.MemberWhoIsAttacking.Name == p.GetCharacter.Name ) p.BackColor = Color.SteelBlue;
+                }
+                // After the character attacked, we only actualize the HP of the attacked monster
                 RefreshInformation();
                 // Color the panel of members who played
                 ColorPlayedCharacter();
             }
         }
-        // Method who dislays actulised informations of monster and character panels, like HP, Stamina etc.
+        // Method who dislays actulized informations of monster and character panels, like HP, Stamina etc.
         public void RefreshInformation()
         {
             // Actualize Monster's informations
@@ -92,12 +103,15 @@ namespace GraphicalInterface.Fighting
             {
                 labelHPResult.Text = _monster.Health.ToString();
                 labelStaminaResult.Text = _monster.Stamina.ToString();
+                // if the monster is dead, we color his panel in black
+                if ( _monster.Alive == false ) BackColor = Color.Black;
             }
             // Actualize Member's informations
             else if (_obj is Character )
             {
                 labelHPResult.Text = _character.HealthPoint.ToString();
                 labelStaminaResult.Text = _character.Stamina.ToString();
+                if ( _character.isAlive == false ) BackColor = Color.Black;
             }
         }
 
@@ -107,8 +121,6 @@ namespace GraphicalInterface.Fighting
             foreach ( PanelCharacter p in _FightUserControl.GetCharacterPanel )
                 if ( p.GetCharacter.DidMemberPlay == true )
                     p.BackColor = Color.Gray;
-            else if ( p.GetCharacter.DidMemberPlay == false )
-                    p.BackColor = Color.LightSkyBlue;
         }
         // Method who changes the border style of the SELECTED CHARACTER'S PANEL
         public void ChangeBorderStyle(bool DoStyle)

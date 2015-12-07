@@ -91,7 +91,7 @@
             this.toolStripSkills.Image = ((System.Drawing.Image)(resources.GetObject("toolStripSkills.Image")));
             this.toolStripSkills.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripSkills.Name = "toolStripSkills";
-            this.toolStripSkills.Size = new System.Drawing.Size(92, 19);
+            this.toolStripSkills.Size = new System.Drawing.Size(93, 19);
             this.toolStripSkills.Text = "Compétences";
             this.toolStripSkills.ToolTipText = "Compétences";
             // 

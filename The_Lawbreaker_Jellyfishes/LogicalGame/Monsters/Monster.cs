@@ -188,7 +188,7 @@ namespace LogicalGame
 
             return null;
         }
-
+        // Method to remove HP of the monster because of a launched attack by a character
         public int Hurt(int damage)
         {
             if (damage < 0)
@@ -196,6 +196,17 @@ namespace LogicalGame
                 throw new ArgumentException();
             }
 
+            // Chance to dodge the the attack
+            Random r = new Random();
+            // Random between 0 and 100
+            int chanceToDodge = r.Next(0, 101);
+            // if chanceToDodge is equal to dodge / 2, the monster dodges the attack of the character
+            if ( chanceToDodge <= Dodge/2 )
+                damage = 0;
+
+            // The damage launched on the monster is reduced thanks to the monster's robustness
+            damage = damage - (int)Math.Ceiling(Robustness / 100.0 * damage); // Math.Ceiling around to the superior bound, 0.3 become 1.0
+            // Remove HP
             _health -= damage;
 
             if (_health <= 0)

@@ -35,11 +35,20 @@ namespace GraphicalInterface.Fighting
             ModifyProgressBarColor.SetState(progressBarStamina, 2); // 1 = green, 2 = yellow, 3 = red
             // We add a left click event on the basic attack button
             toolStripAttack.Click += new EventHandler(BasicAttack);
+            // We add a left click event on the defense attack button
+           toolStripDefense.Click += new EventHandler(Defense);
         }
         // Method to get the character who is launching a basic attack
         public void BasicAttack(object sender, EventArgs e)
         {
             _fight.GetMemberWhoAttack(_selectedMember, null, _selectedMember.PhysicalAttack);
+        }
+        // ______________________Method to increase by 25% the robustness of the member during 1 tour_____________________________
+        public void Defense(object sender, EventArgs e)
+        {
+            int increasePurcentRobustness = _selectedMember.Robustness * 25 / 100 ;
+
+            _selectedMember.DidMemberPlay = true;
         }
     }
 

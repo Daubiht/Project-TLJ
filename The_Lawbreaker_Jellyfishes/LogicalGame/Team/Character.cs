@@ -36,6 +36,7 @@ namespace LogicalGame
 
         // Bool to know if the member has already attacked a monster, if yes, he cant attack again
         bool _didPlay;
+        bool _succceedLauchAttack;
 
         readonly Dictionary<String, Skill> _skills;
         readonly Dictionary<string, Item> _stuffs;
@@ -81,6 +82,13 @@ namespace LogicalGame
 
 
         // Added by Jerome ===================================
+
+       
+        public bool SuccedAttack
+        {
+            get { return _succceedLauchAttack; }
+            set { _succceedLauchAttack = value; }
+        }
         // Bool to know if the charater has already plays
         public bool DidMemberPlay
         {
@@ -418,14 +426,23 @@ namespace LogicalGame
             get { return _isAlive; }
             set { _isAlive = value; }
         }
-
+        // Method to remove HP of the character because a monster attacked him
         public int Hurt (int damage)
         {
             if (damage < 0)
             {
                 throw new ArgumentException();
             }
-
+            // Chance to dodge the the attack
+            Random r = new Random();
+            // Random between 0 and 100
+            int chanceToDodge = r.Next(0, 101);
+            // If chanceToDodge is equal to dodge / 2, the character dodges the attack of the monster
+            if ( chanceToDodge <= Dodge / 2 )
+                damage = 0;
+            // The damage launched on the character is reduced thanks to the character's robustness
+            damage = damage - (int) Math.Ceiling(Robustness/100.0*damage); // Math.Ceiling around to the superior bound, 0.3 become 1.0
+            // Remove HP
             _healthPoint -= damage;
 
             if (_healthPoint <= 0)
