@@ -4,7 +4,6 @@ using System.Windows.Forms;
 using LogicalGame;
 using GraphicalInterface;
 using System.Collections.Generic;
-using GraphicalInterface.Fighting;
 
 namespace GraphicalInterface
 {
@@ -88,7 +87,7 @@ namespace GraphicalInterface
             List<Monster> _monsters = new List<Monster>();
 
             // Create monsters
-            Monster m1 = new Monster("M1", "slime", 5, 0, 10, 0, 5, 5);
+            Monster m1 = new Monster("M1", "slime", 5, 0, 100, 0, 5, 5);
             Monster m2 = new Monster("M2", "slime", 5, 0, 100, 0, 5, 5);
             Monster m3 = new Monster("M3", "slime", 5, 0, 100, 0, 5, 5);
             Monster m4 = new Monster("M4", "slime", 5, 0, 100, 0, 5, 5);
@@ -124,9 +123,14 @@ namespace GraphicalInterface
             _team.AddMembers(c3);
             _team.AddMembers(c4);
 
+            // CREATE POTION ITEM TO ADD IN THE INVENTORY AND USE IN THE FIGHT
+            Item item2 = new Item("Bandage", 1, 5, "Bandage rudimentaire permettant d'arreter un saignement", "consommable");
+            item2.AddStats("vie", 10);
+            _team.Invent.AddItem(item2, 5);
+
             // ok.Visible = false;
-            FightUserControl fightIG = new FightUserControl(_monsters, _team);
-            _contextForm.ChangeUC(fightIG, false);
+            FightUserControl fightIG = new FightUserControl(_monsters, _team, _contextForm);
+            _contextForm.ToMenu(fightIG, false);
         }
     }
 }

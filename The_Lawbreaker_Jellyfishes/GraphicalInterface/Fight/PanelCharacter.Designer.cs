@@ -1,4 +1,4 @@
-﻿namespace GraphicalInterface.Fighting
+﻿namespace GraphicalInterface
 {
     partial class PanelCharacter
     {

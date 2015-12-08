@@ -45,6 +45,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Fight\EndFight.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Fight\EndFight.Designer.cs">
+      <DependentUpon>EndFight.cs</DependentUpon>
+    </Compile>
     <Compile Include="Fight\FightMenu.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -56,6 +62,12 @@
     </Compile>
     <Compile Include="Fight\FightUserControl.Designer.cs">
       <DependentUpon>FightUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fight\InventoryFight.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Fight\InventoryFight.Designer.cs">
+      <DependentUpon>InventoryFight.cs</DependentUpon>
     </Compile>
     <Compile Include="Fight\PanelCharacter.cs">
       <SubType>UserControl</SubType>
@@ -214,6 +226,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Fight\FightUserControl.resx">
       <DependentUpon>FightUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fight\InventoryFight.resx">
+      <DependentUpon>InventoryFight.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Fight\PanelCharacter.resx">
       <DependentUpon>PanelCharacter.cs</DependentUpon>

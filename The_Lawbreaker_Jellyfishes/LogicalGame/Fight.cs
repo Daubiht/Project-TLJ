@@ -41,7 +41,7 @@ namespace LogicalGame
         public Fight(List<Monster> MonstersToKill, Team TeamWhoFights)
         {
             // Count the number of turn
-            _turn = 0;
+            _turn = 1;
             _team = TeamWhoFights;
             _monstersList = MonstersToKill;
             _isEndFight = false;
@@ -95,6 +95,9 @@ namespace LogicalGame
             }
             // Increment the number of turn
             IncrementTurn();
+            // When the monsters finished to attack, we check and disabled skill used by the members like "defense" button
+            foreach ( Character c in _team.Members )
+                c.CheckEndSkill(_turn);
         }
 
         // ____METHODS TO GET THE MEMBER WHO ATTACKS, this method is called when the player clicks on a member's panel
@@ -156,7 +159,8 @@ namespace LogicalGame
             if ( numberOfMembers == memberWhoPlayed )
             {
                 MonsterAttack();
-                return true; // True means "All monsters attacked" 
+                // True means "All monsters attacked" 
+                return true; 
             }
             return false;
         }
@@ -181,15 +185,13 @@ namespace LogicalGame
         }
         // ____METHODE TO INCREMENT THE NUMBER OF TURNS
         public void IncrementTurn()
-        {
-            _turn += 1;
-        }
+        { _turn += 1; }
+
+
         public Team GetTeam{get { return _team; }}
         public List<Monster> GetFrontMonsters { get { return _FrontMonsterList; } }
         public List<Monster> GetHiddenMonster { get { return _HiddenMonsterList; } }
         public Character MemberWhoIsAttacking { get { return _memberWhoAttacks;  } }
         public int NumberTurn { get { return _turn; } }
-        // 1 DEFINE MONSTER MEMBER DEAD
-        // 2 PUT HIDDEN MONSTER IN FRONT WHEN ALL FRONT MONSTERS DEAD
     }
 }

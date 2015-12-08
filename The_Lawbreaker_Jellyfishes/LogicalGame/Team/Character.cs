@@ -37,6 +37,11 @@ namespace LogicalGame
         // Bool to know if the member has already attacked a monster, if yes, he cant attack again
         bool _didPlay;
         bool _succceedLauchAttack;
+        // Int to know at what turn finish the defense skill (increase robusntessduring 1 turn)
+        int _endDefenseTurn;
+        int _purcentIncreaseRobustness;
+        // Int to know the current turn of the fight
+        int _turnFight;
 
         readonly Dictionary<String, Skill> _skills;
         readonly Dictionary<string, Item> _stuffs;
@@ -82,8 +87,6 @@ namespace LogicalGame
 
 
         // Added by Jerome ===================================
-
-       
         public bool SuccedAttack
         {
             get { return _succceedLauchAttack; }
@@ -176,6 +179,7 @@ namespace LogicalGame
         public int Robustness
         {
             get { return _robustness; }
+            set { _robustness = value; } // Set used to increase robustness when the player click on "defense" button, in this class used by public void Defense(int NumberOfTurnFight)
         }
 
         public int CurentXp
@@ -228,6 +232,30 @@ namespace LogicalGame
         //           Treatement of data
         //======================================
 
+
+        // ============METHOD ADDED BY JEROME
+
+        // ___METHOD DEFENSE to increase robustness when the player clicks on "defense" button
+        public void Defense(int NumberOfTurnFight)
+        {
+            // the defense ends at x+1 turn, x is the number of current turn of fight, "1" is the number of turn the skill is actived
+            _endDefenseTurn = NumberOfTurnFight + 1;
+            // Define the number of point we increase the robustness, then we will remove these point when the skill is finished
+            _purcentIncreaseRobustness = (int) Math.Ceiling ( 500.0 / 100 * Robustness );
+            int temporaryRobustness = Robustness + _purcentIncreaseRobustness;
+            // Add the point on the current robustness
+            Robustness = temporaryRobustness;
+        }
+
+        // This method will check if the skills 
+        public void CheckEndSkill(int NumberOfTurnFight)
+        {
+            // Defense ends, remove the point added by "defense" buttton, when the skill arrived to its end turn fight
+            if( _endDefenseTurn == NumberOfTurnFight )
+                Robustness -= _purcentIncreaseRobustness;
+        }
+
+        // ==================================
         public bool WearItem (Item item, string place)
         {
             if (_team == null)
@@ -426,22 +454,22 @@ namespace LogicalGame
             get { return _isAlive; }
             set { _isAlive = value; }
         }
-        // Method to remove HP of the character because a monster attacked him
+        // ________________ METHOD TO REMOVE HP OF THE CHARACTER BECAUSE A MONSTER LAUNCHED AN ATTACK
         public int Hurt (int damage)
         {
             if (damage < 0)
             {
                 throw new ArgumentException();
             }
-            // Chance to dodge the the attack
-            Random r = new Random();
-            // Random between 0 and 100
-            int chanceToDodge = r.Next(0, 101);
-            // If chanceToDodge is equal to dodge / 2, the character dodges the attack of the monster
-            if ( chanceToDodge <= Dodge / 2 )
+            // ============ DODGE =================================
+            Random r = new Random();            // Chance to dodge the the attack
+            int chanceToDodge = r.Next(0, 101); // Random between 0 and 100
+            if ( chanceToDodge <= Dodge / 2 )   // If chanceToDodge is equal to dodge / 2, the character dodges the attack of the monster
                 damage = 0;
+            // ============ ROBUSTNESS   ========================
             // The damage launched on the character is reduced thanks to the character's robustness
             damage = damage - (int) Math.Ceiling(Robustness/100.0*damage); // Math.Ceiling around to the superior bound, 0.3 become 1.0
+            
             // Remove HP
             _healthPoint -= damage;
 

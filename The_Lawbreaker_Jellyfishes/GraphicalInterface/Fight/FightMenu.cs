@@ -9,17 +9,23 @@ using System.Windows.Forms;
 using LogicalGame;
 using System.Runtime.InteropServices;
 
-namespace GraphicalInterface.Fighting
+namespace GraphicalInterface
 {
     public partial class FightMenu : UserControl
     {
         Character _selectedMember;
+        MainForm _context;
         Fight _fight;
-        public FightMenu(Character selectedMember, Fight fight)
+        List<PanelCharacter> _panelCharacterList;
+        // CONSTUCTOR
+        public FightMenu(Character selectedMember, Fight fight, MainForm context, List<PanelCharacter> PanelCharacter)
         {
             _selectedMember = selectedMember;
             _fight = fight;
             InitializeComponent();
+            _context = context;
+            _panelCharacterList = PanelCharacter;
+
             // Display the name of the character
             labelCharName.Text = selectedMember.Name;
             // Set the X and Y location of the fight menu
@@ -36,19 +42,67 @@ namespace GraphicalInterface.Fighting
             // We add a left click event on the basic attack button
             toolStripAttack.Click += new EventHandler(BasicAttack);
             // We add a left click event on the defense attack button
-           toolStripDefense.Click += new EventHandler(Defense);
+            toolStripDefense.Click += new EventHandler(Defense);
+            // We add a left click event on the run away button
+            ButtonRunAway.Click += new EventHandler(RunAway);
+            // We add a left click event on the inventory consumable button
+            toolStripInventory.Click += new EventHandler(AccessInventory);
         }
-        // Method to get the character who is launching a basic attack
+        // ____Method to get the character who is launching a basic attack
         public void BasicAttack(object sender, EventArgs e)
         {
             _fight.GetMemberWhoAttack(_selectedMember, null, _selectedMember.PhysicalAttack);
         }
-        // ______________________Method to increase by 25% the robustness of the member during 1 tour_____________________________
+        // ____Method to INCREASE ROBUSTNESS by X % of the member during 1 tour, X % is define the character class_____________________________
         public void Defense(object sender, EventArgs e)
         {
-            int increasePurcentRobustness = _selectedMember.Robustness * 25 / 100 ;
-
+            // bool used in case everybody use "defense" button
+            bool didAllMemberPlayed = true;
+            // Given in parameters the current number turn, used to know when will finish the defense skill
+            _selectedMember.Defense(_fight.NumberTurn);
+            // Here we say that the member just played
             _selectedMember.DidMemberPlay = true;
+            // Check if every member are in defense position
+            foreach(Character c in _fight.GetTeam.Members )
+                if ( c.DidMemberPlay == false )
+                    didAllMemberPlayed = false;
+            // If yes, it's monsters to attack the team
+            if ( didAllMemberPlayed == true )
+            {
+                _fight.MonsterAttack();
+                foreach ( PanelCharacter pC in _panelCharacterList ) pC.RefreshInformation();
+            }
+        }
+        // ____Method to RUN AWAY
+        public void RunAway(object sender, EventArgs e)
+        {
+            // Check if the member hasn't play yet and if he is still alvie
+            if(_selectedMember.DidMemberPlay == false && _selectedMember.isAlive == true )
+            {
+                // All member are considered that they all played
+                foreach ( Character c in _fight.GetTeam.Members )
+                    c.DidMemberPlay = true;
+                Random r = new Random();
+                // Random number between 1 - 4
+                int chanceToRunAway = r.Next(1, 5);
+                // Create a the end fight screen if they succeed to run away
+                if ( chanceToRunAway == 0 ) // CHANGE 0 TO 1
+                {
+                    EndFight endFight = new EndFight(_context);
+                    _context.ChangeUC(endFight, false);
+                }
+                // If the team don't run away, all the monsters attack, then we color all the members in blue to signal they can play again
+                else // ___________***************IMPLEMENTE HERE*********
+                {
+                    _fight.MonsterAttack();
+                    foreach ( PanelCharacter pC in _panelCharacterList )
+                        pC.RefreshInformation();
+                }
+            }
+        }
+        public void AccessInventory()
+        {
+
         }
     }
 
@@ -62,4 +116,6 @@ namespace GraphicalInterface.Fighting
             SendMessage(pBar.Handle, 1040, (IntPtr)state, IntPtr.Zero);
         }
     }
+
+
 }

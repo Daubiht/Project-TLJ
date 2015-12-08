@@ -1,6 +1,6 @@
 ﻿namespace GraphicalInterface
 {
-    partial class FightUserControl
+    partial class EndFight
     {
         /// <summary> 
         /// Variable nécessaire au concepteur.
@@ -13,7 +13,7 @@
         /// <param name="disposing">true si les ressources managées doivent être supprimées ; sinon, false.</param>
         protected override void Dispose(bool disposing)
         {
-            if (disposing && (components != null))
+            if ( disposing && (components != null) )
             {
                 components.Dispose();
             }
@@ -28,17 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            // 
-            // FightUserControl
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Control;
-            this.Name = "FightUserControl";
-            this.Size = new System.Drawing.Size(425, 475);
-            this.ResumeLayout(false);
-
         }
 
         #endregion

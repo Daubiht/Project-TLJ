@@ -8,7 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using LogicalGame;
 
-namespace GraphicalInterface.Fighting
+namespace GraphicalInterface
 {
     public partial class PanelCharacter : UserControl
     {
@@ -83,8 +83,8 @@ namespace GraphicalInterface.Fighting
                             pC.BackColor = Color.LightSkyBlue;
                     }
                 }
-                // If the members who attack didn't succeed to attack because he selected the wrong monster, the selector is still on his panel
-                if ( _fight.MemberWhoIsAttacking.SuccedAttack == false )
+                // If the members who attack is notn null (because we just start the fight) and didn't succeed to attack because he selected the wrong monster, the selector is still on his panel
+                if ( _fight.MemberWhoIsAttacking != null && _fight.MemberWhoIsAttacking.SuccedAttack == false )
                 {
                     foreach (PanelCharacter p in _FightUserControl.GetCharacterPanel )
                         if ( _fight.MemberWhoIsAttacking.Name == p.GetCharacter.Name ) p.BackColor = Color.SteelBlue;
@@ -111,7 +111,9 @@ namespace GraphicalInterface.Fighting
             {
                 labelHPResult.Text = _character.HealthPoint.ToString();
                 labelStaminaResult.Text = _character.Stamina.ToString();
+                BackColor = Color.LightSkyBlue;
                 if ( _character.isAlive == false ) BackColor = Color.Black;
+                else if ( _character.isAlive == true ) BackColor = Color.LightSkyBlue;
             }
         }
 
@@ -119,19 +121,25 @@ namespace GraphicalInterface.Fighting
         public void ColorPlayedCharacter()
         {
             foreach ( PanelCharacter p in _FightUserControl.GetCharacterPanel )
-                if ( p.GetCharacter.DidMemberPlay == true )
+                if ( p.GetCharacter.DidMemberPlay == true && p.GetCharacter.isAlive == true)
                     p.BackColor = Color.Gray;
         }
         // Method who changes the border style of the SELECTED CHARACTER'S PANEL
         public void ChangeBorderStyle(bool DoStyle)
         {   // If false, Remove all border style of all members
             if ( DoStyle == false )
+            { 
                 foreach ( PanelCharacter pC in _FightUserControl.GetCharacterPanel )
                 {
                     pC.BorderStyle = BorderStyle.None;
-                    pC.BackColor = Color.LightSkyBlue;
-                    if( pC._character.DidMemberPlay == true ) pC.BackColor = Color.Gray;
+                    // If the member is DEAD, the panel is colored in BLACK
+                    if ( pC.GetCharacter.isAlive == false ) pC.BackColor = Color.Black;
+                    // If the member is ALIVE, the panel is colored in LIGHT
+                    if ( pC.GetCharacter.isAlive == true ) pC.BackColor = Color.LightSkyBlue;
+                    // If the member is ALIVE and already PLAYED, the panel is in GRAY
+                    if ( pC._character.DidMemberPlay == true && pC.GetCharacter.isAlive == true ) pC.BackColor = Color.Gray;
                 }
+            }
             // If true, assign a special border style to the selected member's panel
             if ( DoStyle == true )
             {

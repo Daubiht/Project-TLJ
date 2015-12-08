@@ -1,4 +1,4 @@
-﻿namespace GraphicalInterface.Fighting
+﻿namespace GraphicalInterface
 {
     partial class FightMenu
     {
@@ -38,11 +38,11 @@
             this.ghjghToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dfgdfToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripRight = new System.Windows.Forms.ToolStrip();
-            this.toolStripInventory = new System.Windows.Forms.ToolStripDropDownButton();
-            this.button1 = new System.Windows.Forms.Button();
+            this.ButtonRunAway = new System.Windows.Forms.Button();
             this.labelCharName = new System.Windows.Forms.Label();
             this.progressBarHP = new System.Windows.Forms.ProgressBar();
             this.progressBarStamina = new System.Windows.Forms.ProgressBar();
+            this.toolStripInventory = new System.Windows.Forms.ToolStripButton();
             this.toolStripLeft.SuspendLayout();
             this.toolStripRight.SuspendLayout();
             this.SuspendLayout();
@@ -91,7 +91,7 @@
             this.toolStripSkills.Image = ((System.Drawing.Image)(resources.GetObject("toolStripSkills.Image")));
             this.toolStripSkills.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripSkills.Name = "toolStripSkills";
-            this.toolStripSkills.Size = new System.Drawing.Size(93, 19);
+            this.toolStripSkills.Size = new System.Drawing.Size(92, 19);
             this.toolStripSkills.Text = "Compétences";
             this.toolStripSkills.ToolTipText = "Compétences";
             // 
@@ -125,37 +125,27 @@
             this.toolStripRight.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStripRight.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripInventory});
-            this.toolStripRight.Location = new System.Drawing.Point(337, 0);
+            this.toolStripRight.Location = new System.Drawing.Point(346, 0);
             this.toolStripRight.Name = "toolStripRight";
-            this.toolStripRight.Size = new System.Drawing.Size(73, 71);
+            this.toolStripRight.Size = new System.Drawing.Size(64, 71);
             this.toolStripRight.TabIndex = 1;
             this.toolStripRight.Text = "toolStrip2";
             // 
-            // toolStripInventory
+            // ButtonRunAway
             // 
-            this.toolStripInventory.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripInventory.Image = ((System.Drawing.Image)(resources.GetObject("toolStripInventory.Image")));
-            this.toolStripInventory.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripInventory.Name = "toolStripInventory";
-            this.toolStripInventory.Size = new System.Drawing.Size(70, 19);
-            this.toolStripInventory.Text = "Inventaire";
-            this.toolStripInventory.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(354, 24);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(48, 31);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Fuir";
-            this.button1.UseVisualStyleBackColor = true;
+            this.ButtonRunAway.Location = new System.Drawing.Point(354, 24);
+            this.ButtonRunAway.Name = "ButtonRunAway";
+            this.ButtonRunAway.Size = new System.Drawing.Size(48, 31);
+            this.ButtonRunAway.TabIndex = 2;
+            this.ButtonRunAway.Text = "Fuir";
+            this.ButtonRunAway.UseVisualStyleBackColor = true;
             // 
             // labelCharName
             // 
             this.labelCharName.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelCharName.Location = new System.Drawing.Point(94, 0);
             this.labelCharName.Name = "labelCharName";
-            this.labelCharName.Size = new System.Drawing.Size(243, 13);
+            this.labelCharName.Size = new System.Drawing.Size(252, 13);
             this.labelCharName.TabIndex = 3;
             this.labelCharName.Text = "Nom du personnage";
             this.labelCharName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -178,6 +168,16 @@
             this.progressBarStamina.Size = new System.Drawing.Size(137, 10);
             this.progressBarStamina.TabIndex = 5;
             // 
+            // toolStripInventory
+            // 
+            this.toolStripInventory.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripInventory.Image = ((System.Drawing.Image)(resources.GetObject("toolStripInventory.Image")));
+            this.toolStripInventory.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripInventory.Name = "toolStripInventory";
+            this.toolStripInventory.Size = new System.Drawing.Size(61, 19);
+            this.toolStripInventory.Text = "Inventaire";
+            this.toolStripInventory.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // FightMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -186,7 +186,7 @@
             this.Controls.Add(this.progressBarStamina);
             this.Controls.Add(this.progressBarHP);
             this.Controls.Add(this.labelCharName);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.ButtonRunAway);
             this.Controls.Add(this.toolStripRight);
             this.Controls.Add(this.toolStripLeft);
             this.Name = "FightMenu";
@@ -209,12 +209,12 @@
         private System.Windows.Forms.ToolStripMenuItem ghjghToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dfgdfToolStripMenuItem1;
         private System.Windows.Forms.ToolStrip toolStripRight;
-        private System.Windows.Forms.ToolStripDropDownButton toolStripInventory;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button ButtonRunAway;
         private System.Windows.Forms.Label labelCharName;
         private System.Windows.Forms.ToolStripButton toolStripAttack;
         private System.Windows.Forms.ToolStripButton toolStripDefense;
         private System.Windows.Forms.ProgressBar progressBarHP;
         private System.Windows.Forms.ProgressBar progressBarStamina;
+        private System.Windows.Forms.ToolStripButton toolStripInventory;
     }
 }

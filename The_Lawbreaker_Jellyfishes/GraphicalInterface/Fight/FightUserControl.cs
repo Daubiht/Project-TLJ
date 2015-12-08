@@ -9,7 +9,7 @@ using System.Windows.Forms;
 using LogicalGame;
 using GraphicalInterface;
 
-namespace GraphicalInterface.Fighting
+namespace GraphicalInterface
 {
     public partial class FightUserControl : UserControl
     {
@@ -17,7 +17,9 @@ namespace GraphicalInterface.Fighting
         List<Monster> _monsters;
         Team _team;
         Fight _fight;
-
+        
+        // Need the context to give it to the end fight, end fight will go back to the context
+        MainForm _context;
         // Fight menu displays attack, skill, informations about the selected member
         FightMenu _currentMemberMenu;
 
@@ -44,12 +46,14 @@ namespace GraphicalInterface.Fighting
         bool _isAllMonstersFrontPositionFalse;
 
         // CONSTRUCTOR
-        public FightUserControl(List<Monster> MonstersToKill, Team TeamWhoFight)
+        public FightUserControl(List<Monster> MonstersToKill, Team TeamWhoFight, MainForm context)
         {
             InitializeComponent();
             // Get the monsters list and and team
             _monsters = MonstersToKill;
             _team = TeamWhoFight;
+            // Need the context to create the end fight screen
+            _context = context;
             _fight = new Fight(_monsters, _team);
             _panelMembers = new List<PanelCharacter>();
 
@@ -185,7 +189,7 @@ namespace GraphicalInterface.Fighting
         public void CreateFightMenu(Character DisplayedCharacter)
         {
             Controls.Remove(_currentMemberMenu);
-            _currentMemberMenu = new FightMenu(DisplayedCharacter, _fight);
+            _currentMemberMenu = new FightMenu(DisplayedCharacter, _fight, _context, _panelMembers);
             Controls.Add(_currentMemberMenu);
         }
 
