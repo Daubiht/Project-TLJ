@@ -202,12 +202,10 @@
     <Compile Include="Services\Taverne\Taverne.Designer.cs">
       <DependentUpon>Taverne.cs</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="Menu\Team\SkillsDisplay.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <EmbeddedResource Include="Event\Meet.resx">
-      <DependentUpon>Meet.cs</DependentUpon>
-    </EmbeddedResource>
     <Compile Include="Menu\Team\SkillsDisplay.Designer.cs">
       <DependentUpon>SkillsDisplay.cs</DependentUpon>
     </Compile>
@@ -217,6 +215,11 @@
     <Compile Include="skillsForm.Designer.cs">
       <DependentUpon>skillsForm.cs</DependentUpon>
     </Compile>
+=======
+    <EmbeddedResource Include="Event\Meet.resx">
+      <DependentUpon>Meet.cs</DependentUpon>
+    </EmbeddedResource>
+>>>>>>> functionnality_about_event
     <EmbeddedResource Include="Home\CreateMainCharacter\CreateMainCharacter1.resx">
       <DependentUpon>CreateMainCharacter1.cs</DependentUpon>
       <SubType>Designer</SubType>

@@ -10,6 +10,8 @@ namespace LogicalGame
         readonly List<Item> _sellableItems;
         Invent _invent;
         string _name;
+        int _x;
+        int _y;
         
         // Constructor
         public Merchant(string name, List<Item> itemSellable)
@@ -48,6 +50,17 @@ namespace LogicalGame
         // Properties
 
         // Get list of items sellable
+        public int PointX
+        {
+            get { return _x; }
+            set { _x = value; }
+        }
+        public int PointY
+        {
+            get { return _y; }
+            set { _y = value; }
+        }
+
         public List<Item> GetItemsAvailable
         {
             get{ return _sellableItems; }

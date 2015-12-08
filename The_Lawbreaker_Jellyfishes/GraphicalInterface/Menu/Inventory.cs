@@ -20,7 +20,7 @@ namespace GraphicalInterface
 
         private void Inventory_Load(object sender, EventArgs e)
         {
-            label1.Text = "Poids : " + _inventory.weight + "/" + _inventory.MaxWeight;
+            label1.Text = "Poids : " + _inventory.weight + "/" + _inventory.MaxWeight + Environment.NewLine + _inventory.GetGold + " pièces d'or";
 
             ToolTip toolTip = new ToolTip();
             toolTip.InitialDelay = 250;

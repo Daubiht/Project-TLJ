@@ -6,7 +6,7 @@ Hagbard
 Bjarnulf
 Bernulf
 Arvid
-Arnbjörn
+ArnbjÃ¶rn
 Henning
 Thorolf
 Osbern
@@ -17,7 +17,7 @@ Hrolf
 Svenning
 Ketil
 Oluf
-Asbjörn
+AsbjÃ¶rn
 Karl
 Halfred
 Nordahl
@@ -40,7 +40,7 @@ Thorfrid
 Arvid
 Veland
 Aslak
-Asbjörn
+AsbjÃ¶rn
 Harald
 Ingmar
 Frederik

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 
 namespace LogicalGame
 {
@@ -8,13 +10,41 @@ namespace LogicalGame
     {
         List<MapZone> _listLink = new List<MapZone>();
         MapInstance _context;
+        int _zoneLevel;
+        Random _rand;
+        bool _visited;
+        int _x;
+        int _y;
 
-        public MapZone(MapInstance context, bool WithInstance)
+        public MapZone(MapInstance context, bool WithInstance, int zoneLevel)
         {
-            if(WithInstance == true)
+            _zoneLevel = zoneLevel;
+            if(WithInstance)
             {
                 _context = context;
+                _rand = _context.MapIsland.ActualWorld.Random;
+            } 
+            else
+            {
+                _rand = new Random();
             }
+        }
+
+        public bool Visited
+        {
+            get { return _visited; }
+            set { _visited = value; }
+        }
+
+        public int PointX
+        {
+            get { return _x; }
+            set { _x = value; }
+        }
+        public int PointY
+        {
+            get { return _y; }
+            set { _y = value; }
         }
 
         public MapInstance Context
@@ -30,21 +60,93 @@ namespace LogicalGame
         }
 
         /// <summary>
-        /// 0.0, 0.1, 0.2 = meet commun/rare/extraordinary merchant
-        /// 1.1, 1.2, [...], 1.9 = combat with level of difficulty
-        /// 2.1, 2.2, [...], 2.9 = boss combat with level of difficulty
-        /// 3.0 = meet elder with ressurect stuff
+        /// Choose the difficulty of the fight and it will return a list of monster to fight
+        /// the difficulty is a possibility, not an obligation (except for boss)
         /// </summary>
-        /// <param name="MoveIsland">If he's between islands or in an instance, change balance between fight and meet</param>
-        /// <returns>The started event</returns>
-        //public Event Event(bool MoveIsland) 
-        //{
-        //    //MoveIsland false : x+ % combat, x- % rencontre
-        //    //MoveIsland true : x= % combat, x= % rencontre
-        //    //depending on context for choose monster
+        /// <param name="difficulty">0 easy, 1 normal, 2 hard</param>
+        /// <param name="type">input race to get specific monster or put it null</param>
+        /// <returns>List of monster to fight</returns>
+        public List<Monster> EventFightRandom(int difficulty, string race)
+        {
+            if (difficulty > 2 || difficulty < 0) throw new ArgumentException();
 
+            ListMonsters EntirelistM = new ListMonsters();
+            List<Monster> listMByLevel = EntirelistM.GetListMonsters.FindAll(
+                delegate (Monster m)
+                {
+                    if (race == null)
+                    {
+                        return m.Level >= (_zoneLevel) && m.Level <= (_zoneLevel + difficulty);
+                    } 
+                    else
+                    {
+                        return race == m.Race;
+                    }
+                }
+            );
 
-        //    return E;
-        //}
+            int nbrM = _rand.Next(1 + difficulty, 3 + difficulty);
+
+            List<Monster> listMForFight = new List<Monster>();
+
+            for (int i = 0; i < nbrM; i++)
+            {
+                int wanted = _rand.Next(0, listMByLevel.Count);
+                listMForFight.Add(listMByLevel[wanted]);
+            }
+
+            foreach (Monster m in listMForFight)
+            {
+                if (m.MagicAttack > m.PhysicalAttack)
+                {
+                    m.FrontPosition = false;
+                }
+                else
+                {
+                    m.FrontPosition = true;
+                }
+            }
+
+            if (listMForFight.All(m => m.FrontPosition == false))
+            {
+                foreach (Monster m in listMForFight)
+                {
+                    m.FrontPosition = true;
+                }
+            }
+
+            return listMForFight;
+        }
+
+        public Merchant EventMerchant()
+        {
+            ListItems listItems = new ListItems();
+            List<Item> listSellable = new List<Item>();
+
+            int nbrItems = _rand.Next(1, 6);
+
+            for(int i = 0; i < nbrItems; i++)
+            {
+                int wanted = _rand.Next(0, listItems.Items.Count);
+
+                if(!listSellable.Contains(listItems.Items[wanted]))
+                {
+                    listSellable.Add(listItems.Items[wanted]);
+                }
+            }
+
+            return new Merchant("Marchand itinérant", listSellable);
+        }
+
+        public string[] EventElder()
+        {
+            string[] riddles = File.ReadAllLines(@"../../../Ressources/enigme.txt");
+
+            int Wanted = _rand.Next(0, riddles.Length / 2);
+
+            string[] riddleAndAnswer = { riddles[Wanted * 2], riddles[Wanted * 2 + 1]};
+
+            return riddleAndAnswer;
+        }
     }
 }

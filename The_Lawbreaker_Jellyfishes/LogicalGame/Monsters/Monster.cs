@@ -31,11 +31,11 @@ namespace LogicalGame
         /// <summary>
         /// Create a new Monster who is level one.
         /// </summary>
-        public Monster(string name, string race, int physicalAttack, int magicAttack, int health, int stamina, int robustness, int dodge)
+        public Monster(string name, int level,string race, int physicalAttack, int magicAttack, int health, int stamina, int robustness, int dodge)
         {
             _race = race;
             _name = name;
-            _level = 1;
+            _level = level;
             _physicalAttack = physicalAttack;
             _magicAttack = magicAttack;
             _health = health;

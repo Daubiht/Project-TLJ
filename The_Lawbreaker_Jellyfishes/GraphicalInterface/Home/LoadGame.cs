@@ -25,7 +25,7 @@ namespace GraphicalInterface
             }
         }
 
-        private void ChooseGame(Button slot)
+        private void ChooseGame(object slot, EventArgs e)
         {
             MapWorld w;
             string path = "";
@@ -35,7 +35,7 @@ namespace GraphicalInterface
             string[] fileName = Directory.GetFiles(@"../../../Saves");
             foreach (string file in fileName)
             {
-                if ((int)Char.GetNumericValue(file[15]) == (int)Char.GetNumericValue(slot.Text[0]))
+                if ((int)Char.GetNumericValue(file[15]) == (int)Char.GetNumericValue(((Button)slot).Text[0]))
                 {
                     path = file;
                 }
@@ -49,31 +49,6 @@ namespace GraphicalInterface
             _contextForm.world = w;
             World uc = new World(w, _contextForm, false);
             _contextForm.ChangeUC(uc, true);
-        }
-
-        private void slot1_Click(object sender, EventArgs e)
-        {
-            ChooseGame((Button)sender);
-        }
-
-        private void slot2_Click(object sender, EventArgs e)
-        {
-            ChooseGame((Button)sender);
-        }
-
-        private void slot3_Click(object sender, EventArgs e)
-        {
-            ChooseGame((Button)sender);
-        }
-
-        private void slot4_Click(object sender, EventArgs e)
-        {
-            ChooseGame((Button)sender);
-        }
-
-        private void slot5_Click(object sender, EventArgs e)
-        {
-            ChooseGame((Button)sender);
         }
 
         private void retour_Click(object sender, EventArgs e)

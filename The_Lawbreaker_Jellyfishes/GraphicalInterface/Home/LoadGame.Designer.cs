@@ -45,7 +45,7 @@
             this.slot1.TabIndex = 0;
             this.slot1.Text = "Slot 1 - Vide";
             this.slot1.UseVisualStyleBackColor = true;
-            this.slot1.Click += new System.EventHandler(this.slot1_Click);
+            this.slot1.Click += new System.EventHandler(ChooseGame);
             // 
             // slot2
             // 
@@ -56,7 +56,7 @@
             this.slot2.TabIndex = 0;
             this.slot2.Text = "Slot 2 - Vide";
             this.slot2.UseVisualStyleBackColor = true;
-            this.slot2.Click += new System.EventHandler(this.slot2_Click);
+            this.slot2.Click += new System.EventHandler(ChooseGame);
             // 
             // slot3
             // 
@@ -67,7 +67,7 @@
             this.slot3.TabIndex = 0;
             this.slot3.Text = "Slot 3 - Vide";
             this.slot3.UseVisualStyleBackColor = true;
-            this.slot3.Click += new System.EventHandler(this.slot3_Click);
+            this.slot3.Click += new System.EventHandler(ChooseGame);
             // 
             // slot4
             // 
@@ -78,7 +78,7 @@
             this.slot4.TabIndex = 0;
             this.slot4.Text = "Slot 4 - Vide";
             this.slot4.UseVisualStyleBackColor = true;
-            this.slot4.Click += new System.EventHandler(this.slot4_Click);
+            this.slot4.Click += new System.EventHandler(ChooseGame);
             // 
             // slot5
             // 
@@ -89,7 +89,7 @@
             this.slot5.TabIndex = 0;
             this.slot5.Text = "Slot 5 - Vide";
             this.slot5.UseVisualStyleBackColor = true;
-            this.slot5.Click += new System.EventHandler(this.slot5_Click);
+            this.slot5.Click += new System.EventHandler(ChooseGame);
             // 
             // retour
             // 

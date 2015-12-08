@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using LogicalGame;
+using GraphicalInterface.Services;
 
 namespace GraphicalInterface
 {
@@ -17,9 +18,13 @@ namespace GraphicalInterface
             InitializeComponent();
             _invent = invent;
             m = merchant;
-            m.Invent = _invent;
             _contextForm = contextForm;
+<<<<<<< HEAD
 
+
+            InitializeComponent();
+=======
+>>>>>>> functionnality_about_event
         }
 
         internal void Buy_Click (object sender, EventArgs e)
@@ -49,12 +54,30 @@ namespace GraphicalInterface
                 {
                     m.SellItems(item);
                 }
+<<<<<<< HEAD
                 if (_invent.Inventory.ContainsKey(item) && _invent.Inventory[item] > 0)
                 {
                     ((ItemInformations)button.Parent).ItemQuantityLabel.Text = "x " + _invent.Inventory[item].ToString();
                     ((ItemInformations)button.Parent).ItemMaximumQuantity = _invent.Inventory[item];
                 }
                 else if (PageSell.Controls.Contains(button.Parent)) PageSell.Controls.Remove(button.Parent);
+=======
+                if(!_invent.Inventory.ContainsKey(item))
+                {
+                    int j = 0;
+
+                    PageSell.Controls.Remove(((Button)sender).Parent);
+
+                    foreach (object panel in PageSell.Controls)
+                    {
+                        if(panel is Panel)
+                        {
+                            ((Panel)panel).Top = j * 55;
+                            j++;
+                        }
+                    }
+                }
+>>>>>>> functionnality_about_event
             }
             else
             {
@@ -62,9 +85,14 @@ namespace GraphicalInterface
                 LError.Visible = true;
             }
 
+<<<<<<< HEAD
             LGold.Text = _invent.GetGold.ToString() + " PO";
             Arange();
 
+=======
+            LGold.Text = _invent.GetGold.ToString();
+            //LoadItemToSell();
+>>>>>>> functionnality_about_event
         }
 
         internal void Arange ()

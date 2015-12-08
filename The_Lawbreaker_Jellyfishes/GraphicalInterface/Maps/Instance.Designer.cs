@@ -1,6 +1,6 @@
 ﻿namespace GraphicalInterface
 {
-    partial class World
+    partial class Instance
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,35 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ok = new System.Windows.Forms.Button();
+            this.Retour = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // ok
+            // Retour
             // 
-            this.ok.Location = new System.Drawing.Point(193, 231);
-            this.ok.Name = "ok";
-            this.ok.Size = new System.Drawing.Size(37, 23);
-            this.ok.TabIndex = 4;
-            this.ok.Text = "ok";
-            this.ok.UseVisualStyleBackColor = true;
-            this.ok.Visible = false;
-            this.ok.Click += new System.EventHandler(this.ok_Click);
+            this.Retour.Enabled = false;
+            this.Retour.Location = new System.Drawing.Point(322, 3);
+            this.Retour.Name = "Retour";
+            this.Retour.Size = new System.Drawing.Size(75, 23);
+            this.Retour.TabIndex = 3;
+            this.Retour.Text = "Retour";
+            this.Retour.UseVisualStyleBackColor = true;
+            this.Retour.Click += new System.EventHandler(this.Retour_Click);
             // 
-            // World
+            // Instance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.ok);
+            this.Controls.Add(this.Retour);
             this.MaximumSize = new System.Drawing.Size(400, 400);
             this.MinimumSize = new System.Drawing.Size(400, 400);
-            this.Name = "World";
+            this.Name = "Instance";
             this.Size = new System.Drawing.Size(400, 400);
-            this.Load += new System.EventHandler(this.World_Load);
+            this.Load += new System.EventHandler(this.Instance_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.Button ok;
+
+        private System.Windows.Forms.Button Retour;
     }
 }

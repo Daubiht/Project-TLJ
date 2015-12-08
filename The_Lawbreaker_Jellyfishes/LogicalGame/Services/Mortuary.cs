@@ -10,6 +10,8 @@ namespace LogicalGame
         readonly List<Character> _bodyList;
         readonly MapCity _context;
         readonly Team _team;
+        int _x;
+        int _y;
 
         public Mortuary (MapCity context)
         {
@@ -31,6 +33,18 @@ namespace LogicalGame
             }
             _bodyList.Add(c);
             return true;
+        }
+
+        public int PointX
+        {
+            get { return _x; }
+            set { _x = value; }
+        }
+
+        public int PointY
+        {
+            get { return _y; }
+            set { _y = value; }
         }
 
         public bool takeBackBody(Character c)

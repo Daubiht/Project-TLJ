@@ -42,7 +42,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Team\Character.cs" />
-    <Compile Include="Event.cs" />
     <Compile Include="Team\Inventory.cs" />
     <Compile Include="Items\Item.cs" />
     <Compile Include="Items\ListItems.cs" />
@@ -54,7 +53,7 @@
     <Compile Include="Monsters\ListMonsters.cs" />
     <Compile Include="Monsters\Monster.cs" />
     <Compile Include="Services\Mortuary.cs" />
-    <Compile Include="Team\RandomCharacter.cs" />
+    <Compile Include="Team\Taverne.cs" />
     <Compile Include="Services\Militia.cs" />
     <Compile Include="Services\Merchant.cs" />
     <Compile Include="Notifications\ListNotifications.cs" />
