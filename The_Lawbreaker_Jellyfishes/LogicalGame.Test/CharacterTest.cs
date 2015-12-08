@@ -1,10 +1,31 @@
 ﻿using NUnit.Framework;
+using System;
 
 namespace LogicalGame.Test
 {
     [TestFixture]
     public class CharacterTest
     {
+        [Test]
+        public void Try_get_list_stats_all_stuff()
+        {
+            Taverne tav = new Taverne();
+            Character c = tav.New(1, 100);
+            ListItems listi = new ListItems();
+            Item i = listi.Items[0];
+            Team t = new Team("test");
+            c.InTeam = t;
+            t.Invent.AddItem(i, 1);
+
+            if (c.WearItem(i, i.Type))
+            {
+                foreach (string key in c.StatsStuff.Keys)
+                {
+                    Console.WriteLine(key + c.StatsStuff[key]);
+                }
+            }
+        }
+
         [Test]
         public void Create_a_new_perso_with_a_name_and_level_one()
         {

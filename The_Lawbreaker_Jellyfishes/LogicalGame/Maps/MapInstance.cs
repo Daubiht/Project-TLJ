@@ -50,7 +50,7 @@ namespace LogicalGame
         /// <returns></returns>
         public int EventRandom(bool visited)
         {
-            int percent = new Random().Next(0, 101);
+            int percent = _rand.Next(0, 101);
             int merch;
             int elder;
             int empty;

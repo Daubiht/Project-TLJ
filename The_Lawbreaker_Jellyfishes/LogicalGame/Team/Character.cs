@@ -79,6 +79,31 @@ namespace LogicalGame
         {
             get { return _stuffs; }
         }
+
+        public Dictionary<string, int> StatsStuff
+        {
+            get
+            {
+                Dictionary<string, int> dictio = new Dictionary<string, int>();
+
+                foreach (string position in _stuffs.Keys)
+                {
+                    foreach (string bonus in _stuffs[position].GetStats.Keys)
+                    {
+                        if(dictio.ContainsKey(bonus))
+                        {
+                            dictio[bonus] += _stuffs[position].GetStats[bonus];
+                        }
+                        else
+                        {
+                            dictio.Add(bonus, _stuffs[position].GetStats[bonus]);
+                        }
+                    }
+                }
+
+                return dictio;
+            }
+        }
         public Team InTeam
         {
             get {return _team; }

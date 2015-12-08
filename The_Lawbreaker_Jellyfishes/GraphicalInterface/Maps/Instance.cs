@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 using LogicalGame;
+using System.Collections.Generic;
 
 namespace GraphicalInterface
 {
@@ -17,6 +18,15 @@ namespace GraphicalInterface
             _contextForm = context;
             _world = world;
             _instance = instance;
+
+            ToolTip toolTip = new ToolTip();
+            toolTip.ReshowDelay = 500;
+            toolTip.ShowAlways = true;
+            toolTip.AutoPopDelay = 32000;
+
+            string info = "Pour quitter l'instance,"+Environment.NewLine+" vous devez retourner à l'entrée ou trouver une sortie.";
+
+            toolTip.SetToolTip(Retour, info);
         }
 
         private void Retour_Click(object sender, EventArgs e)
@@ -49,6 +59,17 @@ namespace GraphicalInterface
 
         public void Reload()
         {
+            List<MapZone> listZones = ((MapZone)_world.ActualPosition).Context.listZones;
+
+            if (_world.ActualPosition == listZones[0] || _world.ActualPosition == listZones[listZones.Count - 1])
+            {
+                Retour.Enabled = true;
+            }
+            else
+            {
+                Retour.Enabled = false;
+            }
+
             foreach (object zone_b in Controls)
             {
                 if (zone_b is Button)

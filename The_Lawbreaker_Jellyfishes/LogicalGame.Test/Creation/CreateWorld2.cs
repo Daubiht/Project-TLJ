@@ -39,16 +39,27 @@ namespace LogicalGame.Test
             zone2.PointX = 150;
             zone2.PointY = 150;
 
+            MapZone zone3 = new MapZone(instance1, true, 3);
+            zone3.PointX = 250;
+            zone3.PointY = 250;
+
             List<MapZone> listlink = new List<MapZone>();
             listlink.Add(zone2);
             zone1.ListLink = listlink;
 
             listlink = new List<MapZone>();
             listlink.Add(zone1);
+            listlink.Add(zone3);
             zone2.ListLink = listlink;
 
+            listlink = new List<MapZone>();
+            listlink.Add(zone2);
+            zone3.ListLink = listlink;
+
+            //Zone must be add like : first is the entry and last the exit
             listZone_instance1.Add(zone1);
             listZone_instance1.Add(zone2);
+            listZone_instance1.Add(zone3);
 
             instance1.listZones = listZone_instance1;
 
@@ -69,7 +80,7 @@ namespace LogicalGame.Test
 
             Merchant merch1 = new Merchant("Vendeur général", itemsSell);
             merch1.PointX = 50;
-            merch1.PointY = 375;
+            merch1.PointY = 325;
             merch1.Invent = world.Team.Invent;
 
             //Add services
@@ -111,16 +122,26 @@ namespace LogicalGame.Test
             zone2.PointX = 150;
             zone2.PointY = 150;
 
+            zone3 = new MapZone(instance1, true, 3);
+            zone3.PointX = 250;
+            zone3.PointY = 250;
+
             listlink = new List<MapZone>();
             listlink.Add(zone2);
             zone1.ListLink = listlink;
 
             listlink = new List<MapZone>();
             listlink.Add(zone1);
+            listlink.Add(zone3);
             zone2.ListLink = listlink;
+
+            listlink = new List<MapZone>();
+            listlink.Add(zone2);
+            zone3.ListLink = listlink;
 
             listZone_instance1.Add(zone1);
             listZone_instance1.Add(zone2);
+            listZone_instance1.Add(zone3);
 
             instance1.listZones = listZone_instance1;
 
@@ -141,7 +162,7 @@ namespace LogicalGame.Test
 
             merch1 = new Merchant("Vendeur général", itemsSell);
             merch1.PointX = 50;
-            merch1.PointY = 375;
+            merch1.PointY = 325;
             merch1.Invent = world.Team.Invent;
 
             //Add services

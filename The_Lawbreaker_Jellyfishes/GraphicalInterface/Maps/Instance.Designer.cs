@@ -33,6 +33,7 @@
             // 
             // Retour
             // 
+            this.Retour.Enabled = false;
             this.Retour.Location = new System.Drawing.Point(322, 3);
             this.Retour.Name = "Retour";
             this.Retour.Size = new System.Drawing.Size(75, 23);

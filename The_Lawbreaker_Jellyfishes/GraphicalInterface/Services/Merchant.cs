@@ -14,12 +14,11 @@ namespace GraphicalInterface
 
         public Merchant(MainForm contextForm, LogicalGame.Merchant merchant, Invent invent)
         {
+            InitializeComponent();
             _invent = invent;
             m = merchant;
             m.Invent = _invent;
             _contextForm = contextForm;
-
-            InitializeComponent();
         }
 
         internal void Buy_Click (object sender, EventArgs e)
@@ -53,6 +52,21 @@ namespace GraphicalInterface
                 {
                     m.SellItems(item);
                 }
+                if(!_invent.Inventory.ContainsKey(item))
+                {
+                    int j = 0;
+
+                    PageSell.Controls.Remove(((Button)sender).Parent);
+
+                    foreach (object panel in PageSell.Controls)
+                    {
+                        if(panel is Panel)
+                        {
+                            ((Panel)panel).Top = j * 55;
+                            j++;
+                        }
+                    }
+                }
             }
             else
             {
@@ -61,8 +75,7 @@ namespace GraphicalInterface
             }
 
             LGold.Text = _invent.GetGold.ToString();
-            LoadItemToSell();
-
+            //LoadItemToSell();
         }
 
         internal void Plus_Click_Sell(object sender, EventArgs e)
