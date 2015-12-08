@@ -44,6 +44,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Menu\Team\DeadMenList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu\Team\DeadMenList.Designer.cs">
+      <DependentUpon>DeadMenList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\Team\DeadMan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Menu\Team\DeadMan.Designer.cs">
+      <DependentUpon>DeadMan.cs</DependentUpon>
+    </Compile>
     <Compile Include="Home\CreateMainCharacter\CreateMainCharacter1.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -214,6 +226,9 @@
     <Compile Include="skillsForm.Designer.cs">
       <DependentUpon>skillsForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Menu\Team\DeadMan.resx">
+      <DependentUpon>DeadMan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Home\CreateMainCharacter\CreateMainCharacter1.resx">
       <DependentUpon>CreateMainCharacter1.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -259,6 +274,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Menu\Team\CharacterManagement.resx">
       <DependentUpon>CharacterManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu\Team\DeadMenList.resx">
+      <DependentUpon>DeadMenList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu\Team\FiltredInventory.resx">
       <DependentUpon>FiltredInventory.cs</DependentUpon>

@@ -6,7 +6,7 @@ namespace GraphicalInterface
 {
     public partial class FiltredInventory : UserControl
     {
-        Team t;
+        Team team;
         Character c;
         MainForm _contextForm;
         string filtre;
@@ -14,7 +14,7 @@ namespace GraphicalInterface
 
         public FiltredInventory(Team team, Character chara, string type, MainForm contextForm)
         {
-            t = team;
+            this.team = team;
             c = chara;
             filtre = type;
             _contextForm = contextForm;
@@ -23,7 +23,7 @@ namespace GraphicalInterface
 
         private void BRetour_Click(object sender, EventArgs e)
         {
-            CharacterManagement uc = new CharacterManagement(c, t, _contextForm);
+            CharacterManagement uc = new CharacterManagement(c, team, _contextForm);
             _contextForm.ChangeUC(uc, false, true);
         }
 
@@ -33,7 +33,12 @@ namespace GraphicalInterface
             Item item = (Item)((Object[])button.Tag)[0];
             Object[] tag;
 
-            if (filtre == "consommable")
+            if (item.Type == "resurection")
+            {
+                DeadMenList list = new DeadMenList(team, c, item);
+                list.ShowDialog();
+            }
+            else if (filtre == "consommable")
             {
                 if (!c.UseConsumable(item))
                 {
@@ -42,7 +47,7 @@ namespace GraphicalInterface
                 }
                 else
                 {
-                    t.Invent.RemoveItem(item);
+                    team.Invent.RemoveItem(item);
                 }
             }
             else
@@ -106,6 +111,7 @@ namespace GraphicalInterface
             BEquip.Tag = tag;
         }
 
+        // Load of all items 
         private void Reload ()
         {
             inventory.Controls.Clear();
@@ -172,9 +178,10 @@ namespace GraphicalInterface
                 ffiltre = "arme";
             }
 
-            foreach (Item item in t.Invent.Inventory.Keys)
+            // Recup and display items
+            foreach (Item item in team.Invent.Inventory.Keys)
             {
-                if (item.Type == ffiltre)
+                if (item.Type == ffiltre || (ffiltre == "consommable" && item.Type == "resurection"))
                 {
                     Button b = new Button();
 
@@ -215,7 +222,7 @@ namespace GraphicalInterface
                     b.Top = j * 50;
                     b.Click += new EventHandler(Info_Click);
 
-                    b.Text = item.GetName + " - x" + t.Invent.Inventory[item];
+                    b.Text = item.GetName + " - x" + team.Invent.Inventory[item];
                     i++;
                 }
             }

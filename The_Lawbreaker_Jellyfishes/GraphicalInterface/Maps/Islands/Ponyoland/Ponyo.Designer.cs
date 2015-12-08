@@ -84,6 +84,7 @@
             this.Herboriste.TabIndex = 4;
             this.Herboriste.Text = "Herboriste";
             this.Herboriste.UseVisualStyleBackColor = true;
+            this.Herboriste.Click += new System.EventHandler(this.Herboriste_Click);
             // 
             // Morgue
             // 

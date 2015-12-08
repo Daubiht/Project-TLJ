@@ -45,5 +45,11 @@ namespace GraphicalInterface
             Taverne uc = new Taverne(_contextWorld.Team, _contextForm);
             _contextForm.ToMenu(uc, true);
         }
+
+        private void Herboriste_Click(object sender, EventArgs e)
+        {
+            Merchant uc = new Merchant(_contextForm, _contextWorld.Islands[_contextWorld.ActualIsland].IslandCity.Merchant[1], _contextWorld.Team.Invent);
+            _contextForm.ToMenu(uc, true);
+        }
     }
 }

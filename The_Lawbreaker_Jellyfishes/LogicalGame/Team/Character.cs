@@ -261,26 +261,29 @@ namespace LogicalGame
         {
             int[] stat = skill.statRequired;
 
-            if (stat == null || (stat[0] <= _physicalAttack && stat[1] <= _magicAttack && stat[2] <= _health && stat[3] <= _robustness && stat[4] <= _stamina && stat[5] <= _dodge))
+            if (_statsPoint <= 0)
             {
-                if (skill.PreviousSkill != null)
+                if (stat == null || (stat[0] <= _physicalAttack && stat[1] <= _magicAttack && stat[2] <= _health && stat[3] <= _robustness && stat[4] <= _stamina && stat[5] <= _dodge))
                 {
-                    if (_skills.ContainsKey(skill.PreviousSkill.Name))
+                    if (skill.PreviousSkill != null)
+                    {
+                        if (_skills.ContainsKey(skill.PreviousSkill.Name))
+                        {
+                            _skillPoint--;
+                            _skills.Add(name, skill);
+                            return skill;
+                        }
+                        else
+                        {
+                            return null;
+                        }
+                    }
+                    else if (!_skills.ContainsValue(skill))
                     {
                         _skillPoint--;
                         _skills.Add(name, skill);
                         return skill;
                     }
-                    else
-                    {
-                        return null;
-                    }
-                }
-                else if (!_skills.ContainsValue(skill))
-                {
-                    _skillPoint--;
-                    _skills.Add(name, skill);
-                    return skill;
                 }
             }
 
@@ -431,7 +434,7 @@ namespace LogicalGame
 
         public int Heal(int heal)
         {
-            if (heal > 0)
+            if (heal < 0)
             {
                 throw new ArgumentException();
             }

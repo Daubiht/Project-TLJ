@@ -11,6 +11,7 @@ namespace GraphicalInterface
     {
         private MainForm _contextForm;
 
+        Dictionary<Item, int> requiredItem = new Dictionary<Item, int>();
         Invent _invent;
         LogicalGame.Merchant m;
 
@@ -20,6 +21,7 @@ namespace GraphicalInterface
             m = merchant;
             _contextForm = contextForm;
 
+            requiredItem.Add(new ListItems().Items[0], 3);
 
             InitializeComponent();
         }
@@ -202,6 +204,116 @@ namespace GraphicalInterface
                 LGold.Text = _invent.GetGold.ToString() + " PO";
             }
         }
+
+        private void CraftLoad (TabPage page, bool isSuccess)
+        {
+            page.Controls.Clear();
+            
+
+            Label resource = new Label();
+            Label error = new Label();
+            Label LSuccess = new Label();
+            Button BCraft = new Button();
+
+            LSuccess.Text = "Vous avez fabriqué une orbe de résurrection.";
+            LSuccess.ForeColor = Color.Green;
+            LSuccess.Name = "LSuccess";
+            if (!isSuccess)
+            {
+                LSuccess.Visible = false;
+            }
+
+            BCraft.Click += Craft_Click;
+
+            BCraft.Text = "Fabriquer";
+            resource.Text = "Pour faire un objet de résurection, il vous faut : " + Environment.NewLine;
+            error.Text = "";
+
+            foreach (Item item in requiredItem.Keys)
+            {
+                resource.Text = resource.Text + " - " + item.GetName + " : " + requiredItem[item] + Environment.NewLine;
+                bool find = false;
+                Item itemUse = null;
+                foreach (Item itemInvent in _invent.Inventory.Keys)
+                {
+                    if (itemInvent.GetName == item.GetName)
+                    {
+                        find = true;
+                        itemUse = itemInvent;
+                    }
+                }
+
+                if (find == true)
+                {
+                    if (_invent.Inventory[itemUse] < requiredItem[item])
+                    {
+                        if (error.Text == "")
+                        {
+                            error.Text = error.Text + "Il vous manque encore : " + Environment.NewLine;
+                        }
+                        error.Text = error.Text + " - " + item.GetName + " : " + (requiredItem[item] - _invent.Inventory[itemUse]) + Environment.NewLine;
+                        BCraft.Enabled = false;
+                    }
+                }
+                else
+                {
+                    if (error.Text == "")
+                    {
+                        error.Text = error.Text + "Il vous manque encore : " + Environment.NewLine;
+                    }
+                    error.Text = error.Text + " - " + item.GetName + " : " + requiredItem[item] + Environment.NewLine;
+                    BCraft.Enabled = false;
+                }
+            }
+
+            if (error.Text == "") error.Text = "Vous pouvez fabriquer cet objet.";
+
+            page.Controls.Add(resource);
+            page.Controls.Add(error);
+            page.Controls.Add(BCraft);
+            page.Controls.Add(LSuccess);
+
+            error.AutoSize = true;
+            resource.AutoSize = true;
+            error.BorderStyle = BorderStyle.FixedSingle;
+            resource.BorderStyle = BorderStyle.FixedSingle;
+
+            resource.Left = page.Width / 2 - resource.Width / 2;
+            error.Left = page.Width / 2 - error.Width / 2;
+            error.Top = resource.Bottom + 10;
+
+            BCraft.Top = page.Height - BCraft.Height - 10;
+            BCraft.Left = page.Width / 2 - BCraft.Width / 2;
+
+            LSuccess.AutoSize = true;
+            LSuccess.Left = LSuccess.Parent.Width / 2 - LSuccess.Width / 2;
+            LSuccess.Top = BCraft.Top - 10 - LSuccess.Height;
+        }
+
+        private void Craft_Click (object sender, EventArgs e)
+        {
+            Item itemInvent = null;
+            foreach (Item item in requiredItem.Keys)
+            {
+                foreach(Item itemTemp in _invent.Inventory.Keys)
+                {
+                    if (itemTemp.GetName == item.GetName)
+                    {
+                        itemInvent = itemTemp;
+                    }
+                }
+                _invent.Inventory[itemInvent] -= requiredItem[item];
+                if (_invent.Inventory[itemInvent] == 0) _invent.Inventory.Remove(itemInvent);
+            }
+
+            _invent.AddItem(new ListItems().Items[3], 1);
+
+            //((Label)(ItemLists.SelectedTab.Controls.Find("LSuccess", false)[0])).Visible = true;
+
+            CraftLoad(ItemLists.SelectedTab, true);
+
+        }
+
         private void IGMerchant_Load(object sender, EventArgs e)
         {
             if ((String)ItemLists.SelectedTab.Tag == "Sell")
@@ -212,6 +324,15 @@ namespace GraphicalInterface
             {
                 LoadItemToBuy();
             }
+
+            if (m.Name == "herboriste")
+            {
+                TabPage page = new TabPage();
+                page.Text = "Artisanat";
+                page.Tag = "Craft";
+
+                ItemLists.TabPages.Add(page);
+            }
         }
 
         private void TableChanged (object sender, EventArgs e)
@@ -220,9 +341,13 @@ namespace GraphicalInterface
             {
                 LoadItemToSell();
             }
-            else
+            else if ((String)ItemLists.SelectedTab.Tag == "Buy")
             {
                 LoadItemToBuy();
+            }
+            else
+            {
+                CraftLoad(ItemLists.SelectedTab, false);
             }
         }
 

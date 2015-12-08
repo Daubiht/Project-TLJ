@@ -37,8 +37,11 @@ namespace LogicalGame.Test
             List<Merchant> merchantsPonyo = new List<Merchant>();
             List<Item> listitemPonyo = new List<Item>();
             listitemPonyo.Add(l.Items[0]);
+            listitemPonyo.Add(l.Items[3]);
             Merchant armePonyo = new Merchant("Vendeur d'arme", listitemPonyo);
+            Merchant herbePonyo = new Merchant("herboriste", listitemPonyo);
             merchantsPonyo.Add(armePonyo);
+            merchantsPonyo.Add(herbePonyo);
 
 
             List<Merchant> merchantsIleDevastee = new List<Merchant>();

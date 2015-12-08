@@ -67,7 +67,7 @@
             this.BRP = new System.Windows.Forms.Button();
             this.BHP = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.BConsomable = new System.Windows.Forms.Button();
             this.Gauche = new System.Windows.Forms.Button();
             this.Corps = new System.Windows.Forms.Button();
             this.Droite = new System.Windows.Forms.Button();
@@ -77,6 +77,7 @@
             this.Retour = new System.Windows.Forms.Button();
             this.BFired = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.BKill = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.PPlus.SuspendLayout();
             this.SuspendLayout();
@@ -499,15 +500,15 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // BConsomable
             // 
-            this.button2.Location = new System.Drawing.Point(139, 347);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(50, 40);
-            this.button2.TabIndex = 15;
-            this.button2.Text = "Poulet";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.BConsomable.Location = new System.Drawing.Point(139, 347);
+            this.BConsomable.Name = "BConsomable";
+            this.BConsomable.Size = new System.Drawing.Size(50, 40);
+            this.BConsomable.TabIndex = 15;
+            this.BConsomable.Text = "Poulet";
+            this.BConsomable.UseVisualStyleBackColor = true;
+            this.BConsomable.Click += new System.EventHandler(this.button2_Click);
             // 
             // Gauche
             // 
@@ -600,10 +601,21 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // BKill
+            // 
+            this.BKill.Location = new System.Drawing.Point(295, 296);
+            this.BKill.Name = "BKill";
+            this.BKill.Size = new System.Drawing.Size(75, 23);
+            this.BKill.TabIndex = 25;
+            this.BKill.Text = "Tuer";
+            this.BKill.UseVisualStyleBackColor = true;
+            this.BKill.Click += new System.EventHandler(this.BKill_Click);
+            // 
             // CharacterManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.BKill);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.BFired);
             this.Controls.Add(this.Retour);
@@ -613,7 +625,7 @@
             this.Controls.Add(this.Droite);
             this.Controls.Add(this.Corps);
             this.Controls.Add(this.Gauche);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.BConsomable);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.LXP);
@@ -650,7 +662,7 @@
         private System.Windows.Forms.Label LMagic;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button BConsomable;
         private System.Windows.Forms.Button Gauche;
         private System.Windows.Forms.Button Corps;
         private System.Windows.Forms.Button Droite;
@@ -681,5 +693,6 @@
         private System.Windows.Forms.Label stuffstat3;
         private System.Windows.Forms.Label stuffstat2;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button BKill;
     }
 }

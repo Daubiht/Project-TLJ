@@ -30,6 +30,9 @@ namespace LogicalGame.Test
             item3.AddRequired("attaque magique", 10);
             listItem.Add(item3);
 
+            Item item4 = new Item("Orbe de Résuréction", 2, 1, "Etrange boule semblable à du cristal qui permetrait de rendre la vie à une personne", "resurection");
+            listItem.Add(item4);
+
             IFormatter formatter = new BinaryFormatter();
             using (Stream stream = new FileStream("../../../Ressources/items.bin", FileMode.Create, FileAccess.Write, FileShare.None))
             {
