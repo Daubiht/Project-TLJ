@@ -18,6 +18,7 @@ namespace GraphicalInterface
             _contextForm = context;
             _world = world;
             _instance = instance;
+            _world.ActualPosition = _instance.listZones[0];
 
             ToolTip toolTip = new ToolTip();
             toolTip.ReshowDelay = 500;
@@ -33,6 +34,12 @@ namespace GraphicalInterface
         {
             _world.ActualPosition = _instance.MapIsland;
             Island uc = new Island(_contextForm, _world, _instance.MapIsland);
+
+            foreach (MapZone zone in _instance.listZones)
+            {
+                zone.Visited = false;
+            }
+
             _contextForm.ChangeUC(uc, true);
         }
 
@@ -42,6 +49,8 @@ namespace GraphicalInterface
             {
                 CreateButton("zone" + i, _instance.listZones[i].PointY, _instance.listZones[i].PointY, _instance.listZones[i]);
             }
+            Reload();
+
         }
 
         public void CreateButton(string name, int p_x, int p_y, object o)

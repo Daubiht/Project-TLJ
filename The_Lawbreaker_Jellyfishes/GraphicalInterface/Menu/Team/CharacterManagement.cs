@@ -55,27 +55,27 @@ namespace GraphicalInterface
                     {
                         if (effect == "attaque physique")
                         {
-                            PhysicalStatStuff = i.GetStats[effect];
+                            PhysicalStatStuff += i.GetStats[effect];
                         }
                         else if (effect == "attaque magique")
                         {
-                            MagicStatStuff = i.GetStats[effect];
+                            MagicStatStuff += i.GetStats[effect];
                         }
                         else if (effect == "esquive")
                         {
-                            DodgeStatStuff = i.GetStats[effect];
+                            DodgeStatStuff += i.GetStats[effect];
                         }
                         else if (effect == "robustesse")
                         {
-                            RobustnessStatStuff = i.GetStats[effect];
+                            RobustnessStatStuff += i.GetStats[effect];
                         }
                         else if (effect == "fatigue")
                         {
-                            StaminaStatStuff = i.GetStats[effect];
+                            StaminaStatStuff += i.GetStats[effect];
                         }
                         else if (effect == "vie")
                         {
-                            HealthStatStuff = i.GetStats[effect];
+                            HealthStatStuff += i.GetStats[effect];
                         }
                     }
                 }
