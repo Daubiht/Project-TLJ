@@ -76,8 +76,8 @@ namespace GraphicalInterface
 
         public void Taverne_Load(object sender, EventArgs e)
         {
-            
-            Random ran = new Random();
+
+            Random ran = _contextForm.world.Random;
             LogicalGame.Taverne rc = new LogicalGame.Taverne();
             
 
@@ -85,8 +85,7 @@ namespace GraphicalInterface
 
             for (int i = 0 ; i < newCharacterNumber ; i++)
             {
-                //Thread.Sleep(30);
-                randomCharacterList.Add(rc.New(1, 10));
+                randomCharacterList.Add(rc.New(1, 10, _contextForm.world));
             }
 
             ReloadTavern();

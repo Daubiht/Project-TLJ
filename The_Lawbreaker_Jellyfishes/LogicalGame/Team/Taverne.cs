@@ -24,7 +24,7 @@ namespace LogicalGame
         }
 
         // Return a random character with a level between two values
-        public Character New (int levelMin, int levelMax)
+        public Character New (int levelMin, int levelMax, MapWorld world)
         {
             string path;
             string[] nameList;
@@ -35,7 +35,15 @@ namespace LogicalGame
             int statValue;
             string[] races = new string[] { "Dwarf", "Elves", "Human", "Giant" };
             Character perso;
-            Random ran = new Random();
+            Random ran;
+            if(world != null)
+            {
+                ran = world.Random;
+            }
+            else
+            {
+                ran = new Random();
+            }
             int[] statUped = new int[6];
             string name;
 

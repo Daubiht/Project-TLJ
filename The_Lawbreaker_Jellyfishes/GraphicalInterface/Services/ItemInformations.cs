@@ -8,7 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using LogicalGame;
 
-namespace GraphicalInterface.Services
+namespace GraphicalInterface
 {
     public partial class ItemInformations : UserControl
     {

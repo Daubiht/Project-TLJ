@@ -10,7 +10,7 @@ namespace LogicalGame.Test
         public void Try_get_list_stats_all_stuff()
         {
             Taverne tav = new Taverne();
-            Character c = tav.New(1, 100);
+            Character c = tav.New(1, 100, null);
             ListItems listi = new ListItems();
             Item i = listi.Items[0];
             Team t = new Team("test");

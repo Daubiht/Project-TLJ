@@ -18,7 +18,7 @@ namespace LogicalGame.Test
             {
                 Thread.Sleep(30);
                // RandomCharacter RP = new RandomCharacter();
-                Character p = new Taverne().New(1, 6);
+                Character p = new Taverne().New(1, 6, null);
 
                 stats = p.Stats;
 

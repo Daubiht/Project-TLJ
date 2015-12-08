@@ -37,11 +37,29 @@ namespace GraphicalInterface
             else if(result == 2)
             {
                 //vieux
-                label5.Text = "Seriez-vous intéressé par une enigme ? La voilà : ";
+                string[] elder = zone.EventElder();
+
+                label5.Text = "Seriez-vous intéressé par une enigme ? La voilà : " + Environment.NewLine + elder[0];
                 label1.Text = "Non, merci.";
+
+                Label[] listlabel = { label2, label3, label4 };
+                int ran = _context.world.Random.Next(2, 5);
+
+                for(int i = 0; i < 3; i++)
+                {
+                    if(i == ran)
+                    {
+                        listlabel[i].Text = elder[1];
+                    }
+                    else
+                    {
+
+                    }
+                }
                 label2.Text = "";
                 label3.Text = "";
                 label4.Text = "";
+
                 pictureBox1.BackgroundImage = Image.FromFile(@"../../../Ressources/elder.png");
             }
             else if(result == 3)
@@ -65,6 +83,7 @@ namespace GraphicalInterface
                 label3.Text = "Jamais !";
                 pictureBox1.BackgroundImage = Image.FromFile(@"../../../Ressources/bandit.jpg");
             }
+            label5.Location = new Point(label5.Parent.Width / 2 - label5.Width / 2, label5.Parent.Height / 2 - label5.Height / 2);
         }
 
         private void label4_Click(object sender, EventArgs e)
