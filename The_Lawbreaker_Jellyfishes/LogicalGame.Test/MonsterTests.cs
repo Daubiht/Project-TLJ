@@ -25,7 +25,7 @@ namespace LogicalGame.Test
         {
             Monster m1 = new Monster("George", "Dwarf", 150, 10, 500, 100, 100, 20);
 
-            Skill s1 = new Skill("Attaque", null, 0, 1, null, new int[4]);
+            Skill s1 = new Skill("Attaque", "Attaque", null, 0, 1, null, new int[4]);
 
             m1.AddSkill("Attaque", s1);
 
