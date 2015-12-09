@@ -59,34 +59,28 @@ namespace LogicalGame
 
             if (visited)
             {
-                //merch = 5;
-                //elder = 5;
-                //empty = 80;
-                //thief = 5;
-                //fight = 5;
+                merch = 5;
+                elder = 5;
+                empty = 80;
+                thief = 5;
+                fight = 5;
             }
             else if (_context == null)
             {
-                //merch = 15;
-                //elder = 15;
-                //empty = 15;
-                //thief = 15;
-                //fight = 40;
+                merch = 15;
+                elder = 15;
+                empty = 15;
+                thief = 15;
+                fight = 40;
             }
             else
             {
-                //merch = 6;
-                //elder = 6;
-                //empty = 5;
-                //thief = 8;
-                //fight = 75;
+                merch = 6;
+                elder = 6;
+                empty = 5;
+                thief = 8;
+                fight = 75;
             }
-
-            merch = 0;
-            elder = 100;
-            empty = 0;
-            thief = 0;
-            fight = 0;
 
             if (percent < merch)
             {
