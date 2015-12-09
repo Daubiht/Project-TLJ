@@ -83,10 +83,10 @@ namespace GraphicalInterface
             List<Monster> _monsters = new List<Monster>();
 
             // Create monsters
-            Monster m1 = new Monster("M1", "slime", 5, 0, 100, 0, 5, 5);
-            Monster m2 = new Monster("M2", "slime", 5, 0, 100, 0, 5, 5);
-            Monster m3 = new Monster("M3", "slime", 5, 0, 100, 0, 5, 5);
-            Monster m4 = new Monster("M4", "slime", 5, 0, 100, 0, 5, 5);
+            Monster m1 = new Monster("M1", 2, "slime", 5, 0, 100, 0, 5, 5);
+            Monster m2 = new Monster("M2", 2, "slime", 5, 0, 100, 0, 5, 5);
+            Monster m3 = new Monster("M3", 2, "slime", 5, 0, 100, 0, 5, 5);
+            Monster m4 = new Monster("M4", 2, "slime", 5, 0, 100, 0, 5, 5);
 
             // Create members
             Character c1 = new Character("C1", "HUMAIN", false);

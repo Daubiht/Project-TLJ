@@ -217,7 +217,7 @@ namespace GraphicalInterface
 
         internal void Stuffs (string type)
         {
-            FiltredInventory tm = new FiltredInventory(t, c, type, _contextForm);
+            FiltredInventory tm = new FiltredInventory(t, c, type, _contextForm, false);
             _contextForm.ChangeUC(tm, false, true);
         }
 

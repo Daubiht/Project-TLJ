@@ -47,35 +47,37 @@
   <ItemGroup>
     <Compile Include="Menu\Team\FiltredInventoryForm.cs">
       <SubType>Form</SubType>
-      </Compile>
+    </Compile>
     <Compile Include="Fight\EndFight.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Menu\Team\FiltredInventoryForm.Designer.cs">
       <DependentUpon>FiltredInventoryForm.cs</DependentUpon>
-      </Compile>
+    </Compile>
     <Compile Include="Fight\EndFight.Designer.cs">
       <DependentUpon>EndFight.cs</DependentUpon>
     </Compile>
     <Compile Include="Menu\Team\DeadMan.cs">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Fight\FightMenu.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Menu\Team\DeadMan.designer.cs">
       <DependentUpon>DeadMan.cs</DependentUpon>
-      </Compile>
+    </Compile>
     <Compile Include="Fight\FightMenu.Designer.cs">
       <DependentUpon>FightMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="Maps\Instance.cs">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Fight\FightUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Maps\Instance.Designer.cs">
       <DependentUpon>Instance.cs</DependentUpon>
-      </Compile>
+    </Compile>
     <Compile Include="Fight\FightUserControl.Designer.cs">
       <DependentUpon>FightUserControl.cs</DependentUpon>
     </Compile>
@@ -248,6 +250,7 @@
     </Compile>
     <EmbeddedResource Include="Menu\Team\DeadMan.resx">
       <DependentUpon>DeadMan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Fight\FightMenu.resx">
       <DependentUpon>FightMenu.cs</DependentUpon>
     </EmbeddedResource>
