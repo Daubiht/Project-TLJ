@@ -8,9 +8,9 @@ namespace LogicalGame.Test
         [Test]
         public void We_can_creat_a_skill_and_add_it_to_a_character ()
         {
-            Skill coolSlash = new Skill("cool slash", null, 1, 1, null, null); ;
-            Skill superSlash = new Skill("Super Slash", null, 1, 1, null, null); ;
-            Skill slash = new Skill("slash",null,1,1,null,null);
+            Skill coolSlash = new Skill("cool slash", "Attaque", null, 1, 1, null, null); ;
+            Skill superSlash = new Skill("Super Slash", "Attaque", null, 1, 1, null, null); ;
+            Skill slash = new Skill("slash", "Attaque", null,1,1,null,null);
 
             Character p = new Character("lol", "Dwarf", true);
 
@@ -23,7 +23,7 @@ namespace LogicalGame.Test
         [Test]
         public void We_can_use_a_skill_if_the_position_is_good()
         {
-            Skill slash = new Skill("slash", null, 1, 1, null, new int[] { 0, 10 });
+            Skill slash = new Skill("slash", "Attaque", null, 1, 1, null, new int[] { 0, 10 });
 
             Character p = new Character("lol", "Dwarf", true);
 
@@ -37,7 +37,7 @@ namespace LogicalGame.Test
         [Test]
         public void We_can_learn_a_skill_with_the_good_stats()
         {
-            Skill slash = new Skill("slash", new int[] { 15, 0, 0, 0, 0, 0 }, 1, 1, null, new int[] { 0, 10 });
+            Skill slash = new Skill("slash", "Attaque", new int[] { 15, 0, 0, 0, 0, 0 }, 1, 1, null, new int[] { 0, 10 });
 
             Character p = new Character("lol", "Dwarf", true);
 
@@ -49,7 +49,7 @@ namespace LogicalGame.Test
         [Test]
         public void We_can_use_a_skill_if_we_have_enougth_stamina_or_health()
         {
-            Skill slash = new Skill("slash", null, 1, 0, null, new int[] { 0, 10 });
+            Skill slash = new Skill("slash", "Attaque", null, 1, 0, null, new int[] { 0, 10 });
 
             Character p = new Character("lol", "Dwarf", true);
 
@@ -74,9 +74,9 @@ namespace LogicalGame.Test
         [Test]
         public void We_can_use_a_skill_with_the_good_target()
         { 
-            Skill s1 = new Skill("slash1", null, 0, 0, null, new int[] { 0, 10 });
-            Skill s2 = new Skill("slash2", null, 1, 0, null, new int[] { 0, 10 });
-            Skill s3 = new Skill("slash3", null, 2, 0, null, new int[] { 0, 10 });
+            Skill s1 = new Skill("slash1", "Attaque", null, 0, 0, null, new int[] { 0, 10 });
+            Skill s2 = new Skill("slash2", "Attaque", null, 1, 0, null, new int[] { 0, 10 });
+            Skill s3 = new Skill("slash3", "Attaque", null, 2, 0, null, new int[] { 0, 10 });
 
             Character p = new Character("lol", "Dwarf", true);
 
@@ -95,7 +95,7 @@ namespace LogicalGame.Test
         //[Test]
         public void We_can_use_skill_and_that_make_things()
         {
-            Skill s1 = new Skill("s4", null, 0, 0, null, new int[] { 0, 10 });
+            Skill s1 = new Skill("s4", "Attaque", null, 0, 0, null, new int[] { 0, 10 });
 
             Character p = new Character("lol", "Dwarf", true);
 

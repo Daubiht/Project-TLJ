@@ -21,6 +21,8 @@ namespace GraphicalInterface
             statPoint = c.StatsPoint;
 
             InitializeComponent();
+
+            if (!c.isAlive) BConsomable.Enabled = false;
         }
 
         private void IGCharactereManagement_Load(object sender, EventArgs e)
@@ -290,6 +292,12 @@ namespace GraphicalInterface
         private void button3_Click(object sender, EventArgs e)
         {
             c.LevelUp(1);
+        }
+
+        private void BKill_Click(object sender, EventArgs e)
+        {
+            c.isAlive = false;
+            c.Hurt(100000);
         }
     }
 }

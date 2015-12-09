@@ -1,6 +1,6 @@
 ﻿namespace GraphicalInterface
 {
-    partial class skillsForm
+    partial class DeadMenList
     {
         /// <summary>
         /// Required designer variable.
@@ -30,13 +30,14 @@
         {
             this.SuspendLayout();
             // 
-            // skillsForm
+            // DeadMenList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(712, 584);
-            this.Name = "skillsForm";
-            this.Text = "skillsForm";
+            this.ClientSize = new System.Drawing.Size(303, 389);
+            this.Name = "DeadMenList";
+            this.Text = "DeadMenList";
+            this.Load += new System.EventHandler(this.DeadMenList_Load);
             this.ResumeLayout(false);
 
         }

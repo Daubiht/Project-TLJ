@@ -5,12 +5,13 @@ namespace LogicalGame
     [Serializable]
     public class Skill
     {
-        string _name;
+        readonly string _name;
         int[] _statRequired;
         int[] _effect;
-        int _position;
+        readonly int _position;
         int _target;
         int[] _cost;
+        string _description;
 
         Skill _previousSkill;
         Skill _nextSkill;
@@ -25,7 +26,7 @@ namespace LogicalGame
         /// <param name="position">0 Toute || 1 CaC || 2 Po </param>
         /// <param name="effect"></param>
         /// <param name="cost">0 Health || 1 Stamina</param>
-        public Skill (string name, int[] statRequired, int target, int position, int[] effect, int[] cost)
+        public Skill (string name, string description, int[] statRequired, int target, int position, int[] effect, int[] cost)
         {
             _name = name;
             _statRequired = statRequired;
@@ -35,6 +36,12 @@ namespace LogicalGame
             _cost = cost;
             _previousSkill = null;
             _nextSkill = null;
+            _description = description;
+        }
+
+        public string Description
+        {
+            get { return _description; }
         }
 
         public string Name

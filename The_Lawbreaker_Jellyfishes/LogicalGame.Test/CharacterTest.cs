@@ -52,7 +52,7 @@ namespace LogicalGame.Test
         public void A_perso_can_have_skills()
         {
             Character p1 = new Character("George", "Dwarf", true);
-            Skill s1 = new Skill("Attaque", null, 0, 1, null, new int[4]);
+            Skill s1 = new Skill("Attaque", "", null, 0, 1, null, new int[4]);
 
             p1.AddSkill("Attaque", s1);
 
@@ -91,7 +91,7 @@ namespace LogicalGame.Test
             i2.AddStats("regainStamina", 25);
             Item i3 = new Item("Potion de Vigueur", 1, 10, "Enleve legerement la fatigue des combats", "consumable");
             i3.AddStats("resurection", 0);
-            Skill s1 = new Skill("test", null, 0, 0, null, new int[] { 0, 50 });
+            Skill s1 = new Skill("test", "Attaque", null, 0, 0, null, new int[] { 0, 50 });
 
             Assert.AreEqual(s1, p1.AddSkill(s1.Name, s1));
 
