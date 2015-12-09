@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace GraphicalInterface.Fight
+namespace GraphicalInterface
 {
     public partial class InventoryFight : UserControl
     {

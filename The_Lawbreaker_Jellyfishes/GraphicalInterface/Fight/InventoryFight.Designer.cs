@@ -1,4 +1,4 @@
-﻿namespace GraphicalInterface.Fight
+﻿namespace GraphicalInterface
 {
     partial class InventoryFight
     {

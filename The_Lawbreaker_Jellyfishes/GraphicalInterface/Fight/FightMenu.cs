@@ -32,8 +32,8 @@ namespace GraphicalInterface
             Location = new Point(0, 440-Height);
             // By default an arrow is displayd near the toolstrip, here we hide the arrows
             toolStripSkills.ShowDropDownArrow = false;
-            toolStripInventory.ShowDropDownArrow = false;
             // We set the value of the HP BAR
+            progressBarHP.Maximum = selectedMember.MaxHealthPoint;
             progressBarHP.Value = selectedMember.HealthPoint;
             // We set the value of the STAMINA BAR
             progressBarStamina.Maximum = selectedMember.MaxStaminaPoint;
@@ -45,8 +45,7 @@ namespace GraphicalInterface
             toolStripDefense.Click += new EventHandler(Defense);
             // We add a left click event on the run away button
             ButtonRunAway.Click += new EventHandler(RunAway);
-            // We add a left click event on the inventory consumable button
-            toolStripInventory.Click += new EventHandler(AccessInventory);
+
         }
         // ____Method to get the character who is launching a basic attack
         public void BasicAttack(object sender, EventArgs e)

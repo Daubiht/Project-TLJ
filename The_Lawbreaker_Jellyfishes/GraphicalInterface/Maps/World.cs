@@ -129,7 +129,9 @@ namespace GraphicalInterface
             _team.Invent.AddItem(item2, 5);
 
             // ok.Visible = false;
-            FightUserControl fightIG = new FightUserControl(_monsters, _team, _contextForm);
+            // TEST
+            //FightUserControl fightIG = new FightUserControl(_monsters, _team, _contextForm);
+            FightUserControl fightIG = new FightUserControl(_monsters, _w.Team, _contextForm);
             _contextForm.ToMenu(fightIG, false);
         }
     }
