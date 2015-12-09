@@ -248,6 +248,9 @@
     <Compile Include="Menu\Team\SkillsDisplay.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <EmbeddedResource Include="Fight\EndFight.resx">
+      <DependentUpon>EndFight.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Menu\Team\DeadMan.resx">
       <DependentUpon>DeadMan.cs</DependentUpon>
     </EmbeddedResource>

@@ -148,6 +148,7 @@ namespace LogicalGame
         public int HealthPoint
         {
             get { return _healthPoint; }
+            set { _healthPoint = value; } // basic stats
         }
 
         public int StaminaPoint
@@ -175,26 +176,31 @@ namespace LogicalGame
             get { return _level; }
             set { _level = value; }
         }
-
+        // Basic stats
         public int PhysicalAttack
         {
             get { return _physicalAttack; }
+            set { _physicalAttack = value; }
         }
 
         public int MagicAttack
         {
             get { return _magicAttack; }
+            set { _magicAttack = value; }
         }
 
         public int Dodge
         {
             get { return _dodge; }
+            set { _dodge = value; }
         }
 
         public int Stamina
         {
             get { return _stamina; }
+            set { _stamina = value; }
         }
+        // Basic stats
 
         public int Health
         {
@@ -565,7 +571,7 @@ namespace LogicalGame
 
         public bool UseConsumable (Item item)
         {
-            if (item.Type != "consumable")
+            if (item.Type != "consommable")
             {
                 return false;
             }

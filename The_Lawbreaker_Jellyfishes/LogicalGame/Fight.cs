@@ -8,6 +8,10 @@ namespace LogicalGame
 {
     public class Fight
     {
+        // Bool to know if all monster are members, if yes, we create a new screen
+        bool _areAllMembersDead;
+        // Bool to know if all monster are dead, if yes, we create a new screen which display what the team earn
+        bool _areAllMonsterDead;
         // Count the number of turn
         int _turn;
         /// Fields used to attack a monster
@@ -68,7 +72,8 @@ namespace LogicalGame
             foreach ( Monster m in _monstersList)
             {   
                 if ( m.Alive == true ) return false; // False means "No, some monsters  alive"
-            }  
+            }
+            _areAllMonsterDead = true;
             return true; // True means "Yes, they are all dead"
         }
 
@@ -78,15 +83,21 @@ namespace LogicalGame
             foreach ( Character c in _team.Members)
             {   
                 if ( c.isAlive == true ) return false; // False means "No there is still a member alive"
-            }  
+            }
+            _areAllMembersDead = true;
             return true; // True means "Yes, all member are dead"
         }
         // Every monster attack
-        public void MonsterAttack()
+        public bool MonsterAttack()
         {
             // Monsters attack members
-            foreach ( Monster m in _monstersList)
+            foreach ( Monster m in _monstersList )
+            {
+                // Check if all members are dead, if yes, we create a game over screen
+                if ( IsAllMemberDie() == true ){ return true; }
+                // If some members are alive, monster continue to attack
                 m.Attack(_team);
+            }
             // After all monsters attack, we enabled all the team to play again
             foreach ( Character c in _team.Members )
             {
@@ -98,6 +109,7 @@ namespace LogicalGame
             // When the monsters finished to attack, we check and disabled skill used by the members like "defense" button
             foreach ( Character c in _team.Members )
                 c.CheckEndSkill(_turn);
+            return false;
         }
 
         // ____METHODS TO GET THE MEMBER WHO ATTACKS, this method is called when the player clicks on a member's panel
@@ -146,6 +158,9 @@ namespace LogicalGame
             // True means "This member just attacked, he won't be able to attack again"
             MemberWhoAttacks.DidMemberPlay = true;
 
+            // Check if all monsters are dead, if yes, we end the fight and we create a screen who dislays what the team earn
+            if ( IsAllMonsterDie() == true ) return true;
+
             // Check if all member played, if not, the player can continue to attack the monsters
             foreach ( Character c in _team.Members )
             {
@@ -187,7 +202,8 @@ namespace LogicalGame
         public void IncrementTurn()
         { _turn += 1; }
 
-
+        public bool AreAllMembersDead { get { return _areAllMembersDead; } }
+        public bool AreAllMonstersDead { get { return _areAllMonsterDead; } }
         public Team GetTeam{get { return _team; }}
         public List<Monster> GetFrontMonsters { get { return _FrontMonsterList; } }
         public List<Monster> GetHiddenMonster { get { return _HiddenMonsterList; } }

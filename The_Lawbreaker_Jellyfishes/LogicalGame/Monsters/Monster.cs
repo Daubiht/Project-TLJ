@@ -263,6 +263,7 @@ namespace LogicalGame
                 // Classify alive front + hidden members
                 else if ( c.isAlive == true ) listFrontHiddenMembers.Add(c);
             }
+            
 
             // If all FRONT MEMBERS ARE DEAD, every HIDDEN MEMBERS will be in FRONT POSITION
             if ( listFrontMembers.Count == 0 )
@@ -281,6 +282,7 @@ namespace LogicalGame
                 int indexRdmMember = rdm.Next(0, listFrontMembers.Count);
                 listFrontMembers[indexRdmMember].Hurt(_physicalAttack);
             }
+           
         }
     }
 }

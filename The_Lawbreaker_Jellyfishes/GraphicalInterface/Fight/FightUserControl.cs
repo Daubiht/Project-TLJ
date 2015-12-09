@@ -57,6 +57,9 @@ namespace GraphicalInterface
             _fight = new Fight(_monsters, _team);
             _panelMembers = new List<PanelCharacter>();
 
+            // INCREASE basic stats of members thanks to their stuff
+            IncreaseBasicsStatsThanksStuff(TeamWhoFight, true);
+
             // Check if all 4 members's front position are setted to false, if yes, we set all front position to true
             if (_team.Members.Count == 4)
             {
@@ -189,10 +192,56 @@ namespace GraphicalInterface
         public void CreateFightMenu(Character DisplayedCharacter)
         {
             Controls.Remove(_currentMemberMenu);
-            _currentMemberMenu = new FightMenu(DisplayedCharacter, _fight, _context, _panelMembers);
+            _currentMemberMenu = new FightMenu(DisplayedCharacter, _fight, _context, _panelMembers,this);
             Controls.Add(_currentMemberMenu);
         }
-
+        //____Method to END THE FIGHT
+        public void EndFight()
+        {
+            // If all members dead, we create a game over screen
+            if ( _fight.AreAllMembersDead == true )
+            {
+                // DECREASE basic stats of members because of their stuff
+                IncreaseBasicsStatsThanksStuff(_team, false);
+                EndFight EF = new EndFight(_context);
+                _context.ChangeUC(EF, false);
+            }
+            else if ( _fight.AreAllMonstersDead == true )
+            {
+                // DECREASE basic stats of members because of their stuff
+                IncreaseBasicsStatsThanksStuff(_team, false);
+                EndFight EF = new EndFight(_context);
+                _context.ChangeUC(EF, false);
+            }
+        }
+        //____Method to INCREASE or DECREASE the basic stattistics of a member thanks to his equiped stuff
+        public void IncreaseBasicsStatsThanksStuff(Team Team, bool Equiped)
+        {
+            // We INCREASE the basic stats thanks to the stuff, usefull when we START THE FIGHT
+            if( Equiped == true )
+            {
+                foreach ( Character c in Team.Members )
+                {
+                    if( c.StatsStuff.ContainsKey("attaque physique") ) { c.PhysicalAttack = c.PhysicalAttack + c.StatsStuff["attaque physique"]; }
+                    if( c.StatsStuff.ContainsKey("attaque magique") )  { c.MagicAttack = c.MagicAttack       + c.StatsStuff["attaque magique"]; }
+                    if(c.StatsStuff.ContainsKey("esquive") )           { c.Dodge = c.Dodge                   + c.StatsStuff["esquive"]; }
+                    if(c.StatsStuff.ContainsKey("fatigue") )           { c.Stamina = c.Stamina               + c.StatsStuff["fatigue"]; }
+                    if(c.StatsStuff.ContainsKey("vie") )               { c.HealthPoint = c.HealthPoint       + c.StatsStuff["vie"]; }
+                }
+            }
+            // We DECREASE the basic stats, usefull when we FINISH THE FIGHT
+            else if ( Equiped == false )
+            {
+                foreach ( Character c in Team.Members )
+                {
+                    if( c.StatsStuff.ContainsKey("attaque physique") ) { c.PhysicalAttack = c.PhysicalAttack - c.StatsStuff["attaque physique"]; }
+                    if( c.StatsStuff.ContainsKey("attaque magique") )  { c.MagicAttack = c.MagicAttack       - c.StatsStuff["attaque magique"]; }
+                    if(c.StatsStuff.ContainsKey("esquive") )           { c.Dodge = c.Dodge                   - c.StatsStuff["esquive"]; }
+                    if(c.StatsStuff.ContainsKey("fatigue") )           { c.Stamina = c.Stamina               - c.StatsStuff["fatigue"]; }
+                    if(c.StatsStuff.ContainsKey("vie") )               { c.HealthPoint = c.HealthPoint       - c.StatsStuff["vie"]; }
+                }
+            }
+        }
         public List<PanelCharacter> GetCharacterPanel
         {
             get { return _panelMembers;  }

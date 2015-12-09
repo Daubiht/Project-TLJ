@@ -49,14 +49,22 @@ namespace GraphicalInterface
             }
             else if (_filtre == "consommable")
             {
+                // If it doens't consume we display "impossible d'utiliser"
                 if (!_c.UseConsumable(item))
                 {
                     LError.Text = "Impossible d'utiliser cet objet";
                     LError.Visible = true;
                 }
+                // If it consumes the item, we delete it and display the another number
                 else
                 {
+                    // The member is considered he played when he consumes a potion
+                    if ( _inFight )
+                    {
+                        _c.DidMemberPlay = true;
+                    }
                     _team.Invent.RemoveItem(item);
+                    Reload();
                 }
             }
             else

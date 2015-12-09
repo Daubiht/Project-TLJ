@@ -13,13 +13,15 @@ namespace GraphicalInterface
 {
     public partial class FightMenu : UserControl
     {
+        FightUserControl _FUC;
         Character _selectedMember;
         MainForm _context;
         Fight _fight;
         List<PanelCharacter> _panelCharacterList;
         // CONSTUCTOR
-        public FightMenu(Character selectedMember, Fight fight, MainForm context, List<PanelCharacter> PanelCharacter)
+        public FightMenu(Character selectedMember, Fight fight, MainForm context, List<PanelCharacter> PanelCharacter, FightUserControl FUC)
         {
+            _FUC = FUC;
             _selectedMember = selectedMember;
             _fight = fight;
             InitializeComponent();
@@ -45,12 +47,15 @@ namespace GraphicalInterface
             toolStripDefense.Click += new EventHandler(Defense);
             // We add a left click event on the run away button
             ButtonRunAway.Click += new EventHandler(RunAway);
+            // We add a left click event on the inventory consumable button
+            ButtonInventoryConsumable.Click += new EventHandler(AccessInventory);
 
         }
         // ____Method to get the character who is launching a basic attack
         public void BasicAttack(object sender, EventArgs e)
         {
             _fight.GetMemberWhoAttack(_selectedMember, null, _selectedMember.PhysicalAttack);
+            _FUC.EndFight();
         }
         // ____Method to INCREASE ROBUSTNESS by X % of the member during 1 tour, X % is define the character class_____________________________
         public void Defense(object sender, EventArgs e)
@@ -71,10 +76,12 @@ namespace GraphicalInterface
                 _fight.MonsterAttack();
                 foreach ( PanelCharacter pC in _panelCharacterList ) pC.RefreshInformation();
             }
+            _FUC.EndFight();
         }
         // ____Method to RUN AWAY
         public void RunAway(object sender, EventArgs e)
         {
+
             // Check if the member hasn't play yet and if he is still alvie
             if(_selectedMember.DidMemberPlay == false && _selectedMember.isAlive == true )
             {
@@ -98,11 +105,17 @@ namespace GraphicalInterface
                         pC.RefreshInformation();
                 }
             }
+            _FUC.EndFight();
         }
-        public void AccessInventory()
+        //_____Method to open the inventory consumable during fight
+        public void AccessInventory(object sender, EventArgs e)
         {
-
+            FiltredInventory FI = new FiltredInventory(_fight.GetTeam, _selectedMember, "consommable", _context, true);
+            FiltredInventoryForm FIF = new FiltredInventoryForm(FI);
+            // Display the windows if the inventory consumables
+            FIF.ShowDialog();
         }
+
     }
 
     // Change the color of the progress bars

@@ -83,7 +83,7 @@ namespace GraphicalInterface
             List<Monster> _monsters = new List<Monster>();
 
             // Create monsters
-            Monster m1 = new Monster("M1", 2, "slime", 5, 0, 100, 0, 5, 5);
+            Monster m1 = new Monster("M1", 2, "slime", 5, 0, 10, 0, 5, 5);
             Monster m2 = new Monster("M2", 2, "slime", 5, 0, 100, 0, 5, 5);
             Monster m3 = new Monster("M3", 2, "slime", 5, 0, 100, 0, 5, 5);
             Monster m4 = new Monster("M4", 2, "slime", 5, 0, 100, 0, 5, 5);
@@ -98,31 +98,31 @@ namespace GraphicalInterface
 
             // Set positions to monsters
             m1.FrontPosition = true;
-            m2.FrontPosition = false;
+            m2.FrontPosition = true;
             m3.FrontPosition = false;
             m4.FrontPosition = false;
             // Set positions to members
             c1.IsMain = true;
             c1.FrontPosition = true;
-            c2.FrontPosition = false;
+            c2.FrontPosition = true;
             c3.FrontPosition = false;
             c4.FrontPosition = false;
 
             // Add monsters in list
             _monsters.Add(m1);
-            _monsters.Add(m2);
-            _monsters.Add(m3);
-            _monsters.Add(m4);
+           //_monsters.Add(m2);
+     //       _monsters.Add(m3);
+       //     _monsters.Add(m4);
             // Add members in team, 
-            _team.AddMembers(c1);
+            _w.Team.AddMembers(c2);
             _team.AddMembers(c2);
-            _team.AddMembers(c3);
-            _team.AddMembers(c4);
+            //    _team.AddMembers(c3);
+            //       _team.AddMembers(c4);
 
             // CREATE POTION ITEM TO ADD IN THE INVENTORY AND USE IN THE FIGHT
-            Item item2 = new Item("Bandage", 1, 5, "Bandage rudimentaire permettant d'arreter un saignement", "consommable");
-            item2.AddStats("vie", 10);
-            _team.Invent.AddItem(item2, 5);
+            Item i1 = new Item("Potion de soin légers", 1, 10, "Soigne légerement", "consommable");
+            i1.AddStats("heal", 25);
+            _w.Team.Invent.AddItem(i1, 5);
 
             // ok.Visible = false;
             // TEST
