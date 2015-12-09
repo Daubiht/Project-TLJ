@@ -36,6 +36,7 @@
             // NewParty
             // 
             this.NewParty.AccessibleName = "";
+            this.NewParty.BackColor = System.Drawing.SystemColors.Control;
             this.NewParty.Location = new System.Drawing.Point(0, 0);
             this.NewParty.Name = "NewParty";
             this.NewParty.Size = new System.Drawing.Size(243, 71);
@@ -57,13 +58,12 @@
             // quitButton
             // 
             this.quitButton.Location = new System.Drawing.Point(0, 207);
-            this.quitButton.Name = "Leave";
+            this.quitButton.Name = "quitButton";
             this.quitButton.Size = new System.Drawing.Size(243, 71);
             this.quitButton.TabIndex = 2;
             this.quitButton.Text = "Quitter";
             this.quitButton.UseVisualStyleBackColor = true;
             this.quitButton.Click += new System.EventHandler(this.Leave_Click);
-            
             // 
             // ReceptionScreen
             // 

@@ -2,6 +2,8 @@
 using System.Drawing;
 using System.Windows.Forms;
 using LogicalGame;
+using GraphicalInterface;
+using System.Collections.Generic;
 
 namespace GraphicalInterface
 {
@@ -77,7 +79,56 @@ namespace GraphicalInterface
 
         private void ok_Click(object sender, EventArgs e)
         {
-            ok.Visible = false;
+            // Create monsters
+            List<Monster> _monsters = new List<Monster>();
+
+            // Create monsters
+            Monster m1 = new Monster("M1", "slime", 5, 0, 100, 0, 5, 5);
+            Monster m2 = new Monster("M2", "slime", 5, 0, 100, 0, 5, 5);
+            Monster m3 = new Monster("M3", "slime", 5, 0, 100, 0, 5, 5);
+            Monster m4 = new Monster("M4", "slime", 5, 0, 100, 0, 5, 5);
+
+            // Create members
+            Character c1 = new Character("C1", "HUMAIN", false);
+            Character c2 = new Character("C2", "ELF", false);
+            Character c3 = new Character("C3", "NAIN", false);
+            Character c4 = new Character("C4", "NAIN", false);
+            // Create team
+            Team _team = new Team("MyTeam");
+
+            // Set positions to monsters
+            m1.FrontPosition = true;
+            m2.FrontPosition = false;
+            m3.FrontPosition = false;
+            m4.FrontPosition = false;
+            // Set positions to members
+            c1.IsMain = true;
+            c1.FrontPosition = true;
+            c2.FrontPosition = false;
+            c3.FrontPosition = false;
+            c4.FrontPosition = false;
+
+            // Add monsters in list
+            _monsters.Add(m1);
+            _monsters.Add(m2);
+            _monsters.Add(m3);
+            _monsters.Add(m4);
+            // Add members in team, 
+            _team.AddMembers(c1);
+            _team.AddMembers(c2);
+            _team.AddMembers(c3);
+            _team.AddMembers(c4);
+
+            // CREATE POTION ITEM TO ADD IN THE INVENTORY AND USE IN THE FIGHT
+            Item item2 = new Item("Bandage", 1, 5, "Bandage rudimentaire permettant d'arreter un saignement", "consommable");
+            item2.AddStats("vie", 10);
+            _team.Invent.AddItem(item2, 5);
+
+            // ok.Visible = false;
+            // TEST
+            //FightUserControl fightIG = new FightUserControl(_monsters, _team, _contextForm);
+            FightUserControl fightIG = new FightUserControl(_monsters, _w.Team, _contextForm);
+            _contextForm.ToMenu(fightIG, false);
         }
     }
 }

@@ -46,8 +46,12 @@
     <Compile Include="Creation\CreateItems.cs" />
     <Compile Include="Creation\CreateMonsters.cs" />
     <Compile Include="Creation\CreateSkills.cs" />
+<<<<<<< HEAD
     <Compile Include="Creation\CreateWorld2.cs" />
+=======
+    <Compile Include="Creation\CreateWorld.cs" />
     <Compile Include="FightTest.cs" />
+>>>>>>> Possibilty_to_assign_1st_skill_in_creation_character
     <Compile Include="InventoryTests.cs" />
     <Compile Include="MapTests.cs" />
     <Compile Include="MerchantTests.cs" />

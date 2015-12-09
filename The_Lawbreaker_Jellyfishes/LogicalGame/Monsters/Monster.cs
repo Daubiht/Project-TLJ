@@ -23,6 +23,7 @@ namespace LogicalGame
         int _maxStaminaPoint;
 
         bool _frontPosition;
+        bool _isAlive;
 
         readonly Dictionary<String, Skill> _skills;
         readonly Dictionary<Item, int> _drop;
@@ -49,6 +50,7 @@ namespace LogicalGame
             _healthPoint = stamina;
 
             _frontPosition = true;
+            _isAlive = true;
 
             _skills = new Dictionary<string, Skill>();
             _drop = new Dictionary<Item, int>();
@@ -135,6 +137,11 @@ namespace LogicalGame
             return false;
         }
 
+        public bool Alive
+        {
+            get { return _isAlive; }
+        }
+
         //======================================
         //           Treatement of data
         //======================================
@@ -181,6 +188,34 @@ namespace LogicalGame
 
             return null;
         }
+        // Method to remove HP of the monster because of a launched attack by a character
+        public int Hurt(int damage)
+        {
+            if (damage < 0)
+            {
+                throw new ArgumentException();
+            }
+
+            // Chance to dodge the the attack
+            Random r = new Random();
+            // Random between 0 and 100
+            int chanceToDodge = r.Next(0, 101);
+            // if chanceToDodge is equal to dodge / 2, the monster dodges the attack of the character
+            if ( chanceToDodge <= Dodge/2 )
+                damage = 0;
+
+            // The damage launched on the monster is reduced thanks to the monster's robustness
+            damage = damage - (int)Math.Ceiling(Robustness / 100.0 * damage); // Math.Ceiling around to the superior bound, 0.3 become 1.0
+            // Remove HP
+            _health -= damage;
+
+            if (_health <= 0)
+            {
+                _health = 0;
+                _isAlive = false;
+            }
+            return _health;
+        }
 
         public void RemoveSkill (Skill skill)
         {
@@ -210,6 +245,42 @@ namespace LogicalGame
             }
 
             return false;
+        }
+
+        // This methods allows the monster to attack a member of the team
+        public void Attack(Team teamToAttack)
+        {
+            // List to repertory every ALIVE FRONT MEMBERS
+            List<Character> listFrontMembers = new List<Character>();
+            // List to repertory every ALIVE FRONT AND HIDDEN MEMBERS
+            List<Character> listFrontHiddenMembers = new List<Character>();
+
+            // Classify front or hidden members of the team
+            foreach ( Character c in teamToAttack.Members)
+            {
+                // Classify alive front members
+                if ( c.FrontPosition == true & c.isAlive == true ) listFrontMembers.Add(c); 
+                // Classify alive front + hidden members
+                else if ( c.isAlive == true ) listFrontHiddenMembers.Add(c);
+            }
+
+            // If all FRONT MEMBERS ARE DEAD, every HIDDEN MEMBERS will be in FRONT POSITION
+            if ( listFrontMembers.Count == 0 )
+            {
+                foreach (Character ch in listFrontHiddenMembers)
+                {
+                    ch.FrontPosition = true;
+                    listFrontMembers.Add(ch);
+                }
+            }
+            // if the monster is alive he can attack
+            if ( _isAlive )
+            {
+                Random rdm = new Random();
+                // Generate a random index which represent the targetted member in FRONT POSITION
+                int indexRdmMember = rdm.Next(0, listFrontMembers.Count);
+                listFrontMembers[indexRdmMember].Hurt(_physicalAttack);
+            }
         }
     }
 }

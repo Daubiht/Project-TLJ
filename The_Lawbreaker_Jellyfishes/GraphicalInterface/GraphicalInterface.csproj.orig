@@ -34,6 +34,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,6 +45,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
+    <Compile Include="Menu\Team\FiltredInventoryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu\Team\FiltredInventoryForm.Designer.cs">
+      <DependentUpon>FiltredInventoryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\Team\DeadMan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Menu\Team\DeadMan.designer.cs">
+      <DependentUpon>DeadMan.cs</DependentUpon>
+    </Compile>
     <Compile Include="Maps\Instance.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -55,6 +69,37 @@
     </Compile>
     <Compile Include="Maps\City.Designer.cs">
       <DependentUpon>City.cs</DependentUpon>
+=======
+    <Compile Include="Fight\EndFight.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Fight\EndFight.Designer.cs">
+      <DependentUpon>EndFight.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fight\FightMenu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Fight\FightMenu.Designer.cs">
+      <DependentUpon>FightMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fight\FightUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Fight\FightUserControl.Designer.cs">
+      <DependentUpon>FightUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fight\InventoryFight.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Fight\InventoryFight.Designer.cs">
+      <DependentUpon>InventoryFight.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fight\PanelCharacter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Fight\PanelCharacter.Designer.cs">
+      <DependentUpon>PanelCharacter.cs</DependentUpon>
+>>>>>>> Possibilty_to_assign_1st_skill_in_creation_character
     </Compile>
     <Compile Include="Home\CreateMainCharacter\CreateMainCharacter1.cs">
       <SubType>UserControl</SubType>
@@ -134,6 +179,12 @@
     <Compile Include="Menu\Team\CharacterManagement.Designer.cs">
       <DependentUpon>CharacterManagement.cs</DependentUpon>
     </Compile>
+    <Compile Include="Menu\Team\DeadMenList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu\Team\DeadMenList.Designer.cs">
+      <DependentUpon>DeadMenList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Menu\Team\FiltredInventory.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -206,20 +257,35 @@
     <Compile Include="Menu\Team\SkillsDisplay.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Menu\Team\SkillsDisplay.Designer.cs">
-      <DependentUpon>SkillsDisplay.cs</DependentUpon>
-    </Compile>
-    <Compile Include="skillsForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="skillsForm.Designer.cs">
-      <DependentUpon>skillsForm.cs</DependentUpon>
-    </Compile>
-=======
+    <EmbeddedResource Include="Menu\Team\DeadMan.resx">
+      <DependentUpon>DeadMan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Event\Meet.resx">
       <DependentUpon>Meet.cs</DependentUpon>
     </EmbeddedResource>
->>>>>>> functionnality_about_event
+    <Compile Include="Menu\Team\SkillsDisplay.Designer.cs">
+      <DependentUpon>SkillsDisplay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\Team\skillsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu\Team\skillsForm.Designer.cs">
+      <DependentUpon>skillsForm.cs</DependentUpon>
+    </Compile>
+=======
+    <EmbeddedResource Include="Fight\FightMenu.resx">
+      <DependentUpon>FightMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fight\FightUserControl.resx">
+      <DependentUpon>FightUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fight\InventoryFight.resx">
+      <DependentUpon>InventoryFight.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fight\PanelCharacter.resx">
+      <DependentUpon>PanelCharacter.cs</DependentUpon>
+    </EmbeddedResource>
+>>>>>>> Possibilty_to_assign_1st_skill_in_creation_character
     <EmbeddedResource Include="Home\CreateMainCharacter\CreateMainCharacter1.resx">
       <DependentUpon>CreateMainCharacter1.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -262,6 +328,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Menu\Team\CharacterManagement.resx">
       <DependentUpon>CharacterManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu\Team\DeadMenList.resx">
+      <DependentUpon>DeadMenList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu\Team\FiltredInventory.resx">
       <DependentUpon>FiltredInventory.cs</DependentUpon>
@@ -306,12 +375,16 @@
     <EmbeddedResource Include="Services\Taverne\Taverne.resx">
       <DependentUpon>Taverne.cs</DependentUpon>
     </EmbeddedResource>
+<<<<<<< HEAD
     <EmbeddedResource Include="Menu\Team\SkillsDisplay.resx">
       <DependentUpon>SkillsDisplay.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="skillsForm.resx">
+    <EmbeddedResource Include="Menu\Team\skillsForm.resx">
       <DependentUpon>skillsForm.cs</DependentUpon>
     </EmbeddedResource>
+=======
+    <None Include="ClassDiagram1.cd" />
+>>>>>>> Possibilty_to_assign_1st_skill_in_creation_character
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

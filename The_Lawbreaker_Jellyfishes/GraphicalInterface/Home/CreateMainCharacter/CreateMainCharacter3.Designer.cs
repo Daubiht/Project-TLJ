@@ -42,7 +42,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 9);
+            this.label1.Location = new System.Drawing.Point(80, 16);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(250, 13);
             this.label1.TabIndex = 0;
@@ -50,9 +50,9 @@
             // 
             // buttonBack
             // 
-            this.buttonBack.Location = new System.Drawing.Point(3, 244);
+            this.buttonBack.Location = new System.Drawing.Point(83, 312);
             this.buttonBack.Name = "buttonBack";
-            this.buttonBack.Size = new System.Drawing.Size(75, 23);
+            this.buttonBack.Size = new System.Drawing.Size(75, 32);
             this.buttonBack.TabIndex = 54;
             this.buttonBack.Text = "Retour";
             this.buttonBack.UseVisualStyleBackColor = true;
@@ -60,9 +60,9 @@
             // 
             // buttonNext
             // 
-            this.buttonNext.Location = new System.Drawing.Point(178, 244);
+            this.buttonNext.Location = new System.Drawing.Point(255, 312);
             this.buttonNext.Name = "buttonNext";
-            this.buttonNext.Size = new System.Drawing.Size(75, 23);
+            this.buttonNext.Size = new System.Drawing.Size(75, 32);
             this.buttonNext.TabIndex = 53;
             this.buttonNext.Text = "Valider";
             this.buttonNext.UseVisualStyleBackColor = true;
@@ -73,7 +73,7 @@
             this.RBVitality.AutoSize = true;
             this.RBVitality.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.RBVitality.Checked = true;
-            this.RBVitality.Location = new System.Drawing.Point(87, 56);
+            this.RBVitality.Location = new System.Drawing.Point(164, 63);
             this.RBVitality.Name = "RBVitality";
             this.RBVitality.Size = new System.Drawing.Size(56, 17);
             this.RBVitality.TabIndex = 55;
@@ -86,7 +86,7 @@
             // 
             this.RBDefensePosition.AutoSize = true;
             this.RBDefensePosition.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.RBDefensePosition.Location = new System.Drawing.Point(32, 79);
+            this.RBDefensePosition.Location = new System.Drawing.Point(109, 98);
             this.RBDefensePosition.Name = "RBDefensePosition";
             this.RBDefensePosition.Size = new System.Drawing.Size(111, 17);
             this.RBDefensePosition.TabIndex = 56;
@@ -97,7 +97,7 @@
             // 
             this.RBEffort.AutoSize = true;
             this.RBEffort.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.RBEffort.Location = new System.Drawing.Point(93, 102);
+            this.RBEffort.Location = new System.Drawing.Point(170, 134);
             this.RBEffort.Name = "RBEffort";
             this.RBEffort.Size = new System.Drawing.Size(50, 17);
             this.RBEffort.TabIndex = 57;
@@ -108,7 +108,7 @@
             // 
             this.RBConcentredHit.AutoSize = true;
             this.RBConcentredHit.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.RBConcentredHit.Location = new System.Drawing.Point(28, 125);
+            this.RBConcentredHit.Location = new System.Drawing.Point(105, 169);
             this.RBConcentredHit.Name = "RBConcentredHit";
             this.RBConcentredHit.Size = new System.Drawing.Size(115, 17);
             this.RBConcentredHit.TabIndex = 58;
@@ -119,7 +119,7 @@
             // 
             this.RBEnergeticShot.AutoSize = true;
             this.RBEnergeticShot.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.RBEnergeticShot.Location = new System.Drawing.Point(47, 148);
+            this.RBEnergeticShot.Location = new System.Drawing.Point(124, 204);
             this.RBEnergeticShot.Name = "RBEnergeticShot";
             this.RBEnergeticShot.Size = new System.Drawing.Size(96, 17);
             this.RBEnergeticShot.TabIndex = 59;
@@ -130,7 +130,7 @@
             // 
             this.RBInstinct.AutoSize = true;
             this.RBInstinct.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.RBInstinct.Location = new System.Drawing.Point(84, 171);
+            this.RBInstinct.Location = new System.Drawing.Point(161, 237);
             this.RBInstinct.Name = "RBInstinct";
             this.RBInstinct.Size = new System.Drawing.Size(59, 17);
             this.RBInstinct.TabIndex = 60;
@@ -150,9 +150,8 @@
             this.Controls.Add(this.buttonBack);
             this.Controls.Add(this.buttonNext);
             this.Controls.Add(this.label1);
-            this.Location = new System.Drawing.Point(80, 40);
             this.Name = "CreateMainCharacter3";
-            this.Size = new System.Drawing.Size(256, 270);
+            this.Size = new System.Drawing.Size(400, 400);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -96,5 +96,7 @@ namespace LogicalGame
         {
             get { return _membersList; }
         }
+
+       
     }
 }

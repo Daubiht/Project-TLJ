@@ -542,14 +542,22 @@ namespace LogicalGame
                         _staminaPoint -= skill.Cost[1];
                         if (skill.Effect != null)
                         {
+<<<<<<< HEAD
                             if (skill.Effect[0] != 0)
+=======
                             //Apply effect of the used skill
                             //Hit with Physical Attack
+                            if (skill.Effect[0][0] == 0)
+>>>>>>> Possibilty_to_assign_1st_skill_in_creation_character
                             {
                                 target.Hurt((skill.Effect[0] / 100) * _physicalAttack);
                             }
+<<<<<<< HEAD
                             else if (skill.Effect[1] != 0)
+=======
                             //Heal with Magic Attack
+                            else if (skill.Effect[0][0] == 1)
+>>>>>>> Possibilty_to_assign_1st_skill_in_creation_character
                             {
                                 target.Heal((skill.Effect[1] / 100) * _magicAttack);
                             }
