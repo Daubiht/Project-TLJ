@@ -76,8 +76,6 @@ namespace LogicalGame.Test.Creation
             Skill ss2 = new Skill("Effort", "Permet de continuer d'attaquer mais blesse le corp par trop d'épreuve", new int[] { 0, 0, 0, 0, 15, 0 }, 0, 0, null, new int[] { 10, 0 });
             ss2.PreviousSkill = ss1;
 
-            Character p = new Character("lol", "Dwarf", true);
-
             Dictionary<string, Skill> skillList = new Dictionary<string, Skill>();
 
             //Physical

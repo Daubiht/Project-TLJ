@@ -79,6 +79,12 @@ namespace LogicalGame
 
             _skills = new Dictionary<string, Skill>();
             _stuffs = new Dictionary<string, Item>();
+
+            Dictionary<string, Skill> SkillList = new SkillList().ObtainList;
+            foreach (Skill skill in SkillList.Values)
+            {
+                if (skill.Name == race) _skills.Add(skill.Name, skill);
+            }
         }
 
         //==================================================
