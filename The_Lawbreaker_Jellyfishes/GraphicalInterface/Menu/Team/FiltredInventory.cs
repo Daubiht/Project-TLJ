@@ -33,7 +33,7 @@ namespace GraphicalInterface
             Item item = (Item)((Object[])button.Tag)[0];
             Object[] tag;
 
-            if (item.Type == "resurection")
+            if (item.Type == "resurrection")
             {
                 DeadMenList list = new DeadMenList(team, c, item);
                 list.ShowDialog();
@@ -181,7 +181,7 @@ namespace GraphicalInterface
             // Recup and display items
             foreach (Item item in team.Invent.Inventory.Keys)
             {
-                if (item.Type == ffiltre || (ffiltre == "consommable" && item.Type == "resurection"))
+                if (item.Type == ffiltre || (ffiltre == "consommable" && item.Type == "resurrection"))
                 {
                     Button b = new Button();
 

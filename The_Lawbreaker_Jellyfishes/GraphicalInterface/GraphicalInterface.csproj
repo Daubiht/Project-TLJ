@@ -44,6 +44,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Menu\Team\DeadMan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Menu\Team\DeadMan.designer.cs">
+      <DependentUpon>DeadMan.cs</DependentUpon>
+    </Compile>
     <Compile Include="Maps\Instance.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -134,6 +140,12 @@
     <Compile Include="Menu\Team\CharacterManagement.Designer.cs">
       <DependentUpon>CharacterManagement.cs</DependentUpon>
     </Compile>
+    <Compile Include="Menu\Team\DeadMenList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu\Team\DeadMenList.Designer.cs">
+      <DependentUpon>DeadMenList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Menu\Team\FiltredInventory.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -205,16 +217,19 @@
     <Compile Include="Menu\Team\SkillsDisplay.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <EmbeddedResource Include="Menu\Team\DeadMan.resx">
+      <DependentUpon>DeadMan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Event\Meet.resx">
       <DependentUpon>Meet.cs</DependentUpon>
     </EmbeddedResource>
     <Compile Include="Menu\Team\SkillsDisplay.Designer.cs">
       <DependentUpon>SkillsDisplay.cs</DependentUpon>
     </Compile>
-    <Compile Include="skillsForm.cs">
+    <Compile Include="Menu\Team\skillsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="skillsForm.Designer.cs">
+    <Compile Include="Menu\Team\skillsForm.Designer.cs">
       <DependentUpon>skillsForm.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Home\CreateMainCharacter\CreateMainCharacter1.resx">
@@ -259,6 +274,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Menu\Team\CharacterManagement.resx">
       <DependentUpon>CharacterManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu\Team\DeadMenList.resx">
+      <DependentUpon>DeadMenList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu\Team\FiltredInventory.resx">
       <DependentUpon>FiltredInventory.cs</DependentUpon>
@@ -306,7 +324,7 @@
     <EmbeddedResource Include="Menu\Team\SkillsDisplay.resx">
       <DependentUpon>SkillsDisplay.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="skillsForm.resx">
+    <EmbeddedResource Include="Menu\Team\skillsForm.resx">
       <DependentUpon>skillsForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">

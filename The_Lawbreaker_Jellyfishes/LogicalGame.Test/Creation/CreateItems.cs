@@ -30,7 +30,7 @@ namespace LogicalGame.Test
             item3.AddRequired("attaque magique", 10);
             listItem.Add(item3);
 
-            Item item4 = new Item("Orbe de Résuréction", 2, 1, "Etrange boule semblable à du cristal qui permetrait de rendre la vie à une personne", "resurection");
+            Item item4 = new Item("Orbe de Résurrection", 2, 1, "Etrange boule semblable à du cristal qui permettrait de rendre la vie à une personne", "resurrection");
             listItem.Add(item4);
 
             IFormatter formatter = new BinaryFormatter();

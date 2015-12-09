@@ -83,6 +83,11 @@ namespace LogicalGame.Test
             merch1.PointY = 325;
             merch1.Invent = world.Team.Invent;
 
+            Merchant merch2 = new Merchant("herboriste", itemsSell);
+            merch2.PointX = 250;
+            merch2.PointY = 325;
+            merch2.Invent = world.Team.Invent;
+
             //Add services
             Mortuary s1 = new Mortuary(city);
             s1.PointX = 300;
@@ -95,6 +100,7 @@ namespace LogicalGame.Test
             //list merchant for city
             List<object> listservices = new List<object>();
             listservices.Add(merch1);
+            listservices.Add(merch2);
             listservices.Add(s1);
             listservices.Add(s2);
             city.Services = listservices;
