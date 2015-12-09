@@ -32,8 +32,8 @@ namespace GraphicalInterface
             // Races for combo box
             ComboBoxRace.Items.Add("HUMAIN");
             ComboBoxRace.Items.Add("NAIN");
-            ComboBoxRace.Items.Add("GÉANT");
-            ComboBoxRace.Items.Add("ELF");
+            ComboBoxRace.Items.Add("GEANT");
+            ComboBoxRace.Items.Add("ELFE");
 
             //Define the style of the combo box
             ComboBoxRace.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -62,10 +62,27 @@ namespace GraphicalInterface
         {
             if (ComboBoxRace.SelectedIndex > -1)
             {
+                if((string)ComboBoxRace.SelectedItem == "HUMAIN")
+                {
+                    label1.Text = "Bonus de 5% à l'achat ou la vente d'objets.";
+                }
+                else if ((string)ComboBoxRace.SelectedItem == "NAIN")
+                {
+                    label1.Text = "Bonus de 5% de pièces après un combat.";
+                }
+                else if ((string)ComboBoxRace.SelectedItem == "GEANT")
+                {
+                    label1.Text = "Bonus 30kg en plus pour l'inventaire.";
+                }
+                else if ((string)ComboBoxRace.SelectedItem == "ELFE")
+                {
+                    label1.Text = "Soigne d'1% les membres entre deux zones.";
+                }
                 _fullRace = true;
                 CheckValidateButton(_fullPseudo, _fullRace);
             }
 
+            label1.Location = new System.Drawing.Point(Parent.Size.Width / 2 - label1.Size.Width / 2, 270);
             _race = (string) ComboBoxRace.SelectedItem;
         }
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using LogicalGame;
+using System.Runtime.InteropServices;
 
 namespace GraphicalInterface
 {
@@ -18,6 +19,16 @@ namespace GraphicalInterface
 
             InitializeComponent();
 
+            ToolTip toolTip = new ToolTip();
+            toolTip.InitialDelay = 250;
+            toolTip.ReshowDelay = 500;
+            toolTip.ShowAlways = true;
+            toolTip.AutoPopDelay = 32000;
+            string infoItem = c.HealthPoint + "/" +c.MaxHealthPoint;
+            toolTip.SetToolTip(PBHealth, infoItem);
+            infoItem = c.StaminaPoint + "/" + c.MaxStaminaPoint;
+            toolTip.SetToolTip(PBStamina, infoItem);
+
             LName.Text = c.Name;
             LLevel.Text = "Niveau " + c.Level;
             PBHealth.Maximum = c.MaxHealthPoint;
@@ -26,6 +37,9 @@ namespace GraphicalInterface
             PBStamina.Value = c.StaminaPoint;
             BInfos.Tag = c;
             BPosition.Tag = c;
+
+            ModifyProgressBarColor.SetState(PBHealth, 2); // 1 = green, 2 = yellow, 3 = red
+            ModifyProgressBarColor.SetState(PBStamina, 3); // 1 = green, 2 = yellow, 3 = red
 
             if (c.FrontPosition) BPosition.Text = "CaC";
             else BPosition.Text = "PO";
@@ -86,8 +100,8 @@ namespace GraphicalInterface
                     ((TeamManagement)(Parent.Parent)).Error.Visible = false;
                 }
             }
-
-
         }
+
+
     }
 }

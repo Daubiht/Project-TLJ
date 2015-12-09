@@ -18,13 +18,15 @@ namespace Services
         MainForm _contextForm;
         int[] statsUped = new int[] { 0, 0, 0, 0, 0, 0 };
         int statPoint;
+        List<Character> _listCha = new List<Character>();
 
-        public CharacterInformations(Character chara, Team team, MainForm contextForm)
+        public CharacterInformations(Character chara, Team team, MainForm contextForm, List<Character> randomCharacterList)
         {
             t = team;
             c = chara;
             _contextForm = contextForm;
             statPoint = c.StatsPoint;
+            _listCha = randomCharacterList;
 
             InitializeComponent();
         }
@@ -45,15 +47,14 @@ namespace Services
             LDodge.Text = c.Dodge.ToString();
             LPhysical.Text = c.PhysicalAttack.ToString();
             LMagic.Text = c.MagicAttack.ToString();
-
+            label8.Text = c.Race;
         }
 
 
         private void Retour_Click(object sender, EventArgs e)
         {
-            GraphicalInterface.Taverne uc = new GraphicalInterface.Taverne(t, _contextForm);
+            GraphicalInterface.Taverne uc = new GraphicalInterface.Taverne(t, _contextForm, _listCha);
             _contextForm.ChangeUC(uc, true, true);
         }
-
     }
 }

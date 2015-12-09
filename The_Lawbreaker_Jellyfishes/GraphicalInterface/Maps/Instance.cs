@@ -110,6 +110,22 @@ namespace GraphicalInterface
                                 Reload();
                                 Meet uc = new Meet(_instance.EventRandom(zone.Visited), _contextForm, _world, zone);
                                 zone.Visited = true;
+
+                                //Racial bonus elf
+                                int count = 0;
+                                foreach (Character c in _world.Team.Members)
+                                {
+                                    if(c.Race == "ELFE")
+                                    {
+                                        count++;
+                                    }
+                                }
+
+                                foreach (Character c in _world.Team.Members)
+                                {
+                                    c.Heal((c.Health / 100)*count);
+                                }
+
                                 _contextForm.ToMenu(uc, false);
                             }
                         }

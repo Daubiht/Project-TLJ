@@ -47,6 +47,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.BSkills = new System.Windows.Forms.Button();
             this.Retour = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,7 +64,7 @@
             // LLevel
             // 
             this.LLevel.AutoSize = true;
-            this.LLevel.Location = new System.Drawing.Point(102, 80);
+            this.LLevel.Location = new System.Drawing.Point(105, 60);
             this.LLevel.Name = "LLevel";
             this.LLevel.Size = new System.Drawing.Size(33, 13);
             this.LLevel.TabIndex = 1;
@@ -72,7 +73,7 @@
             // LXP
             // 
             this.LXP.AutoSize = true;
-            this.LXP.Location = new System.Drawing.Point(233, 80);
+            this.LXP.Location = new System.Drawing.Point(236, 60);
             this.LXP.Name = "LXP";
             this.LXP.Size = new System.Drawing.Size(21, 13);
             this.LXP.TabIndex = 2;
@@ -211,7 +212,7 @@
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.LHealth);
             this.panel1.Controls.Add(this.label7);
-            this.panel1.Location = new System.Drawing.Point(83, 107);
+            this.panel1.Location = new System.Drawing.Point(83, 117);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(237, 218);
             this.panel1.TabIndex = 13;
@@ -235,10 +236,20 @@
             this.Retour.UseVisualStyleBackColor = true;
             this.Retour.Click += new System.EventHandler(this.Retour_Click);
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(164, 87);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(35, 13);
+            this.label8.TabIndex = 23;
+            this.label8.Text = "label8";
+            // 
             // CharacterInformations
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.Retour);
             this.Controls.Add(this.BSkills);
             this.Controls.Add(this.panel1);
@@ -276,6 +287,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button BSkills;
         private System.Windows.Forms.Button Retour;
-
+        private System.Windows.Forms.Label label8;
     }
 }

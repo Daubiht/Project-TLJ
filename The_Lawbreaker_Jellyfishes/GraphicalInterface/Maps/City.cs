@@ -88,7 +88,7 @@ namespace GraphicalInterface
             }
             else if (((Button)sender).Tag is LogicalGame.Taverne)
             {
-                Taverne uc = new Taverne(_world.Team, _contextForm);
+                Taverne uc = new Taverne(_world.Team, _contextForm, null);
                 _contextForm.ToMenu(uc, true);
             }
         }

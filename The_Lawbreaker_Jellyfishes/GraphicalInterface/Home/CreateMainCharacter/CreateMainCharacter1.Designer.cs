@@ -39,6 +39,7 @@
             this.BackButton = new System.Windows.Forms.Button();
             this.ButtonMan = new System.Windows.Forms.RadioButton();
             this.ButtonWoman = new System.Windows.Forms.RadioButton();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // Pseudo
@@ -105,7 +106,7 @@
             // 
             this.ValidButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.ValidButton.BackColor = System.Drawing.SystemColors.Control;
-            this.ValidButton.Location = new System.Drawing.Point(213, 301);
+            this.ValidButton.Location = new System.Drawing.Point(213, 321);
             this.ValidButton.Name = "ValidButton";
             this.ValidButton.Size = new System.Drawing.Size(75, 32);
             this.ValidButton.TabIndex = 8;
@@ -117,7 +118,7 @@
             // 
             this.BackButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.BackButton.AutoSize = true;
-            this.BackButton.Location = new System.Drawing.Point(103, 301);
+            this.BackButton.Location = new System.Drawing.Point(103, 321);
             this.BackButton.Name = "BackButton";
             this.BackButton.Size = new System.Drawing.Size(75, 32);
             this.BackButton.TabIndex = 9;
@@ -149,11 +150,21 @@
             this.ButtonWoman.UseVisualStyleBackColor = true;
             this.ButtonWoman.CheckedChanged += new System.EventHandler(this.ButtonWoman_CheckedChanged);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(210, 269);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(0, 13);
+            this.label1.TabIndex = 12;
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // CreateMainCharacter1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.Control;
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.ButtonWoman);
             this.Controls.Add(this.ButtonMan);
             this.Controls.Add(this.BackButton);
@@ -182,5 +193,6 @@
         private System.Windows.Forms.Button BackButton;
         private System.Windows.Forms.RadioButton ButtonMan;
         private System.Windows.Forms.RadioButton ButtonWoman;
+        private System.Windows.Forms.Label label1;
     }
 }

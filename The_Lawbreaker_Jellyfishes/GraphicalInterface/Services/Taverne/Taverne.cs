@@ -11,19 +11,20 @@ namespace GraphicalInterface
     {
         Team t;
         private MainForm _contextForm;
-        internal List<Character> randomCharacterList = new List<Character>();
+        internal List<Character> _randomCharacterList = new List<Character>();
 
-        public Taverne(Team team, MainForm contextForm)
+        public Taverne(Team team, MainForm contextForm, List<Character> randomCharacterList)
         {
             t = team;
             _contextForm = contextForm;
+            _randomCharacterList = randomCharacterList;
             InitializeComponent();
         }
 
         public void ReloadTavern()
         {
             PTavern.Controls.Clear();
-            for (int i = 0; i < randomCharacterList.Count; i++)
+            for (int i = 0; i < _randomCharacterList.Count; i++)
             {
 
                 GroupBox bg = new GroupBox();
@@ -51,15 +52,15 @@ namespace GraphicalInterface
                 BRecrut.Left = bg.Width - BRecrut.Width - 10; ;
 
                 name.Top = bg.Height / 2 - name.Height / 2; ;
-                name.Text = randomCharacterList[i].Name;
+                name.Text = _randomCharacterList[i].Name;
                 name.Name = "name" + i;
 
-                level.Text = "Niveau " + randomCharacterList[i].Level.ToString();
+                level.Text = "Niveau " + _randomCharacterList[i].Level.ToString();
                 level.Top = bg.Height / 2 - level.Height / 2;
                 level.Left = name.Right + 10;
 
                 BInformation.Click += BInformation_Click;
-                BInformation.Tag = randomCharacterList[i];
+                BInformation.Tag = _randomCharacterList[i];
                 BInformation.Text = "Informations";
                 BInformation.Left = bg.Width - BInformation.Width - 10;
                 BInformation.Top = bg.Height - BInformation.Height - 5;               
@@ -70,24 +71,26 @@ namespace GraphicalInterface
         {
             Character c = (Character)((Button)sender).Tag;
 
-            CharacterInformations uc = new CharacterInformations(c, t, _contextForm);
+            CharacterInformations uc = new CharacterInformations(c, t, _contextForm, _randomCharacterList);
             _contextForm.ChangeUC(uc, false, true);
         }
 
         public void Taverne_Load(object sender, EventArgs e)
         {
-
-            Random ran = _contextForm.world.Random;
-            LogicalGame.Taverne rc = new LogicalGame.Taverne();
-            
-
-            int newCharacterNumber = ran.Next(2, 5);
-
-            for (int i = 0 ; i < newCharacterNumber ; i++)
+            if (_randomCharacterList == null)
             {
-                randomCharacterList.Add(rc.New(1, 10, _contextForm.world));
-            }
+                _randomCharacterList = new List<Character>();
+                Random ran = _contextForm.world.Random;
+                LogicalGame.Taverne rc = new LogicalGame.Taverne();
 
+
+                int newCharacterNumber = ran.Next(2, 5);
+
+                for (int i = 0; i < newCharacterNumber; i++)
+                {
+                    _randomCharacterList.Add(rc.New(1, 10, _contextForm.world));
+                }
+            }
             ReloadTavern();
         }
 
@@ -98,15 +101,15 @@ namespace GraphicalInterface
             Character member;
             bool find = false;
 
-            for (int i = 0 ; i < randomCharacterList.Count ; i++)
+            for (int i = 0 ; i < _randomCharacterList.Count ; i++)
             {
-                member = randomCharacterList[i];
+                member = _randomCharacterList[i];
                 if (member.Name == name && find == false)
                 {
                     find = true;
                     if (t.Members.Count < 4)
                     {
-                        randomCharacterList.Remove(member);
+                        _randomCharacterList.Remove(member);
                         t.AddMembers(member);
                     }
                     else
