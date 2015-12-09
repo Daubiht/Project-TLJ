@@ -142,9 +142,9 @@ namespace LogicalGame
         {
             string[] riddles = File.ReadAllLines(@"../../../Ressources/enigme.txt");
 
-            int Wanted = _rand.Next(0, riddles.Length / 2);
+            int Wanted = _rand.Next(0, riddles.Length / 4);
 
-            string[] riddleAndAnswer = { riddles[Wanted * 2], riddles[Wanted * 2 + 1]};
+            string[] riddleAndAnswer = { riddles[Wanted * 4], riddles[Wanted * 4 + 1], riddles[Wanted * 4 + 2], riddles[Wanted * 4 + 3] };
 
             return riddleAndAnswer;
         }

@@ -16,6 +16,7 @@ namespace GraphicalInterface
         MapWorld _world;
         MapZone _mapZone;
         int _result;
+        string _answerRiddle;
 
         public Meet(int result, MainForm Context, MapWorld World, MapZone zone)
         {
@@ -43,22 +44,28 @@ namespace GraphicalInterface
                 label1.Text = "Non, merci.";
 
                 Label[] listlabel = { label2, label3, label4 };
-                int ran = _context.world.Random.Next(2, 5);
+                int ran = _context.world.Random.Next(0, 3);
 
                 for(int i = 0; i < 3; i++)
                 {
                     if(i == ran)
                     {
                         listlabel[i].Text = elder[1];
+                        _answerRiddle = elder[1];
                     }
                     else
                     {
-
+                        if(elder[2] != null)
+                        {
+                            listlabel[i].Text = elder[2];
+                            elder[2] = null;
+                        }
+                        else
+                        {
+                            listlabel[i].Text = elder[3];
+                        }
                     }
                 }
-                label2.Text = "";
-                label3.Text = "";
-                label4.Text = "";
 
                 pictureBox1.BackgroundImage = Image.FromFile(@"../../../Ressources/elder.png");
             }
@@ -86,9 +93,50 @@ namespace GraphicalInterface
             label5.Location = new Point(label5.Parent.Width / 2 - label5.Width / 2, label5.Parent.Height / 2 - label5.Height / 2);
         }
 
+        public void ElderAnswer(object sender, EventArgs e)
+        {
+            if (((Label)sender).Text == _answerRiddle)
+            {
+                int plusGold;
+                if (_world.Team.Invent.GetGold > 100)
+                {
+                    plusGold = _world.Team.Invent.GetGold * 10 / 100;
+                }
+                else
+                {
+                    plusGold = 10;
+                }
+
+                _world.Team.Invent.AddGold(plusGold);
+                foreach (Character c in _world.Team.Members)
+                {
+                    c.EarnXp(c.Level * 10);
+                }
+
+                label5.Text = "Pas mal petit. Tiens, quelques pièces pour ta route." + Environment.NewLine + "Expérience gagnée, " + plusGold + " pièces d'or gagnées.";
+            }
+            else
+            {
+                label5.Text = "Elle était facile pourtant... Dommage.";
+            }
+
+            label1.Text = "Quitter";
+            label5.Location = new Point(label5.Parent.Width / 2 - label5.Width / 2, label5.Parent.Height / 2 - label5.Height / 2);
+
+            label2.Click -= new EventHandler(label2_Click);
+            label2.Text = "";
+            label3.Click -= new EventHandler(label3_Click);
+            label3.Text = "";
+            label4.Click -= new EventHandler(label4_Click);
+            label4.Text = "";
+        }
+
         private void label4_Click(object sender, EventArgs e)
         {
-            
+            if(_result == 2)
+            {
+                ElderAnswer(sender, e);
+            }
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -110,11 +158,19 @@ namespace GraphicalInterface
                 _world.Team.Invent.RemoveGold(_world.Team.Invent.GetGold * 25 / 100);
                 _context.ExitMenu(this);
             }
+            else if (_result == 2)
+            {
+                ElderAnswer(sender, e);
+            }
         }
 
         private void label3_Click(object sender, EventArgs e)
         {
             //Attaquer
+            if (_result == 2)
+            {
+                ElderAnswer(sender, e);
+            }
         }
     }
 }
