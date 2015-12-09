@@ -6,25 +6,34 @@ namespace GraphicalInterface
 {
     public partial class FiltredInventory : UserControl
     {
-        Team team;
-        Character c;
-        MainForm _contextForm;
-        string filtre;
-        string place;
+        Team _team;
+        Character _c;
+        object _contextForm;
+        string _filtre;
+        string _place;
+        bool _inFight;
 
-        public FiltredInventory(Team team, Character chara, string type, MainForm contextForm)
+        public FiltredInventory(Team team, Character chara, string type, object contextForm, bool InFight)
         {
-            this.team = team;
-            c = chara;
-            filtre = type;
+            this._team = team;
+            _inFight = InFight;
+            _c = chara;
+            _filtre = type;
             _contextForm = contextForm;
             InitializeComponent();
         }
 
         private void BRetour_Click(object sender, EventArgs e)
         {
-            CharacterManagement uc = new CharacterManagement(c, team, _contextForm);
-            _contextForm.ChangeUC(uc, false, true);
+            if (_inFight)
+            {
+                ((FiltredInventoryForm)_contextForm).Close();
+            }
+            else
+            {
+                CharacterManagement uc = new CharacterManagement(_c, _team, (MainForm)_contextForm);
+                ((MainForm)_contextForm).ChangeUC(uc, false, true);
+            }
         }
 
         private void Equip_Click (object sender, EventArgs e)
@@ -35,27 +44,27 @@ namespace GraphicalInterface
 
             if (item.Type == "resurrection")
             {
-                DeadMenList list = new DeadMenList(team, c, item);
+                DeadMenList list = new DeadMenList(_team, _c, item);
                 list.ShowDialog();
             }
-            else if (filtre == "consommable")
+            else if (_filtre == "consommable")
             {
-                if (!c.UseConsumable(item))
+                if (!_c.UseConsumable(item))
                 {
                     LError.Text = "Impossible d'utiliser cet objet";
                     LError.Visible = true;
                 }
                 else
                 {
-                    team.Invent.RemoveItem(item);
+                    _team.Invent.RemoveItem(item);
                 }
             }
             else
             {
                 tag = (Object[])button.Tag;
-                if (button.Tag != null) place = (string)tag[1];
+                if (button.Tag != null) _place = (string)tag[1];
 
-                if (!c.WearItem(item, filtre))
+                if (!_c.WearItem(item, _filtre))
                 {
                     LError.Text = "Impossible d'équiper cet objet";
                     LError.Visible = true;
@@ -75,7 +84,7 @@ namespace GraphicalInterface
             LNewName.Text = "";
             BEquip.Visible = false;
 
-            c.UnwearItem(filtre);
+            _c.UnwearItem(_filtre);
             Reload();
         }
 
@@ -123,7 +132,7 @@ namespace GraphicalInterface
             toolTip.ShowAlways = true;
 
             inventory.Controls.Clear();
-            if (filtre == "consommable")
+            if (_filtre == "consommable")
             {
                 PInfoOldItem.Visible = false;
                 PInfoItem.Width = Parent.Width - 30;
@@ -132,7 +141,7 @@ namespace GraphicalInterface
             }
 
             // Recup of current stuff
-            if (!c.Stuffs.ContainsKey(filtre) || c.Stuffs[filtre] == null)
+            if (!_c.Stuffs.ContainsKey(_filtre) || _c.Stuffs[_filtre] == null)
             {
                 LOldName.Text = "Aucun";
                 LOldName.Top = LOldName.Parent.Height / 2 - LOldName.Height / 2;
@@ -141,24 +150,24 @@ namespace GraphicalInterface
             }
             else
             {
-                BDesequip.Tag = c.Stuffs[filtre];
+                BDesequip.Tag = _c.Stuffs[_filtre];
 
-                string infoItem = c.Stuffs[filtre].GetName + Environment.NewLine;
-                if (c.Stuffs[filtre].GetRequired.Count != 0)
+                string infoItem = _c.Stuffs[_filtre].GetName + Environment.NewLine;
+                if (_c.Stuffs[_filtre].GetRequired.Count != 0)
                 {
                     infoItem += Environment.NewLine + "Requis :";
-                    foreach (string requi in c.Stuffs[filtre].GetRequired.Keys)
+                    foreach (string requi in _c.Stuffs[_filtre].GetRequired.Keys)
                     {
-                        infoItem += Environment.NewLine + c.Stuffs[filtre].GetRequired[requi] + " " + requi;
+                        infoItem += Environment.NewLine + _c.Stuffs[_filtre].GetRequired[requi] + " " + requi;
                     }
                 }
 
-                if (c.Stuffs[filtre].GetStats.Count != 0)
+                if (_c.Stuffs[_filtre].GetStats.Count != 0)
                 {
                     infoItem += Environment.NewLine + "Bonus :";
-                    foreach (string bonus in c.Stuffs[filtre].GetStats.Keys)
+                    foreach (string bonus in _c.Stuffs[_filtre].GetStats.Keys)
                     {
-                        infoItem += Environment.NewLine + c.Stuffs[filtre].GetStats[bonus] + " " + bonus;
+                        infoItem += Environment.NewLine + _c.Stuffs[_filtre].GetStats[bonus] + " " + bonus;
                     }
                 }
 
@@ -171,7 +180,7 @@ namespace GraphicalInterface
 
             int i = 0;
             int j = 0;
-            string ffiltre = filtre;
+            string ffiltre = _filtre;
 
             if (ffiltre == "gauche" || ffiltre == "droite")
             {
@@ -179,7 +188,7 @@ namespace GraphicalInterface
             }
 
             // Recup and display items
-            foreach (Item item in team.Invent.Inventory.Keys)
+            foreach (Item item in _team.Invent.Inventory.Keys)
             {
                 if (item.Type == ffiltre || (ffiltre == "consommable" && item.Type == "resurrection"))
                 {
@@ -222,7 +231,7 @@ namespace GraphicalInterface
                     b.Top = j * 50;
                     b.Click += new EventHandler(Info_Click);
 
-                    b.Text = item.GetName + " - x" + team.Invent.Inventory[item];
+                    b.Text = item.GetName + " - x" + _team.Invent.Inventory[item];
                     i++;
                 }
             }
