@@ -28,13 +28,9 @@ namespace LogicalGame
         // Get the attacked monster
         Monster _attackedMonster;
 
-        // bool _isEndFight is true if all the team die or if all monsters die or the team run away
-        bool _isEndFight;
-
         // current team who fights
         Team _team;
-        // team to save the basic stats of members, used to reset the basic stats after using a skill who boosted the basic stats
-        Team _teamResetStat;
+
         List<Monster> _monstersList;
 
         // Create a Front and Hidden monsters list, usefull for longshot skill, usefull to place hidden monster in front monster list if they are all dead
@@ -48,7 +44,6 @@ namespace LogicalGame
             _turn = 1;
             _team = TeamWhoFights;
             _monstersList = MonstersToKill;
-            _isEndFight = false;
             _FrontMonsterList = new List<Monster>();
             _HiddenMonsterList = new List<Monster>();
 
@@ -78,14 +73,13 @@ namespace LogicalGame
         }
 
         // Check if all MEMBERS are DEAD
-        public bool IsAllMemberDie()
+        public void IsAllMemberDie()
         {
             foreach ( Character c in _team.Members)
-            {   
-                if ( c.isAlive == true ) return false; // False means "No there is still a member alive"
+            {
+                _areAllMembersDead = true;
+                if ( c.isAlive == true ) _areAllMembersDead = false; // False means "No there is still a member alive"
             }
-            _areAllMembersDead = true;
-            return true; // True means "Yes, all member are dead"
         }
         // Every monster attack
         public bool MonsterAttack()
@@ -93,10 +87,11 @@ namespace LogicalGame
             // Monsters attack members
             foreach ( Monster m in _monstersList )
             {
-                // Check if all members are dead, if yes, we create a game over screen
-                if ( IsAllMemberDie() == true ){ return true; }
                 // If some members are alive, monster continue to attack
                 m.Attack(_team);
+                // Check if all members are dead, if yes, we create a game over screen
+                IsAllMemberDie();
+                if ( _areAllMembersDead == true ) { return true; }
             }
             // After all monsters attack, we enabled all the team to play again
             foreach ( Character c in _team.Members )

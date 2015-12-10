@@ -40,8 +40,8 @@ namespace LogicalGame
         // Int to know at what turn finish the defense skill (increase robusntessduring 1 turn)
         int _endDefenseTurn;
         int _purcentIncreaseRobustness;
-        // Int to know the current turn of the fight
-        int _turnFight;
+        // Dictionnary which contains the original stats of the member, usefull to reset all the stats of a member when the fight is end
+        readonly Dictionary <String, int> _originaleBasicStats;
 
         readonly Dictionary<String, Skill> _skills;
         readonly Dictionary<string, Item> _stuffs;
@@ -52,7 +52,7 @@ namespace LogicalGame
         /// </summary>
         /// <param name="name">The name of the character</param>
         /// <param race="race">The race of the character (Dwarf, Giant, Human, etc.</param>
-        public Character(string name, string race, bool isFemale)
+        public Character( string name, string race, bool isFemale )
         {
             _isAlive = true;
             _isFemale = isFemale;
@@ -79,6 +79,12 @@ namespace LogicalGame
 
             _skills = new Dictionary<string, Skill>();
             _stuffs = new Dictionary<string, Item>();
+
+            _originaleBasicStats = new Dictionary<string, int>();
+            _originaleBasicStats.Add("attaque physique", _physicalAttack);
+            _originaleBasicStats.Add("attaque magique", _magicAttack);
+            _originaleBasicStats.Add("esquive", _dodge);
+            _originaleBasicStats.Add("robustesse", _robustness);
         }
 
         //==================================================
@@ -98,6 +104,8 @@ namespace LogicalGame
             get { return _didPlay; }
             set { _didPlay = value; }
         }
+
+        public Dictionary<String,int> OriginalStats { get { return _originaleBasicStats; } }
         // ===========================================
         public Dictionary<string, Item> Stuffs
         {

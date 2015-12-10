@@ -91,20 +91,21 @@ namespace GraphicalInterface
                 Random r = new Random();
                 // Random number between 1 - 4
                 int chanceToRunAway = r.Next(1, 5);
-                // Create a the end fight screen if they succeed to run away
+                // Create a screen of end fight if they succeed to run away
                 if ( chanceToRunAway == 0 ) // CHANGE 0 TO 1
                 {
                     EndFight endFight = new EndFight(_context);
                     _context.ChangeUC(endFight, false);
                 }
                 // If the team don't run away, all the monsters attack, then we color all the members in blue to signal they can play again
-                else // ___________***************IMPLEMENTE HERE*********
+                else
                 {
                     _fight.MonsterAttack();
                     foreach ( PanelCharacter pC in _panelCharacterList )
                         pC.RefreshInformation();
                 }
             }
+            // Check if all monster or all members are dead
             _FUC.EndFight();
         }
         //_____Method to open the inventory consumable during fight

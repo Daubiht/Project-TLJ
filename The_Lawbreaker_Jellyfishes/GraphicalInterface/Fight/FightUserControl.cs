@@ -198,7 +198,7 @@ namespace GraphicalInterface
         //____Method to END THE FIGHT
         public void EndFight()
         {
-            // If all members dead, we create a game over screen
+            // DEFEAT If all members dead, we create a game over screen
             if ( _fight.AreAllMembersDead == true )
             {
                 // DECREASE basic stats of members because of their stuff
@@ -206,6 +206,7 @@ namespace GraphicalInterface
                 EndFight EF = new EndFight(_context);
                 _context.ChangeUC(EF, false);
             }
+            // VICTORY If all monster dead, we create a victory screen
             else if ( _fight.AreAllMonstersDead == true )
             {
                 // DECREASE basic stats of members because of their stuff
@@ -224,9 +225,10 @@ namespace GraphicalInterface
                 {
                     if( c.StatsStuff.ContainsKey("attaque physique") ) { c.PhysicalAttack = c.PhysicalAttack + c.StatsStuff["attaque physique"]; }
                     if( c.StatsStuff.ContainsKey("attaque magique") )  { c.MagicAttack = c.MagicAttack       + c.StatsStuff["attaque magique"]; }
-                    if(c.StatsStuff.ContainsKey("esquive") )           { c.Dodge = c.Dodge                   + c.StatsStuff["esquive"]; }
-                    if(c.StatsStuff.ContainsKey("fatigue") )           { c.Stamina = c.Stamina               + c.StatsStuff["fatigue"]; }
-                    if(c.StatsStuff.ContainsKey("vie") )               { c.HealthPoint = c.HealthPoint       + c.StatsStuff["vie"]; }
+                    if( c.StatsStuff.ContainsKey("esquive") )          { c.Dodge = c.Dodge                   + c.StatsStuff["esquive"]; }
+                    if( c.StatsStuff.ContainsKey("fatigue") )          { c.Stamina = c.Stamina               + c.StatsStuff["fatigue"]; }
+                    if( c.StatsStuff.ContainsKey("vie") )              { c.HealthPoint = c.HealthPoint       + c.StatsStuff["vie"]; }
+                    if( c.StatsStuff.ContainsKey("robustesse") )       { c.HealthPoint = c.Robustness        + c.StatsStuff["robustesse"]; }
                 }
             }
             // We DECREASE the basic stats, usefull when we FINISH THE FIGHT
@@ -234,11 +236,14 @@ namespace GraphicalInterface
             {
                 foreach ( Character c in Team.Members )
                 {
-                    if( c.StatsStuff.ContainsKey("attaque physique") ) { c.PhysicalAttack = c.PhysicalAttack - c.StatsStuff["attaque physique"]; }
-                    if( c.StatsStuff.ContainsKey("attaque magique") )  { c.MagicAttack = c.MagicAttack       - c.StatsStuff["attaque magique"]; }
-                    if(c.StatsStuff.ContainsKey("esquive") )           { c.Dodge = c.Dodge                   - c.StatsStuff["esquive"]; }
-                    if(c.StatsStuff.ContainsKey("fatigue") )           { c.Stamina = c.Stamina               - c.StatsStuff["fatigue"]; }
-                    if(c.StatsStuff.ContainsKey("vie") )               { c.HealthPoint = c.HealthPoint       - c.StatsStuff["vie"]; }
+                    // BE CAREFULLL PUT ORIGINAL STATS IN FIGHT
+                    c.Dodge = c.OriginalStats["esquive"];
+
+                    c.PhysicalAttack =  c.OriginalStats["attaque physique"]; 
+                    c.MagicAttack =     c.OriginalStats["attaque magique"]; 
+                    c.Robustness =      c.OriginalStats["robustesse"];
+                   if ( c.StatsStuff.ContainsKey("fatigue") ) c.Stamina = c.Stamina               - c.StatsStuff["fatigue"];
+                   if ( c.StatsStuff.ContainsKey("vie") )     c.HealthPoint = c.HealthPoint       - c.StatsStuff["vie"]; 
                 }
             }
         }
