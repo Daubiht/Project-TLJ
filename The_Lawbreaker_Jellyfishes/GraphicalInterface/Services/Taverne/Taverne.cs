@@ -30,6 +30,7 @@ namespace GraphicalInterface
                 GroupBox bg = new GroupBox();
                 Label name = new Label();
                 Label level = new Label();
+                Label prix = new Label();
                 Button BRecrut = new Button();
                 Button BInformation = new Button();
                 EventHandler eh = new EventHandler(engageMembre);
@@ -44,6 +45,7 @@ namespace GraphicalInterface
                 bg.Controls.Add(BRecrut);
                 bg.Controls.Add(BInformation);
                 bg.Controls.Add(level);
+                bg.Controls.Add(prix);
 
                 BRecrut.Text = "Recruter";
                 BRecrut.Click += eh;
@@ -58,6 +60,10 @@ namespace GraphicalInterface
                 level.Text = "Niveau " + _randomCharacterList[i].Level.ToString();
                 level.Top = bg.Height / 2 - level.Height / 2;
                 level.Left = name.Right + 10;
+
+                prix.Text = _randomCharacterList[i].Level * 50 + " pièces d'or";
+                prix.Top = bg.Height / 2 - prix.Height / 2;
+                prix.Left = level.Right + 10;
 
                 BInformation.Click += BInformation_Click;
                 BInformation.Tag = _randomCharacterList[i];
@@ -106,15 +112,28 @@ namespace GraphicalInterface
                 member = _randomCharacterList[i];
                 if (member.Name == name && find == false)
                 {
-                    find = true;
-                    if (t.Members.Count < 4)
+                    if (t.Invent.GetGold >= member.Level * 50)
                     {
-                        _randomCharacterList.Remove(member);
-                        t.AddMembers(member);
+                        t.Invent.RemoveGold(member.Level * 50);
+
+                        find = true;
+                        if (t.Members.Count < 4)
+                        {
+                            _randomCharacterList.Remove(member);
+                            t.AddMembers(member);
+                        }
+                        else
+                        {
+                            LError.Visible = true;
+                            LError.Text = "Votre équipe est pleine, vous ne pouvez plus engager de membre";
+                            LError.Left = LError.Parent.Width / 2 - LError.Width / 2;
+                        }
                     }
                     else
                     {
                         LError.Visible = true;
+                        LError.Text = "Vous n'avez pas suffisamment de fonds";
+                        LError.Left = LError.Parent.Width / 2 - LError.Width / 2;
                     }
                 }
             }
@@ -126,5 +145,6 @@ namespace GraphicalInterface
         {
             _contextForm.ExitMenu(this);
         }
+
     }
 }

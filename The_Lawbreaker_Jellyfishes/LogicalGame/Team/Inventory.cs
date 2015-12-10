@@ -23,7 +23,7 @@ namespace LogicalGame
         {
             int additional = weight + (item.GetWeight * quantity);
 
-            if (additional < _MaxWeight)
+            if (additional < MaxWeight)
             {
                 foreach (Item itemFromInvent in _inventory.Keys)
                 {
@@ -87,7 +87,15 @@ namespace LogicalGame
 
         public int MaxWeight
         {
-            get { return _MaxWeight; }
+            get
+            {
+                int finalMaxWeight = _MaxWeight;
+                foreach (Character c in _context.Members)
+                {
+                    if (c.Race == "GEANT") finalMaxWeight += 30;
+                }
+                return finalMaxWeight;
+            }
         }
 
         public int weight
