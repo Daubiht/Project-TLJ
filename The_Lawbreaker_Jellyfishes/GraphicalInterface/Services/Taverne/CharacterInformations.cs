@@ -36,6 +36,7 @@ namespace Services
             toolTip.ReshowDelay = 500;
             toolTip.ShowAlways = true;
 
+            LRace.Text = c.Race;
             LLevel.Text = "Niveau " + c.Level;
             LXP.Text = c.CurentXp + " / " + c.NextLevel;
             LName.Text = c.Name;
@@ -55,5 +56,10 @@ namespace Services
             _contextForm.ChangeUC(uc, true, true);
         }
 
+        private void BSkills_Click(object sender, EventArgs e)
+        {
+            skillsForm skillsform = new skillsForm(c);
+            skillsform.ShowDialog();
+        }
     }
 }

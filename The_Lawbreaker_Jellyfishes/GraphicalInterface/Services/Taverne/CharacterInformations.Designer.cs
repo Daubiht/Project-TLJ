@@ -47,6 +47,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.BSkills = new System.Windows.Forms.Button();
             this.Retour = new System.Windows.Forms.Button();
+            this.LRace = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -224,6 +225,7 @@
             this.BSkills.TabIndex = 14;
             this.BSkills.Text = "Compétences";
             this.BSkills.UseVisualStyleBackColor = true;
+            this.BSkills.Click += new System.EventHandler(this.BSkills_Click);
             // 
             // Retour
             // 
@@ -235,10 +237,20 @@
             this.Retour.UseVisualStyleBackColor = true;
             this.Retour.Click += new System.EventHandler(this.Retour_Click);
             // 
+            // LRace
+            // 
+            this.LRace.AutoSize = true;
+            this.LRace.Location = new System.Drawing.Point(166, 44);
+            this.LRace.Name = "LRace";
+            this.LRace.Size = new System.Drawing.Size(33, 13);
+            this.LRace.TabIndex = 23;
+            this.LRace.Text = "Race";
+            // 
             // CharacterInformations
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.LRace);
             this.Controls.Add(this.Retour);
             this.Controls.Add(this.BSkills);
             this.Controls.Add(this.panel1);
@@ -276,6 +288,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button BSkills;
         private System.Windows.Forms.Button Retour;
-
+        private System.Windows.Forms.Label LRace;
     }
 }

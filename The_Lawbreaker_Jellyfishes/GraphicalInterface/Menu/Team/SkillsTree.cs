@@ -16,6 +16,8 @@ namespace GraphicalInterface
         List<List<List<Skill>>> usedSkills = new List<List<List<Skill>>>();
         Skill currentSkill;
         Character _chara;
+        bool _isShown = false;
+        ToolTip _toolTip = new ToolTip();
 
         public SkillsTree(int statToDisplay, Character chara)
         {
@@ -23,6 +25,29 @@ namespace GraphicalInterface
             stat = statToDisplay;
 
             InitializeComponent();
+        }
+
+        private void BSkill_MouseMove(object sender, MouseEventArgs e)
+        {
+            Button button = (Button)sender;
+            Skill skill = (Skill)button.Tag;
+
+            if (!_isShown)
+            {
+                _toolTip.Show(Infos(skill), button, e.Location);
+                _isShown = true;
+            }
+        }
+        private void BSkill_MouseOut(object sender, EventArgs e)
+        {
+            Button button = (Button)sender;
+            Skill skill = (Skill)button.Tag;
+
+            if (_isShown)
+            {
+                _toolTip.Hide(button);
+                _isShown = false;
+            }
         }
 
         private void AddSkill (object sender, EventArgs e)
@@ -136,20 +161,26 @@ namespace GraphicalInterface
                             BSkill.Left = (k - 1) * (BSkill.Width + 5);
                             BSkill.Text = usedSkills[i][j][k].Name;
                             BSkill.Tag = usedSkills[i][j][k];
-                            toolTip.SetToolTip(BSkill, Infos(usedSkills[i][j][k]));
-                            if ((usedSkills[i][j][k].PreviousSkill != null && !_chara.Skills.ContainsKey(usedSkills[i][j][k].PreviousSkill.Name)) || _chara.Stats[stat] < usedSkills[i][j][k].statRequired[stat])
-                            {
-                                BSkill.Enabled = false;
-                            }
+                            toolTip.SetToolTip(BSkill, Infos(skill));
+
+                            
+
                             if (_chara.Skills.ContainsKey(usedSkills[i][j][k].Name))
                             {
 
                                 BSkill.BackColor = Color.Green;
                             }
+                            else if ((usedSkills[i][j][k].PreviousSkill != null && !_chara.Skills.ContainsKey(usedSkills[i][j][k].PreviousSkill.Name)) || _chara.Stats[stat] < usedSkills[i][j][k].statRequired[stat])
+                            {
+                                BSkill.ForeColor = Color.Gray;
+                                BSkill.Click -= AddSkill;
+                            }
                             else
                             {
                                 BSkill.Click += AddSkill;
                             }
+
+                            
 
                             PanelToCenter.Controls.Add(BSkill);
                         }
@@ -190,20 +221,23 @@ namespace GraphicalInterface
                                 newButton.Left = (maxX + minX) / 2 - newButton.Width / 2;
                                 newButton.Text = usedSkills[i][j][k].Name;
                                 newButton.Tag = usedSkills[i][j][k];
-                                toolTip.SetToolTip(newButton, Infos(usedSkills[i][j][k]));
-                                if ((usedSkills[i][j][k].PreviousSkill != null && !_chara.Skills.ContainsKey(usedSkills[i][j][k].PreviousSkill.Name)) || _chara.Stats[stat] < usedSkills[i][j][k].statRequired[stat])
-                                {
-                                    newButton.Enabled = false;
-                                }
+                                toolTip.SetToolTip(newButton, Infos(skill));
+
                                 if (_chara.Skills.ContainsKey(usedSkills[i][j][k].Name))
                                 {
 
                                     newButton.BackColor = Color.Green;
                                 }
+                                else if ((usedSkills[i][j][k].PreviousSkill != null && !_chara.Skills.ContainsKey(usedSkills[i][j][k].PreviousSkill.Name)) || _chara.Stats[stat] < usedSkills[i][j][k].statRequired[stat])
+                                {
+                                    newButton.ForeColor = Color.Gray;
+                                }
                                 else
                                 {
                                     newButton.Click += AddSkill;
                                 }
+
+                                
 
                                 PanelToCenter.Controls.Add(newButton);
                             }
@@ -235,21 +269,23 @@ namespace GraphicalInterface
                                 newButton.Left = maxX + 40;
                                 newButton.Text = usedSkills[i][j][k].Name;
                                 newButton.Tag = usedSkills[i][j][k];
-                                toolTip.SetToolTip(newButton, Infos(usedSkills[i][j][k]));
-                                if ((usedSkills[i][j][k].PreviousSkill != null && !_chara.Skills.ContainsKey(usedSkills[i][j][k].PreviousSkill.Name)) || _chara.Stats[stat] < usedSkills[i][j][k].statRequired[stat])
-                                {
-                                    newButton.Enabled = false;
-                                }
+                                toolTip.SetToolTip(newButton, Infos(skill));
+
                                 if (_chara.Skills.ContainsKey(usedSkills[i][j][k].Name))
                                 {
 
                                     newButton.BackColor = Color.Green;
+                                }
+                                else if ((usedSkills[i][j][k].PreviousSkill != null && !_chara.Skills.ContainsKey(usedSkills[i][j][k].PreviousSkill.Name)) || _chara.Stats[stat] < usedSkills[i][j][k].statRequired[stat])
+                                {
+                                    newButton.ForeColor = Color.Gray;
                                 }
                                 else
                                 {
                                     newButton.Click += AddSkill;
                                 }
 
+                               
                                 PanelToCenter.Controls.Add(newButton);
                             }
                         }

@@ -78,6 +78,7 @@
             this.BFired = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.BKill = new System.Windows.Forms.Button();
+            this.LRace = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.PPlus.SuspendLayout();
             this.SuspendLayout();
@@ -611,10 +612,20 @@
             this.BKill.UseVisualStyleBackColor = true;
             this.BKill.Click += new System.EventHandler(this.BKill_Click);
             // 
+            // LRace
+            // 
+            this.LRace.AutoSize = true;
+            this.LRace.Location = new System.Drawing.Point(172, 44);
+            this.LRace.Name = "LRace";
+            this.LRace.Size = new System.Drawing.Size(33, 13);
+            this.LRace.TabIndex = 26;
+            this.LRace.Text = "Race";
+            // 
             // CharacterManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.LRace);
             this.Controls.Add(this.BKill);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.BFired);
@@ -694,5 +705,6 @@
         private System.Windows.Forms.Label stuffstat2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button BKill;
+        private System.Windows.Forms.Label LRace;
     }
 }
