@@ -110,12 +110,17 @@ namespace GraphicalInterface
         //_____Method to open the inventory consumable during fight
         public void AccessInventory(object sender, EventArgs e)
         {
-            FiltredInventory FI = new FiltredInventory(_fight.GetTeam, _selectedMember, "consommable", _context, true);
-            FiltredInventoryForm FIF = new FiltredInventoryForm(FI);
-            // Display the windows if the inventory consumables
-            FIF.ShowDialog();
+            // if the member hasn't played yet, he can open the inventory of consumable
+            if(_selectedMember.DidMemberPlay == false )
+            {
+                FiltredInventory FIClass = new FiltredInventory(_fight.GetTeam, _selectedMember, "consommable", _context, true);
+                FiltredInventoryForm FIForm = new FiltredInventoryForm(FIClass, _panelCharacterList, _fight);
+                // Display the windows if the inventory consumables
+                FIForm.ShowDialog();
+            }
         }
 
+        public List<PanelCharacter> PanelsMembers { get { return _panelCharacterList; } }
     }
 
     // Change the color of the progress bars

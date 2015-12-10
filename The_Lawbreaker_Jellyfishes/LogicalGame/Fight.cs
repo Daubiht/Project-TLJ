@@ -112,7 +112,7 @@ namespace LogicalGame
             return false;
         }
 
-        // ____METHODS TO GET THE MEMBER WHO ATTACKS, this method is called when the player clicks on a member's panel
+        // 1 METHODS TO GET THE MEMBER WHO ATTACKS, this method is called when the player clicks on a member's panel
         public void GetMemberWhoAttack(Character MemberWhoAttacks, Skill SelectedSkill, int BasicAttack)
         {
             // Get the member who attacks
@@ -124,7 +124,7 @@ namespace LogicalGame
             // True means "A member of the team is attacking"
             _doesAMemberAttack = true;
         }
-        //_____METHOD TO GET THE ATTACKED MONSTER, this method is called when the player clicks on a monster's panel
+        // 2 METHOD TO GET THE ATTACKED MONSTER, this method is called when the player clicks on a monster's panel
         public bool GetAttackedMonster(Monster AttackedMonster)
         {
             // Check if the player has selected a member before clicking on a monster's panel
@@ -143,7 +143,7 @@ namespace LogicalGame
             }
             return false;
         }
-        // ____METHOD WHO MATCHES THE MEMBER WHO ATTACKS AND THE ATTACKED MONSTER
+        // 3 METHOD WHO MATCHES THE MEMBER WHO ATTACKS AND THE ATTACKED MONSTER
         public bool HitMonster(Character MemberWhoAttacks, Monster AttackedMonster)
         {
             // Count how many member is in the team
@@ -179,6 +179,8 @@ namespace LogicalGame
             }
             return false;
         }
+
+
         //_____METHOD WHO CHECKS IF ALL FRONT MONSTER ARE DEAD TO PUT HIDDEN MONSTER IN FRONT POSITION
         public void CheckFrontMonserDead()
         {

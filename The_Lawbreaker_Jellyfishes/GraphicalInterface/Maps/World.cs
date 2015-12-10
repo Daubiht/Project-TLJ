@@ -83,7 +83,7 @@ namespace GraphicalInterface
             List<Monster> _monsters = new List<Monster>();
 
             // Create monsters
-            Monster m1 = new Monster("M1", 2, "slime", 5, 0, 10, 0, 5, 5);
+            Monster m1 = new Monster("M1", 2, "slime", 20, 0, 10, 0, 5, 0);
             Monster m2 = new Monster("M2", 2, "slime", 5, 0, 100, 0, 5, 5);
             Monster m3 = new Monster("M3", 2, "slime", 5, 0, 100, 0, 5, 5);
             Monster m4 = new Monster("M4", 2, "slime", 5, 0, 100, 0, 5, 5);
@@ -121,8 +121,8 @@ namespace GraphicalInterface
 
             // CREATE POTION ITEM TO ADD IN THE INVENTORY AND USE IN THE FIGHT
             Item i1 = new Item("Potion de soin légers", 1, 10, "Soigne légerement", "consommable");
-            i1.AddStats("heal", 25);
-            _w.Team.Invent.AddItem(i1, 5);
+            i1.AddStats("heal", 10);
+            _w.Team.Invent.AddItem(i1, 15);
 
             // ok.Visible = false;
             // TEST

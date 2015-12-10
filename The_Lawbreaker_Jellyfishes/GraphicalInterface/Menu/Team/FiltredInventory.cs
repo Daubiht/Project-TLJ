@@ -13,6 +13,7 @@ namespace GraphicalInterface
         string _place;
         bool _inFight;
 
+
         public FiltredInventory(Team team, Character chara, string type, object contextForm, bool InFight)
         {
             this._team = team;
@@ -61,7 +62,25 @@ namespace GraphicalInterface
                     // The member is considered he played when he consumes a potion
                     if ( _inFight )
                     {
+                        bool didAllmemberPlay = true;
                         _c.DidMemberPlay = true;
+                        // Refresh information of all panels
+                        foreach(PanelCharacter p in ((FiltredInventoryForm)Parent).PanelCharacter )
+                            p.RefreshInformation();
+                        // If anot all member played, the monster don't attack
+                        foreach ( Character c in ((FiltredInventoryForm)Parent).Fight.GetTeam.Members )
+                            if ( c.DidMemberPlay == false )
+                                didAllmemberPlay = false;
+                        // if all member played, the monsers attack
+                        if ( didAllmemberPlay == true )
+                        {
+                            ((FiltredInventoryForm)Parent).Fight.MonsterAttack();
+                            // Refresh information of all panels
+                            foreach ( PanelCharacter p in ((FiltredInventoryForm)Parent).PanelCharacter )
+                                p.RefreshInformation();
+                        }
+                        // Close the windown of consumable during fight
+                        ((Form)Parent).Close();
                     }
                     _team.Invent.RemoveItem(item);
                     Reload();
@@ -249,7 +268,6 @@ namespace GraphicalInterface
         {
             Reload();
         }
-
         
     }
 }
