@@ -38,11 +38,11 @@
             this.ghjghToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dfgdfToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripRight = new System.Windows.Forms.ToolStrip();
+            this.ButtonInventoryConsumable = new System.Windows.Forms.ToolStripButton();
             this.ButtonRunAway = new System.Windows.Forms.Button();
             this.labelCharName = new System.Windows.Forms.Label();
             this.progressBarHP = new System.Windows.Forms.ProgressBar();
             this.progressBarStamina = new System.Windows.Forms.ProgressBar();
-            this.toolStripInventory = new System.Windows.Forms.ToolStripButton();
             this.toolStripLeft.SuspendLayout();
             this.toolStripRight.SuspendLayout();
             this.SuspendLayout();
@@ -124,12 +124,22 @@
             this.toolStripRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.toolStripRight.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStripRight.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripInventory});
+            this.ButtonInventoryConsumable});
             this.toolStripRight.Location = new System.Drawing.Point(346, 0);
             this.toolStripRight.Name = "toolStripRight";
             this.toolStripRight.Size = new System.Drawing.Size(64, 71);
             this.toolStripRight.TabIndex = 1;
             this.toolStripRight.Text = "toolStrip2";
+            // 
+            // ButtonInventoryConsumable
+            // 
+            this.ButtonInventoryConsumable.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.ButtonInventoryConsumable.Image = ((System.Drawing.Image)(resources.GetObject("ButtonInventoryConsumable.Image")));
+            this.ButtonInventoryConsumable.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ButtonInventoryConsumable.Name = "ButtonInventoryConsumable";
+            this.ButtonInventoryConsumable.Size = new System.Drawing.Size(61, 19);
+            this.ButtonInventoryConsumable.Text = "Inventaire";
+            this.ButtonInventoryConsumable.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // ButtonRunAway
             // 
@@ -168,16 +178,6 @@
             this.progressBarStamina.Size = new System.Drawing.Size(137, 10);
             this.progressBarStamina.TabIndex = 5;
             // 
-            // toolStripInventory
-            // 
-            this.toolStripInventory.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripInventory.Image = ((System.Drawing.Image)(resources.GetObject("toolStripInventory.Image")));
-            this.toolStripInventory.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripInventory.Name = "toolStripInventory";
-            this.toolStripInventory.Size = new System.Drawing.Size(61, 19);
-            this.toolStripInventory.Text = "Inventaire";
-            this.toolStripInventory.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // FightMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -215,6 +215,6 @@
         private System.Windows.Forms.ToolStripButton toolStripDefense;
         private System.Windows.Forms.ProgressBar progressBarHP;
         private System.Windows.Forms.ProgressBar progressBarStamina;
-        private System.Windows.Forms.ToolStripButton toolStripInventory;
+        private System.Windows.Forms.ToolStripButton ButtonInventoryConsumable;
     }
 }

@@ -206,6 +206,8 @@ namespace LogicalGame
 
             // The damage launched on the monster is reduced thanks to the monster's robustness
             damage = damage - (int)Math.Ceiling(Robustness / 100.0 * damage); // Math.Ceiling around to the superior bound, 0.3 become 1.0
+            // If damage is under 0 because the monster has too much robustness, it will give healt point to the monster because of a bug, so we set the value to 5
+            if ( damage < 5 ) damage = 5;
             // Remove HP
             _health -= damage;
 
@@ -263,6 +265,7 @@ namespace LogicalGame
                 // Classify alive front + hidden members
                 else if ( c.isAlive == true ) listFrontHiddenMembers.Add(c);
             }
+            
 
             // If all FRONT MEMBERS ARE DEAD, every HIDDEN MEMBERS will be in FRONT POSITION
             if ( listFrontMembers.Count == 0 )
@@ -281,6 +284,7 @@ namespace LogicalGame
                 int indexRdmMember = rdm.Next(0, listFrontMembers.Count);
                 listFrontMembers[indexRdmMember].Hurt(_physicalAttack);
             }
+           
         }
     }
 }

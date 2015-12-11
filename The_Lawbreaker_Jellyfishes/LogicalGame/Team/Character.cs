@@ -40,8 +40,8 @@ namespace LogicalGame
         // Int to know at what turn finish the defense skill (increase robusntessduring 1 turn)
         int _endDefenseTurn;
         int _purcentIncreaseRobustness;
-        // Int to know the current turn of the fight
-        int _turnFight;
+        // Dictionnary which contains the original stats of the member, usefull to reset all the stats of a member when the fight is end
+        readonly Dictionary <String, int> _originaleBasicStats;
 
         readonly Dictionary<String, Skill> _skills;
         readonly Dictionary<string, Item> _stuffs;
@@ -52,7 +52,7 @@ namespace LogicalGame
         /// </summary>
         /// <param name="name">The name of the character</param>
         /// <param race="race">The race of the character (Dwarf, Giant, Human, etc.</param>
-        public Character(string name, string race, bool isFemale)
+        public Character( string name, string race, bool isFemale )
         {
             _isAlive = true;
             _isFemale = isFemale;
@@ -80,6 +80,11 @@ namespace LogicalGame
             _skills = new Dictionary<string, Skill>();
             _stuffs = new Dictionary<string, Item>();
 
+            _originaleBasicStats = new Dictionary<string, int>();
+            _originaleBasicStats.Add("attaque physique", _physicalAttack);
+            _originaleBasicStats.Add("attaque magique", _magicAttack);
+            _originaleBasicStats.Add("esquive", _dodge);
+            _originaleBasicStats.Add("robustesse", _robustness);
         }
 
         //==================================================
@@ -99,6 +104,8 @@ namespace LogicalGame
             get { return _didPlay; }
             set { _didPlay = value; }
         }
+
+        public Dictionary<String,int> OriginalStats { get { return _originaleBasicStats; } }
         // ===========================================
         public Dictionary<string, Item> Stuffs
         {
@@ -149,7 +156,7 @@ namespace LogicalGame
         public int HealthPoint
         {
             get { return _healthPoint; }
-            set { _healthPoint = value; }
+            set { _healthPoint = value; } // basic stats
         }
 
         public int StaminaPoint
@@ -177,26 +184,31 @@ namespace LogicalGame
             get { return _level; }
             set { _level = value; }
         }
-
+        // Basic stats
         public int PhysicalAttack
         {
             get { return _physicalAttack; }
+            set { _physicalAttack = value; }
         }
 
         public int MagicAttack
         {
             get { return _magicAttack; }
+            set { _magicAttack = value; }
         }
 
         public int Dodge
         {
             get { return _dodge; }
+            set { _dodge = value; }
         }
 
         public int Stamina
         {
             get { return _stamina; }
+            set { _stamina = value; }
         }
+        // Basic stats
 
         public int Health
         {
@@ -508,7 +520,8 @@ namespace LogicalGame
             // ============ ROBUSTNESS   ========================
             // The damage launched on the character is reduced thanks to the character's robustness
             damage = damage - (int) Math.Ceiling(Robustness/100.0*damage); // Math.Ceiling around to the superior bound, 0.3 become 1.0
-            
+            // If damage is under 0 because the character has too much robustness, it will give healt point to the character because of a bug, so we set the value to 5
+            if ( damage < 5  ) damage = 5;
             // Remove HP
             _healthPoint -= damage;
 
@@ -573,7 +586,7 @@ namespace LogicalGame
 
         public bool UseConsumable (Item item)
         {
-            if (item.Type != "consumable")
+            if (item.Type != "consommable")
             {
                 return false;
             }

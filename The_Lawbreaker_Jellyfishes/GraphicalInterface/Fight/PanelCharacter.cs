@@ -98,8 +98,9 @@ namespace GraphicalInterface
         // Method who dislays actulized informations of monster and character panels, like HP, Stamina etc.
         public void RefreshInformation()
         {
+            _FightUserControl.EndFight();
             // Actualize Monster's informations
-            if( _obj is Monster )
+            if ( _obj is Monster )
             {
                 labelHPResult.Text = _monster.Health.ToString();
                 labelStaminaResult.Text = _monster.Stamina.ToString();
