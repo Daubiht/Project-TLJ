@@ -22,6 +22,9 @@ namespace LogicalGame
         // Member's basic attack used on a monster
         int _basicAttack;
 
+        // A dictionnary of dictionnaries, a dictionnary will contain the original basic stats of the members
+        Dictionary<Character, Dictionary<string, int>> _OriginalBasicStats;
+
         // Bool to know if a member is attacking, usefull in case the player clicks everywhere during the fight
         bool _doesAMemberAttack;
 
@@ -46,8 +49,8 @@ namespace LogicalGame
             _monstersList = MonstersToKill;
             _FrontMonsterList = new List<Monster>();
             _HiddenMonsterList = new List<Monster>();
-
-            foreach(Monster m in _monstersList )
+            _OriginalBasicStats = new Dictionary<Character, Dictionary<string, int>>();
+            foreach (Monster m in _monstersList )
             {
                 // Add FRONT monsters in _FrontMonsterList
                 if ( m.FrontPosition == true )
@@ -56,6 +59,9 @@ namespace LogicalGame
                 else if ( m.FrontPosition == false )
                     _HiddenMonsterList.Add(m);
             }
+            // We save all the basic stats of all member, usefull at the end of the fight to reset all the basic stats which could be modify by skills or effects
+            OriginaleStats();
+            FalseDidMemberPlay();
         }
         /// <summary>
         // METHODS
@@ -206,7 +212,31 @@ namespace LogicalGame
         // ____METHODE TO INCREMENT THE NUMBER OF TURNS
         public void IncrementTurn()
         { _turn += 1; }
+        //_____Method to reset all the basic stats of members at the end of the fight, basic stats could change during the fight so we need to reset them
+        public void OriginaleStats()
+        {
+            foreach ( Character c in _team.Members )
+            {
+                // Create a dictionnary which contains the basic stats
+                Dictionary<string, int> basicStats = new Dictionary<string, int>();
+                basicStats.Add("attaque physique", c.PhysicalAttack);
+                basicStats.Add("attaque magique", c.MagicAttack);
+                basicStats.Add("esquive", c.Dodge);
+                basicStats.Add("robustesse", c.Robustness);
+                // Classify the stats of the character in a dictionnary
+                _OriginalBasicStats.Add(c, basicStats);
+            }
+        }
+        //_____Method to set bool "DidMemeberPlay" as false for every member, use in the begining of the fight, in the constructor's fight
+        public void FalseDidMemberPlay()
+        {
+            foreach (Character c in _team.Members )
+            {
+                c.DidMemberPlay = false;
+            }
+        }
 
+        public Dictionary<Character, Dictionary<string, int>> OriginalStats { get { return _OriginalBasicStats; } }
         public bool AreAllMembersDead { get { return _areAllMembersDead; } }
         public bool AreAllMonstersDead { get { return _areAllMonsterDead; } }
         public Team GetTeam{get { return _team; }}

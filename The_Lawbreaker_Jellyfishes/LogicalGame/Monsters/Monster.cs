@@ -206,6 +206,8 @@ namespace LogicalGame
 
             // The damage launched on the monster is reduced thanks to the monster's robustness
             damage = damage - (int)Math.Ceiling(Robustness / 100.0 * damage); // Math.Ceiling around to the superior bound, 0.3 become 1.0
+            // If damage is under 0 because the monster has too much robustness, it will give healt point to the monster because of a bug, so we set the value to 5
+            if ( damage < 5 ) damage = 5;
             // Remove HP
             _health -= damage;
 

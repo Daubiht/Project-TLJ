@@ -83,7 +83,7 @@ namespace GraphicalInterface
             List<Monster> _monsters = new List<Monster>();
 
             // Create monsters
-            Monster m1 = new Monster("M1", 2, "slime", 30, 0, 50, 0, 5, 0);
+            Monster m1 = new Monster("M1", 2, "slime", 30, 0, 150, 0, 5, 0);
             Monster m2 = new Monster("M2", 2, "slime", 5, 0, 100, 0, 5, 5);
             Monster m3 = new Monster("M3", 2, "slime", 5, 0, 100, 0, 5, 5);
             Monster m4 = new Monster("M4", 2, "slime", 5, 0, 100, 0, 5, 5);
@@ -113,9 +113,10 @@ namespace GraphicalInterface
             //_monsters.Add(m2);
             //       _monsters.Add(m3);
             //     _monsters.Add(m4);
-            // Add members in team, 
+            // Add members in team,
+            c2.DidMemberPlay = true; 
             _w.Team.AddMembers(c2);
-            _w.Team.AddMembers(c3);
+            //_w.Team.AddMembers(c3);
 
             //_w.Team.AddMembers(c3);
             //_w.Team.AddMembers(c4);

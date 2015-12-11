@@ -226,25 +226,25 @@ namespace GraphicalInterface
                     if( c.StatsStuff.ContainsKey("attaque physique") ) { c.PhysicalAttack = c.PhysicalAttack + c.StatsStuff["attaque physique"]; }
                     if( c.StatsStuff.ContainsKey("attaque magique") )  { c.MagicAttack = c.MagicAttack       + c.StatsStuff["attaque magique"]; }
                     if( c.StatsStuff.ContainsKey("esquive") )          { c.Dodge = c.Dodge                   + c.StatsStuff["esquive"]; }
-                    if( c.StatsStuff.ContainsKey("fatigue") )          { c.Stamina = c.Stamina               + c.StatsStuff["fatigue"]; }
-                    if( c.StatsStuff.ContainsKey("vie") )              { c.HealthPoint = c.HealthPoint       + c.StatsStuff["vie"]; }
                     if( c.StatsStuff.ContainsKey("robustesse") )       { c.HealthPoint = c.Robustness        + c.StatsStuff["robustesse"]; }
+                    if( c.StatsStuff.ContainsKey("vie") )              { c.HealthPoint = c.HealthPoint       + c.StatsStuff["vie"]; }
+                    if( c.StatsStuff.ContainsKey("fatigue") )          { c.Stamina = c.Stamina               + c.StatsStuff["fatigue"]; }
                 }
             }
             // We DECREASE the basic stats, usefull when we FINISH THE FIGHT
             else if ( Equiped == false )
             {
-                //foreach ( Character c in Team.Members )
-                //{
-                //    // BE CAREFULLL PUT ORIGINAL STATS IN FIGHT
-                //    c.Dodge = c.OriginalStats["esquive"];
-
-                //    c.PhysicalAttack =  c.OriginalStats["attaque physique"]; 
-                //    c.MagicAttack =     c.OriginalStats["attaque magique"]; 
-                //    c.Robustness =      c.OriginalStats["robustesse"];
-                //   if ( c.StatsStuff.ContainsKey("fatigue") ) c.Stamina = c.Stamina               - c.StatsStuff["fatigue"];
-                //   if ( c.StatsStuff.ContainsKey("vie") )     c.HealthPoint = c.HealthPoint       - c.StatsStuff["vie"]; 
-                //}
+                // We reset basic stats of all member to their original basic stats
+                foreach(Character c in _team.Members )
+                {
+                    if ( _fight.OriginalStats.ContainsKey(c) )
+                    {
+                        c.PhysicalAttack = _fight.OriginalStats[c]["attaque physique"];
+                        c.MagicAttack = _fight.OriginalStats[c]["attaque magique"];
+                        c.Dodge = _fight.OriginalStats[c]["esquive"];
+                        c.Robustness = _fight.OriginalStats[c]["robustesse"];
+                    }
+                }
             }
         }
         public List<PanelCharacter> GetCharacterPanel

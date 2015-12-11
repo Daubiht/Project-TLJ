@@ -517,8 +517,8 @@ namespace LogicalGame
             // ============ ROBUSTNESS   ========================
             // The damage launched on the character is reduced thanks to the character's robustness
             damage = damage - (int) Math.Ceiling(Robustness/100.0*damage); // Math.Ceiling around to the superior bound, 0.3 become 1.0
-            // If damage is under 0 because the character has too much robustness, it will give healt point to the character because of a bug, so we set the value to 0
-            if ( damage < 0 ) damage = 0;
+            // If damage is under 0 because the character has too much robustness, it will give healt point to the character because of a bug, so we set the value to 5
+            if ( damage < 5  ) damage = 5;
             // Remove HP
             _healthPoint -= damage;
 
