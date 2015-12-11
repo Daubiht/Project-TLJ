@@ -198,21 +198,21 @@ namespace GraphicalInterface
         //____Method to END THE FIGHT
         public void EndFight()
         {
-            // DEFEAT If all members dead, we create a game over screen
+            // DEFEAT SCREEN If all members dead
             if ( _fight.AreAllMembersDead == true )
             {
                 // DECREASE basic stats of members because of their stuff
                 IncreaseBasicsStatsThanksStuff(_team, false);
-                EndFight EF = new EndFight(_context);
-                _context.ChangeUC(EF, false);
+                EndFightDefeat EFDefeat = new EndFightDefeat(_context);
+                _context.ChangeUC(EFDefeat, false);
             }
-            // VICTORY If all monster dead, we create a victory screen
+            // VICTORY SCREEN If all monster dead
             else if ( _fight.AreAllMonstersDead == true )
             {
                 // DECREASE basic stats of members because of their stuff
                 IncreaseBasicsStatsThanksStuff(_team, false);
-                EndFight EF = new EndFight(_context);
-                _context.ChangeUC(EF, false);
+                EndFightVictory EFVictory = new EndFightVictory(_context);
+                _context.ChangeUC(EFVictory, false);
             }
         }
         //____Method to INCREASE or DECREASE the basic stattistics of a member thanks to his equiped stuff
@@ -234,17 +234,17 @@ namespace GraphicalInterface
             // We DECREASE the basic stats, usefull when we FINISH THE FIGHT
             else if ( Equiped == false )
             {
-                foreach ( Character c in Team.Members )
-                {
-                    // BE CAREFULLL PUT ORIGINAL STATS IN FIGHT
-                    c.Dodge = c.OriginalStats["esquive"];
+                //foreach ( Character c in Team.Members )
+                //{
+                //    // BE CAREFULLL PUT ORIGINAL STATS IN FIGHT
+                //    c.Dodge = c.OriginalStats["esquive"];
 
-                    c.PhysicalAttack =  c.OriginalStats["attaque physique"]; 
-                    c.MagicAttack =     c.OriginalStats["attaque magique"]; 
-                    c.Robustness =      c.OriginalStats["robustesse"];
-                   if ( c.StatsStuff.ContainsKey("fatigue") ) c.Stamina = c.Stamina               - c.StatsStuff["fatigue"];
-                   if ( c.StatsStuff.ContainsKey("vie") )     c.HealthPoint = c.HealthPoint       - c.StatsStuff["vie"]; 
-                }
+                //    c.PhysicalAttack =  c.OriginalStats["attaque physique"]; 
+                //    c.MagicAttack =     c.OriginalStats["attaque magique"]; 
+                //    c.Robustness =      c.OriginalStats["robustesse"];
+                //   if ( c.StatsStuff.ContainsKey("fatigue") ) c.Stamina = c.Stamina               - c.StatsStuff["fatigue"];
+                //   if ( c.StatsStuff.ContainsKey("vie") )     c.HealthPoint = c.HealthPoint       - c.StatsStuff["vie"]; 
+                //}
             }
         }
         public List<PanelCharacter> GetCharacterPanel

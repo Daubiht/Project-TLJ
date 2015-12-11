@@ -1,6 +1,6 @@
 ﻿namespace GraphicalInterface
 {
-    partial class EndFight
+    partial class EndFightDefeat
     {
         /// <summary> 
         /// Variable nécessaire au concepteur.
@@ -28,31 +28,44 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonNext = new System.Windows.Forms.Button();
+            this.labelDefeat = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // button1
+            // buttonNext
             // 
-            this.button1.Location = new System.Drawing.Point(51, 89);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(289, 231);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonNext.Location = new System.Drawing.Point(307, 354);
+            this.buttonNext.Name = "buttonNext";
+            this.buttonNext.Size = new System.Drawing.Size(75, 23);
+            this.buttonNext.TabIndex = 0;
+            this.buttonNext.Text = "Suivant";
+            this.buttonNext.UseVisualStyleBackColor = true;
             // 
-            // EndFight
+            // labelDefeat
+            // 
+            this.labelDefeat.AutoSize = true;
+            this.labelDefeat.Location = new System.Drawing.Point(142, 58);
+            this.labelDefeat.Name = "labelDefeat";
+            this.labelDefeat.Size = new System.Drawing.Size(52, 13);
+            this.labelDefeat.TabIndex = 1;
+            this.labelDefeat.Text = "DEFAITE";
+            // 
+            // EndFightDefeat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.button1);
-            this.Name = "EndFight";
-            this.Size = new System.Drawing.Size(428, 453);
+            this.Controls.Add(this.labelDefeat);
+            this.Controls.Add(this.buttonNext);
+            this.Name = "EndFightDefeat";
+            this.Size = new System.Drawing.Size(400, 400);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonNext;
+        private System.Windows.Forms.Label labelDefeat;
     }
 }

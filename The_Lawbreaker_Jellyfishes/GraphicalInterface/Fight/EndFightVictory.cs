@@ -9,14 +9,13 @@ using System.Windows.Forms;
 
 namespace GraphicalInterface
 {
-    public partial class EndFight : UserControl
+    public partial class EndFightVictory : UserControl
     {
         MainForm _context;
-
-        public EndFight(MainForm context)
+        public EndFightVictory(MainForm Context)
         {
             InitializeComponent();
-            _context = context;
+            _context = Context;
         }
     }
 }

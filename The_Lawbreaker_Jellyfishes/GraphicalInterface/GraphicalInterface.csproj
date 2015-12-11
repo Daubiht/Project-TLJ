@@ -45,17 +45,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Fight\EndFightDefeat.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Fight\EndFightDefeat.Designer.cs">
+      <DependentUpon>EndFightDefeat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fight\EndFightVictory.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Fight\EndFightVictory.Designer.cs">
+      <DependentUpon>EndFightVictory.cs</DependentUpon>
+    </Compile>
     <Compile Include="Menu\Team\FiltredInventoryForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Fight\EndFight.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
     <Compile Include="Menu\Team\FiltredInventoryForm.Designer.cs">
       <DependentUpon>FiltredInventoryForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Fight\EndFight.Designer.cs">
-      <DependentUpon>EndFight.cs</DependentUpon>
     </Compile>
     <Compile Include="Menu\Team\DeadMan.cs">
       <SubType>UserControl</SubType>
@@ -248,8 +254,11 @@
     <Compile Include="Menu\Team\SkillsDisplay.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <EmbeddedResource Include="Fight\EndFight.resx">
-      <DependentUpon>EndFight.cs</DependentUpon>
+    <EmbeddedResource Include="Fight\EndFightDefeat.resx">
+      <DependentUpon>EndFightDefeat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fight\EndFightVictory.resx">
+      <DependentUpon>EndFightVictory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu\Team\DeadMan.resx">
       <DependentUpon>DeadMan.cs</DependentUpon>

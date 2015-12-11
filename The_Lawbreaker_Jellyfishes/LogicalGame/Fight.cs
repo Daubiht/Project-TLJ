@@ -75,11 +75,19 @@ namespace LogicalGame
         // Check if all MEMBERS are DEAD
         public void IsAllMemberDie()
         {
+            // if localBool == true, it means all the team is dead
+            bool localBool = true;
             foreach ( Character c in _team.Members)
             {
-                _areAllMembersDead = true;
-                if ( c.isAlive == true ) _areAllMembersDead = false; // False means "No there is still a member alive"
+                if ( c.isAlive == true )
+                {
+                    // False means "No there is still a member alive"
+                    _areAllMembersDead = false;
+                    localBool = false;
+                }
             }
+            // if localBool == true, it means all the team is dead
+            if ( localBool == true ) _areAllMembersDead = true;
         }
         // Every monster attack
         public bool MonsterAttack()
