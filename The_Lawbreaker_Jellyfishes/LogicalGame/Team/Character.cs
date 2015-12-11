@@ -311,13 +311,43 @@ namespace LogicalGame
             if (_stuffs.ContainsKey(place) && _stuffs[place] != null) UnwearItem(place);
             _team.Invent.RemoveItem(item);
             _stuffs[place] = item;
+
+            foreach (string effect in item.GetStats.Keys)
+            {
+                if (effect == "vie")
+                {
+                    _maxHealthPoint += item.GetStats["vie"] * 10;
+                    if (_maxHealthPoint == _healthPoint) _healthPoint += item.GetStats["vie"] * 10;
+                }
+                else if (effect == "fatigue")
+                {
+                    _maxStaminaPoint += item.GetStats["fatigue"];
+                    if (_maxHealthPoint == _healthPoint) _healthPoint += item.GetStats["fatigue"];
+                }
+            }
+
             return true;
         }
 
         public void UnwearItem (string type)
         {
+            Item item = _stuffs[type];
             _team.Invent.AddItem(_stuffs[type], 1);
             _stuffs[type] = null;
+
+            foreach (string effect in item.GetStats.Keys)
+            {
+                if (effect == "vie")
+                {
+                    _maxHealthPoint -= item.GetStats["vie"] * 10;
+                    if (_maxHealthPoint == _healthPoint) _healthPoint -= item.GetStats["vie"] * 10;
+                }
+                else if (effect == "fatigue")
+                {
+                    _maxStaminaPoint -= item.GetStats["fatigue"];
+                    if (_maxHealthPoint == _healthPoint) _healthPoint -= item.GetStats["fatigue"];
+                }
+            }
         }
 
         public int LevelUp(int num)
