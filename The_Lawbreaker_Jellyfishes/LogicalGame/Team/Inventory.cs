@@ -113,5 +113,10 @@ namespace LogicalGame
                 return w;
             }
         }
+
+        public Team Context
+        {
+            get { return _context; }
+        }
     }
 }

@@ -32,6 +32,7 @@ namespace GraphicalInterface
             toolTip.ReshowDelay = 500;
             toolTip.ShowAlways = true;
 
+            LRace.Text = c.Race;
             LLevel.Text = "Niveau " + c.Level;
             LXP.Text = c.CurentXp + " / " + c.NextLevel;
             LName.Text = c.Name;

@@ -37,6 +37,19 @@ namespace GraphicalInterface
 
         }
 
+        private double countReduce ()
+        {
+            int count = 0;
+            foreach (Character chara in _invent.Context.Members)
+            {
+                if (chara.Race == "Human" || chara.Race == "human" || chara.Race == "Humain")
+                {
+                    count++;
+                }
+            }
+            return count * 0.05;
+        }
+
         internal void Sell_Click(object sender, EventArgs e)
         {
             Button button = (Button)sender;
@@ -59,7 +72,7 @@ namespace GraphicalInterface
             }
             else
             {
-                LError.Text = "Hum...il y a un soucis. C'est pluôt génant";
+                LError.Text = "Hum...il y a un soucis. C'est plutôt génant";
                 LError.Visible = true;
             }
 
@@ -104,7 +117,7 @@ namespace GraphicalInterface
                 UCItem.ItemQuantityInvent = "x " + items[i].ToString();
                 UCItem.ItemQuantityInventVisible = true;
 
-                UCItem.ItemPrice = "" + item.GetValue + " PO";
+                UCItem.ItemPrice = (int)Math.Round(item.GetValue*0.8) + (int)Math.Round(countReduce()*0.8*item.GetValue) + " PO";
 
                 string infoItem = i.GetName + " " + "(" + i.Type + ")" + Environment.NewLine + i.GetDescription + Environment.NewLine + "Valeur : " + i.GetValue + Environment.NewLine + "Poids : " + i.GetWeight;
 
@@ -164,7 +177,7 @@ namespace GraphicalInterface
 
                 UCItem.ItemQuantityInventVisible = false;
 
-                UCItem.ItemPrice = "" + items[i].GetValue + " PO";
+                UCItem.ItemPrice = items[i].GetValue - (int)Math.Round(countReduce() * item.GetValue) + " PO";
 
                 string infoItem = items[i].GetName + " " + "(" + items[i].Type + ")" + Environment.NewLine + items[i].GetDescription + Environment.NewLine + "Valeur : " + items[i].GetValue + Environment.NewLine + "Poids : " + items[i].GetWeight;
 

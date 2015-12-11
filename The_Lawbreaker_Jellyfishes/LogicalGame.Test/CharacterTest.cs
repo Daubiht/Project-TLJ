@@ -52,6 +52,7 @@ namespace LogicalGame.Test
         public void A_perso_can_have_skills()
         {
             Character p1 = new Character("George", "Dwarf", true);
+            p1.LevelUp(1);
             Skill s1 = new Skill("Attaque", "", null, 0, 1, null, new int[4]);
 
             p1.AddSkill("Attaque", s1);
@@ -95,20 +96,23 @@ namespace LogicalGame.Test
 
             Assert.AreEqual(s1, p1.AddSkill(s1.Name, s1));
 
-           
-            p1.Hurt(50);
-            Assert.AreEqual(50, p1.HealthPoint);
+            int health = p1.HealthPoint;
+
+            p1.HealthPoint = 50;
+            Assert.AreEqual(health - 50, p1.HealthPoint);
             p1.UseConsumable(i1);
-            Assert.AreEqual(75, p1.HealthPoint);
+            Assert.AreEqual(health - 50 + 25, p1.HealthPoint);
 
             p1.isAlive = false;
             p1.UseConsumable(i3);
             Assert.IsTrue(p1.isAlive);
 
+            int stamina = p1.StaminaPoint;
+
             p1.UseSkill(s1, p1);
-            Assert.AreEqual(50, p1.StaminaPoint);
+            Assert.AreEqual(stamina - 50, p1.StaminaPoint);
             p1.UseConsumable(i2);
-            Assert.AreEqual(75, p1.StaminaPoint);
+            Assert.AreEqual(stamina - 50 + 25, p1.StaminaPoint);
 
         }
     }

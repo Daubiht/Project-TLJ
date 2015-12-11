@@ -149,6 +149,7 @@ namespace LogicalGame
         public int HealthPoint
         {
             get { return _healthPoint; }
+            set { _healthPoint = value; }
         }
 
         public int StaminaPoint
@@ -339,7 +340,7 @@ namespace LogicalGame
         {
             int[] stat = skill.statRequired;
 
-            if (_statsPoint <= 0)
+            if (_skillPoint >= 0)
             {
                 if (stat == null || (stat[0] <= _physicalAttack && stat[1] <= _magicAttack && stat[2] <= _health && stat[3] <= _robustness && stat[4] <= _stamina && stat[5] <= _dodge))
                 {

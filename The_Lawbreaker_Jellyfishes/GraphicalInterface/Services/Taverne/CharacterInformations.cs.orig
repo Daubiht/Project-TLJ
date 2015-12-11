@@ -48,7 +48,7 @@ namespace Services
             LDodge.Text = c.Dodge.ToString();
             LPhysical.Text = c.PhysicalAttack.ToString();
             LMagic.Text = c.MagicAttack.ToString();
-
+            label8.Text = c.Race;
         }
 
 
@@ -57,10 +57,14 @@ namespace Services
             GraphicalInterface.Taverne uc = new GraphicalInterface.Taverne(t, _contextForm, _listCha);
             _contextForm.ChangeUC(uc, true, true);
         }
+<<<<<<< HEAD
+=======
+
         private void BSkills_Click(object sender, EventArgs e)
         {
             skillsForm skillsform = new skillsForm(c);
             skillsform.ShowDialog();
         }
+>>>>>>> Corrections_and_ameliorations_Léo
     }
 }

@@ -22,6 +22,20 @@ namespace LogicalGame
 
         // Methodes
 
+        //Count of Reduce
+        private double countReduce()
+        {
+            int count = 0;
+            foreach (Character chara in _invent.Context.Members)
+            {
+                if (chara.Race == "Human" || chara.Race == "human" || chara.Race == "Humain")
+                {
+                    count++;
+                }
+            }
+            return count * 0.05;
+        }
+
         // Buy an item
         public void BuyItems(Item ItemBought, int quantity)
         { 
@@ -35,7 +49,7 @@ namespace LogicalGame
                 if (_invent.MaxWeight >= compare )
                 {
                     _invent.AddItem(ItemBought, quantity);
-                    _invent.RemoveGold(totalPrice);
+                    _invent.RemoveGold(totalPrice - (int)(Math.Round(countReduce()*totalPrice)));
                 }
             }
         }
@@ -43,7 +57,7 @@ namespace LogicalGame
         // Sell an item
         public void SellItems(Item ItemSold)
         {
-            _invent.AddGold(Convert.ToInt32(ItemSold.GetValue * 0.8));
+            _invent.AddGold(Convert.ToInt32(ItemSold.GetValue * 0.8) + (int)(Math.Round(countReduce() * Convert.ToInt32(ItemSold.GetValue * 0.8))));
             _invent.RemoveItem(ItemSold);
         }
 

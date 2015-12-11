@@ -13,6 +13,7 @@ namespace LogicalGame.Test
             Skill slash = new Skill("slash", "Attaque", null,1,1,null,null);
 
             Character p = new Character("lol", "Dwarf", true);
+            p.LevelUp(1);
 
             Assert.AreEqual( slash, p.AddSkill(slash.Name, slash));
             Assert.AreEqual(null, p.AddSkill(slash.Name, slash));
@@ -26,6 +27,7 @@ namespace LogicalGame.Test
             Skill slash = new Skill("slash", "Attaque", null, 1, 1, null, new int[] { 0, 10 });
 
             Character p = new Character("lol", "Dwarf", true);
+            p.LevelUp(1);
 
             Assert.AreEqual(slash, p.AddSkill(slash.Name, slash));
 
@@ -40,6 +42,7 @@ namespace LogicalGame.Test
             Skill slash = new Skill("slash", "Attaque", new int[] { 15, 0, 0, 0, 0, 0 }, 1, 1, null, new int[] { 0, 10 });
 
             Character p = new Character("lol", "Dwarf", true);
+            p.LevelUp(1);
 
             Assert.AreEqual(null, p.AddSkill(slash.Name, slash));
             p.StatsUp(10, 0, 0, 0, 0, 0);
@@ -52,6 +55,7 @@ namespace LogicalGame.Test
             Skill slash = new Skill("slash", "Attaque", null, 1, 0, null, new int[] { 0, 10 });
 
             Character p = new Character("lol", "Dwarf", true);
+            p.LevelUp(1);
 
             int stamina = p.StaminaPoint;
 
@@ -79,6 +83,7 @@ namespace LogicalGame.Test
             Skill s3 = new Skill("slash3", "Attaque", null, 2, 0, null, new int[] { 0, 10 });
 
             Character p = new Character("lol", "Dwarf", true);
+            p.LevelUp(1);
 
             int stamina = p.StaminaPoint;
 
@@ -98,6 +103,7 @@ namespace LogicalGame.Test
             Skill s1 = new Skill("s4", "Attaque", null, 0, 0, null, new int[] { 0, 10 });
 
             Character p = new Character("lol", "Dwarf", true);
+            p.LevelUp(1);
 
             SkillList sl = new SkillList();
 
