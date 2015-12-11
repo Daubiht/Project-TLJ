@@ -23,6 +23,22 @@ namespace GraphicalInterface
 
         private void World_Load(object sender, EventArgs e)
         {
+            if (!(_w.ActualPosition is MapIsland))
+            {
+                if (_w.ActualPosition is MapZone)
+                {
+                    _w.ActualPosition = ((MapZone)_w.ActualPosition).Context.MapIsland;
+                }
+                else if (_w.ActualPosition is MapInstance)
+                {
+                    _w.ActualPosition = ((MapInstance)_w.ActualPosition).MapIsland;
+                }
+                else if (_w.ActualPosition is MapCity)
+                {
+                    _w.ActualPosition = ((MapCity)_w.ActualPosition).ActualIsland;
+                }
+            }
+
             foreach (MapIsland island in _w.Islands.Values)
             {
                 Button isl_Button = new Button();
@@ -34,7 +50,7 @@ namespace GraphicalInterface
                 isl_Button.Click += new EventHandler(Isl_Click);
                 Controls.Add(isl_Button);
 
-                if(island == _w.ActualPosition) isl_Button.ForeColor = SystemColors.HotTrack;
+                if (island == _w.ActualPosition) isl_Button.ForeColor = SystemColors.HotTrack;
             }
         }
 

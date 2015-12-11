@@ -141,7 +141,7 @@ namespace LogicalGame
         public string[] EventElder()
         {
             string[] riddles = File.ReadAllLines(@"../../../Ressources/enigme.txt");
-
+            _rand = new Random();
             int Wanted = _rand.Next(0, riddles.Length / 4);
 
             string[] riddleAndAnswer = { riddles[Wanted * 4], riddles[Wanted * 4 + 1], riddles[Wanted * 4 + 2], riddles[Wanted * 4 + 3] };

@@ -33,7 +33,7 @@ namespace LogicalGame
             int statsPoint;
             bool isFemale = false;
             int statValue;
-            string[] races = new string[] { "Dwarf", "Elves", "Human", "Giant" };
+            string[] races = new string[] { "NAIN", "ELFE", "HUMAIN", "GEANT" };
             Character perso;
             Random ran;
             if(world != null)

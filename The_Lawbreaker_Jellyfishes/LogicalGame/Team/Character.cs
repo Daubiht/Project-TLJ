@@ -70,15 +70,16 @@ namespace LogicalGame
             _statsPoint = 10;
             _skillPoint = 1;
 
-            _maxStaminaPoint = 100;
+            _maxStaminaPoint = 5;
             _maxHealthPoint = 100;
-            _staminaPoint = 100;
+            _staminaPoint = 5;
             _healthPoint = 100;
 
             _frontPosition = true;
 
             _skills = new Dictionary<string, Skill>();
             _stuffs = new Dictionary<string, Item>();
+
         }
 
         //==================================================
@@ -318,16 +319,19 @@ namespace LogicalGame
 
         public void EarnXp (int xp)
         {
-            while (xp > _nextLevel)
+            if (_isAlive)
             {
-                xp -= _nextLevel;
-                _level++;
-                _skillPoint += 1;
-                _statsPoint += 5;
-                _staminaPoint = _maxStaminaPoint;
-                _healthPoint = _maxHealthPoint;
+                while (xp > _nextLevel)
+                {
+                    xp -= _nextLevel;
+                    _level++;
+                    _skillPoint += 1;
+                    _statsPoint += 5;
+                    _staminaPoint = _maxStaminaPoint;
+                    _healthPoint = _maxHealthPoint;
+                }
+                _currentXp += xp;
             }
-            _currentXp += xp;
 
         }
          
@@ -396,8 +400,8 @@ namespace LogicalGame
                 _healthPoint += H * 10;
                 _robustness += R;
                 _stamina += S;
-                _staminaPoint += S * 10;
-                _maxStaminaPoint += S * 10;
+                _staminaPoint += S;
+                _maxStaminaPoint += S;
                 _dodge += D;
             }
             return new int[] { _physicalAttack, _magicAttack, _health, _robustness, _stamina, _dodge };
@@ -522,7 +526,10 @@ namespace LogicalGame
                 throw new ArgumentException();
             }
 
-            _healthPoint += heal;
+            if(isAlive)
+            {
+                _healthPoint += heal;
+            }
 
             return _healthPoint;
         }

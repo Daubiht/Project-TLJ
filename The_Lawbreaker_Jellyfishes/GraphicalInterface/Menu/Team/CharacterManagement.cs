@@ -297,7 +297,7 @@ namespace GraphicalInterface
         private void BKill_Click(object sender, EventArgs e)
         {
             c.isAlive = false;
-            c.Hurt(100000);
+            c.Hurt(10000);
         }
     }
 }

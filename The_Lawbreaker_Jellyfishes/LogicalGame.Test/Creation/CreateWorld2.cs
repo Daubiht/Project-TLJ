@@ -83,6 +83,7 @@ namespace LogicalGame.Test
             merch1.PointY = 325;
             merch1.Invent = world.Team.Invent;
 
+            itemsSell.Add(listI.Items[1]);
             Merchant merch2 = new Merchant("herboriste", itemsSell);
             merch2.PointX = 250;
             merch2.PointY = 325;
