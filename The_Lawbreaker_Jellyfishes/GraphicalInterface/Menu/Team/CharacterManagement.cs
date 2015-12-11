@@ -31,10 +31,20 @@ namespace GraphicalInterface
             toolTip.InitialDelay = 250;
             toolTip.ReshowDelay = 500;
             toolTip.ShowAlways = true;
+            toolTip.AutoPopDelay = 32000;
 
+            string infoItem = c.HealthPoint + "/" + c.MaxHealthPoint;
+            toolTip.SetToolTip(PBHealth, infoItem);
+            infoItem = c.StaminaPoint + "/" + c.MaxStaminaPoint;
+            toolTip.SetToolTip(PBStamina, infoItem);
+
+            PBHealth.Maximum = c.MaxHealthPoint;
+            PBHealth.Value = c.HealthPoint;
+            PBStamina.Maximum = c.MaxStaminaPoint;
+            PBStamina.Value = c.StaminaPoint;
             LRace.Text = c.Race;
             LLevel.Text = "Niveau " + c.Level;
-            LXP.Text = c.CurentXp + " / " + c.NextLevel;
+            LXP.Text = c.CurentXp + " / " + c.NextLevel+" exp";
             LName.Text = c.Name;
             LHealth.Text = c.Health.ToString();
             LStamina.Text = c.Stamina.ToString();
@@ -42,6 +52,9 @@ namespace GraphicalInterface
             LDodge.Text = c.Dodge.ToString();
             LPhysical.Text = c.PhysicalAttack.ToString();
             LMagic.Text = c.MagicAttack.ToString();
+
+            ModifyProgressBarColor.SetState(PBHealth, 2); // 1 = green, 2 = yellow, 3 = red
+            ModifyProgressBarColor.SetState(PBStamina, 3); // 1 = green, 2 = yellow, 3 = red
 
             int HealthStatStuff = 0;
             int StaminaStatStuff = 0;

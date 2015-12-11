@@ -79,6 +79,10 @@
             this.button3 = new System.Windows.Forms.Button();
             this.BKill = new System.Windows.Forms.Button();
             this.LRace = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.PBHealth = new System.Windows.Forms.ProgressBar();
+            this.label9 = new System.Windows.Forms.Label();
+            this.PBStamina = new System.Windows.Forms.ProgressBar();
             this.panel1.SuspendLayout();
             this.PPlus.SuspendLayout();
             this.SuspendLayout();
@@ -87,7 +91,7 @@
             // 
             this.LName.AutoSize = true;
             this.LName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LName.Location = new System.Drawing.Point(157, 19);
+            this.LName.Location = new System.Drawing.Point(28, 3);
             this.LName.Name = "LName";
             this.LName.Size = new System.Drawing.Size(68, 25);
             this.LName.TabIndex = 0;
@@ -105,7 +109,7 @@
             // LXP
             // 
             this.LXP.AutoSize = true;
-            this.LXP.Location = new System.Drawing.Point(164, 62);
+            this.LXP.Location = new System.Drawing.Point(125, 62);
             this.LXP.Name = "LXP";
             this.LXP.Size = new System.Drawing.Size(21, 13);
             this.LXP.TabIndex = 2;
@@ -514,7 +518,7 @@
             // Gauche
             // 
             this.Gauche.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Gauche.Location = new System.Drawing.Point(267, 186);
+            this.Gauche.Location = new System.Drawing.Point(267, 211);
             this.Gauche.Name = "Gauche";
             this.Gauche.Size = new System.Drawing.Size(35, 35);
             this.Gauche.TabIndex = 16;
@@ -524,7 +528,7 @@
             // 
             // Corps
             // 
-            this.Corps.Location = new System.Drawing.Point(308, 186);
+            this.Corps.Location = new System.Drawing.Point(308, 211);
             this.Corps.Name = "Corps";
             this.Corps.Size = new System.Drawing.Size(35, 35);
             this.Corps.TabIndex = 17;
@@ -534,7 +538,7 @@
             // 
             // Droite
             // 
-            this.Droite.Location = new System.Drawing.Point(349, 186);
+            this.Droite.Location = new System.Drawing.Point(349, 211);
             this.Droite.Name = "Droite";
             this.Droite.Size = new System.Drawing.Size(35, 35);
             this.Droite.TabIndex = 18;
@@ -544,7 +548,7 @@
             // 
             // Tete
             // 
-            this.Tete.Location = new System.Drawing.Point(308, 145);
+            this.Tete.Location = new System.Drawing.Point(308, 170);
             this.Tete.Name = "Tete";
             this.Tete.Size = new System.Drawing.Size(35, 35);
             this.Tete.TabIndex = 19;
@@ -554,7 +558,7 @@
             // 
             // Jambes
             // 
-            this.Jambes.Location = new System.Drawing.Point(308, 227);
+            this.Jambes.Location = new System.Drawing.Point(308, 252);
             this.Jambes.Name = "Jambes";
             this.Jambes.Size = new System.Drawing.Size(35, 35);
             this.Jambes.TabIndex = 20;
@@ -564,7 +568,7 @@
             // 
             // Cou
             // 
-            this.Cou.Location = new System.Drawing.Point(349, 145);
+            this.Cou.Location = new System.Drawing.Point(349, 170);
             this.Cou.Name = "Cou";
             this.Cou.Size = new System.Drawing.Size(35, 35);
             this.Cou.TabIndex = 21;
@@ -574,7 +578,7 @@
             // 
             // Retour
             // 
-            this.Retour.Location = new System.Drawing.Point(321, 362);
+            this.Retour.Location = new System.Drawing.Point(321, 3);
             this.Retour.Name = "Retour";
             this.Retour.Size = new System.Drawing.Size(76, 30);
             this.Retour.TabIndex = 22;
@@ -584,7 +588,7 @@
             // 
             // BFired
             // 
-            this.BFired.Location = new System.Drawing.Point(308, 57);
+            this.BFired.Location = new System.Drawing.Point(308, 84);
             this.BFired.Name = "BFired";
             this.BFired.Size = new System.Drawing.Size(75, 23);
             this.BFired.TabIndex = 23;
@@ -594,7 +598,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(308, 97);
+            this.button3.Location = new System.Drawing.Point(308, 122);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 24;
@@ -604,7 +608,7 @@
             // 
             // BKill
             // 
-            this.BKill.Location = new System.Drawing.Point(295, 296);
+            this.BKill.Location = new System.Drawing.Point(292, 313);
             this.BKill.Name = "BKill";
             this.BKill.Size = new System.Drawing.Size(75, 23);
             this.BKill.TabIndex = 25;
@@ -615,16 +619,53 @@
             // LRace
             // 
             this.LRace.AutoSize = true;
-            this.LRace.Location = new System.Drawing.Point(172, 44);
+            this.LRace.Location = new System.Drawing.Point(40, 28);
             this.LRace.Name = "LRace";
             this.LRace.Size = new System.Drawing.Size(33, 13);
             this.LRace.TabIndex = 26;
             this.LRace.Text = "Race";
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(140, 3);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(28, 13);
+            this.label8.TabIndex = 28;
+            this.label8.Text = "Vie :";
+            // 
+            // PBHealth
+            // 
+            this.PBHealth.Location = new System.Drawing.Point(183, 3);
+            this.PBHealth.Maximum = 147;
+            this.PBHealth.Name = "PBHealth";
+            this.PBHealth.Size = new System.Drawing.Size(100, 16);
+            this.PBHealth.TabIndex = 27;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(120, 31);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(48, 13);
+            this.label9.TabIndex = 30;
+            this.label9.Text = "Fatigue :";
+            // 
+            // PBStamina
+            // 
+            this.PBStamina.Location = new System.Drawing.Point(183, 28);
+            this.PBStamina.Name = "PBStamina";
+            this.PBStamina.Size = new System.Drawing.Size(100, 16);
+            this.PBStamina.TabIndex = 29;
+            // 
             // CharacterManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.PBStamina);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.PBHealth);
             this.Controls.Add(this.LRace);
             this.Controls.Add(this.BKill);
             this.Controls.Add(this.button3);
@@ -706,5 +747,9 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button BKill;
         private System.Windows.Forms.Label LRace;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ProgressBar PBHealth;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ProgressBar PBStamina;
     }
 }
