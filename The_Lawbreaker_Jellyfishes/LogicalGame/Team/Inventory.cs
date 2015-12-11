@@ -90,9 +90,12 @@ namespace LogicalGame
             get
             {
                 int finalMaxWeight = _MaxWeight;
-                foreach (Character c in _context.Members)
+                if(_context != null)
                 {
-                    if (c.Race == "GEANT") finalMaxWeight += 30;
+                    foreach (Character c in _context.Members)
+                    {
+                        if (c.Race == "GEANT") finalMaxWeight += 30;
+                    }
                 }
                 return finalMaxWeight;
             }

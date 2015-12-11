@@ -31,7 +31,7 @@ namespace LogicalGame.Test
                 }
             }
 
-            Assert.AreEqual("Dague en bois", ((Merchant)world.Islands["island1"].IslandCity.Services[0]).GetItemsAvailable[0].GetName);
+            Assert.AreEqual("Dague en bois", ((Merchant)world.Islands["island1"].IslandCity.Services[1]).GetItemsAvailable[0].GetName);
         }
 
         [Test]
