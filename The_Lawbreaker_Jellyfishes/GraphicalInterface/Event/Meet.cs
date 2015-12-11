@@ -86,7 +86,7 @@ namespace GraphicalInterface
                 //bandit
                 label5.Text = "Alte là ! La bourse ou la vie ?!";
                 label1.Text = "Fuir";
-                label2.Text = "Oui, tenez " +_world.Team.Invent.GetGold * 25 / 100 + " pièce d'or.";
+                label2.Text = "Oui, tenez " +_world.Team.Invent.GetGold * 25 / 100 + " pièces d'or.";
                 label3.Text = "Jamais !";
                 pictureBox1.BackgroundImage = Image.FromFile(@"../../../Ressources/bandit.jpg");
             }

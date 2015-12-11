@@ -43,7 +43,7 @@
             // 
             // Retour
             // 
-            this.Retour.Location = new System.Drawing.Point(322, 372);
+            this.Retour.Location = new System.Drawing.Point(322, 3);
             this.Retour.Name = "Retour";
             this.Retour.Size = new System.Drawing.Size(75, 23);
             this.Retour.TabIndex = 1;

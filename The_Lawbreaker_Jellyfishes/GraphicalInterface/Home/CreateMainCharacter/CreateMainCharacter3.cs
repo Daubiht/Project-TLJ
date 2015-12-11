@@ -32,7 +32,7 @@ namespace GraphicalInterface
             toolTipVitality.ReshowDelay = 500;
             toolTipVitality.ShowAlways = true;
             toolTipVitality.AutoPopDelay = 32000; // We display informations during 32 seconds
-            toolTipVitality.SetToolTip(RBVitality, "Passif" + Environment.NewLine + "Description :  +X PV" + Environment.NewLine + "Coût : aucun" + Environment.NewLine +
+            toolTipVitality.SetToolTip(RBVitality, "Passif" + Environment.NewLine + "Description :  +30 PV" + Environment.NewLine + "Coût : aucun" + Environment.NewLine +
                 "Position : toutes" + Environment.NewLine + "Cible : soi-même");
 
             ToolTip toolTipDefensePosition = new ToolTip();
@@ -40,7 +40,7 @@ namespace GraphicalInterface
             toolTipDefensePosition.ReshowDelay = 500;
             toolTipDefensePosition.ShowAlways = true;
             toolTipDefensePosition.AutoPopDelay = 32000;
-            toolTipDefensePosition.SetToolTip(RBDefensePosition, "Actif" + Environment.NewLine + "Description : plus X armure pendant X tours" + Environment.NewLine + "Coût : X fatigue" + Environment.NewLine +
+            toolTipDefensePosition.SetToolTip(RBDefensePosition, "Actif" + Environment.NewLine + "Description : +5 armure pendant 3 tours" + Environment.NewLine + "Coût : 1 fatigue" + Environment.NewLine +
     "Position : toutes" + Environment.NewLine + "Cible : soi-même");
 
             ToolTip toolTipEffort = new ToolTip();
@@ -48,7 +48,7 @@ namespace GraphicalInterface
             toolTipEffort.ReshowDelay = 500;
             toolTipEffort.ShowAlways = true;
             toolTipEffort.AutoPopDelay = 32000;
-            toolTipEffort.SetToolTip(RBEffort, "Actif" + Environment.NewLine + "Description : redonne X fatigue" + Environment.NewLine + "Coût : X pv" + Environment.NewLine +
+            toolTipEffort.SetToolTip(RBEffort, "Passif" + Environment.NewLine + "Description : +2 fatigue" + Environment.NewLine + "Coût : aucun" + Environment.NewLine +
 "Position : toutes" + Environment.NewLine + "Cible : soi-même");
 
             ToolTip toolTipConcentredHit = new ToolTip();
@@ -56,7 +56,7 @@ namespace GraphicalInterface
             toolTipConcentredHit.ReshowDelay = 500;
             toolTipConcentredHit.ShowAlways = true;
             toolTipConcentredHit.AutoPopDelay = 32000;
-            toolTipConcentredHit.SetToolTip(RBConcentredHit, "Actif" + Environment.NewLine + "Description : 150% attaque de base" + Environment.NewLine + "Coût : X fatigue" + Environment.NewLine +
+            toolTipConcentredHit.SetToolTip(RBConcentredHit, "Actif" + Environment.NewLine + "Description : 150% attaque de base" + Environment.NewLine + "Coût : 1 fatigue" + Environment.NewLine +
 "Position : toutes" + Environment.NewLine + "Cible : 1 ennemi");
 
             ToolTip toolTipEnergeticShot = new ToolTip();
@@ -64,7 +64,7 @@ namespace GraphicalInterface
             toolTipEnergeticShot.ReshowDelay = 500;
             toolTipEnergeticShot.ShowAlways = true;
             toolTipEnergeticShot.AutoPopDelay = 32000;
-            toolTipEnergeticShot.SetToolTip(RBEnergeticShot, "Actif" + Environment.NewLine + "Description : 150% attaque magique" + Environment.NewLine + "Coût : X fatigue" + Environment.NewLine +
+            toolTipEnergeticShot.SetToolTip(RBEnergeticShot, "Actif" + Environment.NewLine + "Description : 150% attaque magique" + Environment.NewLine + "Coût : 1 fatigue" + Environment.NewLine +
 "Position : toutes" + Environment.NewLine + "Cible : 1 ennemi");
 
             ToolTip toolTipInstinct = new ToolTip();
@@ -72,7 +72,7 @@ namespace GraphicalInterface
             toolTipInstinct.ReshowDelay = 500;
             toolTipInstinct.ShowAlways = true;
             toolTipInstinct.AutoPopDelay = 32000;
-            toolTipInstinct.SetToolTip(RBInstinct, "Passif" + Environment.NewLine + "Description : + X% de chance d'esquiver" + Environment.NewLine + "Coût : aucun" + Environment.NewLine +
+            toolTipInstinct.SetToolTip(RBInstinct, "Passif" + Environment.NewLine + "Description : + 3% de chance d'esquiver" + Environment.NewLine + "Coût : aucun" + Environment.NewLine +
 "Position : toutes" + Environment.NewLine + "Cible : soi-même");
         }
 
