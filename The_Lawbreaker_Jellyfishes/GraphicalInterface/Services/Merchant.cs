@@ -177,7 +177,7 @@ namespace GraphicalInterface
 
                 UCItem.ItemQuantityInventVisible = false;
 
-                UCItem.ItemPrice = items[i].GetValue - (int)Math.Round(countReduce() * item.GetValue) + " PO";
+                UCItem.ItemPrice = m.ItemToBuyPrice(item) + " PO";
 
                 string infoItem = items[i].GetName + " " + "(" + items[i].Type + ")" + Environment.NewLine + items[i].GetDescription + Environment.NewLine + "Valeur : " + items[i].GetValue + Environment.NewLine + "Poids : " + items[i].GetWeight;
 

@@ -22,6 +22,38 @@ namespace LogicalGame
 
         // Methodes
 
+        //Count of the price of an item in this merchant with the actual team
+        public int ItemToBuyPrice (Item item)
+        {
+            int price = 0;
+            Dictionary<string, List<string>> augmentation = new Dictionary<string, List<string>>();
+            bool increase = true;
+            List<string> merchantName = new List<string>();
+
+            merchantName.Add("arme");
+            merchantName.Add("jambes");
+            merchantName.Add("corps");
+            merchantName.Add("tete");
+            augmentation.Add("forgeron", merchantName);
+
+            merchantName.Clear();
+            merchantName.Add("consommable");
+            augmentation.Add("herboriste", merchantName);
+
+            merchantName.Clear();
+            augmentation.Add("Vendeur général", merchantName);
+
+            for (int i = 0; i < augmentation[_name].Count; i++)
+            {
+                if (augmentation[_name][i] == item.Type) increase = false;
+            }
+
+            if (increase == true) return (int)Math.Round(item.GetValue -item.GetValue * countReduce() + item.GetValue * 0.2);
+
+            return (int)Math.Round(item.GetValue - item.GetValue * countReduce());
+        }
+
+
         //Count of Reduce
         private double countReduce()
         {
@@ -40,7 +72,7 @@ namespace LogicalGame
         public void BuyItems(Item ItemBought, int quantity)
         { 
             // calcul the total price
-            int totalPrice = ItemBought.GetValue * quantity;
+            int totalPrice = ItemToBuyPrice(ItemBought) * quantity;
 
             // Check if the invent team has enought money
             if (totalPrice < _invent.GetGold)
