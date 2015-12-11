@@ -227,8 +227,6 @@ namespace GraphicalInterface
                     if( c.StatsStuff.ContainsKey("attaque magique") )  { c.MagicAttack = c.MagicAttack       + c.StatsStuff["attaque magique"]; }
                     if( c.StatsStuff.ContainsKey("esquive") )          { c.Dodge = c.Dodge                   + c.StatsStuff["esquive"]; }
                     if( c.StatsStuff.ContainsKey("robustesse") )       { c.HealthPoint = c.Robustness        + c.StatsStuff["robustesse"]; }
-                    if( c.StatsStuff.ContainsKey("vie") )              { c.HealthPoint = c.HealthPoint       + c.StatsStuff["vie"]; }
-                    if( c.StatsStuff.ContainsKey("fatigue") )          { c.Stamina = c.Stamina               + c.StatsStuff["fatigue"]; }
                 }
             }
             // We DECREASE the basic stats, usefull when we FINISH THE FIGHT
