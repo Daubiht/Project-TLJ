@@ -145,6 +145,7 @@ namespace GraphicalInterface
             //FightUserControl fightIG = new FightUserControl(_monsters, _team, _contextForm);
             FightUserControl fightIG = new FightUserControl(_monsters, _w.Team, _contextForm);
             _contextForm.ToMenu(fightIG, false);
+           
         }
     }
 }

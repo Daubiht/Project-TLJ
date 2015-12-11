@@ -18,11 +18,32 @@ namespace LogicalGame
         Team _team = new Team("team1");
         ListNotifications _notifs = new ListNotifications();
         Random _rand = new Random();
+        List<Character> _tavernCharacters = new List<Character>();
 
         public object ActualPosition
         {
             get { return _actualPosition; }
             set { _actualPosition = value; }
+        }
+
+        public List<Character> TavernCharacters
+        {
+            get { return _tavernCharacters; }
+            set { _tavernCharacters = value; }
+        }
+
+        public List<Character> TavernCharactersChange()
+        {
+            int newCharacterNumber = _rand.Next(2, 5);
+            Taverne rc = new Taverne();
+
+            _tavernCharacters = new List<Character>();
+            for (int i = 0; i < newCharacterNumber; i++)
+            {
+                _tavernCharacters.Add(rc.New(1, 10, this));
+            }
+
+            return _tavernCharacters;
         }
 
         public bool ChangeActualIsland(MapIsland I, bool militia)
@@ -38,6 +59,7 @@ namespace LogicalGame
                             //Provok event when a change is done
                         }
                         _actualPosition = I;
+                        TavernCharactersChange();
                         return true;
                     }
                 }
