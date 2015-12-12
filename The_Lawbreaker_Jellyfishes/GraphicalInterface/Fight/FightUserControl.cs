@@ -203,8 +203,10 @@ namespace GraphicalInterface
             {
                 // DECREASE basic stats of members because of their stuff
                 IncreaseBasicsStatsThanksStuff(_team, false);
-                EndFightDefeat EFDefeat = new EndFightDefeat(_context);
-                _context.ChangeUC(EFDefeat, false);
+                _team.MainCharacter.isAlive = true;
+                _team.MainCharacter.Heal(_team.MainCharacter.MaxHealthPoint * 5 / 100);
+                EndFightDefeat EFDefeat = new EndFightDefeat(_context, true);
+                _context.ChangeUC(EFDefeat, false, true);
             }
             // VICTORY SCREEN If all monster dead
             else if ( _fight.AreAllMonstersDead == true )
@@ -212,7 +214,7 @@ namespace GraphicalInterface
                 // DECREASE basic stats of members because of their stuff
                 IncreaseBasicsStatsThanksStuff(_team, false);
                 EndFightVictory EFVictory = new EndFightVictory(_context);
-                _context.ChangeUC(EFVictory, false);
+                _context.ChangeUC(EFVictory, false, true);
             }
         }
         //____Method to INCREASE or DECREASE the basic stattistics of a member thanks to his equiped stuff

@@ -25,7 +25,7 @@ namespace LogicalGame.Test
             island.PointY = 31;
 
             //Instance for the Island
-            MapInstance instance1 = new MapInstance(island, "island1_instance_1");
+            MapInstance instance1 = new MapInstance(island, "island1_instance_1", false);
             instance1.PointX = 130;
             instance1.PointY = 50;
 
@@ -115,7 +115,7 @@ namespace LogicalGame.Test
             island.PointY = 231;
 
             //Instance for the Island
-            instance1 = new MapInstance(island, "island2_instance_1");
+            instance1 = new MapInstance(island, "island2_instance_1", false);
             instance1.PointX = 130;
             instance1.PointY = 250;
 

@@ -86,11 +86,11 @@ namespace LogicalGame.Test
         public void A_Character_can_use_consumable_and_that_make_the_good_effect()
         {
             Character p1 = new Character("George", "Dwarf", true);
-            Item i1 = new Item("Potion de soin légers", 1, 10,  "Soigne légerement", "consumable");
+            Item i1 = new Item("Potion de soin légers", 1, 10,  "Soigne légerement", "consommable");
             i1.AddStats("heal", 25);
-            Item i2 = new Item("Potion de resurection", 1, 1000, "Redonne la vie à une personnage allié malheureusement décédé", "consumable");
+            Item i2 = new Item("Potion de resurection", 1, 1000, "Redonne la vie à une personnage allié malheureusement décédé", "consommable");
             i2.AddStats("regainStamina", 2);
-            Item i3 = new Item("Potion de Vigueur", 1, 10, "Enleve legerement la fatigue des combats", "consumable");
+            Item i3 = new Item("Potion de Vigueur", 1, 10, "Enleve legerement la fatigue des combats", "consommable");
             i3.AddStats("resurection", 0);
             Skill s1 = new Skill("test", "Attaque", null, 0, 0, null, new int[] { 0, 5 });
 

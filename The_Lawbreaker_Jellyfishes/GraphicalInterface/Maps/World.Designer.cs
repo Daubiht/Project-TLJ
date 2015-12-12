@@ -28,25 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ok = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // ok
-            // 
-            this.ok.Location = new System.Drawing.Point(193, 231);
-            this.ok.Name = "ok";
-            this.ok.Size = new System.Drawing.Size(37, 23);
-            this.ok.TabIndex = 4;
-            this.ok.Text = "ok";
-            this.ok.UseVisualStyleBackColor = true;
-            this.ok.Visible = false;
-            this.ok.Click += new System.EventHandler(this.ok_Click);
             // 
             // World
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.ok);
             this.MaximumSize = new System.Drawing.Size(400, 400);
             this.MinimumSize = new System.Drawing.Size(400, 400);
             this.Name = "World";
@@ -57,6 +44,5 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button ok;
     }
 }

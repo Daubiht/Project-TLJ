@@ -76,7 +76,7 @@ namespace LogicalGame.Test
             merchant.BuyItems(merchant.GetItemsAvailable[0], 1);
 
             // Verify if the gold was removed
-            Assert.AreEqual(190, team.Invent.GetGold);
+            Assert.AreEqual(188, team.Invent.GetGold);
 
             // Verify if the invent of the team is not empty
             Assert.IsNotEmpty(team.Invent.Inventory);
@@ -95,7 +95,7 @@ namespace LogicalGame.Test
             Assert.IsEmpty(team.Invent.Inventory);
 
             // Test if the team got gold after selling an item
-            Assert.AreEqual(198, team.Invent.GetGold);
+            Assert.AreEqual(196, team.Invent.GetGold);
 
         }
     }

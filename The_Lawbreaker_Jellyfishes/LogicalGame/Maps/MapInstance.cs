@@ -9,14 +9,17 @@ namespace LogicalGame
         readonly MapIsland _context;
         readonly string _name;
         List<MapZone> _listZones;
+        MapIsland _target;
         int _x;
         int _y;
         Random _rand;
+        bool _between;
 
-        public MapInstance(MapIsland context, string name)
+        public MapInstance(MapIsland context, string name, bool between)
         {
             _name = name;
             _context = context;
+            _between = between;
             if(_context != null)
             {
                 _rand = _context.ActualWorld.Random;
@@ -25,6 +28,17 @@ namespace LogicalGame
             {
                 _rand = new Random();
             }
+        }
+
+        public MapIsland Target
+        {
+            get { return _target; }
+            set { _target = value; }
+        }
+
+        public bool Between
+        {
+            get { return _between; }
         }
 
         public int PointX
@@ -65,7 +79,7 @@ namespace LogicalGame
                 thief = 5;
                 fight = 5;
             }
-            else if (_context == null)
+            else if (_between)
             {
                 merch = 15;
                 elder = 15;
@@ -112,7 +126,9 @@ namespace LogicalGame
 
         public bool ChangeActualZone(MapZone Z)
         {
-            MapZone actualZone = ((MapZone)_context.ActualWorld.ActualPosition);
+            MapZone actualZone = new MapZone(null, false, 0);
+            actualZone = ((MapZone)(_context).ActualWorld.ActualPosition);
+
             for (int i = 0; i < actualZone.ListLink.Count; i++)
             {
                 if (actualZone.ListLink[i] == Z)

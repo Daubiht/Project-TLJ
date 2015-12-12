@@ -17,5 +17,10 @@ namespace GraphicalInterface
             InitializeComponent();
             _context = Context;
         }
+
+        private void buttonNext_Click(object sender, EventArgs e)
+        {
+            _context.ExitMenu(this);
+        }
     }
 }

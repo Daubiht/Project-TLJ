@@ -25,7 +25,6 @@ namespace LogicalGame
         //Count of the price of an item in this merchant with the actual team
         public int ItemToBuyPrice (Item item)
         {
-            int price = 0;
             Dictionary<string, List<string>> augmentation = new Dictionary<string, List<string>>();
             bool increase = true;
             List<string> merchantName = new List<string>();

@@ -118,6 +118,7 @@
             this.MinimumSize = new System.Drawing.Size(400, 400);
             this.Name = "Meet";
             this.Size = new System.Drawing.Size(400, 400);
+            this.Load += new System.EventHandler(this.Meet_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

@@ -49,6 +49,7 @@
             this.buttonNext.TabIndex = 1;
             this.buttonNext.Text = "Suivant";
             this.buttonNext.UseVisualStyleBackColor = true;
+            this.buttonNext.Click += new System.EventHandler(this.buttonNext_Click);
             // 
             // EndFightVictory
             // 

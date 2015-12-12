@@ -32,22 +32,43 @@ namespace GraphicalInterface
 
         private void Retour_Click(object sender, EventArgs e)
         {
-            _world.ActualPosition = _instance.MapIsland;
-            Island uc = new Island(_contextForm, _world, _instance.MapIsland);
+            List<MapZone> listZones = ((MapZone)_world.ActualPosition).Context.listZones;
 
-            foreach (MapZone zone in _instance.listZones)
+            if (_instance.Between)
             {
-                zone.Visited = false;
+                if(_world.ActualPosition == listZones[listZones.Count - 1])
+                {
+                    _world.ActualPosition = _instance.Target;
+                    World uc = new World(_world, _contextForm, false);
+                    _contextForm.ChangeUC(uc, true);
+                }
+                else if(_world.ActualPosition == listZones[0])
+                {
+                    _world.ActualPosition = _instance.MapIsland;
+                    World uc = new World(_world, _contextForm, false);
+                    _contextForm.ChangeUC(uc, true);
+                }
+
+            }
+            else
+            {
+                Island uc = new Island(_contextForm, _world, _instance.MapIsland);
+                _world.ActualPosition = _instance.MapIsland;
+                _contextForm.ChangeUC(uc, true);
+
+                foreach (MapZone zone in _instance.listZones)
+                {
+                    zone.Visited = false;
+                }
             }
 
-            _contextForm.ChangeUC(uc, true);
         }
 
         private void Instance_Load(object sender, EventArgs e)
         {
             for(int i = 0; i < _instance.listZones.Count; i++)
             {
-                CreateButton("zone" + i, _instance.listZones[i].PointY, _instance.listZones[i].PointY, _instance.listZones[i]);
+                CreateButton("zone" + i, _instance.listZones[i].PointX, _instance.listZones[i].PointY, _instance.listZones[i]);
             }
             Reload();
 
@@ -70,12 +91,19 @@ namespace GraphicalInterface
         {
             List<MapZone> listZones = ((MapZone)_world.ActualPosition).Context.listZones;
 
-            if (_world.ActualPosition == listZones[0] || _world.ActualPosition == listZones[listZones.Count - 1])
+            if (_world.ActualPosition == listZones[0])
+            {
+                Retour.Text = "Retour";
+                Retour.Enabled = true;
+            }
+            else if(_world.ActualPosition == listZones[listZones.Count - 1])
             {
                 Retour.Enabled = true;
+                Retour.Text = "Rejoindre l'île";
             }
             else
             {
+                Retour.Text = "Retour";
                 Retour.Enabled = false;
             }
 
