@@ -589,20 +589,74 @@ namespace LogicalGame
                     //Check of Position of caster and target
                     if ((skill.Position == 0 && _frontPosition == true) || (skill.Position == 1 && _frontPosition == true) || (skill.Position == 2 && _frontPosition == false))
                     {
+                        if (skill.Effect != null)
+                        {
+                            _healthPoint -= skill.Cost[0];
+                            _staminaPoint -= skill.Cost[1];
+                            foreach (string name in skill.Effect.Keys)
+                            {
+                                //Apply effect of the used skill
+                                //Hit with Physical Attack
+                                if (name == "attaque physique")
+                                {
+                                    target.Hurt((skill.Effect["attaque physique"] / 100) * _physicalAttack);
+                                }
+                                //Heal with Magic Attack
+                                else if (name == "soin")
+                                {
+                                    target.Heal((skill.Effect["soin"] / 100) * _magicAttack);
+                                }
+                                //Attaque with magic attaque
+                                else if (name == "attaque magique")
+                                {
+                                    target.Hurt((skill.Effect["attaque magique"] / 100) * _magicAttack);
+                                }
+                            }
+
+                            return true;
+                        }
+                    }
+                }
+            }
+
+            return false;
+        }
+
+        public bool UseSkill(Skill skill, Monster target)
+        {
+            //Check of Target
+            if ((skill.Target == 0) || skill.Target == 1)
+            {
+                //Check of cost in Health and Stamina
+                if (IsThisSkill(skill) && skill.Cost[0] <= _healthPoint && skill.Cost[1] <= _staminaPoint)
+                {
+                    //Check of Position of caster and target
+                    if ((skill.Position == 0 && _frontPosition == true) || (skill.Position == 1 && _frontPosition == true) || (skill.Position == 2 && _frontPosition == false))
+                    {
                         _healthPoint -= skill.Cost[0];
                         _staminaPoint -= skill.Cost[1];
                         if (skill.Effect != null)
                         {
-                            if (skill.Effect[0] != 0)
-                            //Apply effect of the used skill
-                            //Hit with Physical Attack
+                            foreach (string name in skill.Effect.Keys)
                             {
-                                target.Hurt((skill.Effect[0] / 100) * _physicalAttack);
-                            }
-                            else if (skill.Effect[1] != 0)
-                            //Heal with Magic Attack
-                            {
-                                target.Heal((skill.Effect[1] / 100) * _magicAttack);
+                                //Apply effect of the used skill
+                                //Hit with Physical Attack
+
+                                switch(name)
+                                {
+                                    case "attaque physique":
+                                        target.Hurt((skill.Effect[name] / 100) * _physicalAttack);
+                                        break;
+                                    case "attaque magique":
+                                        target.Hurt((skill.Effect[name] / 100) * _magicAttack);
+                                        break;
+                                    case "soin":
+                                        target.Heal((skill.Effect[name] / 100) * _magicAttack);
+                                        break;
+                                    case "fatigue":
+                                        target.StaminaPoint = StaminaPoint - skill.Effect[name];
+                                        break;
+                                }
                             }
                         }
 

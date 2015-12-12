@@ -77,11 +77,19 @@ namespace LogicalGame
         public int HealthPoint
         {
             get { return _healthPoint; }
+            set { _healthPoint = value; }
+        }
+
+        public void Heal (int value)
+        {
+            _healthPoint += value;
+            if (_healthPoint > _maxHealthPoint) _healthPoint = _maxHealthPoint;
         }
 
         public int StaminaPoint
         {
             get { return _staminaPoint; }
+            set { _staminaPoint = value; }
         }
 
         public string Name

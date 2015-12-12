@@ -32,6 +32,11 @@ namespace GraphicalInterface
                 _deadMan.isAlive = true;
                 _deadMan.Heal((int)(Math.Round(_deadMan.MaxHealthPoint * 0.3)));
                 _chara.HealthPoint = _chara.HealthPoint -((int)(Math.Round(_chara.MaxHealthPoint * 0.3)));
+                if (_chara.HealthPoint < 0)
+                {
+                    _chara.HealthPoint = 0;
+                    _chara.isAlive = true;
+                }
                 if (_chara.InTeam.Invent.Inventory[_item] - 1 <= 0) _chara.InTeam.Invent.Inventory.Remove(_item);
                 else _chara.InTeam.Invent.Inventory[_item]-- ;
             }
