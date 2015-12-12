@@ -103,6 +103,15 @@ namespace GraphicalInterface
             Monster m2 = new Monster("M2", 2, "slime", 5, 0, 100, 0, 5, 5);
             Monster m3 = new Monster("M3", 2, "slime", 5, 0, 100, 0, 5, 5);
             Monster m4 = new Monster("M4", 2, "slime", 5, 0, 100, 0, 5, 5);
+            m1.AddItemToDrop(new Item("truc", 2, 10, "Un truc, c'est un truc.", "resource"), 100);
+            m1.AddItemToDrop(new Item("chouette", 2, 10, "Un truc, c'est un truc.", "resource"), 100);
+            m1.AddItemToDrop(new Item("bidule", 2, 10, "Un truc, c'est un truc.", "resource"), 100);
+            m1.AddItemToDrop(new Item("machin", 2, 10, "Un truc, c'est un truc.", "resource"), 100);
+            m4.Gold = 50;
+            m3.Gold = 50;
+            m2.Gold = 50;
+            m1.Gold = 50;
+
 
             // Create members
             Character c1 = new Character("C1", "HUMAIN", false);
@@ -126,12 +135,13 @@ namespace GraphicalInterface
 
             // Add monsters in list
             _monsters.Add(m1);
-            //_monsters.Add(m2);
-            //       _monsters.Add(m3);
-            //     _monsters.Add(m4);
+            _monsters.Add(m2);
+            _monsters.Add(m3);
+            _monsters.Add(m4);
+
             // Add members in team,
             c2.DidMemberPlay = true; 
-            _w.Team.AddMembers(c2);
+            //_w.Team.AddMembers(c2);
             //_w.Team.AddMembers(c3);
 
             //_w.Team.AddMembers(c3);

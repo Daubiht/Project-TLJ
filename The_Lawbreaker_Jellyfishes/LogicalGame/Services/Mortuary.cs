@@ -29,9 +29,10 @@ namespace LogicalGame
             }
             if (c.InTeam != null)
             {
+                _bodyList.Add(c);
                 return !c.InTeam.RemoveMembers(c);
             }
-            _bodyList.Add(c);
+            
             return true;
         }
 

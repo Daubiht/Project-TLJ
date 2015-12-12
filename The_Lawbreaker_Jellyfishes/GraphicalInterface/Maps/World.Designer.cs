@@ -33,7 +33,7 @@
             // 
             // ok
             // 
-            this.ok.Location = new System.Drawing.Point(193, 231);
+            this.ok.Location = new System.Drawing.Point(188, 174);
             this.ok.Name = "ok";
             this.ok.Size = new System.Drawing.Size(37, 23);
             this.ok.TabIndex = 4;

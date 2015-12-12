@@ -211,8 +211,8 @@ namespace GraphicalInterface
             {
                 // DECREASE basic stats of members because of their stuff
                 IncreaseBasicsStatsThanksStuff(_team, false);
-                EndFightVictory EFVictory = new EndFightVictory(_context);
-                _context.ChangeUC(EFVictory, false);
+                EndFightVictory EFVictory = new EndFightVictory(_context, _monsters);
+                _context.ChangeUC(EFVictory, true);
             }
         }
         //____Method to INCREASE or DECREASE the basic stattistics of a member thanks to his equiped stuff

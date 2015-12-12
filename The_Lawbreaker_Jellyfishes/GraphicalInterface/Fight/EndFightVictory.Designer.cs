@@ -30,6 +30,9 @@
         {
             this.labelVictory = new System.Windows.Forms.Label();
             this.buttonNext = new System.Windows.Forms.Button();
+            this.PDrop = new System.Windows.Forms.Panel();
+            this.LGolds = new System.Windows.Forms.Label();
+            this.LInfo = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // labelVictory
@@ -50,14 +53,44 @@
             this.buttonNext.Text = "Suivant";
             this.buttonNext.UseVisualStyleBackColor = true;
             // 
+            // PDrop
+            // 
+            this.PDrop.Location = new System.Drawing.Point(18, 129);
+            this.PDrop.Name = "PDrop";
+            this.PDrop.Size = new System.Drawing.Size(355, 204);
+            this.PDrop.TabIndex = 2;
+            // 
+            // LGolds
+            // 
+            this.LGolds.AutoSize = true;
+            this.LGolds.Location = new System.Drawing.Point(167, 103);
+            this.LGolds.Name = "LGolds";
+            this.LGolds.Size = new System.Drawing.Size(34, 13);
+            this.LGolds.TabIndex = 3;
+            this.LGolds.Text = "Golds";
+            this.LGolds.Click += new System.EventHandler(this.LGolds_Click);
+            // 
+            // LInfo
+            // 
+            this.LInfo.AutoSize = true;
+            this.LInfo.Location = new System.Drawing.Point(139, 73);
+            this.LInfo.Name = "LInfo";
+            this.LInfo.Size = new System.Drawing.Size(96, 13);
+            this.LInfo.TabIndex = 4;
+            this.LInfo.Text = "Vous avez gagné :";
+            // 
             // EndFightVictory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.LInfo);
+            this.Controls.Add(this.LGolds);
+            this.Controls.Add(this.PDrop);
             this.Controls.Add(this.buttonNext);
             this.Controls.Add(this.labelVictory);
             this.Name = "EndFightVictory";
             this.Size = new System.Drawing.Size(400, 400);
+            this.Load += new System.EventHandler(this.EndFightVictory_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -67,5 +100,8 @@
 
         private System.Windows.Forms.Label labelVictory;
         private System.Windows.Forms.Button buttonNext;
+        private System.Windows.Forms.Panel PDrop;
+        private System.Windows.Forms.Label LGolds;
+        private System.Windows.Forms.Label LInfo;
     }
 }
