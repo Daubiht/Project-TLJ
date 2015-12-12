@@ -54,17 +54,70 @@ namespace LogicalGame
                 {
                     if (((MapIsland)_actualPosition).IslandName == I.ListLink[i].IslandName)
                     {
-                        if (militia == false)
+                        if (militia)
                         {
-                            //Provok event when a change is done
+                            _actualPosition = I;
+                            TavernCharactersChange();
                         }
-                        _actualPosition = I;
-                        TavernCharactersChange();
                         return true;
                     }
                 }
             }
             return false;
+        }
+
+        public MapInstance CreateRandomInstance(MapIsland Island)
+        {
+            //Instance for the Island
+            MapInstance instanceB = new MapInstance(Island, "instanceBetweenIsland", true);
+
+            //list zone for instance on the island
+            List<MapZone> listZone_instanceB = new List<MapZone>();
+
+            int nbrZone;
+            int zoneLevel;
+            if(Island.IslandName == "island1")
+            {
+                nbrZone = _rand.Next(3, 5);
+                zoneLevel = 3;
+            }
+            else
+            {
+                nbrZone = _rand.Next(2, 4);
+                zoneLevel = 1;
+            }
+
+            MapZone zone;
+            for (int i = 1; i < nbrZone +1; i++)
+            {
+                zone = new MapZone(instanceB, true, zoneLevel);
+                zone.PointX = 175;
+                zone.PointY = i * 50;
+                listZone_instanceB.Add(zone);
+            }
+
+            List<MapZone> listlink = new List<MapZone>();
+            for (int i = 0; i < listZone_instanceB.Count; i++)
+            {
+                listlink = new List<MapZone>();
+                if(i == 0)
+                {
+                    listlink.Add(listZone_instanceB[i + 1]);
+                }
+                else if(i == listZone_instanceB.Count - 1)
+                {
+                    listlink.Add(listZone_instanceB[i - 1]);
+                }
+                else
+                {
+                    listlink.Add(listZone_instanceB[i - 1]);
+                    listlink.Add(listZone_instanceB[i + 1]);
+                }
+                listZone_instanceB[i].ListLink = listlink;
+            }
+
+            instanceB.listZones = listZone_instanceB;
+            return instanceB;
         }
 
         public ListNotifications Notifs

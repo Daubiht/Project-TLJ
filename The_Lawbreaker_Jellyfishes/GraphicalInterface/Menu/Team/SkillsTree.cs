@@ -70,9 +70,6 @@ namespace GraphicalInterface
                 LError.Text = "Impossible d'apprendre cette compétence";
                 LError.Visible = true;
             }
-
-            
-
         }
 
         private string Infos (Skill skill)
@@ -96,7 +93,6 @@ namespace GraphicalInterface
         {
             SkillList sl = new SkillList();
             ToolTip toolTip = new ToolTip();
-            string info = "";
 
             ((SkillsDisplay)(Parent.Parent.Parent)).SkillPoint.Text = _chara.SkillPoint + " restant";
 

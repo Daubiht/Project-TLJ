@@ -26,7 +26,7 @@ namespace GraphicalInterface
             _result = result;
             _mapZone = zone;
 
-            if(result == 1)
+            if (result == 1)
             {
                 //merchant
                 label5.Text = "Ah ! Mais que vois-je ? Je suis un marchand ambulant, venez voir mes marchandises !";
@@ -35,7 +35,7 @@ namespace GraphicalInterface
                 label3.Text = "Et si je me servais gratuitement ?";
                 pictureBox1.BackgroundImage = Image.FromFile(@"../../../Ressources/marchand.jpg");
             }
-            else if(result == 2)
+            else if (result == 2)
             {
                 //vieux
                 string[] elder = zone.EventElder();
@@ -46,16 +46,16 @@ namespace GraphicalInterface
                 Label[] listlabel = { label2, label3, label4 };
                 int ran = _context.world.Random.Next(0, 3);
 
-                for(int i = 0; i < 3; i++)
+                for (int i = 0; i < 3; i++)
                 {
-                    if(i == ran)
+                    if (i == ran)
                     {
                         listlabel[i].Text = elder[1];
                         _answerRiddle = elder[1];
                     }
                     else
                     {
-                        if(elder[2] != null)
+                        if (elder[2] != null)
                         {
                             listlabel[i].Text = elder[2];
                             elder[2] = null;
@@ -69,24 +69,19 @@ namespace GraphicalInterface
 
                 pictureBox1.BackgroundImage = Image.FromFile(@"../../../Ressources/elder.png");
             }
-            else if(result == 3)
+            else if (result == 3)
             {
                 //rien
                 label5.Text = "La zone semble déserte.";
                 label1.Text = "Quitter";
                 pictureBox1.BackgroundImage = Image.FromFile(@"../../../Ressources/desert.png");
             }
-            else if(result == 4)
-            {
-                //fight
-                label1.Text = "Quitter";
-            }
-            else if(result == 5)
+            else if (result == 5)
             {
                 //bandit
                 label5.Text = "Alte là ! La bourse ou la vie ?!";
                 label1.Text = "Fuir";
-                label2.Text = "Oui, tenez " +_world.Team.Invent.GetGold * 25 / 100 + " pièces d'or.";
+                label2.Text = "Oui, tenez " + _world.Team.Invent.GetGold * 25 / 100 + " pièces d'or.";
                 label3.Text = "Jamais !";
                 pictureBox1.BackgroundImage = Image.FromFile(@"../../../Ressources/bandit.jpg");
             }
@@ -170,6 +165,23 @@ namespace GraphicalInterface
             if (_result == 2)
             {
                 ElderAnswer(sender, e);
+            } else if(_result == 5)
+            {
+                FightUserControl uc = new FightUserControl(_mapZone.EventFightRandom(2, null), _world.Team, _context);
+                _context.ChangeUC(uc, false, true);
+            } else if(_result == 1)
+            {
+                FightUserControl uc = new FightUserControl(_mapZone.EventFightRandom(2, null), _world.Team, _context);
+                _context.ChangeUC(uc, false, true);
+            }
+        }
+
+        private void Meet_Load(object sender, EventArgs e)
+        {
+            if(_result == 4)
+            {
+                FightUserControl uc = new FightUserControl(_mapZone.EventFightRandom(0, null), _world.Team, _context);
+                _context.ChangeUC(uc, false, true);
             }
         }
     }

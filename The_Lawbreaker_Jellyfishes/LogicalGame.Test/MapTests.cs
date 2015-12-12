@@ -130,7 +130,7 @@ namespace LogicalGame.Test
             List<MapZone> list = new List<MapZone>();
             list.Add(zoneTest);
 
-            MapInstance instanceTest = new MapInstance(null, "test");
+            MapInstance instanceTest = new MapInstance(null, "test", false);
             instanceTest.listZones = list;
 
             Console.WriteLine("visited");
