@@ -72,7 +72,7 @@ namespace LogicalGame
         {
             foreach ( Monster m in _monstersList)
             {   
-                if ( m.Alive == true ) return false; // False means "No, some monsters  alive"
+                if ( m.Alive == true ) return false; // False means "No, some monsters alive"
             }
             _areAllMonsterDead = true;
             return true; // True means "Yes, they are all dead"
