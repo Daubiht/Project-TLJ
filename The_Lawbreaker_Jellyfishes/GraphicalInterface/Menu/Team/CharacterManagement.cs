@@ -27,6 +27,11 @@ namespace GraphicalInterface
 
         private void IGCharactereManagement_Load(object sender, EventArgs e)
         {
+            if (!c.isAlive)
+            {
+                BFired.Text = "Enterrer";
+            }
+
             ToolTip toolTip = new ToolTip();
             toolTip.InitialDelay = 250;
             toolTip.ReshowDelay = 500;
@@ -313,5 +318,6 @@ namespace GraphicalInterface
             c.isAlive = false;
             c.Hurt(10000);
         }
+
     }
 }
