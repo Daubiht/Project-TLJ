@@ -38,7 +38,7 @@ namespace GraphicalInterface
                 member = t.Members[i];
                 if (member.Name == name)
                 {
-                   Console.WriteLine( m.DepositBody(member));
+                   m.DepositBody(member);
                 }
                 
             }
@@ -160,6 +160,11 @@ namespace GraphicalInterface
         private void retour_Click(object sender, EventArgs e)
         {
             _contextForm.ExitMenu(this);
+        }
+
+        private void Mortuary_Load(object sender, EventArgs e)
+        {
+            ReloadList();
         }
     }
 }

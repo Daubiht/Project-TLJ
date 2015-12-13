@@ -112,6 +112,18 @@ namespace LogicalGame
             get { return _stuffs; }
         }
 
+        public int StaminaPoint
+        {
+            get { return _staminaPoint; }
+            set { _staminaPoint = value; }
+        }
+
+        public int MaxStaminaPoint
+        {
+            get { return _maxStaminaPoint; }
+            set { _maxStaminaPoint = value; }
+        }
+
         public Dictionary<string, int> StatsStuff
         {
             get
@@ -159,19 +171,10 @@ namespace LogicalGame
             set { _healthPoint = value; } // basic stats
         }
 
-        public int StaminaPoint
-        {
-            get { return _staminaPoint; }
-        }
-
         public int MaxHealthPoint
         {
             get { return _maxHealthPoint; }
-        }
-
-        public int MaxStaminaPoint
-        {
-            get { return _maxStaminaPoint; }
+            set { _maxHealthPoint = value; }
         }
 
         public string Name
@@ -190,6 +193,8 @@ namespace LogicalGame
             get { return _physicalAttack; }
             set { _physicalAttack = value; }
         }
+
+        
 
         public int MagicAttack
         {
@@ -589,20 +594,126 @@ namespace LogicalGame
                     //Check of Position of caster and target
                     if ((skill.Position == 0 && _frontPosition == true) || (skill.Position == 1 && _frontPosition == true) || (skill.Position == 2 && _frontPosition == false))
                     {
+                        if (skill.Effect != null)
+                        {
+                            _healthPoint -= skill.Cost[0];
+                            _staminaPoint -= skill.Cost[1];
+                            foreach (string name in skill.Effect.Keys)
+                            {
+                                int effect = skill.Effect[name];
+                                switch (name)
+                                {
+                                    case "attaque physique":
+                                        target.Hurt((effect / 100) * _physicalAttack);
+                                        break;
+                                    case "attaque magique":
+                                        target.Hurt((effect / 100) * _magicAttack);
+                                        break;
+                                    case "soin":
+                                        target.Heal((effect / 100) * _magicAttack);
+                                        break;
+                                    case "fatigue":
+                                        target.StaminaPoint = StaminaPoint - effect;
+                                        break;
+                                    case "baisse vie":
+                                        target.MaxHealthPoint = target.MaxHealthPoint - (int)Math.Round(target.MaxHealthPoint * (double)(effect / 100));
+                                        if (target.MaxHealthPoint < target.HealthPoint) target.HealthPoint = target.MaxHealthPoint;
+                                        break;
+                                    case "gain fatigue":
+                                        _staminaPoint += effect;
+                                        if (_staminaPoint > _maxStaminaPoint) _staminaPoint = _maxStaminaPoint;
+                                        break;
+                                }
+                            }
+
+                            return true;
+                        }
+                    }
+                }
+            }
+
+            return false;
+        }
+
+        public bool UseSkill(Skill skill, Monster target)
+        {
+            //Check of Target
+            if ((skill.Target == 0) || skill.Target == 1)
+            {
+                //Check of cost in Health and Stamina
+                if (IsThisSkill(skill) && skill.Cost[0] <= _healthPoint && skill.Cost[1] <= _staminaPoint)
+                {
+                    //Check of Position of caster and target
+                    if ((skill.Position == 0 && _frontPosition == true) || (skill.Position == 1 && _frontPosition == true) || (skill.Position == 2 && _frontPosition == false))
+                    {
                         _healthPoint -= skill.Cost[0];
                         _staminaPoint -= skill.Cost[1];
                         if (skill.Effect != null)
                         {
-                            if (skill.Effect[0] != 0)
-                            //Apply effect of the used skill
-                            //Hit with Physical Attack
+                            foreach (string name in skill.Effect.Keys)
                             {
-                                target.Hurt((skill.Effect[0] / 100) * _physicalAttack);
+                                //Apply effect of the used skill
+                                //Hit with Physical Attack
+                                int effect = skill.Effect[name];
+                                switch (name)
+                                {
+                                    case "attaque physique":
+                                        target.Hurt((effect / 100) * _physicalAttack);
+                                        break;
+                                    case "attaque magique":
+                                        target.Hurt((effect / 100) * _magicAttack);
+                                        break;
+                                    case "soin":
+                                        target.Heal((effect / 100) * _magicAttack);
+                                        break;
+                                    case "fatigue":
+                                        target.StaminaPoint = StaminaPoint - effect;
+                                        break;
+                                    case "baisse vie":
+                                        target.MaxHealthPoint = target.MaxHealthPoint - (int)Math.Round(target.MaxHealthPoint*(double)(effect/100));
+                                        if (target.MaxHealthPoint < target.HealthPoint) target.HealthPoint = target.MaxHealthPoint;
+                                        break;
+                                }
                             }
-                            else if (skill.Effect[1] != 0)
-                            //Heal with Magic Attack
+                        }
+
+                        return true;
+                    }
+                }
+            }
+
+            return false;
+        }
+
+        public bool UseSkill(Skill skill, Team targetTeam)
+        {
+            //Check of Target
+            if ((skill.Target == 0) || skill.Target == 1)
+            {
+                //Check of cost in Health and Stamina
+                if (IsThisSkill(skill) && skill.Cost[0] <= _healthPoint && skill.Cost[1] <= _staminaPoint)
+                {
+                    //Check of Position of caster and target
+                    if ((skill.Position == 0 && _frontPosition == true) || (skill.Position == 1 && _frontPosition == true) || (skill.Position == 2 && _frontPosition == false))
+                    {
+                        _healthPoint -= skill.Cost[0];
+                        _staminaPoint -= skill.Cost[1];
+                        if (skill.Effect != null)
+                        {
+                            foreach (string name in skill.Effect.Keys)
                             {
-                                target.Heal((skill.Effect[1] / 100) * _magicAttack);
+                                //Apply effect of the used skill
+                                //Hit with Physical Attack
+                                int effect = skill.Effect[name];
+                                switch (name)
+                                {
+                                    case "soin team":
+                                        foreach (var target in targetTeam.Members)
+                                        {
+                                            target.Heal((effect / 100) * _magicAttack);
+                                        }
+                                        break;
+                                }
                             }
                         }
 

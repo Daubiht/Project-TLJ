@@ -22,6 +22,8 @@ namespace LogicalGame
         int _maxHealthPoint;
         int _maxStaminaPoint;
 
+        int _gold;
+
         bool _frontPosition;
         bool _isAlive;
 
@@ -54,20 +56,40 @@ namespace LogicalGame
 
             _skills = new Dictionary<string, Skill>();
             _drop = new Dictionary<Item, int>();
+            _gold = 0;
         }
 
         //==================================================
         //               Get some stuff
         //==================================================
 
+        public Dictionary<Item, int> Drop
+        {
+            get { return _drop; }
+        }
+
+        public int Gold
+        {
+            get { return _gold; }
+            set { _gold = value; }
+        }
+
         public int HealthPoint
         {
             get { return _healthPoint; }
+            set { _healthPoint = value; }
+        }
+
+        public void Heal (int value)
+        {
+            _healthPoint += value;
+            if (_healthPoint > _maxHealthPoint) _healthPoint = _maxHealthPoint;
         }
 
         public int StaminaPoint
         {
             get { return _staminaPoint; }
+            set { _staminaPoint = value; }
         }
 
         public string Name
@@ -140,6 +162,12 @@ namespace LogicalGame
         public bool Alive
         {
             get { return _isAlive; }
+        }
+
+        public int MaxHealthPoint
+        {
+            get { return _maxHealthPoint; }
+            set { _maxHealthPoint = value; }
         }
 
         //======================================

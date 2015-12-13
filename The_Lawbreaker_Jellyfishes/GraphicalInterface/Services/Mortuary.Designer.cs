@@ -96,6 +96,7 @@
             this.Controls.Add(this.label1);
             this.Name = "Mortuary";
             this.Size = new System.Drawing.Size(410, 470);
+            this.Load += new System.EventHandler(this.Mortuary_Load);
             this.TCMortuary.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

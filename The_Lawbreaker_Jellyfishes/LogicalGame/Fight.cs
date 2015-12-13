@@ -242,6 +242,7 @@ namespace LogicalGame
         public Team GetTeam{get { return _team; }}
         public List<Monster> GetFrontMonsters { get { return _FrontMonsterList; } }
         public List<Monster> GetHiddenMonster { get { return _HiddenMonsterList; } }
+        public List<Monster> GetAllMonster { get { return _monstersList; } }
         public Character MemberWhoIsAttacking { get { return _memberWhoAttacks;  } }
         public int NumberTurn { get { return _turn; } }
     }
