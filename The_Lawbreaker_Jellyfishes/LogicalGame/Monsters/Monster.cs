@@ -164,6 +164,12 @@ namespace LogicalGame
             get { return _isAlive; }
         }
 
+        public int MaxHealthPoint
+        {
+            get { return _maxHealthPoint; }
+            set { _maxHealthPoint = value; }
+        }
+
         //======================================
         //           Treatement of data
         //======================================

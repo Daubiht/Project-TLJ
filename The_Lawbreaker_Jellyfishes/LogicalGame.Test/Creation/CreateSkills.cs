@@ -21,25 +21,47 @@ namespace LogicalGame.Test.Creation
             effect.Clear();
             effect.Add("attaque physique", 150);
             Skill sp1 = new Skill("Frappe Concentré", "Met toute sa concentration en un coup puissant", new int[] { 5, 0, 0, 0, 0, 0 }, 0, 1, effect, new int[] { 0, 1 });
+            effect.Clear();
+            effect.Add("attaque physique", 100);
+            effect.Add("fatigue", 1);
             Skill sp2 = new Skill("Coup déstabilisant", "", new int[] { 30, 0, 0, 0, 0, 0 }, 0, 1, null, new int[] { 0, 3 });
             sp2.PreviousSkill = sp1;
+            effect.Clear();
+            effect.Add("attaque physique", 300);
             Skill sp3 = new Skill("Douleur Partagée", "Puise dans sa force vital pour donner un coup surpuissant", new int[] { 60, 0, 0, 0, 0, 0 }, 0, 1, effect, new int[] { 10, 2 });
             sp3.PreviousSkill = sp1;
+            effect.Clear();
+            effect.Add("attaque physique", 100);
             Skill sp4 = new Skill("Coup Mesuré", "Frappe l'ennemie tout en prevoyant son prochain mouvement", new int[] { 40, 0, 0, 0, 0, 0 }, 0, 1, effect, new int[] { 0, 3 });
             sp4.PreviousSkill = sp2;
+            effect.Clear();
+            effect.Add("attaque physique", 120);
+            effect.Add("baisse vie", 3);
             Skill sp5 = new Skill("Déchirement des chair", "Donne un coup déchirant la chair de l'ennemie, l'empechant de guerir", new int[] { 50, 0, 0, 0, 0, 0 }, 0, 1, effect, new int[] { 0, 3 });
             sp5.PreviousSkill = sp2;
 
             //Magic Attack
+            effect.Clear();
+            effect.Add("attaque magique", 150);
             Skill sm1 = new Skill("Tir Energetique", "Envoie un tir magique de pur énergie", new int[] { 0, 5, 0, 0, 0, 0 }, 0, 0, effect, new int[] { 0, 1 });
+            effect.Clear();
+            effect.Add("attaque magique", 170);
             Skill sm2 = new Skill("Tir Elementaire", "Envoie un tir élémentaire magique", new int[] { 0, 15, 0, 0, 0, 0 }, 0, 0, effect, new int[] { 0, 2 });
             sm2.PreviousSkill = sm1;
+            effect.Clear();
+            effect.Add("soin", 50);
             Skill sm3 = new Skill("Orbe Revigorente", "Englobe un allier d'une orbe de magie soignant ses blessures", new int[] { 0, 15, 0, 0, 0, 0 }, 0, 0, effect, new int[] { 0, 2 });
             sm3.PreviousSkill = sm1;
+            effect.Clear();
+            effect.Add("attaque magique", 150);
             Skill sm4 = new Skill("Tir de Glace", "Lance un pic de glace vers un ennemie", new int[] { 0, 30, 0, 0, 0, 0 }, 0, 0, effect, new int[] { 0, 3 });
             sm4.PreviousSkill = sm2;
+            effect.Clear();
+            effect.Add("attaque magique", 170);
             Skill sm5 = new Skill("Boule de Feu", "Lance une boule de feu vers un ennemie", new int[] { 0, 30, 0, 0, 0, 0 }, 0, 0, effect, new int[] { 0, 3 });
             sm5.PreviousSkill = sm2;
+            effect.Clear();
+            effect.Add("soin team", 30);
             Skill sm6 = new Skill("Vague Revigorente", "Fait couler une vague d'energie soignante sur son équipe", new int[] { 0, 30, 0, 0, 0, 0 }, 0, 0, effect, new int[] { 0, 3 });
             sm6.PreviousSkill = sm3;
             Skill sm7 = new Skill("Résidu de Flamme", "La maitrise des éléments permet d'impreigner toute les attaque d'une chaleur intense", new int[] { 0, 50, 0, 0, 0, 0 }, 0, 0, effect, new int[] { 0, 0 });
@@ -77,6 +99,8 @@ namespace LogicalGame.Test.Creation
 
             //Stamina
             Skill ss1 = new Skill("Infatigable", "Augmente le capital de fatigue", new int[] { 0, 0, 0, 0, 5, 0 }, 0, 0, effect, new int[] { 0, 0 });
+            effect.Clear();
+            effect.Add("gain fatigue", 2);
             Skill ss2 = new Skill("Effort", "Permet de continuer d'attaquer mais blesse le corp par trop d'épreuve", new int[] { 0, 0, 0, 0, 15, 0 }, 0, 0, effect, new int[] { 10, 0 });
             ss2.PreviousSkill = ss1;
 

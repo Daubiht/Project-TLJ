@@ -112,6 +112,18 @@ namespace LogicalGame
             get { return _stuffs; }
         }
 
+        public int StaminaPoint
+        {
+            get { return _staminaPoint; }
+            set { _staminaPoint = value; }
+        }
+
+        public int MaxStaminaPoint
+        {
+            get { return _maxStaminaPoint; }
+            set { _maxStaminaPoint = value; }
+        }
+
         public Dictionary<string, int> StatsStuff
         {
             get
@@ -159,19 +171,10 @@ namespace LogicalGame
             set { _healthPoint = value; } // basic stats
         }
 
-        public int StaminaPoint
-        {
-            get { return _staminaPoint; }
-        }
-
         public int MaxHealthPoint
         {
             get { return _maxHealthPoint; }
-        }
-
-        public int MaxStaminaPoint
-        {
-            get { return _maxStaminaPoint; }
+            set { _maxHealthPoint = value; }
         }
 
         public string Name
@@ -190,6 +193,8 @@ namespace LogicalGame
             get { return _physicalAttack; }
             set { _physicalAttack = value; }
         }
+
+        
 
         public int MagicAttack
         {
@@ -595,21 +600,29 @@ namespace LogicalGame
                             _staminaPoint -= skill.Cost[1];
                             foreach (string name in skill.Effect.Keys)
                             {
-                                //Apply effect of the used skill
-                                //Hit with Physical Attack
-                                if (name == "attaque physique")
+                                int effect = skill.Effect[name];
+                                switch (name)
                                 {
-                                    target.Hurt((skill.Effect["attaque physique"] / 100) * _physicalAttack);
-                                }
-                                //Heal with Magic Attack
-                                else if (name == "soin")
-                                {
-                                    target.Heal((skill.Effect["soin"] / 100) * _magicAttack);
-                                }
-                                //Attaque with magic attaque
-                                else if (name == "attaque magique")
-                                {
-                                    target.Hurt((skill.Effect["attaque magique"] / 100) * _magicAttack);
+                                    case "attaque physique":
+                                        target.Hurt((effect / 100) * _physicalAttack);
+                                        break;
+                                    case "attaque magique":
+                                        target.Hurt((effect / 100) * _magicAttack);
+                                        break;
+                                    case "soin":
+                                        target.Heal((effect / 100) * _magicAttack);
+                                        break;
+                                    case "fatigue":
+                                        target.StaminaPoint = StaminaPoint - effect;
+                                        break;
+                                    case "baisse vie":
+                                        target.MaxHealthPoint = target.MaxHealthPoint - (int)Math.Round(target.MaxHealthPoint * (double)(effect / 100));
+                                        if (target.MaxHealthPoint < target.HealthPoint) target.HealthPoint = target.MaxHealthPoint;
+                                        break;
+                                    case "gain fatigue":
+                                        _staminaPoint += effect;
+                                        if (_staminaPoint > _maxStaminaPoint) _staminaPoint = _maxStaminaPoint;
+                                        break;
                                 }
                             }
 
@@ -641,20 +654,64 @@ namespace LogicalGame
                             {
                                 //Apply effect of the used skill
                                 //Hit with Physical Attack
-
-                                switch(name)
+                                int effect = skill.Effect[name];
+                                switch (name)
                                 {
                                     case "attaque physique":
-                                        target.Hurt((skill.Effect[name] / 100) * _physicalAttack);
+                                        target.Hurt((effect / 100) * _physicalAttack);
                                         break;
                                     case "attaque magique":
-                                        target.Hurt((skill.Effect[name] / 100) * _magicAttack);
+                                        target.Hurt((effect / 100) * _magicAttack);
                                         break;
                                     case "soin":
-                                        target.Heal((skill.Effect[name] / 100) * _magicAttack);
+                                        target.Heal((effect / 100) * _magicAttack);
                                         break;
                                     case "fatigue":
-                                        target.StaminaPoint = StaminaPoint - skill.Effect[name];
+                                        target.StaminaPoint = StaminaPoint - effect;
+                                        break;
+                                    case "baisse vie":
+                                        target.MaxHealthPoint = target.MaxHealthPoint - (int)Math.Round(target.MaxHealthPoint*(double)(effect/100));
+                                        if (target.MaxHealthPoint < target.HealthPoint) target.HealthPoint = target.MaxHealthPoint;
+                                        break;
+                                }
+                            }
+                        }
+
+                        return true;
+                    }
+                }
+            }
+
+            return false;
+        }
+
+        public bool UseSkill(Skill skill, Team targetTeam)
+        {
+            //Check of Target
+            if ((skill.Target == 0) || skill.Target == 1)
+            {
+                //Check of cost in Health and Stamina
+                if (IsThisSkill(skill) && skill.Cost[0] <= _healthPoint && skill.Cost[1] <= _staminaPoint)
+                {
+                    //Check of Position of caster and target
+                    if ((skill.Position == 0 && _frontPosition == true) || (skill.Position == 1 && _frontPosition == true) || (skill.Position == 2 && _frontPosition == false))
+                    {
+                        _healthPoint -= skill.Cost[0];
+                        _staminaPoint -= skill.Cost[1];
+                        if (skill.Effect != null)
+                        {
+                            foreach (string name in skill.Effect.Keys)
+                            {
+                                //Apply effect of the used skill
+                                //Hit with Physical Attack
+                                int effect = skill.Effect[name];
+                                switch (name)
+                                {
+                                    case "soin team":
+                                        foreach (var target in targetTeam.Members)
+                                        {
+                                            target.Heal((effect / 100) * _magicAttack);
+                                        }
                                         break;
                                 }
                             }
