@@ -99,16 +99,6 @@ namespace GraphicalInterface
                         }
                     }
                 }
-            m1.AddItemToDrop(new Item("truc", 2, 10, "Un truc, c'est un truc.", "resource"), 100);
-            m1.AddItemToDrop(new Item("chouette", 2, 10, "Un truc, c'est un truc.", "resource"), 100);
-            m1.AddItemToDrop(new Item("bidule", 2, 10, "Un truc, c'est un truc.", "resource"), 100);
-            m1.AddItemToDrop(new Item("machin", 2, 10, "Un truc, c'est un truc.", "resource"), 100);
-            m4.Gold = 50;
-            m3.Gold = 50;
-            m2.Gold = 50;
-            m1.Gold = 50;
-
-
             }
         }
 

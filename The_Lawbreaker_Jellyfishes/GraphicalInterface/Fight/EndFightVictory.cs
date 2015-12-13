@@ -18,9 +18,9 @@ namespace GraphicalInterface
         Invent _invent;
         Dictionary<Item, int> _dropedItem;
 
-        public EndFightVictory(MainForm Context, List<Monster> _monsters)
+        public EndFightVictory(MainForm Context, List<Monster> monsters)
         {
-            _monsters = _monsters;
+            _monsters = monsters;
             InitializeComponent();
             _context = Context;
             _invent = _context.world.Team.Invent;
