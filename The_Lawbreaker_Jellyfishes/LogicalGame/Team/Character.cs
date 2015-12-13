@@ -358,7 +358,7 @@ namespace LogicalGame
         public int LevelUp(int num)
         {
             _level += 1 * num;
-            _statsPoint += 10 * num;
+            _statsPoint += 5 * num;
             _skillPoint += 1 * num;
             _staminaPoint = _maxStaminaPoint;
             _healthPoint = _maxHealthPoint;
@@ -369,14 +369,10 @@ namespace LogicalGame
         {
             if (_isAlive)
             {
-                while (xp > _nextLevel)
+                while (xp >= _nextLevel)
                 {
                     xp -= _nextLevel;
-                    _level++;
-                    _skillPoint += 1;
-                    _statsPoint += 5;
-                    _staminaPoint = _maxStaminaPoint;
-                    _healthPoint = _maxHealthPoint;
+                    LevelUp(1);
                 }
                 _currentXp += xp;
             }

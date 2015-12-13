@@ -98,12 +98,17 @@ namespace LogicalGame.Test
             s2.PointX = 190;
             s2.PointY = 100;
 
+            Militia s3 = new Militia(city);
+            s3.PointX = 39;
+            s3.PointY = 39;
+
             //list merchant for city
             List<object> listservices = new List<object>();
             listservices.Add(merch1);
             listservices.Add(merch2);
             listservices.Add(s1);
             listservices.Add(s2);
+            listservices.Add(s3);
             city.Services = listservices;
 
             //add island to world

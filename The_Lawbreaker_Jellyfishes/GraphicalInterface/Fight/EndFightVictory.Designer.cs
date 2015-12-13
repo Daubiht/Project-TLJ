@@ -33,6 +33,7 @@
             this.PDrop = new System.Windows.Forms.Panel();
             this.LGolds = new System.Windows.Forms.Label();
             this.LInfo = new System.Windows.Forms.Label();
+            this.LXP = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // labelVictory
@@ -56,9 +57,9 @@
             // 
             // PDrop
             // 
-            this.PDrop.Location = new System.Drawing.Point(18, 129);
+            this.PDrop.Location = new System.Drawing.Point(18, 151);
             this.PDrop.Name = "PDrop";
-            this.PDrop.Size = new System.Drawing.Size(355, 204);
+            this.PDrop.Size = new System.Drawing.Size(355, 182);
             this.PDrop.TabIndex = 2;
             // 
             // LGolds
@@ -80,10 +81,20 @@
             this.LInfo.TabIndex = 4;
             this.LInfo.Text = "Vous avez gagné :";
             // 
+            // LXP
+            // 
+            this.LXP.AutoSize = true;
+            this.LXP.Location = new System.Drawing.Point(153, 129);
+            this.LXP.Name = "LXP";
+            this.LXP.Size = new System.Drawing.Size(60, 13);
+            this.LXP.TabIndex = 5;
+            this.LXP.Text = "Experience";
+            // 
             // EndFightVictory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.LXP);
             this.Controls.Add(this.LInfo);
             this.Controls.Add(this.LGolds);
             this.Controls.Add(this.PDrop);
@@ -104,5 +115,6 @@
         private System.Windows.Forms.Panel PDrop;
         private System.Windows.Forms.Label LGolds;
         private System.Windows.Forms.Label LInfo;
+        private System.Windows.Forms.Label LXP;
     }
 }

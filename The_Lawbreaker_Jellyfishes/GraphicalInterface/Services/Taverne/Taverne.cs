@@ -24,7 +24,7 @@ namespace GraphicalInterface
         public void ReloadTavern()
         {
             PTavern.Controls.Clear();
-            if (_randomCharacterList.Count == 0)
+            if (_randomCharacterList == null || _randomCharacterList.Count == 0)
             {
                 _contextForm.world.TavernCharactersChange();
             }
