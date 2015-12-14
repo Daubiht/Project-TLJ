@@ -17,6 +17,8 @@ namespace GraphicalInterface
         Random ran;
         Invent _invent;
         Dictionary<Item, int> _dropedItem;
+        int _gold;
+        int _xp;
 
         public EndFightVictory(MainForm Context, List<Monster> monsters)
         {
@@ -26,7 +28,8 @@ namespace GraphicalInterface
             _invent = _context.world.Team.Invent;
             _dropedItem = new Dictionary<Item, int>();
             ran = _context.world.Random;
-            int gold = 0;
+            _gold = 0;
+            _xp = 0;
 
             foreach (Monster monster in _monsters)
             {
@@ -42,12 +45,21 @@ namespace GraphicalInterface
                     }
                 }
                 
-                gold += monster.Gold;
+                _gold += monster.Gold;
+                _xp += monster.XP;
                 DisplayDrop(_dropedItem);
             }
 
-            _invent.AddGold(gold);
-            LGolds.Text = gold + " Pièce d'Or";
+            int dwarf = 0;
+            foreach(Character member in _invent.Context.Members)
+            {
+                if (member.isAlive) member.EarnXp(_xp);
+                if (member.Race == "NAIN") dwarf++;
+            }
+            _invent.AddGold(_gold);
+            LGolds.Text = _gold + (int)Math.Round(_gold * (0.05 * dwarf)) + " Pièce d'Or";
+            
+            LXP.Text = _xp + " Points d'experience";
         }
 
         private void DisplayDrop (Dictionary<Item, int> dropedItem)

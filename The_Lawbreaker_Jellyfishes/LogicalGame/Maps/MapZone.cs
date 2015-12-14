@@ -134,6 +134,7 @@ namespace LogicalGame
         {
             ListItems listItems = new ListItems();
             List<Item> listSellable = new List<Item>();
+            Merchant merchant;
 
             int nbrItems = _rand.Next(1, 6);
 
@@ -146,8 +147,9 @@ namespace LogicalGame
                     listSellable.Add(listItems.Items[wanted]);
                 }
             }
-
-            return new Merchant("Marchand itinérant", listSellable);
+            merchant = new Merchant("Marchand itinérant", listSellable);
+            merchant.Invent = _context.MapIsland.ActualWorld.Team.Invent;
+            return merchant;
         }
 
         public string[] EventElder()

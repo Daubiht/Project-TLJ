@@ -72,7 +72,7 @@ namespace LogicalGame
         {
             foreach ( Monster m in _monstersList)
             {   
-                if ( m.Alive == true ) return false; // False means "No, some monsters  alive"
+                if ( m.Alive == true ) return false; // False means "No, some monsters alive"
             }
             _areAllMonsterDead = true;
             return true; // True means "Yes, they are all dead"
@@ -238,7 +238,18 @@ namespace LogicalGame
 
         public Dictionary<Character, Dictionary<string, int>> OriginalStats { get { return _OriginalBasicStats; } }
         public bool AreAllMembersDead { get { return _areAllMembersDead; } }
-        public bool AreAllMonstersDead { get { return _areAllMonsterDead; } }
+        public bool AreAllMonstersDead
+        {
+            get
+            {
+                bool dead = true;
+                foreach(Monster monster in _monstersList)
+                {
+                    if (monster.Alive) dead = false;
+                }
+                return dead;
+            }
+        }
         public Team GetTeam{get { return _team; }}
         public List<Monster> GetFrontMonsters { get { return _FrontMonsterList; } }
         public List<Monster> GetHiddenMonster { get { return _HiddenMonsterList; } }

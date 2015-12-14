@@ -9,6 +9,7 @@ namespace LogicalGame
         readonly string _name;
         readonly string _race;
 
+        // Stats
         int _level;
         int _physicalAttack;
         int _magicAttack;
@@ -17,13 +18,17 @@ namespace LogicalGame
         int _dodge;
         int _robustness;
 
+        // Health and Stamina
         int _healthPoint;
         int _staminaPoint;
         int _maxHealthPoint;
         int _maxStaminaPoint;
 
+        // Drop
         int _gold;
+        int _xp;
 
+        // Fight
         bool _frontPosition;
         bool _isAlive;
 
@@ -90,6 +95,12 @@ namespace LogicalGame
         {
             get { return _staminaPoint; }
             set { _staminaPoint = value; }
+        }
+
+        public int XP
+        {
+            get { return _xp; }
+            set { _xp = value; }
         }
 
         public string Name

@@ -42,6 +42,10 @@ namespace LogicalGame
             merchantName.Clear();
             augmentation.Add("Vendeur général", merchantName);
 
+            merchantName.Clear();
+            merchantName.Add("consommable");
+            augmentation.Add("Marchand itinérant", merchantName);
+
             for (int i = 0; i < augmentation[_name].Count; i++)
             {
                 if (augmentation[_name][i] == item.Type) increase = false;

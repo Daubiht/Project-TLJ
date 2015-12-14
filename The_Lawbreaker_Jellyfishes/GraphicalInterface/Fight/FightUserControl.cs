@@ -120,6 +120,12 @@ namespace GraphicalInterface
             SetPanelPosition(_frontMonsters, _posYFrontMonster);
             SetPanelPosition(_hiddenMonsters, _posYHiddenMonster);
         }
+
+        private void FightUserControl_Load(object sender, EventArgs e)
+        {
+
+        }
+
         // Method who sets the PANEL'S POSITION
         public void SetPanelPosition<T>(List<T> MonsterOrMemberList, int posY)
         { 

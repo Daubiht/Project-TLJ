@@ -1,6 +1,9 @@
 ﻿
+using System;
+
 namespace LogicalGame
 {
+    [Serializable]
     public class Militia
     {
         MapCity _context;
