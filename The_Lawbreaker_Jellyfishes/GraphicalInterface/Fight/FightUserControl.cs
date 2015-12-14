@@ -219,7 +219,7 @@ namespace GraphicalInterface
             {
                 // DECREASE basic stats of members because of their stuff
                 IncreaseBasicsStatsThanksStuff(_team, false);
-                EndFightVictory EFVictory = new EndFightVictory(_context, _monsters);
+                EndFightVictory EFVictory = new EndFightVictory(_context, _monsters, false);
                 _context.ChangeUC(EFVictory, true, true);
             }
         }

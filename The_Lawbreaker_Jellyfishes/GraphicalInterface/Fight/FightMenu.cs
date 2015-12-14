@@ -94,7 +94,7 @@ namespace GraphicalInterface
                 // Create a screen of end fight if they succeed to run away
                 if ( chanceToRunAway == 1 ) // CHANGE 0 TO 1
                 {
-                    EndFightVictory endFight = new EndFightVictory(_context, _fight.GetAllMonster);
+                    EndFightVictory endFight = new EndFightVictory(_context, _fight.GetAllMonster, true);
                     _context.ChangeUC(endFight, false, true);
                 }
                 // If the team don't run away, all the monsters attack, then we color all the members in blue to signal they can play again
