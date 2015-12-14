@@ -50,12 +50,15 @@ namespace GraphicalInterface
                 DisplayDrop(_dropedItem);
             }
 
+            int dwarf = 0;
             foreach(Character member in _invent.Context.Members)
             {
                 if (member.isAlive) member.EarnXp(_xp);
+                if (member.Race == "NAIN") dwarf++;
             }
             _invent.AddGold(_gold);
-            LGolds.Text = _gold + " Pièce d'Or";
+            LGolds.Text = _gold + (int)Math.Round(_gold * (0.05 * dwarf)) + " Pièce d'Or";
+            
             LXP.Text = _xp + " Points d'experience";
         }
 
