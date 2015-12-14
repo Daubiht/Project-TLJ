@@ -101,7 +101,7 @@ namespace LogicalGame
                 else
                 {
                     int wanted = _rand.Next(0, EntirelistM.GetListMonsters.Count);
-                    Monster mob = listMByLevel[wanted];
+                    Monster mob = EntirelistM.GetListMonsters[wanted];
                     Monster NewMob = new Monster(mob.Name, mob.Level, mob.Race, mob.PhysicalAttack, mob.MagicAttack, mob.Health, mob.Stamina, mob.Robustness, mob.Dodge);
                     listMForFight.Add(NewMob);
                 }
