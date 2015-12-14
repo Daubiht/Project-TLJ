@@ -177,7 +177,7 @@ namespace LogicalGame
             // Check if all member played, if not, the player can continue to attack the monsters
             foreach ( Character c in _team.Members )
             {
-                if ( c.DidMemberPlay == true )
+                if ( c.DidMemberPlay == true & c.isAlive == true)
                 {
                     memberWhoPlayed += 1;
                     CheckFrontMonserDead();
