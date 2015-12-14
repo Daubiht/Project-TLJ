@@ -33,8 +33,14 @@ namespace LogicalGame.Test
             Item i4 = new Item("Orbe de Résurrection", 2, 1, "Etrange boule semblable à du cristal qui permettrait de rendre la vie à une personne", "resurrection");
             listItem.Add(i4);
 
-            Item i5 = new Item("Poils animals", 1, 2, "paquet de poils animals bizarrement, non identifiable", "Drop");
+            Item i5 = new Item("Poils animals", 1, 2, "Paquet de poils animals bizarrement, non identifiable", "drop");
             listItem.Add(i5);
+
+            Item i5bis = new Item("Salive de dragon", 1, 2, "Petite fiole remplie de salive de dragon", "drop");
+            listItem.Add(i5bis);
+
+            Item i5bis2 = new Item("Ecorce elfique", 1, 2, "Quelques bouts d'écorce d'un arbre ancestrale", "drop");
+            listItem.Add(i5bis2);
 
             Item i6 = new Item("Dague rutherfordium", 25, 5600, "Dague forgée dans un mystérieux élément accompagnée de son foureaux en plomb", "arme");
             //i6.AddStats("attaque physique %", 25);

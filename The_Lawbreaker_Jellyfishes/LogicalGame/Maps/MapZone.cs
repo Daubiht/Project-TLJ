@@ -91,8 +91,20 @@ namespace LogicalGame
 
             for (int i = 0; i < nbrM; i++)
             {
-                int wanted = _rand.Next(0, listMByLevel.Count);
-                listMForFight.Add(listMByLevel[wanted]);
+                if(listMByLevel.Count > 0)
+                {
+                    int wanted = _rand.Next(0, listMByLevel.Count);
+                    Monster mob = listMByLevel[wanted];
+                    Monster NewMob = new Monster(mob.Name, mob.Level, mob.Race, mob.PhysicalAttack, mob.MagicAttack, mob.Health, mob.Stamina, mob.Robustness, mob.Dodge);
+                    listMForFight.Add(NewMob);
+                }
+                else
+                {
+                    int wanted = _rand.Next(0, EntirelistM.GetListMonsters.Count);
+                    Monster mob = listMByLevel[wanted];
+                    Monster NewMob = new Monster(mob.Name, mob.Level, mob.Race, mob.PhysicalAttack, mob.MagicAttack, mob.Health, mob.Stamina, mob.Robustness, mob.Dodge);
+                    listMForFight.Add(NewMob);
+                }
             }
 
             foreach (Monster m in listMForFight)

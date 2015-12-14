@@ -9,18 +9,20 @@ namespace GraphicalInterface
     public partial class Merchant : UserControl
     {
         MainForm _contextForm;
-        Dictionary<Item, int> requiredItem = new Dictionary<Item, int>();
+        Dictionary<Item, int> _requiredItem = new Dictionary<Item, int>();
         Invent _invent;
-        LogicalGame.Merchant m;
+        LogicalGame.Merchant _m;
 
         public Merchant(MainForm contextForm, LogicalGame.Merchant merchant, Invent invent)
         {
             InitializeComponent();
             _invent = invent;
-            m = merchant;
+            _m = merchant;
             _contextForm = contextForm;
 
-            requiredItem.Add(new ListItems().Items[0], 3);
+            _requiredItem.Add(new ListItems().Items[4], 1);
+            _requiredItem.Add(new ListItems().Items[5], 1);
+            _requiredItem.Add(new ListItems().Items[6], 1);
         }
 
         internal void Buy_Click (object sender, EventArgs e)
@@ -30,7 +32,7 @@ namespace GraphicalInterface
             int quantity = int.Parse(button.Parent.Controls.Find("NQuantity", false)[0].Text);
             Item item = (Item)button.Tag;
 
-            m.BuyItems(item, quantity);
+            _m.BuyItems(item, quantity);
 
             LGold.Text = _invent.GetGold.ToString();
             LoadItemToSell();
@@ -61,7 +63,7 @@ namespace GraphicalInterface
             {
                 for (int i = 0; i < quantity; i++)
                 {
-                    m.SellItems(item);
+                    _m.SellItems(item);
                 }
                 if (_invent.Inventory.ContainsKey(item) && _invent.Inventory[item] > 0)
                 {
@@ -161,7 +163,7 @@ namespace GraphicalInterface
 
         private void LoadItemToBuy()
         {
-            List<Item> items = m.GetItemsAvailable;
+            List<Item> items = _m.GetItemsAvailable;
 
             for (int i = 0; i < items.Count; i++)
             {
@@ -177,7 +179,7 @@ namespace GraphicalInterface
 
                 UCItem.ItemQuantityInventVisible = false;
 
-                UCItem.ItemPrice = m.ItemToBuyPrice(item) + " PO";
+                UCItem.ItemPrice = _m.ItemToBuyPrice(item) + " PO";
 
                 string infoItem = items[i].GetName + " " + "(" + items[i].Type + ")" + Environment.NewLine + items[i].GetDescription + Environment.NewLine + "Valeur : " + items[i].GetValue + Environment.NewLine + "Poids : " + items[i].GetWeight;
 
@@ -239,9 +241,9 @@ namespace GraphicalInterface
             resource.Text = "Pour faire un objet de résurection, il vous faut : " + Environment.NewLine;
             error.Text = "";
 
-            foreach (Item item in requiredItem.Keys)
+            foreach (Item item in _requiredItem.Keys)
             {
-                resource.Text = resource.Text + " - " + item.GetName + " : " + requiredItem[item] + Environment.NewLine;
+                resource.Text = resource.Text + " - " + item.GetName + " : " + _requiredItem[item] + Environment.NewLine;
                 bool find = false;
                 Item itemUse = null;
                 foreach (Item itemInvent in _invent.Inventory.Keys)
@@ -255,13 +257,13 @@ namespace GraphicalInterface
 
                 if (find == true)
                 {
-                    if (_invent.Inventory[itemUse] < requiredItem[item])
+                    if (_invent.Inventory[itemUse] < _requiredItem[item])
                     {
                         if (error.Text == "")
                         {
                             error.Text = error.Text + "Il vous manque encore : " + Environment.NewLine;
                         }
-                        error.Text = error.Text + " - " + item.GetName + " : " + (requiredItem[item] - _invent.Inventory[itemUse]) + Environment.NewLine;
+                        error.Text = error.Text + " - " + item.GetName + " : " + (_requiredItem[item] - _invent.Inventory[itemUse]) + Environment.NewLine;
                         BCraft.Enabled = false;
                     }
                 }
@@ -271,7 +273,7 @@ namespace GraphicalInterface
                     {
                         error.Text = error.Text + "Il vous manque encore : " + Environment.NewLine;
                     }
-                    error.Text = error.Text + " - " + item.GetName + " : " + requiredItem[item] + Environment.NewLine;
+                    error.Text = error.Text + " - " + item.GetName + " : " + _requiredItem[item] + Environment.NewLine;
                     BCraft.Enabled = false;
                 }
             }
@@ -303,7 +305,7 @@ namespace GraphicalInterface
         private void Craft_Click (object sender, EventArgs e)
         {
             Item itemInvent = null;
-            foreach (Item item in requiredItem.Keys)
+            foreach (Item item in _requiredItem.Keys)
             {
                 foreach(Item itemTemp in _invent.Inventory.Keys)
                 {
@@ -312,7 +314,7 @@ namespace GraphicalInterface
                         itemInvent = itemTemp;
                     }
                 }
-                _invent.Inventory[itemInvent] -= requiredItem[item];
+                _invent.Inventory[itemInvent] -= _requiredItem[item];
                 if (_invent.Inventory[itemInvent] == 0) _invent.Inventory.Remove(itemInvent);
             }
 
@@ -335,7 +337,7 @@ namespace GraphicalInterface
                 LoadItemToBuy();
             }
 
-            if (m.Name == "herboriste")
+            if (_m.Name == "herboriste")
             {
                 TabPage page = new TabPage();
                 page.Text = "Artisanat";
