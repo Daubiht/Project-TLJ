@@ -33,7 +33,7 @@ namespace LogicalGame
         bool _isAlive;
 
         readonly Dictionary<String, Skill> _skills;
-        readonly Dictionary<Item, int> _drop;
+        Dictionary<Item, int> _drop;
 
 
         /// <summary>
@@ -71,6 +71,7 @@ namespace LogicalGame
         public Dictionary<Item, int> Drop
         {
             get { return _drop; }
+            set { _drop = value; }
         }
 
         public int Gold

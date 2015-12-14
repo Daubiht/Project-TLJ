@@ -96,6 +96,9 @@ namespace LogicalGame
                     int wanted = _rand.Next(0, listMByLevel.Count);
                     Monster mob = listMByLevel[wanted];
                     Monster NewMob = new Monster(mob.Name, mob.Level, mob.Race, mob.PhysicalAttack, mob.MagicAttack, mob.Health, mob.Stamina, mob.Robustness, mob.Dodge);
+                    NewMob.Gold = mob.Gold;
+                    NewMob.XP = mob.XP;
+                    NewMob.Drop = mob.Drop;
                     listMForFight.Add(NewMob);
                 }
                 else

@@ -20,7 +20,13 @@ namespace LogicalGame.Test
             Monster m1 = new Monster("Slime Immature", 1, "slime", 10, 0, 25, 0, 5, 5);
             m1.XP = 30;
             m1.Gold = 10;
-            Monster m2 = new Monster("Behemoth", 100, "Démon", 1000, 1000, 100000, 10000, 60, 60);
+            Monster m5 = new Monster("Slime", 2, "slime", 10, 0, 40, 0, 5, 5);
+            m5.XP = 55;
+            m5.Gold = 20;
+            Monster m6 = new Monster("Grand Slime", 4, "slime", 10, 0, 70, 0, 5, 5);
+            m6.XP = 70;
+            m6.Gold = 30;
+            Monster m2 = new Monster("Behemoth", 10000, "Démon", 1000, 1000, 100000, 10000, 60, 60);
             m2.XP = 10000;
             m2.Gold = 1000;
             Monster m3 = new Monster("Zombie rigolo", 3, "Undead", 20, 0, 100, 0, 5, 5);
@@ -34,6 +40,8 @@ namespace LogicalGame.Test
             listMonsters.Add(m2);
             listMonsters.Add(m3);
             listMonsters.Add(m4);
+            listMonsters.Add(m5);
+            listMonsters.Add(m6);
 
             IFormatter formatter = new BinaryFormatter();
             using (Stream stream = new FileStream("../../../Ressources/listMonsters.bin", FileMode.Create, FileAccess.Write,FileShare.None))
