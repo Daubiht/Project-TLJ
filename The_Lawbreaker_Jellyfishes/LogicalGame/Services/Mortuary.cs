@@ -32,7 +32,11 @@ namespace LogicalGame
                 _bodyList.Add(c);
                 return !c.InTeam.RemoveMembers(c);
             }
-            
+            else
+            {
+                _bodyList.Add(c);
+            }
+
             return true;
         }
 

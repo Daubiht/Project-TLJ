@@ -30,7 +30,7 @@ namespace LogicalGame.Test
             {
                 if(island.IslandName == "island1")
                 {
-                    world.ChangeActualIsland(island, false);
+                    world.ChangeActualIsland(island, true);
                     i = island;
                 }
             }
@@ -42,7 +42,7 @@ namespace LogicalGame.Test
             {
                 if (island.IslandName == "island2")
                 {
-                    world.ChangeActualIsland(island, false);
+                    world.ChangeActualIsland(island, true);
                     i = island;
                 }
             }

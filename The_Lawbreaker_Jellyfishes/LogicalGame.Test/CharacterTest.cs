@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using System;
+using System.Collections.Generic;
 
 namespace LogicalGame.Test
 {
@@ -92,7 +93,10 @@ namespace LogicalGame.Test
             i2.AddStats("regainStamina", 2);
             Item i3 = new Item("Potion de Vigueur", 1, 10, "Enleve legerement la fatigue des combats", "consommable");
             i3.AddStats("resurection", 0);
-            Skill s1 = new Skill("test", "Attaque", null, 0, 0, null, new int[] { 0, 5 });
+
+            Dictionary<string, int> effects = new Dictionary<string, int>();
+            effects.Add("attaque physique", 10);
+            Skill s1 = new Skill("test", "Attaque", null, 0, 0, effects, new int[] { 0, 5 });
 
             Assert.AreEqual(s1, p1.AddSkill(s1.Name, s1));
 
