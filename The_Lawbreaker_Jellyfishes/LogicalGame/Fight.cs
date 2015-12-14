@@ -155,8 +155,12 @@ namespace LogicalGame
         // 3 METHOD WHO MATCHES THE MEMBER WHO ATTACKS AND THE ATTACKED MONSTER
         public bool HitMonster(Character MemberWhoAttacks, Monster AttackedMonster)
         {
-            // Count how many member is in the team
-            int numberOfMembers = _team.Members.Count();
+            int numberOfMembers = 0;
+            // Count how many alive members are in the team in the team
+            foreach (Character c in _team.Members )
+            {
+                if ( c.isAlive == true ) numberOfMembers += 1;
+            }
             // Count how many player has launched an attack
             int memberWhoPlayed = 0;
 
