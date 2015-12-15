@@ -360,6 +360,7 @@ namespace LogicalGame
             _level += 1 * num;
             _statsPoint += 5 * num;
             _skillPoint += 1 * num;
+            _currentXp = 0;
             _staminaPoint = _maxStaminaPoint;
             _healthPoint = _maxHealthPoint;
             return _level;
@@ -582,13 +583,13 @@ namespace LogicalGame
         public bool UseSkill (Skill skill, Character target)
         {
             //Check of Target
-            if ((target == this && skill.Target == 0) || skill.Target == 1)
-            {
+            //if ((target == this && skill.Target == 0) || skill.Target == 1)
+            //{
                 //Check of cost in Health and Stamina
                 if (IsThisSkill(skill) && skill.Cost[0] <= _healthPoint && skill.Cost[1] <= _staminaPoint)
                 {
                     //Check of Position of caster and target
-                    if ((skill.Position == 0 && _frontPosition == true) || (skill.Position == 1 && _frontPosition == true) || (skill.Position == 2 && _frontPosition == false))
+                    if (skill.Position == 0  || (skill.Position == 1 && _frontPosition == true) || (skill.Position == 2 && _frontPosition == false))
                     {
                         if (skill.Effect != null)
                         {
@@ -606,7 +607,7 @@ namespace LogicalGame
                                         target.Hurt((effect / 100) * _magicAttack);
                                         break;
                                     case "soin":
-                                        target.Heal((effect / 100) * _magicAttack);
+                                        target.Heal((int)Math.Round(((decimal)effect / 100) * _magicAttack));
                                         break;
                                     case "fatigue":
                                         target.StaminaPoint = StaminaPoint - effect;
@@ -625,7 +626,7 @@ namespace LogicalGame
                             return true;
                         }
                     }
-                }
+                //}
             }
 
             return false;
@@ -640,7 +641,7 @@ namespace LogicalGame
                 if (IsThisSkill(skill) && skill.Cost[0] <= _healthPoint && skill.Cost[1] <= _staminaPoint)
                 {
                     //Check of Position of caster and target
-                    if ((skill.Position == 0 && _frontPosition == true) || (skill.Position == 1 && _frontPosition == true) || (skill.Position == 2 && _frontPosition == false))
+                    if (skill.Position == 0|| (skill.Position == 1 && _frontPosition == true) || (skill.Position == 2 && _frontPosition == false))
                     {
                         _healthPoint -= skill.Cost[0];
                         _staminaPoint -= skill.Cost[1];

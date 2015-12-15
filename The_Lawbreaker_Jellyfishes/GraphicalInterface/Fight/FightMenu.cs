@@ -50,6 +50,11 @@ namespace GraphicalInterface
             // We add a left click event on the inventory consumable button
             ButtonInventoryConsumable.Click += new EventHandler(AccessInventory);
 
+            foreach (string skill in selectedMember.Skills.Keys)
+            {
+                toolStripSkills.DropDownItems.Add(skill);
+            }
+
         }
         // ____Method to get the character who is launching a basic attack
         public void BasicAttack(object sender, EventArgs e)
@@ -122,6 +127,13 @@ namespace GraphicalInterface
         }
 
         public List<PanelCharacter> PanelsMembers { get { return _panelCharacterList; } }
+
+        private void toolStripSkills_DropDownItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            string skillName = e.ClickedItem.Text;
+            _fight.GetMemberWhoAttack(_selectedMember, _selectedMember.Skills[skillName], 0);
+            _FUC.EndFight();
+        }
     }
 
     // Change the color of the progress bars
