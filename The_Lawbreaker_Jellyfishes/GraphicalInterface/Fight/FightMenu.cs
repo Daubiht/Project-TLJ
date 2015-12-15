@@ -52,7 +52,7 @@ namespace GraphicalInterface
 
             foreach (string skill in selectedMember.Skills.Keys)
             {
-                toolStripSkills.DropDownItems.Add(skill);
+                if (!selectedMember.Skills[skill].IsPassif) toolStripSkills.DropDownItems.Add(skill);
             }
 
         }

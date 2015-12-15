@@ -394,6 +394,40 @@ namespace LogicalGame
                         {
                             _skillPoint--;
                             _skills.Add(name, skill);
+
+                            if (skill.IsPassif)
+                            {
+                                int effectPower;
+                                foreach (string effect in skill.Effect.Keys)
+                                {
+                                    effectPower = skill.Effect[effect];
+
+                                    switch (effect)
+                                    {
+                                        case "vie":
+                                            _maxHealthPoint += effectPower * 5;
+                                            if(_healthPoint == _maxHealthPoint) _healthPoint = _maxHealthPoint;
+                                            _health += effectPower;
+                                            break;
+                                        case "attaque physique":
+                                            _physicalAttack += effectPower;
+                                            break;
+                                        case "attaque magique":
+                                            _magicAttack += effectPower;
+                                            break;
+                                        case "robustesse":
+                                            _robustness += effectPower;
+                                            break;
+                                        case "esquive":
+                                            _dodge += effectPower;
+                                            break;
+                                        case "fatigue":
+                                            _stamina += effectPower;
+                                            break;
+                                    }
+                                }
+                            }
+
                             return skill;
                         }
                         else

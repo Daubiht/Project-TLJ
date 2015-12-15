@@ -79,7 +79,7 @@ namespace GraphicalInterface
             else if (result == 5)
             {
                 //bandit
-                label5.Text = "Alte là ! La bourse ou la vie ?!";
+                label5.Text = "Halte là ! La bourse ou la vie ?!";
                 label1.Text = "Fuir";
                 label2.Text = "Oui, tenez " + _world.Team.Invent.GetGold * 25 / 100 + " pièces d'or.";
                 label3.Text = "Jamais !";

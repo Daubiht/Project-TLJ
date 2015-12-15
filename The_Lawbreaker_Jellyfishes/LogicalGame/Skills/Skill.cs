@@ -13,6 +13,7 @@ namespace LogicalGame
         int _target;
         int[] _cost;
         string _description;
+        bool _isPassif;
 
         Skill _previousSkill;
         Skill _nextSkill;
@@ -28,7 +29,7 @@ namespace LogicalGame
         /// <param name="position">0 Toute || 1 CaC || 2 Po </param>
         /// <param name="effect"></param>
         /// <param name="cost">0 Health || 1 Stamina</param>
-        public Skill (string name, string description, int[] statRequired, int target, int position, Dictionary<string, int> effect, int[] cost)
+        public Skill (string name, string description, int[] statRequired, int target, int position, Dictionary<string, int> effect, int[] cost, bool isPassif)
         {
             _name = name;
             _statRequired = statRequired;
@@ -39,6 +40,13 @@ namespace LogicalGame
             _previousSkill = null;
             _nextSkill = null;
             _description = description;
+            _isPassif = isPassif;
+        }
+
+        public bool IsPassif
+        {
+            get { return _isPassif; }
+            set { _isPassif = value; }
         }
 
         public string Description
