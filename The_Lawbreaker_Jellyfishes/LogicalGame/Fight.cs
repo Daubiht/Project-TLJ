@@ -200,6 +200,7 @@ namespace LogicalGame
 
         public bool StopTurnOfPlayer(Character MemberWhoAttacks)
         {
+            MemberWhoAttacks.DidMemberPlay = true;
             int numberOfMembers = 0;
             // Count how many alive members are in the team in the team
             foreach (Character c in _team.Members)
@@ -303,7 +304,7 @@ namespace LogicalGame
         public List<Monster> GetAllMonster { get { return _monstersList; } }
         public Character MemberWhoIsAttacking { get { return _memberWhoAttacks;  } }
         public int NumberTurn { get { return _turn; } }
-        public Skill SelectedSkill { get { return _selectedSkill; } }
+        public Skill SelectedSkill { get { return _selectedSkill; } set { _selectedSkill = value; } }
         public Character SelectedCharacter { get { return _memberWhoAttacks; } }
     }
 }

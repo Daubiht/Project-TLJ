@@ -370,9 +370,9 @@ namespace LogicalGame
         {
             if (_isAlive)
             {
-                while (xp >= _nextLevel)
+                while (xp + _currentXp >= _nextLevel)
                 {
-                    xp -= _nextLevel;
+                    xp -= _nextLevel - _currentXp;
                     LevelUp(1);
                 }
                 _currentXp += xp;
