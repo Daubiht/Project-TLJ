@@ -32,6 +32,7 @@
             this.LError = new System.Windows.Forms.Label();
             this.retour = new System.Windows.Forms.Button();
             this.PTavern = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -73,10 +74,20 @@
             this.PTavern.Size = new System.Drawing.Size(410, 319);
             this.PTavern.TabIndex = 4;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(18, 13);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "label2";
+            // 
             // Taverne
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.PTavern);
             this.Controls.Add(this.retour);
             this.Controls.Add(this.LError);
@@ -95,5 +106,6 @@
         private System.Windows.Forms.Label LError;
         private System.Windows.Forms.Button retour;
         private System.Windows.Forms.Panel PTavern;
+        private System.Windows.Forms.Label label2;
     }
 }
