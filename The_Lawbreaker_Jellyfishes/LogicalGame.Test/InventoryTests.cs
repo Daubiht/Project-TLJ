@@ -155,7 +155,9 @@ namespace LogicalGame.Test
 
             ListItems l = new ListItems();
             w.Team.Invent.AddItem(l.Items[0], 1);
-
+            w.Team.Invent.AddItem(l.Items[4], 1);
+            w.Team.Invent.AddItem(l.Items[5], 1);
+            w.Team.Invent.AddItem(l.Items[6], 1);
             Assert.IsNotEmpty(w.Team.Invent.Inventory);
 
             Character MainC1 = new Character("Plopi", "dwarf", true);
