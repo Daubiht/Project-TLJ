@@ -99,7 +99,12 @@ namespace GraphicalInterface
             else if(_world.ActualPosition == listZones[listZones.Count - 1])
             {
                 Retour.Enabled = true;
-                Retour.Text = "Rejoindre l'île";
+                Retour.Text = "Retour";
+                if (_instance.Between)
+                {
+                    Retour.Text = "Rejoindre l'île";
+                }
+
             }
             else
             {

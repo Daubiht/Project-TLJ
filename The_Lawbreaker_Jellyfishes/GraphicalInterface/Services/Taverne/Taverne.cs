@@ -90,6 +90,7 @@ namespace GraphicalInterface
         public void Taverne_Load(object sender, EventArgs e)
         {
             _randomCharacterList = _contextForm.world.TavernCharacters;
+            label2.Text = t.Invent.GetGold + " pièces d'or";
             ReloadTavern();
         }
 
