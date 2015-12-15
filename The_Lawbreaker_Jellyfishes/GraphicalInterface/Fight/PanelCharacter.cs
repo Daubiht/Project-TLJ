@@ -61,12 +61,20 @@ namespace GraphicalInterface
             // If the player clicks on a character's panel, we create a menu which display information about the member, and change his bordel style
             if ( _obj is Character )
             {
-                // Remove border style of all member's panel
-                ChangeBorderStyle(false);
-                // Assign a special bordel style only to the selected member 
-                ChangeBorderStyle(true);
-                // Create the fight menu of the selected member
-                _FightUserControl.CreateFightMenu(_character);
+                /*if (_fight.SelectedSkill != null)
+                {
+                    _fight.MemberWhoIsAttacking.UseSkill(_fight.SelectedSkill, _character);
+                    //_fight.StopTurnOfPlayer(_fight.MemberWhoIsAttacking);
+                }
+                else
+                {*/
+                    // Remove border style of all member's panel
+                    ChangeBorderStyle(false);
+                    // Assign a special bordel style only to the selected member 
+                    ChangeBorderStyle(true);
+                    // Create the fight menu of the selected member
+                    _FightUserControl.CreateFightMenu(_character);
+                //}
             }
 
             // If the player clicks on a monster's panel, the member attacks the monster

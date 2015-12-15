@@ -33,10 +33,6 @@
             this.toolStripAttack = new System.Windows.Forms.ToolStripButton();
             this.toolStripDefense = new System.Windows.Forms.ToolStripButton();
             this.toolStripSkills = new System.Windows.Forms.ToolStripDropDownButton();
-            this.hgjhgjToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ghjhgjToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ghjghToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dfgdfToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripRight = new System.Windows.Forms.ToolStrip();
             this.ButtonInventoryConsumable = new System.Windows.Forms.ToolStripButton();
             this.ButtonRunAway = new System.Windows.Forms.Button();
@@ -83,41 +79,13 @@
             // toolStripSkills
             // 
             this.toolStripSkills.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripSkills.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.hgjhgjToolStripMenuItem,
-            this.ghjhgjToolStripMenuItem,
-            this.ghjghToolStripMenuItem,
-            this.dfgdfToolStripMenuItem1});
             this.toolStripSkills.Image = ((System.Drawing.Image)(resources.GetObject("toolStripSkills.Image")));
             this.toolStripSkills.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripSkills.Name = "toolStripSkills";
-            this.toolStripSkills.Size = new System.Drawing.Size(92, 19);
+            this.toolStripSkills.Size = new System.Drawing.Size(93, 19);
             this.toolStripSkills.Text = "Compétences";
             this.toolStripSkills.ToolTipText = "Compétences";
-            // 
-            // hgjhgjToolStripMenuItem
-            // 
-            this.hgjhgjToolStripMenuItem.Name = "hgjhgjToolStripMenuItem";
-            this.hgjhgjToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
-            this.hgjhgjToolStripMenuItem.Text = "hgjhgj";
-            // 
-            // ghjhgjToolStripMenuItem
-            // 
-            this.ghjhgjToolStripMenuItem.Name = "ghjhgjToolStripMenuItem";
-            this.ghjhgjToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
-            this.ghjhgjToolStripMenuItem.Text = "ghjhgj";
-            // 
-            // ghjghToolStripMenuItem
-            // 
-            this.ghjghToolStripMenuItem.Name = "ghjghToolStripMenuItem";
-            this.ghjghToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
-            this.ghjghToolStripMenuItem.Text = "ghjgh";
-            // 
-            // dfgdfToolStripMenuItem1
-            // 
-            this.dfgdfToolStripMenuItem1.Name = "dfgdfToolStripMenuItem1";
-            this.dfgdfToolStripMenuItem1.Size = new System.Drawing.Size(108, 22);
-            this.dfgdfToolStripMenuItem1.Text = "dfgdf";
+            this.toolStripSkills.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStripSkills_DropDownItemClicked);
             // 
             // toolStripRight
             // 
@@ -204,10 +172,6 @@
 
         private System.Windows.Forms.ToolStrip toolStripLeft;
         private System.Windows.Forms.ToolStripDropDownButton toolStripSkills;
-        private System.Windows.Forms.ToolStripMenuItem hgjhgjToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ghjhgjToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ghjghToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem dfgdfToolStripMenuItem1;
         private System.Windows.Forms.ToolStrip toolStripRight;
         private System.Windows.Forms.Button ButtonRunAway;
         private System.Windows.Forms.Label labelCharName;
