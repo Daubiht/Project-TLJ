@@ -151,7 +151,7 @@ namespace LogicalGame
                 }
             }
             merchant = new Merchant("Marchand itinérant", listSellable);
-            merchant.Invent = _context.MapIsland.ActualWorld.Team.Invent;
+            if(_context != null) merchant.Invent = _context.MapIsland.ActualWorld.Team.Invent;
             return merchant;
         }
 

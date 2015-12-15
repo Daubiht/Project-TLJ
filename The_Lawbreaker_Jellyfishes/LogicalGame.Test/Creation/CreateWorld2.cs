@@ -99,8 +99,8 @@ namespace LogicalGame.Test
             s2.PointY = 100;
 
             Militia s3 = new Militia(city);
-            s3.PointX = 39;
-            s3.PointY = 39;
+            s3.PointX = 100;
+            s3.PointY = 100;
 
             //list merchant for city
             List<object> listservices = new List<object>();
