@@ -22,6 +22,9 @@ namespace LogicalGame
         // Member's basic attack used on a monster
         int _basicAttack;
 
+        int _oldLife;
+        Character _JustSelectedCharacter;
+
         // A dictionnary of dictionnaries, a dictionnary will contain the original basic stats of the members
         Dictionary<Character, Dictionary<string, int>> _OriginalBasicStats;
 
@@ -124,6 +127,7 @@ namespace LogicalGame
         // 1 METHODS TO GET THE MEMBER WHO ATTACKS, this method is called when the player clicks on a member's panel
         public void GetMemberWhoAttack(Character MemberWhoAttacks, Skill SelectedSkill, int BasicAttack)
         {
+            _oldLife = MemberWhoAttacks.HealthPoint;
             // Get the member who attacks
             _memberWhoAttacks = MemberWhoAttacks;
             // Get the launched skill
@@ -164,12 +168,7 @@ namespace LogicalGame
             // Count how many player has launched an attack
             int memberWhoPlayed = 0;
 
-            if (_selectedSkill != null)
-            {
-                MemberWhoAttacks.UseSkill(_selectedSkill, AttackedMonster);
-                _selectedSkill = null;
-            }
-            else MemberWhoAttacks.AttackMonster(AttackedMonster);
+            MemberWhoAttacks.AttackMonster(AttackedMonster);
             // When the member finish to attack, now nobody in the team is attacking
             _doesAMemberAttack = false;
             _memberWhoAttacks.SuccedAttack = true;
@@ -198,45 +197,6 @@ namespace LogicalGame
             return false;
         }
 
-        public bool StopTurnOfPlayer(Character MemberWhoAttacks)
-        {
-            MemberWhoAttacks.DidMemberPlay = true;
-            int numberOfMembers = 0;
-            // Count how many alive members are in the team in the team
-            foreach (Character c in _team.Members)
-            {
-                if (c.isAlive == true) numberOfMembers += 1;
-            }
-            // Count how many player has launched an attack
-            int memberWhoPlayed = 0;
-
-            // When the member finish to attack, now nobody in the team is attacking
-            _doesAMemberAttack = false;
-            _memberWhoAttacks.SuccedAttack = true;
-            // True means "This member just attacked, he won't be able to attack again"
-            MemberWhoAttacks.DidMemberPlay = true;
-
-            // Check if all monsters are dead, if yes, we end the fight and we create a screen who dislays what the team earn
-            if (IsAllMonsterDie() == true) return true;
-
-            // Check if all member played, if not, the player can continue to attack the monsters
-            foreach (Character c in _team.Members)
-            {
-                if (c.DidMemberPlay == true & c.isAlive == true)
-                {
-                    memberWhoPlayed += 1;
-                    CheckFrontMonserDead();
-                }
-            }
-            // If all member played, monsters attack
-            if (numberOfMembers == memberWhoPlayed)
-            {
-                MonsterAttack();
-                // True means "All monsters attacked" 
-                return true;
-            }
-            return false;
-        }
 
         //_____METHOD WHO CHECKS IF ALL FRONT MONSTER ARE DEAD TO PUT HIDDEN MONSTER IN FRONT POSITION
         public void CheckFrontMonserDead()
@@ -283,7 +243,12 @@ namespace LogicalGame
                 c.DidMemberPlay = false;
             }
         }
-
+        //
+        public void WhoIsSelected(Character c)
+        {
+            _oldLife = c.HealthPoint;
+            _JustSelectedCharacter = c;
+        }
         public Dictionary<Character, Dictionary<string, int>> OriginalStats { get { return _OriginalBasicStats; } }
         public bool AreAllMembersDead { get { return _areAllMembersDead; } }
         public bool AreAllMonstersDead
@@ -304,7 +269,7 @@ namespace LogicalGame
         public List<Monster> GetAllMonster { get { return _monstersList; } }
         public Character MemberWhoIsAttacking { get { return _memberWhoAttacks;  } }
         public int NumberTurn { get { return _turn; } }
-        public Skill SelectedSkill { get { return _selectedSkill; } set { _selectedSkill = value; } }
-        public Character SelectedCharacter { get { return _memberWhoAttacks; } }
+        public int OldLifeSelectedMember { get { return _oldLife; } }
+        public Character SelectedCharacter { get { return _JustSelectedCharacter; }}
     }
 }

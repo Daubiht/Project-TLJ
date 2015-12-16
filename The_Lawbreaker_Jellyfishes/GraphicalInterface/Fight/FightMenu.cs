@@ -62,7 +62,7 @@ namespace GraphicalInterface
             _fight.GetMemberWhoAttack(_selectedMember, null, _selectedMember.PhysicalAttack);
             _FUC.EndFight();
         }
-        // ____Method to INCREASE ROBUSTNESS by X % of the member during 1 tour, X % is define the character class_____________________________
+        // ____Method to INCREASE ROBUSTNESS by X % of the member during 1 tour, X % is define the character class
         public void Defense(object sender, EventArgs e)
         {
             // bool used in case everybody use "defense" button
@@ -80,6 +80,10 @@ namespace GraphicalInterface
             {
                 _fight.MonsterAttack();
                 foreach ( PanelCharacter pC in _panelCharacterList ) pC.RefreshInformation();
+                // If our SELECTED CHARACTER is attacked, we refresh his HP BAR
+                foreach ( Character c in _fight.GetTeam.Members )
+                    if ( c.Name == _fight.SelectedCharacter.Name && c.HealthPoint != _fight.OldLifeSelectedMember )
+                        _FUC.CreateFightMenu(c);
             }
             _FUC.EndFight();
         }
@@ -125,6 +129,7 @@ namespace GraphicalInterface
                 FIForm.ShowDialog();
             }
         }
+
 
         public List<PanelCharacter> PanelsMembers { get { return _panelCharacterList; } }
 
