@@ -137,7 +137,21 @@ namespace GraphicalInterface
         private void label1_Click(object sender, EventArgs e)
         {
             //Refus, partir
-            _context.ExitMenu(this);
+            if(_result == 5)
+            {
+                if(_world.Random.Next(0, 2) == 1)
+                {
+                    label3_Click(sender, e);
+                }
+                else
+                {
+                    _context.ExitMenu(this);
+                }
+            }
+            else
+            {
+                _context.ExitMenu(this);
+            }
         }
 
         private void label2_Click(object sender, EventArgs e)
