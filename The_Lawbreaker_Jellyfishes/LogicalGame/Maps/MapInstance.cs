@@ -89,11 +89,11 @@ namespace LogicalGame
             }
             else
             {
-                merch = 6;
-                elder = 6;
+                merch = 3;
+                elder = 3;
                 empty = 5;
                 thief = 8;
-                fight = 75;
+                fight = 81;
             }
 
             if (percent < merch)
