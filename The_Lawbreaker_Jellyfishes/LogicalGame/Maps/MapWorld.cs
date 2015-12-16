@@ -57,8 +57,8 @@ namespace LogicalGame
                         if (militia)
                         {
                             _actualPosition = I;
-                            TavernCharactersChange();
                         }
+                        TavernCharactersChange();
                         return true;
                     }
                 }

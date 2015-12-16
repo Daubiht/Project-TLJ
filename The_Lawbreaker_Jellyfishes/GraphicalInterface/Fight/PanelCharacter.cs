@@ -61,20 +61,44 @@ namespace GraphicalInterface
             // If the player clicks on a character's panel, we create a menu which display information about the member, and change his bordel style
             if ( _obj is Character )
             {
-                /*if (_fight.SelectedSkill != null)
+                if (_fight.SelectedSkill != null )
                 {
-                    _fight.MemberWhoIsAttacking.UseSkill(_fight.SelectedSkill, _character);
-                    //_fight.StopTurnOfPlayer(_fight.MemberWhoIsAttacking);
+                    if (!_fight.MemberWhoIsAttacking.DidMemberPlay)
+                    {
+                        if (_fight.MemberWhoIsAttacking.UseSkill(_fight.SelectedSkill, _character)) // True means "All monsters attacked, so we need to refresh the character's panels to display new HP point and stamina"
+                        {
+                            _fight.SelectedSkill = null;
+                            _fight.StopTurnOfPlayer(_fight.MemberWhoIsAttacking);
+                            foreach (PanelCharacter pC in _FightUserControl.GetCharacterPanel)
+                            {
+                                // We refresh informations on the character's panels
+                                pC.RefreshInformation();
+                                // We color all the panels character who are alive to say they can play again
+                                if (pC.GetCharacter.isAlive == true)
+                                    pC.BackColor = Color.LightSkyBlue;
+                            }
+                        }
+                        // If the members who attack is notn null (because we just start the fight) and didn't succeed to attack because he selected the wrong monster, the selector is still on his panel
+                        if (_fight.MemberWhoIsAttacking != null && _fight.MemberWhoIsAttacking.SuccedAttack == false)
+                        {
+                            foreach (PanelCharacter p in _FightUserControl.GetCharacterPanel)
+                                if (_fight.MemberWhoIsAttacking.Name == p.GetCharacter.Name) p.BackColor = Color.SteelBlue;
+                        }
+                        // After the character attacked, we only actualize the HP of the attacked monster
+                        RefreshInformation();
+                        // Color the panel of members who played
+                        ColorPlayedCharacter();
+                    }
                 }
                 else
-                {*/
+                {
                     // Remove border style of all member's panel
                     ChangeBorderStyle(false);
                     // Assign a special bordel style only to the selected member 
                     ChangeBorderStyle(true);
                     // Create the fight menu of the selected member
                     _FightUserControl.CreateFightMenu(_character);
-                //}
+                }
             }
 
             // If the player clicks on a monster's panel, the member attacks the monster

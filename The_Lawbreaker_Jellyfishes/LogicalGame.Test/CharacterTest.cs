@@ -54,7 +54,7 @@ namespace LogicalGame.Test
         {
             Character p1 = new Character("George", "Dwarf", true);
             p1.LevelUp(1);
-            Skill s1 = new Skill("Attaque", "", null, 0, 1, null, new int[4]);
+            Skill s1 = new Skill("Attaque", "", null, 0, 1, null, new int[4], false);
 
             p1.AddSkill("Attaque", s1);
 
@@ -96,7 +96,7 @@ namespace LogicalGame.Test
 
             Dictionary<string, int> effects = new Dictionary<string, int>();
             effects.Add("attaque physique", 10);
-            Skill s1 = new Skill("test", "Attaque", null, 0, 0, effects, new int[] { 0, 5 });
+            Skill s1 = new Skill("test", "Attaque", null, 0, 0, effects, new int[] { 0, 5 }, false);
 
             Assert.AreEqual(s1, p1.AddSkill(s1.Name, s1));
 

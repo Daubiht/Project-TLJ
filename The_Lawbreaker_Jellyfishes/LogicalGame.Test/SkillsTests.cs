@@ -9,9 +9,9 @@ namespace LogicalGame.Test
         [Test]
         public void We_can_creat_a_skill_and_add_it_to_a_character ()
         {
-            Skill coolSlash = new Skill("cool slash", "Attaque", null, 1, 1, null, null); ;
-            Skill superSlash = new Skill("Super Slash", "Attaque", null, 1, 1, null, null); ;
-            Skill slash = new Skill("slash", "Attaque", null,1,1,null,null);
+            Skill coolSlash = new Skill("cool slash", "Attaque", null, 1, 1, null, null, false); ;
+            Skill superSlash = new Skill("Super Slash", "Attaque", null, 1, 1, null, null, false); ;
+            Skill slash = new Skill("slash", "Attaque", null,1,1,null,null, false);
 
             Character p = new Character("lol", "Dwarf", true);
             p.LevelUp(1);
@@ -27,7 +27,7 @@ namespace LogicalGame.Test
         {
             Dictionary<string, int> effect = new Dictionary<string, int>();
             effect.Add("attaque physique", 150);
-            Skill slash = new Skill("slash", "Attaque", null, 1, 1, effect, new int[] { 0, 1 });
+            Skill slash = new Skill("slash", "Attaque", null, 1, 1, effect, new int[] { 0, 1 }, false);
 
             Character p = new Character("lol", "Dwarf", true);
             p.LevelUp(1);
@@ -44,7 +44,7 @@ namespace LogicalGame.Test
         {
             Dictionary<string, int> effect = new Dictionary<string, int>();
             effect.Add("attaque physique", 150);
-            Skill slash = new Skill("slash", "Attaque", new int[] { 15, 0, 0, 0, 0, 0 }, 1, 1, effect, new int[] { 0, 1 });
+            Skill slash = new Skill("slash", "Attaque", new int[] { 15, 0, 0, 0, 0, 0 }, 1, 1, effect, new int[] { 0, 1 }, false);
 
             Character p = new Character("lol", "Dwarf", true);
             p.LevelUp(1);
@@ -59,7 +59,7 @@ namespace LogicalGame.Test
         {
             Dictionary<string, int> effect = new Dictionary<string, int>();
             effect.Add("attaque physique", 150);
-            Skill slash = new Skill("slash", "Attaque", null, 1, 0, effect, new int[] { 0, 1 });
+            Skill slash = new Skill("slash", "Attaque", null, 1, 0, effect, new int[] { 0, 1 }, false);
 
             Character p = new Character("lol", "Dwarf", true);
             p.LevelUp(1);
@@ -82,9 +82,9 @@ namespace LogicalGame.Test
         {
             Dictionary<string, int> effect = new Dictionary<string, int>();
             effect.Add("attaque physique", 150);
-            Skill s1 = new Skill("slash1", "Attaque", null, 0, 0, effect, new int[] { 0, 1 });
-            Skill s2 = new Skill("slash2", "Attaque", null, 1, 0, effect, new int[] { 0, 1 });
-            Skill s3 = new Skill("slash3", "Attaque", null, 2, 0, effect, new int[] { 0, 1 });
+            Skill s1 = new Skill("slash1", "Attaque", null, 0, 0, effect, new int[] { 0, 1 }, false);
+            Skill s2 = new Skill("slash2", "Attaque", null, 1, 0, effect, new int[] { 0, 1 }, false);
+            Skill s3 = new Skill("slash3", "Attaque", null, 2, 0, effect, new int[] { 0, 1 }, false);
 
             Character p = new Character("lol", "Dwarf", true);
             p.LevelUp(1);
@@ -106,7 +106,7 @@ namespace LogicalGame.Test
         {
             Dictionary<string, int> effect = new Dictionary<string, int>();
             effect.Add("attaque physique", 150);
-            Skill s1 = new Skill("s4", "Attaque", null, 0, 0, effect, new int[] { 0, 1 });
+            Skill s1 = new Skill("s4", "Attaque", null, 0, 0, effect, new int[] { 0, 1 }, false);
 
             Character p = new Character("lol", "Dwarf", true);
             p.LevelUp(1);

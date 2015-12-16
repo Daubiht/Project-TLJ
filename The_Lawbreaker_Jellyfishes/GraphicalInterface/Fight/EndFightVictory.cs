@@ -81,6 +81,7 @@ namespace GraphicalInterface
             foreach (Item item in dropedItem.Keys)
             {
                 Label name = new Label();
+                name.AutoSize = true;
                 name.Text = item.GetName + " x " + dropedItem[item];
                 name.Top = i * (name.Height + 5);
                 PDrop.Controls.Add(name);
