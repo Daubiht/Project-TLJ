@@ -254,6 +254,52 @@ namespace GraphicalInterface
                 }
             }
         }
+        //____Method who display the next character who attacks
+        public void NextMember()
+        {
+            foreach ( Character c in _fight.GetTeam.Members )
+            {
+                if ( c.isAlive == true && c.DidMemberPlay == false )
+                {
+                    foreach ( PanelCharacter PC in GetCharacterPanel )
+                    {
+                        if ( PC.GetCharacter == c )
+                        {
+                            PC.BackColor = Color.SteelBlue;
+                            // Create the fight menu of the selected member
+                            CreateFightMenu(c);
+                            // Get the character we click on it
+                            _fight.WhoIsSelected(c);
+                        }
+                    }
+                    break;
+                }
+            }
+        }
+        // Method who colors the panel of character WHO ALREADY PLAYED
+        public void ColorPlayedCharacter()
+        {
+            foreach ( PanelCharacter p in GetCharacterPanel )
+                if ( p.GetCharacter.DidMemberPlay == true && p.GetCharacter.isAlive == true )
+                    p.BackColor = Color.Gray;
+        }
+        // Method who changes the border style of the SELECTED CHARACTER'S PANEL
+        public void ChangeColorPanel()
+        {   // If false, Remove all border style of all members
+            foreach ( PanelCharacter pC in GetCharacterPanel )
+            {
+                // BLACK If the member is DEAD
+                if ( pC.GetCharacter.isAlive == false ) pC.BackColor = Color.Black;
+                // LIGHT BLUE If the member is ALIVE
+                if ( pC.GetCharacter.isAlive == true ) pC.BackColor = Color.LightSkyBlue;
+                // GRAY color If the member is ALIVE and already PLAYED
+                if ( pC.GetCharacter.DidMemberPlay == true && pC.GetCharacter.isAlive == true ) pC.BackColor = Color.Gray;
+                // BLUE FONCE if panel is selected
+                if ( pC.GetCharacter == _fight.SelectedCharacter ) pC.BackColor = Color.SteelBlue;
+            }
+
+        }
+
         public List<PanelCharacter> GetCharacterPanel
         {
             get { return _panelMembers;  }

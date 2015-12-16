@@ -65,14 +65,16 @@ namespace GraphicalInterface
         // ____Method to INCREASE ROBUSTNESS by X % of the member during 1 tour, X % is define the character class
         public void Defense(object sender, EventArgs e)
         {
-            // bool used in case everybody use "defense" button
+            // local bool used in case everybody use "defense" button
             bool didAllMemberPlayed = true;
             // Given in parameters the current number turn, used to know when will finish the defense skill
             _selectedMember.Defense(_fight.NumberTurn);
             // Here we say that the member just played
             _selectedMember.DidMemberPlay = true;
+            _FUC.NextMember();
+            _FUC.ColorPlayedCharacter();
             // Check if every member are in defense position
-            foreach(Character c in _fight.GetTeam.Members )
+            foreach (Character c in _fight.GetTeam.Members )
                 if ( c.DidMemberPlay == false )
                     didAllMemberPlayed = false;
             // If yes, it's monsters to attack the team
@@ -84,6 +86,7 @@ namespace GraphicalInterface
                 foreach ( Character c in _fight.GetTeam.Members )
                     if ( c.Name == _fight.SelectedCharacter.Name && c.HealthPoint != _fight.OldLifeSelectedMember )
                         _FUC.CreateFightMenu(c);
+                _FUC.NextMember();
             }
             _FUC.EndFight();
         }

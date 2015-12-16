@@ -243,12 +243,15 @@ namespace LogicalGame
                 c.DidMemberPlay = false;
             }
         }
-        //
+        // Select the current character, usefull to refresh hp bar of our selected character if he is attacked
         public void WhoIsSelected(Character c)
         {
             _oldLife = c.HealthPoint;
             _JustSelectedCharacter = c;
         }
+
+
+
         public Dictionary<Character, Dictionary<string, int>> OriginalStats { get { return _OriginalBasicStats; } }
         public bool AreAllMembersDead { get { return _areAllMembersDead; } }
         public bool AreAllMonstersDead

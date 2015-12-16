@@ -63,22 +63,20 @@ namespace GraphicalInterface
             // If the player clicks on a character's panel, we create a menu which display information about the member, and change his bordel style
             if ( _obj is Character )
             {
-
-                // Remove border style of all member's panel
-                ChangeBorderStyle(false);
-                // Assign a special bordel style only to the selected member 
-                ChangeBorderStyle(true);
                 // Create the fight menu of the selected member
                 _FightUserControl.CreateFightMenu(_character);
                 // Get the character we click on it
                 _fight.WhoIsSelected(_character);
+                _FightUserControl.ChangeColorPanel();
             }
 
             // If the player clicks on a monster's panel, the member attacks the monster
             else if ( _obj is Monster )
             {
+
                 if ( _fight.GetAttackedMonster(_monster) == true ) // True means "All monsters attacked, so we need to refresh the character's panels to display new HP point and stamina"
                 {
+
                     foreach ( PanelCharacter pC in _FightUserControl.GetCharacterPanel )
                     {
                         // We refresh informations on the character's panels
@@ -87,17 +85,21 @@ namespace GraphicalInterface
                         if ( pC.GetCharacter.isAlive == true)
                             pC.BackColor = Color.LightSkyBlue;
                     }
+                    // After all monster attack we select automatically the next character
+                    _FightUserControl.NextMember();
                 }
-                // If the members who attack is notn null (because we just start the fight) and didn't succeed to attack because he selected the wrong monster, the selector is still on his panel
+
+                // If the members who attack is not null (because we just start the fight) and didn't succeed to attack because he selected the wrong monster, the selector is still on his panel
                 if ( _fight.MemberWhoIsAttacking != null && _fight.MemberWhoIsAttacking.SuccedAttack == false )
                 {
-                    foreach (PanelCharacter p in _FightUserControl.GetCharacterPanel )
-                        if ( _fight.MemberWhoIsAttacking.Name == p.GetCharacter.Name ) p.BackColor = Color.SteelBlue;
+
                 }
+                // If the member succed to attack, we select automatically the next member
+                if( _fight.MemberWhoIsAttacking != null &&_fight.MemberWhoIsAttacking.SuccedAttack == true ) _FightUserControl.NextMember();
                 // After the character attacked, we only actualize the HP of the attacked monster
                 RefreshInformation();
                 // Color the panel of members who played
-                ColorPlayedCharacter();
+                _FightUserControl.ColorPlayedCharacter();
             }
         }
         // Method who dislays actulized informations of monster and character panels, like HP, Stamina etc.
@@ -127,36 +129,6 @@ namespace GraphicalInterface
             }
         }
 
-        // Method who colors the panel of character WHO ALREADY PLAYED
-        public void ColorPlayedCharacter()
-        {
-            foreach ( PanelCharacter p in _FightUserControl.GetCharacterPanel )
-                if ( p.GetCharacter.DidMemberPlay == true && p.GetCharacter.isAlive == true)
-                    p.BackColor = Color.Gray;
-        }
-        // Method who changes the border style of the SELECTED CHARACTER'S PANEL
-        public void ChangeBorderStyle(bool DoStyle)
-        {   // If false, Remove all border style of all members
-            if ( DoStyle == false )
-            { 
-                foreach ( PanelCharacter pC in _FightUserControl.GetCharacterPanel )
-                {
-                    pC.BorderStyle = BorderStyle.None;
-                    // If the member is DEAD, the panel is colored in BLACK
-                    if ( pC.GetCharacter.isAlive == false ) pC.BackColor = Color.Black;
-                    // If the member is ALIVE, the panel is colored in LIGHT
-                    if ( pC.GetCharacter.isAlive == true ) pC.BackColor = Color.LightSkyBlue;
-                    // If the member is ALIVE and already PLAYED, the panel is in GRAY
-                    if ( pC._character.DidMemberPlay == true && pC.GetCharacter.isAlive == true ) pC.BackColor = Color.Gray;
-                }
-            }
-            // If true, assign a special border style to the selected member's panel
-            if ( DoStyle == true )
-            {
-                BorderStyle = BorderStyle.FixedSingle;
-                BackColor = Color.SteelBlue;
-            }
-        }
 
         public Character GetCharacter{get { return _character; }}
     }
