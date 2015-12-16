@@ -16,12 +16,14 @@ namespace GraphicalInterface
         Monster _monster;
         Fight _fight;
         FightUserControl _FightUserControl;
+        MainForm _context;
         // _obj will contain a monster OR a character, to know if we must call fight.GetMemberWhoAttack or fight.AttackedMonster
         Object _obj;
 
         // CONSTRUCTORS OF PANELS, in argument we get a monster or a character object
-        public PanelCharacter(Object obj, Fight Fight, FightUserControl FightUserControl)
+        public PanelCharacter(Object obj, Fight Fight, FightUserControl FightUserControl, MainForm Context)
         {
+            _context = Context;
             // We need the fight user control to display on it a new fight menu
             _FightUserControl = FightUserControl;
             // We need fight to use some methods
@@ -61,12 +63,15 @@ namespace GraphicalInterface
             // If the player clicks on a character's panel, we create a menu which display information about the member, and change his bordel style
             if ( _obj is Character )
             {
+
                 // Remove border style of all member's panel
                 ChangeBorderStyle(false);
                 // Assign a special bordel style only to the selected member 
                 ChangeBorderStyle(true);
                 // Create the fight menu of the selected member
                 _FightUserControl.CreateFightMenu(_character);
+                // Get the character we click on it
+                _fight.WhoIsSelected(_character);
             }
 
             // If the player clicks on a monster's panel, the member attacks the monster
@@ -115,6 +120,10 @@ namespace GraphicalInterface
                 BackColor = Color.LightSkyBlue;
                 if ( _character.isAlive == false ) BackColor = Color.Black;
                 else if ( _character.isAlive == true ) BackColor = Color.LightSkyBlue;
+                // Refresh HP BAR of our SELECTED CHARACTER if he is attacked
+                foreach(Character c in _fight.GetTeam.Members )
+                    if ( c.Name == _fight.SelectedCharacter.Name && c.HealthPoint != _fight.OldLifeSelectedMember )
+                        _FightUserControl.CreateFightMenu(c);
             }
         }
 

@@ -22,6 +22,9 @@ namespace LogicalGame
         // Member's basic attack used on a monster
         int _basicAttack;
 
+        int _oldLife;
+        Character _JustSelectedCharacter;
+
         // A dictionnary of dictionnaries, a dictionnary will contain the original basic stats of the members
         Dictionary<Character, Dictionary<string, int>> _OriginalBasicStats;
 
@@ -124,6 +127,7 @@ namespace LogicalGame
         // 1 METHODS TO GET THE MEMBER WHO ATTACKS, this method is called when the player clicks on a member's panel
         public void GetMemberWhoAttack(Character MemberWhoAttacks, Skill SelectedSkill, int BasicAttack)
         {
+            _oldLife = MemberWhoAttacks.HealthPoint;
             // Get the member who attacks
             _memberWhoAttacks = MemberWhoAttacks;
             // Get the launched skill
@@ -239,7 +243,12 @@ namespace LogicalGame
                 c.DidMemberPlay = false;
             }
         }
-
+        //
+        public void WhoIsSelected(Character c)
+        {
+            _oldLife = c.HealthPoint;
+            _JustSelectedCharacter = c;
+        }
         public Dictionary<Character, Dictionary<string, int>> OriginalStats { get { return _OriginalBasicStats; } }
         public bool AreAllMembersDead { get { return _areAllMembersDead; } }
         public bool AreAllMonstersDead
@@ -260,5 +269,7 @@ namespace LogicalGame
         public List<Monster> GetAllMonster { get { return _monstersList; } }
         public Character MemberWhoIsAttacking { get { return _memberWhoAttacks;  } }
         public int NumberTurn { get { return _turn; } }
+        public int OldLifeSelectedMember { get { return _oldLife; } }
+        public Character SelectedCharacter { get { return _JustSelectedCharacter; }}
     }
 }

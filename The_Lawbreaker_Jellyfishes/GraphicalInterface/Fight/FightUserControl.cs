@@ -17,7 +17,8 @@ namespace GraphicalInterface
         List<Monster> _monsters;
         Team _team;
         Fight _fight;
-        
+
+
         // Need the context to give it to the end fight, end fight will go back to the context
         MainForm _context;
         // Fight menu displays attack, skill, informations about the selected member
@@ -135,7 +136,7 @@ namespace GraphicalInterface
                 int localPosX1Member = _posX1Member;
                 foreach (T t in MonsterOrMemberList)
                 {
-                    PanelCharacter p = new PanelCharacter(t, _fight, this);
+                    PanelCharacter p = new PanelCharacter(t, _fight, this, _context);
                     p.Location = new Point(localPosX1Member, posY);
                     Controls.Add(p);
                     if (t is Character )
@@ -150,7 +151,7 @@ namespace GraphicalInterface
                 int localPosX2Member = _posX2Member;
                 foreach (T t in MonsterOrMemberList)
                 {
-                    PanelCharacter p = new PanelCharacter(t, _fight, this);
+                    PanelCharacter p = new PanelCharacter(t, _fight, this, _context);
                     p.Location = new Point(localPosX2Member, posY);
                     Controls.Add(p);
                     localPosX2Member += _spaceBetweenPanels;
@@ -166,7 +167,7 @@ namespace GraphicalInterface
                 int localPosX3Member = _posX3Member;
                 foreach (T t in MonsterOrMemberList)
                 {
-                    PanelCharacter p = new PanelCharacter(t, _fight, this);
+                    PanelCharacter p = new PanelCharacter(t, _fight, this, _context);
                     p.Location = new Point(localPosX3Member, posY);
                     Controls.Add(p);
                     localPosX3Member += _spaceBetweenPanels;
@@ -182,7 +183,7 @@ namespace GraphicalInterface
                 int localPosX4Member = _posX4Member;
                 foreach (T t in MonsterOrMemberList)
                 {
-                    PanelCharacter p = new PanelCharacter(t, _fight, this);
+                    PanelCharacter p = new PanelCharacter(t, _fight, this, _context);
                     p.Location = new Point(localPosX4Member, posY);
                     Controls.Add(p);
                     localPosX4Member += _spaceBetweenPanels;
@@ -257,5 +258,6 @@ namespace GraphicalInterface
         {
             get { return _panelMembers;  }
         }
+        public FightMenu GetCurrentFightMenu { get { return _currentMemberMenu; } set { _currentMemberMenu = value; } }
     }
 }
