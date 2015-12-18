@@ -796,43 +796,6 @@ namespace LogicalGame
             return true;
         }
 
-        //____________________MEMBERS ATTACKS MONSTER AUTOMATICALLY, DELETE THIS METHOD____________________
-        // This method allows the character to attack a monster
-        public void Attack(List<Monster> MonsterToKill)
-        {
-            // Repertory every alive FRONT MONSTERS
-            List<Monster> listFrontMonsters = new List<Monster>();
-            // Repertory every alive FRONT AND HIDDEN MONSTERS
-            List<Monster> listHiddenMonsters = new List<Monster>();
-
-            foreach ( Monster m in MonsterToKill )
-            {
-                // Add alive front monsters
-               if( m.Alive == true && m.FrontPosition == true ) listFrontMonsters.Add(m);
-               // Add alive front and hidden monsters
-               if( m.Alive == true && m.FrontPosition == false ) listHiddenMonsters.Add(m);
-            }
-            // if all FRONT MONSTERS ARE DEAD, every HIDDEN MONSTERS will be set in FRONT POSITION
-            if ( listFrontMonsters.Count == 0 )
-            {
-                foreach ( Monster m in listHiddenMonsters )
-                {
-                    // Change the position of the hidden monster in front
-                    m.FrontPosition = true;
-                    // Add the monster in the front monster list
-                    listFrontMonsters.Add(m);
-                }
-            }
-
-            // Check if the member is alive to attack
-            if ( _isAlive == true )
-            {
-                Random rdm = new Random();
-                // Generate a random index which represent the targetted monster in FRONT POSITION
-                int indexRdmMonster = rdm.Next(0, listFrontMonsters.Count);
-                listFrontMonsters[indexRdmMonster].Hurt(_physicalAttack);
-            }
-        }
         //__________________ MEMBERS ATTACKS MONSTER USING THE MOUSE USER__________________
         public void AttackMonster(Monster AttackedMonster)
         {

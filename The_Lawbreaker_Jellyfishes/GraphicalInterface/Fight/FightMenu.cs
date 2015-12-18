@@ -59,8 +59,10 @@ namespace GraphicalInterface
         // ____Method to get the character who is launching a basic attack
         public void BasicAttack(object sender, EventArgs e)
         {
-            _fight.GetMemberWhoAttack(_selectedMember, null, _selectedMember.PhysicalAttack);
+            _fight.HitMonster();
             _FUC.EndFight();
+            _FUC.NextMember();
+            _FUC.ChangeColorPanel();
         }
         // ____Method to INCREASE ROBUSTNESS by X % of the member during 1 tour, X % is define the character class
         public void Defense(object sender, EventArgs e)
@@ -72,7 +74,7 @@ namespace GraphicalInterface
             // Here we say that the member just played
             _selectedMember.DidMemberPlay = true;
             _FUC.NextMember();
-            _FUC.ColorPlayedCharacter();
+            _FUC.ChangeColorPanel();
             // Check if every member are in defense position
             foreach (Character c in _fight.GetTeam.Members )
                 if ( c.DidMemberPlay == false )

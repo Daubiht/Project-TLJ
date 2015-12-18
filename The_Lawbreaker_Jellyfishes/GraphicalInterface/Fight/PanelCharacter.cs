@@ -66,40 +66,17 @@ namespace GraphicalInterface
                 // Create the fight menu of the selected member
                 _FightUserControl.CreateFightMenu(_character);
                 // Get the character we click on it
-                _fight.WhoIsSelected(_character);
+                _fight.SelectedCharacter = _character;
                 _FightUserControl.ChangeColorPanel();
             }
 
             // If the player clicks on a monster's panel, the member attacks the monster
             else if ( _obj is Monster )
             {
-
-                if ( _fight.GetAttackedMonster(_monster) == true ) // True means "All monsters attacked, so we need to refresh the character's panels to display new HP point and stamina"
-                {
-
-                    foreach ( PanelCharacter pC in _FightUserControl.GetCharacterPanel )
-                    {
-                        // We refresh informations on the character's panels
-                        pC.RefreshInformation();
-                        // We color all the panels character who are alive to say they can play again
-                        if ( pC.GetCharacter.isAlive == true)
-                            pC.BackColor = Color.LightSkyBlue;
-                    }
-                    // After all monster attack we select automatically the next character
-                    _FightUserControl.NextMember();
-                }
-
-                // If the members who attack is not null (because we just start the fight) and didn't succeed to attack because he selected the wrong monster, the selector is still on his panel
-                if ( _fight.MemberWhoIsAttacking != null && _fight.MemberWhoIsAttacking.SuccedAttack == false )
-                {
-
-                }
-                // If the member succed to attack, we select automatically the next member
-                if( _fight.MemberWhoIsAttacking != null &&_fight.MemberWhoIsAttacking.SuccedAttack == true ) _FightUserControl.NextMember();
-                // After the character attacked, we only actualize the HP of the attacked monster
-                RefreshInformation();
-                // Color the panel of members who played
-                _FightUserControl.ColorPlayedCharacter();
+                // We save the selected the monster
+                _fight.SelectedMonster = _monster;
+                // Color the selected monster
+                _FightUserControl.ChangeColorPanel();
             }
         }
         // Method who dislays actulized informations of monster and character panels, like HP, Stamina etc.
@@ -131,5 +108,6 @@ namespace GraphicalInterface
 
 
         public Character GetCharacter{get { return _character; }}
+        public Monster GetMonster { get { return _monster; } }
     }
 }

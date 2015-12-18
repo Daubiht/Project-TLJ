@@ -14,6 +14,8 @@ namespace GraphicalInterface
     public partial class FightUserControl : UserControl
     {
         List<PanelCharacter> _panelMembers;
+        List<PanelCharacter> _panelMonsters;
+
         List<Monster> _monsters;
         Team _team;
         Fight _fight;
@@ -57,6 +59,7 @@ namespace GraphicalInterface
             _context = context;
             _fight = new Fight(_monsters, _team);
             _panelMembers = new List<PanelCharacter>();
+            _panelMonsters = new List<PanelCharacter>();
 
             // INCREASE basic stats of members thanks to their stuff
             IncreaseBasicsStatsThanksStuff(TeamWhoFight, true);
@@ -139,10 +142,9 @@ namespace GraphicalInterface
                     PanelCharacter p = new PanelCharacter(t, _fight, this, _context);
                     p.Location = new Point(localPosX1Member, posY);
                     Controls.Add(p);
-                    if (t is Character )
-                    {
+                    if ( t is Character )
                         _panelMembers.Add(p);
-                    }
+                    else _panelMonsters.Add(p);
                 }
             }
             // Place the 2 front members/monster in the middle
@@ -156,9 +158,8 @@ namespace GraphicalInterface
                     Controls.Add(p);
                     localPosX2Member += _spaceBetweenPanels;
                     if ( t is Character )
-                    {
                         _panelMembers.Add(p);
-                    }
+                    else _panelMonsters.Add(p);
                 }
             }
             // Place 3 front members/monster in the middle
@@ -172,9 +173,8 @@ namespace GraphicalInterface
                     Controls.Add(p);
                     localPosX3Member += _spaceBetweenPanels;
                     if ( t is Character )
-                    {
                         _panelMembers.Add(p);
-                    }
+                    else _panelMonsters.Add(p);
                 }
             }
             // Place 4 front members/monster
@@ -188,9 +188,8 @@ namespace GraphicalInterface
                     Controls.Add(p);
                     localPosX4Member += _spaceBetweenPanels;
                     if ( t is Character )
-                    {
                         _panelMembers.Add(p);
-                    }
+                    else _panelMonsters.Add(p);
                 }
             }
         }
@@ -206,7 +205,7 @@ namespace GraphicalInterface
         public void EndFight()
         {
             // DEFEAT SCREEN If all members dead
-            if ( _fight.AreAllMembersDead == true )
+            if ( _fight.AreAllMembersDead )
             {
                 // DECREASE basic stats of members because of their stuff
                 IncreaseBasicsStatsThanksStuff(_team, false);
@@ -216,7 +215,7 @@ namespace GraphicalInterface
                 _context.ChangeUC(EFDefeat, false, true);
             }
             // VICTORY SCREEN If all monster dead
-            else if ( _fight.AreAllMonstersDead == true )
+            else if ( _fight.AreAllMonstersDead  )
             {
                 // DECREASE basic stats of members because of their stuff
                 IncreaseBasicsStatsThanksStuff(_team, false);
@@ -276,20 +275,14 @@ namespace GraphicalInterface
                 }
             }
         }
-        // Method who colors the panel of character WHO ALREADY PLAYED
-        public void ColorPlayedCharacter()
-        {
-            foreach ( PanelCharacter p in GetCharacterPanel )
-                if ( p.GetCharacter.DidMemberPlay == true && p.GetCharacter.isAlive == true )
-                    p.BackColor = Color.Gray;
-        }
+
         // Method who changes the border style of the SELECTED CHARACTER'S PANEL
         public void ChangeColorPanel()
         {   // If false, Remove all border style of all members
             foreach ( PanelCharacter pC in GetCharacterPanel )
             {
                 // BLACK If the member is DEAD
-                if ( pC.GetCharacter.isAlive == false ) pC.BackColor = Color.Black;
+                if ((pC.GetCharacter !=null && !pC.GetCharacter.isAlive)) pC.BackColor = Color.Black;
                 // LIGHT BLUE If the member is ALIVE
                 if ( pC.GetCharacter.isAlive == true ) pC.BackColor = Color.LightSkyBlue;
                 // GRAY color If the member is ALIVE and already PLAYED
@@ -298,12 +291,21 @@ namespace GraphicalInterface
                 if ( pC.GetCharacter == _fight.SelectedCharacter ) pC.BackColor = Color.SteelBlue;
             }
 
+            foreach (PanelCharacter pC in GetMonsterPanel )
+            {
+                // BLACK If the member is DEAD
+                if ( (pC.GetMonster != null && !pC.GetMonster.Alive)) pC.BackColor = Color.Black;
+                // LIGHT BLUE If the MONSTER is ALIVE
+                if ( pC.GetMonster.Alive ) pC.BackColor = Color.LightSkyBlue;
+                // BLUE FONCE if panel is selected
+                if ( pC.GetMonster == _fight.SelectedMonster ) pC.BackColor = Color.Brown;
+            }
         }
 
-        public List<PanelCharacter> GetCharacterPanel
-        {
-            get { return _panelMembers;  }
-        }
+
+
+        public List<PanelCharacter> GetCharacterPanel { get { return _panelMembers;  } }
+        public List<PanelCharacter> GetMonsterPanel { get { return _panelMonsters; } }
         public FightMenu GetCurrentFightMenu { get { return _currentMemberMenu; } set { _currentMemberMenu = value; } }
     }
 }
