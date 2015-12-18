@@ -34,9 +34,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(409, 436);
-            this.MaximumSize = new System.Drawing.Size(425, 475);
-            this.MinimumSize = new System.Drawing.Size(425, 475);
+            this.ClientSize = new System.Drawing.Size(900, 530);
+            this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MaximumSize = new System.Drawing.Size(900, 530);
+            this.MinimumSize = new System.Drawing.Size(900, 530);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(Form1_MouseDown);
             this.Name = "MainForm";
             this.Text = "The Lawbreaker Jellyfishes";
             this.ResumeLayout(false);
