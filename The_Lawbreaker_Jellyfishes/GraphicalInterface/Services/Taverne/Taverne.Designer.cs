@@ -49,7 +49,7 @@
             // 
             this.LError.AutoSize = true;
             this.LError.ForeColor = System.Drawing.Color.Red;
-            this.LError.Location = new System.Drawing.Point(43, 58);
+            this.LError.Location = new System.Drawing.Point(-2, 70);
             this.LError.Name = "LError";
             this.LError.Size = new System.Drawing.Size(316, 13);
             this.LError.TabIndex = 1;
@@ -58,7 +58,7 @@
             // 
             // retour
             // 
-            this.retour.Location = new System.Drawing.Point(321, 3);
+            this.retour.Location = new System.Drawing.Point(239, 126);
             this.retour.Name = "retour";
             this.retour.Size = new System.Drawing.Size(75, 23);
             this.retour.TabIndex = 3;
@@ -69,7 +69,7 @@
             // PTavern
             // 
             this.PTavern.AutoScroll = true;
-            this.PTavern.Location = new System.Drawing.Point(0, 74);
+            this.PTavern.Location = new System.Drawing.Point(340, 19);
             this.PTavern.Name = "PTavern";
             this.PTavern.Size = new System.Drawing.Size(410, 319);
             this.PTavern.TabIndex = 4;
@@ -87,13 +87,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.label2);
             this.Controls.Add(this.PTavern);
             this.Controls.Add(this.retour);
             this.Controls.Add(this.LError);
             this.Controls.Add(this.label1);
             this.Name = "Taverne";
-            this.Size = new System.Drawing.Size(410, 420);
+            this.Size = new System.Drawing.Size(750, 338);
             this.Load += new System.EventHandler(this.Taverne_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

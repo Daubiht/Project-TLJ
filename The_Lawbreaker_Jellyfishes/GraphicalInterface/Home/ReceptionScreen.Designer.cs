@@ -69,12 +69,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.quitButton);
             this.Controls.Add(this.ChargeParty);
             this.Controls.Add(this.NewParty);
-            this.Location = new System.Drawing.Point(80, 70);
+            this.Location = new System.Drawing.Point(60, 50);
             this.Name = "ReceptionScreen";
-            this.Size = new System.Drawing.Size(243, 279);
+            this.Size = new System.Drawing.Size(750, 338);
             this.ResumeLayout(false);
 
         }

@@ -199,7 +199,7 @@ namespace GraphicalInterface
         public void CreateFightMenu(Character DisplayedCharacter)
         {
             Controls.Remove(_currentMemberMenu);
-            _currentMemberMenu = new FightMenu(DisplayedCharacter, _fight, _context, _panelMembers,this);
+            _currentMemberMenu = new FightMenu(DisplayedCharacter, _fight, _context, _panelMembers, this);
             Controls.Add(_currentMemberMenu);
         }
         //____Method to END THE FIGHT

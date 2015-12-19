@@ -114,10 +114,8 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.pictureBox1);
-            this.MaximumSize = new System.Drawing.Size(400, 400);
-            this.MinimumSize = new System.Drawing.Size(400, 400);
             this.Name = "Meet";
-            this.Size = new System.Drawing.Size(400, 400);
+            this.Size = new System.Drawing.Size(750, 338);
             this.Load += new System.EventHandler(this.Meet_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);

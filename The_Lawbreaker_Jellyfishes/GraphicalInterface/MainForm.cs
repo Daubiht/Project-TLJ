@@ -23,35 +23,17 @@ namespace GraphicalInterface
             InitializeComponent();
 
             SetStyle(ControlStyles.SupportsTransparentBackColor, true);
-            BackColor = Color.Transparent;
-            Bitmap bg = new Bitmap("../../../Ressources/bgv2.jpeg");
-            BackgroundImage = bg;
-            BackgroundImageLayout = ImageLayout.Stretch;
 
             ReceptionScreen uc = new ReceptionScreen(this);
             ChangeUC(uc, false);
         }
 
-        [DllImportAttribute("user32.dll")]
-        public static extern int SendMessage(IntPtr hWnd,
-                 int Msg, int wParam, int lParam);
-        [DllImportAttribute("user32.dll")]
-        public static extern bool ReleaseCapture();
-
-        private void Form1_MouseDown(object sender,
-        System.Windows.Forms.MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                ReleaseCapture();
-                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
-            }
-        }
-
         public void ChangeUC(UserControl UCI, bool Menu)
         {
             Controls.Clear();
+
             Controls.Add(UCI);
+
             if (Menu)
             {
                 Menu UCM = new Menu(_w, this);

@@ -57,7 +57,7 @@
             // PseudoField
             // 
             this.PseudoField.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.PseudoField.Location = new System.Drawing.Point(154, 95);
+            this.PseudoField.Location = new System.Drawing.Point(329, 100);
             this.PseudoField.MaxLength = 10;
             this.PseudoField.Name = "PseudoField";
             this.PseudoField.Size = new System.Drawing.Size(134, 20);
@@ -96,7 +96,7 @@
             // ComboBoxRace
             // 
             this.ComboBoxRace.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.ComboBoxRace.Location = new System.Drawing.Point(154, 222);
+            this.ComboBoxRace.Location = new System.Drawing.Point(329, 227);
             this.ComboBoxRace.Name = "ComboBoxRace";
             this.ComboBoxRace.Size = new System.Drawing.Size(134, 21);
             this.ComboBoxRace.TabIndex = 7;
@@ -106,7 +106,7 @@
             // 
             this.ValidButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.ValidButton.BackColor = System.Drawing.SystemColors.Control;
-            this.ValidButton.Location = new System.Drawing.Point(213, 321);
+            this.ValidButton.Location = new System.Drawing.Point(388, 326);
             this.ValidButton.Name = "ValidButton";
             this.ValidButton.Size = new System.Drawing.Size(75, 32);
             this.ValidButton.TabIndex = 8;
@@ -118,7 +118,7 @@
             // 
             this.BackButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.BackButton.AutoSize = true;
-            this.BackButton.Location = new System.Drawing.Point(103, 321);
+            this.BackButton.Location = new System.Drawing.Point(278, 326);
             this.BackButton.Name = "BackButton";
             this.BackButton.Size = new System.Drawing.Size(75, 32);
             this.BackButton.TabIndex = 9;
@@ -163,7 +163,7 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoSize = true;
-            this.BackColor = System.Drawing.SystemColors.Control;
+            this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ButtonWoman);
             this.Controls.Add(this.ButtonMan);
@@ -174,8 +174,9 @@
             this.Controls.Add(this.Sex);
             this.Controls.Add(this.PseudoField);
             this.Controls.Add(this.Pseudo);
+            this.Location = new System.Drawing.Point(60, 50);
             this.Name = "CreateMainCharacter1";
-            this.Size = new System.Drawing.Size(400, 400);
+            this.Size = new System.Drawing.Size(750, 338);
             this.ResumeLayout(false);
             this.PerformLayout();
 

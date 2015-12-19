@@ -34,10 +34,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.MaximumSize = new System.Drawing.Size(400, 400);
-            this.MinimumSize = new System.Drawing.Size(400, 400);
+            this.BackColor = System.Drawing.Color.Transparent;
+            this.Location = new System.Drawing.Point(60, 50);
             this.Name = "World";
-            this.Size = new System.Drawing.Size(400, 400);
+            this.Size = new System.Drawing.Size(750, 338);
             this.Load += new System.EventHandler(this.World_Load);
             this.ResumeLayout(false);
 

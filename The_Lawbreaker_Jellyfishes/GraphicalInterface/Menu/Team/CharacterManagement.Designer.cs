@@ -662,6 +662,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.label9);
             this.Controls.Add(this.PBStamina);
             this.Controls.Add(this.label8);
@@ -683,8 +684,9 @@
             this.Controls.Add(this.LXP);
             this.Controls.Add(this.LLevel);
             this.Controls.Add(this.LName);
+            this.Location = new System.Drawing.Point(60, 50);
             this.Name = "CharacterManagement";
-            this.Size = new System.Drawing.Size(400, 400);
+            this.Size = new System.Drawing.Size(750, 338);
             this.Load += new System.EventHandler(this.IGCharactereManagement_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

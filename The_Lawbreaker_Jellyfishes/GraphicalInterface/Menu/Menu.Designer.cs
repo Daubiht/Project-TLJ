@@ -78,15 +78,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.sauvegarde);
             this.Controls.Add(this.notifications);
             this.Controls.Add(this.inventaire);
             this.Controls.Add(this.equipe);
-            this.Location = new System.Drawing.Point(0, 390);
-            this.MaximumSize = new System.Drawing.Size(400, 50);
-            this.MinimumSize = new System.Drawing.Size(400, 50);
+            this.Location = new System.Drawing.Point(60, 390);
             this.Name = "Menu";
-            this.Size = new System.Drawing.Size(400, 50);
+            this.Size = new System.Drawing.Size(750, 50);
             this.ResumeLayout(false);
 
         }

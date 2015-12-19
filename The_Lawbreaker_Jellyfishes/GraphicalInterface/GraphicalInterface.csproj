@@ -333,6 +333,9 @@
     <EmbeddedResource Include="Menu\Team\FiltredInventory.resx">
       <DependentUpon>FiltredInventory.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Menu\Team\FiltredInventoryForm.resx">
+      <DependentUpon>FiltredInventoryForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Menu\Team\SkillsTree.resx">
       <DependentUpon>SkillsTree.cs</DependentUpon>
     </EmbeddedResource>
@@ -379,6 +382,7 @@
     <EmbeddedResource Include="Menu\Team\skillsForm.resx">
       <DependentUpon>skillsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

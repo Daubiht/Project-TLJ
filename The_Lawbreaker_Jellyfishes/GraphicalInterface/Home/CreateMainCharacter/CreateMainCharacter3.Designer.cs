@@ -141,6 +141,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.RBInstinct);
             this.Controls.Add(this.RBEnergeticShot);
             this.Controls.Add(this.RBConcentredHit);
@@ -150,8 +151,9 @@
             this.Controls.Add(this.buttonBack);
             this.Controls.Add(this.buttonNext);
             this.Controls.Add(this.label1);
+            this.Location = new System.Drawing.Point(60, 50);
             this.Name = "CreateMainCharacter3";
-            this.Size = new System.Drawing.Size(400, 400);
+            this.Size = new System.Drawing.Size(750, 338);
             this.ResumeLayout(false);
             this.PerformLayout();
 

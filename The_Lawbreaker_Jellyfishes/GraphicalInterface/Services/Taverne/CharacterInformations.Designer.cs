@@ -219,7 +219,7 @@
             // 
             // BSkills
             // 
-            this.BSkills.Location = new System.Drawing.Point(135, 341);
+            this.BSkills.Location = new System.Drawing.Point(425, 198);
             this.BSkills.Name = "BSkills";
             this.BSkills.Size = new System.Drawing.Size(104, 40);
             this.BSkills.TabIndex = 14;
@@ -250,6 +250,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.LRace);
             this.Controls.Add(this.Retour);
             this.Controls.Add(this.BSkills);
@@ -257,8 +258,9 @@
             this.Controls.Add(this.LXP);
             this.Controls.Add(this.LLevel);
             this.Controls.Add(this.LName);
+            this.Location = new System.Drawing.Point(60, 50);
             this.Name = "CharacterInformations";
-            this.Size = new System.Drawing.Size(400, 400);
+            this.Size = new System.Drawing.Size(750, 338);
             this.Load += new System.EventHandler(this.IGCharactereManagement_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

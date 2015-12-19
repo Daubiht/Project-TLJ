@@ -47,7 +47,7 @@
             // 
             // buttonNext
             // 
-            this.buttonNext.Location = new System.Drawing.Point(298, 349);
+            this.buttonNext.Location = new System.Drawing.Point(298, 47);
             this.buttonNext.Name = "buttonNext";
             this.buttonNext.Size = new System.Drawing.Size(75, 23);
             this.buttonNext.TabIndex = 1;
@@ -94,14 +94,16 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.LXP);
             this.Controls.Add(this.LInfo);
             this.Controls.Add(this.LGolds);
             this.Controls.Add(this.PDrop);
             this.Controls.Add(this.buttonNext);
             this.Controls.Add(this.labelVictory);
+            this.Location = new System.Drawing.Point(60, 50);
             this.Name = "EndFightVictory";
-            this.Size = new System.Drawing.Size(400, 400);
+            this.Size = new System.Drawing.Size(750, 338);
             this.Load += new System.EventHandler(this.EndFightVictory_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

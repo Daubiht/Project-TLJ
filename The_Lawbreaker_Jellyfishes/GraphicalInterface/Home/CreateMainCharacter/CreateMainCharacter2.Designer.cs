@@ -364,6 +364,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.buttonReset);
             this.Controls.Add(this.button14);
             this.Controls.Add(this.buttonNext);
@@ -393,8 +394,9 @@
             this.Controls.Add(this.TextRobustness);
             this.Controls.Add(this.TextLife);
             this.Controls.Add(this.Stats);
+            this.Location = new System.Drawing.Point(60, 50);
             this.Name = "CreateMainCharacter2";
-            this.Size = new System.Drawing.Size(400, 400);
+            this.Size = new System.Drawing.Size(750, 338);
             this.ResumeLayout(false);
             this.PerformLayout();
 

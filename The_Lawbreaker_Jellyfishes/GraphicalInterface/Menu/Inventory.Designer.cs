@@ -52,7 +52,7 @@ namespace GraphicalInterface
             // 
             // retour
             // 
-            this.retour.Location = new System.Drawing.Point(322, 8);
+            this.retour.Location = new System.Drawing.Point(258, 43);
             this.retour.Name = "retour";
             this.retour.Size = new System.Drawing.Size(75, 23);
             this.retour.TabIndex = 2;
@@ -63,7 +63,7 @@ namespace GraphicalInterface
             // panel1
             // 
             this.panel1.AutoScroll = true;
-            this.panel1.Location = new System.Drawing.Point(3, 79);
+            this.panel1.Location = new System.Drawing.Point(353, 17);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(394, 318);
             this.panel1.TabIndex = 3;
@@ -71,11 +71,12 @@ namespace GraphicalInterface
             // panel2
             // 
             this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.panel1);
             this.panel2.Controls.Add(this.jeter);
             this.panel2.Controls.Add(this.retour);
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(400, 76);
+            this.panel2.Size = new System.Drawing.Size(347, 87);
             this.panel2.TabIndex = 4;
             // 
             // label1
@@ -92,12 +93,11 @@ namespace GraphicalInterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
-            this.MaximumSize = new System.Drawing.Size(400, 400);
-            this.MinimumSize = new System.Drawing.Size(400, 400);
+            this.Location = new System.Drawing.Point(60, 50);
             this.Name = "Inventory";
-            this.Size = new System.Drawing.Size(400, 400);
+            this.Size = new System.Drawing.Size(750, 338);
             this.Load += new System.EventHandler(this.Inventory_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
