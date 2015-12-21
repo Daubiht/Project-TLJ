@@ -9,21 +9,24 @@ using System.Text;
 using System.Windows.Forms;
 using LogicalGame;
 using System.Runtime.InteropServices;
+using System.Threading;
+using System.Drawing.Text;
 
 namespace GraphicalInterface
 {
     public partial class MainForm : Form
     {
         MapWorld _w;
+        PrivateFontCollection _font = new PrivateFontCollection();
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
 
         public MainForm()
         {
             InitializeComponent();
-
+            _font.AddFontFile("../../../Ressources/Neverwinter.otf");
+            _font.AddFontFile("../../../Ressources/XIPAROS.ttf");
             SetStyle(ControlStyles.SupportsTransparentBackColor, true);
-
             ReceptionScreen uc = new ReceptionScreen(this);
             ChangeUC(uc, false);
         }
@@ -31,7 +34,6 @@ namespace GraphicalInterface
         public void ChangeUC(UserControl UCI, bool Menu)
         {
             Controls.Clear();
-
             Controls.Add(UCI);
 
             if (Menu)
@@ -84,6 +86,11 @@ namespace GraphicalInterface
             {
                 uc.Visible = true;
             }
+        }
+
+        public PrivateFontCollection Font
+        {
+            get { return _font; }
         }
 
         public MapWorld world

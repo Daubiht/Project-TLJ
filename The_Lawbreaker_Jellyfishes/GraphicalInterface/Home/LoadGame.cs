@@ -12,8 +12,8 @@ namespace GraphicalInterface
         MainForm _contextForm;
         public LoadGame(MainForm contextForm)
         {
-            InitializeComponent();
             _contextForm = contextForm;
+            InitializeComponent();
             Button[] listSlot = {slot1, slot2, slot3, slot4, slot5};
             string[] fileName = Directory.GetFiles(@"../../../Saves");
 
