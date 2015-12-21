@@ -24,8 +24,11 @@ namespace LogicalGame.Test
             Character c1 = new Character("C1", "HUMAIN", false);
             Character c2 = new Character("C2", "ELF", false);
             Character c3 = new Character("C3", "NAIN", false);
+
+            MapWorld world = new MapWorld();
+
             // Create team
-            Team _team = new Team("MyTeam");
+            Team _team = new Team("MyTeam", world);
 
             // Set positions to monsters
             m1.FrontPosition = true;

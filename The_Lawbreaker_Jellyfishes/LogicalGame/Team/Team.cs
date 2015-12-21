@@ -10,13 +10,15 @@ namespace LogicalGame
         int _maxMembers = 4;
         Invent _inventTeam;
         readonly List<Character> _membersList = new List<Character>();
+        MapWorld _world = new MapWorld();
 
         /// <summary>
         /// CONSTRUCTOR
         /// </summary>
 
-        public Team(string name)
+        public Team(string name, MapWorld world)
         {
+            _world = world;
             _name = name;
             _inventTeam = new Invent(this);
         }
@@ -24,6 +26,12 @@ namespace LogicalGame
         /// <summary>
         /// METHODES
         /// </summary>
+
+        public MapWorld World
+        {
+            get { return _world; }
+            set { _world = value; }
+        }
 
         // Add members
         public void AddMembers(Character MemberToAdd)

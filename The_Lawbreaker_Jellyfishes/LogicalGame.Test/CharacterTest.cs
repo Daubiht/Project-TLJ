@@ -14,7 +14,8 @@ namespace LogicalGame.Test
             Character c = tav.New(1, 100, null);
             ListItems listi = new ListItems();
             Item i = listi.Items[0];
-            Team t = new Team("test");
+            MapWorld world = new MapWorld();
+            Team t = new Team("test", world);
             c.InTeam = t;
             t.Invent.AddItem(i, 1);
 

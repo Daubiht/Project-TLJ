@@ -14,6 +14,8 @@ namespace LogicalGame
         int[] _cost;
         string _description;
         bool _isPassif;
+        int _time = 0;
+        List<Effect> _effects = new List<Effect>();
 
         Skill _previousSkill;
         Skill _nextSkill;
@@ -41,6 +43,18 @@ namespace LogicalGame
             _nextSkill = null;
             _description = description;
             _isPassif = isPassif;
+        }
+
+        public int Time
+        {
+            get { return _time; }
+            set { _time = value; }
+        }
+
+        public List<Effect> TimeEffects
+        {
+            get { return _effects; }
+            set { _effects = value; }
         }
 
         public bool IsPassif

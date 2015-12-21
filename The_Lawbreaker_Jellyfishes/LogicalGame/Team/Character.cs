@@ -12,6 +12,8 @@ namespace LogicalGame
         readonly string _race;
         readonly bool _isFemale;
 
+        Dictionary<string, int> _effect;
+
         int _level;
         int _physicalAttack;
         int _magicAttack;
@@ -77,6 +79,7 @@ namespace LogicalGame
 
             _frontPosition = true;
 
+            _effect = new Dictionary<string, int> ();
             _skills = new Dictionary<string, Skill>();
             _stuffs = new Dictionary<string, Item>();
 
@@ -116,6 +119,11 @@ namespace LogicalGame
         {
             get { return _staminaPoint; }
             set { _staminaPoint = value; }
+        }
+
+        public Dictionary<string, int> Effect
+        {
+            get { return _effect; }
         }
 
         public int MaxStaminaPoint
@@ -363,6 +371,8 @@ namespace LogicalGame
             _currentXp = 0;
             _staminaPoint = _maxStaminaPoint;
             _healthPoint = _maxHealthPoint;
+
+            _team.World.Notifs.ListNotif.Add(new Notification(_name, "Votre personnage vient de gagner un niveau"));
             return _level;
         }
 
@@ -706,6 +716,12 @@ namespace LogicalGame
                                         break;
                                 }
                             }
+                            //Effect in the time
+                            for (int i = 0; i < skill.TimeEffects.Count; i++)
+                            {
+                                Effect timeEffect = new Effect(skill.TimeEffects[i].Name, skill.TimeEffects[i].Power, skill.TimeEffects[i].Time, this);
+                                target.Effect.Add(timeEffect);
+                            }
                         }
 
                         return true;
@@ -738,12 +754,7 @@ namespace LogicalGame
                                 int effect = skill.Effect[name];
                                 switch (name)
                                 {
-                                    case "soin team":
-                                        foreach (var target in targetTeam.Members)
-                                        {
-                                            target.Heal((effect / 100) * _magicAttack);
-                                        }
-                                        break;
+                                    
                                 }
                             }
                         }
