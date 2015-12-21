@@ -26,13 +26,13 @@ namespace GraphicalInterface
         // Fight menu displays attack, skill, informations about the selected member
         FightMenu _currentMemberMenu;
 
-        // List used to select FRONT MEMBERS
+        // Front members
         List<Character> _frontMembers = new List<Character>();
-        // list used to select HIDDEN MEMBERS
+        // Hidden members
         List<Character> _hiddenMembers = new List<Character>();
-        // List used to select FRONT MONSTERS
+        // Front monsters
         List<Monster> _frontMonsters = new List<Monster>();
-        // list used to select HIDDEN MONSTERS
+        // hidden monsters
         List<Monster> _hiddenMonsters = new List<Monster>();
 
         // Set X positions of members and monsters
@@ -123,6 +123,8 @@ namespace GraphicalInterface
             SetPanelPosition(_hiddenMembers, _posYHiddenMember);
             SetPanelPosition(_frontMonsters, _posYFrontMonster);
             SetPanelPosition(_hiddenMonsters, _posYHiddenMonster);
+
+            ChangeColorPanel();
         }
 
         private void FightUserControl_Load(object sender, EventArgs e)
@@ -130,7 +132,7 @@ namespace GraphicalInterface
 
         }
 
-        // Method who sets the PANEL'S POSITION
+        // Panel's position
         public void SetPanelPosition<T>(List<T> MonsterOrMemberList, int posY)
         { 
             // Place the 1 front member/monster in the middle
@@ -201,10 +203,10 @@ namespace GraphicalInterface
             _currentMemberMenu = new FightMenu(DisplayedCharacter, _fight, _context, _panelMembers,this);
             Controls.Add(_currentMemberMenu);
         }
-        //____Method to END THE FIGHT
+        // Create end fight screen
         public void EndFight()
         {
-            // DEFEAT SCREEN If all members dead
+            // Defeat screen
             if ( _fight.AreAllMembersDead )
             {
                 // DECREASE basic stats of members because of their stuff
@@ -214,7 +216,7 @@ namespace GraphicalInterface
                 EndFightDefeat EFDefeat = new EndFightDefeat(_context, true);
                 _context.ChangeUC(EFDefeat, false, true);
             }
-            // VICTORY SCREEN If all monster dead
+            // Victory screen
             else if ( _fight.AreAllMonstersDead  )
             {
                 // DECREASE basic stats of members because of their stuff
@@ -253,7 +255,7 @@ namespace GraphicalInterface
                 }
             }
         }
-        //____Method who display the next character who attacks
+        // Select the next member who plays
         public void NextMember()
         {
             foreach ( Character c in _fight.GetTeam.Members )
@@ -293,16 +295,36 @@ namespace GraphicalInterface
 
             foreach (PanelCharacter pC in GetMonsterPanel )
             {
-                // BLACK If the member is DEAD
-                if ( (pC.GetMonster != null && !pC.GetMonster.Alive)) pC.BackColor = Color.Black;
                 // LIGHT BLUE If the MONSTER is ALIVE
                 if ( pC.GetMonster.Alive ) pC.BackColor = Color.LightSkyBlue;
+                // BLACK If the member is DEAD
+                if ( (pC.GetMonster != null && !pC.GetMonster.Alive) ) pC.BackColor = Color.Black;
                 // BLUE FONCE if panel is selected
                 if ( pC.GetMonster == _fight.SelectedMonster ) pC.BackColor = Color.Brown;
             }
         }
 
-
+        public void NextMonster()
+        {
+            if ( !_fight.SelectedMonster.Alive )
+            {
+                foreach(Monster m in _fight.GetFrontMonsters )
+                {
+                    if ( m.Alive )
+                    {
+                        foreach(PanelCharacter pc in _panelMonsters )
+                        {
+                            if( m == pc.GetMonster )
+                            {
+                                _fight.SelectedMonster = m;
+                                ChangeColorPanel();
+                                return;
+                            }
+                        }
+                    }
+                }
+            }
+        }
 
         public List<PanelCharacter> GetCharacterPanel { get { return _panelMembers;  } }
         public List<PanelCharacter> GetMonsterPanel { get { return _panelMonsters; } }

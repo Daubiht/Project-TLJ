@@ -92,7 +92,7 @@ namespace GraphicalInterface
                 if ( _monster.Alive == false ) BackColor = Color.Black;
             }
             // Actualize Member's informations
-            else if (_obj is Character )
+            else if ( _obj is Character )
             {
                 labelHPResult.Text = _character.HealthPoint.ToString();
                 labelStaminaResult.Text = _character.Stamina.ToString();
@@ -100,7 +100,7 @@ namespace GraphicalInterface
                 if ( _character.isAlive == false ) BackColor = Color.Black;
                 else if ( _character.isAlive == true ) BackColor = Color.LightSkyBlue;
                 // Refresh HP BAR of our SELECTED CHARACTER if he is attacked
-                foreach(Character c in _fight.GetTeam.Members )
+                foreach ( Character c in _fight.GetTeam.Members )
                     if ( c.Name == _fight.SelectedCharacter.Name && c.HealthPoint != _fight.OldLifeSelectedMember )
                         _FightUserControl.CreateFightMenu(c);
             }

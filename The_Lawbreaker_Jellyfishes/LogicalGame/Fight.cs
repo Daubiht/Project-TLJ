@@ -145,17 +145,23 @@ namespace LogicalGame
         public void HitMonster()
         {
             CheckFrontMonserDead();
-            if ( _selectedCharacter != null && !_selectedCharacter.DidMemberPlay && _selectedCharacter.isAlive && _selectedMonster.Alive && _selectedMonster != null && _selectedMonster.FrontPosition)
+            if ( _selectedCharacter != null && !_selectedCharacter.DidMemberPlay && _selectedCharacter.isAlive && _selectedMonster != null && _selectedMonster.Alive &&  _selectedMonster.FrontPosition)
             {
                 _selectedCharacter.AttackMonster(_selectedMonster);
                 _selectedCharacter.DidMemberPlay=true;
             }
-
         }
-
-        public void AllMemberPlay()
+        // Did all member played
+        public bool DidAllMemberPlay()
         {
-            foreach()
+            foreach(Character c in _team.Members )
+            {
+                if(c.isAlive && c.DidMemberPlay == false)
+                {
+                    return false; // not all member play
+                }
+            }
+            return true; // all member play
         }
         //_____METHOD WHO CHECKS IF ALL FRONT MONSTER ARE DEAD TO PUT HIDDEN MONSTER IN FRONT POSITION
         public void CheckFrontMonserDead()

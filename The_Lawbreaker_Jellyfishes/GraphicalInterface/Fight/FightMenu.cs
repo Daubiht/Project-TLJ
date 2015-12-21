@@ -59,43 +59,56 @@ namespace GraphicalInterface
         // ____Method to get the character who is launching a basic attack
         public void BasicAttack(object sender, EventArgs e)
         {
-            _fight.HitMonster();
-            _FUC.EndFight();
-            _FUC.NextMember();
-            _FUC.ChangeColorPanel();
+            if ( _selectedMember.DidMemberPlay == false && _selectedMember.isAlive )
+            {
+                _fight.HitMonster();
+                _FUC.EndFight();
+                // Monsters attack members if they all played
+                if ( _fight.DidAllMemberPlay() )
+                {
+                    _fight.MonsterAttack();
+                    foreach ( PanelCharacter pC in _panelCharacterList ) pC.RefreshInformation();
+                    // If our SELECTED CHARACTER is attacked, we refresh his HP BAR
+                    foreach ( Character c in _fight.GetTeam.Members )
+                        if ( c.Name == _fight.SelectedCharacter.Name && c.HealthPoint != _fight.OldLifeSelectedMember )
+                            _FUC.CreateFightMenu(c);
+                }
+                foreach ( PanelCharacter pc in _FUC.GetCharacterPanel ) pc.RefreshInformation();
+                foreach ( PanelCharacter pc in _FUC.GetMonsterPanel ) pc.RefreshInformation();
+                _FUC.NextMember();
+                _FUC.NextMonster();
+                _FUC.ChangeColorPanel();
+                _FUC.EndFight();
+            }
         }
         // ____Method to INCREASE ROBUSTNESS by X % of the member during 1 tour, X % is define the character class
         public void Defense(object sender, EventArgs e)
         {
-            // local bool used in case everybody use "defense" button
-            bool didAllMemberPlayed = true;
-            // Given in parameters the current number turn, used to know when will finish the defense skill
-            _selectedMember.Defense(_fight.NumberTurn);
-            // Here we say that the member just played
-            _selectedMember.DidMemberPlay = true;
-            _FUC.NextMember();
-            _FUC.ChangeColorPanel();
-            // Check if every member are in defense position
-            foreach (Character c in _fight.GetTeam.Members )
-                if ( c.DidMemberPlay == false )
-                    didAllMemberPlayed = false;
-            // If yes, it's monsters to attack the team
-            if ( didAllMemberPlayed == true )
+            // if the member hasn't played yet, he can open the inventory of consumable
+            if ( _selectedMember.DidMemberPlay == false && _selectedMember.isAlive )
             {
-                _fight.MonsterAttack();
-                foreach ( PanelCharacter pC in _panelCharacterList ) pC.RefreshInformation();
-                // If our SELECTED CHARACTER is attacked, we refresh his HP BAR
-                foreach ( Character c in _fight.GetTeam.Members )
-                    if ( c.Name == _fight.SelectedCharacter.Name && c.HealthPoint != _fight.OldLifeSelectedMember )
-                        _FUC.CreateFightMenu(c);
+                // Given in parameters the current number turn, used to know when will finish the defense skill
+                _selectedMember.Defense(_fight.NumberTurn);
+                // Here we say that the member just played
+                _selectedMember.DidMemberPlay = true;
                 _FUC.NextMember();
+                // Monsters attack members if they all played
+                if ( _fight.DidAllMemberPlay() )
+                {
+                    _fight.MonsterAttack();
+                    foreach ( PanelCharacter pC in _panelCharacterList ) pC.RefreshInformation();
+                    // If our SELECTED CHARACTER is attacked, we refresh his HP BAR
+                    foreach ( Character c in _fight.GetTeam.Members )
+                        if ( c.Name == _fight.SelectedCharacter.Name && c.HealthPoint != _fight.OldLifeSelectedMember )
+                            _FUC.CreateFightMenu(c);
+                }
+                _FUC.ChangeColorPanel();
+                _FUC.EndFight();
             }
-            _FUC.EndFight();
         }
         // ____Method to RUN AWAY
         public void RunAway(object sender, EventArgs e)
         {
-
             // Check if the member hasn't play yet and if he is still alvie
             if(_selectedMember.DidMemberPlay == false && _selectedMember.isAlive == true )
             {
@@ -126,7 +139,7 @@ namespace GraphicalInterface
         public void AccessInventory(object sender, EventArgs e)
         {
             // if the member hasn't played yet, he can open the inventory of consumable
-            if(_selectedMember.DidMemberPlay == false )
+            if(_selectedMember.DidMemberPlay == false  && _selectedMember.isAlive)
             {
                 FiltredInventory FIClass = new FiltredInventory(_fight.GetTeam, _selectedMember, "consommable", _context, true);
                 FiltredInventoryForm FIForm = new FiltredInventoryForm(FIClass, _panelCharacterList, _fight);
