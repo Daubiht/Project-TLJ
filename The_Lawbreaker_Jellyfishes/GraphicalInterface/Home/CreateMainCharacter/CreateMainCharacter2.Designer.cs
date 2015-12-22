@@ -65,11 +65,12 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Stats.AutoSize = true;
-            this.Stats.Location = new System.Drawing.Point(105, 16);
+            this.Stats.Font = new System.Drawing.Font(_context.Font.Families[0], 30);
+            this.Stats.Location = new System.Drawing.Point(175, 0);
             this.Stats.Name = "Stats";
-            this.Stats.Size = new System.Drawing.Size(176, 13);
+            this.Stats.Size = new System.Drawing.Size(128, 13);
             this.Stats.TabIndex = 1;
-            this.Stats.Text = "ATTRIBUTION DES STATISQUES";
+            this.Stats.Text = "attribution des statistiques";
             // 
             // TextLife
             // 
@@ -77,12 +78,13 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TextLife.AutoSize = true;
-            this.TextLife.Location = new System.Drawing.Point(93, 94);
+            this.TextLife.Font = new System.Drawing.Font(_context.Font.Families[1], 18);
+            this.TextLife.Location = new System.Drawing.Point(120, 59);
             this.TextLife.Name = "TextLife";
             this.TextLife.Padding = new System.Windows.Forms.Padding(0, 0, 65, 0);
             this.TextLife.Size = new System.Drawing.Size(87, 13);
             this.TextLife.TabIndex = 2;
-            this.TextLife.Text = "Vie";
+            this.TextLife.Text = "vie";
             // 
             // TextRobustness
             // 
@@ -90,12 +92,13 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TextRobustness.AutoSize = true;
-            this.TextRobustness.Location = new System.Drawing.Point(93, 134);
+            this.TextRobustness.Font = new System.Drawing.Font(_context.Font.Families[1], 18);
+            this.TextRobustness.Location = new System.Drawing.Point(120, 137);
             this.TextRobustness.Name = "TextRobustness";
             this.TextRobustness.Padding = new System.Windows.Forms.Padding(0, 0, 25, 0);
             this.TextRobustness.Size = new System.Drawing.Size(88, 13);
             this.TextRobustness.TabIndex = 3;
-            this.TextRobustness.Text = "Robustesse";
+            this.TextRobustness.Text = "robustesse";
             // 
             // TextDodge
             // 
@@ -103,12 +106,13 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TextDodge.AutoSize = true;
-            this.TextDodge.Location = new System.Drawing.Point(93, 294);
+            this.TextDodge.Font = new System.Drawing.Font(_context.Font.Families[1], 18);
+            this.TextDodge.Location = new System.Drawing.Point(400, 205);
             this.TextDodge.Name = "TextDodge";
             this.TextDodge.Padding = new System.Windows.Forms.Padding(0, 0, 40, 0);
             this.TextDodge.Size = new System.Drawing.Size(85, 13);
             this.TextDodge.TabIndex = 4;
-            this.TextDodge.Text = "Esquive";
+            this.TextDodge.Text = "esquive";
             // 
             // TextStamina
             // 
@@ -116,12 +120,13 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TextStamina.AutoSize = true;
-            this.TextStamina.Location = new System.Drawing.Point(93, 174);
+            this.TextStamina.Font = new System.Drawing.Font(_context.Font.Families[1], 18);
+            this.TextStamina.Location = new System.Drawing.Point(120, 205);
             this.TextStamina.Name = "TextStamina";
             this.TextStamina.Padding = new System.Windows.Forms.Padding(0, 0, 45, 0);
             this.TextStamina.Size = new System.Drawing.Size(87, 13);
             this.TextStamina.TabIndex = 5;
-            this.TextStamina.Text = "Fatigue";
+            this.TextStamina.Text = "fatigue";
             // 
             // TextPhysicalDamage
             // 
@@ -129,11 +134,12 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TextPhysicalDamage.AutoSize = true;
-            this.TextPhysicalDamage.Location = new System.Drawing.Point(93, 212);
+            this.TextPhysicalDamage.Font = new System.Drawing.Font(_context.Font.Families[1], 18);
+            this.TextPhysicalDamage.Location = new System.Drawing.Point(400, 59);
             this.TextPhysicalDamage.Name = "TextPhysicalDamage";
             this.TextPhysicalDamage.Size = new System.Drawing.Size(89, 13);
             this.TextPhysicalDamage.TabIndex = 6;
-            this.TextPhysicalDamage.Text = "Attaque physique";
+            this.TextPhysicalDamage.Text = "attaque physique";
             // 
             // TextMagicDamage
             // 
@@ -141,16 +147,17 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TextMagicDamage.AutoSize = true;
-            this.TextMagicDamage.Location = new System.Drawing.Point(93, 252);
+            this.TextMagicDamage.Font = new System.Drawing.Font(_context.Font.Families[1], 18);
+            this.TextMagicDamage.Location = new System.Drawing.Point(400, 137);
             this.TextMagicDamage.Name = "TextMagicDamage";
             this.TextMagicDamage.Size = new System.Drawing.Size(87, 13);
             this.TextMagicDamage.TabIndex = 7;
-            this.TextMagicDamage.Text = "Attaque magique";
+            this.TextMagicDamage.Text = "attaque magique";
             // 
             // assignedStats
             // 
             this.assignedStats.AutoSize = true;
-            this.assignedStats.Location = new System.Drawing.Point(136, 55);
+            this.assignedStats.Location = new System.Drawing.Point(255, 290);
             this.assignedStats.Name = "assignedStats";
             this.assignedStats.Size = new System.Drawing.Size(19, 13);
             this.assignedStats.TabIndex = 8;
@@ -159,7 +166,7 @@
             // resultatVie
             // 
             this.resultatVie.AutoSize = true;
-            this.resultatVie.Location = new System.Drawing.Point(240, 94);
+            this.resultatVie.Location = new System.Drawing.Point(282, 90);
             this.resultatVie.Name = "resultatVie";
             this.resultatVie.Size = new System.Drawing.Size(25, 13);
             this.resultatVie.TabIndex = 9;
@@ -168,16 +175,16 @@
             // resultatRobustesse
             // 
             this.resultatRobustesse.AutoSize = true;
-            this.resultatRobustesse.Location = new System.Drawing.Point(240, 134);
+            this.resultatRobustesse.Location = new System.Drawing.Point(282, 167);
             this.resultatRobustesse.Name = "resultatRobustesse";
-            this.resultatRobustesse.Size = new System.Drawing.Size(19, 13);
+            this.resultatRobustesse.Size = new System.Drawing.Size(25, 13);
             this.resultatRobustesse.TabIndex = 10;
             this.resultatRobustesse.Text = "+4";
             // 
             // resultatFatigue
             // 
             this.resultatFatigue.AutoSize = true;
-            this.resultatFatigue.Location = new System.Drawing.Point(240, 174);
+            this.resultatFatigue.Location = new System.Drawing.Point(282, 235);
             this.resultatFatigue.Name = "resultatFatigue";
             this.resultatFatigue.Size = new System.Drawing.Size(25, 13);
             this.resultatFatigue.TabIndex = 11;
@@ -186,7 +193,7 @@
             // resultatAttaquePhysique
             // 
             this.resultatAttaquePhysique.AutoSize = true;
-            this.resultatAttaquePhysique.Location = new System.Drawing.Point(240, 212);
+            this.resultatAttaquePhysique.Location = new System.Drawing.Point(595, 90);
             this.resultatAttaquePhysique.Name = "resultatAttaquePhysique";
             this.resultatAttaquePhysique.Size = new System.Drawing.Size(25, 13);
             this.resultatAttaquePhysique.TabIndex = 12;
@@ -195,7 +202,7 @@
             // resultatAttaqueMagique
             // 
             this.resultatAttaqueMagique.AutoSize = true;
-            this.resultatAttaqueMagique.Location = new System.Drawing.Point(240, 252);
+            this.resultatAttaqueMagique.Location = new System.Drawing.Point(595, 167);
             this.resultatAttaqueMagique.Name = "resultatAttaqueMagique";
             this.resultatAttaqueMagique.Size = new System.Drawing.Size(25, 13);
             this.resultatAttaqueMagique.TabIndex = 13;
@@ -204,7 +211,7 @@
             // resultatEsquive
             // 
             this.resultatEsquive.AutoSize = true;
-            this.resultatEsquive.Location = new System.Drawing.Point(240, 294);
+            this.resultatEsquive.Location = new System.Drawing.Point(595, 235);
             this.resultatEsquive.Name = "resultatEsquive";
             this.resultatEsquive.Size = new System.Drawing.Size(25, 13);
             this.resultatEsquive.TabIndex = 14;
@@ -212,7 +219,11 @@
             // 
             // mVie
             // 
-            this.mVie.Location = new System.Drawing.Point(190, 89);
+            this.mVie.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.mVie.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.mVie.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.mVie.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.mVie.Location = new System.Drawing.Point(250, 85);
             this.mVie.Name = "mVie";
             this.mVie.Size = new System.Drawing.Size(27, 22);
             this.mVie.TabIndex = 15;
@@ -222,7 +233,11 @@
             // 
             // mRobustesse
             // 
-            this.mRobustesse.Location = new System.Drawing.Point(190, 129);
+            this.mRobustesse.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.mRobustesse.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.mRobustesse.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.mRobustesse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.mRobustesse.Location = new System.Drawing.Point(250, 162);
             this.mRobustesse.Name = "mRobustesse";
             this.mRobustesse.Size = new System.Drawing.Size(27, 22);
             this.mRobustesse.TabIndex = 16;
@@ -232,7 +247,11 @@
             // 
             // mFatigue
             // 
-            this.mFatigue.Location = new System.Drawing.Point(190, 169);
+            this.mFatigue.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.mFatigue.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.mFatigue.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.mFatigue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.mFatigue.Location = new System.Drawing.Point(250, 230);
             this.mFatigue.Name = "mFatigue";
             this.mFatigue.Size = new System.Drawing.Size(27, 22);
             this.mFatigue.TabIndex = 17;
@@ -242,7 +261,11 @@
             // 
             // mAttaquePhysique
             // 
-            this.mAttaquePhysique.Location = new System.Drawing.Point(190, 207);
+            this.mAttaquePhysique.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.mAttaquePhysique.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.mAttaquePhysique.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.mAttaquePhysique.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.mAttaquePhysique.Location = new System.Drawing.Point(563, 85);
             this.mAttaquePhysique.Name = "mAttaquePhysique";
             this.mAttaquePhysique.Size = new System.Drawing.Size(27, 22);
             this.mAttaquePhysique.TabIndex = 18;
@@ -252,7 +275,11 @@
             // 
             // mAttaqueMagique
             // 
-            this.mAttaqueMagique.Location = new System.Drawing.Point(190, 247);
+            this.mAttaqueMagique.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.mAttaqueMagique.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.mAttaqueMagique.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.mAttaqueMagique.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.mAttaqueMagique.Location = new System.Drawing.Point(563, 162);
             this.mAttaqueMagique.Name = "mAttaqueMagique";
             this.mAttaqueMagique.Size = new System.Drawing.Size(27, 22);
             this.mAttaqueMagique.TabIndex = 19;
@@ -262,7 +289,11 @@
             // 
             // mEsquive
             // 
-            this.mEsquive.Location = new System.Drawing.Point(190, 289);
+            this.mEsquive.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.mEsquive.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.mEsquive.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.mEsquive.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.mEsquive.Location = new System.Drawing.Point(563, 230);
             this.mEsquive.Name = "mEsquive";
             this.mEsquive.Size = new System.Drawing.Size(27, 22);
             this.mEsquive.TabIndex = 20;
@@ -272,7 +303,11 @@
             // 
             // pVie
             // 
-            this.pVie.Location = new System.Drawing.Point(274, 89);
+            this.pVie.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pVie.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.pVie.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.pVie.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pVie.Location = new System.Drawing.Point(302, 85);
             this.pVie.Name = "pVie";
             this.pVie.Size = new System.Drawing.Size(27, 22);
             this.pVie.TabIndex = 21;
@@ -282,7 +317,11 @@
             // 
             // pRobustesse
             // 
-            this.pRobustesse.Location = new System.Drawing.Point(274, 129);
+            this.pRobustesse.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pRobustesse.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.pRobustesse.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.pRobustesse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pRobustesse.Location = new System.Drawing.Point(302, 162);
             this.pRobustesse.Name = "pRobustesse";
             this.pRobustesse.Size = new System.Drawing.Size(27, 22);
             this.pRobustesse.TabIndex = 22;
@@ -292,7 +331,11 @@
             // 
             // pFatigue
             // 
-            this.pFatigue.Location = new System.Drawing.Point(274, 169);
+            this.pFatigue.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pFatigue.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.pFatigue.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.pFatigue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pFatigue.Location = new System.Drawing.Point(302, 230);
             this.pFatigue.Name = "pFatigue";
             this.pFatigue.Size = new System.Drawing.Size(27, 22);
             this.pFatigue.TabIndex = 23;
@@ -302,7 +345,11 @@
             // 
             // pAttaquePhysique
             // 
-            this.pAttaquePhysique.Location = new System.Drawing.Point(274, 207);
+            this.pAttaquePhysique.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pAttaquePhysique.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.pAttaquePhysique.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.pAttaquePhysique.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pAttaquePhysique.Location = new System.Drawing.Point(615, 85);
             this.pAttaquePhysique.Name = "pAttaquePhysique";
             this.pAttaquePhysique.Size = new System.Drawing.Size(27, 22);
             this.pAttaquePhysique.TabIndex = 24;
@@ -312,7 +359,11 @@
             // 
             // pAttaqueMagique
             // 
-            this.pAttaqueMagique.Location = new System.Drawing.Point(274, 247);
+            this.pAttaqueMagique.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pAttaqueMagique.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.pAttaqueMagique.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.pAttaqueMagique.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pAttaqueMagique.Location = new System.Drawing.Point(615, 162);
             this.pAttaqueMagique.Name = "pAttaqueMagique";
             this.pAttaqueMagique.Size = new System.Drawing.Size(27, 22);
             this.pAttaqueMagique.TabIndex = 25;
@@ -322,7 +373,11 @@
             // 
             // pEsquive
             // 
-            this.pEsquive.Location = new System.Drawing.Point(274, 289);
+            this.pEsquive.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pEsquive.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.pEsquive.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.pEsquive.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pEsquive.Location = new System.Drawing.Point(615, 230);
             this.pEsquive.Name = "pEsquive";
             this.pEsquive.Size = new System.Drawing.Size(27, 22);
             this.pEsquive.TabIndex = 26;
@@ -332,27 +387,45 @@
             // 
             // buttonNext
             // 
-            this.buttonNext.Location = new System.Drawing.Point(226, 351);
+            this.buttonNext.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonNext.AutoSize = true;
+            this.buttonNext.BackColor = System.Drawing.Color.Transparent;
+            this.buttonNext.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonNext.FlatAppearance.BorderSize = 0;
+            this.buttonNext.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.buttonNext.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.buttonNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonNext.Font = new System.Drawing.Font(_context.Font.Families[0], 30);
+            this.buttonNext.Location = new System.Drawing.Point(550, 280);
             this.buttonNext.Name = "buttonNext";
             this.buttonNext.Size = new System.Drawing.Size(75, 32);
             this.buttonNext.TabIndex = 27;
-            this.buttonNext.Text = "Valider";
+            this.buttonNext.Text = "valider";
             this.buttonNext.UseVisualStyleBackColor = true;
             this.buttonNext.Click += new System.EventHandler(this.button13_Click);
             // 
             // button14
             // 
-            this.button14.Location = new System.Drawing.Point(96, 351);
+            this.button14.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button14.AutoSize = true;
+            this.button14.BackColor = System.Drawing.Color.Transparent;
+            this.button14.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button14.FlatAppearance.BorderSize = 0;
+            this.button14.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button14.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button14.Font = new System.Drawing.Font(_context.Font.Families[0], 30);
+            this.button14.Location = new System.Drawing.Point(50, 280);
             this.button14.Name = "button14";
             this.button14.Size = new System.Drawing.Size(75, 32);
             this.button14.TabIndex = 28;
-            this.button14.Text = "Retour";
+            this.button14.Text = "retour";
             this.button14.UseVisualStyleBackColor = true;
             this.button14.Click += new System.EventHandler(this.button14_Click);
             // 
             // buttonReset
             // 
-            this.buttonReset.Location = new System.Drawing.Point(190, 48);
+            this.buttonReset.Location = new System.Drawing.Point(309, 283);
             this.buttonReset.Name = "buttonReset";
             this.buttonReset.Size = new System.Drawing.Size(111, 27);
             this.buttonReset.TabIndex = 29;

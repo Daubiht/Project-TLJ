@@ -14,10 +14,6 @@ namespace GraphicalInterface
             _context = context;
             InitializeComponent();
 
-            //quitButton.Location = new Point(Width / 2 - quitButton.Width / 2, 220);
-            //ChargeParty.Location = new Point(((Width * 3) / 4) - (ChargeParty.Width / 2), 80);
-            //NewParty.Location = new Point(Width / 4 - NewParty.Width / 2, 80);
-
             quitButton.Location = new Point(Width / 2 - quitButton.Width / 2, 250);
             ChargeParty.Location = new Point(Width / 2 - ChargeParty.Width / 2, 150);
             NewParty.Location = new Point(Width / 2 - NewParty.Width / 2, 50);

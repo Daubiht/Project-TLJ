@@ -28,10 +28,11 @@ namespace GraphicalInterface
         // Constructor
         public CreateMainCharacter2(Character CreatedCharacter, MainForm context)
         {
-            InitializeComponent();
-
             _context = context;
             _C1 = CreatedCharacter;
+
+            InitializeComponent();
+
 
             // Show the results of statistics 
             resultatVie.Text = _health.ToString();
