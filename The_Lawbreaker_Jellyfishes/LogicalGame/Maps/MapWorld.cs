@@ -15,15 +15,10 @@ namespace LogicalGame
     {
         Dictionary<string, MapIsland> _islands = new Dictionary<string, MapIsland>();
         object _actualPosition;
-        Team _team;
+        Team _team = new Team("team1");
         ListNotifications _notifs = new ListNotifications();
         Random _rand = new Random();
         List<Character> _tavernCharacters = new List<Character>();
-
-        public MapWorld ()
-        {
-            _team = new Team("team1", this);
-        }
 
         public object ActualPosition
         {

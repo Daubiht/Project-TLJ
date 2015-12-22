@@ -15,7 +15,7 @@ namespace LogicalGame.Test
             ListItems listi = new ListItems();
             Item i = listi.Items[0];
             MapWorld world = new MapWorld();
-            Team t = new Team("test", world);
+            Team t = new Team("test");
             c.InTeam = t;
             t.Invent.AddItem(i, 1);
 

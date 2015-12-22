@@ -61,7 +61,7 @@ namespace LogicalGame.Test
 
             }
 
-            Team team = new Team(null, world);
+            Team team = new Team(null);
             team.Invent.AddGold(100);
 
             // Here we get the merchant in the island Ponyoland

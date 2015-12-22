@@ -9,7 +9,7 @@ namespace LogicalGame.Test
         public void Test_to_create_a_team()
         {
             MapWorld world = new MapWorld();
-            Team team = new Team("Team1", world);
+            Team team = new Team("Team1");
             Assert.AreEqual("Team1", team.Name);
         }
 
@@ -18,7 +18,7 @@ namespace LogicalGame.Test
         {
             MapWorld world = new MapWorld();
 
-            Team team = new Team("Team1", world);
+            Team team = new Team("Team1");
             Character memberToAdd = new Character("memberAdded", "Geant", false);
 
             team.AddMembers(memberToAdd);
@@ -30,7 +30,7 @@ namespace LogicalGame.Test
         public void Test_to_remove_members_in_the_team()
         {
             MapWorld world = new MapWorld();
-            Team team = new Team("Team1", world);
+            Team team = new Team("Team1");
             Character c1 = new Character("Character1", "Geant", false);
             Character c2 = new Character("Character2", "Geant", false);
 
@@ -47,7 +47,7 @@ namespace LogicalGame.Test
         {
             Character character = new Character("Character1", "Geant", false);
             MapWorld world = new MapWorld();
-            Team team = new Team("Team1", world);
+            Team team = new Team("Team1");
             team.AddMembers(character);
 
             // Change the position of the main character with "True"
@@ -58,7 +58,7 @@ namespace LogicalGame.Test
         public void Get_the_inventory_of_the_team()
         {
             MapWorld world = new MapWorld();
-            Team team = new Team("Team1", world);
+            Team team = new Team("Team1");
             Invent inventory = new Invent(team);
             team.Invent.AddGold(100);
             Assert.AreEqual(200, team.Invent.GetGold);        
@@ -67,7 +67,7 @@ namespace LogicalGame.Test
         public void Test_to_verify_we_cant_add_members_if_the_team_is_full()
         {
             MapWorld world = new MapWorld();
-            Team team = new Team("Team1", world);
+            Team team = new Team("Team1");
             Character c1 = new Character("c1", "humain", false);
             Character c2 = new Character("c2", "humain", false);
             Character c3 = new Character("c3", "humain", false);
@@ -86,7 +86,7 @@ namespace LogicalGame.Test
         public void Test_we_cant_remove_the_main_character()
         {
             MapWorld world = new MapWorld();
-            Team team = new Team("Team1", world);
+            Team team = new Team("Team1");
             Character c1 = new Character("c1", "humain", false);
 
             c1.IsMain = true; // set the member to main character
