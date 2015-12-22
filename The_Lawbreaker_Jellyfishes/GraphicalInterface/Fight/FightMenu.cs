@@ -134,6 +134,7 @@ namespace GraphicalInterface
             }
             // Check if all monster or all members are dead
             _FUC.EndFight();
+            _FUC.ChangeColorPanel();
         }
         //_____Method to open the inventory consumable during fight
         public void AccessInventory(object sender, EventArgs e)
@@ -145,9 +146,11 @@ namespace GraphicalInterface
                 FiltredInventoryForm FIForm = new FiltredInventoryForm(FIClass, _panelCharacterList, _fight);
                 // Display the windows if the inventory consumables
                 FIForm.ShowDialog();
+                _FUC.NextMember();
+                foreach ( PanelCharacter pc in _FUC.GetCharacterPanel ) pc.RefreshInformation();
+                _FUC.ChangeColorPanel();
             }
         }
-
 
         public List<PanelCharacter> PanelsMembers { get { return _panelCharacterList; } }
 

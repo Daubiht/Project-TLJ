@@ -67,6 +67,15 @@ namespace LogicalGame
             // We save all the basic stats of all member, usefull at the end of the fight to reset all the basic stats which could be modify by skills or effects
             OriginaleStats();
             FalseDidMemberPlay();
+            _selectedMonster = _FrontMonsterList[0];
+            foreach ( Character c in _team.Members )
+            {
+                if ( c.isAlive )
+                {
+                    _selectedCharacter = c;
+                    break;
+                }
+            }
         }
         /// <summary>
         // METHODS
@@ -150,6 +159,8 @@ namespace LogicalGame
                 _selectedCharacter.AttackMonster(_selectedMonster);
                 _selectedCharacter.DidMemberPlay=true;
             }
+            CheckFrontMonserDead();
+
         }
         // Did all member played
         public bool DidAllMemberPlay()
