@@ -608,7 +608,9 @@ namespace LogicalGame
 
             if(isAlive)
             {
-                _healthPoint += heal;
+                if (_healthPoint + heal <= _maxHealthPoint) _healthPoint += heal;
+                else _healthPoint = _maxHealthPoint;
+
             }
 
             return _healthPoint;

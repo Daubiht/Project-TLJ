@@ -63,20 +63,55 @@ namespace GraphicalInterface
             // If the player clicks on a character's panel, we create a menu which display information about the member, and change his bordel style
             if ( _obj is Character )
             {
-                // Create the fight menu of the selected member
-                _FightUserControl.CreateFightMenu(_character);
-                // Get the character we click on it
-                _fight.SelectedCharacter = _character;
-                _FightUserControl.ChangeColorPanel();
+                if (_fight.SelectedSkill == null)
+                {
+                    // Create the fight menu of the selected member
+                    _FightUserControl.CreateFightMenu(_character);
+                    // Get the character we click on it
+                    _fight.SelectedCharacter = _character;
+                    _FightUserControl.ChangeColorPanel();
+                }
+                else
+                {
+                    if (_fight.SelectedCharacter.DidMemberPlay == false && _fight.SelectedCharacter.isAlive)
+                    {
+                        if (_fight.SelectedCharacter.UseSkill(_fight.SelectedSkill, _character))
+                        {
+                            _fight.SelectedCharacter.DidMemberPlay = true;
+                            _FightUserControl.NextMember();
+                            _FightUserControl.ChangeColorPanel();
+                            RefreshInformation();
+                        }
+                    }
+                    _fight.SelectedSkill = null;
+                }
             }
 
             // If the player clicks on a monster's panel, the member attacks the monster
             else if ( _obj is Monster )
             {
-                // We save the selected the monster
-                _fight.SelectedMonster = _monster;
-                // Color the selected monster
-                _FightUserControl.ChangeColorPanel();
+                if (_fight.SelectedSkill == null)
+                {
+                    // We save the selected the monster
+                    _fight.SelectedMonster = _monster;
+                    // Color the selected monster
+                    _FightUserControl.ChangeColorPanel();
+                }
+                else
+                {
+                    if (_fight.SelectedCharacter.DidMemberPlay == false && _fight.SelectedCharacter.isAlive)
+                    {
+                        if (_fight.SelectedCharacter.UseSkill(_fight.SelectedSkill, _monster))
+                        {
+                            _fight.SelectedCharacter.DidMemberPlay = true;
+                            _FightUserControl.NextMember();
+                            _FightUserControl.ChangeColorPanel();
+                            RefreshInformation();
+                            if (_fight.DidAllMemberPlay()) _fight.MonsterAttack();
+                        }
+                    }
+                    _fight.SelectedSkill = null;
+                }
             }
         }
         // Method who dislays actulized informations of monster and character panels, like HP, Stamina etc.

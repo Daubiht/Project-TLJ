@@ -251,5 +251,7 @@ namespace LogicalGame
         public int OldLifeSelectedMember { get { return _oldLife; } }
         public Character SelectedCharacter { get { return _selectedCharacter; } set { _selectedCharacter = value; } }
         public Monster SelectedMonster { get { return _selectedMonster; } set { _selectedMonster = value; } }
+
+        public Skill SelectedSkill { get { return _selectedSkill; } set { _selectedSkill = value; } }
     }
 }
