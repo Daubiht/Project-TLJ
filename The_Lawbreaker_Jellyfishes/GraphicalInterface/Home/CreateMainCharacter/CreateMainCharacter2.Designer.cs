@@ -157,10 +157,11 @@
             // assignedStats
             // 
             this.assignedStats.AutoSize = true;
-            this.assignedStats.Location = new System.Drawing.Point(255, 290);
+            this.assignedStats.Location = new System.Drawing.Point(360, 40);
             this.assignedStats.Name = "assignedStats";
+            this.assignedStats.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.assignedStats.Size = new System.Drawing.Size(19, 13);
-            this.assignedStats.TabIndex = 8;
+            this.assignedStats.TabIndex = 30;
             this.assignedStats.Text = "20";
             // 
             // resultatVie
@@ -168,6 +169,7 @@
             this.resultatVie.AutoSize = true;
             this.resultatVie.Location = new System.Drawing.Point(282, 90);
             this.resultatVie.Name = "resultatVie";
+            this.resultatVie.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.resultatVie.Size = new System.Drawing.Size(25, 13);
             this.resultatVie.TabIndex = 9;
             this.resultatVie.Text = "+25";
@@ -177,6 +179,7 @@
             this.resultatRobustesse.AutoSize = true;
             this.resultatRobustesse.Location = new System.Drawing.Point(282, 167);
             this.resultatRobustesse.Name = "resultatRobustesse";
+            this.resultatRobustesse.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.resultatRobustesse.Size = new System.Drawing.Size(25, 13);
             this.resultatRobustesse.TabIndex = 10;
             this.resultatRobustesse.Text = "+4";
@@ -186,6 +189,7 @@
             this.resultatFatigue.AutoSize = true;
             this.resultatFatigue.Location = new System.Drawing.Point(282, 235);
             this.resultatFatigue.Name = "resultatFatigue";
+            this.resultatFatigue.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.resultatFatigue.Size = new System.Drawing.Size(25, 13);
             this.resultatFatigue.TabIndex = 11;
             this.resultatFatigue.Text = "+10";
@@ -195,6 +199,7 @@
             this.resultatAttaquePhysique.AutoSize = true;
             this.resultatAttaquePhysique.Location = new System.Drawing.Point(595, 90);
             this.resultatAttaquePhysique.Name = "resultatAttaquePhysique";
+            this.resultatAttaquePhysique.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.resultatAttaquePhysique.Size = new System.Drawing.Size(25, 13);
             this.resultatAttaquePhysique.TabIndex = 12;
             this.resultatAttaquePhysique.Text = "+30";
@@ -204,6 +209,7 @@
             this.resultatAttaqueMagique.AutoSize = true;
             this.resultatAttaqueMagique.Location = new System.Drawing.Point(595, 167);
             this.resultatAttaqueMagique.Name = "resultatAttaqueMagique";
+            this.resultatAttaqueMagique.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.resultatAttaqueMagique.Size = new System.Drawing.Size(25, 13);
             this.resultatAttaqueMagique.TabIndex = 13;
             this.resultatAttaqueMagique.Text = "+15";
@@ -212,6 +218,7 @@
             // 
             this.resultatEsquive.AutoSize = true;
             this.resultatEsquive.Location = new System.Drawing.Point(595, 235);
+            this.resultatEsquive.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.resultatEsquive.Name = "resultatEsquive";
             this.resultatEsquive.Size = new System.Drawing.Size(25, 13);
             this.resultatEsquive.TabIndex = 14;
@@ -425,11 +432,19 @@
             // 
             // buttonReset
             // 
-            this.buttonReset.Location = new System.Drawing.Point(309, 283);
+            this.buttonReset.AutoSize = true;
+            this.buttonReset.BackColor = System.Drawing.Color.Transparent;
+            this.buttonReset.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonReset.FlatAppearance.BorderSize = 0;
+            this.buttonReset.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.buttonReset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.buttonReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonReset.Font = new System.Drawing.Font(_context.Font.Families[0], 30);
+            this.buttonReset.Location = new System.Drawing.Point(280, 280);
             this.buttonReset.Name = "buttonReset";
             this.buttonReset.Size = new System.Drawing.Size(111, 27);
             this.buttonReset.TabIndex = 29;
-            this.buttonReset.Text = "RESET";
+            this.buttonReset.Text = "réinitialiser";
             this.buttonReset.UseVisualStyleBackColor = true;
             this.buttonReset.Click += new System.EventHandler(this.buttonReset_Click);
             // 

@@ -18,10 +18,14 @@ namespace GraphicalInterface
         // Constructor
         public CreateMainCharacter3(Character CreatedCharacter, MainForm context, int[] stat)
         {
-            InitializeComponent();
             _C1 = CreatedCharacter;
             _context = context;
             _statsFromScreen2 = stat;
+
+            InitializeComponent();
+
+            label1.Location = new System.Drawing.Point(Width / 2 - label1.Width /2, 0);
+
             _skillList = new SkillList();
 
 

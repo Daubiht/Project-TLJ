@@ -41,30 +41,48 @@
             // 
             // label1
             // 
+            this.label1.Font = new System.Drawing.Font(_context.Font.Families[0], 30);
+            this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(80, 16);
+            this.label1.Location = new System.Drawing.Point(238, 11);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(250, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "ATTRIBUTION DE LA PREMIÈRE COMPÉTENCE";
+            this.label1.Text = "attribution de la première compétence";
             // 
             // buttonBack
             // 
-            this.buttonBack.Location = new System.Drawing.Point(83, 312);
+            this.buttonBack.AutoSize = true;
+            this.buttonBack.BackColor = System.Drawing.Color.Transparent;
+            this.buttonBack.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonBack.FlatAppearance.BorderSize = 0;
+            this.buttonBack.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.buttonBack.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.buttonBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonBack.Font = new System.Drawing.Font(_context.Font.Families[0], 30);
+            this.buttonBack.Location = new System.Drawing.Point(50, 280);
             this.buttonBack.Name = "buttonBack";
             this.buttonBack.Size = new System.Drawing.Size(75, 32);
             this.buttonBack.TabIndex = 54;
-            this.buttonBack.Text = "Retour";
+            this.buttonBack.Text = "retour";
             this.buttonBack.UseVisualStyleBackColor = true;
             this.buttonBack.Click += new System.EventHandler(this.buttonBack_Click);
             // 
             // buttonNext
             // 
-            this.buttonNext.Location = new System.Drawing.Point(255, 312);
+            this.buttonNext.AutoSize = true;
+            this.buttonNext.BackColor = System.Drawing.Color.Transparent;
+            this.buttonNext.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonNext.FlatAppearance.BorderSize = 0;
+            this.buttonNext.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.buttonNext.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.buttonNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonNext.Font = new System.Drawing.Font(_context.Font.Families[0], 30);
+            this.buttonNext.Location = new System.Drawing.Point(550, 280);
             this.buttonNext.Name = "buttonNext";
             this.buttonNext.Size = new System.Drawing.Size(75, 32);
             this.buttonNext.TabIndex = 53;
-            this.buttonNext.Text = "Valider";
+            this.buttonNext.Text = "valider";
             this.buttonNext.UseVisualStyleBackColor = true;
             this.buttonNext.Click += new System.EventHandler(this.buttonNext_Click);
             // 
@@ -73,12 +91,13 @@
             this.RBVitality.AutoSize = true;
             this.RBVitality.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.RBVitality.Checked = true;
-            this.RBVitality.Location = new System.Drawing.Point(164, 63);
+            this.RBVitality.Font = new System.Drawing.Font(_context.Font.Families[1], 18);
+            this.RBVitality.Location = new System.Drawing.Point(206, 60);
             this.RBVitality.Name = "RBVitality";
             this.RBVitality.Size = new System.Drawing.Size(56, 17);
             this.RBVitality.TabIndex = 55;
             this.RBVitality.TabStop = true;
-            this.RBVitality.Text = "Vitalité";
+            this.RBVitality.Text = "vitalité";
             this.RBVitality.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             this.RBVitality.UseVisualStyleBackColor = true;
             // 
@@ -86,55 +105,60 @@
             // 
             this.RBDefensePosition.AutoSize = true;
             this.RBDefensePosition.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.RBDefensePosition.Location = new System.Drawing.Point(109, 98);
+            this.RBDefensePosition.Font = new System.Drawing.Font(_context.Font.Families[1], 18);
+            this.RBDefensePosition.Location = new System.Drawing.Point(131, 129);
             this.RBDefensePosition.Name = "RBDefensePosition";
             this.RBDefensePosition.Size = new System.Drawing.Size(111, 17);
             this.RBDefensePosition.TabIndex = 56;
-            this.RBDefensePosition.Text = "Position défensive";
+            this.RBDefensePosition.Text = "position défensive";
             this.RBDefensePosition.UseVisualStyleBackColor = true;
             // 
             // RBEffort
             // 
             this.RBEffort.AutoSize = true;
             this.RBEffort.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.RBEffort.Location = new System.Drawing.Point(170, 134);
+            this.RBEffort.Font = new System.Drawing.Font(_context.Font.Families[1], 18);
+            this.RBEffort.Location = new System.Drawing.Point(219, 193);
             this.RBEffort.Name = "RBEffort";
             this.RBEffort.Size = new System.Drawing.Size(50, 17);
             this.RBEffort.TabIndex = 57;
-            this.RBEffort.Text = "Effort";
+            this.RBEffort.Text = "effort";
             this.RBEffort.UseVisualStyleBackColor = true;
             // 
             // RBConcentredHit
             // 
             this.RBConcentredHit.AutoSize = true;
             this.RBConcentredHit.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.RBConcentredHit.Location = new System.Drawing.Point(105, 169);
+            this.RBConcentredHit.Font = new System.Drawing.Font(_context.Font.Families[1], 18);
+            this.RBConcentredHit.Location = new System.Drawing.Point(427, 60);
             this.RBConcentredHit.Name = "RBConcentredHit";
             this.RBConcentredHit.Size = new System.Drawing.Size(115, 17);
             this.RBConcentredHit.TabIndex = 58;
-            this.RBConcentredHit.Text = "Frappe concentrée";
+            this.RBConcentredHit.Text = "frappe concentrée";
             this.RBConcentredHit.UseVisualStyleBackColor = true;
             // 
             // RBEnergeticShot
             // 
             this.RBEnergeticShot.AutoSize = true;
             this.RBEnergeticShot.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.RBEnergeticShot.Location = new System.Drawing.Point(124, 204);
+            this.RBEnergeticShot.Font = new System.Drawing.Font(_context.Font.Families[1], 18);
+            this.RBEnergeticShot.Location = new System.Drawing.Point(442, 130);
             this.RBEnergeticShot.Name = "RBEnergeticShot";
             this.RBEnergeticShot.Size = new System.Drawing.Size(96, 17);
             this.RBEnergeticShot.TabIndex = 59;
-            this.RBEnergeticShot.Text = "Tir énergétique";
+            this.RBEnergeticShot.Text = "tir énergétique";
             this.RBEnergeticShot.UseVisualStyleBackColor = true;
             // 
             // RBInstinct
             // 
             this.RBInstinct.AutoSize = true;
             this.RBInstinct.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.RBInstinct.Location = new System.Drawing.Point(161, 237);
+            this.RBInstinct.Font = new System.Drawing.Font(_context.Font.Families[1], 18);
+            this.RBInstinct.Location = new System.Drawing.Point(494, 192);
             this.RBInstinct.Name = "RBInstinct";
             this.RBInstinct.Size = new System.Drawing.Size(59, 17);
             this.RBInstinct.TabIndex = 60;
-            this.RBInstinct.Text = "Instinct";
+            this.RBInstinct.Text = "instinct";
             this.RBInstinct.UseVisualStyleBackColor = true;
             // 
             // CreateMainCharacter3

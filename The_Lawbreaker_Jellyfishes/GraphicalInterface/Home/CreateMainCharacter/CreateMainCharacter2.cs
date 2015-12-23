@@ -46,12 +46,12 @@ namespace GraphicalInterface
             assignedStats.Text = _assignedStats.ToString();
 
             // Disabled all the buttons [-] by default
-            mVie.Enabled = false;
-            mRobustesse.Enabled = false;
-            mFatigue.Enabled = false;
-            mAttaquePhysique.Enabled = false;
-            mAttaqueMagique.Enabled = false;
-            mEsquive.Enabled = false;
+            mVie.Visible = false;
+            mRobustesse.Visible = false;
+            mFatigue.Visible = false;
+            mAttaquePhysique.Visible = false;
+            mAttaqueMagique.Visible = false;
+            mEsquive.Visible = false;
 
             // Disabled button Next by default
             buttonNext.Enabled = false;
@@ -120,24 +120,24 @@ namespace GraphicalInterface
         {
             if ( _assignedStats == 0 )
             {
-                pVie.Enabled = false;
-                pRobustesse.Enabled = false;
-                pFatigue.Enabled = false;
-                pAttaquePhysique.Enabled = false;
-                pAttaqueMagique.Enabled = false;
-                pEsquive.Enabled = false;
+                pVie.Visible = false;
+                pRobustesse.Visible = false;
+                pFatigue.Visible = false;
+                pAttaquePhysique.Visible = false;
+                pAttaqueMagique.Visible = false;
+                pEsquive.Visible = false;
 
-                // Button Next is enabled if all the points are assigned
+                // Button Next is Visible if all the points are assigned
                 buttonNext.Enabled = true;  
             }
             if (_assignedStats > 0)
             {
-                pVie.Enabled = true;
-                pRobustesse.Enabled = true;
-                pFatigue.Enabled = true;
-                pAttaquePhysique.Enabled = true;
-                pAttaqueMagique.Enabled = true;
-                pEsquive.Enabled = true;
+                pVie.Visible = true;
+                pRobustesse.Visible = true;
+                pFatigue.Visible = true;
+                pAttaquePhysique.Visible = true;
+                pAttaqueMagique.Visible = true;
+                pEsquive.Visible = true;
                 
                 // Button Next is disabled if there are still some point to assign
                 buttonNext.Enabled = false;
@@ -169,7 +169,7 @@ namespace GraphicalInterface
             assignedStats.Text = _assignedStats.ToString();
             _health += 1;
             resultatVie.Text = _health.ToString();
-            mVie.Enabled = CheckMinusButton(_health);
+            mVie.Visible = CheckMinusButton(_health);
             CheckPlusButton();
         }
         // [-] vie
@@ -179,7 +179,7 @@ namespace GraphicalInterface
             assignedStats.Text = _assignedStats.ToString();
             _health -= 1;
             resultatVie.Text = _health.ToString();
-            mVie.Enabled = CheckMinusButton(_health);
+            mVie.Visible = CheckMinusButton(_health);
             CheckPlusButton();
         }
 
@@ -190,7 +190,7 @@ namespace GraphicalInterface
             assignedStats.Text = _assignedStats.ToString();
             _robustness += 1;
             resultatRobustesse.Text = _robustness.ToString();
-            mRobustesse.Enabled = CheckMinusButton(_robustness);
+            mRobustesse.Visible = CheckMinusButton(_robustness);
             CheckPlusButton();
         }
 
@@ -201,7 +201,7 @@ namespace GraphicalInterface
             assignedStats.Text = _assignedStats.ToString();
             _robustness -= 1;
             resultatRobustesse.Text = _robustness.ToString();
-            mRobustesse.Enabled = CheckMinusButton(_robustness);
+            mRobustesse.Visible = CheckMinusButton(_robustness);
             CheckPlusButton();
         }
 
@@ -212,7 +212,7 @@ namespace GraphicalInterface
             assignedStats.Text = _assignedStats.ToString();
             _stamina += 1;
             resultatFatigue.Text = _stamina.ToString();
-            mFatigue.Enabled = CheckMinusButton(_stamina);
+            mFatigue.Visible = CheckMinusButton(_stamina);
             CheckPlusButton();
 
         }
@@ -224,7 +224,7 @@ namespace GraphicalInterface
             assignedStats.Text = _assignedStats.ToString();
             _stamina -= 1;
             resultatFatigue.Text = _stamina.ToString();
-            mFatigue.Enabled = CheckMinusButton(_stamina);
+            mFatigue.Visible = CheckMinusButton(_stamina);
             CheckPlusButton();
         }
 
@@ -235,7 +235,7 @@ namespace GraphicalInterface
             assignedStats.Text = _assignedStats.ToString();
             _physicalAttack += 1;
             resultatAttaquePhysique.Text = _physicalAttack.ToString();
-            mAttaquePhysique.Enabled = CheckMinusButton(_physicalAttack);
+            mAttaquePhysique.Visible = CheckMinusButton(_physicalAttack);
             CheckPlusButton();
 
         }
@@ -246,7 +246,7 @@ namespace GraphicalInterface
             assignedStats.Text = _assignedStats.ToString();
             _physicalAttack -= 1;
             resultatAttaquePhysique.Text = _physicalAttack.ToString();
-            mAttaquePhysique.Enabled = CheckMinusButton(_physicalAttack);
+            mAttaquePhysique.Visible = CheckMinusButton(_physicalAttack);
             CheckPlusButton();
 
         }
@@ -257,7 +257,7 @@ namespace GraphicalInterface
             assignedStats.Text = _assignedStats.ToString();
             _magicAttack += 1;
             resultatAttaqueMagique.Text = _magicAttack.ToString();
-            mAttaqueMagique.Enabled = CheckMinusButton(_magicAttack);
+            mAttaqueMagique.Visible = CheckMinusButton(_magicAttack);
             CheckPlusButton();
 
         }
@@ -269,7 +269,7 @@ namespace GraphicalInterface
             assignedStats.Text = _assignedStats.ToString();
             _magicAttack -= 1;
             resultatAttaqueMagique.Text = _magicAttack.ToString();
-            mAttaqueMagique.Enabled = CheckMinusButton(_magicAttack);
+            mAttaqueMagique.Visible = CheckMinusButton(_magicAttack);
             CheckPlusButton();
 
         }
@@ -281,7 +281,7 @@ namespace GraphicalInterface
             assignedStats.Text = _assignedStats.ToString();
             _dodge += 1;
             resultatEsquive.Text = _dodge.ToString();
-            mEsquive.Enabled = CheckMinusButton(_dodge);
+            mEsquive.Visible = CheckMinusButton(_dodge);
             CheckPlusButton();
 
         }
@@ -293,7 +293,7 @@ namespace GraphicalInterface
             assignedStats.Text = _assignedStats.ToString();
             _dodge -= 1;
             resultatEsquive.Text = _dodge.ToString();
-            mEsquive.Enabled = CheckMinusButton(_dodge);
+            mEsquive.Visible = CheckMinusButton(_dodge);
             CheckPlusButton();
         }
 
@@ -319,12 +319,12 @@ namespace GraphicalInterface
 
             CheckPlusButton();
 
-            mVie.Enabled = false;
-            mRobustesse.Enabled = false;
-            mFatigue.Enabled = false;
-            mAttaquePhysique.Enabled = false;
-            mAttaqueMagique.Enabled = false;
-            mEsquive.Enabled = false;
+            mVie.Visible = false;
+            mRobustesse.Visible = false;
+            mFatigue.Visible = false;
+            mAttaquePhysique.Visible = false;
+            mAttaqueMagique.Visible = false;
+            mEsquive.Visible = false;
         }
     }
 }

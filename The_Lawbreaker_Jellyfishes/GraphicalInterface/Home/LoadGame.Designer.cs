@@ -45,7 +45,7 @@
             this.slot1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.slot1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.slot1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.slot1.Location = new System.Drawing.Point(25, 50);
+            this.slot1.Location = new System.Drawing.Point(25, 70);
             this.slot1.Font = new System.Drawing.Font(_contextForm.Font.Families[1], 25);
             this.slot1.Name = "slot1";
             this.slot1.Size = new System.Drawing.Size(74, 23);
@@ -63,7 +63,7 @@
             this.slot2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.slot2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.slot2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.slot2.Location = new System.Drawing.Point(275, 50);
+            this.slot2.Location = new System.Drawing.Point(275, 70);
             this.slot2.Font = new System.Drawing.Font(_contextForm.Font.Families[1], 25);
             this.slot2.Name = "slot2";
             this.slot2.Size = new System.Drawing.Size(74, 23);
@@ -81,7 +81,7 @@
             this.slot3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.slot3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.slot3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.slot3.Location = new System.Drawing.Point(525, 50);
+            this.slot3.Location = new System.Drawing.Point(525, 70);
             this.slot3.Font = new System.Drawing.Font(_contextForm.Font.Families[1], 25);
             this.slot3.Name = "slot3";
             this.slot3.Size = new System.Drawing.Size(74, 23);
@@ -99,7 +99,7 @@
             this.slot4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.slot4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.slot4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.slot4.Location = new System.Drawing.Point(175, 200);
+            this.slot4.Location = new System.Drawing.Point(175, 220);
             this.slot4.Font = new System.Drawing.Font(_contextForm.Font.Families[1], 25);
             this.slot4.Name = "slot4";
             this.slot4.Size = new System.Drawing.Size(74, 23);
@@ -117,7 +117,7 @@
             this.slot5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.slot5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.slot5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.slot5.Location = new System.Drawing.Point(400, 200);
+            this.slot5.Location = new System.Drawing.Point(400, 220);
             this.slot5.Font = new System.Drawing.Font(_contextForm.Font.Families[1], 25);
             this.slot5.Name = "slot5";
             this.slot5.Size = new System.Drawing.Size(74, 23);
@@ -128,11 +128,19 @@
             // 
             // retour
             // 
-            this.retour.Location = new System.Drawing.Point(672, 3);
+            this.retour.AutoSize = true;
+            this.retour.BackColor = System.Drawing.Color.Transparent;
+            this.retour.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.retour.Location = new System.Drawing.Point(600, 3);
+            this.retour.FlatAppearance.BorderSize = 0;
+            this.retour.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.retour.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.retour.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.retour.Font = new System.Drawing.Font(_contextForm.Font.Families[0], 30);
             this.retour.Name = "retour";
             this.retour.Size = new System.Drawing.Size(75, 23);
             this.retour.TabIndex = 1;
-            this.retour.Text = "Retour";
+            this.retour.Text = "retour";
             this.retour.UseVisualStyleBackColor = true;
             this.retour.Click += new System.EventHandler(this.retour_Click);
             // 
