@@ -107,7 +107,11 @@ namespace GraphicalInterface
                             _FightUserControl.NextMember();
                             _FightUserControl.ChangeColorPanel();
                             RefreshInformation();
-                            if (_fight.DidAllMemberPlay()) _fight.MonsterAttack();
+                            if (_fight.DidAllMemberPlay())
+                            {
+                                _fight.MonsterAttack();
+                                RefreshInformation();
+                            }
                         }
                     }
                     _fight.SelectedSkill = null;

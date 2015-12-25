@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Skills\Effect.cs" />
     <Compile Include="Fight.cs" />
     <Compile Include="Team\Character.cs" />
     <Compile Include="Team\Inventory.cs" />

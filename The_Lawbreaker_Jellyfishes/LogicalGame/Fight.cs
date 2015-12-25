@@ -116,6 +116,9 @@ namespace LogicalGame
             // Monsters attack members
             foreach ( Monster m in _monstersList )
             {
+                m.ApplyEffect();
+                IsAllMonsterDie();
+                
                 // If some members are alive, monster continue to attack
                 m.Attack(_team);
                 // Check if all members are dead, if yes, we create a game over screen

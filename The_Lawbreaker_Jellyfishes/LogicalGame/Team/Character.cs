@@ -627,39 +627,47 @@ namespace LogicalGame
                     //Check of Position of caster and target
                     if (skill.Position == 0  || (skill.Position == 1 && _frontPosition == true) || (skill.Position == 2 && _frontPosition == false))
                     {
-                        if (skill.Effect != null)
+                        if (skill.Target == 0 || skill.Target == 1 || skill.Target == 3)
                         {
-                            _healthPoint -= skill.Cost[0];
-                            _staminaPoint -= skill.Cost[1];
-                            foreach (string name in skill.Effect.Keys)
+                            if (skill.Effect != null)
                             {
-                                int effect = skill.Effect[name];
-                                switch (name)
+                                _healthPoint -= skill.Cost[0];
+                                _staminaPoint -= skill.Cost[1];
+                                foreach (string name in skill.Effect.Keys)
                                 {
-                                    case "attaque physique":
-                                        target.Hurt((effect / 100) * _physicalAttack);
-                                        break;
-                                    case "attaque magique":
-                                        target.Hurt((effect / 100) * _magicAttack);
-                                        break;
-                                    case "soin":
-                                        target.Heal((int)Math.Round(((decimal)effect / 100) * _magicAttack));
-                                        break;
-                                    case "fatigue":
-                                        target.StaminaPoint = StaminaPoint - effect;
-                                        break;
-                                    case "baisse vie":
-                                        target.MaxHealthPoint = target.MaxHealthPoint - (int)Math.Round(target.MaxHealthPoint * (double)(effect / 100));
-                                        if (target.MaxHealthPoint < target.HealthPoint) target.HealthPoint = target.MaxHealthPoint;
-                                        break;
-                                    case "gain fatigue":
-                                        _staminaPoint += effect;
-                                        if (_staminaPoint > _maxStaminaPoint) _staminaPoint = _maxStaminaPoint;
-                                        break;
+                                    int effect = skill.Effect[name];
+                                    switch (name)
+                                    {
+                                        case "attaque physique":
+                                            target.Hurt((effect / 100) * _physicalAttack);
+                                            break;
+                                        case "attaque magique":
+                                            target.Hurt((effect / 100) * _magicAttack);
+                                            break;
+                                        case "soin":
+                                            target.Heal((int)Math.Round(((decimal)effect / 100) * _magicAttack));
+                                            break;
+                                        case "soin team":
+                                            foreach (Character chara in target.InTeam.Members)
+                                            {
+                                                chara.Heal((int)Math.Round(((decimal)effect / 100) * _magicAttack));
+                                            }
+                                            break;
+                                        case "fatigue":
+                                            target.StaminaPoint = StaminaPoint - effect;
+                                            break;
+                                        case "baisse vie":
+                                            target.MaxHealthPoint = target.MaxHealthPoint - (int)Math.Round(target.MaxHealthPoint * (double)(effect / 100));
+                                            if (target.MaxHealthPoint < target.HealthPoint) target.HealthPoint = target.MaxHealthPoint;
+                                            break;
+                                        case "gain fatigue":
+                                            _staminaPoint += effect;
+                                            if (_staminaPoint > _maxStaminaPoint) _staminaPoint = _maxStaminaPoint;
+                                            break;
+                                    }
                                 }
+                                return true;
                             }
-
-                            return true;
                         }
                     }
                 //}
@@ -707,6 +715,15 @@ namespace LogicalGame
                                         if (target.MaxHealthPoint < target.HealthPoint) target.HealthPoint = target.MaxHealthPoint;
                                         break;
                                 }
+                            }
+                        }
+                        //Effect in the time
+                        if (skill.TimeEffects != null)
+                        {
+                            for (int i = 0; i < skill.TimeEffects.Count; i++)
+                            {
+                                Effect timeEffect = new Effect(skill.TimeEffects[i].Name, skill.TimeEffects[i].Power, skill.TimeEffects[i].Time, this);
+                                target.Effect.Add(timeEffect);
                             }
                         }
 
@@ -766,7 +783,7 @@ namespace LogicalGame
             }
             foreach (var effect in item.GetStats)
             {
-                if (effect.Key == "heal")
+                if (effect.Key == "vie")
                 {
                     _healthPoint += effect.Value;
                     if (_healthPoint > _maxHealthPoint)
