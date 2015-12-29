@@ -13,9 +13,9 @@ namespace GraphicalInterface
 
         public Save(MapWorld contextWorld, MainForm contextForm)
         {
-            InitializeComponent();
             _contextForm = contextForm;
             _contextWorld = contextWorld;
+            InitializeComponent();
 
             RadioButton[] radioButtons = { radioButton1, radioButton2, radioButton3, radioButton4, radioButton5 };
             string[] fileName = Directory.GetFiles(@"../../../Saves");

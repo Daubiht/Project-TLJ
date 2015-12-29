@@ -36,10 +36,9 @@
             // 
             // equipe
             // 
-            this.equipe.Font = new System.Drawing.Font(_contextForm.Font.Families[0], 30);
+            this.equipe.Font = new System.Drawing.Font(_contextForm.Font.Families[1], 30);
             this.equipe.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             this.equipe.Text = "equipes";
-            this.equipe.BackColor = System.Drawing.Color.Transparent;
             this.equipe.Cursor = System.Windows.Forms.Cursors.Hand;
             this.equipe.FlatAppearance.BorderSize = 0;
             this.equipe.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
@@ -53,9 +52,9 @@
             // 
             // inventaire
             // 
-            this.inventaire.Font = new System.Drawing.Font(_contextForm.Font.Families[0], 30);
+            this.inventaire.Font = new System.Drawing.Font(_contextForm.Font.Families[1], 30);
             this.inventaire.TextAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.inventaire.BackColor = System.Drawing.Color.Transparent;
+            this.inventaire.Text = "inventaire";
             this.inventaire.Cursor = System.Windows.Forms.Cursors.Hand;
             this.inventaire.FlatAppearance.BorderSize = 0;
             this.inventaire.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
@@ -63,17 +62,14 @@
             this.inventaire.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.inventaire.Location = new System.Drawing.Point(150, 0);
             this.inventaire.Name = "inventaire";
-            this.inventaire.Size = new System.Drawing.Size(170, 50);
-            this.inventaire.TabIndex = 0;
-            this.inventaire.Text = "inventaire";
             this.inventaire.UseVisualStyleBackColor = true;
             this.inventaire.Click += new System.EventHandler(this.inventaire_Click);
+            this.inventaire.Size = new System.Drawing.Size(170, 50);
             // 
             // notifications
             // 
-            this.notifications.Font = new System.Drawing.Font(_contextForm.Font.Families[0], 30);
+            this.notifications.Font = new System.Drawing.Font(_contextForm.Font.Families[1], 30);
             this.notifications.TextAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.notifications.BackColor = System.Drawing.Color.Transparent;
             this.notifications.Cursor = System.Windows.Forms.Cursors.Hand;
             this.notifications.FlatAppearance.BorderSize = 0;
             this.notifications.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
@@ -89,9 +85,8 @@
             // 
             // sauvegarde
             // 
-            this.sauvegarde.Font = new System.Drawing.Font(_contextForm.Font.Families[0], 30);
+            this.sauvegarde.Font = new System.Drawing.Font(_contextForm.Font.Families[1], 30);
             this.sauvegarde.TextAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.sauvegarde.BackColor = System.Drawing.Color.Transparent;
             this.sauvegarde.Cursor = System.Windows.Forms.Cursors.Hand;
             this.sauvegarde.FlatAppearance.BorderSize = 0;
             this.sauvegarde.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;

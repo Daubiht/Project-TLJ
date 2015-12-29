@@ -45,7 +45,7 @@ namespace GraphicalInterface
             this.NewParty.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.NewParty.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.NewParty.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.NewParty.Font = new System.Drawing.Font(_context.Font.Families[0], 35);
+            this.NewParty.Font = new System.Drawing.Font(_context.Font.Families[1], 35);
             this.NewParty.Name = "NewParty";
             this.NewParty.Size = new System.Drawing.Size(88, 23);
             this.NewParty.TabIndex = 0;
@@ -62,7 +62,7 @@ namespace GraphicalInterface
             this.ChargeParty.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.ChargeParty.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.ChargeParty.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ChargeParty.Font = new System.Drawing.Font(_context.Font.Families[0], 35);
+            this.ChargeParty.Font = new System.Drawing.Font(_context.Font.Families[1], 35);
             this.ChargeParty.Name = "ChargeParty";
             this.ChargeParty.Size = new System.Drawing.Size(83, 23);
             this.ChargeParty.TabIndex = 0;
@@ -79,7 +79,7 @@ namespace GraphicalInterface
             this.quitButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.quitButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.quitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.quitButton.Font = new System.Drawing.Font(_context.Font.Families[0], 35);
+            this.quitButton.Font = new System.Drawing.Font(_context.Font.Families[1], 35);
             this.quitButton.Name = "quitButton";
             this.quitButton.Size = new System.Drawing.Size(75, 23);
             this.quitButton.TabIndex = 2;

@@ -12,16 +12,20 @@ namespace GraphicalInterface
 
         public Notifications(MapWorld contextWorld, MainForm contextForm)
         {
-            InitializeComponent();
             _contextWorld = contextWorld;
             _contextForm = contextForm;
+            InitializeComponent();
 
             List<Notification> listNotifs = contextWorld.Notifs.ListNotif;
-            Label[] listLabels = {notif1, notif2, notif3, notif4, notif5, notif6, notif6, notif7, notif8, notif9, notif10};
 
-            for (int i = 0; i < contextWorld.Notifs.ListNotif.Count; i++)
+            for(int i = 0; i < listNotifs.Count; i++) 
             {
-                listLabels[i].Text = listNotifs[i].Name + " - " + listNotifs[i].Description + " - " + listNotifs[i].Date;
+                Label LabelNotif = new Label();
+                LabelNotif.AutoSize = true;
+                LabelNotif.Text = listNotifs[i].Date + " - " + listNotifs[i].Name + " - " + listNotifs[i].Description;
+                LabelNotif.Font = new System.Drawing.Font(_contextForm.Font.Families[0], 16);
+                panel1.Controls.Add(LabelNotif);
+                LabelNotif.Location = new System.Drawing.Point(Width / 2 - LabelNotif.Width / 2, i * LabelNotif.Height);
             }
         }
 

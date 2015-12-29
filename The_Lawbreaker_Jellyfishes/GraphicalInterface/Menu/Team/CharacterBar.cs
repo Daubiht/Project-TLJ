@@ -92,7 +92,7 @@ namespace GraphicalInterface
                         currentChara.FrontPosition = true;
                         bar.BPosition.Text = "CaC";
                     }
-                    ((TeamManagement)(Parent.Parent)).Error.Text = "Attention ! Il faut au moins un membre de l'équipe au corp à corp.";
+                    ((TeamManagement)(Parent.Parent)).Error.Text = "Attention ! Il faut qu'au moins un membre de l'équipe soit au corps à corps.";
                     ((TeamManagement)(Parent.Parent)).Error.Visible = true;
                 }
                 else

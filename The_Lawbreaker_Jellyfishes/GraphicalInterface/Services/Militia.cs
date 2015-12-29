@@ -11,12 +11,12 @@ namespace GraphicalInterface
 
         public Militia(MainForm contextForm, MapWorld contextWorld)
         {
-            InitializeComponent();
             _contextWorld = contextWorld;
             _contextForm = contextForm;
+            InitializeComponent();
         }
 
-        private void Retour_Click(object sender, EventArgs e)
+        private void retour_Click(object sender, EventArgs e)
         {
             _contextForm.ExitMenu(this);
         }

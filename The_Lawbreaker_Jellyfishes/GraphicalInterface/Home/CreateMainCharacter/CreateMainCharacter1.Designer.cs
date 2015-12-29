@@ -48,7 +48,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Pseudo.AutoSize = true;
-            this.Pseudo.Font = new System.Drawing.Font(_context.Font.Families[1], 25);
+            this.Pseudo.Font = new System.Drawing.Font(_context.Font.Families[0], 25);
             this.Pseudo.Location = new System.Drawing.Point(246, 0);
             this.Pseudo.Name = "Pseudo";
             this.Pseudo.Size = new System.Drawing.Size(42, 13);
@@ -76,7 +76,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Sex.AutoSize = true;
-            this.Sex.Font = new System.Drawing.Font(_context.Font.Families[1], 25);
+            this.Sex.Font = new System.Drawing.Font(_context.Font.Families[0], 25);
             this.Sex.Location = new System.Drawing.Point(246, 80);
             this.Sex.Name = "Sex";
             this.Sex.Size = new System.Drawing.Size(29, 13);
@@ -89,7 +89,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Race.AutoSize = true;
-            this.Race.Font = new System.Drawing.Font(_context.Font.Families[1], 25);
+            this.Race.Font = new System.Drawing.Font(_context.Font.Families[0], 25);
             this.Race.Location = new System.Drawing.Point(246, 150);
             this.Race.Name = "Race";
             this.Race.Size = new System.Drawing.Size(28, 13);
@@ -115,7 +115,7 @@
             this.ValidButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.ValidButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.ValidButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ValidButton.Font = new System.Drawing.Font(_context.Font.Families[0], 30);
+            this.ValidButton.Font = new System.Drawing.Font(_context.Font.Families[1], 30);
             this.ValidButton.Location = new System.Drawing.Point(550, 280);
             this.ValidButton.Name = "ValidButton";
             this.ValidButton.Size = new System.Drawing.Size(75, 32);
@@ -134,7 +134,7 @@
             this.BackButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.BackButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.BackButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BackButton.Font = new System.Drawing.Font(_context.Font.Families[0], 30);
+            this.BackButton.Font = new System.Drawing.Font(_context.Font.Families[1], 30);
             this.BackButton.Location = new System.Drawing.Point(50, 280);
             this.BackButton.Name = "BackButton";
             this.BackButton.Size = new System.Drawing.Size(75, 32);
@@ -149,7 +149,7 @@
             this.ButtonMan.Checked = true;
             this.ButtonMan.Location = new System.Drawing.Point(357, 100);
             this.ButtonMan.Name = "ButtonMan";
-            this.ButtonMan.Font = new System.Drawing.Font(_context.Font.Families[1], 20);
+            this.ButtonMan.Font = new System.Drawing.Font(_context.Font.Families[0], 20);
             this.ButtonMan.Size = new System.Drawing.Size(61, 17);
             this.ButtonMan.TabIndex = 10;
             this.ButtonMan.TabStop = true;
@@ -162,7 +162,7 @@
             this.ButtonWoman.AutoSize = true;
             this.ButtonWoman.Location = new System.Drawing.Point(450, 100);
             this.ButtonWoman.Name = "ButtonWoman";
-            this.ButtonWoman.Font = new System.Drawing.Font(_context.Font.Families[1], 20);
+            this.ButtonWoman.Font = new System.Drawing.Font(_context.Font.Families[0], 20);
             this.ButtonWoman.Size = new System.Drawing.Size(59, 17);
             this.ButtonWoman.TabIndex = 11;
             this.ButtonWoman.Text = "femme";
@@ -173,7 +173,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(200, 250);
-            this.label1.Font = new System.Drawing.Font(_context.Font.Families[1], 18);
+            this.label1.Font = new System.Drawing.Font(_context.Font.Families[0], 18);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(0, 13);
             this.label1.TabIndex = 12;

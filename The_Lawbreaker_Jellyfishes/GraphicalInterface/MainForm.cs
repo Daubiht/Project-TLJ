@@ -18,17 +18,26 @@ namespace GraphicalInterface
     {
         MapWorld _w;
         PrivateFontCollection _font = new PrivateFontCollection();
-        public const int WM_NCLBUTTONDOWN = 0xA1;
-        public const int HT_CAPTION = 0x2;
 
         public MainForm()
         {
             InitializeComponent();
             _font.AddFontFile("../../../Ressources/Neverwinter.otf");
-            _font.AddFontFile("../../../Ressources/XIPAROS.ttf");
+            _font.AddFontFile("../../../Ressources/BLKCHCRY.ttf");
+
             SetStyle(ControlStyles.SupportsTransparentBackColor, true);
             ReceptionScreen uc = new ReceptionScreen(this);
             ChangeUC(uc, false);
+        }
+
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;  // Turn on WS_EX_COMPOSITED
+                return cp;
+            }
         }
 
         public void ChangeUC(UserControl UCI, bool Menu)

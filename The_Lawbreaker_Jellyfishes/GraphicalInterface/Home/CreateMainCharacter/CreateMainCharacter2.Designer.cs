@@ -65,7 +65,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Stats.AutoSize = true;
-            this.Stats.Font = new System.Drawing.Font(_context.Font.Families[0], 30);
+            this.Stats.Font = new System.Drawing.Font(_context.Font.Families[1], 30);
             this.Stats.Location = new System.Drawing.Point(175, 0);
             this.Stats.Name = "Stats";
             this.Stats.Size = new System.Drawing.Size(128, 13);
@@ -78,7 +78,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TextLife.AutoSize = true;
-            this.TextLife.Font = new System.Drawing.Font(_context.Font.Families[1], 18);
+            this.TextLife.Font = new System.Drawing.Font(_context.Font.Families[0], 18);
             this.TextLife.Location = new System.Drawing.Point(120, 59);
             this.TextLife.Name = "TextLife";
             this.TextLife.Padding = new System.Windows.Forms.Padding(0, 0, 65, 0);
@@ -92,7 +92,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TextRobustness.AutoSize = true;
-            this.TextRobustness.Font = new System.Drawing.Font(_context.Font.Families[1], 18);
+            this.TextRobustness.Font = new System.Drawing.Font(_context.Font.Families[0], 18);
             this.TextRobustness.Location = new System.Drawing.Point(120, 137);
             this.TextRobustness.Name = "TextRobustness";
             this.TextRobustness.Padding = new System.Windows.Forms.Padding(0, 0, 25, 0);
@@ -106,7 +106,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TextDodge.AutoSize = true;
-            this.TextDodge.Font = new System.Drawing.Font(_context.Font.Families[1], 18);
+            this.TextDodge.Font = new System.Drawing.Font(_context.Font.Families[0], 18);
             this.TextDodge.Location = new System.Drawing.Point(400, 205);
             this.TextDodge.Name = "TextDodge";
             this.TextDodge.Padding = new System.Windows.Forms.Padding(0, 0, 40, 0);
@@ -120,7 +120,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TextStamina.AutoSize = true;
-            this.TextStamina.Font = new System.Drawing.Font(_context.Font.Families[1], 18);
+            this.TextStamina.Font = new System.Drawing.Font(_context.Font.Families[0], 18);
             this.TextStamina.Location = new System.Drawing.Point(120, 205);
             this.TextStamina.Name = "TextStamina";
             this.TextStamina.Padding = new System.Windows.Forms.Padding(0, 0, 45, 0);
@@ -134,7 +134,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TextPhysicalDamage.AutoSize = true;
-            this.TextPhysicalDamage.Font = new System.Drawing.Font(_context.Font.Families[1], 18);
+            this.TextPhysicalDamage.Font = new System.Drawing.Font(_context.Font.Families[0], 18);
             this.TextPhysicalDamage.Location = new System.Drawing.Point(400, 59);
             this.TextPhysicalDamage.Name = "TextPhysicalDamage";
             this.TextPhysicalDamage.Size = new System.Drawing.Size(89, 13);
@@ -147,7 +147,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TextMagicDamage.AutoSize = true;
-            this.TextMagicDamage.Font = new System.Drawing.Font(_context.Font.Families[1], 18);
+            this.TextMagicDamage.Font = new System.Drawing.Font(_context.Font.Families[0], 18);
             this.TextMagicDamage.Location = new System.Drawing.Point(400, 137);
             this.TextMagicDamage.Name = "TextMagicDamage";
             this.TextMagicDamage.Size = new System.Drawing.Size(87, 13);
@@ -402,7 +402,7 @@
             this.buttonNext.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.buttonNext.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.buttonNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonNext.Font = new System.Drawing.Font(_context.Font.Families[0], 30);
+            this.buttonNext.Font = new System.Drawing.Font(_context.Font.Families[1], 30);
             this.buttonNext.Location = new System.Drawing.Point(550, 280);
             this.buttonNext.Name = "buttonNext";
             this.buttonNext.Size = new System.Drawing.Size(75, 32);
@@ -421,7 +421,7 @@
             this.button14.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.button14.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button14.Font = new System.Drawing.Font(_context.Font.Families[0], 30);
+            this.button14.Font = new System.Drawing.Font(_context.Font.Families[1], 30);
             this.button14.Location = new System.Drawing.Point(50, 280);
             this.button14.Name = "button14";
             this.button14.Size = new System.Drawing.Size(75, 32);
@@ -439,7 +439,7 @@
             this.buttonReset.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.buttonReset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.buttonReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonReset.Font = new System.Drawing.Font(_context.Font.Families[0], 30);
+            this.buttonReset.Font = new System.Drawing.Font(_context.Font.Families[1], 30);
             this.buttonReset.Location = new System.Drawing.Point(280, 280);
             this.buttonReset.Name = "buttonReset";
             this.buttonReset.Size = new System.Drawing.Size(111, 27);
