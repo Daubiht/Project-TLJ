@@ -9,11 +9,11 @@ namespace GraphicalInterface
 {
     public partial class LoadGame : UserControl
     {
-        MainForm _contextForm;
-        public LoadGame(MainForm contextForm)
+        Controller _ctrler;
+        public LoadGame(Controller ctrler)
         {
             InitializeComponent();
-            _contextForm = contextForm;
+            _ctrler = ctrler;
             Button[] listSlot = {slot1, slot2, slot3, slot4, slot5};
             string[] fileName = Directory.GetFiles(@"../../../Saves");
 
@@ -46,15 +46,12 @@ namespace GraphicalInterface
                 w = (MapWorld)formatter.Deserialize(stream);
             }
 
-            _contextForm.world = w;
-            World uc = new World(w, _contextForm, false);
-            _contextForm.ChangeUC(uc, true);
+            _ctrler.ToWorld(w, false);
         }
 
         private void retour_Click(object sender, EventArgs e)
         {
-            ReceptionScreen uc = new ReceptionScreen(_contextForm);
-            _contextForm.ChangeUC(uc, false);
+            _ctrler.ToHome();
         }
     }
 }

@@ -20,7 +20,7 @@ namespace GraphicalInterface
 
 
         // Need the context to give it to the end fight, end fight will go back to the context
-        MainForm _context;
+        Controller _ctrler;
         // Fight menu displays attack, skill, informations about the selected member
         FightMenu _currentMemberMenu;
 
@@ -47,14 +47,14 @@ namespace GraphicalInterface
         bool _isAllMonstersFrontPositionFalse;
 
         // CONSTRUCTOR
-        public FightUserControl(List<Monster> MonstersToKill, Team TeamWhoFight, MainForm context)
+        public FightUserControl(List<Monster> MonstersToKill, Team TeamWhoFight, Controller ctrler)
         {
             InitializeComponent();
             // Get the monsters list and and team
             _monsters = MonstersToKill;
             _team = TeamWhoFight;
             // Need the context to create the end fight screen
-            _context = context;
+            _ctrler = ctrler;
             _fight = new Fight(_monsters, _team);
             _panelMembers = new List<PanelCharacter>();
 
@@ -136,7 +136,7 @@ namespace GraphicalInterface
                 int localPosX1Member = _posX1Member;
                 foreach (T t in MonsterOrMemberList)
                 {
-                    PanelCharacter p = new PanelCharacter(t, _fight, this, _context);
+                    PanelCharacter p = new PanelCharacter(t, _fight, this, _ctrler);
                     p.Location = new Point(localPosX1Member, posY);
                     Controls.Add(p);
                     if (t is Character )
@@ -151,7 +151,7 @@ namespace GraphicalInterface
                 int localPosX2Member = _posX2Member;
                 foreach (T t in MonsterOrMemberList)
                 {
-                    PanelCharacter p = new PanelCharacter(t, _fight, this, _context);
+                    PanelCharacter p = new PanelCharacter(t, _fight, this, _ctrler);
                     p.Location = new Point(localPosX2Member, posY);
                     Controls.Add(p);
                     localPosX2Member += _spaceBetweenPanels;
@@ -167,7 +167,7 @@ namespace GraphicalInterface
                 int localPosX3Member = _posX3Member;
                 foreach (T t in MonsterOrMemberList)
                 {
-                    PanelCharacter p = new PanelCharacter(t, _fight, this, _context);
+                    PanelCharacter p = new PanelCharacter(t, _fight, this, _ctrler);
                     p.Location = new Point(localPosX3Member, posY);
                     Controls.Add(p);
                     localPosX3Member += _spaceBetweenPanels;
@@ -183,7 +183,7 @@ namespace GraphicalInterface
                 int localPosX4Member = _posX4Member;
                 foreach (T t in MonsterOrMemberList)
                 {
-                    PanelCharacter p = new PanelCharacter(t, _fight, this, _context);
+                    PanelCharacter p = new PanelCharacter(t, _fight, this, _ctrler);
                     p.Location = new Point(localPosX4Member, posY);
                     Controls.Add(p);
                     localPosX4Member += _spaceBetweenPanels;
@@ -199,7 +199,7 @@ namespace GraphicalInterface
         public void CreateFightMenu(Character DisplayedCharacter)
         {
             Controls.Remove(_currentMemberMenu);
-            _currentMemberMenu = new FightMenu(DisplayedCharacter, _fight, _context, _panelMembers,this);
+            _currentMemberMenu = new FightMenu(DisplayedCharacter, _fight, _ctrler, _panelMembers,this);
             Controls.Add(_currentMemberMenu);
         }
         //____Method to END THE FIGHT
@@ -212,16 +212,16 @@ namespace GraphicalInterface
                 IncreaseBasicsStatsThanksStuff(_team, false);
                 _team.MainCharacter.isAlive = true;
                 _team.MainCharacter.Heal(_team.MainCharacter.MaxHealthPoint * 5 / 100);
-                EndFightDefeat EFDefeat = new EndFightDefeat(_context, true);
-                _context.ChangeUC(EFDefeat, false, true);
+
+                _ctrler.ToDefeatScreen(true);
             }
             // VICTORY SCREEN If all monster dead
             else if ( _fight.AreAllMonstersDead == true )
             {
                 // DECREASE basic stats of members because of their stuff
                 IncreaseBasicsStatsThanksStuff(_team, false);
-                EndFightVictory EFVictory = new EndFightVictory(_context, _monsters, false);
-                _context.ChangeUC(EFVictory, true, true);
+
+                _ctrler.ToVictoryScreen(false, _monsters);
             }
         }
         //____Method to INCREASE or DECREASE the basic stattistics of a member thanks to his equiped stuff

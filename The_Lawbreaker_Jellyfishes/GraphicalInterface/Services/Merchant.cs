@@ -8,17 +8,17 @@ namespace GraphicalInterface
 {
     public partial class Merchant : UserControl
     {
-        MainForm _contextForm;
+        Controller _ctrler;
         Dictionary<Item, int> _requiredItem = new Dictionary<Item, int>();
         Invent _invent;
         LogicalGame.Merchant _m;
 
-        public Merchant(MainForm contextForm, LogicalGame.Merchant merchant, Invent invent)
+        public Merchant(Controller ctrler, LogicalGame.Merchant merchant, Invent invent)
         {
             InitializeComponent();
             _invent = invent;
             _m = merchant;
-            _contextForm = contextForm;
+            _ctrler = ctrler;
 
             _requiredItem.Add(new ListItems().Items[4], 1);
             _requiredItem.Add(new ListItems().Items[5], 1);
@@ -365,7 +365,7 @@ namespace GraphicalInterface
 
         private void button1_Click(object sender, EventArgs e)
         {
-            _contextForm.ExitMenu(this);
+            _ctrler.ExitMenu(this);
         }
     }
 }

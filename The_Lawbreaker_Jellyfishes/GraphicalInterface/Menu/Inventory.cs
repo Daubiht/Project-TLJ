@@ -9,13 +9,13 @@ namespace GraphicalInterface
     public partial class Inventory : UserControl
     {
         Invent _inventory;
-        MainForm _contextForm;
+        Controller _ctrler;
 
-        public Inventory(MainForm contextForm, Invent inventory)
+        public Inventory(Controller ctrler, Invent inventory)
         {
             InitializeComponent();
             _inventory = inventory;
-            _contextForm = contextForm;
+            _ctrler = ctrler;
         }
 
         private void Inventory_Load(object sender, EventArgs e)
@@ -80,7 +80,7 @@ namespace GraphicalInterface
 
         private void retour_Click(object sender, EventArgs e)
         {
-            _contextForm.ExitMenu(this);
+            _ctrler.ExitMenu(this);
         }
         private void Remove_It(object sender, EventArgs e)
         {

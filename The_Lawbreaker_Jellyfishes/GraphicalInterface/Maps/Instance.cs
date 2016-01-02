@@ -8,14 +8,14 @@ namespace GraphicalInterface
 {
     public partial class Instance : UserControl
     {
-        MainForm _contextForm;
+        Controller _ctrler;
         MapWorld _world;
         MapInstance _instance;
 
-        public Instance(MainForm context, MapWorld world, MapInstance instance)
+        public Instance(Controller ctrler, MapWorld world, MapInstance instance)
         {
             InitializeComponent();
-            _contextForm = context;
+            _ctrler = ctrler;
             _world = world;
             _instance = instance;
             _world.ActualPosition = _instance.listZones[0];
@@ -38,23 +38,16 @@ namespace GraphicalInterface
             {
                 if(_world.ActualPosition == listZones[listZones.Count - 1])
                 {
-                    _world.ActualPosition = _instance.Target;
-                    World uc = new World(_world, _contextForm, false);
-                    _contextForm.ChangeUC(uc, true);
+                    _ctrler.ToWorld(_world, false, _instance.Target);
                 }
                 else if(_world.ActualPosition == listZones[0])
                 {
-                    _world.ActualPosition = _instance.MapIsland;
-                    World uc = new World(_world, _contextForm, false);
-                    _contextForm.ChangeUC(uc, true);
+                    _ctrler.ToWorld(_world, false, _instance.MapIsland);
                 }
-
             }
             else
             {
-                Island uc = new Island(_contextForm, _world, _instance.MapIsland);
-                _world.ActualPosition = _instance.MapIsland;
-                _contextForm.ChangeUC(uc, true);
+                _ctrler.ToIsland(_instance.MapIsland);
 
                 foreach (MapZone zone in _instance.listZones)
                 {
@@ -141,9 +134,6 @@ namespace GraphicalInterface
                             if (_instance.ChangeActualZone(zone))
                             {
                                 Reload();
-                                Meet uc = new Meet(_instance.EventRandom(zone.Visited), _contextForm, _world, zone);
-                                zone.Visited = true;
-
                                 //Racial bonus elf
                                 int count = 0;
                                 foreach (Character c in _world.Team.Members)
@@ -159,7 +149,8 @@ namespace GraphicalInterface
                                     c.Heal((c.Health / 100)*count);
                                 }
 
-                                _contextForm.ToMenu(uc, false);
+                                _ctrler.ToMeet(_instance.EventRandom(zone.Visited), zone);
+                                zone.Visited = true;
                             }
                         }
                     }

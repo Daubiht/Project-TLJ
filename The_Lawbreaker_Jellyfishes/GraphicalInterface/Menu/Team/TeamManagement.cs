@@ -8,12 +8,12 @@ namespace GraphicalInterface
     public partial class TeamManagement : UserControl
     {
         Team _t;
-        private MainForm _contextForm;
+        private Controller _ctrler;
 
-        public TeamManagement(Team team, MainForm contextForm)
+        public TeamManagement(Team team, Controller ctrler)
         {
             _t = team;
-            _contextForm = contextForm;
+            _ctrler = ctrler;
             InitializeComponent();
             ReloadTeamManagement();
         }
@@ -31,7 +31,7 @@ namespace GraphicalInterface
 
             foreach (Character chara in _t.Members)
             {
-                CharacterBar character = new CharacterBar(chara, _contextForm, this);
+                CharacterBar character = new CharacterBar(chara, _ctrler, this);
                 character.Tag = chara;
 
                 character.Top = i * (character.Height + 5);
@@ -44,7 +44,7 @@ namespace GraphicalInterface
 
         private void Retour_Click(object sender, EventArgs e)
         {
-            _contextForm.ExitMenu(this);
+            _ctrler.ExitMenu(this);
         }
     }
 }

@@ -6,27 +6,24 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using GraphicalInterface;
 using LogicalGame;
 
-namespace Services
+namespace GraphicalInterface
 {
     public partial class CharacterInformations : UserControl
     {
         Character c;
         Team t;
-        MainForm _contextForm;
+        Controller _ctrler;
         int[] statsUped = new int[] { 0, 0, 0, 0, 0, 0 };
         int statPoint;
-        List<Character> _listCha = new List<Character>();
 
-        public CharacterInformations(Character chara, Team team, MainForm contextForm, List<Character> randomCharacterList)
+        public CharacterInformations(Character chara, Team team, Controller ctrler)
         {
             t = team;
             c = chara;
-            _contextForm = contextForm;
+            _ctrler = ctrler;
             statPoint = c.StatsPoint;
-            _listCha = randomCharacterList;
 
             InitializeComponent();
         }
@@ -54,8 +51,8 @@ namespace Services
 
         private void Retour_Click(object sender, EventArgs e)
         {
-            GraphicalInterface.Taverne uc = new GraphicalInterface.Taverne(t, _contextForm, _listCha);
-            _contextForm.ChangeUC(uc, true, true);
+            LogicalGame.Taverne service = new LogicalGame.Taverne();
+            _ctrler.ToService(service);
         }
         private void BSkills_Click(object sender, EventArgs e)
         {

@@ -23,14 +23,14 @@ namespace GraphicalInterface
         int _dodge = _defaultStat;
 
         Character _C1;
-        private MainForm _context;
+        private Controller _ctrler;
 
         // Constructor
-        public CreateMainCharacter2(Character CreatedCharacter, MainForm context)
+        public CreateMainCharacter2(Character CreatedCharacter, Controller ctrler)
         {
             InitializeComponent();
 
-            _context = context;
+            _ctrler = ctrler;
             _C1 = CreatedCharacter;
 
             // Show the results of statistics 
@@ -147,8 +147,7 @@ namespace GraphicalInterface
         // _________________________________Button back _________________________
         private void button14_Click(object sender, EventArgs e)
         {
-            CreateMainCharacter1 uc = new CreateMainCharacter1(_context);
-            _context.ChangeUC(uc, false);
+            _ctrler.ToCreateMainCharacter1();
         }
 
         // _________________________________Button next _________________________
@@ -157,8 +156,7 @@ namespace GraphicalInterface
             // Here we change the basic stats of the created character
             _C1.StatsUp(_physicalAttack-_defaultStat, _magicAttack-_defaultStat, _health- _defaultStat, _robustness- _defaultStat, _stamina- _defaultStat, _dodge- _defaultStat);
 
-            CreateMainCharacter3 uc = new CreateMainCharacter3(_C1, _context, new int[] {_physicalAttack, _magicAttack,_health,_robustness,_stamina,_dodge, _defaultStat });
-            _context.ChangeUC(uc, false);
+            _ctrler.ToCreateMainCharacter3(_C1, new int[] {_physicalAttack, _magicAttack,_health,_robustness,_stamina,_dodge, _defaultStat });
         }
 
         // [+] vie

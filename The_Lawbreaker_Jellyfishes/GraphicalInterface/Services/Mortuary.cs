@@ -10,16 +10,16 @@ namespace GraphicalInterface
     {
         private LogicalGame.Mortuary m;
         private Team t;
-        private MainForm _contextForm;
+        private Controller _ctrler;
         EventHandlerList hl = new EventHandlerList();
 
         int i;
 
-        public Mortuary(Team team, MainForm contextForm, LogicalGame.Mortuary mortuary)
+        public Mortuary(Team team, Controller ctrler, LogicalGame.Mortuary mortuary)
         {
             t = team;
             m = mortuary;
-            _contextForm = contextForm;
+            _ctrler = ctrler;
 
             InitializeComponent();
         }
@@ -159,7 +159,7 @@ namespace GraphicalInterface
 
         private void retour_Click(object sender, EventArgs e)
         {
-            _contextForm.ExitMenu(this);
+            _ctrler.ExitMenu(this);
         }
 
         private void Mortuary_Load(object sender, EventArgs e)

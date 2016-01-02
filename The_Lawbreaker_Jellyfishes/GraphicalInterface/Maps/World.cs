@@ -10,14 +10,14 @@ namespace GraphicalInterface
     public partial class World : UserControl
     {
         readonly MapWorld _w;
-        readonly MainForm _contextForm;
+        readonly Controller _ctrler;
         bool _militia;
 
-        public World(MapWorld w, MainForm contextForm, bool militia)
+        public World(MapWorld w, Controller ctrler, bool militia)
         {
             InitializeComponent();
             _w = w;
-            _contextForm = contextForm;
+            _ctrler = ctrler;
             _militia = militia;
         }
 
@@ -73,8 +73,7 @@ namespace GraphicalInterface
         {
             if (((MapIsland)_w.ActualPosition).IslandName == ((Button)sender).Text)
             {
-                Island uc = new Island(_contextForm, _w, _w.Islands[((Button)sender).Text]);
-                _contextForm.ChangeUC(uc, true);
+                _ctrler.ToIsland(_w.Islands[((Button)sender).Text]);
             }
             else
             {
@@ -88,8 +87,7 @@ namespace GraphicalInterface
                             {
                                 MapInstance instance = _w.CreateRandomInstance(((MapIsland)_w.ActualPosition));
                                 instance.Target = island;
-                                Instance uc = new Instance(_contextForm, _w, instance);
-                                _contextForm.ChangeUC(uc, true);
+                                _ctrler.ToInstance(instance);
                             }
                             else
                             {

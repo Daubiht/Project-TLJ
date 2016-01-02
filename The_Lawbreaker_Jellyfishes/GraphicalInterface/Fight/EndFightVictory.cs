@@ -13,7 +13,7 @@ namespace GraphicalInterface
     public partial class EndFightVictory : UserControl
     {
         List<Monster> _monsters;
-        MainForm _context;
+        Controller _ctrler;
         Random ran;
         Invent _invent;
         Dictionary<Item, int> _dropedItem;
@@ -21,14 +21,14 @@ namespace GraphicalInterface
         int _xp;
         bool _isRunAway;
 
-        public EndFightVictory(MainForm Context, List<Monster> monsters, bool isRunAway)
+        public EndFightVictory(Controller ctrler, List<Monster> monsters, bool isRunAway, MapWorld world)
         {
             _monsters = monsters;
             InitializeComponent();
-            _context = Context;
-            _invent = _context.world.Team.Invent;
+            _ctrler = ctrler;
+            _invent = world.Team.Invent;
             _dropedItem = new Dictionary<Item, int>();
-            ran = _context.world.Random;
+            ran = world.Random;
             _gold = 0;
             _xp = 0;
             _isRunAway = isRunAway;
@@ -100,7 +100,7 @@ namespace GraphicalInterface
 
         private void buttonNext_Click(object sender, EventArgs e)
         {
-            _context.ExitMenu(this);
+            _ctrler.ExitMenu(this);
         }
     }
 }

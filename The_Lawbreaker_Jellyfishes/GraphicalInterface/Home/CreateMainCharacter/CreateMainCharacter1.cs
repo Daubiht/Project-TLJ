@@ -17,14 +17,14 @@ namespace GraphicalInterface
         string _race;
 
         Character _C1;
-        private MainForm _context;
+        private Controller _ctrler;
 
         // CONSTRUCTOR
-        public CreateMainCharacter1(MainForm context)
+        public CreateMainCharacter1(Controller ctrler)
         {
             InitializeComponent();
 
-            _context = context;
+            _ctrler = ctrler;
 
             // Validate button is grey
             ValidButton.Enabled = false;
@@ -100,15 +100,13 @@ namespace GraphicalInterface
         private void Valid_Click(object sender, EventArgs e)
         {
             _C1 = new Character(_name, _race, _isFemale);
-            CreateMainCharacter2 uc = new CreateMainCharacter2(_C1, _context);
-            _context.ChangeUC(uc, false);
+            _ctrler.ToCreateMainCharacter2(_C1);
         }
 
         // Create Back button
         private void button1_Click(object sender, EventArgs e)
         {
-            ReceptionScreen uc = new ReceptionScreen(_context);
-            _context.ChangeUC(uc, false);
+            _ctrler.ToHome();
         }
 
         private void ButtonWoman_CheckedChanged(object sender, EventArgs e)

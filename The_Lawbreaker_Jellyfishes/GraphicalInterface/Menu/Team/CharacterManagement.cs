@@ -9,15 +9,15 @@ namespace GraphicalInterface
     {
         Character c;
         Team t;
-        MainForm _contextForm;
+        Controller _ctrler;
         int[] statsUped = new int[] { 0, 0, 0, 0, 0, 0 };
         int statPoint;
 
-        public CharacterManagement(Character chara, Team team, MainForm contextForm)
+        public CharacterManagement(Character chara, Team team, Controller ctrler)
         {
             c = chara;
             t = team;
-            _contextForm = contextForm;
+            _ctrler = ctrler;
             statPoint = c.StatsPoint;
 
             InitializeComponent();
@@ -230,14 +230,12 @@ namespace GraphicalInterface
 
         private void Retour_Click(object sender, EventArgs e)
         {
-            TeamManagement uc = new TeamManagement(t, _contextForm);
-            _contextForm.ChangeUC(uc, false, true);
+            _ctrler.ToTeam(t, false);
         }
 
         internal void Stuffs (string type)
         {
-            FiltredInventory tm = new FiltredInventory(t, c, type, _contextForm, false);
-            _contextForm.ChangeUC(tm, false, true);
+            _ctrler.ToFiltredInventory(t, c, type, false);
         }
 
         private void Gauche_Click(object sender, EventArgs e)

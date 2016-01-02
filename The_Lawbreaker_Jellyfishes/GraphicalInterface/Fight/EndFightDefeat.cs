@@ -12,35 +12,34 @@ namespace GraphicalInterface
 {
     public partial class EndFightDefeat : UserControl
     {
-        MainForm _context;
+        Controller _ctrler;
         bool _allDead;
-        public EndFightDefeat(MainForm Context, bool AllDead)
+        object _actualPosition;
+
+        public EndFightDefeat(Controller ctrler, bool AllDead, object ActualPosition)
         {
             InitializeComponent();
-            _context = Context;
+            _ctrler = ctrler;
             _allDead = AllDead;
+            _actualPosition = ActualPosition;
         }
 
         private void buttonNext_Click(object sender, EventArgs e)
         {
             if(_allDead)
             {
-                if(_context.world.ActualPosition is MapZone)
+                if(_actualPosition is MapZone)
                 {
-                    _context.world.ActualPosition = ((MapZone)_context.world.ActualPosition).Context.MapIsland.IslandCity;
-                    City uc = new City(_context, _context.world, (MapCity)_context.world.ActualPosition);
-                    _context.ChangeUC(uc, true);
+                    _ctrler.ToCity(((MapZone)_actualPosition).Context.MapIsland.IslandCity);
                 }
-                else if(_context.world.ActualPosition is MapIsland)
+                else if(_actualPosition is MapIsland)
                 {
-                    _context.world.ActualPosition = ((MapIsland)_context.world.ActualPosition).IslandCity;
-                    City uc = new City(_context, _context.world, (MapCity)_context.world.ActualPosition);
-                    _context.ChangeUC(uc, true);
+                    _ctrler.ToCity(((MapIsland)_actualPosition).IslandCity);
                 }
             }
             else
             {
-                _context.ExitMenu(this);
+                _ctrler.ExitMenu(this);
             }
         }
     }

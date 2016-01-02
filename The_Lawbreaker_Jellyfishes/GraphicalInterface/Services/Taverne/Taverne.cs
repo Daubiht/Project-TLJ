@@ -3,32 +3,28 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using LogicalGame;
 using System.Threading;
-using Services;
 
 namespace GraphicalInterface
 {
     public partial class Taverne : UserControl
     {
         Team t;
-        private MainForm _contextForm;
+        private Controller _ctrler;
+        MapWorld _world;
         internal List<Character> _randomCharacterList = new List<Character>();
 
-        public Taverne(Team team, MainForm contextForm, List<Character> randomCharacterList)
+        public Taverne(Team team, Controller ctrler, MapWorld w)
         {
             t = team;
-            _contextForm = contextForm;
-            _randomCharacterList = randomCharacterList;
+            _world = w;
+            _ctrler = ctrler;
             InitializeComponent();
         }
 
         public void ReloadTavern()
         {
             PTavern.Controls.Clear();
-            if (_randomCharacterList == null || _randomCharacterList.Count == 0)
-            {
-                _contextForm.world.TavernCharactersChange();
-            }
-            _randomCharacterList = _contextForm.world.TavernCharacters;
+
                 for (int i = 0; i < _randomCharacterList.Count; i++)
                 {
 
@@ -81,15 +77,17 @@ namespace GraphicalInterface
 
         internal void BInformation_Click (object sender, EventArgs e)
         {
-            Character c = (Character)((Button)sender).Tag;
-
-            CharacterInformations uc = new CharacterInformations(c, t, _contextForm, _randomCharacterList);
-            _contextForm.ChangeUC(uc, false, true);
+            _ctrler.ToCharacterInfoTaverne((Character)((Button)sender).Tag);
         }
 
         public void Taverne_Load(object sender, EventArgs e)
         {
-            _randomCharacterList = _contextForm.world.TavernCharacters;
+            if (_world.TavernCharacters == null || _world.TavernCharacters.Count == 0)
+            {
+                 _world.TavernCharactersChange();
+            }
+            _randomCharacterList = _world.TavernCharacters;
+
             label2.Text = t.Invent.GetGold + " pièces d'or";
             ReloadTavern();
         }
@@ -137,7 +135,7 @@ namespace GraphicalInterface
 
         private void retour_Click(object sender, EventArgs e)
         {
-            _contextForm.ExitMenu(this);
+            _ctrler.ExitMenu(this);
         }
 
     }

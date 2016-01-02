@@ -8,13 +8,13 @@ namespace GraphicalInterface
     public partial class CharacterBar : UserControl
     {
         Character _c;
-        MainForm _contextForm;
+        Controller _ctrler;
         TeamManagement _context;
 
-        public CharacterBar(Character c, MainForm contextForm, TeamManagement context)
+        public CharacterBar(Character c, Controller ctrler, TeamManagement context)
         {
             _c = c;
-            _contextForm = contextForm;
+            _ctrler = ctrler;
             _context = context;
 
             InitializeComponent();
@@ -42,16 +42,12 @@ namespace GraphicalInterface
             ModifyProgressBarColor.SetState(PBStamina, 3); // 1 = green, 2 = yellow, 3 = red
 
             if (c.FrontPosition) BPosition.Text = "CaC";
-            else BPosition.Text = "PO";
+            else BPosition.Text = "Dist";
         }
 
         internal void Info_Click(object sender, EventArgs e)
         {
-            Button button = (Button)sender;
-            Character c = (Character)button.Tag;
-
-            CharacterManagement cm = new CharacterManagement(_c, _c.InTeam, _contextForm);
-            _contextForm.ChangeUC(cm, false, true);
+            _ctrler.ToCharacterManagement((Character)((Button)sender).Tag);
         }
 
         internal void Position_Click(object sender, EventArgs e)
@@ -74,7 +70,7 @@ namespace GraphicalInterface
             c.FrontPosition = !c.FrontPosition;
 
             if (c.FrontPosition) button.Text = "CaC";
-            else button.Text = "PO";
+            else button.Text = "Dist";
 
             if (!c.FrontPosition)
             {

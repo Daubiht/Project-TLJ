@@ -6,25 +6,24 @@ namespace GraphicalInterface
 {
     public partial class Militia : UserControl
     {
-        MainForm _contextForm;
+        Controller _ctrler;
         MapWorld _contextWorld;
 
-        public Militia(MainForm contextForm, MapWorld contextWorld)
+        public Militia(Controller ctrler, MapWorld contextWorld)
         {
             InitializeComponent();
             _contextWorld = contextWorld;
-            _contextForm = contextForm;
+            _ctrler = ctrler;
         }
 
         private void Retour_Click(object sender, EventArgs e)
         {
-            _contextForm.ExitMenu(this);
+            _ctrler.ExitMenu(this);
         }
 
         private void Utilise_Click(object sender, EventArgs e)
         {
-            World uc = new World(_contextWorld, _contextForm, true);
-            _contextForm.ChangeUC(uc, true);
+            _ctrler.ToWorld(_contextWorld, true);
         }
     }
 }

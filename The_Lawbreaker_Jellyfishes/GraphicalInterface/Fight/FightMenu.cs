@@ -15,17 +15,17 @@ namespace GraphicalInterface
     {
         FightUserControl _FUC;
         Character _selectedMember;
-        MainForm _context;
+        Controller _ctrler;
         Fight _fight;
         List<PanelCharacter> _panelCharacterList;
         // CONSTUCTOR
-        public FightMenu(Character selectedMember, Fight fight, MainForm context, List<PanelCharacter> PanelCharacter, FightUserControl FUC)
+        public FightMenu(Character selectedMember, Fight fight, Controller ctrler, List<PanelCharacter> PanelCharacter, FightUserControl FUC)
         {
             _FUC = FUC;
             _selectedMember = selectedMember;
             _fight = fight;
             InitializeComponent();
-            _context = context;
+            _ctrler = ctrler;
             _panelCharacterList = PanelCharacter;
 
             // Display the name of the character
@@ -103,8 +103,7 @@ namespace GraphicalInterface
                 // Create a screen of end fight if they succeed to run away
                 if ( chanceToRunAway == 1 ) // CHANGE 0 TO 1
                 {
-                    EndFightVictory endFight = new EndFightVictory(_context, _fight.GetAllMonster, true);
-                    _context.ChangeUC(endFight, false, true);
+                    _ctrler.ToVictoryScreen(true, _fight.GetAllMonster);
                 }
                 // If the team don't run away, all the monsters attack, then we color all the members in blue to signal they can play again
                 else
@@ -123,7 +122,7 @@ namespace GraphicalInterface
             // if the member hasn't played yet, he can open the inventory of consumable
             if(_selectedMember.DidMemberPlay == false )
             {
-                FiltredInventory FIClass = new FiltredInventory(_fight.GetTeam, _selectedMember, "consommable", _context, true);
+                FiltredInventory FIClass = new FiltredInventory(_fight.GetTeam, _selectedMember, "consommable", _ctrler, true);
                 FiltredInventoryForm FIForm = new FiltredInventoryForm(FIClass, _panelCharacterList, _fight);
                 // Display the windows if the inventory consumables
                 FIForm.ShowDialog();

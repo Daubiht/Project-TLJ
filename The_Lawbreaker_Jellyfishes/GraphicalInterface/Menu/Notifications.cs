@@ -8,13 +8,13 @@ namespace GraphicalInterface
     public partial class Notifications : UserControl
     {
         MapWorld _contextWorld;
-        MainForm _contextForm;
+        Controller _ctrler;
 
-        public Notifications(MapWorld contextWorld, MainForm contextForm)
+        public Notifications(MapWorld contextWorld, Controller ctrler)
         {
             InitializeComponent();
             _contextWorld = contextWorld;
-            _contextForm = contextForm;
+            _ctrler = ctrler;
 
             List<Notification> listNotifs = contextWorld.Notifs.ListNotif;
             Label[] listLabels = {notif1, notif2, notif3, notif4, notif5, notif6, notif6, notif7, notif8, notif9, notif10};
@@ -27,7 +27,7 @@ namespace GraphicalInterface
 
         private void retour_Click(object sender, EventArgs e)
         {
-            _contextForm.ExitMenu(this);
+            _ctrler.ExitMenu(this);
         }
     }
 }

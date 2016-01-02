@@ -12,23 +12,21 @@ namespace GraphicalInterface
 {
     public partial class City : UserControl
     {
-        MainForm _contextForm;
+        Controller _ctrler;
         MapWorld _world;
         MapCity _city;
 
-        public City(MainForm contextForm, MapWorld world, MapCity City)
+        public City(Controller ctrler, MapWorld world, MapCity City)
         {
             InitializeComponent();
-            _contextForm = contextForm;
+            _ctrler = ctrler;
             _world = world;
             _city = City;
         }
 
         private void Retour_Click(object sender, EventArgs e)
         {
-            _world.ActualPosition = _city.ActualIsland;
-            Island uc = new Island(_contextForm, _world, _city.ActualIsland);
-            _contextForm.ChangeUC(uc, true);
+            _ctrler.ToIsland(_city.ActualIsland);
         }
 
         private void City_Load(object sender, EventArgs e)
@@ -71,26 +69,7 @@ namespace GraphicalInterface
 
         public void OnClick(object sender, EventArgs e)
         {
-            if (((Button)sender).Tag is LogicalGame.Militia)
-            {
-                 Militia uc = new Militia(_contextForm, _world);
-                _contextForm.ToMenu(uc, true);
-            }
-            else if (((Button)sender).Tag is LogicalGame.Mortuary)
-            {
-                Mortuary uc = new Mortuary(_world.Team, _contextForm, ((LogicalGame.Mortuary)((Button)sender).Tag));
-                _contextForm.ToMenu(uc, true);
-            }
-            else if (((Button)sender).Tag is LogicalGame.Merchant)
-            {
-                Merchant uc = new Merchant(_contextForm, ((LogicalGame.Merchant)((Button)sender).Tag), _world.Team.Invent);
-                _contextForm.ToMenu(uc, true);
-            }
-            else if (((Button)sender).Tag is LogicalGame.Taverne)
-            {
-                Taverne uc = new Taverne(_world.Team, _contextForm, null);
-                _contextForm.ToMenu(uc, true);
-            }
+            _ctrler.ToService(((Button)sender).Tag);
         }
     }
 }

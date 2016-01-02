@@ -11,16 +11,16 @@ namespace GraphicalInterface
     {
 
         Character _C1;
-        private MainForm _context;
+        private Controller _ctrler;
         SkillList _skillList;
         int[] _statsFromScreen2; // used to reset all the basic stats to +5 if the user come back to screen 2
 
         // Constructor
-        public CreateMainCharacter3(Character CreatedCharacter, MainForm context, int[] stat)
+        public CreateMainCharacter3(Character CreatedCharacter, Controller ctrler, int[] stat)
         {
             InitializeComponent();
             _C1 = CreatedCharacter;
-            _context = context;
+            _ctrler = ctrler;
             _statsFromScreen2 = stat;
             _skillList = new SkillList();
 
@@ -81,8 +81,7 @@ namespace GraphicalInterface
         {
             // we reset all the basic stats that screen 2 gave to screen 3, example : physical attack +25 will be reset to +5
             _C1.StatsDown(_statsFromScreen2[0]-_statsFromScreen2[6], _statsFromScreen2[1] - _statsFromScreen2[6], _statsFromScreen2[2] - _statsFromScreen2[6], _statsFromScreen2[3] - _statsFromScreen2[6], _statsFromScreen2[4] - _statsFromScreen2[6], _statsFromScreen2[5] - _statsFromScreen2[6]);
-            CreateMainCharacter2 uc = new CreateMainCharacter2(_C1, _context);
-            _context.ChangeUC(uc, false);
+            _ctrler.ToCreateMainCharacter2(_C1);
         }
         // _____________________ Next button ___________________
         private void buttonNext_Click(object sender, EventArgs e)
@@ -100,9 +99,7 @@ namespace GraphicalInterface
             }
 
             w.Team.AddMembers(_C1);
-            _context.world = w;
-            World uc = new World(w, _context, false);
-            _context.ChangeUC(uc, true);
+            _ctrler.ToWorld(w, false);
         }
 
         // Here we assign the chosen skill to the character

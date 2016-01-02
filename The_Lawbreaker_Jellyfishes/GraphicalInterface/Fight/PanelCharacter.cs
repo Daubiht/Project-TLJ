@@ -16,14 +16,14 @@ namespace GraphicalInterface
         Monster _monster;
         Fight _fight;
         FightUserControl _FightUserControl;
-        MainForm _context;
+        Controller _ctrler;
         // _obj will contain a monster OR a character, to know if we must call fight.GetMemberWhoAttack or fight.AttackedMonster
         Object _obj;
 
         // CONSTRUCTORS OF PANELS, in argument we get a monster or a character object
-        public PanelCharacter(Object obj, Fight Fight, FightUserControl FightUserControl, MainForm Context)
+        public PanelCharacter(Object obj, Fight Fight, FightUserControl FightUserControl, Controller ctrler)
         {
-            _context = Context;
+            _ctrler = ctrler;
             // We need the fight user control to display on it a new fight menu
             _FightUserControl = FightUserControl;
             // We need fight to use some methods

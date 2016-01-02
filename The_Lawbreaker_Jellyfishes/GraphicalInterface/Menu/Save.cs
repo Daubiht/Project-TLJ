@@ -8,13 +8,13 @@ namespace GraphicalInterface
 {
     public partial class Save : UserControl
     {
-        MainForm _contextForm;
+        Controller _ctrler;
         MapWorld _contextWorld;
 
-        public Save(MapWorld contextWorld, MainForm contextForm)
+        public Save(MapWorld contextWorld, Controller ctrler)
         {
             InitializeComponent();
-            _contextForm = contextForm;
+            _ctrler = ctrler;
             _contextWorld = contextWorld;
 
             RadioButton[] radioButtons = { radioButton1, radioButton2, radioButton3, radioButton4, radioButton5 };
@@ -44,13 +44,12 @@ namespace GraphicalInterface
 
         private void retour_Click(object sender, EventArgs e)
         {
-            _contextForm.ExitMenu(this);
+            _ctrler.ExitMenu(this);
         }
 
         private void quit_Click(object sender, EventArgs e)
         {
-            ReceptionScreen uc = new ReceptionScreen(_contextForm);
-            _contextForm.ChangeUC(uc, false);
+            _ctrler.ToHome();
         }
     }
 }

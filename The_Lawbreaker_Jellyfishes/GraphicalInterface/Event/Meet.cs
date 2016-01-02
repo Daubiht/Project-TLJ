@@ -12,16 +12,16 @@ namespace GraphicalInterface
 {
     public partial class Meet : UserControl
     {
-        MainForm _context;
+        Controller _ctrler;
         MapWorld _world;
         MapZone _mapZone;
         int _result;
         string _answerRiddle;
 
-        public Meet(int result, MainForm Context, MapWorld World, MapZone zone)
+        public Meet(int result, Controller ctrler, MapWorld World, MapZone zone)
         {
             InitializeComponent();
-            _context = Context;
+            _ctrler = ctrler;
             _world = World;
             _result = result;
             _mapZone = zone;
@@ -44,7 +44,7 @@ namespace GraphicalInterface
                 label1.Text = "Non, merci.";
 
                 Label[] listlabel = { label2, label3, label4 };
-                int ran = _context.world.Random.Next(0, 3);
+                int ran = _world.Random.Next(0, 3);
 
                 for (int i = 0; i < 3; i++)
                 {
@@ -145,12 +145,12 @@ namespace GraphicalInterface
                 }
                 else
                 {
-                    _context.ExitMenu(this);
+                    _ctrler.ExitMenu(this);
                 }
             }
             else
             {
-                _context.ExitMenu(this);
+                _ctrler.ExitMenu(this);
             }
         }
 
@@ -159,13 +159,12 @@ namespace GraphicalInterface
             //Accepter
             if(_result == 1)
             {
-                Merchant uc = new Merchant(_context, _mapZone.EventMerchant(),_world.Team.Invent);
-                _context.ToMenu(uc, true);
+                _ctrler.ToService(_mapZone.EventMerchant());
             }
             else if(_result == 5)
             {
                 _world.Team.Invent.RemoveGold(_world.Team.Invent.GetGold * 25 / 100);
-                _context.ExitMenu(this);
+                _ctrler.ExitMenu(this);
             }
             else if (_result == 2)
             {
@@ -181,12 +180,11 @@ namespace GraphicalInterface
                 ElderAnswer(sender, e);
             } else if(_result == 5)
             {
-                FightUserControl uc = new FightUserControl(_mapZone.EventFightRandom(2, null), _world.Team, _context);
-                _context.ChangeUC(uc, false, true);
-            } else if(_result == 1)
+                _ctrler.ToFight(_mapZone.EventFightRandom(2, null));
+            }
+            else if(_result == 1)
             {
-                FightUserControl uc = new FightUserControl(_mapZone.EventFightRandom(2, null), _world.Team, _context);
-                _context.ChangeUC(uc, false, true);
+                _ctrler.ToFight(_mapZone.EventFightRandom(2, null));
             }
         }
 
@@ -194,8 +192,7 @@ namespace GraphicalInterface
         {
             if(_result == 4)
             {
-                FightUserControl uc = new FightUserControl(_mapZone.EventFightRandom(0, null), _world.Team, _context);
-                _context.ChangeUC(uc, false, true);
+                _ctrler.ToFight(_mapZone.EventFightRandom(0, null));
             }
         }
     }

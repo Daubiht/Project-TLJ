@@ -12,22 +12,21 @@ namespace GraphicalInterface
 {
     public partial class Island : UserControl
     {
-        MainForm _contextForm;
+        Controller _ctrler;
         MapWorld _world;
         MapIsland _island;
 
-        public Island(MainForm contextForm, MapWorld world, MapIsland island)
+        public Island(Controller ctrler, MapWorld world, MapIsland island)
         {
             InitializeComponent();
-            _contextForm = contextForm;
+            _ctrler = ctrler;
             _world = world;
             _island = island;
         }
 
         private void Retour_Click(object sender, EventArgs e)
         {
-            World uc = new World(_world, _contextForm,false);
-            _contextForm.ChangeUC(uc, true);
+            _ctrler.ToWorld(_world, false);
         }
 
         private void Island_Load(object sender, EventArgs e)
@@ -56,15 +55,11 @@ namespace GraphicalInterface
         {
             if(((Button)sender).Tag is MapInstance)
             {
-                _world.ActualPosition = ((MapInstance)((Button)sender).Tag);
-                Instance uc = new Instance(_contextForm, _world, ((MapInstance)((Button)sender).Tag));
-                _contextForm.ChangeUC(uc, true);
+                _ctrler.ToInstance((MapInstance)((Button)sender).Tag);
             }
             else if (((Button)sender).Tag is MapCity)
             {
-                _world.ActualPosition = ((MapCity)((Button)sender).Tag);
-                City uc = new City(_contextForm, _world, ((MapCity)((Button)sender).Tag));
-                _contextForm.ChangeUC(uc, true);
+                _ctrler.ToCity((MapCity)((Button)sender).Tag);
             }
         }
     }

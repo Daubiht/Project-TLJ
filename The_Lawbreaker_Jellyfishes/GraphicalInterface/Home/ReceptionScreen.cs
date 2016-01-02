@@ -6,30 +6,27 @@ namespace GraphicalInterface
     public partial class ReceptionScreen : UserControl
     {
 
-        private MainForm _context;
+        private Controller _ctrler;
            
-        public ReceptionScreen(MainForm context)
+        public ReceptionScreen(Controller ctrler)
         {
             InitializeComponent();
-            _context = context;
+            _ctrler = ctrler;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            CreateMainCharacter1 uc = new CreateMainCharacter1(_context);
-            _context.ChangeUC(uc, false);
-
+            _ctrler.ToCreateMainCharacter1();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            LoadGame uc = new LoadGame(_context);
-            _context.ChangeUC(uc, false);
+            _ctrler.ToLoadGame();
         }
 
         private void Leave_Click(object sender, EventArgs e)
         {
-            _context.Close();
+            _ctrler.Quit();
         }
     }
 }

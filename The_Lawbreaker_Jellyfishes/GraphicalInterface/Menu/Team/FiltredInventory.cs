@@ -32,8 +32,7 @@ namespace GraphicalInterface
             }
             else
             {
-                CharacterManagement uc = new CharacterManagement(_c, _team, (MainForm)_contextForm);
-                ((MainForm)_contextForm).ChangeUC(uc, false, true);
+                ((Controller)_contextForm).ToCharacterManagement(_c);
             }
         }
 

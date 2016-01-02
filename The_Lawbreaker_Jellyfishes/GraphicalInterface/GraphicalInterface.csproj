@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controler.cs" />
     <Compile Include="Fight\EndFightDefeat.cs">
       <SubType>UserControl</SubType>
     </Compile>
