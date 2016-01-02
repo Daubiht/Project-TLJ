@@ -124,6 +124,16 @@ namespace GraphicalInterface
             SetPanelPosition(_frontMonsters, _posYFrontMonster);
             SetPanelPosition(_hiddenMonsters, _posYHiddenMonster);
 
+            // Select the first member who plays
+            foreach(Character c in _team.Members )
+            {
+                if( c.isAlive )
+                {
+                    CreateFightMenu(c);
+                    _fight.SelectedCharacter = c;
+                    break;
+                }
+            }
             ChangeColorPanel();
         }
 
@@ -230,7 +240,7 @@ namespace GraphicalInterface
                 }
             }
         }
-        //____Method to INCREASE or DECREASE the basic stattistics of a member thanks to his equiped stuff
+        // Increase or decrease the basic stattistics of a member thanks to his equiped stuff
         public void IncreaseBasicsStatsThanksStuff(Team Team, bool Equiped)
         {
             // We INCREASE the basic stats thanks to the stuff, usefull when we START THE FIGHT
@@ -244,7 +254,7 @@ namespace GraphicalInterface
                     if( c.StatsStuff.ContainsKey("robustesse") )       { c.HealthPoint = c.Robustness        + c.StatsStuff["robustesse"]; }
                 }
             }
-            // We DECREASE the basic stats, usefull when we FINISH THE FIGHT
+            // Decrease the basic stats when we finish the fight
             else if ( Equiped == false )
             {
                 // We reset basic stats of all member to their original basic stats

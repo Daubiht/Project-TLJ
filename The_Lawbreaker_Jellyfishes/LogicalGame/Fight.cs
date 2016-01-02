@@ -216,7 +216,7 @@ namespace LogicalGame
                 _OriginalBasicStats.Add(c, basicStats);
             }
         }
-        //_____Method to set bool "DidMemeberPlay" as false for every member, use in the begining of the fight, in the constructor's fight
+        // Set bool "DidMemeberPlay" as false for every member, use in the begining of the fight, in the constructor's fight
         public void FalseDidMemberPlay()
         {
             foreach (Character c in _team.Members )

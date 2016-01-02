@@ -81,7 +81,7 @@ namespace GraphicalInterface
                 _FUC.EndFight();
             }
         }
-        // ____Method to INCREASE ROBUSTNESS by X % of the member during 1 tour, X % is define the character class
+        // Increase robustness by X % of the member during 1 tour, X % is define the character class
         public void Defense(object sender, EventArgs e)
         {
             // if the member hasn't played yet, he can open the inventory of consumable
@@ -106,7 +106,7 @@ namespace GraphicalInterface
                 _FUC.EndFight();
             }
         }
-        // ____Method to RUN AWAY
+        // Run away
         public void RunAway(object sender, EventArgs e)
         {
             // Check if the member hasn't play yet and if he is still alvie
@@ -136,7 +136,7 @@ namespace GraphicalInterface
             _FUC.EndFight();
             _FUC.ChangeColorPanel();
         }
-        //_____Method to open the inventory consumable during fight
+        // Open the inventory consumable during fight
         public void AccessInventory(object sender, EventArgs e)
         {
             // if the member hasn't played yet, he can open the inventory of consumable
@@ -146,9 +146,13 @@ namespace GraphicalInterface
                 FiltredInventoryForm FIForm = new FiltredInventoryForm(FIClass, _panelCharacterList, _fight);
                 // Display the windows if the inventory consumables
                 FIForm.ShowDialog();
-                _FUC.NextMember();
-                foreach ( PanelCharacter pc in _FUC.GetCharacterPanel ) pc.RefreshInformation();
-                _FUC.ChangeColorPanel();
+                // if the member uses a consumable we select the next member, change color etc
+                if( _selectedMember.DidMemberPlay == true )
+                {
+                    _FUC.NextMember();
+                    foreach ( PanelCharacter pc in _FUC.GetCharacterPanel ) pc.RefreshInformation();
+                    _FUC.ChangeColorPanel();
+                }
             }
         }
 
