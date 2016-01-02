@@ -293,7 +293,7 @@ namespace GraphicalInterface
             }
         }
 
-        // Method who changes the border style of the SELECTED CHARACTER'S PANEL
+        // Change color of panels
         public void ChangeColorPanel()
         {   // If false, Remove all border style of all members
             foreach ( PanelCharacter pC in GetCharacterPanel )
@@ -319,6 +319,7 @@ namespace GraphicalInterface
             }
         }
 
+        // Choose automatically the next alive monster
         public void NextMonster()
         {
             if ( !_fight.SelectedMonster.Alive )

@@ -97,25 +97,6 @@ namespace GraphicalInterface
                     // Color the selected monster
                     _FightUserControl.ChangeColorPanel();
                 }
-                else
-                {
-                    if (_fight.SelectedCharacter.DidMemberPlay == false && _fight.SelectedCharacter.isAlive)
-                    {
-                        if (_fight.SelectedCharacter.UseSkill(_fight.SelectedSkill, _monster))
-                        {
-                            _fight.SelectedCharacter.DidMemberPlay = true;
-                            _FightUserControl.NextMember();
-                            _FightUserControl.ChangeColorPanel();
-                            RefreshInformation();
-                            if (_fight.DidAllMemberPlay())
-                            {
-                                _fight.MonsterAttack();
-                                RefreshInformation();
-                            }
-                        }
-                    }
-                    _fight.SelectedSkill = null;
-                }
             }
         }
         // Method who dislays actulized informations of monster and character panels, like HP, Stamina etc.
