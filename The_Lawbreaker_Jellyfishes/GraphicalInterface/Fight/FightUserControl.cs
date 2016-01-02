@@ -219,10 +219,15 @@ namespace GraphicalInterface
             // Victory screen
             else if ( _fight.AreAllMonstersDead  )
             {
-                // DECREASE basic stats of members because of their stuff
-                IncreaseBasicsStatsThanksStuff(_team, false);
-                EndFightVictory EFVictory = new EndFightVictory(_context, _monsters, false);
-                _context.ChangeUC(EFVictory, true, true);
+                if(_fight.IsEndFight == false )
+                {
+                    // DECREASE basic stats of members because of their stuff
+                    IncreaseBasicsStatsThanksStuff(_team, false);
+                    EndFightVictory EFVictory = new EndFightVictory(_context, _monsters, false);
+                    _context.ChangeUC(EFVictory, true, true);
+                    // Avoid to gain a lot of level
+                    _fight.IsEndFight = true;
+                }
             }
         }
         //____Method to INCREASE or DECREASE the basic stattistics of a member thanks to his equiped stuff

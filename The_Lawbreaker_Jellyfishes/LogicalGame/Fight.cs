@@ -8,6 +8,8 @@ namespace LogicalGame
 {
     public class Fight
     {
+        // Bool to avoid the bug of winning a lot of level
+        bool _endFight;
         // Bool to know if all monster are members, if yes, we create a new screen
         bool _areAllMembersDead;
         // Bool to know if all monster are dead, if yes, we create a new screen which display what the team earn
@@ -254,6 +256,7 @@ namespace LogicalGame
         public int OldLifeSelectedMember { get { return _oldLife; } }
         public Character SelectedCharacter { get { return _selectedCharacter; } set { _selectedCharacter = value; } }
         public Monster SelectedMonster { get { return _selectedMonster; } set { _selectedMonster = value; } }
+        public bool IsEndFight { get { return _endFight; } set { _endFight = value; } }
 
         public Skill SelectedSkill { get { return _selectedSkill; } set { _selectedSkill = value; } }
     }
