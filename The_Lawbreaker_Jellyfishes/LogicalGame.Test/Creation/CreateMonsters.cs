@@ -53,7 +53,7 @@ namespace LogicalGame.Test
 
             // Jerome
             // Spider
-            Monster m7 = new Monster("Arraignee bébé", 1, "Arraignee", 5, 0, 55, 0, 0, 0);
+            Monster m7 = new Monster("Arraignee bebe", 1, "Arraignee", 5, 0, 55, 0, 0, 0);
             m7.XP = 20;
             m7.Gold = 7;
             m7.AddItemToDrop(item.Items[4], 60);
@@ -128,7 +128,7 @@ namespace LogicalGame.Test
             Monster m22 = new Monster("Dangereux", 2, "Poring", 65, 0, 1, 0, 0, 20);
             m22.XP = 1000;
             m22.Gold = 1000;
-            m22.AddItemToDrop(item.Items[4], 60);
+            m22.AddItemToDrop(item.Items[4], 60);S
             // Dead
             Monster m23 = new Monster("Chien mort", 3, "Mort", 8, 0, 55, 1, 1, 1);
             m23.XP = 55;
@@ -233,18 +233,23 @@ namespace LogicalGame.Test
             m44.XP = 60;
             m44.Gold = 35;
             m44.AddItemToDrop(item.Items[4], 60);
-            Monster m45 = new Monster("Sabreur", 2, "Humain", 9, 0, 75, 1, 0, 8);
-            m45.XP = 50;
+            Monster m45 = new Monster("Tireur", 2, "Humain", 9, 9, 75, 1, 0, 1);
+            m45.XP = 45;
             m45.Gold = 25;
             m45.AddItemToDrop(item.Items[4], 60);
-            Monster m46 = new Monster("Tireur", 2, "Humain", 9, 9, 75, 1, 0, 1);
-            m46.XP = 45;
+            Monster m46 = new Monster("Matelot", 2, "Humain", 8, 0, 60, 1, 0, 1);
+            m46.XP = 40;
             m46.Gold = 25;
             m46.AddItemToDrop(item.Items[4], 60);
-            Monster m47 = new Monster("Matelot", 2, "Humain", 8, 0, 60, 1, 0, 1);
+             // Merchant
+            Monster m47 = new Monster("Marchand", 1, "Humain", 4, 4, 60, 1, 0, 1);
             m47.XP = 40;
             m47.Gold = 25;
             m47.AddItemToDrop(item.Items[4], 60);
+            Monster m48 = new Monster("Mercenaire", 2, "Humain", 30, 0, 150, 1, 0, 1);
+            m48.XP = 40;
+            m48.Gold = 25;
+            m48.AddItemToDrop(item.Items[4], 60);
 
 
 
