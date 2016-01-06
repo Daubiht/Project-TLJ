@@ -57,7 +57,7 @@
             this.inventaire.Text = "inventaire";
             this.inventaire.Cursor = System.Windows.Forms.Cursors.Hand;
             this.inventaire.FlatAppearance.BorderSize = 0;
-            this.inventaire.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.inventaire.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.inventaire.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.inventaire.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.inventaire.Location = new System.Drawing.Point(150, 0);
@@ -72,7 +72,7 @@
             this.notifications.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             this.notifications.Cursor = System.Windows.Forms.Cursors.Hand;
             this.notifications.FlatAppearance.BorderSize = 0;
-            this.notifications.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.notifications.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.notifications.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.notifications.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.notifications.Location = new System.Drawing.Point(400, 0);
@@ -89,7 +89,7 @@
             this.sauvegarde.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             this.sauvegarde.Cursor = System.Windows.Forms.Cursors.Hand;
             this.sauvegarde.FlatAppearance.BorderSize = 0;
-            this.sauvegarde.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.sauvegarde.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.sauvegarde.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.sauvegarde.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.sauvegarde.Location = new System.Drawing.Point(550, 0);
