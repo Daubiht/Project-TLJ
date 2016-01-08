@@ -75,15 +75,40 @@ namespace GraphicalInterface
                 {
                     if (_fight.SelectedCharacter.DidMemberPlay == false && _fight.SelectedCharacter.isAlive)
                     {
-                        if (_fight.SelectedCharacter.UseSkill(_fight.SelectedSkill, _character))
+                        if( _fight.SelectedSkill.Target == 0 )
                         {
-                            _fight.SelectedCharacter.DidMemberPlay = true;
-                            _FightUserControl.NextMember();
-                            _FightUserControl.ChangeColorPanel();
-                            RefreshInformation();
+                            if ( _fight.SelectedCharacter.UseSkill(_fight.SelectedSkill, _fight.SelectedCharacter) )
+                            {
+                                _fight.SelectedCharacter.DidMemberPlay = true;
+                                _FightUserControl.NextMember();
+                                _fight.SelectedSkill = null;
+                                if ( _fight.DidAllMemberPlay() )
+                                {
+                                    _fight.MonsterAttack();
+                                    foreach ( PanelCharacter pC in _FightUserControl.GetCharacterPanel ) pC.RefreshInformation();
+                                }
+                                RefreshInformation();
+                                _FightUserControl.ChangeColorPanel();
+                            }
+                        }
+                        else if ( _fight.SelectedSkill.Target == 1 )
+                        {
+                            if ( _fight.SelectedCharacter.UseSkill(_fight.SelectedSkill, _character) )
+                            {
+                                _fight.SelectedCharacter.DidMemberPlay = true;
+                                _FightUserControl.NextMember();
+                                _fight.SelectedSkill = null;
+                                if ( _fight.DidAllMemberPlay() )
+                                {
+                                    _fight.MonsterAttack();
+                                    foreach ( PanelCharacter pC in _FightUserControl.GetCharacterPanel ) pC.RefreshInformation();
+                                }
+                                RefreshInformation();
+                                _FightUserControl.ChangeColorPanel();
+
+                            }
                         }
                     }
-                    _fight.SelectedSkill = null;
                 }
             }
 
@@ -96,6 +121,30 @@ namespace GraphicalInterface
                     _fight.SelectedMonster = _monster;
                     // Color the selected monster
                     _FightUserControl.ChangeColorPanel();
+                }
+                else
+                {
+                    if ( _fight.SelectedCharacter.DidMemberPlay == false && _fight.SelectedCharacter.isAlive )
+                    {
+                        if( _fight.SelectedSkill.Target == 2 )
+                        {
+                            if ( _fight.SelectedCharacter.UseSkill(_fight.SelectedSkill, _monster) )
+                            {
+                                _fight.SelectedCharacter.DidMemberPlay = true;
+                                _FightUserControl.NextMember();
+                                _fight.SelectedSkill = null;
+                                _FightUserControl.ChangeColorPanel();
+                                if ( _fight.DidAllMemberPlay() )
+                                {
+                                    _fight.MonsterAttack();
+                                    foreach ( PanelCharacter pC in _FightUserControl.GetCharacterPanel ) pC.RefreshInformation();
+                                }
+                                RefreshInformation();
+                                _FightUserControl.ChangeColorPanel();
+
+                            }
+                        }
+                    }
                 }
             }
         }

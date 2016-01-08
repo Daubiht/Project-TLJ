@@ -20,7 +20,7 @@ namespace LogicalGame.Test.Creation
 
             Dictionary<string, int> effectsp1 = new Dictionary<string, int>();
             effectsp1.Add("attaque physique", 150);
-            Skill sp1 = new Skill("Frappe Concentré", "Met toute sa concentration en un coup puissant", new int[] { 5, 0, 0, 0, 0, 0 }, 0, 1, effectsp1, new int[] { 0, 1 }, false);
+            Skill sp1 = new Skill("Frappe Concentré", "Met toute sa concentration en un coup puissant", new int[] { 5, 0, 0, 0, 0, 0 }, 2, 1, effectsp1, new int[] { 0, 1 }, false);
             Dictionary<string, int> effectsp2 = new Dictionary<string, int>();
             effectsp2.Add("attaque physique", 100);
             effectsp2.Add("fatigue", 1);
@@ -43,7 +43,7 @@ namespace LogicalGame.Test.Creation
             //Magic Attack
             Dictionary<string, int> effectsm1 = new Dictionary<string, int>();
             effectsm1.Add("attaque magique", 150);
-            Skill sm1 = new Skill("Tir Energetique", "Envoie un tir magique de pur énergie", new int[] { 0, 5, 0, 0, 0, 0 }, 0, 0, effectsm1, new int[] { 0, 1 }, false);
+            Skill sm1 = new Skill("Tir Energetique", "Envoie un tir magique de pur énergie", new int[] { 0, 5, 0, 0, 0, 0 }, 2, 0, effectsm1, new int[] { 0, 1 }, false);
             Dictionary<string, int> effectsm2 = new Dictionary<string, int>();
             effectsm2.Add("attaque magique", 170);
             Skill sm2 = new Skill("Tir Elementaire", "Envoie un tir élémentaire magique", new int[] { 0, 15, 0, 0, 0, 0 }, 0, 0, effectsm2, new int[] { 0, 2 }, false);

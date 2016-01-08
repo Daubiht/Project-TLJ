@@ -679,7 +679,7 @@ namespace LogicalGame
         public bool UseSkill(Skill skill, Monster target)
         {
             //Check of Target
-            if ((skill.Target == 0) || skill.Target == 1)
+            if ((skill.Target == 0) || skill.Target == 2)
             {
                 //Check of cost in Health and Stamina
                 if (IsThisSkill(skill) && skill.Cost[0] <= _healthPoint && skill.Cost[1] <= _staminaPoint)
