@@ -12,6 +12,7 @@ namespace GraphicalInterface
         Dictionary<Item, int> _requiredItem = new Dictionary<Item, int>();
         Invent _invent;
         LogicalGame.Merchant _m;
+        string _page;
 
         public Merchant(MainForm contextForm, LogicalGame.Merchant merchant, Invent invent)
         {
@@ -19,6 +20,7 @@ namespace GraphicalInterface
             _invent = invent;
             _m = merchant;
             _contextForm = contextForm;
+            _page = "Buy";
 
             _requiredItem.Add(new ListItems().Items[4], 1);
             _requiredItem.Add(new ListItems().Items[5], 1);
@@ -70,7 +72,7 @@ namespace GraphicalInterface
                     ((ItemInformations)button.Parent).ItemQuantityLabel.Text = "x " + _invent.Inventory[item].ToString();
                     ((ItemInformations)button.Parent).ItemMaximumQuantity = _invent.Inventory[item];
                 }
-                else if (PageSell.Controls.Contains(button.Parent)) PageSell.Controls.Remove(button.Parent);
+                else if (Page.Controls.Contains(button.Parent)) Page.Controls.Remove(button.Parent);
             }
             else
             {
@@ -85,11 +87,9 @@ namespace GraphicalInterface
 
         internal void Arange ()
         {
-
-            TabPage page = ItemLists.SelectedTab;
             int i = 0;
 
-            foreach (Control item in page.Controls)
+            foreach (Control item in Page.Controls)
             {
                 item.Top = i * (item.Height + 3);
                 i++;
@@ -101,7 +101,7 @@ namespace GraphicalInterface
             Dictionary<Item, int> items = _invent.Inventory;
             int j = 0;
 
-            PageSell.Controls.Clear();
+            Page.Controls.Clear();
 
             foreach (Item i in items.Keys)
             {
@@ -151,7 +151,7 @@ namespace GraphicalInterface
                 toolTip.SetToolTip(UCItem, infoItem);
                 toolTip.SetToolTip(UCItem.ItemNameLabel, infoItem);
 
-                PageSell.Controls.Add(UCItem);
+                Page.Controls.Add(UCItem);
                 UCItem.ItemActionName = "Vendre";
                 UCItem.ItemAction(new EventHandler(Sell_Click));
 
@@ -165,6 +165,7 @@ namespace GraphicalInterface
         {
             List<Item> items = _m.GetItemsAvailable;
 
+            Page.Controls.Clear();
             for (int i = 0; i < items.Count; i++)
             {
                 Item item = items[i];
@@ -209,7 +210,7 @@ namespace GraphicalInterface
                 toolTip.SetToolTip(UCItem, infoItem);
                 toolTip.SetToolTip(UCItem.ItemNameLabel, infoItem);
 
-                PageBuy.Controls.Add(UCItem);
+                Page.Controls.Add(UCItem);
                 UCItem.ItemActionName = "Acheter";
                 UCItem.ItemAction(new EventHandler(Buy_Click));
 
@@ -217,9 +218,9 @@ namespace GraphicalInterface
             }
         }
 
-        private void CraftLoad (TabPage page, bool isSuccess)
+        private void CraftLoad (bool isSuccess)
         {
-            page.Controls.Clear();
+            Page.Controls.Clear();
             
 
             Label resource = new Label();
@@ -280,22 +281,22 @@ namespace GraphicalInterface
 
             if (error.Text == "") error.Text = "Vous pouvez fabriquer cet objet.";
 
-            page.Controls.Add(resource);
-            page.Controls.Add(error);
-            page.Controls.Add(BCraft);
-            page.Controls.Add(LSuccess);
+            Page.Controls.Add(resource);
+            Page.Controls.Add(error);
+            Page.Controls.Add(BCraft);
+            Page.Controls.Add(LSuccess);
 
             error.AutoSize = true;
             resource.AutoSize = true;
             error.BorderStyle = BorderStyle.FixedSingle;
             resource.BorderStyle = BorderStyle.FixedSingle;
 
-            resource.Left = page.Width / 2 - resource.Width / 2;
-            error.Left = page.Width / 2 - error.Width / 2;
+            resource.Left = Page.Width / 2 - resource.Width / 2;
+            error.Left = Page.Width / 2 - error.Width / 2;
             error.Top = resource.Bottom + 10;
 
-            BCraft.Top = page.Height - BCraft.Height - 10;
-            BCraft.Left = page.Width / 2 - BCraft.Width / 2;
+            BCraft.Top = Page.Height - BCraft.Height - 10;
+            BCraft.Left = Page.Width / 2 - BCraft.Width / 2;
 
             LSuccess.AutoSize = true;
             LSuccess.Left = LSuccess.Parent.Width / 2 - LSuccess.Width / 2;
@@ -322,13 +323,13 @@ namespace GraphicalInterface
 
             //((Label)(ItemLists.SelectedTab.Controls.Find("LSuccess", false)[0])).Visible = true;
 
-            CraftLoad(ItemLists.SelectedTab, true);
+            CraftLoad(true);
 
         }
 
         private void IGMerchant_Load(object sender, EventArgs e)
         {
-            if ((String)ItemLists.SelectedTab.Tag == "Sell")
+            if (_page == "Sell")
             {
                 LoadItemToSell();
             }
@@ -339,33 +340,38 @@ namespace GraphicalInterface
 
             if (_m.Name == "herboriste")
             {
-                TabPage page = new TabPage();
-                page.Text = "Artisanat";
-                page.Tag = "Craft";
-
-                ItemLists.TabPages.Add(page);
+                BAlchemist.Visible = true;
             }
         }
 
-        private void TableChanged (object sender, EventArgs e)
+        private void TableChanged ()
         {
-            if ((String)ItemLists.SelectedTab.Tag == "Sell")
+            if (_page == "Sell")
             {
                 LoadItemToSell();
             }
-            else if ((String)ItemLists.SelectedTab.Tag == "Buy")
+            else if (_page == "Buy")
             {
                 LoadItemToBuy();
             }
             else
             {
-                CraftLoad(ItemLists.SelectedTab, false);
+                CraftLoad(false);
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             _contextForm.ExitMenu(this);
+        }
+
+        private void ChangePage(object sender, EventArgs e)
+        {
+            Button button = (Button)sender;
+            string page = (string)button.Tag;
+
+            _page = page;
+            TableChanged();
         }
     }
 }

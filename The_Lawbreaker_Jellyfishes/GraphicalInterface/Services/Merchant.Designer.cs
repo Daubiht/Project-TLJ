@@ -32,15 +32,15 @@
             this.label1 = new System.Windows.Forms.Label();
             this.LGold = new System.Windows.Forms.Label();
             this.LError = new System.Windows.Forms.Label();
-            this.ItemLists = new System.Windows.Forms.TabControl();
-            this.PageBuy = new System.Windows.Forms.TabPage();
-            this.PageSell = new System.Windows.Forms.TabPage();
-            this.ItemLists.SuspendLayout();
+            this.BAlchemist = new System.Windows.Forms.Button();
+            this.BSell = new System.Windows.Forms.Button();
+            this.BBuy = new System.Windows.Forms.Button();
+            this.Page = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(309, 14);
+            this.button1.Location = new System.Drawing.Point(663, 9);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 0;
@@ -59,7 +59,7 @@
             // LGold
             // 
             this.LGold.AutoSize = true;
-            this.LGold.Location = new System.Drawing.Point(328, 40);
+            this.LGold.Location = new System.Drawing.Point(606, 14);
             this.LGold.Name = "LGold";
             this.LGold.Size = new System.Drawing.Size(34, 13);
             this.LGold.TabIndex = 3;
@@ -69,61 +69,72 @@
             // 
             this.LError.AutoSize = true;
             this.LError.ForeColor = System.Drawing.Color.Red;
-            this.LError.Location = new System.Drawing.Point(136, 14);
+            this.LError.Location = new System.Drawing.Point(127, 321);
             this.LError.Name = "LError";
             this.LError.Size = new System.Drawing.Size(29, 13);
             this.LError.TabIndex = 4;
             this.LError.Text = "Error";
             this.LError.Visible = false;
             // 
-            // ItemLists
+            // BAlchemist
             // 
-            this.ItemLists.Controls.Add(this.PageBuy);
-            this.ItemLists.Controls.Add(this.PageSell);
-            this.ItemLists.Location = new System.Drawing.Point(3, 61);
-            this.ItemLists.Name = "ItemLists";
-            this.ItemLists.SelectedIndex = 0;
-            this.ItemLists.Size = new System.Drawing.Size(397, 339);
-            this.ItemLists.TabIndex = 5;
-            this.ItemLists.SelectedIndexChanged += new System.EventHandler(this.TableChanged);
+            this.BAlchemist.Location = new System.Drawing.Point(97, 137);
+            this.BAlchemist.Name = "BAlchemist";
+            this.BAlchemist.Size = new System.Drawing.Size(71, 24);
+            this.BAlchemist.TabIndex = 8;
+            this.BAlchemist.Tag = "Alchemist";
+            this.BAlchemist.Text = "Artisanat";
+            this.BAlchemist.UseVisualStyleBackColor = true;
+            this.BAlchemist.Visible = false;
+            this.BAlchemist.Click += new System.EventHandler(this.ChangePage);
             // 
-            // PageBuy
+            // BSell
             // 
-            this.PageBuy.AutoScroll = true;
-            this.PageBuy.Location = new System.Drawing.Point(4, 22);
-            this.PageBuy.Name = "PageBuy";
-            this.PageBuy.Padding = new System.Windows.Forms.Padding(3);
-            this.PageBuy.Size = new System.Drawing.Size(389, 313);
-            this.PageBuy.TabIndex = 0;
-            this.PageBuy.Tag = "Buy";
-            this.PageBuy.Text = "Acheter";
-            this.PageBuy.UseVisualStyleBackColor = true;
+            this.BSell.Location = new System.Drawing.Point(97, 93);
+            this.BSell.Name = "BSell";
+            this.BSell.Size = new System.Drawing.Size(71, 24);
+            this.BSell.TabIndex = 9;
+            this.BSell.Tag = "Sell";
+            this.BSell.Text = "Vente";
+            this.BSell.UseVisualStyleBackColor = true;
+            this.BSell.Click += new System.EventHandler(this.ChangePage);
             // 
-            // PageSell
+            // BBuy
             // 
-            this.PageSell.AutoScroll = true;
-            this.PageSell.Location = new System.Drawing.Point(4, 22);
-            this.PageSell.Name = "PageSell";
-            this.PageSell.Padding = new System.Windows.Forms.Padding(3);
-            this.PageSell.Size = new System.Drawing.Size(389, 313);
-            this.PageSell.TabIndex = 1;
-            this.PageSell.Tag = "Sell";
-            this.PageSell.Text = "Vendre";
-            this.PageSell.UseVisualStyleBackColor = true;
+            this.BBuy.Location = new System.Drawing.Point(97, 51);
+            this.BBuy.Name = "BBuy";
+            this.BBuy.Size = new System.Drawing.Size(71, 24);
+            this.BBuy.TabIndex = 10;
+            this.BBuy.Tag = "Buy";
+            this.BBuy.Text = "Achat";
+            this.BBuy.UseVisualStyleBackColor = true;
+            this.BBuy.Click += new System.EventHandler(this.ChangePage);
+            // 
+            // Page
+            // 
+            this.Page.AutoScroll = true;
+            this.Page.Location = new System.Drawing.Point(183, 51);
+            this.Page.Name = "Page";
+            this.Page.Size = new System.Drawing.Size(411, 258);
+            this.Page.TabIndex = 11;
             // 
             // Merchant
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.ItemLists);
+            this.BackColor = System.Drawing.Color.Transparent;
+            this.Controls.Add(this.Page);
+            this.Controls.Add(this.BBuy);
+            this.Controls.Add(this.BSell);
+            this.Controls.Add(this.BAlchemist);
             this.Controls.Add(this.LError);
             this.Controls.Add(this.LGold);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
+            this.Location = new System.Drawing.Point(60, 40);
             this.Name = "Merchant";
-            this.Size = new System.Drawing.Size(400, 400);
+            this.Size = new System.Drawing.Size(750, 338);
             this.Load += new System.EventHandler(this.IGMerchant_Load);
-            this.ItemLists.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -135,8 +146,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label LGold;
         private System.Windows.Forms.Label LError;
-        private System.Windows.Forms.TabControl ItemLists;
-        private System.Windows.Forms.TabPage PageBuy;
-        private System.Windows.Forms.TabPage PageSell;
+        private System.Windows.Forms.Button BAlchemist;
+        private System.Windows.Forms.Button BSell;
+        private System.Windows.Forms.Button BBuy;
+        private System.Windows.Forms.Panel Page;
     }
 }

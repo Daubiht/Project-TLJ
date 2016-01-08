@@ -29,11 +29,9 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.TCMortuary = new System.Windows.Forms.TabControl();
-            this.TCMPage1 = new System.Windows.Forms.TabPage();
-            this.TCMPage2 = new System.Windows.Forms.TabPage();
             this.retour = new System.Windows.Forms.Button();
-            this.TCMortuary.SuspendLayout();
+            this.TCMPage1 = new System.Windows.Forms.GroupBox();
+            this.TCMPage2 = new System.Windows.Forms.GroupBox();
             this.SuspendLayout();
             // 
             // label1
@@ -47,36 +45,6 @@
             this.label1.Text = "Morgue";
             this.label1.UseMnemonic = false;
             // 
-            // TCMortuary
-            // 
-            this.TCMortuary.Controls.Add(this.TCMPage1);
-            this.TCMortuary.Controls.Add(this.TCMPage2);
-            this.TCMortuary.Location = new System.Drawing.Point(3, 69);
-            this.TCMortuary.Name = "TCMortuary";
-            this.TCMortuary.SelectedIndex = 0;
-            this.TCMortuary.Size = new System.Drawing.Size(407, 401);
-            this.TCMortuary.TabIndex = 3;
-            // 
-            // TCMPage1
-            // 
-            this.TCMPage1.Location = new System.Drawing.Point(4, 22);
-            this.TCMPage1.Name = "TCMPage1";
-            this.TCMPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.TCMPage1.Size = new System.Drawing.Size(399, 375);
-            this.TCMPage1.TabIndex = 0;
-            this.TCMPage1.Text = "Morgue";
-            this.TCMPage1.UseVisualStyleBackColor = true;
-            // 
-            // TCMPage2
-            // 
-            this.TCMPage2.Location = new System.Drawing.Point(4, 22);
-            this.TCMPage2.Name = "TCMPage2";
-            this.TCMPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.TCMPage2.Size = new System.Drawing.Size(399, 375);
-            this.TCMPage2.TabIndex = 1;
-            this.TCMPage2.Text = "Equipe";
-            this.TCMPage2.UseVisualStyleBackColor = true;
-            // 
             // retour
             // 
             this.retour.Location = new System.Drawing.Point(331, 3);
@@ -87,17 +55,38 @@
             this.retour.UseVisualStyleBackColor = true;
             this.retour.Click += new System.EventHandler(this.retour_Click);
             // 
+            // TCMPage1
+            // 
+            this.TCMPage1.Location = new System.Drawing.Point(25, 72);
+            this.TCMPage1.Name = "TCMPage1";
+            this.TCMPage1.Size = new System.Drawing.Size(339, 254);
+            this.TCMPage1.TabIndex = 5;
+            this.TCMPage1.TabStop = false;
+            this.TCMPage1.Text = "Morgue";
+            // 
+            // TCMPage2
+            // 
+            this.TCMPage2.BackColor = System.Drawing.Color.Transparent;
+            this.TCMPage2.Location = new System.Drawing.Point(401, 72);
+            this.TCMPage2.Name = "TCMPage2";
+            this.TCMPage2.Size = new System.Drawing.Size(339, 254);
+            this.TCMPage2.TabIndex = 6;
+            this.TCMPage2.TabStop = false;
+            this.TCMPage2.Text = "Equipe";
+            // 
             // Mortuary
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Transparent;
+            this.Controls.Add(this.TCMPage2);
+            this.Controls.Add(this.TCMPage1);
             this.Controls.Add(this.retour);
-            this.Controls.Add(this.TCMortuary);
             this.Controls.Add(this.label1);
+            this.Location = new System.Drawing.Point(60, 50);
             this.Name = "Mortuary";
-            this.Size = new System.Drawing.Size(410, 470);
+            this.Size = new System.Drawing.Size(750, 338);
             this.Load += new System.EventHandler(this.Mortuary_Load);
-            this.TCMortuary.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -105,9 +94,8 @@
 
         #endregion
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TabControl TCMortuary;
-        private System.Windows.Forms.TabPage TCMPage1;
-        private System.Windows.Forms.TabPage TCMPage2;
         private System.Windows.Forms.Button retour;
+        private System.Windows.Forms.GroupBox TCMPage1;
+        private System.Windows.Forms.GroupBox TCMPage2;
     }
 }
