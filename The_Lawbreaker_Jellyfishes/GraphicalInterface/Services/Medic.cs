@@ -6,21 +6,21 @@ namespace GraphicalInterface
 {
     public partial class Medic : UserControl
     {
-        MainForm _contextForm;
+        Controller _ctrler;
         MapWorld _contextWorld;
 
-        public Medic(MainForm contextForm, MapWorld contextWorld)
+        public Medic(Controller ctrler, MapWorld contextWorld)
         {
             InitializeComponent();
             _contextWorld = contextWorld;
-            _contextForm = contextForm;
+            _ctrler = ctrler;
 
             Reload();
         }
 
         private void Retour_Click(object sender, EventArgs e)
         {
-            _contextForm.ExitMenu(this);
+            _ctrler.ExitMenu(this);
         }
 
         private void Heal_Click(object sender, System.EventArgs e)

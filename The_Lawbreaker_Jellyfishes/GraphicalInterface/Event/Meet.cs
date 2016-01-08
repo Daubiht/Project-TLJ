@@ -178,13 +178,44 @@ namespace GraphicalInterface
             if (_result == 2)
             {
                 ElderAnswer(sender, e);
-            } else if(_result == 5)
+            }
+            else if(_result == 5)
             {
-                _ctrler.ToFight(_mapZone.EventFightRandom(2, null));
+                ListMonsters Mobs = new ListMonsters();
+                List<Monster> ListM =  Mobs.GetListMonsters.FindAll(
+                    delegate (Monster m)
+                    {
+                        return m.Name != "Marchand" && m.Race == "Humain";
+                    }
+                );
+
+                _ctrler.ToFight(ListM);
             }
             else if(_result == 1)
             {
-                _ctrler.ToFight(_mapZone.EventFightRandom(2, null));
+                ListMonsters Mobs = new ListMonsters();
+                List<Monster> ListM = new List<Monster>();
+
+                Monster M = Mobs.GetListMonsters.Find(
+                    delegate (Monster m)
+                    {
+                        return m.Name == "Marchand";
+                    }
+                );
+                M.FrontPosition = false;
+                ListM.Add(M);
+
+                M = Mobs.GetListMonsters.Find(
+                    delegate (Monster m)
+                    {
+                        return m.Name == "Mercenaire";
+                    }
+                );
+                ListM.Add(new Monster(M.Name, M.Level, M.Race, M.PhysicalAttack, M.MagicAttack, M.Health, M.Stamina, M.Robustness, M.Dodge));
+                ListM.Add(new Monster(M.Name, M.Level, M.Race, M.PhysicalAttack, M.MagicAttack, M.Health, M.Stamina, M.Robustness, M.Dodge));
+                ListM.Add(new Monster(M.Name, M.Level, M.Race, M.PhysicalAttack, M.MagicAttack, M.Health, M.Stamina, M.Robustness, M.Dodge));
+
+                _ctrler.ToFight(ListM);
             }
         }
 
