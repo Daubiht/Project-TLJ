@@ -19,9 +19,11 @@ namespace GraphicalInterface
             List<Notification> listNotifs = contextWorld.Notifs.ListNotif;
             Label[] listLabels = {notif1, notif2, notif3, notif4, notif5, notif6, notif6, notif7, notif8, notif9, notif10};
 
-            for (int i = 0; i < contextWorld.Notifs.ListNotif.Count; i++)
+            int max = contextWorld.Notifs.ListNotif.Count;
+
+            for (int i = max; i > 0; i--)
             {
-                listLabels[i].Text = listNotifs[i].Name + " - " + listNotifs[i].Description + " - " + listNotifs[i].Date;
+                listLabels[max - i].Text = listNotifs[i-1].Name + " - " + listNotifs[i-1].Description + " - " + listNotifs[i-1].Date;
             }
         }
 

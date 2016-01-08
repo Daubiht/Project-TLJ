@@ -17,6 +17,7 @@ namespace LogicalGame.Test
         {
             //The World
             MapWorld world = new MapWorld();
+            world.Team.World = world;
             Dictionary<string, MapIsland> Islands = new Dictionary<string, MapIsland>();
 
             //island 1 ------------------------------------------------------------

@@ -136,6 +136,7 @@ namespace LogicalGame
             _basicAttack = BasicAttack;
             // True means "A member of the team is attacking"
             _doesAMemberAttack = true;
+
         }
         // 2 METHOD TO GET THE ATTACKED MONSTER, this method is called when the player clicks on a monster's panel
         public bool GetAttackedMonster(Monster AttackedMonster)
@@ -168,31 +169,44 @@ namespace LogicalGame
             // Count how many player has launched an attack
             int memberWhoPlayed = 0;
 
-            MemberWhoAttacks.AttackMonster(AttackedMonster);
-            // When the member finish to attack, now nobody in the team is attacking
-            _doesAMemberAttack = false;
-            _memberWhoAttacks.SuccedAttack = true;
-            // True means "This member just attacked, he won't be able to attack again"
-            MemberWhoAttacks.DidMemberPlay = true;
-
-            // Check if all monsters are dead, if yes, we end the fight and we create a screen who dislays what the team earn
-            if ( IsAllMonsterDie() == true ) return true;
-
-            // Check if all member played, if not, the player can continue to attack the monsters
-            foreach ( Character c in _team.Members )
+            bool success = false;
+            if (_selectedSkill != null && MemberWhoAttacks.UseSkill(_selectedSkill, AttackedMonster))
             {
-                if ( c.DidMemberPlay == true & c.isAlive == true)
-                {
-                    memberWhoPlayed += 1;
-                    CheckFrontMonserDead();
-                }
+                success = true;
             }
-            // If all member played, monsters attack
-            if ( numberOfMembers == memberWhoPlayed )
+            else
             {
-                MonsterAttack();
-                // True means "All monsters attacked" 
-                return true; 
+                MemberWhoAttacks.AttackMonster(AttackedMonster);
+                success = true;
+            }
+
+            if (success)
+            {
+                // When the member finish to attack, now nobody in the team is attacking
+                _doesAMemberAttack = false;
+                _memberWhoAttacks.SuccedAttack = true;
+                // True means "This member just attacked, he won't be able to attack again"
+                MemberWhoAttacks.DidMemberPlay = true;
+
+                // Check if all monsters are dead, if yes, we end the fight and we create a screen who dislays what the team earn
+                if (IsAllMonsterDie() == true) return true;
+
+                // Check if all member played, if not, the player can continue to attack the monsters
+                foreach (Character c in _team.Members)
+                {
+                    if (c.DidMemberPlay == true & c.isAlive == true)
+                    {
+                        memberWhoPlayed += 1;
+                        CheckFrontMonserDead();
+                    }
+                }
+                // If all member played, monsters attack
+                if (numberOfMembers == memberWhoPlayed)
+                {
+                    MonsterAttack();
+                    // True means "All monsters attacked" 
+                    return true;
+                }
             }
             return false;
         }
@@ -263,6 +277,46 @@ namespace LogicalGame
                 return dead;
             }
         }
+
+        public bool StopTurnOfPlayer(Character MemberWhoAttacks)
+        {
+            int numberOfMembers = 0;
+            // Count how many alive members are in the team in the team
+            foreach (Character c in _team.Members)
+            {
+                if (c.isAlive == true) numberOfMembers += 1;
+            }
+            // Count how many player has launched an attack
+            int memberWhoPlayed = 0;
+
+            // When the member finish to attack, now nobody in the team is attacking
+            _doesAMemberAttack = false;
+            _memberWhoAttacks.SuccedAttack = true;
+            // True means "This member just attacked, he won't be able to attack again"
+            MemberWhoAttacks.DidMemberPlay = true;
+
+            // Check if all monsters are dead, if yes, we end the fight and we create a screen who dislays what the team earn
+            if (IsAllMonsterDie() == true) return true;
+
+            // Check if all member played, if not, the player can continue to attack the monsters
+            foreach (Character c in _team.Members)
+            {
+                if (c.DidMemberPlay == true & c.isAlive == true)
+                {
+                    memberWhoPlayed += 1;
+                    CheckFrontMonserDead();
+                }
+            }
+            // If all member played, monsters attack
+            if (numberOfMembers == memberWhoPlayed)
+            {
+                MonsterAttack();
+                // True means "All monsters attacked" 
+                return true;
+            }
+            return false;
+        }
+
         public Team GetTeam{get { return _team; }}
         public List<Monster> GetFrontMonsters { get { return _FrontMonsterList; } }
         public List<Monster> GetHiddenMonster { get { return _HiddenMonsterList; } }
@@ -271,5 +325,6 @@ namespace LogicalGame
         public int NumberTurn { get { return _turn; } }
         public int OldLifeSelectedMember { get { return _oldLife; } }
         public Character SelectedCharacter { get { return _JustSelectedCharacter; }}
+        public Skill SelectedSkill { get { return _selectedSkill; } set { _selectedSkill = value; } }
     }
 }

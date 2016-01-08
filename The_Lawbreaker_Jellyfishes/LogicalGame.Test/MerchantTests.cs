@@ -39,8 +39,7 @@ namespace LogicalGame.Test
         {
 
             // Create a temporary team for the test without parameters
-            Team team = new Team(null);
-            team.Invent.AddGold(100);
+            
 
             // Create a city "Ponyoland" for the test
             MapWorld world;
@@ -61,7 +60,10 @@ namespace LogicalGame.Test
                 }
 
             }
-            
+
+            Team team = new Team(null);
+            team.Invent.AddGold(100);
+
             // Here we get the merchant in the island Ponyoland
             Merchant merchant = ((Merchant)world.Islands["island1"].IslandCity.Services[0]);
             merchant.Invent = team.Invent;

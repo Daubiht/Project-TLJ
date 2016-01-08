@@ -58,6 +58,12 @@
     <Compile Include="Fight\EndFightVictory.Designer.cs">
       <DependentUpon>EndFightVictory.cs</DependentUpon>
     </Compile>
+    <Compile Include="Services\Medic.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Services\Medic.Designer.cs">
+      <DependentUpon>Medic.cs</DependentUpon>
+    </Compile>
     <Compile Include="Menu\Team\FiltredInventoryForm.cs">
       <SubType>Form</SubType>
     </Compile>
