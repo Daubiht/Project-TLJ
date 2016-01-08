@@ -67,6 +67,8 @@ namespace GraphicalInterface
                 if ( _fight.DidAllMemberPlay() )
                 {
                     _fight.MonsterAttack();
+
+                    foreach (PanelCharacter pc in _FUC.GetMonsterPanel) pc.RefreshInformation();
                     foreach ( PanelCharacter pC in _panelCharacterList ) pC.RefreshInformation();
                     // If our SELECTED CHARACTER is attacked, we refresh his HP BAR
                     foreach ( Character c in _fight.GetTeam.Members )
@@ -87,6 +89,8 @@ namespace GraphicalInterface
             // if the member hasn't played yet, he can open the inventory of consumable
             if ( _selectedMember.DidMemberPlay == false && _selectedMember.isAlive )
             {
+                foreach (PanelCharacter pc in _FUC.GetMonsterPanel) pc.RefreshInformation();
+
                 // Given in parameters the current number turn, used to know when will finish the defense skill
                 _selectedMember.Defense(_fight.NumberTurn);
                 // Here we say that the member just played
@@ -96,6 +100,8 @@ namespace GraphicalInterface
                 if ( _fight.DidAllMemberPlay() )
                 {
                     _fight.MonsterAttack();
+                    foreach (PanelCharacter pc in _FUC.GetMonsterPanel) pc.RefreshInformation();
+
                     foreach ( PanelCharacter pC in _panelCharacterList ) pC.RefreshInformation();
                     // If our SELECTED CHARACTER is attacked, we refresh his HP BAR
                     foreach ( Character c in _fight.GetTeam.Members )
@@ -128,6 +134,8 @@ namespace GraphicalInterface
                 else
                 {
                     _fight.MonsterAttack();
+                    foreach (PanelCharacter pc in _FUC.GetMonsterPanel) pc.RefreshInformation();
+
                     foreach ( PanelCharacter pC in _panelCharacterList )
                         pC.RefreshInformation();
                 }
@@ -173,6 +181,8 @@ namespace GraphicalInterface
                     if ( _fight.DidAllMemberPlay() )
                     {
                         _fight.MonsterAttack();
+                        foreach (PanelCharacter pc in _FUC.GetMonsterPanel) pc.RefreshInformation();
+
                         foreach ( PanelCharacter pC in _panelCharacterList ) pC.RefreshInformation();
                     }
                 }
