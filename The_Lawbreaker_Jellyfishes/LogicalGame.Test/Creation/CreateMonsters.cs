@@ -128,7 +128,7 @@ namespace LogicalGame.Test
             Monster m22 = new Monster("Dangereux", 2, "Poring", 65, 0, 1, 0, 0, 20);
             m22.XP = 1000;
             m22.Gold = 1000;
-            m22.AddItemToDrop(item.Items[4], 60);S
+            m22.AddItemToDrop(item.Items[4], 60);
             // Dead
             Monster m23 = new Monster("Chien mort", 3, "Mort", 8, 0, 55, 1, 1, 1);
             m23.XP = 55;
