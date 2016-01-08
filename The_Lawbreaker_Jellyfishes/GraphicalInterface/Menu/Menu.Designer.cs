@@ -36,7 +36,7 @@
             // 
             // equipe
             // 
-            this.equipe.Font = new System.Drawing.Font(_contextForm.Font.Families[1], 30);
+            this.equipe.Font = new System.Drawing.Font(_contextForm.Font.Families[0], 30);
             this.equipe.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             this.equipe.Text = "equipes";
             this.equipe.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -52,7 +52,7 @@
             // 
             // inventaire
             // 
-            this.inventaire.Font = new System.Drawing.Font(_contextForm.Font.Families[1], 30);
+            this.inventaire.Font = new System.Drawing.Font(_contextForm.Font.Families[0], 30);
             this.inventaire.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             this.inventaire.Text = "inventaire";
             this.inventaire.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -68,7 +68,7 @@
             // 
             // notifications
             // 
-            this.notifications.Font = new System.Drawing.Font(_contextForm.Font.Families[1], 30);
+            this.notifications.Font = new System.Drawing.Font(_contextForm.Font.Families[0], 30);
             this.notifications.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             this.notifications.Cursor = System.Windows.Forms.Cursors.Hand;
             this.notifications.FlatAppearance.BorderSize = 0;
@@ -85,7 +85,7 @@
             // 
             // sauvegarde
             // 
-            this.sauvegarde.Font = new System.Drawing.Font(_contextForm.Font.Families[1], 30);
+            this.sauvegarde.Font = new System.Drawing.Font(_contextForm.Font.Families[0], 30);
             this.sauvegarde.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             this.sauvegarde.Cursor = System.Windows.Forms.Cursors.Hand;
             this.sauvegarde.FlatAppearance.BorderSize = 0;

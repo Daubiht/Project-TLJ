@@ -44,8 +44,8 @@
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(50, 70);
-            this.radioButton1.Font = new System.Drawing.Font(_contextForm.Font.Families[0], 23);
+            this.radioButton1.Location = new System.Drawing.Point(50, 90);
+            this.radioButton1.Font = new System.Drawing.Font(_contextForm.Font.Families[1], 23);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.TabIndex = 1;
             this.radioButton1.TabStop = true;
@@ -56,8 +56,8 @@
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(300, 70);
-            this.radioButton2.Font = new System.Drawing.Font(_contextForm.Font.Families[0], 23);
+            this.radioButton2.Location = new System.Drawing.Point(300, 90);
+            this.radioButton2.Font = new System.Drawing.Font(_contextForm.Font.Families[1], 23);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.TabIndex = 1;
             this.radioButton2.TabStop = true;
@@ -68,8 +68,8 @@
             // radioButton3
             // 
             this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(550, 70);
-            this.radioButton3.Font = new System.Drawing.Font(_contextForm.Font.Families[0], 23);
+            this.radioButton3.Location = new System.Drawing.Point(550, 90);
+            this.radioButton3.Font = new System.Drawing.Font(_contextForm.Font.Families[1], 23);
             this.radioButton3.Name = "radioButton3";
             this.radioButton3.TabIndex = 1;
             this.radioButton3.TabStop = true;
@@ -80,8 +80,8 @@
             // radioButton4
             // 
             this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(200, 190);
-            this.radioButton4.Font = new System.Drawing.Font(_contextForm.Font.Families[0], 23);
+            this.radioButton4.Location = new System.Drawing.Point(200, 210);
+            this.radioButton4.Font = new System.Drawing.Font(_contextForm.Font.Families[1], 23);
             this.radioButton4.Name = "radioButton4";
             this.radioButton4.TabIndex = 1;
             this.radioButton4.TabStop = true;
@@ -92,8 +92,8 @@
             // radioButton5
             // 
             this.radioButton5.AutoSize = true;
-            this.radioButton5.Location = new System.Drawing.Point(425, 190);
-            this.radioButton5.Font = new System.Drawing.Font(_contextForm.Font.Families[0], 23);
+            this.radioButton5.Location = new System.Drawing.Point(425, 210);
+            this.radioButton5.Font = new System.Drawing.Font(_contextForm.Font.Families[1], 23);
             this.radioButton5.Name = "radioButton5";
             this.radioButton5.TabIndex = 1;
             this.radioButton5.TabStop = true;
@@ -111,7 +111,7 @@
             this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font(_contextForm.Font.Families[1], 30);
+            this.button1.Font = new System.Drawing.Font(_contextForm.Font.Families[0], 30);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 2;
@@ -142,7 +142,7 @@
             this.retour.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.retour.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.retour.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.retour.Font = new System.Drawing.Font(_contextForm.Font.Families[1], 30);
+            this.retour.Font = new System.Drawing.Font(_contextForm.Font.Families[0], 30);
             this.retour.Name = "retour";
             this.retour.TabIndex = 4;
             this.retour.Text = "retour";
@@ -155,7 +155,7 @@
             this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(322, 0);
-            this.label1.Font = new System.Drawing.Font(_contextForm.Font.Families[0], 20);
+            this.label1.Font = new System.Drawing.Font(_contextForm.Font.Families[1], 20);
             this.label1.Name = "label1";
             this.label1.TabIndex = 5;
             this.label1.Text = "jeu sauvegardé";
@@ -169,7 +169,7 @@
             this.quit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.quit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.quit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.quit.Font = new System.Drawing.Font(_contextForm.Font.Families[1], 30);
+            this.quit.Font = new System.Drawing.Font(_contextForm.Font.Families[0], 30);
             this.quit.Location = new System.Drawing.Point(0, 0);
             this.quit.Name = "quit";
             this.quit.Size = new System.Drawing.Size(75, 23);
@@ -192,6 +192,7 @@
             this.Size = new System.Drawing.Size(750, 338);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.Load += new System.EventHandler(this.Save_Load);
             this.PerformLayout();
 
         }

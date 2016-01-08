@@ -16,7 +16,10 @@ namespace GraphicalInterface
             _contextForm = contextForm;
             _contextWorld = contextWorld;
             InitializeComponent();
+        }
 
+        public void Save_Load(object sender, EventArgs e)
+        {
             RadioButton[] radioButtons = { radioButton1, radioButton2, radioButton3, radioButton4, radioButton5 };
             string[] fileName = Directory.GetFiles(@"../../../Saves");
 
@@ -39,7 +42,7 @@ namespace GraphicalInterface
                     label1.Visible = true;
                 }
             }
-
+            Save_Load(null, null);
         }
 
         private void retour_Click(object sender, EventArgs e)

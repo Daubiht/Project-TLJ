@@ -41,7 +41,7 @@
             this.retour.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.retour.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.retour.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.retour.Font = new System.Drawing.Font(_contextForm.Font.Families[1], 30);
+            this.retour.Font = new System.Drawing.Font(_contextForm.Font.Families[0], 30);
             this.retour.Location = new System.Drawing.Point(600, 0);
             this.retour.Name = "retour";
             this.retour.Size = new System.Drawing.Size(134, 72);

@@ -41,7 +41,7 @@
             // 
             // label1
             // 
-            this.label1.Font = new System.Drawing.Font(_context.Font.Families[1], 30);
+            this.label1.Font = new System.Drawing.Font(_context.Font.Families[0], 30);
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(238, 11);
@@ -59,7 +59,7 @@
             this.buttonBack.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.buttonBack.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.buttonBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonBack.Font = new System.Drawing.Font(_context.Font.Families[1], 30);
+            this.buttonBack.Font = new System.Drawing.Font(_context.Font.Families[0], 30);
             this.buttonBack.Location = new System.Drawing.Point(50, 280);
             this.buttonBack.Name = "buttonBack";
             this.buttonBack.Size = new System.Drawing.Size(75, 32);
@@ -77,7 +77,7 @@
             this.buttonNext.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.buttonNext.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.buttonNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonNext.Font = new System.Drawing.Font(_context.Font.Families[1], 30);
+            this.buttonNext.Font = new System.Drawing.Font(_context.Font.Families[0], 30);
             this.buttonNext.Location = new System.Drawing.Point(550, 280);
             this.buttonNext.Name = "buttonNext";
             this.buttonNext.Size = new System.Drawing.Size(75, 32);
@@ -91,8 +91,8 @@
             this.RBVitality.AutoSize = true;
             this.RBVitality.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.RBVitality.Checked = true;
-            this.RBVitality.Font = new System.Drawing.Font(_context.Font.Families[0], 18);
-            this.RBVitality.Location = new System.Drawing.Point(206, 60);
+            this.RBVitality.Font = new System.Drawing.Font(_context.Font.Families[1], 25);
+            this.RBVitality.Location = new System.Drawing.Point(206, 70);
             this.RBVitality.Name = "RBVitality";
             this.RBVitality.Size = new System.Drawing.Size(56, 17);
             this.RBVitality.TabIndex = 55;
@@ -105,8 +105,8 @@
             // 
             this.RBDefensePosition.AutoSize = true;
             this.RBDefensePosition.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.RBDefensePosition.Font = new System.Drawing.Font(_context.Font.Families[0], 18);
-            this.RBDefensePosition.Location = new System.Drawing.Point(131, 129);
+            this.RBDefensePosition.Font = new System.Drawing.Font(_context.Font.Families[1], 25);
+            this.RBDefensePosition.Location = new System.Drawing.Point(131, 140);
             this.RBDefensePosition.Name = "RBDefensePosition";
             this.RBDefensePosition.Size = new System.Drawing.Size(111, 17);
             this.RBDefensePosition.TabIndex = 56;
@@ -117,8 +117,8 @@
             // 
             this.RBEffort.AutoSize = true;
             this.RBEffort.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.RBEffort.Font = new System.Drawing.Font(_context.Font.Families[0], 18);
-            this.RBEffort.Location = new System.Drawing.Point(219, 193);
+            this.RBEffort.Font = new System.Drawing.Font(_context.Font.Families[1], 25);
+            this.RBEffort.Location = new System.Drawing.Point(219, 210);
             this.RBEffort.Name = "RBEffort";
             this.RBEffort.Size = new System.Drawing.Size(50, 17);
             this.RBEffort.TabIndex = 57;
@@ -129,8 +129,8 @@
             // 
             this.RBConcentredHit.AutoSize = true;
             this.RBConcentredHit.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.RBConcentredHit.Font = new System.Drawing.Font(_context.Font.Families[0], 18);
-            this.RBConcentredHit.Location = new System.Drawing.Point(427, 60);
+            this.RBConcentredHit.Font = new System.Drawing.Font(_context.Font.Families[1], 25);
+            this.RBConcentredHit.Location = new System.Drawing.Point(427, 70);
             this.RBConcentredHit.Name = "RBConcentredHit";
             this.RBConcentredHit.Size = new System.Drawing.Size(115, 17);
             this.RBConcentredHit.TabIndex = 58;
@@ -141,8 +141,8 @@
             // 
             this.RBEnergeticShot.AutoSize = true;
             this.RBEnergeticShot.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.RBEnergeticShot.Font = new System.Drawing.Font(_context.Font.Families[0], 18);
-            this.RBEnergeticShot.Location = new System.Drawing.Point(442, 130);
+            this.RBEnergeticShot.Font = new System.Drawing.Font(_context.Font.Families[1], 25);
+            this.RBEnergeticShot.Location = new System.Drawing.Point(442, 140);
             this.RBEnergeticShot.Name = "RBEnergeticShot";
             this.RBEnergeticShot.Size = new System.Drawing.Size(96, 17);
             this.RBEnergeticShot.TabIndex = 59;
@@ -153,8 +153,8 @@
             // 
             this.RBInstinct.AutoSize = true;
             this.RBInstinct.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.RBInstinct.Font = new System.Drawing.Font(_context.Font.Families[0], 18);
-            this.RBInstinct.Location = new System.Drawing.Point(494, 192);
+            this.RBInstinct.Font = new System.Drawing.Font(_context.Font.Families[1], 25);
+            this.RBInstinct.Location = new System.Drawing.Point(494, 210);
             this.RBInstinct.Name = "RBInstinct";
             this.RBInstinct.Size = new System.Drawing.Size(59, 17);
             this.RBInstinct.TabIndex = 60;

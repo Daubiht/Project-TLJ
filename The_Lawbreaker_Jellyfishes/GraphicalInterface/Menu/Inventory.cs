@@ -40,7 +40,7 @@ namespace GraphicalInterface
                 b.FlatAppearance.MouseDownBackColor = Color.Transparent;
                 b.FlatAppearance.MouseOverBackColor = Color.Transparent;
                 b.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-                b.Font = new System.Drawing.Font(_contextForm.Font.Families[0], 11);
+                b.Font = new System.Drawing.Font(_contextForm.Font.Families[1], 11);
 
 
                 string infoItem = item.GetName + " " + "(" + item.Type + ")" + Environment.NewLine + item.GetDescription +

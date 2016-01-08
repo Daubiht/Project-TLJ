@@ -44,7 +44,7 @@
             this.retour.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.retour.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.retour.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.retour.Font = new System.Drawing.Font(_contextForm.Font.Families[1], 30);
+            this.retour.Font = new System.Drawing.Font(_contextForm.Font.Families[0], 30);
             this.retour.Size = new System.Drawing.Size(134, 72);
             this.retour.Name = "retour";
             this.retour.TabIndex = 0;
@@ -55,7 +55,7 @@
             // Utilise
             // 
             this.Utilise.AutoSize = true;
-            this.Utilise.Font = new System.Drawing.Font(_contextForm.Font.Families[1], 30);
+            this.Utilise.Font = new System.Drawing.Font(_contextForm.Font.Families[0], 30);
             this.Utilise.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             this.Utilise.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Utilise.FlatAppearance.BorderSize = 0;
@@ -72,7 +72,7 @@
             // label1
             //
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font(_contextForm.Font.Families[0], 30);
+            this.label1.Font = new System.Drawing.Font(_contextForm.Font.Families[1], 30);
             this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label1.Location = new System.Drawing.Point(75, 50);
             this.label1.TabIndex = 0;
@@ -81,7 +81,7 @@
             // label
             //
             this.label.AutoSize = true;
-            this.label.Font = new System.Drawing.Font(_contextForm.Font.Families[0], 15);
+            this.label.Font = new System.Drawing.Font(_contextForm.Font.Families[1], 15);
             this.label.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label.Location = new System.Drawing.Point(75, 100);
             this.label.TabIndex = 0;

@@ -45,7 +45,7 @@
             this.jeter.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.jeter.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.jeter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.jeter.Font = new System.Drawing.Font(_contextForm.Font.Families[1], 30);
+            this.jeter.Font = new System.Drawing.Font(_contextForm.Font.Families[0], 30);
             this.jeter.Location = new System.Drawing.Point(0, 0);
             this.jeter.Name = "jeter";
             this.jeter.Size = new System.Drawing.Size(75, 23);
@@ -64,7 +64,7 @@
             this.retour.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.retour.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.retour.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.retour.Font = new System.Drawing.Font(_contextForm.Font.Families[1], 30);
+            this.retour.Font = new System.Drawing.Font(_contextForm.Font.Families[0], 30);
             this.retour.Name = "retour";
             this.retour.TabIndex = 2;
             this.retour.Text = "retour";
@@ -92,7 +92,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font(_contextForm.Font.Families[0], 15);
+            this.label1.Font = new System.Drawing.Font(_contextForm.Font.Families[1], 20);
             this.label1.Location = new System.Drawing.Point(346, 10);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 13);

@@ -64,11 +64,11 @@ namespace GraphicalInterface
             {
                 if((string)ComboBoxRace.SelectedItem == "Humain")
                 {
-                    label1.Text = "bonus de 5% à l'achat ou la vente d'objets";
+                    label1.Text = "bonus de 5 pourcent à l'achat ou la vente d'objets";
                 }
                 else if ((string)ComboBoxRace.SelectedItem == "Nain")
                 {
-                    label1.Text = "bonus de 5% de pièces après un combat";
+                    label1.Text = "bonus de 5 pourcent de pièces après un combat";
                 }
                 else if ((string)ComboBoxRace.SelectedItem == "Geant")
                 {
@@ -76,7 +76,7 @@ namespace GraphicalInterface
                 }
                 else if ((string)ComboBoxRace.SelectedItem == "Elfe")
                 {
-                    label1.Text = "soigne d'1% les membres entre deux zones";
+                    label1.Text = "soigne d'1 pourcent les membres entre deux zones";
                 }
                 _fullRace = true;
                 CheckValidateButton(_fullPseudo, _fullRace);

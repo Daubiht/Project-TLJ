@@ -23,7 +23,7 @@ namespace GraphicalInterface
                 Label LabelNotif = new Label();
                 LabelNotif.AutoSize = true;
                 LabelNotif.Text = listNotifs[i].Date + " - " + listNotifs[i].Name + " - " + listNotifs[i].Description;
-                LabelNotif.Font = new System.Drawing.Font(_contextForm.Font.Families[0], 16);
+                LabelNotif.Font = new System.Drawing.Font(_contextForm.Font.Families[1], 16);
                 panel1.Controls.Add(LabelNotif);
                 LabelNotif.Location = new System.Drawing.Point(Width / 2 - LabelNotif.Width / 2, i * LabelNotif.Height);
             }

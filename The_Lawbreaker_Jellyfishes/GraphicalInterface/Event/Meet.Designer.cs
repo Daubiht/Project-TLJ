@@ -52,7 +52,7 @@
             // 
             // label2
             // 
-            this.label2.Font = new System.Drawing.Font(_context.Font.Families[0], 15);
+            this.label2.Font = new System.Drawing.Font(_context.Font.Families[1], 15);
             this.label2.Location = new System.Drawing.Point(3, 269);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(422, 45);
@@ -62,7 +62,7 @@
             // 
             // label4
             // 
-            this.label4.Font = new System.Drawing.Font(_context.Font.Families[0], 15);
+            this.label4.Font = new System.Drawing.Font(_context.Font.Families[1], 15);
             this.label4.Location = new System.Drawing.Point(3, 179);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(422, 45);
@@ -72,7 +72,7 @@
             // 
             // label1
             // 
-            this.label1.Font = new System.Drawing.Font(_context.Font.Families[0], 15);
+            this.label1.Font = new System.Drawing.Font(_context.Font.Families[1], 15);
             this.label1.Location = new System.Drawing.Point(3, 134);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(422, 45);
@@ -82,7 +82,7 @@
             // 
             // label3
             // 
-            this.label3.Font = new System.Drawing.Font(_context.Font.Families[0], 15);
+            this.label3.Font = new System.Drawing.Font(_context.Font.Families[1], 15);
             this.label3.Location = new System.Drawing.Point(3, 224);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(422, 45);
@@ -93,7 +93,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font(_context.Font.Families[0], 15);
+            this.label5.Font = new System.Drawing.Font(_context.Font.Families[1], 15);
             this.label5.Location = new System.Drawing.Point(61, 32);
             this.label5.MaximumSize = new System.Drawing.Size(394, 95);
             this.label5.Name = "label5";

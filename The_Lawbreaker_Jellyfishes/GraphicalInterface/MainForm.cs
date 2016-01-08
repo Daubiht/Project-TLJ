@@ -23,7 +23,7 @@ namespace GraphicalInterface
         {
             InitializeComponent();
             _font.AddFontFile("../../../Ressources/Neverwinter.otf");
-            _font.AddFontFile("../../../Ressources/BLKCHCRY.ttf");
+            _font.AddFontFile("../../../Ressources/Pieces of Eight.ttf");
 
             SetStyle(ControlStyles.SupportsTransparentBackColor, true);
             ReceptionScreen uc = new ReceptionScreen(this);

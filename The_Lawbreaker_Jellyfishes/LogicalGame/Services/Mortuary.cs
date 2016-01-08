@@ -15,7 +15,7 @@ namespace LogicalGame
 
         public Mortuary (MapCity context)
         {
-            _numberBodyMax = 10;
+            _numberBodyMax = 4;
             _bodyList = new List<Character>();
             _context = context;
             if(context != null) { _team = context.ActualIsland.ActualWorld.Team; }
