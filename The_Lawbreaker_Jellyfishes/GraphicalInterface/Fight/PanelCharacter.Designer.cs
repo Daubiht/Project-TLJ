@@ -33,11 +33,13 @@
             this.labelHPResult = new System.Windows.Forms.Label();
             this.labelStaminaText = new System.Windows.Forms.Label();
             this.labelStaminaResult = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // labelCharName
             // 
-            this.labelCharName.Dock = System.Windows.Forms.DockStyle.Top;
+            this.labelCharName.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.labelCharName.Enabled = false;
             this.labelCharName.Location = new System.Drawing.Point(0, 0);
             this.labelCharName.Name = "labelCharName";
@@ -48,6 +50,7 @@
             // 
             // labelHPText
             // 
+            this.labelHPText.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.labelHPText.AutoSize = true;
             this.labelHPText.Enabled = false;
             this.labelHPText.Location = new System.Drawing.Point(2, 19);
@@ -58,6 +61,7 @@
             // 
             // labelHPResult
             // 
+            this.labelHPResult.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.labelHPResult.AutoSize = true;
             this.labelHPResult.Enabled = false;
             this.labelHPResult.Location = new System.Drawing.Point(42, 19);
@@ -68,6 +72,7 @@
             // 
             // labelStaminaText
             // 
+            this.labelStaminaText.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.labelStaminaText.AutoSize = true;
             this.labelStaminaText.Enabled = false;
             this.labelStaminaText.Location = new System.Drawing.Point(2, 37);
@@ -78,6 +83,7 @@
             // 
             // labelStaminaResult
             // 
+            this.labelStaminaResult.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.labelStaminaResult.AutoSize = true;
             this.labelStaminaResult.Enabled = false;
             this.labelStaminaResult.Location = new System.Drawing.Point(42, 38);
@@ -86,11 +92,23 @@
             this.labelStaminaResult.TabIndex = 4;
             this.labelStaminaResult.Text = "10";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Azure;
+            this.pictureBox1.Enabled = false;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 50);
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Visible = false;
+            // 
             // PanelCharacter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.labelStaminaResult);
             this.Controls.Add(this.labelStaminaText);
             this.Controls.Add(this.labelHPResult);
@@ -99,6 +117,7 @@
             this.Name = "PanelCharacter";
             this.Size = new System.Drawing.Size(67, 53);
             this.Load += new System.EventHandler(this.PanelCharacter_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -111,5 +130,6 @@
         private System.Windows.Forms.Label labelHPResult;
         private System.Windows.Forms.Label labelStaminaText;
         private System.Windows.Forms.Label labelStaminaResult;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
