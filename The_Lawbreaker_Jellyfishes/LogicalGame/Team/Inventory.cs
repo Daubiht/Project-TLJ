@@ -23,7 +23,7 @@ namespace LogicalGame
         {
             int additional = weight + (item.GetWeight * quantity);
 
-            if (additional < MaxWeight)
+            if (additional <= MaxWeight)
             {
                 foreach (Item itemFromInvent in _inventory.Keys)
                 {

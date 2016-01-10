@@ -72,7 +72,7 @@
             this.TCMPage1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.TCMPage1.Location = new System.Drawing.Point(25, 72);
             this.TCMPage1.Name = "TCMPage1";
-            this.TCMPage1.Size = new System.Drawing.Size(339, 254);
+            this.TCMPage1.Size = new System.Drawing.Size(339, 264);
             this.TCMPage1.TabIndex = 5;
             // 
             // equipe
@@ -93,7 +93,7 @@
             this.TCMPage2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.TCMPage2.Location = new System.Drawing.Point(401, 72);
             this.TCMPage2.Name = "TCMPage2";
-            this.TCMPage2.Size = new System.Drawing.Size(339, 254);
+            this.TCMPage2.Size = new System.Drawing.Size(339, 264);
             this.TCMPage2.TabIndex = 6;
             // 
             // morgue

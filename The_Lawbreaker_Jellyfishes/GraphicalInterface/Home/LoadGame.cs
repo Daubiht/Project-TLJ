@@ -47,6 +47,7 @@ namespace GraphicalInterface
             }
 
             _contextForm.world = w;
+            w.TavernCharactersChange();
             World uc = new World(w, _contextForm, false);
             _contextForm.ChangeUC(uc, true);
         }

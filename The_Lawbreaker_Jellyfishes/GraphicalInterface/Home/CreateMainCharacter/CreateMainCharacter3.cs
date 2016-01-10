@@ -105,6 +105,7 @@ namespace GraphicalInterface
 
             w.Team.AddMembers(_C1);
             _context.world = w;
+            w.TavernCharactersChange();
             World uc = new World(w, _context, false);
             _context.ChangeUC(uc, true);
         }

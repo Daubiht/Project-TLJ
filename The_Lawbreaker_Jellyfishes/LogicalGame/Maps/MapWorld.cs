@@ -58,7 +58,6 @@ namespace LogicalGame
                         {
                             _actualPosition = I;
                         }
-                        TavernCharactersChange();
                         return true;
                     }
                 }

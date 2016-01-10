@@ -19,64 +19,89 @@ namespace GraphicalInterface
             _contextForm = contextForm;
             _randomCharacterList = randomCharacterList;
             InitializeComponent();
+            PTavern.Location = new System.Drawing.Point(Width / 2 - PTavern.Width / 2, PTavern.Top);
         }
 
         public void ReloadTavern()
         {
+            label2.Text = t.Invent.GetGold + " pièces d'or";
+            label2.Location = new System.Drawing.Point(Width / 2 - label2.Width / 2, label2.Top);
             PTavern.Controls.Clear();
+
             if (_randomCharacterList == null || _randomCharacterList.Count == 0)
             {
-                _contextForm.world.TavernCharactersChange();
+                //_contextForm.world.TavernCharactersChange();
             }
             _randomCharacterList = _contextForm.world.TavernCharacters;
-                for (int i = 0; i < _randomCharacterList.Count; i++)
-                {
 
-                    GroupBox bg = new GroupBox();
-                    Label name = new Label();
-                    Label level = new Label();
-                    Label prix = new Label();
-                    Button BRecrut = new Button();
-                    Button BInformation = new Button();
-                    EventHandler eh = new EventHandler(engageMembre);
+            for (int i = 0; i < _randomCharacterList.Count; i++)
+            {
+                Panel bg = new Panel();
+                Label name = new Label();
+                Label level = new Label();
+                Label prix = new Label();
+                Button BRecrut = new Button();
+                Button BInformation = new Button();
+                EventHandler eh = new EventHandler(engageMembre);
+                
+                PTavern.Controls.Add(bg);
 
-                    PTavern.Controls.Add(bg);
+                bg.Height = 50;
+                bg.Top = i * (bg.Height + 2) + 20;
+                bg.Width = bg.Parent.Width;
 
-                    bg.Height = 70;
-                    bg.Top = i * (bg.Height + 2);
-                    bg.Width = bg.Parent.Width;
+                bg.Controls.Add(name);
+                bg.Controls.Add(BRecrut);
+                bg.Controls.Add(BInformation);
+                bg.Controls.Add(level);
+                bg.Controls.Add(prix);
 
-                    bg.Controls.Add(name);
-                    bg.Controls.Add(BRecrut);
-                    bg.Controls.Add(BInformation);
-                    bg.Controls.Add(level);
-                    bg.Controls.Add(prix);
+                BRecrut.Text = "recruter";
+                BRecrut.Click += eh;
+                BRecrut.Name = "name" + i;
+                BRecrut.Font = new System.Drawing.Font(_contextForm.Font.Families[0], 25);
+                BRecrut.FlatAppearance.BorderSize = 0;
+                BRecrut.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+                BRecrut.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+                BRecrut.FlatStyle = FlatStyle.Flat;
+                BRecrut.AutoSize = true;
+                BRecrut.BackColor = System.Drawing.Color.Transparent;
+                BRecrut.Cursor = Cursors.Hand;
+                if (t.Members.Count == 4) BRecrut.Enabled = false;
+                if (t.Invent.GetGold < _randomCharacterList[i].Level * 50) BRecrut.Enabled = false;
 
-                    BRecrut.Text = "Recruter";
-                    BRecrut.Click += eh;
-                    BRecrut.Name = "name" + i;
-                    BRecrut.Top = 10;
-                    BRecrut.Left = bg.Width - BRecrut.Width - 10; ;
+                name.Top = bg.Height / 2 - name.Height / 2; ;
+                name.Text = _randomCharacterList[i].Name;
+                name.Name = "name" + i;
+                name.Font = new System.Drawing.Font(_contextForm.Font.Families[1], 15);
+                
+                level.Text = "niv. " + _randomCharacterList[i].Level.ToString();
+                level.Top = bg.Height / 2 - level.Height / 2;
+                level.Left = name.Right + 10;
+                level.Font = new System.Drawing.Font(_contextForm.Font.Families[1], 18);
 
-                    name.Top = bg.Height / 2 - name.Height / 2; ;
-                    name.Text = _randomCharacterList[i].Name;
-                    name.Name = "name" + i;
 
-                    level.Text = "Niveau " + _randomCharacterList[i].Level.ToString();
-                    level.Top = bg.Height / 2 - level.Height / 2;
-                    level.Left = name.Right + 10;
+                prix.Text = _randomCharacterList[i].Level * 50 + " pièces d'or";
+                prix.Top = bg.Height / 2 - prix.Height / 2;
+                prix.Left = level.Right + 4;
+                prix.Font = new System.Drawing.Font(_contextForm.Font.Families[1], 15);
 
-                    prix.Text = _randomCharacterList[i].Level * 50 + " pièces d'or";
-                    prix.Top = bg.Height / 2 - prix.Height / 2;
-                    prix.Left = level.Right + 10;
+                BInformation.Click += BInformation_Click;
+                BInformation.Tag = _randomCharacterList[i];
+                BInformation.Text = "info";
+                BInformation.Left = prix.Right + 5;
+                BInformation.Font = new System.Drawing.Font(_contextForm.Font.Families[0], 25);
+                BInformation.FlatAppearance.BorderSize = 0;
+                BInformation.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+                BInformation.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+                BInformation.FlatStyle = FlatStyle.Flat;
+                BInformation.AutoSize = true;
+                BInformation.BackColor = System.Drawing.Color.Transparent;
+                BInformation.Cursor = Cursors.Hand;
 
-                    BInformation.Click += BInformation_Click;
-                    BInformation.Tag = _randomCharacterList[i];
-                    BInformation.Text = "Informations";
-                    BInformation.Left = bg.Width - BInformation.Width - 10;
-                    BInformation.Top = bg.Height - BInformation.Height - 5;
-                }
-            
+                BRecrut.Left = BInformation.Right + 5;
+            }
+
         }
 
         internal void BInformation_Click (object sender, EventArgs e)
@@ -90,7 +115,6 @@ namespace GraphicalInterface
         public void Taverne_Load(object sender, EventArgs e)
         {
             _randomCharacterList = _contextForm.world.TavernCharacters;
-            label2.Text = t.Invent.GetGold + " pièces d'or";
             ReloadTavern();
         }
 
@@ -118,14 +142,14 @@ namespace GraphicalInterface
                         }
                         else
                         {
-                            LError.Visible = true;
+                            LError.Visible = false;
                             LError.Text = "Votre équipe est pleine, vous ne pouvez plus engager de membre";
                             LError.Left = LError.Parent.Width / 2 - LError.Width / 2;
                         }
                     }
                     else
                     {
-                        LError.Visible = true;
+                        LError.Visible = false;
                         LError.Text = "Vous n'avez pas suffisamment de fonds";
                         LError.Left = LError.Parent.Width / 2 - LError.Width / 2;
                     }

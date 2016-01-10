@@ -16,15 +16,17 @@ namespace GraphicalInterface
 
         public Merchant(MainForm contextForm, LogicalGame.Merchant merchant, Invent invent)
         {
-            InitializeComponent();
             _invent = invent;
             _m = merchant;
             _contextForm = contextForm;
+            InitializeComponent();
             _page = "Buy";
 
-            _requiredItem.Add(new ListItems().Items[4], 1);
-            _requiredItem.Add(new ListItems().Items[5], 1);
-            _requiredItem.Add(new ListItems().Items[6], 1);
+            LGold.Location = new Point(LGold.Parent.Width / 2 - LGold.Width / 2, LGold.Top);
+
+            _requiredItem.Add(new ListItems().Items[4], 10);
+            _requiredItem.Add(new ListItems().Items[5], 2);
+            _requiredItem.Add(new ListItems().Items[6], 5);
         }
 
         internal void Buy_Click (object sender, EventArgs e)
@@ -37,7 +39,8 @@ namespace GraphicalInterface
             _m.BuyItems(item, quantity);
 
             LGold.Text = _invent.GetGold.ToString();
-            LoadItemToSell();
+            LGold.Location = new Point(LGold.Parent.Width / 2 - LGold.Width / 2, LGold.Top);
+            LoadItemToBuy();
 
         }
 
@@ -80,7 +83,8 @@ namespace GraphicalInterface
                 LError.Visible = true;
             }
 
-            LGold.Text = _invent.GetGold.ToString() + " PO";
+            LGold.Text = "Poids : " + _invent.weight + "/" + _invent.MaxWeight + " - " + _invent.GetGold + " pièces d'or";
+            LGold.Location = new Point(LGold.Parent.Width / 2 - LGold.Width / 2, LGold.Top);
             Arange();
 
         }
@@ -108,7 +112,7 @@ namespace GraphicalInterface
 
                 Item item = i;
                 ToolTip toolTip = new ToolTip();
-                ItemInformations UCItem = new ItemInformations();
+                ItemInformations UCItem = new ItemInformations(_contextForm.Font.Families);
 
                 UCItem.Top = j * (3 + UCItem.Height);
 
@@ -152,10 +156,11 @@ namespace GraphicalInterface
                 toolTip.SetToolTip(UCItem.ItemNameLabel, infoItem);
 
                 Page.Controls.Add(UCItem);
-                UCItem.ItemActionName = "Vendre";
+                UCItem.ItemActionName = "vendre";
                 UCItem.ItemAction(new EventHandler(Sell_Click));
 
-                LGold.Text = _invent.GetGold.ToString() + " PO";
+                LGold.Text = "Poids : " + _invent.weight + "/" + _invent.MaxWeight + " - " + _invent.GetGold + " pièces d'or";
+                LGold.Location = new Point(LGold.Parent.Width / 2 - LGold.Width / 2, LGold.Top);
 
                 j++;
             }
@@ -170,7 +175,7 @@ namespace GraphicalInterface
             {
                 Item item = items[i];
                 ToolTip toolTip = new ToolTip();
-                ItemInformations UCItem = new ItemInformations();
+                ItemInformations UCItem = new ItemInformations(_contextForm.Font.Families);
 
                 UCItem.Top = i * 55;
 
@@ -211,10 +216,11 @@ namespace GraphicalInterface
                 toolTip.SetToolTip(UCItem.ItemNameLabel, infoItem);
 
                 Page.Controls.Add(UCItem);
-                UCItem.ItemActionName = "Acheter";
+                UCItem.ItemActionName = "acheter";
                 UCItem.ItemAction(new EventHandler(Buy_Click));
 
-                LGold.Text = _invent.GetGold.ToString() + " PO";
+                LGold.Text = "Poids : " + _invent.weight + "/" + _invent.MaxWeight + " - " + _invent.GetGold + " pièces d'or";
+                LGold.Location = new Point(LGold.Parent.Width / 2 - LGold.Width / 2, LGold.Top);
             }
         }
 
@@ -228,6 +234,19 @@ namespace GraphicalInterface
             Label LSuccess = new Label();
             Button BCraft = new Button();
 
+            BCraft.AutoSize = true;
+            BCraft.BackColor = Color.Transparent;
+            BCraft.Cursor = Cursors.Hand;
+            BCraft.FlatAppearance.BorderSize = 0;
+            BCraft.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            BCraft.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            BCraft.FlatStyle = FlatStyle.Flat;
+            BCraft.Font = new Font(_contextForm.Font.Families[0], 30);
+
+            resource.Font = new Font(_contextForm.Font.Families[1], 18);
+            error.Font = new Font(_contextForm.Font.Families[1], 18);
+            LSuccess.Font = new Font(_contextForm.Font.Families[1], 18);
+
             LSuccess.Text = "Vous avez fabriqué une orbe de résurrection.";
             LSuccess.ForeColor = Color.Green;
             LSuccess.Name = "LSuccess";
@@ -238,8 +257,8 @@ namespace GraphicalInterface
 
             BCraft.Click += Craft_Click;
 
-            BCraft.Text = "Fabriquer";
-            resource.Text = "Pour faire un objet de résurection, il vous faut : " + Environment.NewLine;
+            BCraft.Text = "fabriquer";
+            resource.Text = "Ce marchand vous propose de créer" + Environment.NewLine + "une orbe de résurrection permettant" + Environment.NewLine + "de ramener à la vie un membre de votre équipe" + Environment.NewLine+"pour cela il vous faut : " + Environment.NewLine;
             error.Text = "";
 
             foreach (Item item in _requiredItem.Keys)
@@ -288,12 +307,11 @@ namespace GraphicalInterface
 
             error.AutoSize = true;
             resource.AutoSize = true;
-            error.BorderStyle = BorderStyle.FixedSingle;
-            resource.BorderStyle = BorderStyle.FixedSingle;
 
             resource.Left = Page.Width / 2 - resource.Width / 2;
+            resource.Top = 10;
             error.Left = Page.Width / 2 - error.Width / 2;
-            error.Top = resource.Bottom + 10;
+            error.Top = resource.Bottom + 100;
 
             BCraft.Top = Page.Height - BCraft.Height - 10;
             BCraft.Left = Page.Width / 2 - BCraft.Width / 2;
@@ -301,6 +319,9 @@ namespace GraphicalInterface
             LSuccess.AutoSize = true;
             LSuccess.Left = LSuccess.Parent.Width / 2 - LSuccess.Width / 2;
             LSuccess.Top = BCraft.Top - 10 - LSuccess.Height;
+
+            error.Visible = false;
+            resource.TextAlign = ContentAlignment.MiddleCenter;
         }
 
         private void Craft_Click (object sender, EventArgs e)
@@ -369,6 +390,25 @@ namespace GraphicalInterface
         {
             Button button = (Button)sender;
             string page = (string)button.Tag;
+
+            if(page == "Sell")
+            {
+                BSell.Font = new Font(_contextForm.Font.Families[0], 25, FontStyle.Underline);
+                BBuy.Font = new Font(_contextForm.Font.Families[0], 25);
+                BAlchemist.Font = new Font(_contextForm.Font.Families[0], 25);
+            }
+            else if(page == "Buy")
+            {
+                BSell.Font = new Font(_contextForm.Font.Families[0], 25);
+                BBuy.Font = new Font(_contextForm.Font.Families[0], 25, FontStyle.Underline);
+                BAlchemist.Font = new Font(_contextForm.Font.Families[0], 25);
+            }
+            else
+            {
+                BSell.Font = new Font(_contextForm.Font.Families[0], 25);
+                BBuy.Font = new Font(_contextForm.Font.Families[0], 25);
+                BAlchemist.Font = new Font(_contextForm.Font.Families[0], 25, FontStyle.Underline);
+            }
 
             _page = page;
             TableChanged();

@@ -41,6 +41,7 @@ namespace GraphicalInterface
                     _world.ActualPosition = _instance.Target;
                     World uc = new World(_world, _contextForm, false);
                     _contextForm.ChangeUC(uc, true);
+                    _world.TavernCharactersChange();
                 }
                 else if(_world.ActualPosition == listZones[0])
                 {

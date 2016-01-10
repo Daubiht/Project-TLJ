@@ -40,11 +40,18 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(663, 9);
-            this.button1.Name = "button1";
+            this.button1.AutoSize = true;
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font(_contextForm.Font.Families[0], 30);
+            this.button1.Location = new System.Drawing.Point(600, 0);
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 0;
-            this.button1.Text = "Retour";
+            this.button1.Text = "retour";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -59,7 +66,8 @@
             // LGold
             // 
             this.LGold.AutoSize = true;
-            this.LGold.Location = new System.Drawing.Point(606, 14);
+            this.LGold.Font = new System.Drawing.Font(_contextForm.Font.Families[1], 18);
+            this.LGold.Location = new System.Drawing.Point(250, 15);
             this.LGold.Name = "LGold";
             this.LGold.Size = new System.Drawing.Size(34, 13);
             this.LGold.TabIndex = 3;
@@ -78,35 +86,53 @@
             // 
             // BAlchemist
             // 
-            this.BAlchemist.Location = new System.Drawing.Point(97, 137);
-            this.BAlchemist.Name = "BAlchemist";
-            this.BAlchemist.Size = new System.Drawing.Size(71, 24);
+            this.BAlchemist.AutoSize = true;
+            this.BAlchemist.BackColor = System.Drawing.Color.Transparent;
+            this.BAlchemist.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BAlchemist.FlatAppearance.BorderSize = 0;
+            this.BAlchemist.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.BAlchemist.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.BAlchemist.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BAlchemist.Font = new System.Drawing.Font(_contextForm.Font.Families[0], 25);
+            this.BAlchemist.Location = new System.Drawing.Point(25, 150);
             this.BAlchemist.TabIndex = 8;
             this.BAlchemist.Tag = "Alchemist";
-            this.BAlchemist.Text = "Artisanat";
+            this.BAlchemist.Text = "artisanat";
             this.BAlchemist.UseVisualStyleBackColor = true;
             this.BAlchemist.Visible = false;
             this.BAlchemist.Click += new System.EventHandler(this.ChangePage);
             // 
             // BSell
             // 
-            this.BSell.Location = new System.Drawing.Point(97, 93);
-            this.BSell.Name = "BSell";
-            this.BSell.Size = new System.Drawing.Size(71, 24);
+            this.BSell.AutoSize = true;
+            this.BSell.BackColor = System.Drawing.Color.Transparent;
+            this.BSell.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BSell.FlatAppearance.BorderSize = 0;
+            this.BSell.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.BSell.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.BSell.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BSell.Font = new System.Drawing.Font(_contextForm.Font.Families[0], 25);
+            this.BSell.Location = new System.Drawing.Point(25, 100);
             this.BSell.TabIndex = 9;
             this.BSell.Tag = "Sell";
-            this.BSell.Text = "Vente";
+            this.BSell.Text = "vente";
             this.BSell.UseVisualStyleBackColor = true;
             this.BSell.Click += new System.EventHandler(this.ChangePage);
             // 
             // BBuy
             // 
-            this.BBuy.Location = new System.Drawing.Point(97, 51);
-            this.BBuy.Name = "BBuy";
-            this.BBuy.Size = new System.Drawing.Size(71, 24);
+            this.BBuy.AutoSize = true;
+            this.BBuy.BackColor = System.Drawing.Color.Transparent;
+            this.BBuy.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BBuy.FlatAppearance.BorderSize = 0;
+            this.BBuy.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.BBuy.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.BBuy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BBuy.Font = new System.Drawing.Font(_contextForm.Font.Families[0], 25, System.Drawing.FontStyle.Underline);
+            this.BBuy.Location = new System.Drawing.Point(25, 50);
             this.BBuy.TabIndex = 10;
             this.BBuy.Tag = "Buy";
-            this.BBuy.Text = "Achat";
+            this.BBuy.Text = "achat";
             this.BBuy.UseVisualStyleBackColor = true;
             this.BBuy.Click += new System.EventHandler(this.ChangePage);
             // 
@@ -115,7 +141,7 @@
             this.Page.AutoScroll = true;
             this.Page.Location = new System.Drawing.Point(183, 51);
             this.Page.Name = "Page";
-            this.Page.Size = new System.Drawing.Size(411, 258);
+            this.Page.Size = new System.Drawing.Size(475, 275);
             this.Page.TabIndex = 11;
             // 
             // Merchant

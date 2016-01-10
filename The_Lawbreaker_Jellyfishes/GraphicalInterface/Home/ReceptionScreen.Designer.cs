@@ -48,7 +48,6 @@ namespace GraphicalInterface
             this.NewParty.Font = new System.Drawing.Font(_context.Font.Families[0], 35);
             this.NewParty.Name = "NewParty";
             this.NewParty.Size = new System.Drawing.Size(88, 23);
-            this.NewParty.TabIndex = 0;
             this.NewParty.Text = "Nouvelle partie";
             this.NewParty.Location = new System.Drawing.Point(0, 0);
             this.NewParty.UseVisualStyleBackColor = false;
@@ -65,7 +64,6 @@ namespace GraphicalInterface
             this.ChargeParty.Font = new System.Drawing.Font(_context.Font.Families[0], 35);
             this.ChargeParty.Name = "ChargeParty";
             this.ChargeParty.Size = new System.Drawing.Size(83, 23);
-            this.ChargeParty.TabIndex = 0;
             this.ChargeParty.Text = "Charger partie";
             this.ChargeParty.Location = new System.Drawing.Point(0, 0);
             this.ChargeParty.UseVisualStyleBackColor = false;
@@ -73,6 +71,7 @@ namespace GraphicalInterface
             // 
             // quitButton
             // 
+            this.quitButton.TabStop = false;
             this.quitButton.AutoSize = true;
             this.quitButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.quitButton.FlatAppearance.BorderSize = 0;
@@ -82,7 +81,6 @@ namespace GraphicalInterface
             this.quitButton.Font = new System.Drawing.Font(_context.Font.Families[0], 35);
             this.quitButton.Name = "quitButton";
             this.quitButton.Size = new System.Drawing.Size(75, 23);
-            this.quitButton.TabIndex = 2;
             this.quitButton.Text = "Quitter";
             this.quitButton.Location = new System.Drawing.Point(0, 0);
             this.quitButton.UseVisualStyleBackColor = false;

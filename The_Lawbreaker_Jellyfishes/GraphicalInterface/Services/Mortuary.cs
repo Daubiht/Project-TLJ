@@ -102,6 +102,7 @@ namespace GraphicalInterface
                 bg.Controls.Add(name);
                 bg.Controls.Add(get);
 
+                if (t.Members.Count == 4) get.Enabled = false;
                 get.Left = 220;
                 get.Top = 10;
                 get.Tag = m.BodyList[j];
@@ -148,6 +149,7 @@ namespace GraphicalInterface
                     bg.Controls.Add(name);
                     bg.Controls.Add(stock);
 
+                    if (m.BodyList.Count == 4) stock.Enabled = false;
                     stock.Left = 220;
                     stock.Top = 10;
                     stock.Tag = chara;
@@ -169,7 +171,7 @@ namespace GraphicalInterface
             if (i == 0)
             {
                 Label l = new Label();
-                l.Text = "Aucun membre de l'équipe est mort.";
+                l.Text = "Aucun membre de l'équipe n'est mort.";
                 l.Font = new System.Drawing.Font(_contextForm.Font.Families[1], 18);
                 l.Top = 10;
                 l.Width = this.Width;

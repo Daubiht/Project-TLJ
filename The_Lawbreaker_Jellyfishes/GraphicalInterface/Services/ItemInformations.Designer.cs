@@ -39,6 +39,7 @@
             // LName
             // 
             this.LName.AutoSize = true;
+            this.LName.Font = new System.Drawing.Font(_fonts[1], 15);
             this.LName.Location = new System.Drawing.Point(12, 17);
             this.LName.Name = "LName";
             this.LName.Size = new System.Drawing.Size(29, 13);
@@ -48,7 +49,8 @@
             // LPrice
             // 
             this.LPrice.AutoSize = true;
-            this.LPrice.Location = new System.Drawing.Point(166, 17);
+            this.LPrice.Font = new System.Drawing.Font(_fonts[1], 15);
+            this.LPrice.Location = new System.Drawing.Point(175, 17);
             this.LPrice.Name = "LPrice";
             this.LPrice.Size = new System.Drawing.Size(24, 13);
             this.LPrice.TabIndex = 1;
@@ -56,23 +58,34 @@
             // 
             // BBuy
             // 
-            this.BBuy.Location = new System.Drawing.Point(287, 11);
+            this.BBuy.AutoSize = true;
+            this.BBuy.BackColor = System.Drawing.Color.Transparent;
+            this.BBuy.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BBuy.FlatAppearance.BorderSize = 0;
+            this.BBuy.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.BBuy.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.BBuy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BBuy.Font = new System.Drawing.Font(_fonts[0], 20);
+            this.BBuy.Location = new System.Drawing.Point(350, 0);
             this.BBuy.Name = "BBuy";
-            this.BBuy.Size = new System.Drawing.Size(75, 23);
             this.BBuy.TabIndex = 3;
-            this.BBuy.Text = "Acheter";
+            this.BBuy.Text = "acheter";
             this.BBuy.UseVisualStyleBackColor = true;
             // 
             // NQuantity
             // 
-            this.NQuantity.Location = new System.Drawing.Point(230, 12);
+            this.NQuantity.Location = new System.Drawing.Point(280, 12);
             this.NQuantity.Name = "NQuantity";
             this.NQuantity.Size = new System.Drawing.Size(52, 20);
             this.NQuantity.TabIndex = 4;
+            this.NQuantity.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.NQuantity.Font = new System.Drawing.Font(_fonts[1], 15);
+            this.NQuantity.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // LQuantity
             // 
             this.LQuantity.AutoSize = true;
+            this.LQuantity.Font = new System.Drawing.Font(_fonts[1], 15);
             this.LQuantity.Location = new System.Drawing.Point(96, 17);
             this.LQuantity.Name = "LQuantity";
             this.LQuantity.Size = new System.Drawing.Size(46, 13);
@@ -83,14 +96,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.LQuantity);
             this.Controls.Add(this.NQuantity);
             this.Controls.Add(this.BBuy);
             this.Controls.Add(this.LPrice);
             this.Controls.Add(this.LName);
             this.Name = "ItemInformations";
-            this.Size = new System.Drawing.Size(372, 44);
+            this.Size = new System.Drawing.Size(445, 44);
             ((System.ComponentModel.ISupportInitialize)(this.NQuantity)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
