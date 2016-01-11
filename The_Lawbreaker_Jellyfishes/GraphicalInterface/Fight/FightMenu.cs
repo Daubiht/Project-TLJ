@@ -56,41 +56,59 @@ namespace GraphicalInterface
             }
 
         }
-        // ____Method to get the character who is launching a basic attack
+        // Lunch a basic attack
         public void BasicAttack(object sender, EventArgs e)
         {
-            _fight.GetMemberWhoAttack(_selectedMember, null, _selectedMember.PhysicalAttack);
-            _FUC.EndFight();
+            if ( _selectedMember.DidMemberPlay == false && _selectedMember.isAlive )
+            {
+                _fight.HitMonster();
+                _FUC.EndFight();
+                // Monsters attack members if they all played
+                if ( _fight.DidAllMemberPlay() )
+                {
+                    _fight.MonsterAttack();
+                    foreach ( PanelCharacter pC in _panelCharacterList ) pC.RefreshInformation();
+                    // If our SELECTED CHARACTER is attacked, we refresh his HP BAR
+                    foreach ( Character c in _fight.GetTeam.Members )
+                        if ( c.Name == _fight.SelectedCharacter.Name && c.HealthPoint != _fight.OldLifeSelectedMember )
+                            _FUC.CreateFightMenu(c);
+                }
+                foreach ( PanelCharacter pc in _FUC.GetCharacterPanel ) pc.RefreshInformation();
+                foreach ( PanelCharacter pc in _FUC.GetMonsterPanel ) pc.RefreshInformation();
+                _FUC.NextMember();
+                _FUC.NextMonster();
+                _FUC.ChangeColorPanel();
+                _FUC.EndFight();
+            }
         }
-        // ____Method to INCREASE ROBUSTNESS by X % of the member during 1 tour, X % is define the character class
+        // Increase robustness by X % of the member during 1 tour, X % is define the character class
         public void Defense(object sender, EventArgs e)
         {
-            // bool used in case everybody use "defense" button
-            bool didAllMemberPlayed = true;
-            // Given in parameters the current number turn, used to know when will finish the defense skill
-            _selectedMember.Defense(_fight.NumberTurn);
-            // Here we say that the member just played
-            _selectedMember.DidMemberPlay = true;
-            // Check if every member are in defense position
-            foreach(Character c in _fight.GetTeam.Members )
-                if ( c.DidMemberPlay == false )
-                    didAllMemberPlayed = false;
-            // If yes, it's monsters to attack the team
-            if ( didAllMemberPlayed == true )
+            // if the member hasn't played yet, he can open the inventory of consumable
+            if ( _selectedMember.DidMemberPlay == false && _selectedMember.isAlive )
             {
-                _fight.MonsterAttack();
-                foreach ( PanelCharacter pC in _panelCharacterList ) pC.RefreshInformation();
-                // If our SELECTED CHARACTER is attacked, we refresh his HP BAR
-                foreach ( Character c in _fight.GetTeam.Members )
-                    if ( c.Name == _fight.SelectedCharacter.Name && c.HealthPoint != _fight.OldLifeSelectedMember )
-                        _FUC.CreateFightMenu(c);
+                // Given in parameters the current number turn, used to know when will finish the defense skill
+                _selectedMember.Defense(_fight.NumberTurn);
+                // Here we say that the member just played
+                _selectedMember.DidMemberPlay = true;
+                _FUC.NextMember();
+                // Monsters attack members if they all played
+                if ( _fight.DidAllMemberPlay() )
+                {
+                    _fight.MonsterAttack();
+                    foreach ( PanelCharacter pC in _panelCharacterList ) pC.RefreshInformation();
+                    // If our SELECTED CHARACTER is attacked, we refresh his HP BAR
+                    foreach ( Character c in _fight.GetTeam.Members )
+                        if ( c.Name == _fight.SelectedCharacter.Name && c.HealthPoint != _fight.OldLifeSelectedMember )
+                            _FUC.CreateFightMenu(c);
+                }
+                _FUC.ChangeColorPanel();
+                _FUC.EndFight();
             }
-            _FUC.EndFight();
         }
-        // ____Method to RUN AWAY
+        // Run away
         public void RunAway(object sender, EventArgs e)
         {
-
             // Check if the member hasn't play yet and if he is still alvie
             if(_selectedMember.DidMemberPlay == false && _selectedMember.isAlive == true )
             {
@@ -116,28 +134,54 @@ namespace GraphicalInterface
             }
             // Check if all monster or all members are dead
             _FUC.EndFight();
+            _FUC.ChangeColorPanel();
         }
-        //_____Method to open the inventory consumable during fight
+        // Open the inventory consumable during fight
         public void AccessInventory(object sender, EventArgs e)
         {
             // if the member hasn't played yet, he can open the inventory of consumable
-            if(_selectedMember.DidMemberPlay == false )
+            if(_selectedMember.DidMemberPlay == false  && _selectedMember.isAlive)
             {
                 FiltredInventory FIClass = new FiltredInventory(_fight.GetTeam, _selectedMember, "consommable", _context, true);
                 FiltredInventoryForm FIForm = new FiltredInventoryForm(FIClass, _panelCharacterList, _fight);
                 // Display the windows if the inventory consumables
                 FIForm.ShowDialog();
+                // if the member uses a consumable we select the next member, change color etc
+                if( _selectedMember.DidMemberPlay == true )
+                {
+                    _FUC.NextMember();
+                    foreach ( PanelCharacter pc in _FUC.GetCharacterPanel ) pc.RefreshInformation();
+                    _FUC.ChangeColorPanel();
+                }
             }
         }
-
 
         public List<PanelCharacter> PanelsMembers { get { return _panelCharacterList; } }
 
         private void toolStripSkills_DropDownItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
-            string skillName = e.ClickedItem.Text;
-            _fight.GetMemberWhoAttack(_selectedMember, _selectedMember.Skills[skillName], 0);
-            _FUC.EndFight();
+            // if the member and monsters are alive
+            if ( _fight.SelectedCharacter.DidMemberPlay == false && _fight.SelectedCharacter.isAlive && _fight.SelectedMonster.Alive )
+            {
+                string skillName = e.ClickedItem.Text;
+                _fight.SelectedSkill = _selectedMember.Skills[skillName];
+
+                if ( _fight.SelectedCharacter.UseSkill(_fight.SelectedSkill, _fight.SelectedMonster) )
+                {
+                    _fight.SelectedCharacter.DidMemberPlay = true;
+                    foreach ( PanelCharacter pc in _FUC.GetMonsterPanel ) pc.RefreshInformation();
+                    if ( _fight.DidAllMemberPlay() )
+                    {
+                        _fight.MonsterAttack();
+                        foreach ( PanelCharacter pC in _panelCharacterList ) pC.RefreshInformation();
+                    }
+                }
+                _FUC.NextMonster();
+                _FUC.NextMember();
+                _FUC.ChangeColorPanel();
+                _fight.SelectedSkill = null;
+                _FUC.EndFight();
+            }
         }
     }
 

@@ -59,6 +59,7 @@ namespace LogicalGame.Test.Creation
             Dictionary<string, int> effectsm5 = new Dictionary<string, int>();
             effectsm5.Add("attaque magique", 170);
             Skill sm5 = new Skill("Boule de Feu", "Lance une boule de feu vers un ennemie", new int[] { 0, 30, 0, 0, 0, 0 }, 0, 0, effectsm5, new int[] { 0, 3 }, false);
+            sm5.TimeEffects.Add(new Effect("brulure", 15, 2, null));
             sm5.PreviousSkill = sm2;
             Dictionary<string, int> effectsm6 = new Dictionary<string, int>();
             effectsm6.Add("soin team", 30);

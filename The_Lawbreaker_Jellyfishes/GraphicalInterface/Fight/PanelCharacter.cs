@@ -47,6 +47,12 @@ namespace GraphicalInterface
                 labelCharName.Text = _monster.Name;
                 labelHPResult.Text = _monster.Health.ToString();
                 labelStaminaResult.Text = _monster.Stamina.ToString();
+                Width = Image.FromFile(@"../../../Ressources/Mob/Bat/Resized/2.png").Width + 70; 
+                Height = Image.FromFile(@"../../../Ressources/Mob/Bat/Resized/2.png").Height; 
+                pictureBox1.Visible = true;
+
+                pictureBox1.BackgroundImage = Image.FromFile(@"../../../Ressources/Mob/Bat/Resized/2.png");
+                pictureBox1.Size = new Size(Image.FromFile(@"../../../Ressources/Mob/Bat/Resized/2.png").Width, Image.FromFile(@"../../../Ressources/Mob/Bat/Resized/2.png").Height);
             }
         }
 
@@ -63,41 +69,40 @@ namespace GraphicalInterface
             // If the player clicks on a character's panel, we create a menu which display information about the member, and change his bordel style
             if ( _obj is Character )
             {
-
-                // Remove border style of all member's panel
-                ChangeBorderStyle(false);
-                // Assign a special bordel style only to the selected member 
-                ChangeBorderStyle(true);
-                // Create the fight menu of the selected member
-                _FightUserControl.CreateFightMenu(_character);
-                // Get the character we click on it
-                _fight.WhoIsSelected(_character);
+                if (_fight.SelectedSkill == null)
+                {
+                    // Create the fight menu of the selected member
+                    _FightUserControl.CreateFightMenu(_character);
+                    // Get the character we click on it
+                    _fight.SelectedCharacter = _character;
+                    _FightUserControl.ChangeColorPanel();
+                }
+                else
+                {
+                    if (_fight.SelectedCharacter.DidMemberPlay == false && _fight.SelectedCharacter.isAlive)
+                    {
+                        if (_fight.SelectedCharacter.UseSkill(_fight.SelectedSkill, _character))
+                        {
+                            _fight.SelectedCharacter.DidMemberPlay = true;
+                            _FightUserControl.NextMember();
+                            _FightUserControl.ChangeColorPanel();
+                            RefreshInformation();
+                        }
+                    }
+                    _fight.SelectedSkill = null;
+                }
             }
 
             // If the player clicks on a monster's panel, the member attacks the monster
             else if ( _obj is Monster )
             {
-                if ( _fight.GetAttackedMonster(_monster) == true ) // True means "All monsters attacked, so we need to refresh the character's panels to display new HP point and stamina"
+                if (_fight.SelectedSkill == null)
                 {
-                    foreach ( PanelCharacter pC in _FightUserControl.GetCharacterPanel )
-                    {
-                        // We refresh informations on the character's panels
-                        pC.RefreshInformation();
-                        // We color all the panels character who are alive to say they can play again
-                        if ( pC.GetCharacter.isAlive == true)
-                            pC.BackColor = Color.LightSkyBlue;
-                    }
+                    // We save the selected the monster
+                    _fight.SelectedMonster = _monster;
+                    // Color the selected monster
+                    _FightUserControl.ChangeColorPanel();
                 }
-                // If the members who attack is notn null (because we just start the fight) and didn't succeed to attack because he selected the wrong monster, the selector is still on his panel
-                if ( _fight.MemberWhoIsAttacking != null && _fight.MemberWhoIsAttacking.SuccedAttack == false )
-                {
-                    foreach (PanelCharacter p in _FightUserControl.GetCharacterPanel )
-                        if ( _fight.MemberWhoIsAttacking.Name == p.GetCharacter.Name ) p.BackColor = Color.SteelBlue;
-                }
-                // After the character attacked, we only actualize the HP of the attacked monster
-                RefreshInformation();
-                // Color the panel of members who played
-                ColorPlayedCharacter();
             }
         }
         // Method who dislays actulized informations of monster and character panels, like HP, Stamina etc.
@@ -113,7 +118,7 @@ namespace GraphicalInterface
                 if ( _monster.Alive == false ) BackColor = Color.Black;
             }
             // Actualize Member's informations
-            else if (_obj is Character )
+            else if ( _obj is Character )
             {
                 labelHPResult.Text = _character.HealthPoint.ToString();
                 labelStaminaResult.Text = _character.Stamina.ToString();
@@ -121,43 +126,15 @@ namespace GraphicalInterface
                 if ( _character.isAlive == false ) BackColor = Color.Black;
                 else if ( _character.isAlive == true ) BackColor = Color.LightSkyBlue;
                 // Refresh HP BAR of our SELECTED CHARACTER if he is attacked
-                foreach(Character c in _fight.GetTeam.Members )
+                foreach ( Character c in _fight.GetTeam.Members )
                     if ( c.Name == _fight.SelectedCharacter.Name && c.HealthPoint != _fight.OldLifeSelectedMember )
                         _FightUserControl.CreateFightMenu(c);
             }
         }
 
-        // Method who colors the panel of character WHO ALREADY PLAYED
-        public void ColorPlayedCharacter()
-        {
-            foreach ( PanelCharacter p in _FightUserControl.GetCharacterPanel )
-                if ( p.GetCharacter.DidMemberPlay == true && p.GetCharacter.isAlive == true)
-                    p.BackColor = Color.Gray;
-        }
-        // Method who changes the border style of the SELECTED CHARACTER'S PANEL
-        public void ChangeBorderStyle(bool DoStyle)
-        {   // If false, Remove all border style of all members
-            if ( DoStyle == false )
-            { 
-                foreach ( PanelCharacter pC in _FightUserControl.GetCharacterPanel )
-                {
-                    pC.BorderStyle = BorderStyle.None;
-                    // If the member is DEAD, the panel is colored in BLACK
-                    if ( pC.GetCharacter.isAlive == false ) pC.BackColor = Color.Black;
-                    // If the member is ALIVE, the panel is colored in LIGHT
-                    if ( pC.GetCharacter.isAlive == true ) pC.BackColor = Color.LightSkyBlue;
-                    // If the member is ALIVE and already PLAYED, the panel is in GRAY
-                    if ( pC._character.DidMemberPlay == true && pC.GetCharacter.isAlive == true ) pC.BackColor = Color.Gray;
-                }
-            }
-            // If true, assign a special border style to the selected member's panel
-            if ( DoStyle == true )
-            {
-                BorderStyle = BorderStyle.FixedSingle;
-                BackColor = Color.SteelBlue;
-            }
-        }
 
         public Character GetCharacter{get { return _character; }}
+        public Monster GetMonster { get { return _monster; } }
+
     }
 }

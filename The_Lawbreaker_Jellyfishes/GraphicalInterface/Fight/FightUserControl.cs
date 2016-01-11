@@ -14,6 +14,8 @@ namespace GraphicalInterface
     public partial class FightUserControl : UserControl
     {
         List<PanelCharacter> _panelMembers;
+        List<PanelCharacter> _panelMonsters;
+
         List<Monster> _monsters;
         Team _team;
         Fight _fight;
@@ -24,13 +26,13 @@ namespace GraphicalInterface
         // Fight menu displays attack, skill, informations about the selected member
         FightMenu _currentMemberMenu;
 
-        // List used to select FRONT MEMBERS
+        // Front members
         List<Character> _frontMembers = new List<Character>();
-        // list used to select HIDDEN MEMBERS
+        // Hidden members
         List<Character> _hiddenMembers = new List<Character>();
-        // List used to select FRONT MONSTERS
+        // Front monsters
         List<Monster> _frontMonsters = new List<Monster>();
-        // list used to select HIDDEN MONSTERS
+        // hidden monsters
         List<Monster> _hiddenMonsters = new List<Monster>();
 
         // Set X positions of members and monsters
@@ -57,6 +59,7 @@ namespace GraphicalInterface
             _context = context;
             _fight = new Fight(_monsters, _team);
             _panelMembers = new List<PanelCharacter>();
+            _panelMonsters = new List<PanelCharacter>();
 
             // INCREASE basic stats of members thanks to their stuff
             IncreaseBasicsStatsThanksStuff(TeamWhoFight, true);
@@ -120,6 +123,18 @@ namespace GraphicalInterface
             SetPanelPosition(_hiddenMembers, _posYHiddenMember);
             SetPanelPosition(_frontMonsters, _posYFrontMonster);
             SetPanelPosition(_hiddenMonsters, _posYHiddenMonster);
+
+            // Select the first member who plays
+            foreach(Character c in _team.Members )
+            {
+                if( c.isAlive )
+                {
+                    CreateFightMenu(c);
+                    _fight.SelectedCharacter = c;
+                    break;
+                }
+            }
+            ChangeColorPanel();
         }
 
         private void FightUserControl_Load(object sender, EventArgs e)
@@ -127,7 +142,7 @@ namespace GraphicalInterface
 
         }
 
-        // Method who sets the PANEL'S POSITION
+        // Panel's position
         public void SetPanelPosition<T>(List<T> MonsterOrMemberList, int posY)
         { 
             // Place the 1 front member/monster in the middle
@@ -139,10 +154,9 @@ namespace GraphicalInterface
                     PanelCharacter p = new PanelCharacter(t, _fight, this, _context);
                     p.Location = new Point(localPosX1Member, posY);
                     Controls.Add(p);
-                    if (t is Character )
-                    {
+                    if ( t is Character )
                         _panelMembers.Add(p);
-                    }
+                    else _panelMonsters.Add(p);
                 }
             }
             // Place the 2 front members/monster in the middle
@@ -156,9 +170,8 @@ namespace GraphicalInterface
                     Controls.Add(p);
                     localPosX2Member += _spaceBetweenPanels;
                     if ( t is Character )
-                    {
                         _panelMembers.Add(p);
-                    }
+                    else _panelMonsters.Add(p);
                 }
             }
             // Place 3 front members/monster in the middle
@@ -172,9 +185,8 @@ namespace GraphicalInterface
                     Controls.Add(p);
                     localPosX3Member += _spaceBetweenPanels;
                     if ( t is Character )
-                    {
                         _panelMembers.Add(p);
-                    }
+                    else _panelMonsters.Add(p);
                 }
             }
             // Place 4 front members/monster
@@ -188,9 +200,8 @@ namespace GraphicalInterface
                     Controls.Add(p);
                     localPosX4Member += _spaceBetweenPanels;
                     if ( t is Character )
-                    {
                         _panelMembers.Add(p);
-                    }
+                    else _panelMonsters.Add(p);
                 }
             }
         }
@@ -202,11 +213,11 @@ namespace GraphicalInterface
             _currentMemberMenu = new FightMenu(DisplayedCharacter, _fight, _context, _panelMembers, this);
             Controls.Add(_currentMemberMenu);
         }
-        //____Method to END THE FIGHT
+        // Create end fight screen
         public void EndFight()
         {
-            // DEFEAT SCREEN If all members dead
-            if ( _fight.AreAllMembersDead == true )
+            // Defeat screen
+            if ( _fight.AreAllMembersDead )
             {
                 // DECREASE basic stats of members because of their stuff
                 IncreaseBasicsStatsThanksStuff(_team, false);
@@ -215,16 +226,21 @@ namespace GraphicalInterface
                 EndFightDefeat EFDefeat = new EndFightDefeat(_context, true);
                 _context.ChangeUC(EFDefeat, false, true);
             }
-            // VICTORY SCREEN If all monster dead
-            else if ( _fight.AreAllMonstersDead == true )
+            // Victory screen
+            else if ( _fight.AreAllMonstersDead  )
             {
-                // DECREASE basic stats of members because of their stuff
-                IncreaseBasicsStatsThanksStuff(_team, false);
-                EndFightVictory EFVictory = new EndFightVictory(_context, _monsters, false);
-                _context.ChangeUC(EFVictory, true, true);
+                if(_fight.IsEndFight == false )
+                {
+                    // DECREASE basic stats of members because of their stuff
+                    IncreaseBasicsStatsThanksStuff(_team, false);
+                    EndFightVictory EFVictory = new EndFightVictory(_context, _monsters, false);
+                    _context.ChangeUC(EFVictory, true, true);
+                    // Avoid to gain a lot of level
+                    _fight.IsEndFight = true;
+                }
             }
         }
-        //____Method to INCREASE or DECREASE the basic stattistics of a member thanks to his equiped stuff
+        // Increase or decrease the basic stattistics of a member thanks to his equiped stuff
         public void IncreaseBasicsStatsThanksStuff(Team Team, bool Equiped)
         {
             // We INCREASE the basic stats thanks to the stuff, usefull when we START THE FIGHT
@@ -238,7 +254,7 @@ namespace GraphicalInterface
                     if( c.StatsStuff.ContainsKey("robustesse") )       { c.HealthPoint = c.Robustness        + c.StatsStuff["robustesse"]; }
                 }
             }
-            // We DECREASE the basic stats, usefull when we FINISH THE FIGHT
+            // Decrease the basic stats when we finish the fight
             else if ( Equiped == false )
             {
                 // We reset basic stats of all member to their original basic stats
@@ -254,10 +270,80 @@ namespace GraphicalInterface
                 }
             }
         }
-        public List<PanelCharacter> GetCharacterPanel
+        // Select the next member who plays
+        public void NextMember()
         {
-            get { return _panelMembers;  }
+            foreach ( Character c in _fight.GetTeam.Members )
+            {
+                if ( c.isAlive == true && c.DidMemberPlay == false )
+                {
+                    foreach ( PanelCharacter PC in GetCharacterPanel )
+                    {
+                        if ( PC.GetCharacter == c )
+                        {
+                            PC.BackColor = Color.SteelBlue;
+                            // Create the fight menu of the selected member
+                            CreateFightMenu(c);
+                            // Get the character we click on it
+                            _fight.WhoIsSelected(c);
+                        }
+                    }
+                    break;
+                }
+            }
         }
+
+        // Change color of panels
+        public void ChangeColorPanel()
+        {   // If false, Remove all border style of all members
+            foreach ( PanelCharacter pC in GetCharacterPanel )
+            {
+                // BLACK If the member is DEAD
+                if ((pC.GetCharacter !=null && !pC.GetCharacter.isAlive)) pC.BackColor = Color.Black;
+                // LIGHT BLUE If the member is ALIVE
+                if ( pC.GetCharacter.isAlive == true ) pC.BackColor = Color.LightSkyBlue;
+                // GRAY color If the member is ALIVE and already PLAYED
+                if ( pC.GetCharacter.DidMemberPlay == true && pC.GetCharacter.isAlive == true ) pC.BackColor = Color.Gray;
+                // BLUE FONCE if panel is selected
+                if ( pC.GetCharacter == _fight.SelectedCharacter ) pC.BackColor = Color.SteelBlue;
+            }
+
+            foreach (PanelCharacter pC in GetMonsterPanel )
+            {
+                // LIGHT BLUE If the MONSTER is ALIVE
+                if ( pC.GetMonster.Alive ) pC.BackColor = Color.LightSkyBlue;
+                // BLACK If the member is DEAD
+                if ( (pC.GetMonster != null && !pC.GetMonster.Alive) ) pC.BackColor = Color.Black;
+                // BLUE FONCE if panel is selected
+                if ( pC.GetMonster == _fight.SelectedMonster ) pC.BackColor = Color.Brown;
+            }
+        }
+
+        // Choose automatically the next alive monster
+        public void NextMonster()
+        {
+            if ( !_fight.SelectedMonster.Alive )
+            {
+                foreach(Monster m in _fight.GetFrontMonsters )
+                {
+                    if ( m.Alive )
+                    {
+                        foreach(PanelCharacter pc in _panelMonsters )
+                        {
+                            if( m == pc.GetMonster )
+                            {
+                                _fight.SelectedMonster = m;
+                                ChangeColorPanel();
+                                return;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        public List<PanelCharacter> GetCharacterPanel { get { return _panelMembers;  } }
+        public List<PanelCharacter> GetMonsterPanel { get { return _panelMonsters; } }
         public FightMenu GetCurrentFightMenu { get { return _currentMemberMenu; } set { _currentMemberMenu = value; } }
     }
 }

@@ -8,6 +8,8 @@ namespace LogicalGame
 {
     public class Fight
     {
+        // Bool to avoid the bug of winning a lot of level
+        bool _endFight;
         // Bool to know if all monster are members, if yes, we create a new screen
         bool _areAllMembersDead;
         // Bool to know if all monster are dead, if yes, we create a new screen which display what the team earn
@@ -23,7 +25,9 @@ namespace LogicalGame
         int _basicAttack;
 
         int _oldLife;
-        Character _JustSelectedCharacter;
+        Character _selectedCharacter;
+
+        Monster _selectedMonster;
 
         // A dictionnary of dictionnaries, a dictionnary will contain the original basic stats of the members
         Dictionary<Character, Dictionary<string, int>> _OriginalBasicStats;
@@ -65,12 +69,21 @@ namespace LogicalGame
             // We save all the basic stats of all member, usefull at the end of the fight to reset all the basic stats which could be modify by skills or effects
             OriginaleStats();
             FalseDidMemberPlay();
+            _selectedMonster = _FrontMonsterList[0];
+            foreach ( Character c in _team.Members )
+            {
+                if ( c.isAlive )
+                {
+                    _selectedCharacter = c;
+                    break;
+                }
+            }
         }
         /// <summary>
         // METHODS
         /// </summary>
 
-        // Check if all MONSTERS are dead
+        // MONSTERS are dead
         public bool IsAllMonsterDie()
         {
             foreach ( Monster m in _monstersList)
@@ -81,7 +94,7 @@ namespace LogicalGame
             return true; // True means "Yes, they are all dead"
         }
 
-        // Check if all MEMBERS are DEAD
+        // MEMBERS are DEAD
         public void IsAllMemberDie()
         {
             // if localBool == true, it means all the team is dead
@@ -98,12 +111,16 @@ namespace LogicalGame
             // if localBool == true, it means all the team is dead
             if ( localBool == true ) _areAllMembersDead = true;
         }
-        // Every monster attack
+        // Monster attack members
         public bool MonsterAttack()
         {
+
             // Monsters attack members
             foreach ( Monster m in _monstersList )
             {
+                m.ApplyEffect();
+                IsAllMonsterDie();
+                
                 // If some members are alive, monster continue to attack
                 m.Attack(_team);
                 // Check if all members are dead, if yes, we create a game over screen
@@ -137,67 +154,31 @@ namespace LogicalGame
             // True means "A member of the team is attacking"
             _doesAMemberAttack = true;
         }
-        // 2 METHOD TO GET THE ATTACKED MONSTER, this method is called when the player clicks on a monster's panel
-        public bool GetAttackedMonster(Monster AttackedMonster)
+
+        // Attack monster
+        public void HitMonster()
         {
-            // Check if the player has selected a member before clicking on a monster's panel
-            if (_memberWhoAttacks != null)
+            CheckFrontMonserDead();
+            if ( _selectedCharacter != null && !_selectedCharacter.DidMemberPlay && _selectedCharacter.isAlive && _selectedMonster != null && _selectedMonster.Alive &&  _selectedMonster.FrontPosition)
             {
-                // Check if the member is ALIVE has NOT ALREADY ATTACKED a monster AND check if a member is attacking, it's avoid the player to click randomly by clicking everywhere on the screen
-                if ( _memberWhoAttacks.isAlive == true && _memberWhoAttacks.DidMemberPlay == false
-                    && _doesAMemberAttack == true && AttackedMonster.FrontPosition == true && AttackedMonster.Alive == true )
-                {
-                    _attackedMonster = AttackedMonster;
-                    // Match the member who is attacking and the attacked monster
-                    if ( HitMonster(_memberWhoAttacks, _attackedMonster) == true )
-                        return true; // True means "All monsters attacked"
-                }
-                else _memberWhoAttacks.SuccedAttack = false;
+                _selectedCharacter.AttackMonster(_selectedMonster);
+                _selectedCharacter.DidMemberPlay=true;
             }
-            return false;
+            CheckFrontMonserDead();
+
         }
-        // 3 METHOD WHO MATCHES THE MEMBER WHO ATTACKS AND THE ATTACKED MONSTER
-        public bool HitMonster(Character MemberWhoAttacks, Monster AttackedMonster)
+        // Did all member played
+        public bool DidAllMemberPlay()
         {
-            int numberOfMembers = 0;
-            // Count how many alive members are in the team in the team
-            foreach (Character c in _team.Members )
+            foreach(Character c in _team.Members )
             {
-                if ( c.isAlive == true ) numberOfMembers += 1;
-            }
-            // Count how many player has launched an attack
-            int memberWhoPlayed = 0;
-
-            MemberWhoAttacks.AttackMonster(AttackedMonster);
-            // When the member finish to attack, now nobody in the team is attacking
-            _doesAMemberAttack = false;
-            _memberWhoAttacks.SuccedAttack = true;
-            // True means "This member just attacked, he won't be able to attack again"
-            MemberWhoAttacks.DidMemberPlay = true;
-
-            // Check if all monsters are dead, if yes, we end the fight and we create a screen who dislays what the team earn
-            if ( IsAllMonsterDie() == true ) return true;
-
-            // Check if all member played, if not, the player can continue to attack the monsters
-            foreach ( Character c in _team.Members )
-            {
-                if ( c.DidMemberPlay == true & c.isAlive == true)
+                if(c.isAlive && c.DidMemberPlay == false)
                 {
-                    memberWhoPlayed += 1;
-                    CheckFrontMonserDead();
+                    return false; // not all member play
                 }
             }
-            // If all member played, monsters attack
-            if ( numberOfMembers == memberWhoPlayed )
-            {
-                MonsterAttack();
-                // True means "All monsters attacked" 
-                return true; 
-            }
-            return false;
+            return true; // all member play
         }
-
-
         //_____METHOD WHO CHECKS IF ALL FRONT MONSTER ARE DEAD TO PUT HIDDEN MONSTER IN FRONT POSITION
         public void CheckFrontMonserDead()
         {
@@ -235,7 +216,7 @@ namespace LogicalGame
                 _OriginalBasicStats.Add(c, basicStats);
             }
         }
-        //_____Method to set bool "DidMemeberPlay" as false for every member, use in the begining of the fight, in the constructor's fight
+        // Set bool "DidMemeberPlay" as false for every member, use in the begining of the fight, in the constructor's fight
         public void FalseDidMemberPlay()
         {
             foreach (Character c in _team.Members )
@@ -243,12 +224,15 @@ namespace LogicalGame
                 c.DidMemberPlay = false;
             }
         }
-        //
+        // Select the current character, usefull to refresh hp bar of our selected character if he is attacked
         public void WhoIsSelected(Character c)
         {
             _oldLife = c.HealthPoint;
-            _JustSelectedCharacter = c;
+            _selectedCharacter = c;
         }
+
+
+
         public Dictionary<Character, Dictionary<string, int>> OriginalStats { get { return _OriginalBasicStats; } }
         public bool AreAllMembersDead { get { return _areAllMembersDead; } }
         public bool AreAllMonstersDead
@@ -270,6 +254,10 @@ namespace LogicalGame
         public Character MemberWhoIsAttacking { get { return _memberWhoAttacks;  } }
         public int NumberTurn { get { return _turn; } }
         public int OldLifeSelectedMember { get { return _oldLife; } }
-        public Character SelectedCharacter { get { return _JustSelectedCharacter; }}
+        public Character SelectedCharacter { get { return _selectedCharacter; } set { _selectedCharacter = value; } }
+        public Monster SelectedMonster { get { return _selectedMonster; } set { _selectedMonster = value; } }
+        public bool IsEndFight { get { return _endFight; } set { _endFight = value; } }
+
+        public Skill SelectedSkill { get { return _selectedSkill; } set { _selectedSkill = value; } }
     }
 }

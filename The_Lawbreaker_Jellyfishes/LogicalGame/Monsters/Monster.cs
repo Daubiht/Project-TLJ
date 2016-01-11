@@ -34,7 +34,7 @@ namespace LogicalGame
 
         readonly Dictionary<String, Skill> _skills;
         Dictionary<Item, int> _drop;
-
+        List<Effect> _effects = new List<Effect>();
 
         /// <summary>
         /// Create a new Monster who is level one.
@@ -67,6 +67,11 @@ namespace LogicalGame
         //==================================================
         //               Get some stuff
         //==================================================
+
+        public List<Effect> Effect
+        {
+            get { return _effects; }
+        }
 
         public Dictionary<Item, int> Drop
         {
@@ -289,6 +294,42 @@ namespace LogicalGame
             return false;
         }
 
+        /// <summary>
+        /// Use to apply the effects in the time.
+        /// </summary>
+        public void ApplyEffect()
+        {
+            if (_isAlive)
+            {
+                for (int i = 0; i < _effects.Count; i++)
+                {
+                    Effect effect = _effects[i];
+                    int power = effect.Power;
+                    string name = effect.Name;
+                    Character caster = effect.Caster;
+
+                    if (effect.Time > 0)
+                    {
+                        switch (name)
+                        {
+                            case "brulure":
+                                Hurt((int)Math.Round((decimal)(power / 100 * caster.MagicAttack)));
+                                break;
+                            case "saignement":
+                                Hurt((int)Math.Round((decimal)(power / 100 * caster.PhysicalAttack)));
+                                break;
+                        }
+
+                        effect.Time--;
+                        if (effect.Time <= 0)
+                        {
+                            _effects.Remove(effect);
+                        }
+                    }
+                }
+            }
+        }
+        
         // This methods allows the monster to attack a member of the team
         public void Attack(Team teamToAttack)
         {
