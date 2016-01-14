@@ -47,12 +47,12 @@ namespace GraphicalInterface
                 labelCharName.Text = _monster.Name;
                 labelHPResult.Text = _monster.Health.ToString();
                 labelStaminaResult.Text = _monster.Stamina.ToString();
-                Width = Image.FromFile(@"../../../Ressources/Mob/Bat/Resized/2.png").Width + 70; 
-                Height = Image.FromFile(@"../../../Ressources/Mob/Bat/Resized/2.png").Height; 
+                Width = Image.FromFile(@"../../../Ressources/Mob/"+_monster.Race+@"/"+_monster.Name+".png").Width + 70; 
+                Height = Image.FromFile(@"../../../Ressources/Mob/" + _monster.Race + @"/" + _monster.Name + ".png").Height; 
                 pictureBox1.Visible = true;
 
-                pictureBox1.BackgroundImage = Image.FromFile(@"../../../Ressources/Mob/Bat/Resized/2.png");
-                pictureBox1.Size = new Size(Image.FromFile(@"../../../Ressources/Mob/Bat/Resized/2.png").Width, Image.FromFile(@"../../../Ressources/Mob/Bat/Resized/2.png").Height);
+                pictureBox1.BackgroundImage = Image.FromFile(@"../../../Ressources/Mob/" + _monster.Race + @"/" + _monster.Name + ".png");
+                pictureBox1.Size = new Size(Image.FromFile(@"../../../Ressources/Mob/" + _monster.Race + @"/" + _monster.Name + ".png").Width, Image.FromFile(@"../../../Ressources/Mob/" + _monster.Race + @"/" + _monster.Name + ".png").Height);
             }
         }
 
