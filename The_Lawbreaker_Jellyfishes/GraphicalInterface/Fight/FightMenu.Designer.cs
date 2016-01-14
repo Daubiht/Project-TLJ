@@ -111,7 +111,7 @@
             // 
             // ButtonRunAway
             // 
-            this.ButtonRunAway.Location = new System.Drawing.Point(699, 24);
+            this.ButtonRunAway.Location = new System.Drawing.Point(693, 19);
             this.ButtonRunAway.Name = "ButtonRunAway";
             this.ButtonRunAway.Size = new System.Drawing.Size(48, 31);
             this.ButtonRunAway.TabIndex = 2;

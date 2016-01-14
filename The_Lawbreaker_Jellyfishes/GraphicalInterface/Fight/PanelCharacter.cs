@@ -38,6 +38,8 @@ namespace GraphicalInterface
                 labelHPResult.Text = _character.HealthPoint.ToString();
                 labelStaminaResult.Text = _character.Stamina.ToString();
                 labelCharName.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+                // Height of character's panel
+                Height = 50;
             }
             // if the object is a monster, we create a monster's panel
             else if ( obj is Monster)

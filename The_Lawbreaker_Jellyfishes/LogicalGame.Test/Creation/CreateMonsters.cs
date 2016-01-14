@@ -142,7 +142,7 @@ namespace LogicalGame.Test
             m25.XP = 70;
             m25.Gold = 40;
             m25.AddItemToDrop(item.Items[4], 60);
-            Monster m26 = new Monster("Fantome", 4, "Dead", 15, 15, 70, 4, 2, 0);
+            Monster m26 = new Monster("Fantome", 4, "Dead", 15, 0, 70, 4, 2, 0);
             m26.XP = 65;
             m26.Gold = 35;
             m26.AddItemToDrop(item.Items[4], 60);
@@ -312,9 +312,9 @@ namespace LogicalGame.Test
             listMonsters.Add(m16);
             listMonsters.Add(m17);
             listMonsters.Add(m18);
-            listMonsters.Add(m19);
-            listMonsters.Add(m20);
-            listMonsters.Add(m21);
+            //listMonsters.Add(m19);
+            //listMonsters.Add(m20);
+            //listMonsters.Add(m21);
             listMonsters.Add(m22);
             listMonsters.Add(m23);
             listMonsters.Add(m24);
