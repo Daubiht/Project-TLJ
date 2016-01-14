@@ -68,12 +68,12 @@ namespace LogicalGame.Test
             m9.Gold = 50;
             m9.AddItemToDrop(item.Items[4], 60);
             // Bees
-            Monster m10 = new Monster("Abeille jaune", 1, "Abeille", 4, 0, 45, 1, 0, 1);
+            Monster m10 = new Monster("Petite abeille", 1, "Abeille", 4, 0, 45, 1, 0, 1);
             m10.XP = 20;
             m10.Gold = 15;
             m10.AddItemToDrop(item.Items[4], 60);
 
-            Monster m11 = new Monster("Abeille rouge", 2, "Abeille", 4, 4, 45, 1, 0, 1);
+            Monster m11 = new Monster("Grande abeille", 2, "Abeille", 4, 4, 45, 1, 0, 1);
             m11.XP = 20;
             m11.Gold = 15;
             m11.AddItemToDrop(item.Items[4], 60);
@@ -88,17 +88,17 @@ namespace LogicalGame.Test
             m13.Gold = 13;
             m13.AddItemToDrop(item.Items[4], 60);
 
-            Monster m14 = new Monster("Feroce chauve souris", 2, "Chauve souris", 10, 0, 75, 1, 0, 1);
+            Monster m14 = new Monster("Chauve souris féroce", 2, "Chauve souris", 10, 0, 75, 1, 0, 1);
             m14.XP = 35;
             m14.Gold = 20;
             m14.AddItemToDrop(item.Items[4], 60);
 
-            Monster m15 = new Monster("Geante chauve souris", 2, "Chauve souris", 10, 10, 75, 3, 0, 1);
+            Monster m15 = new Monster("Chauve souris sauvage", 2, "Chauve souris", 10, 10, 75, 3, 0, 1);
             m15.XP = 50;
             m15.Gold = 30;
             m15.AddItemToDrop(item.Items[4], 60);
             // Wolf
-            Monster m16 = new Monster("Loup de feu", 2, "Loup", 8, 8, 75, 1, 0, 1);
+            Monster m16 = new Monster("Louveteau", 2, "Loup", 8, 8, 75, 1, 0, 1);
             m16.XP = 50;
             m16.Gold = 30;
             m16.AddItemToDrop(item.Items[4], 60);
@@ -121,11 +121,11 @@ namespace LogicalGame.Test
             m20.XP = 1;
             m20.Gold = 1;
             m20.AddItemToDrop(item.Items[4], 60);
-            Monster m21 = new Monster("Jerome le Grand", 1, "Poring", 10000, 0, 10000, 0, 0, 10000);
+            Monster m21 = new Monster("Jerome le Puissant", 1, "Poring", 10000, 0, 10000, 0, 0, 10000);
             m21.XP = 1000;
             m21.Gold = 1000;
             m21.AddItemToDrop(item.Items[4], 60);
-            Monster m22 = new Monster("Dangereux", 2, "Poring", 65, 0, 1, 0, 0, 20);
+            Monster m22 = new Monster("Poring dangereux", 2, "Poring", 65, 0, 1, 0, 0, 20);
             m22.XP = 1000;
             m22.Gold = 1000;
             m22.AddItemToDrop(item.Items[4], 60);
