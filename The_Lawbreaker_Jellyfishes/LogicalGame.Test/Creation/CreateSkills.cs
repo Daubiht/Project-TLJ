@@ -66,18 +66,22 @@ namespace LogicalGame.Test.Creation
             Skill sm6 = new Skill("Vague Revigorente", "Fait couler une vague d'energie soignante sur son équipe", new int[] { 0, 30, 0, 0, 0, 0 }, 0, 0, effectsm6, new int[] { 0, 3 }, false);
             sm6.PreviousSkill = sm3;
             Dictionary<string, int> effectsm7 = new Dictionary<string, int>();
-            effectsm7.Add("truc", 15);
-            Skill sm7 = new Skill("Résidu de Flamme", "La maitrise des éléments permet d'impreigner toute les attaque d'une chaleur intense", new int[] { 0, 50, 0, 0, 0, 0 }, 0, 0, effectsm7, new int[] { 0, 0 }, true);
+            effectsm7.Add("magique+", 15);
+            Skill sm7 = new Skill("Résidu de Flamme", "La maitrise des éléments permet d'impreigner toute les attaques d'une chaleur intense", new int[] { 0, 50, 0, 0, 0, 0 }, 0, 0, effectsm7, new int[] { 0, 0 }, true);
             sm7.PreviousSkill = sm5;
 
 
             //Robustness
             Skill sr1 = new Skill("Position défensive", "Position dans laquelle la défense est plus efficace", new int[] { 0, 0, 0, -1, 0, 0 }, 0, 0, effect, new int[] { 0, 1 }, false);
+            sr1.TimeEffects.Add(new Effect("defense+", 10, 2, null));
             Skill sr2 = new Skill("Protection", "Se jette devant un allier pour prendre les coups à sa place", new int[] { 0, 0, 0, 40, 0, 0 }, 1, 1, effect, new int[] { 0, 3 }, false);
+            sr2.TimeEffects.Add(new Effect("protection", 10, 2, null));
             sr2.PreviousSkill = sr1;
             Skill sr3 = new Skill("Bouclier Magique", "Englobe un allier d'un bouclier de pur energie", new int[] { 0, 0, 0, 40, 0, 0 }, 1, 1, effect, new int[] { 0, 2 }, false);
             sr3.PreviousSkill = sr1;
+            sr3.TimeEffects.Add(new Effect("defense+", 10, 2, null));
             Skill sr4 = new Skill("Epine Magique", "Entoure un allier d'épine magique qui blesse les ennemies s'approchant de trop près", new int[] { 0, 0, 0, 50, 0, 0 }, 1, 1, effect, new int[] { 0, 4 }, false);
+            sr4.TimeEffects.Add(new Effect("epine", 10, 2, null));
             sr4.PreviousSkill = sr3;
 
             //Health

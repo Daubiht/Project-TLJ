@@ -42,11 +42,10 @@ namespace LogicalGame
         int _purcentIncreaseRobustness;
         // Dictionnary which contains the original stats of the member, usefull to reset all the stats of a member when the fight is end
         readonly Dictionary <String, int> _originaleBasicStats;
-
         readonly Dictionary<String, Skill> _skills;
         readonly Dictionary<string, Item> _stuffs;
 
-
+        List<Effect> _effects = new List<Effect>();
         /// <summary>
         /// Create a new character who is level one.
         /// </summary>
@@ -110,6 +109,12 @@ namespace LogicalGame
         public Dictionary<string, Item> Stuffs
         {
             get { return _stuffs; }
+        }
+
+        public List<Effect> Effects
+        {
+            get { return _effects; }
+            set { _effects = value; }
         }
 
         public int StaminaPoint
@@ -666,6 +671,16 @@ namespace LogicalGame
                                             break;
                                     }
                                 }
+                                //Effect in the time
+                                if (skill.TimeEffects != null)
+                                {
+                                    for (int i = 0; i < skill.TimeEffects.Count; i++)
+                                    {
+                                        Effect timeEffect = new Effect(skill.TimeEffects[i].Name, skill.TimeEffects[i].Power, skill.TimeEffects[i].Time, this);
+                                        target.Effects.Add(timeEffect);
+                                    }
+                                }
+
                                 return true;
                             }
                         }

@@ -174,8 +174,26 @@ namespace GraphicalInterface
                 string skillName = e.ClickedItem.Text;
                 _fight.SelectedSkill = _selectedMember.Skills[skillName];
 
+<<<<<<< HEAD
+=======
+                if ( _fight.SelectedCharacter.UseSkill(_fight.SelectedSkill, _fight.SelectedMonster) )
+                {
+                    _fight.SelectedCharacter.DidMemberPlay = true;
+                    foreach ( PanelCharacter pc in _FUC.GetMonsterPanel ) pc.RefreshInformation();
+                    if ( _fight.DidAllMemberPlay() )
+                    {
+                        _fight.MonsterAttack();
                         foreach (PanelCharacter pc in _FUC.GetMonsterPanel) pc.RefreshInformation();
 
+                        foreach ( PanelCharacter pC in _panelCharacterList ) pC.RefreshInformation();
+                    }
+                }
+                _FUC.NextMonster();
+                _FUC.NextMember();
+                _FUC.ChangeColorPanel();
+                _fight.SelectedSkill = null;
+                _FUC.EndFight();
+>>>>>>> Corrections_of_skills
             }
         }
     }
