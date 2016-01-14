@@ -364,11 +364,14 @@ namespace LogicalGame
                 // Generate a random index which represent the targetted member in FRONT POSITION
                 int indexRdmMember = rdm.Next(0, listFrontMembers.Count);
                 listFrontMembers[indexRdmMember].Hurt(_physicalAttack);
-                foreach (Effect effect in listFrontMembers[indexRdmMember].Effects)
+                if (listFrontMembers[indexRdmMember].Effects != null)
                 {
-                    if (effect.Name == "epine")
+                    foreach (Effect effect in listFrontMembers[indexRdmMember].Effects)
                     {
-                        Hurt(effect.Power);
+                        if (effect.Name == "epine")
+                        {
+                            Hurt(effect.Power);
+                        }
                     }
                 }
             }
