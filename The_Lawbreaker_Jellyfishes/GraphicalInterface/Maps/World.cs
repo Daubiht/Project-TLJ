@@ -12,6 +12,9 @@ namespace GraphicalInterface
         readonly MapWorld _w;
         readonly MainForm _contextForm;
         bool _militia;
+        bool _Dragging;
+        int _xPos;
+        int _yPos;
 
         public World(MapWorld w, MainForm contextForm, bool militia)
         {
@@ -19,6 +22,36 @@ namespace GraphicalInterface
             _w = w;
             _contextForm = contextForm;
             _militia = militia;
+
+            pictureBox1.Location = new Point(pictureBox1.Parent.Width / 2 - pictureBox1.Width / 2, pictureBox1.Parent.Height / 2 - pictureBox1.Height / 2);
+        }
+
+        private void pictureBox1_MouseUp(object sender, MouseEventArgs e) { _Dragging = false; }
+
+        private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                _Dragging = true;
+                _xPos = e.X;
+                _yPos = e.Y;
+            }
+        }
+
+        private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
+        {
+            Control c = sender as Control;
+            if (_Dragging && c != null)
+            {
+                if (c.Parent.Top > e.Y + c.Top - _yPos && c.Parent.Bottom < e.Y + c.Bottom - _yPos)
+                {
+                    c.Top = e.Y + c.Top - _yPos;
+                }
+                if (c.Parent.Left > e.X + c.Left - _xPos && c.Parent.Right < e.X + c.Right - _xPos)
+                {
+                    c.Left = e.X + c.Left - _xPos;
+                }
+            }
         }
 
         private void World_Load(object sender, EventArgs e)
@@ -42,13 +75,23 @@ namespace GraphicalInterface
             foreach (MapIsland island in _w.Islands.Values)
             {
                 Button isl_Button = new Button();
+
+                isl_Button.BackColor = Color.White;
+                isl_Button.FlatStyle = FlatStyle.Flat;
                 isl_Button.Location = new Point(island.PointX, island.PointY);
                 isl_Button.Name = island.IslandName;
                 isl_Button.Size = new Size(100, 50);
                 isl_Button.Text = island.IslandName;
                 isl_Button.UseVisualStyleBackColor = true;
                 isl_Button.Click += new EventHandler(Isl_Click);
-                Controls.Add(isl_Button);
+                isl_Button.Size = new Size(210, 124);
+
+                panel1.Controls.Add(isl_Button);
+
+                Point pos = PointToScreen(isl_Button.Location);
+                pos = pictureBox1.PointToClient(pos);
+                isl_Button.Parent = pictureBox1;
+                isl_Button.Location = pos;
 
                 if (island == _w.ActualPosition) isl_Button.ForeColor = SystemColors.HotTrack;
             }
