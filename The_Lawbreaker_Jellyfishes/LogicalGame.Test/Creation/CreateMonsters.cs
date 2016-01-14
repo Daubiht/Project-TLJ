@@ -44,12 +44,12 @@ namespace LogicalGame.Test
             m4.XP = 800;
             m4.Gold = 500;
 
-            listMonsters.Add(m1);
-            listMonsters.Add(m2);
-            listMonsters.Add(m3);
-            listMonsters.Add(m4);
-            listMonsters.Add(m5);
-            listMonsters.Add(m6);
+            //listMonsters.Add(m1);
+            //listMonsters.Add(m2);
+            //listMonsters.Add(m3);
+            //listMonsters.Add(m4);
+            //listMonsters.Add(m5);
+            //listMonsters.Add(m6);
 
             // Jerome
             // Spider
