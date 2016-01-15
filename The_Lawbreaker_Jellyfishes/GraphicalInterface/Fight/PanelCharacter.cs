@@ -40,6 +40,11 @@ namespace GraphicalInterface
                 labelCharName.TextAlign = System.Drawing.ContentAlignment.TopCenter;
                 // Height of character's panel
                 Height = 50;
+                Width = 62;
+                panelInformation.Width = Width;
+                panelInformation.Height = Height;
+                panelInformation.Location = new Point(0, 0);
+                labelCharName.Height = 13;
             }
             // if the object is a monster, we create a monster's panel
             else if ( obj is Monster)
@@ -56,7 +61,19 @@ namespace GraphicalInterface
 
                 pictureBox1.BackgroundImage = Image.FromFile(@"../../../Ressources/Mob/" + _monster.Race + @"/" + _monster.Name + ".png");
                 pictureBox1.Size = new Size(Image.FromFile(@"../../../Ressources/Mob/" + _monster.Race + @"/" + _monster.Name + ".png").Width, Image.FromFile(@"../../../Ressources/Mob/" + _monster.Race + @"/" + _monster.Name + ".png").Height);
+
+                panelInformation.Location = new Point(pictureBox1.BackgroundImage.Width, 0);
+                panelInformation.Height = pictureBox1.BackgroundImage.Height;
+
+                // We set the value of the HP BAR
+                BarHp.Maximum = _monster.MaxHealthPoint;
+                BarHp.Value = _monster.Health;
+                ModifyProgressBarColor.SetState(BarHp, 1); // 1 = green, 2 = yellow, 3 = red
+
             }
+            labelHPResult.BringToFront();
+
+
         }
 
         // Call the method from Fight.cs and give him the character
@@ -138,6 +155,8 @@ namespace GraphicalInterface
 
         public Character GetCharacter{get { return _character; }}
         public Monster GetMonster { get { return _monster; } }
+        public Panel Information { get { return panelInformation; } set { panelInformation = value; }}
+        public ProgressBar ProgressBarHp { get { return BarHp; } set { BarHp = value; } }
 
     }
 }

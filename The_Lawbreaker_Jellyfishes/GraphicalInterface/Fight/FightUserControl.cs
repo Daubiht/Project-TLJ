@@ -51,12 +51,15 @@ namespace GraphicalInterface
         // CONSTRUCTOR
         public FightUserControl(List<Monster> MonstersToKill, Team TeamWhoFight, MainForm context)
         {
+            _context = context;
             InitializeComponent();
+
+            pictureBox1.BackgroundImage = Image.FromFile(@"../../../Ressources/Mob/gif1.png");
+            pictureBox1.Size = new Size( Width, Height );
             // Get the monsters list and and team
             _monsters = MonstersToKill;
             _team = TeamWhoFight;
             // Need the context to create the end fight screen
-            _context = context;
             _fight = new Fight(_monsters, _team);
             _panelMembers = new List<PanelCharacter>();
             _panelMonsters = new List<PanelCharacter>();
@@ -334,12 +337,28 @@ namespace GraphicalInterface
 
             foreach (PanelCharacter pC in GetMonsterPanel )
             {
-                // LIGHT BLUE If the MONSTER is ALIVE
-                if ( pC.GetMonster.Alive ) pC.BackColor = Color.LightSkyBlue;
+                //// LIGHT BLUE If the MONSTER is ALIVE
+                //if ( pC.GetMonster.Alive ) pC.Information.BackColor = Color.LightSkyBlue;
+                //// BLACK If the member is DEAD
+                //if ( (pC.GetMonster != null && !pC.GetMonster.Alive) ) { pC.Visible = false; pC.GetMonster.DamageReceived = 0; }
+                //// BLUE FONCE if panel is selected
+                //if ( pC.GetMonster == _fight.SelectedMonster ) { pC.Information.BackColor = Color.Brown; }
+
+
                 // BLACK If the member is DEAD
-                if ( (pC.GetMonster != null && !pC.GetMonster.Alive) ) pC.BackColor = Color.Black;
+                if ( (pC.GetMonster != null && !pC.GetMonster.Alive) ) { pC.Visible = false; pC.GetMonster.DamageReceived = 0; }
                 // BLUE FONCE if panel is selected
-                if ( pC.GetMonster == _fight.SelectedMonster ) pC.BackColor = Color.Brown;
+                if ( pC.GetMonster == _fight.SelectedMonster ) { pC.BorderStyle = BorderStyle.FixedSingle; }
+                else if (pC.GetMonster != _fight.SelectedMonster) { pC.BorderStyle = BorderStyle.None; }
+
+                // Decrease progress bar
+                if (pC.ProgressBarHp.Value - pC.GetMonster.DamageReceived < 0 ) 
+                pC.ProgressBarHp.Value =0;
+                else if( pC.ProgressBarHp.Value - pC.GetMonster.DamageReceived > 0 )
+                {
+                    pC.ProgressBarHp.Value -= pC.GetMonster.DamageReceived;
+                    pC.GetMonster.DamageReceived = 0;
+                }
             }
         }
 
