@@ -31,7 +31,7 @@ namespace LogicalGame.Test
                 }
             }
 
-            Assert.AreEqual("Dague en bois", ((Merchant)world.Islands["island1"].IslandCity.Services[1]).GetItemsAvailable[0].GetName);
+            Assert.AreEqual("Bandage", ((Merchant)world.Islands["Poniénne"].IslandCity.Services[1]).GetItemsAvailable[0].GetName);
         }
 
         [Test]
@@ -63,7 +63,7 @@ namespace LogicalGame.Test
             }
             
             // Here we get the merchant in the island Ponyoland
-            Merchant merchant = ((Merchant)world.Islands["island1"].IslandCity.Services[0]);
+            Merchant merchant = ((Merchant)world.Islands["Poniénne"].IslandCity.Services[0]);
             merchant.Invent = team.Invent;
 
             // Test if the team really got 100 gold

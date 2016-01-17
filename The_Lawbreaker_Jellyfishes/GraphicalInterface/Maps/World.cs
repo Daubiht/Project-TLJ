@@ -76,15 +76,19 @@ namespace GraphicalInterface
             {
                 Button isl_Button = new Button();
 
-                isl_Button.BackColor = Color.White;
+                isl_Button.BackColor = Color.Transparent;
+                isl_Button.Cursor = Cursors.Hand;
                 isl_Button.FlatStyle = FlatStyle.Flat;
+                isl_Button.FlatAppearance.BorderSize = 0;
+                isl_Button.FlatAppearance.MouseDownBackColor = Color.Transparent;
+                isl_Button.FlatAppearance.MouseOverBackColor = Color.Transparent;
                 isl_Button.Location = new Point(island.PointX, island.PointY);
                 isl_Button.Name = island.IslandName;
-                isl_Button.Size = new Size(100, 50);
+                isl_Button.Size = new Size(300, 225);
+                isl_Button.Font = new Font(_contextForm.Font.Families[0], 40);
                 isl_Button.Text = island.IslandName;
                 isl_Button.UseVisualStyleBackColor = true;
                 isl_Button.Click += new EventHandler(Isl_Click);
-                isl_Button.Size = new Size(210, 124);
 
                 panel1.Controls.Add(isl_Button);
 

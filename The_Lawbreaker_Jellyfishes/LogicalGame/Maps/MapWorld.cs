@@ -130,7 +130,6 @@ namespace LogicalGame
             set
             {
                 _islands = value;
-                _actualPosition = _islands["island1"];
             }
         }
 
