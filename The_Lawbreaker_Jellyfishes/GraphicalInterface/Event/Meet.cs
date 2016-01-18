@@ -41,7 +41,7 @@ namespace GraphicalInterface
                 label1.Text = "Passer votre chemin";
                 label2.Text = "Engager la conversation avec le marchand";
                 label3.Text = "Attaquer le marchand";
-                pictureBox1.BackgroundImage = Image.FromFile(@"../../../Ressources/marchand.jpg");
+                pictureBox1.BackgroundImage = Image.FromFile(@"../../../Ressources/img-thing.png");
             }
             else if (result == 2)
             {
@@ -82,14 +82,14 @@ namespace GraphicalInterface
                     }
                 }
 
-                pictureBox1.BackgroundImage = Image.FromFile(@"../../../Ressources/elder.png");
+                pictureBox1.BackgroundImage = Image.FromFile(@"../../../Ressources/img-thing.png");
             }
             else if (result == 3)
             {
                 //rien
                 label5.Text = "La zone semble déserte.";
                 label1.Text = "Quitter";
-                pictureBox1.BackgroundImage = Image.FromFile(@"../../../Ressources/desert.png");
+                pictureBox1.BackgroundImage = Image.FromFile(@"../../../Ressources/img-thing.png");
             }
             else if (result == 5)
             {
@@ -105,7 +105,7 @@ namespace GraphicalInterface
                 label1.Text = "Tenter de fuir";
                 label2.Text = "Vous soumettre et donner " + _world.Team.Invent.GetGold * 25 / 100 + " pièces d'or";
                 label3.Text = "Combattre les assailants";
-                pictureBox1.BackgroundImage = Image.FromFile(@"../../../Ressources/bandit.jpg");
+                pictureBox1.BackgroundImage = Image.FromFile(@"../../../Ressources/img-thing.png");
             }
             label5.Location = new Point(label5.Parent.Width / 2 - label5.Width / 2, label5.Parent.Height / 2 - label5.Height / 2);
         }
@@ -216,7 +216,7 @@ namespace GraphicalInterface
         {
             if(_result == 4)
             {
-                FightUserControl uc = new FightUserControl(_mapZone.EventFightRandom(0, null), _world.Team, _context);
+                FightUserControl uc = new FightUserControl(_mapZone.EventFightRandom(1, null), _world.Team, _context);
                 _context.ChangeUC(uc, false, true);
             }
         }
