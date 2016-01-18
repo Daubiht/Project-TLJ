@@ -39,8 +39,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelInformation.SuspendLayout();
             this.SuspendLayout();
-            this.Font = new System.Drawing.Font(_context.Font.Families[1], 10);
-
             // 
             // labelCharName
             // 
@@ -52,7 +50,6 @@
             this.labelCharName.TabIndex = 0;
             this.labelCharName.Text = "JEROMETE";
             this.labelCharName.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-
             // 
             // labelHPText
             // 
@@ -125,9 +122,9 @@
             // 
             // BarHp
             // 
-            this.BarHp.Location = new System.Drawing.Point(7, 51);
+            this.BarHp.Location = new System.Drawing.Point(7, 34);
             this.BarHp.Name = "BarHp";
-            this.BarHp.Size = new System.Drawing.Size(54, 17);
+            this.BarHp.Size = new System.Drawing.Size(54, 10);
             this.BarHp.TabIndex = 5;
             // 
             // PanelCharacter
@@ -145,7 +142,6 @@
             this.panelInformation.ResumeLayout(false);
             this.panelInformation.PerformLayout();
             this.ResumeLayout(false);
-            this.Font = new System.Drawing.Font(_context.Font.Families[1], 10);
 
         }
 

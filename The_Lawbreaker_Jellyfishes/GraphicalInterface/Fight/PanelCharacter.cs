@@ -45,6 +45,7 @@ namespace GraphicalInterface
                 panelInformation.Height = Height;
                 panelInformation.Location = new Point(0, 0);
                 labelCharName.Height = 13;
+                BarHp.Visible = false;
             }
             // if the object is a monster, we create a monster's panel
             else if ( obj is Monster)

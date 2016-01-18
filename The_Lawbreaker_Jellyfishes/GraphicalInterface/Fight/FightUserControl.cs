@@ -54,8 +54,8 @@ namespace GraphicalInterface
             _context = context;
             InitializeComponent();
 
-            pictureBox1.BackgroundImage = Image.FromFile(@"../../../Ressources/Mob/gif1.png");
-            pictureBox1.Size = new Size( Width, Height );
+            //pictureBox1.BackgroundImage = Image.FromFile(@"../../../Ressources/Mob/gif1.png");
+            //pictureBox1.Size = new Size( Width, Height );
             // Get the monsters list and and team
             _monsters = MonstersToKill;
             _team = TeamWhoFight;
