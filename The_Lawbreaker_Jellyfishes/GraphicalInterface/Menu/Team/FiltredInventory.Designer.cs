@@ -46,14 +46,14 @@
             this.PInfoOldItem.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.PInfoOldItem.Controls.Add(this.BDesequip);
             this.PInfoOldItem.Controls.Add(this.LOldName);
-            this.PInfoOldItem.Location = new System.Drawing.Point(3, 3);
+            this.PInfoOldItem.Location = new System.Drawing.Point(3, 49);
             this.PInfoOldItem.Name = "PInfoOldItem";
-            this.PInfoOldItem.Size = new System.Drawing.Size(195, 120);
+            this.PInfoOldItem.Size = new System.Drawing.Size(200, 140);
             this.PInfoOldItem.TabIndex = 0;
             // 
             // BDesequip
             // 
-            this.BDesequip.Location = new System.Drawing.Point(51, 92);
+            this.BDesequip.Location = new System.Drawing.Point(58, 112);
             this.BDesequip.Name = "BDesequip";
             this.BDesequip.Size = new System.Drawing.Size(75, 23);
             this.BDesequip.TabIndex = 2;
@@ -76,14 +76,14 @@
             this.PInfoItem.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.PInfoItem.Controls.Add(this.BEquip);
             this.PInfoItem.Controls.Add(this.LNewName);
-            this.PInfoItem.Location = new System.Drawing.Point(200, 3);
+            this.PInfoItem.Location = new System.Drawing.Point(3, 195);
             this.PInfoItem.Name = "PInfoItem";
-            this.PInfoItem.Size = new System.Drawing.Size(195, 120);
+            this.PInfoItem.Size = new System.Drawing.Size(200, 140);
             this.PInfoItem.TabIndex = 1;
             // 
             // BEquip
             // 
-            this.BEquip.Location = new System.Drawing.Point(58, 92);
+            this.BEquip.Location = new System.Drawing.Point(58, 112);
             this.BEquip.Name = "BEquip";
             this.BEquip.Size = new System.Drawing.Size(75, 23);
             this.BEquip.TabIndex = 1;
@@ -103,18 +103,25 @@
             // 
             // inventory
             // 
-            this.inventory.Location = new System.Drawing.Point(3, 129);
+            this.inventory.Location = new System.Drawing.Point(209, 49);
             this.inventory.Name = "inventory";
-            this.inventory.Size = new System.Drawing.Size(392, 240);
+            this.inventory.Size = new System.Drawing.Size(533, 286);
             this.inventory.TabIndex = 2;
             // 
             // BRetour
             // 
-            this.BRetour.Location = new System.Drawing.Point(320, 374);
-            this.BRetour.Name = "BRetour";
-            this.BRetour.Size = new System.Drawing.Size(75, 23);
+            this.BRetour.AutoSize = true;
+            this.BRetour.BackColor = System.Drawing.Color.Transparent;
+            this.BRetour.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BRetour.Location = new System.Drawing.Point(600, 0);
+            this.BRetour.FlatAppearance.BorderSize = 0;
+            this.BRetour.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.BRetour.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.BRetour.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BRetour.Font = new System.Drawing.Font(((MainForm)_contextForm).Font.Families[0], 30);
+            this.BRetour.Name = "retour";
             this.BRetour.TabIndex = 3;
-            this.BRetour.Text = "Retour";
+            this.BRetour.Text = "retour";
             this.BRetour.UseVisualStyleBackColor = true;
             this.BRetour.Click += new System.EventHandler(this.BRetour_Click);
             // 
@@ -122,7 +129,7 @@
             // 
             this.LError.AutoSize = true;
             this.LError.ForeColor = System.Drawing.Color.Red;
-            this.LError.Location = new System.Drawing.Point(14, 379);
+            this.LError.Location = new System.Drawing.Point(19, 19);
             this.LError.Name = "LError";
             this.LError.Size = new System.Drawing.Size(35, 13);
             this.LError.TabIndex = 4;
@@ -133,13 +140,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.LError);
             this.Controls.Add(this.BRetour);
             this.Controls.Add(this.inventory);
             this.Controls.Add(this.PInfoItem);
             this.Controls.Add(this.PInfoOldItem);
+            this.Location = new System.Drawing.Point(50, 60);
             this.Name = "FiltredInventory";
-            this.Size = new System.Drawing.Size(400, 400);
+            this.Size = new System.Drawing.Size(750, 338);
             this.Load += new System.EventHandler(this.IGFiltredInventory_Load);
             this.PInfoOldItem.ResumeLayout(false);
             this.PInfoOldItem.PerformLayout();

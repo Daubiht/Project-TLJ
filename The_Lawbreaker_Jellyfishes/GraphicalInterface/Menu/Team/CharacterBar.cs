@@ -41,8 +41,8 @@ namespace GraphicalInterface
             ModifyProgressBarColor.SetState(PBHealth, 2); // 1 = green, 2 = yellow, 3 = red
             ModifyProgressBarColor.SetState(PBStamina, 3); // 1 = green, 2 = yellow, 3 = red
 
-            if (c.FrontPosition) BPosition.Text = "CaC";
-            else BPosition.Text = "PO";
+            if (c.FrontPosition) BPosition.Text = "au front";
+            else BPosition.Text = "arriere";
         }
 
         internal void Info_Click(object sender, EventArgs e)
@@ -73,8 +73,8 @@ namespace GraphicalInterface
 
             c.FrontPosition = !c.FrontPosition;
 
-            if (c.FrontPosition) button.Text = "CaC";
-            else button.Text = "PO";
+            if (c.FrontPosition) button.Text = "au front";
+            else button.Text = "arriere";
 
             if (!c.FrontPosition)
             {
@@ -90,7 +90,7 @@ namespace GraphicalInterface
                     {
                         Character currentChara = (Character)bar.Tag;
                         currentChara.FrontPosition = true;
-                        bar.BPosition.Text = "CaC";
+                        bar.BPosition.Text = "au front";
                     }
                     ((TeamManagement)(Parent.Parent)).Error.Text = "Attention ! Il faut qu'au moins un membre de l'équipe soit au corps à corps.";
                     ((TeamManagement)(Parent.Parent)).Error.Visible = true;

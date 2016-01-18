@@ -162,8 +162,7 @@ namespace GraphicalInterface
             if (_filtre == "consommable")
             {
                 PInfoOldItem.Visible = false;
-                PInfoItem.Width = Parent.Width - 30;
-                PInfoItem.Left = 5;
+                PInfoItem.Top = 120;
                 BEquip.Text = "Utiliser";
             }
 
