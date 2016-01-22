@@ -44,11 +44,10 @@ namespace LogicalGame
         int _purcentIncreaseRobustness;
         // Dictionnary which contains the original stats of the member, usefull to reset all the stats of a member when the fight is end
         readonly Dictionary <String, int> _originaleBasicStats;
-
         readonly Dictionary<String, Skill> _skills;
         readonly Dictionary<string, Item> _stuffs;
 
-
+        List<Effect> _effects = new List<Effect>();
         /// <summary>
         /// Create a new character who is level one.
         /// </summary>
@@ -113,6 +112,12 @@ namespace LogicalGame
         public Dictionary<string, Item> Stuffs
         {
             get { return _stuffs; }
+        }
+
+        public List<Effect> Effects
+        {
+            get { return _effects; }
+            set { _effects = value; }
         }
 
         public int StaminaPoint
@@ -618,7 +623,9 @@ namespace LogicalGame
 
             if(isAlive)
             {
-                _healthPoint += heal;
+                if (_healthPoint + heal <= _maxHealthPoint) _healthPoint += heal;
+                else _healthPoint = _maxHealthPoint;
+
             }
 
             return _healthPoint;
@@ -635,39 +642,57 @@ namespace LogicalGame
                     //Check of Position of caster and target
                     if (skill.Position == 0  || (skill.Position == 1 && _frontPosition == true) || (skill.Position == 2 && _frontPosition == false))
                     {
-                        if (skill.Effect != null)
+                        if (skill.Target == 0 || skill.Target == 1 || skill.Target == 3)
                         {
-                            _healthPoint -= skill.Cost[0];
-                            _staminaPoint -= skill.Cost[1];
-                            foreach (string name in skill.Effect.Keys)
+                            if (skill.Effect != null)
                             {
-                                int effect = skill.Effect[name];
-                                switch (name)
+                                _healthPoint -= skill.Cost[0];
+                                _staminaPoint -= skill.Cost[1];
+                                foreach (string name in skill.Effect.Keys)
                                 {
-                                    case "attaque physique":
-                                        target.Hurt((effect / 100) * _physicalAttack);
-                                        break;
-                                    case "attaque magique":
-                                        target.Hurt((effect / 100) * _magicAttack);
-                                        break;
-                                    case "soin":
-                                        target.Heal((int)Math.Round(((decimal)effect / 100) * _magicAttack));
-                                        break;
-                                    case "fatigue":
-                                        target.StaminaPoint = StaminaPoint - effect;
-                                        break;
-                                    case "baisse vie":
-                                        target.MaxHealthPoint = target.MaxHealthPoint - (int)Math.Round(target.MaxHealthPoint * (double)(effect / 100));
-                                        if (target.MaxHealthPoint < target.HealthPoint) target.HealthPoint = target.MaxHealthPoint;
-                                        break;
-                                    case "gain fatigue":
-                                        _staminaPoint += effect;
-                                        if (_staminaPoint > _maxStaminaPoint) _staminaPoint = _maxStaminaPoint;
-                                        break;
+                                    int effect = skill.Effect[name];
+                                    switch (name)
+                                    {
+                                        case "attaque physique":
+                                            target.Hurt((effect / 100) * _physicalAttack);
+                                            break;
+                                        case "attaque magique":
+                                            target.Hurt((effect / 100) * _magicAttack);
+                                            break;
+                                        case "soin":
+                                            target.Heal((int)Math.Round(((decimal)effect / 100) * _magicAttack));
+                                            break;
+                                        case "soin team":
+                                            foreach (Character chara in target.InTeam.Members)
+                                            {
+                                                chara.Heal((int)Math.Round(((decimal)effect / 100) * _magicAttack));
+                                            }
+                                            break;
+                                        case "fatigue":
+                                            target.StaminaPoint = StaminaPoint - effect;
+                                            break;
+                                        case "baisse vie":
+                                            target.MaxHealthPoint = target.MaxHealthPoint - (int)Math.Round(target.MaxHealthPoint * (double)(effect / 100));
+                                            if (target.MaxHealthPoint < target.HealthPoint) target.HealthPoint = target.MaxHealthPoint;
+                                            break;
+                                        case "gain fatigue":
+                                            _staminaPoint += effect;
+                                            if (_staminaPoint > _maxStaminaPoint) _staminaPoint = _maxStaminaPoint;
+                                            break;
+                                    }
                                 }
-                            }
+                                //Effect in the time
+                                if (skill.TimeEffects != null)
+                                {
+                                    for (int i = 0; i < skill.TimeEffects.Count; i++)
+                                    {
+                                        Effect timeEffect = new Effect(skill.TimeEffects[i].Name, skill.TimeEffects[i].Power, skill.TimeEffects[i].Time, this);
+                                        target.Effects.Add(timeEffect);
+                                    }
+                                }
 
-                            return true;
+                                return true;
+                            }
                         }
                     }
                 //}
@@ -679,7 +704,7 @@ namespace LogicalGame
         public bool UseSkill(Skill skill, Monster target)
         {
             //Check of Target
-            if ((skill.Target == 0) || skill.Target == 1)
+            if ((skill.Target == 0) || skill.Target == 2)
             {
                 //Check of cost in Health and Stamina
                 if (IsThisSkill(skill) && skill.Cost[0] <= _healthPoint && skill.Cost[1] <= _staminaPoint)
@@ -717,6 +742,15 @@ namespace LogicalGame
                                 }
                             }
                             //Effect in the time
+                            for (int i = 0; i < skill.TimeEffects.Count; i++)
+                            {
+                                Effect timeEffect = new Effect(skill.TimeEffects[i].Name, skill.TimeEffects[i].Power, skill.TimeEffects[i].Time, this);
+                                target.Effect.Add(timeEffect);
+                            }
+                        }
+                        //Effect in the time
+                        if (skill.TimeEffects != null)
+                        {
                             for (int i = 0; i < skill.TimeEffects.Count; i++)
                             {
                                 Effect timeEffect = new Effect(skill.TimeEffects[i].Name, skill.TimeEffects[i].Power, skill.TimeEffects[i].Time, this);
@@ -775,7 +809,7 @@ namespace LogicalGame
             }
             foreach (var effect in item.GetStats)
             {
-                if (effect.Key == "heal")
+                if (effect.Key == "vie")
                 {
                     _healthPoint += effect.Value;
                     if (_healthPoint > _maxHealthPoint)
@@ -807,43 +841,6 @@ namespace LogicalGame
             return true;
         }
 
-        //____________________MEMBERS ATTACKS MONSTER AUTOMATICALLY, DELETE THIS METHOD____________________
-        // This method allows the character to attack a monster
-        public void Attack(List<Monster> MonsterToKill)
-        {
-            // Repertory every alive FRONT MONSTERS
-            List<Monster> listFrontMonsters = new List<Monster>();
-            // Repertory every alive FRONT AND HIDDEN MONSTERS
-            List<Monster> listHiddenMonsters = new List<Monster>();
-
-            foreach ( Monster m in MonsterToKill )
-            {
-                // Add alive front monsters
-               if( m.Alive == true && m.FrontPosition == true ) listFrontMonsters.Add(m);
-               // Add alive front and hidden monsters
-               if( m.Alive == true && m.FrontPosition == false ) listHiddenMonsters.Add(m);
-            }
-            // if all FRONT MONSTERS ARE DEAD, every HIDDEN MONSTERS will be set in FRONT POSITION
-            if ( listFrontMonsters.Count == 0 )
-            {
-                foreach ( Monster m in listHiddenMonsters )
-                {
-                    // Change the position of the hidden monster in front
-                    m.FrontPosition = true;
-                    // Add the monster in the front monster list
-                    listFrontMonsters.Add(m);
-                }
-            }
-
-            // Check if the member is alive to attack
-            if ( _isAlive == true )
-            {
-                Random rdm = new Random();
-                // Generate a random index which represent the targetted monster in FRONT POSITION
-                int indexRdmMonster = rdm.Next(0, listFrontMonsters.Count);
-                listFrontMonsters[indexRdmMonster].Hurt(_physicalAttack);
-            }
-        }
         //__________________ MEMBERS ATTACKS MONSTER USING THE MOUSE USER__________________
         public void AttackMonster(Monster AttackedMonster)
         {

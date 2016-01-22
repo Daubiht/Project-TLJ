@@ -31,11 +31,10 @@ namespace LogicalGame
         // Fight
         bool _frontPosition;
         bool _isAlive;
-        List<Effect> _effects;
 
         readonly Dictionary<String, Skill> _skills;
         Dictionary<Item, int> _drop;
-
+        List<Effect> _effects = new List<Effect>();
 
         /// <summary>
         /// Create a new Monster who is level one.
@@ -59,7 +58,6 @@ namespace LogicalGame
 
             _frontPosition = true;
             _isAlive = true;
-            _effects = new List<Effect>();
 
             _skills = new Dictionary<string, Skill>();
             _drop = new Dictionary<Item, int>();
@@ -303,7 +301,7 @@ namespace LogicalGame
         {
             if (_isAlive)
             {
-                for(int i = 0; i < _effects.Count; i++)
+                for (int i = 0; i < _effects.Count; i++)
                 {
                     Effect effect = _effects[i];
                     int power = effect.Power;
@@ -315,7 +313,7 @@ namespace LogicalGame
                         switch (name)
                         {
                             case "brulure":
-                                Hurt((int)Math.Round((decimal)(power/100 * caster.MagicAttack)));
+                                Hurt((int)Math.Round((decimal)(power / 100 * caster.MagicAttack)));
                                 break;
                             case "saignement":
                                 Hurt((int)Math.Round((decimal)(power / 100 * caster.PhysicalAttack)));
@@ -331,7 +329,7 @@ namespace LogicalGame
                 }
             }
         }
-
+        
         // This methods allows the monster to attack a member of the team
         public void Attack(Team teamToAttack)
         {
@@ -366,6 +364,13 @@ namespace LogicalGame
                 // Generate a random index which represent the targetted member in FRONT POSITION
                 int indexRdmMember = rdm.Next(0, listFrontMembers.Count);
                 listFrontMembers[indexRdmMember].Hurt(_physicalAttack);
+                foreach (Effect effect in listFrontMembers[indexRdmMember].Effects)
+                {
+                    if (effect.Name == "epine")
+                    {
+                        Hurt(effect.Power);
+                    }
+                }
             }
            
         }

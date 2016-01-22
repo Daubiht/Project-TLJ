@@ -89,11 +89,9 @@ namespace LogicalGame.Test
         {
             Character p1 = new Character("George", "Dwarf", true);
             Item i1 = new Item("Potion de soin légers", 1, 10,  "Soigne légerement", "consommable");
-            i1.AddStats("heal", 25);
+            i1.AddStats("vie", 25);
             Item i2 = new Item("Potion de resurection", 1, 1000, "Redonne la vie à une personnage allié malheureusement décédé", "consommable");
             i2.AddStats("regainStamina", 2);
-            Item i3 = new Item("Potion de Vigueur", 1, 10, "Enleve legerement la fatigue des combats", "consommable");
-            i3.AddStats("resurection", 0);
 
             Dictionary<string, int> effects = new Dictionary<string, int>();
             effects.Add("attaque physique", 10);
@@ -107,10 +105,6 @@ namespace LogicalGame.Test
             Assert.AreEqual(health - 50, p1.HealthPoint);
             p1.UseConsumable(i1);
             Assert.AreEqual(health - 50 + 25, p1.HealthPoint);
-
-            p1.isAlive = false;
-            p1.UseConsumable(i3);
-            Assert.IsTrue(p1.isAlive);
 
             int stamina = p1.StaminaPoint;
 
