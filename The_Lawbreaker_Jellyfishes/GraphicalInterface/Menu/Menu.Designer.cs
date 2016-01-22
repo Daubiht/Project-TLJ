@@ -36,41 +36,67 @@
             // 
             // equipe
             // 
-            this.equipe.Location = new System.Drawing.Point(15, 13);
+            this.equipe.Font = new System.Drawing.Font(_ctrler.Font.Families[0], 30);
+            this.equipe.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.equipe.Text = "equipes";
+            this.equipe.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.equipe.FlatAppearance.BorderSize = 0;
+            this.equipe.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.equipe.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.equipe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.equipe.Location = new System.Drawing.Point(0, 0);
             this.equipe.Name = "equipe";
-            this.equipe.Size = new System.Drawing.Size(75, 23);
-            this.equipe.TabIndex = 0;
-            this.equipe.Text = "Equipes";
             this.equipe.UseVisualStyleBackColor = true;
             this.equipe.Click += new System.EventHandler(this.equipe_Click);
+            this.equipe.Size = new System.Drawing.Size(135, 50);
             // 
             // inventaire
             // 
-            this.inventaire.Location = new System.Drawing.Point(112, 13);
+            this.inventaire.Font = new System.Drawing.Font(_ctrler.Font.Families[0], 30);
+            this.inventaire.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.inventaire.Text = "inventaire";
+            this.inventaire.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.inventaire.FlatAppearance.BorderSize = 0;
+            this.inventaire.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.inventaire.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.inventaire.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.inventaire.Location = new System.Drawing.Point(150, 0);
             this.inventaire.Name = "inventaire";
-            this.inventaire.Size = new System.Drawing.Size(75, 23);
-            this.inventaire.TabIndex = 0;
-            this.inventaire.Text = "Inventaire";
             this.inventaire.UseVisualStyleBackColor = true;
             this.inventaire.Click += new System.EventHandler(this.inventaire_Click);
+            this.inventaire.Size = new System.Drawing.Size(170, 50);
             // 
             // notifications
             // 
-            this.notifications.Location = new System.Drawing.Point(209, 13);
+            this.notifications.Font = new System.Drawing.Font(_ctrler.Font.Families[0], 30);
+            this.notifications.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.notifications.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.notifications.FlatAppearance.BorderSize = 0;
+            this.notifications.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.notifications.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.notifications.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.notifications.Location = new System.Drawing.Point(400, 0);
             this.notifications.Name = "notifications";
-            this.notifications.Size = new System.Drawing.Size(75, 23);
+            this.notifications.Size = new System.Drawing.Size(185, 50);
             this.notifications.TabIndex = 0;
-            this.notifications.Text = "Notifications";
+            this.notifications.Text = "notifications";
             this.notifications.UseVisualStyleBackColor = true;
             this.notifications.Click += new System.EventHandler(this.notifications_Click);
             // 
             // sauvegarde
             // 
-            this.sauvegarde.Location = new System.Drawing.Point(306, 13);
+            this.sauvegarde.Font = new System.Drawing.Font(_ctrler.Font.Families[0], 30);
+            this.sauvegarde.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.sauvegarde.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.sauvegarde.FlatAppearance.BorderSize = 0;
+            this.sauvegarde.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.sauvegarde.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.sauvegarde.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.sauvegarde.Location = new System.Drawing.Point(550, 0);
             this.sauvegarde.Name = "sauvegarde";
-            this.sauvegarde.Size = new System.Drawing.Size(75, 23);
+            this.sauvegarde.Size = new System.Drawing.Size(200, 50);
             this.sauvegarde.TabIndex = 0;
-            this.sauvegarde.Text = "Sauvegarde";
+            this.sauvegarde.Text = "sauvegarde";
             this.sauvegarde.UseVisualStyleBackColor = true;
             this.sauvegarde.Click += new System.EventHandler(this.sauvegarde_Click);
             // 
@@ -78,15 +104,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.sauvegarde);
             this.Controls.Add(this.notifications);
             this.Controls.Add(this.inventaire);
             this.Controls.Add(this.equipe);
-            this.Location = new System.Drawing.Point(0, 390);
-            this.MaximumSize = new System.Drawing.Size(400, 50);
-            this.MinimumSize = new System.Drawing.Size(400, 50);
+            this.Location = new System.Drawing.Point(60, 390);
             this.Name = "Menu";
-            this.Size = new System.Drawing.Size(400, 50);
+            this.Size = new System.Drawing.Size(750, 50);
             this.ResumeLayout(false);
 
         }

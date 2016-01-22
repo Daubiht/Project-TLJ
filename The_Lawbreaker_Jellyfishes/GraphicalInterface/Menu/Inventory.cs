@@ -13,14 +13,15 @@ namespace GraphicalInterface
 
         public Inventory(Controller ctrler, Invent inventory)
         {
-            InitializeComponent();
             _inventory = inventory;
             _ctrler = ctrler;
+            InitializeComponent();
         }
 
         private void Inventory_Load(object sender, EventArgs e)
         {
-            label1.Text = "Poids : " + _inventory.weight + "/" + _inventory.MaxWeight + Environment.NewLine + _inventory.GetGold + " pièces d'or";
+            label1.Text = "Poids : " + _inventory.weight + "/" + _inventory.MaxWeight + " - " + _inventory.GetGold + " pièces d'or";
+            label1.Location = new Point(Width / 2 - label1.Width / 2, 0);
 
             ToolTip toolTip = new ToolTip();
             toolTip.InitialDelay = 250;
@@ -35,6 +36,12 @@ namespace GraphicalInterface
             foreach (Item item in _inventory.Inventory.Keys)
             {
                 Button b = new Button();
+                b.BackColor = Color.Transparent;
+                b.FlatAppearance.MouseDownBackColor = Color.Transparent;
+                b.FlatAppearance.MouseOverBackColor = Color.Transparent;
+                b.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+                b.Font = new System.Drawing.Font(_ctrler.Font.Families[1], 11);
+
 
                 string infoItem = item.GetName + " " + "(" + item.Type + ")" + Environment.NewLine + item.GetDescription +
                                   Environment.NewLine + "Valeur : " + item.GetValue + Environment.NewLine + "Poids : " + item.GetWeight;
@@ -60,18 +67,19 @@ namespace GraphicalInterface
                 toolTip.SetToolTip(b, infoItem);
 
                 b.Click += Remove_It;
-                b.Width = 75;
+                b.Width = 88;
                 b.Height = 50;
                 b.Tag = item;
+
                 panel1.Controls.Add(b);
-                if (i > 4)
+                if (i > 7)
                 {
                     i = 0;
                     j++;
                 }
-                b.Left = i*75;
-                b.Top = j*50;
-                b.Text = item.GetName + " - x" + _inventory.Inventory[item];
+                b.Left = i*90;
+                b.Top = j*52;
+                b.Text = item.GetName + " - " + _inventory.Inventory[item];
 
 
                 i++;
@@ -84,7 +92,7 @@ namespace GraphicalInterface
         }
         private void Remove_It(object sender, EventArgs e)
         {
-            if (jeter.BackColor == Color.DarkRed)
+            if (jeter.ForeColor == Color.Red)
             {
                 Item i = ((Button)sender).Tag as Item;
                 if (_inventory.RemoveItem(i) == 0)
@@ -96,13 +104,13 @@ namespace GraphicalInterface
 
                     foreach (Button button in panel1.Controls)
                     {
-                        if (j > 4)
+                        if (j > 7)
                         {
                             j = 0;
                             k++;
                         }
-                        button.Left = j * 75;
-                        button.Top = k * 50;
+                        button.Left = j * 90;
+                        button.Top = k * 52;
                         j++;
                     }
                 }
@@ -110,14 +118,12 @@ namespace GraphicalInterface
         }
         private void jeter_Click(object sender, EventArgs e)
         {
-            if (((Button)sender).BackColor != Color.DarkRed)
+            if (((Button)sender).ForeColor != Color.Red)
             {
-                ((Button)sender).BackColor = Color.DarkRed;
-                ((Button)sender).ForeColor = Color.White;
+                ((Button)sender).ForeColor = Color.Red;
             }
             else
             {
-                ((Button)sender).BackColor = Color.Transparent;
                 ((Button)sender).ForeColor = Color.Black;
             }
         }

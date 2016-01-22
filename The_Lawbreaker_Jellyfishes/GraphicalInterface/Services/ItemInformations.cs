@@ -12,8 +12,11 @@ namespace GraphicalInterface
 {
     public partial class ItemInformations : UserControl
     {
-        public ItemInformations()
+        FontFamily[] _fonts;
+
+        public ItemInformations(FontFamily[] fonts)
         {
+            _fonts = fonts;
             InitializeComponent();
         }
 

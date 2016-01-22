@@ -39,6 +39,7 @@ namespace GraphicalInterface
                 if(_world.ActualPosition == listZones[listZones.Count - 1])
                 {
                     _ctrler.ToWorld(_world, false, _instance.Target);
+                    _world.TavernCharactersChange();
                 }
                 else if(_world.ActualPosition == listZones[0])
                 {

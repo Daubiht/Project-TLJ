@@ -54,9 +54,9 @@
             // LName
             // 
             this.LName.AutoSize = true;
-            this.LName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LName.Location = new System.Drawing.Point(157, 19);
+            this.LName.Location = new System.Drawing.Point(90, 0);
             this.LName.Name = "LName";
+            this.LName.Font = new System.Drawing.Font(_ctrler.Font.Families[1], 30);
             this.LName.Size = new System.Drawing.Size(68, 25);
             this.LName.TabIndex = 0;
             this.LName.Text = "Name";
@@ -64,7 +64,8 @@
             // LLevel
             // 
             this.LLevel.AutoSize = true;
-            this.LLevel.Location = new System.Drawing.Point(105, 60);
+            this.LLevel.Font = new System.Drawing.Font(_ctrler.Font.Families[1], 20);
+            this.LLevel.Location = new System.Drawing.Point(110, 90);
             this.LLevel.Name = "LLevel";
             this.LLevel.Size = new System.Drawing.Size(33, 13);
             this.LLevel.TabIndex = 1;
@@ -73,89 +74,90 @@
             // LXP
             // 
             this.LXP.AutoSize = true;
-            this.LXP.Location = new System.Drawing.Point(236, 60);
+            this.LXP.Location = new System.Drawing.Point(110, 150);
             this.LXP.Name = "LXP";
             this.LXP.Size = new System.Drawing.Size(21, 13);
             this.LXP.TabIndex = 2;
             this.LXP.Text = "XP";
+            this.LXP.Visible = false;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font(_ctrler.Font.Families[1], 20, System.Drawing.FontStyle.Underline);
             this.label1.Location = new System.Drawing.Point(10, 13);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(106, 13);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Caractéristiques :";
+            this.label1.Text = "caractéristiques :";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 166);
+            this.label2.Location = new System.Drawing.Point(13, 216);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(90, 13);
             this.label2.TabIndex = 4;
-            this.label2.Text = "Attaque Physique";
+            this.label2.Text = "attaque physique";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 194);
+            this.label3.Location = new System.Drawing.Point(13, 254);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(88, 13);
             this.label3.TabIndex = 5;
-            this.label3.Text = "Attaque Magique";
+            this.label3.Text = "attaque magique";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(13, 51);
+            this.label4.Location = new System.Drawing.Point(13, 61);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(22, 13);
             this.label4.TabIndex = 6;
-            this.label4.Text = "Vie";
+            this.label4.Text = "vie";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(13, 137);
+            this.label5.Location = new System.Drawing.Point(13, 177);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(45, 13);
             this.label5.TabIndex = 7;
-            this.label5.Text = "Esquive";
+            this.label5.Text = "esquive";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(13, 78);
+            this.label6.Location = new System.Drawing.Point(13, 98);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(63, 13);
             this.label6.TabIndex = 7;
-            this.label6.Text = "Robustesse";
+            this.label6.Text = "robustesse";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(13, 108);
+            this.label7.Location = new System.Drawing.Point(13, 138);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(42, 13);
             this.label7.TabIndex = 8;
-            this.label7.Text = "Fatigue";
+            this.label7.Text = "fatigue";
             // 
             // LHealth
             // 
             this.LHealth.AutoSize = true;
-            this.LHealth.Location = new System.Drawing.Point(160, 51);
+            this.LHealth.Location = new System.Drawing.Point(200, 61);
             this.LHealth.Name = "LHealth";
             this.LHealth.Size = new System.Drawing.Size(22, 13);
             this.LHealth.TabIndex = 9;
-            this.LHealth.Text = "Vie";
+            this.LHealth.Text = "vie";
             // 
             // LRobustness
             // 
             this.LRobustness.AutoSize = true;
-            this.LRobustness.Location = new System.Drawing.Point(160, 78);
+            this.LRobustness.Location = new System.Drawing.Point(200, 98);
             this.LRobustness.Name = "LRobustness";
             this.LRobustness.Size = new System.Drawing.Size(22, 13);
             this.LRobustness.TabIndex = 10;
@@ -164,7 +166,7 @@
             // LStamina
             // 
             this.LStamina.AutoSize = true;
-            this.LStamina.Location = new System.Drawing.Point(160, 108);
+            this.LStamina.Location = new System.Drawing.Point(200, 138);
             this.LStamina.Name = "LStamina";
             this.LStamina.Size = new System.Drawing.Size(22, 13);
             this.LStamina.TabIndex = 11;
@@ -173,7 +175,7 @@
             // LDodge
             // 
             this.LDodge.AutoSize = true;
-            this.LDodge.Location = new System.Drawing.Point(160, 137);
+            this.LDodge.Location = new System.Drawing.Point(200, 177);
             this.LDodge.Name = "LDodge";
             this.LDodge.Size = new System.Drawing.Size(22, 13);
             this.LDodge.TabIndex = 12;
@@ -182,7 +184,7 @@
             // LPhysical
             // 
             this.LPhysical.AutoSize = true;
-            this.LPhysical.Location = new System.Drawing.Point(160, 166);
+            this.LPhysical.Location = new System.Drawing.Point(200, 216);
             this.LPhysical.Name = "LPhysical";
             this.LPhysical.Size = new System.Drawing.Size(22, 13);
             this.LPhysical.TabIndex = 12;
@@ -191,7 +193,7 @@
             // LMagic
             // 
             this.LMagic.AutoSize = true;
-            this.LMagic.Location = new System.Drawing.Point(160, 194);
+            this.LMagic.Location = new System.Drawing.Point(200, 254);
             this.LMagic.Name = "LMagic";
             this.LMagic.Size = new System.Drawing.Size(22, 13);
             this.LMagic.TabIndex = 12;
@@ -212,37 +214,55 @@
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.LHealth);
             this.panel1.Controls.Add(this.label7);
-            this.panel1.Location = new System.Drawing.Point(83, 117);
+            this.panel1.Location = new System.Drawing.Point(282, 30);
+            this.panel1.Font = new System.Drawing.Font(_ctrler.Font.Families[1], 18);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(237, 218);
+            this.panel1.Size = new System.Drawing.Size(275, 350);
             this.panel1.TabIndex = 13;
             // 
             // BSkills
             // 
-            this.BSkills.Location = new System.Drawing.Point(135, 341);
+            this.BSkills.BackColor = System.Drawing.Color.Transparent;
+            this.BSkills.BackgroundImage = _img;
+            this.BSkills.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.BSkills.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BSkills.Size = new System.Drawing.Size(75, 75);
+            this.BSkills.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BSkills.Location = new System.Drawing.Point(600, 0);
+            this.BSkills.FlatAppearance.BorderSize = 0;
+            this.BSkills.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.BSkills.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.BSkills.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BSkills.Font = new System.Drawing.Font(_ctrler.Font.Families[0], 30);
+            this.BSkills.Location = new System.Drawing.Point(100, 250);
             this.BSkills.Name = "BSkills";
-            this.BSkills.Size = new System.Drawing.Size(104, 40);
             this.BSkills.TabIndex = 14;
-            this.BSkills.Text = "Compétences";
             this.BSkills.UseVisualStyleBackColor = true;
             this.BSkills.Click += new System.EventHandler(this.BSkills_Click);
             // 
             // Retour
             // 
-            this.Retour.Location = new System.Drawing.Point(321, 3);
+            this.Retour.AutoSize = true;
+            this.Retour.BackColor = System.Drawing.Color.Transparent;
+            this.Retour.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Retour.Location = new System.Drawing.Point(600, 0);
+            this.Retour.FlatAppearance.BorderSize = 0;
+            this.Retour.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.Retour.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.Retour.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Retour.Font = new System.Drawing.Font(_ctrler.Font.Families[0], 30);
             this.Retour.Name = "Retour";
-            this.Retour.Size = new System.Drawing.Size(76, 30);
             this.Retour.TabIndex = 22;
-            this.Retour.Text = "Retour";
+            this.Retour.Text = "retour";
             this.Retour.UseVisualStyleBackColor = true;
             this.Retour.Click += new System.EventHandler(this.Retour_Click);
             // 
             // LRace
             // 
             this.LRace.AutoSize = true;
-            this.LRace.Location = new System.Drawing.Point(166, 44);
+            this.LRace.Font = new System.Drawing.Font(_ctrler.Font.Families[1], 20);
+            this.LRace.Location = new System.Drawing.Point(110, 50);
             this.LRace.Name = "LRace";
-            this.LRace.Size = new System.Drawing.Size(33, 13);
             this.LRace.TabIndex = 23;
             this.LRace.Text = "Race";
             // 
@@ -250,6 +270,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.LRace);
             this.Controls.Add(this.Retour);
             this.Controls.Add(this.BSkills);
@@ -257,8 +278,9 @@
             this.Controls.Add(this.LXP);
             this.Controls.Add(this.LLevel);
             this.Controls.Add(this.LName);
+            this.Location = new System.Drawing.Point(60, 50);
             this.Name = "CharacterInformations";
-            this.Size = new System.Drawing.Size(400, 400);
+            this.Size = new System.Drawing.Size(750, 338);
             this.Load += new System.EventHandler(this.IGCharactereManagement_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

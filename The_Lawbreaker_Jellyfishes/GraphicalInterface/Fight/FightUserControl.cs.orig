@@ -210,7 +210,11 @@ namespace GraphicalInterface
         public void CreateFightMenu(Character DisplayedCharacter)
         {
             Controls.Remove(_currentMemberMenu);
+<<<<<<< HEAD
             _currentMemberMenu = new FightMenu(DisplayedCharacter, _fight, _ctrler, _panelMembers,this);
+=======
+            _currentMemberMenu = new FightMenu(DisplayedCharacter, _fight, _context, _panelMembers, this);
+>>>>>>> Graphical_stuff
             Controls.Add(_currentMemberMenu);
         }
         // Create end fight screen
@@ -229,22 +233,15 @@ namespace GraphicalInterface
             // Victory screen
             else if ( _fight.AreAllMonstersDead  )
             {
-<<<<<<< HEAD
-                // DECREASE basic stats of members because of their stuff
-                IncreaseBasicsStatsThanksStuff(_team, false);
-
-                _ctrler.ToVictoryScreen(false, _monsters);
-=======
                 if(_fight.IsEndFight == false )
                 {
                     // DECREASE basic stats of members because of their stuff
                     IncreaseBasicsStatsThanksStuff(_team, false);
-                    EndFightVictory EFVictory = new EndFightVictory(_context, _monsters, false);
-                    _context.ChangeUC(EFVictory, true, true);
+
+                _ctrler.ToVictoryScreen(false, _monsters);
                     // Avoid to gain a lot of level
                     _fight.IsEndFight = true;
                 }
->>>>>>> skill_target
             }
         }
         // Increase or decrease the basic stattistics of a member thanks to his equiped stuff

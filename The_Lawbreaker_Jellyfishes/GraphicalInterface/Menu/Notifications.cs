@@ -7,23 +7,25 @@ namespace GraphicalInterface
 {
     public partial class Notifications : UserControl
     {
-        MapWorld _contextWorld;
+        MapWorld _ctrlerWorld;
         Controller _ctrler;
 
         public Notifications(MapWorld contextWorld, Controller ctrler)
         {
-            InitializeComponent();
-            _contextWorld = contextWorld;
+            _ctrlerWorld = contextWorld;
             _ctrler = ctrler;
+            InitializeComponent();
 
             List<Notification> listNotifs = contextWorld.Notifs.ListNotif;
-            Label[] listLabels = {notif1, notif2, notif3, notif4, notif5, notif6, notif6, notif7, notif8, notif9, notif10};
 
-            int max = contextWorld.Notifs.ListNotif.Count;
-
-            for (int i = max; i > 0; i--)
+            for(int i = 0; i < listNotifs.Count; i++) 
             {
-                listLabels[max - i].Text = listNotifs[i-1].Name + " - " + listNotifs[i-1].Description + " - " + listNotifs[i-1].Date;
+                Label LabelNotif = new Label();
+                LabelNotif.AutoSize = true;
+                LabelNotif.Text = listNotifs[i].Date + " - " + listNotifs[i].Name + " - " + listNotifs[i].Description;
+                LabelNotif.Font = new System.Drawing.Font(_ctrler.Font.Families[1], 16);
+                panel1.Controls.Add(LabelNotif);
+                LabelNotif.Location = new System.Drawing.Point(Width / 2 - LabelNotif.Width / 2, i * LabelNotif.Height);
             }
         }
 

@@ -30,10 +30,10 @@ namespace GraphicalInterface
             ValidButton.Enabled = false;
 
             // Races for combo box
-            ComboBoxRace.Items.Add("HUMAIN");
-            ComboBoxRace.Items.Add("NAIN");
-            ComboBoxRace.Items.Add("GEANT");
-            ComboBoxRace.Items.Add("ELFE");
+            ComboBoxRace.Items.Add("Humain");
+            ComboBoxRace.Items.Add("Nain");
+            ComboBoxRace.Items.Add("Geant");
+            ComboBoxRace.Items.Add("Elfe");
 
             //Define the style of the combo box
             ComboBoxRace.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -62,28 +62,28 @@ namespace GraphicalInterface
         {
             if (ComboBoxRace.SelectedIndex > -1)
             {
-                if((string)ComboBoxRace.SelectedItem == "HUMAIN")
+                if((string)ComboBoxRace.SelectedItem == "Humain")
                 {
-                    label1.Text = "Bonus de 5% à l'achat ou la vente d'objets.";
+                    label1.Text = "bonus de 5 pourcent à l'achat ou la vente d'objets";
                 }
-                else if ((string)ComboBoxRace.SelectedItem == "NAIN")
+                else if ((string)ComboBoxRace.SelectedItem == "Nain")
                 {
-                    label1.Text = "Bonus de 5% de pièces après un combat.";
+                    label1.Text = "bonus de 5 pourcent de pièces après un combat";
                 }
-                else if ((string)ComboBoxRace.SelectedItem == "GEANT")
+                else if ((string)ComboBoxRace.SelectedItem == "Geant")
                 {
-                    label1.Text = "Bonus 30kg en plus pour l'inventaire.";
+                    label1.Text = "bonus 30kg en plus pour l'inventaire";
                 }
-                else if ((string)ComboBoxRace.SelectedItem == "ELFE")
+                else if ((string)ComboBoxRace.SelectedItem == "Elfe")
                 {
-                    label1.Text = "Soigne d'1% les membres entre deux zones.";
+                    label1.Text = "soigne d'1 pourcent les membres entre deux zones";
                 }
                 _fullRace = true;
                 CheckValidateButton(_fullPseudo, _fullRace);
             }
 
-            label1.Location = new System.Drawing.Point(Parent.Size.Width / 2 - label1.Size.Width / 2, 270);
-            _race = (string) ComboBoxRace.SelectedItem;
+            label1.Location = new System.Drawing.Point(Width / 2 - label1.Size.Width / 2, 250);
+            _race = ((string)ComboBoxRace.SelectedItem).ToUpper();
         }
 
         // Check if the fields are full to enable "next" button

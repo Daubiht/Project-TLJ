@@ -29,75 +29,98 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.TCMortuary = new System.Windows.Forms.TabControl();
-            this.TCMPage1 = new System.Windows.Forms.TabPage();
-            this.TCMPage2 = new System.Windows.Forms.TabPage();
             this.retour = new System.Windows.Forms.Button();
-            this.TCMortuary.SuspendLayout();
+            this.TCMPage1 = new System.Windows.Forms.Panel();
+            this.equipe = new System.Windows.Forms.Label();
+            this.TCMPage2 = new System.Windows.Forms.Panel();
+            this.morgue = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(137, 15);
+            this.label1.Location = new System.Drawing.Point(11, 0);
+            this.label1.Font = new System.Drawing.Font(_ctrler.Font.Families[1], 30);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(134, 39);
+            this.label1.Size = new System.Drawing.Size(43, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "Morgue";
-            this.label1.UseMnemonic = false;
-            // 
-            // TCMortuary
-            // 
-            this.TCMortuary.Controls.Add(this.TCMPage1);
-            this.TCMortuary.Controls.Add(this.TCMPage2);
-            this.TCMortuary.Location = new System.Drawing.Point(3, 69);
-            this.TCMortuary.Name = "TCMortuary";
-            this.TCMortuary.SelectedIndex = 0;
-            this.TCMortuary.Size = new System.Drawing.Size(407, 401);
-            this.TCMortuary.TabIndex = 3;
-            // 
-            // TCMPage1
-            // 
-            this.TCMPage1.Location = new System.Drawing.Point(4, 22);
-            this.TCMPage1.Name = "TCMPage1";
-            this.TCMPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.TCMPage1.Size = new System.Drawing.Size(399, 375);
-            this.TCMPage1.TabIndex = 0;
-            this.TCMPage1.Text = "Morgue";
-            this.TCMPage1.UseVisualStyleBackColor = true;
-            // 
-            // TCMPage2
-            // 
-            this.TCMPage2.Location = new System.Drawing.Point(4, 22);
-            this.TCMPage2.Name = "TCMPage2";
-            this.TCMPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.TCMPage2.Size = new System.Drawing.Size(399, 375);
-            this.TCMPage2.TabIndex = 1;
-            this.TCMPage2.Text = "Equipe";
-            this.TCMPage2.UseVisualStyleBackColor = true;
             // 
             // retour
             // 
-            this.retour.Location = new System.Drawing.Point(331, 3);
+            this.retour.AutoSize = true;
+            this.retour.BackColor = System.Drawing.Color.Transparent;
+            this.retour.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.retour.FlatAppearance.BorderSize = 0;
+            this.retour.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.retour.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.retour.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.retour.Font = new System.Drawing.Font(_ctrler.Font.Families[0], 30);
+            this.retour.Location = new System.Drawing.Point(600, 0);
             this.retour.Name = "retour";
-            this.retour.Size = new System.Drawing.Size(75, 23);
-            this.retour.TabIndex = 4;
-            this.retour.Text = "Retour";
+            this.retour.Size = new System.Drawing.Size(134, 72);
+            this.retour.TabIndex = 0;
+            this.retour.Text = "retour";
             this.retour.UseVisualStyleBackColor = true;
             this.retour.Click += new System.EventHandler(this.retour_Click);
+            // 
+            // TCMPage1
+            // 
+            this.TCMPage1.BackColor = System.Drawing.Color.Transparent;
+            this.TCMPage1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TCMPage1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.TCMPage1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.TCMPage1.Location = new System.Drawing.Point(25, 72);
+            this.TCMPage1.Name = "TCMPage1";
+            this.TCMPage1.Size = new System.Drawing.Size(339, 264);
+            this.TCMPage1.TabIndex = 5;
+            // 
+            // equipe
+            // 
+            this.equipe.AutoSize = true;
+            this.equipe.Location = new System.Drawing.Point(692, 56);
+            this.equipe.Font = new System.Drawing.Font(_ctrler.Font.Families[1], 18);
+            this.equipe.Name = "equipe";
+            this.equipe.Size = new System.Drawing.Size(39, 13);
+            this.equipe.TabIndex = 2;
+            this.equipe.Text = "equipe";
+            // 
+            // TCMPage2
+            // 
+            this.TCMPage2.BackColor = System.Drawing.Color.Transparent;
+            this.TCMPage2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TCMPage2.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.TCMPage2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.TCMPage2.Location = new System.Drawing.Point(401, 72);
+            this.TCMPage2.Name = "TCMPage2";
+            this.TCMPage2.Size = new System.Drawing.Size(339, 264);
+            this.TCMPage2.TabIndex = 6;
+            // 
+            // morgue
+            // 
+            this.morgue.AutoSize = true;
+            this.morgue.Location = new System.Drawing.Point(310, 56);
+            this.morgue.Font = new System.Drawing.Font(_ctrler.Font.Families[1], 18);
+            this.morgue.Name = "morgue";
+            this.morgue.Size = new System.Drawing.Size(42, 13);
+            this.morgue.TabIndex = 2;
+            this.morgue.Text = "morgue";
             // 
             // Mortuary
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Transparent;
+            this.Controls.Add(this.morgue);
+            this.Controls.Add(this.equipe);
+            this.Controls.Add(this.TCMPage2);
+            this.Controls.Add(this.TCMPage1);
             this.Controls.Add(this.retour);
-            this.Controls.Add(this.TCMortuary);
             this.Controls.Add(this.label1);
+            this.Location = new System.Drawing.Point(60, 50);
             this.Name = "Mortuary";
-            this.Size = new System.Drawing.Size(410, 470);
+            this.Size = new System.Drawing.Size(750, 338);
             this.Load += new System.EventHandler(this.Mortuary_Load);
-            this.TCMortuary.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -105,9 +128,10 @@
 
         #endregion
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TabControl TCMortuary;
-        private System.Windows.Forms.TabPage TCMPage1;
-        private System.Windows.Forms.TabPage TCMPage2;
         private System.Windows.Forms.Button retour;
+        private System.Windows.Forms.Panel TCMPage1;
+        private System.Windows.Forms.Panel TCMPage2;
+        private System.Windows.Forms.Label equipe;
+        private System.Windows.Forms.Label morgue;
     }
 }

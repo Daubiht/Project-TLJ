@@ -71,17 +71,22 @@ namespace LogicalGame
             if (difficulty > 2 || difficulty < 0) throw new ArgumentException();
 
             ListMonsters EntirelistM = new ListMonsters();
+
+            if(race == null)
+            {
+                List<Monster> M = EntirelistM.GetListMonsters.FindAll(
+                    delegate (Monster m)
+                {
+                    return m.Level < _zoneLevel + 2 && m.Level > _zoneLevel - 2;
+                });
+
+                race = M[_rand.Next(0, M.Count)].Race;
+            }
+
             List<Monster> listMByLevel = EntirelistM.GetListMonsters.FindAll(
                 delegate (Monster m)
                 {
-                    if (race == null)
-                    {
-                        return m.Level >= (_zoneLevel) && m.Level <= (_zoneLevel + difficulty);
-                    } 
-                    else
-                    {
-                        return race == m.Race;
-                    }
+                     return race == m.Race;
                 }
             );
 

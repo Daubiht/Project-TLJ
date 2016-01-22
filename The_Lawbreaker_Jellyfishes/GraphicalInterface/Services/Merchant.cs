@@ -12,17 +12,21 @@ namespace GraphicalInterface
         Dictionary<Item, int> _requiredItem = new Dictionary<Item, int>();
         Invent _invent;
         LogicalGame.Merchant _m;
+        string _page;
 
         public Merchant(Controller ctrler, LogicalGame.Merchant merchant, Invent invent)
         {
-            InitializeComponent();
             _invent = invent;
             _m = merchant;
             _ctrler = ctrler;
+            InitializeComponent();
+            _page = "Buy";
 
-            _requiredItem.Add(new ListItems().Items[4], 1);
-            _requiredItem.Add(new ListItems().Items[5], 1);
-            _requiredItem.Add(new ListItems().Items[6], 1);
+            LGold.Location = new Point(LGold.Parent.Width / 2 - LGold.Width / 2, LGold.Top);
+
+            _requiredItem.Add(new ListItems().Items[4], 10);
+            _requiredItem.Add(new ListItems().Items[5], 2);
+            _requiredItem.Add(new ListItems().Items[6], 5);
         }
 
         internal void Buy_Click (object sender, EventArgs e)
@@ -35,7 +39,8 @@ namespace GraphicalInterface
             _m.BuyItems(item, quantity);
 
             LGold.Text = _invent.GetGold.ToString();
-            LoadItemToSell();
+            LGold.Location = new Point(LGold.Parent.Width / 2 - LGold.Width / 2, LGold.Top);
+            LoadItemToBuy();
 
         }
 
@@ -70,7 +75,7 @@ namespace GraphicalInterface
                     ((ItemInformations)button.Parent).ItemQuantityLabel.Text = "x " + _invent.Inventory[item].ToString();
                     ((ItemInformations)button.Parent).ItemMaximumQuantity = _invent.Inventory[item];
                 }
-                else if (PageSell.Controls.Contains(button.Parent)) PageSell.Controls.Remove(button.Parent);
+                else if (Page.Controls.Contains(button.Parent)) Page.Controls.Remove(button.Parent);
             }
             else
             {
@@ -78,18 +83,17 @@ namespace GraphicalInterface
                 LError.Visible = true;
             }
 
-            LGold.Text = _invent.GetGold.ToString() + " PO";
+            LGold.Text = "Poids : " + _invent.weight + "/" + _invent.MaxWeight + " - " + _invent.GetGold + " pièces d'or";
+            LGold.Location = new Point(LGold.Parent.Width / 2 - LGold.Width / 2, LGold.Top);
             Arange();
 
         }
 
         internal void Arange ()
         {
-
-            TabPage page = ItemLists.SelectedTab;
             int i = 0;
 
-            foreach (Control item in page.Controls)
+            foreach (Control item in Page.Controls)
             {
                 item.Top = i * (item.Height + 3);
                 i++;
@@ -101,14 +105,14 @@ namespace GraphicalInterface
             Dictionary<Item, int> items = _invent.Inventory;
             int j = 0;
 
-            PageSell.Controls.Clear();
+            Page.Controls.Clear();
 
             foreach (Item i in items.Keys)
             {
 
                 Item item = i;
                 ToolTip toolTip = new ToolTip();
-                ItemInformations UCItem = new ItemInformations();
+                ItemInformations UCItem = new ItemInformations(_ctrler.Font.Families);
 
                 UCItem.Top = j * (3 + UCItem.Height);
 
@@ -151,11 +155,12 @@ namespace GraphicalInterface
                 toolTip.SetToolTip(UCItem, infoItem);
                 toolTip.SetToolTip(UCItem.ItemNameLabel, infoItem);
 
-                PageSell.Controls.Add(UCItem);
-                UCItem.ItemActionName = "Vendre";
+                Page.Controls.Add(UCItem);
+                UCItem.ItemActionName = "vendre";
                 UCItem.ItemAction(new EventHandler(Sell_Click));
 
-                LGold.Text = _invent.GetGold.ToString() + " PO";
+                LGold.Text = "Poids : " + _invent.weight + "/" + _invent.MaxWeight + " - " + _invent.GetGold + " pièces d'or";
+                LGold.Location = new Point(LGold.Parent.Width / 2 - LGold.Width / 2, LGold.Top);
 
                 j++;
             }
@@ -165,11 +170,12 @@ namespace GraphicalInterface
         {
             List<Item> items = _m.GetItemsAvailable;
 
+            Page.Controls.Clear();
             for (int i = 0; i < items.Count; i++)
             {
                 Item item = items[i];
                 ToolTip toolTip = new ToolTip();
-                ItemInformations UCItem = new ItemInformations();
+                ItemInformations UCItem = new ItemInformations(_ctrler.Font.Families);
 
                 UCItem.Top = i * 55;
 
@@ -209,23 +215,37 @@ namespace GraphicalInterface
                 toolTip.SetToolTip(UCItem, infoItem);
                 toolTip.SetToolTip(UCItem.ItemNameLabel, infoItem);
 
-                PageBuy.Controls.Add(UCItem);
-                UCItem.ItemActionName = "Acheter";
+                Page.Controls.Add(UCItem);
+                UCItem.ItemActionName = "acheter";
                 UCItem.ItemAction(new EventHandler(Buy_Click));
 
-                LGold.Text = _invent.GetGold.ToString() + " PO";
+                LGold.Text = "Poids : " + _invent.weight + "/" + _invent.MaxWeight + " - " + _invent.GetGold + " pièces d'or";
+                LGold.Location = new Point(LGold.Parent.Width / 2 - LGold.Width / 2, LGold.Top);
             }
         }
 
-        private void CraftLoad (TabPage page, bool isSuccess)
+        private void CraftLoad (bool isSuccess)
         {
-            page.Controls.Clear();
+            Page.Controls.Clear();
             
 
             Label resource = new Label();
             Label error = new Label();
             Label LSuccess = new Label();
             Button BCraft = new Button();
+
+            BCraft.AutoSize = true;
+            BCraft.BackColor = Color.Transparent;
+            BCraft.Cursor = Cursors.Hand;
+            BCraft.FlatAppearance.BorderSize = 0;
+            BCraft.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            BCraft.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            BCraft.FlatStyle = FlatStyle.Flat;
+            BCraft.Font = new Font(_ctrler.Font.Families[0], 30);
+
+            resource.Font = new Font(_ctrler.Font.Families[1], 18);
+            error.Font = new Font(_ctrler.Font.Families[1], 18);
+            LSuccess.Font = new Font(_ctrler.Font.Families[1], 18);
 
             LSuccess.Text = "Vous avez fabriqué une orbe de résurrection.";
             LSuccess.ForeColor = Color.Green;
@@ -237,8 +257,8 @@ namespace GraphicalInterface
 
             BCraft.Click += Craft_Click;
 
-            BCraft.Text = "Fabriquer";
-            resource.Text = "Pour faire un objet de résurection, il vous faut : " + Environment.NewLine;
+            BCraft.Text = "fabriquer";
+            resource.Text = "Ce marchand vous propose de créer" + Environment.NewLine + "une orbe de résurrection permettant" + Environment.NewLine + "de ramener à la vie un membre de votre équipe" + Environment.NewLine+"pour cela il vous faut : " + Environment.NewLine;
             error.Text = "";
 
             foreach (Item item in _requiredItem.Keys)
@@ -280,26 +300,28 @@ namespace GraphicalInterface
 
             if (error.Text == "") error.Text = "Vous pouvez fabriquer cet objet.";
 
-            page.Controls.Add(resource);
-            page.Controls.Add(error);
-            page.Controls.Add(BCraft);
-            page.Controls.Add(LSuccess);
+            Page.Controls.Add(resource);
+            Page.Controls.Add(error);
+            Page.Controls.Add(BCraft);
+            Page.Controls.Add(LSuccess);
 
             error.AutoSize = true;
             resource.AutoSize = true;
-            error.BorderStyle = BorderStyle.FixedSingle;
-            resource.BorderStyle = BorderStyle.FixedSingle;
 
-            resource.Left = page.Width / 2 - resource.Width / 2;
-            error.Left = page.Width / 2 - error.Width / 2;
-            error.Top = resource.Bottom + 10;
+            resource.Left = Page.Width / 2 - resource.Width / 2;
+            resource.Top = 10;
+            error.Left = Page.Width / 2 - error.Width / 2;
+            error.Top = resource.Bottom + 100;
 
-            BCraft.Top = page.Height - BCraft.Height - 10;
-            BCraft.Left = page.Width / 2 - BCraft.Width / 2;
+            BCraft.Top = Page.Height - BCraft.Height - 10;
+            BCraft.Left = Page.Width / 2 - BCraft.Width / 2;
 
             LSuccess.AutoSize = true;
             LSuccess.Left = LSuccess.Parent.Width / 2 - LSuccess.Width / 2;
             LSuccess.Top = BCraft.Top - 10 - LSuccess.Height;
+
+            error.Visible = false;
+            resource.TextAlign = ContentAlignment.MiddleCenter;
         }
 
         private void Craft_Click (object sender, EventArgs e)
@@ -322,13 +344,13 @@ namespace GraphicalInterface
 
             //((Label)(ItemLists.SelectedTab.Controls.Find("LSuccess", false)[0])).Visible = true;
 
-            CraftLoad(ItemLists.SelectedTab, true);
+            CraftLoad(true);
 
         }
 
         private void IGMerchant_Load(object sender, EventArgs e)
         {
-            if ((String)ItemLists.SelectedTab.Tag == "Sell")
+            if (_page == "Sell")
             {
                 LoadItemToSell();
             }
@@ -339,33 +361,57 @@ namespace GraphicalInterface
 
             if (_m.Name == "herboriste")
             {
-                TabPage page = new TabPage();
-                page.Text = "Artisanat";
-                page.Tag = "Craft";
-
-                ItemLists.TabPages.Add(page);
+                BAlchemist.Visible = true;
             }
         }
 
-        private void TableChanged (object sender, EventArgs e)
+        private void TableChanged ()
         {
-            if ((String)ItemLists.SelectedTab.Tag == "Sell")
+            if (_page == "Sell")
             {
                 LoadItemToSell();
             }
-            else if ((String)ItemLists.SelectedTab.Tag == "Buy")
+            else if (_page == "Buy")
             {
                 LoadItemToBuy();
             }
             else
             {
-                CraftLoad(ItemLists.SelectedTab, false);
+                CraftLoad(false);
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             _ctrler.ExitMenu(this);
+        }
+
+        private void ChangePage(object sender, EventArgs e)
+        {
+            Button button = (Button)sender;
+            string page = (string)button.Tag;
+
+            if(page == "Sell")
+            {
+                BSell.Font = new Font(_ctrler.Font.Families[0], 25, FontStyle.Underline);
+                BBuy.Font = new Font(_ctrler.Font.Families[0], 25);
+                BAlchemist.Font = new Font(_ctrler.Font.Families[0], 25);
+            }
+            else if(page == "Buy")
+            {
+                BSell.Font = new Font(_ctrler.Font.Families[0], 25);
+                BBuy.Font = new Font(_ctrler.Font.Families[0], 25, FontStyle.Underline);
+                BAlchemist.Font = new Font(_ctrler.Font.Families[0], 25);
+            }
+            else
+            {
+                BSell.Font = new Font(_ctrler.Font.Families[0], 25);
+                BBuy.Font = new Font(_ctrler.Font.Families[0], 25);
+                BAlchemist.Font = new Font(_ctrler.Font.Families[0], 25, FontStyle.Underline);
+            }
+
+            _page = page;
+            TableChanged();
         }
     }
 }

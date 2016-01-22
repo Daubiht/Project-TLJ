@@ -1,0 +1,53 @@
+﻿using System;
+using System.Windows.Forms;
+using LogicalGame;
+namespace GraphicalInterface
+{
+    public partial class Menu : UserControl
+    {
+        MapWorld _contextWorld;
+<<<<<<< HEAD
+        Controller _ctrler;
+
+        public Menu(MapWorld contextWorld, Controller ctrler)
+=======
+        MainForm _contextForm;
+        
+        public Menu(MapWorld contextWorld, MainForm contextForm)
+>>>>>>> Graphical_stuff
+        {
+            _contextWorld = contextWorld;
+<<<<<<< HEAD
+            _ctrler = ctrler;
+=======
+            _contextForm = contextForm;
+            InitializeComponent();
+
+            equipe.Location = new System.Drawing.Point((Width - (equipe.Width + inventaire.Width + notifications.Width + sauvegarde.Width)) / 5, 0);
+            inventaire.Location = new System.Drawing.Point(((Width - (equipe.Width + inventaire.Width + notifications.Width + sauvegarde.Width)) / 5) + equipe.Right, 0);
+            notifications.Location = new System.Drawing.Point(((Width - (equipe.Width + inventaire.Width + notifications.Width + sauvegarde.Width)) / 5) + inventaire.Right, 0);
+            sauvegarde.Location = new System.Drawing.Point(((Width - (equipe.Width + inventaire.Width + notifications.Width + sauvegarde.Width)) / 5) + notifications.Right, 0);
+>>>>>>> Graphical_stuff
+        }
+
+        private void equipe_Click(object sender, EventArgs e)
+        {
+            _ctrler.ToTeam(_contextWorld.Team, true);
+        }
+
+        private void inventaire_Click(object sender, EventArgs e)
+        {
+            _ctrler.ToInventory(_contextWorld.Team.Invent);
+        }
+
+        private void notifications_Click(object sender, EventArgs e)
+        {
+            _ctrler.ToNotif();
+        }
+
+        private void sauvegarde_Click(object sender, EventArgs e)
+        {
+            _ctrler.ToSave();
+        }
+    }
+}

@@ -58,7 +58,6 @@ namespace LogicalGame
                         {
                             _actualPosition = I;
                         }
-                        TavernCharactersChange();
                         return true;
                     }
                 }
@@ -131,7 +130,6 @@ namespace LogicalGame
             set
             {
                 _islands = value;
-                _actualPosition = _islands["island1"];
             }
         }
 

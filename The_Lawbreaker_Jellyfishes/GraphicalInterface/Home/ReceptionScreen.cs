@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace GraphicalInterface
@@ -10,8 +11,12 @@ namespace GraphicalInterface
            
         public ReceptionScreen(Controller ctrler)
         {
-            InitializeComponent();
             _ctrler = ctrler;
+            InitializeComponent();
+
+            quitButton.Location = new Point(Width / 2 - quitButton.Width / 2, 250);
+            ChargeParty.Location = new Point(Width / 2 - ChargeParty.Width / 2, 150);
+            NewParty.Location = new Point(Width / 2 - NewParty.Width / 2, 50);
         }
 
         private void button1_Click(object sender, EventArgs e)

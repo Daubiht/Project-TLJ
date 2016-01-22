@@ -10,8 +10,9 @@
 
 namespace GraphicalInterface.Properties {
     using System;
-    
-    
+    using System.Drawing;
+
+
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -45,7 +46,12 @@ namespace GraphicalInterface.Properties {
                 return resourceMan;
             }
         }
-        
+
+        internal static Font GetFont(object miramonte)
+        {
+            throw new NotImplementedException();
+        }
+
         /// <summary>
         ///   Overrides the current thread's CurrentUICulture property for all
         ///   resource lookups using this strongly typed resource class.

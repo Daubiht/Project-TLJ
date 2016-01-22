@@ -1,0 +1,49 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Windows.Forms;
+using LogicalGame;
+
+namespace GraphicalInterface
+{
+    public partial class Notifications : UserControl
+    {
+        MapWorld _contextWorld;
+        Controller _ctrler;
+
+        public Notifications(MapWorld contextWorld, Controller ctrler)
+        {
+            _contextWorld = contextWorld;
+<<<<<<< HEAD
+            _ctrler = ctrler;
+=======
+            _contextForm = contextForm;
+            InitializeComponent();
+>>>>>>> Graphical_stuff
+
+            List<Notification> listNotifs = contextWorld.Notifs.ListNotif;
+
+<<<<<<< HEAD
+            int max = contextWorld.Notifs.ListNotif.Count;
+
+            for (int i = max; i > 0; i--)
+            {
+                listLabels[max - i].Text = listNotifs[i-1].Name + " - " + listNotifs[i-1].Description + " - " + listNotifs[i-1].Date;
+=======
+            for(int i = 0; i < listNotifs.Count; i++) 
+            {
+                Label LabelNotif = new Label();
+                LabelNotif.AutoSize = true;
+                LabelNotif.Text = listNotifs[i].Date + " - " + listNotifs[i].Name + " - " + listNotifs[i].Description;
+                LabelNotif.Font = new System.Drawing.Font(_contextForm.Font.Families[1], 16);
+                panel1.Controls.Add(LabelNotif);
+                LabelNotif.Location = new System.Drawing.Point(Width / 2 - LabelNotif.Width / 2, i * LabelNotif.Height);
+>>>>>>> Graphical_stuff
+            }
+        }
+
+        private void retour_Click(object sender, EventArgs e)
+        {
+            _ctrler.ExitMenu(this);
+        }
+    }
+}

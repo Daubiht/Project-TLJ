@@ -22,6 +22,11 @@ namespace GraphicalInterface
             _C1 = CreatedCharacter;
             _ctrler = ctrler;
             _statsFromScreen2 = stat;
+
+            InitializeComponent();
+
+            label1.Location = new System.Drawing.Point(Width / 2 - label1.Width /2, 0);
+
             _skillList = new SkillList();
 
 
@@ -100,6 +105,7 @@ namespace GraphicalInterface
 
             w.Team.AddMembers(_C1);
             _ctrler.ToWorld(w, false);
+            w.TavernCharactersChange();
         }
 
         // Here we assign the chosen skill to the character

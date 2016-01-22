@@ -48,16 +48,17 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Pseudo.AutoSize = true;
-            this.Pseudo.Location = new System.Drawing.Point(100, 98);
+            this.Pseudo.Font = new System.Drawing.Font(_ctrler.Font.Families[1], 25);
+            this.Pseudo.Location = new System.Drawing.Point(246, 35);
             this.Pseudo.Name = "Pseudo";
-            this.Pseudo.Size = new System.Drawing.Size(43, 13);
+            this.Pseudo.Size = new System.Drawing.Size(42, 13);
             this.Pseudo.TabIndex = 0;
-            this.Pseudo.Text = "Pseudo";
-            // 
+            this.Pseudo.Text = "pseudo";
+            //
             // PseudoField
-            // 
+            //
             this.PseudoField.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.PseudoField.Location = new System.Drawing.Point(154, 95);
+            this.PseudoField.Location = new System.Drawing.Point(359, 45);
             this.PseudoField.MaxLength = 10;
             this.PseudoField.Name = "PseudoField";
             this.PseudoField.Size = new System.Drawing.Size(134, 20);
@@ -75,11 +76,12 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Sex.AutoSize = true;
-            this.Sex.Location = new System.Drawing.Point(100, 164);
+            this.Sex.Font = new System.Drawing.Font(_ctrler.Font.Families[1], 25);
+            this.Sex.Location = new System.Drawing.Point(246, 120);
             this.Sex.Name = "Sex";
-            this.Sex.Size = new System.Drawing.Size(31, 13);
+            this.Sex.Size = new System.Drawing.Size(29, 13);
             this.Sex.TabIndex = 3;
-            this.Sex.Text = "Sexe";
+            this.Sex.Text = "sexe";
             // 
             // Race
             // 
@@ -87,16 +89,17 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Race.AutoSize = true;
-            this.Race.Location = new System.Drawing.Point(100, 230);
+            this.Race.Font = new System.Drawing.Font(_ctrler.Font.Families[1], 25);
+            this.Race.Location = new System.Drawing.Point(246, 195);
             this.Race.Name = "Race";
-            this.Race.Size = new System.Drawing.Size(33, 13);
+            this.Race.Size = new System.Drawing.Size(28, 13);
             this.Race.TabIndex = 6;
-            this.Race.Text = "Race";
+            this.Race.Text = "race";
             // 
             // ComboBoxRace
             // 
             this.ComboBoxRace.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.ComboBoxRace.Location = new System.Drawing.Point(154, 222);
+            this.ComboBoxRace.Location = new System.Drawing.Point(359, 200);
             this.ComboBoxRace.Name = "ComboBoxRace";
             this.ComboBoxRace.Size = new System.Drawing.Size(134, 21);
             this.ComboBoxRace.TabIndex = 7;
@@ -105,12 +108,19 @@
             // ValidButton
             // 
             this.ValidButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.ValidButton.BackColor = System.Drawing.SystemColors.Control;
-            this.ValidButton.Location = new System.Drawing.Point(213, 321);
+            this.ValidButton.AutoSize = true;
+            this.ValidButton.BackColor = System.Drawing.Color.Transparent;
+            this.ValidButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ValidButton.FlatAppearance.BorderSize = 0;
+            this.ValidButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.ValidButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.ValidButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ValidButton.Font = new System.Drawing.Font(_ctrler.Font.Families[0], 30);
+            this.ValidButton.Location = new System.Drawing.Point(550, 280);
             this.ValidButton.Name = "ValidButton";
             this.ValidButton.Size = new System.Drawing.Size(75, 32);
             this.ValidButton.TabIndex = 8;
-            this.ValidButton.Text = "Valider";
+            this.ValidButton.Text = "valider";
             this.ValidButton.UseVisualStyleBackColor = true;
             this.ValidButton.Click += new System.EventHandler(this.Valid_Click);
             // 
@@ -118,11 +128,18 @@
             // 
             this.BackButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.BackButton.AutoSize = true;
-            this.BackButton.Location = new System.Drawing.Point(103, 321);
+            this.BackButton.BackColor = System.Drawing.Color.Transparent;
+            this.BackButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BackButton.FlatAppearance.BorderSize = 0;
+            this.BackButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.BackButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.BackButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BackButton.Font = new System.Drawing.Font(_ctrler.Font.Families[0], 30);
+            this.BackButton.Location = new System.Drawing.Point(50, 280);
             this.BackButton.Name = "BackButton";
             this.BackButton.Size = new System.Drawing.Size(75, 32);
             this.BackButton.TabIndex = 9;
-            this.BackButton.Text = "Retour";
+            this.BackButton.Text = "retour";
             this.BackButton.UseVisualStyleBackColor = true;
             this.BackButton.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -130,30 +147,33 @@
             // 
             this.ButtonMan.AutoSize = true;
             this.ButtonMan.Checked = true;
-            this.ButtonMan.Location = new System.Drawing.Point(154, 164);
+            this.ButtonMan.Location = new System.Drawing.Point(357, 120);
             this.ButtonMan.Name = "ButtonMan";
+            this.ButtonMan.Font = new System.Drawing.Font(_ctrler.Font.Families[1], 20);
             this.ButtonMan.Size = new System.Drawing.Size(61, 17);
             this.ButtonMan.TabIndex = 10;
             this.ButtonMan.TabStop = true;
-            this.ButtonMan.Text = "Homme";
+            this.ButtonMan.Text = "homme";
             this.ButtonMan.UseVisualStyleBackColor = true;
             this.ButtonMan.CheckedChanged += new System.EventHandler(this.ButtonMan_CheckedChanged);
             // 
             // ButtonWoman
             // 
             this.ButtonWoman.AutoSize = true;
-            this.ButtonWoman.Location = new System.Drawing.Point(229, 164);
+            this.ButtonWoman.Location = new System.Drawing.Point(450, 120);
             this.ButtonWoman.Name = "ButtonWoman";
+            this.ButtonWoman.Font = new System.Drawing.Font(_ctrler.Font.Families[1], 20);
             this.ButtonWoman.Size = new System.Drawing.Size(59, 17);
             this.ButtonWoman.TabIndex = 11;
-            this.ButtonWoman.Text = "Femme";
+            this.ButtonWoman.Text = "femme";
             this.ButtonWoman.UseVisualStyleBackColor = true;
             this.ButtonWoman.CheckedChanged += new System.EventHandler(this.ButtonWoman_CheckedChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(210, 269);
+            this.label1.Location = new System.Drawing.Point(200, 250);
+            this.label1.Font = new System.Drawing.Font(_ctrler.Font.Families[1], 18);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(0, 13);
             this.label1.TabIndex = 12;
@@ -163,7 +183,7 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoSize = true;
-            this.BackColor = System.Drawing.SystemColors.Control;
+            this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ButtonWoman);
             this.Controls.Add(this.ButtonMan);
@@ -174,8 +194,9 @@
             this.Controls.Add(this.Sex);
             this.Controls.Add(this.PseudoField);
             this.Controls.Add(this.Pseudo);
+            this.Location = new System.Drawing.Point(60, 50);
             this.Name = "CreateMainCharacter1";
-            this.Size = new System.Drawing.Size(400, 400);
+            this.Size = new System.Drawing.Size(750, 338);
             this.ResumeLayout(false);
             this.PerformLayout();
 

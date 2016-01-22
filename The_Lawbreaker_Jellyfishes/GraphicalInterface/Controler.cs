@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using LogicalGame;
 using System.Windows.Forms;
+using System.Drawing.Text;
 
 namespace GraphicalInterface
 {
@@ -11,11 +12,18 @@ namespace GraphicalInterface
     {
         MainForm _form;
         MapWorld _w;
+        PrivateFontCollection _font;
 
         //Constructor
         public Controller(MainForm form)
         {
             _form = form;
+            _font = _form.FormFont;
+        }
+
+        public PrivateFontCollection Font
+        {
+            get { return _font; }
         }
 
         //Manage UserControl

@@ -54,7 +54,7 @@
             this.toolStripSkills});
             this.toolStripLeft.Location = new System.Drawing.Point(0, 0);
             this.toolStripLeft.Name = "toolStripLeft";
-            this.toolStripLeft.Size = new System.Drawing.Size(94, 71);
+            this.toolStripLeft.Size = new System.Drawing.Size(94, 140);
             this.toolStripLeft.TabIndex = 0;
             this.toolStripLeft.Text = "toolStrip1";
             // 
@@ -82,7 +82,7 @@
             this.toolStripSkills.Image = ((System.Drawing.Image)(resources.GetObject("toolStripSkills.Image")));
             this.toolStripSkills.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripSkills.Name = "toolStripSkills";
-            this.toolStripSkills.Size = new System.Drawing.Size(93, 19);
+            this.toolStripSkills.Size = new System.Drawing.Size(92, 19);
             this.toolStripSkills.Text = "Compétences";
             this.toolStripSkills.ToolTipText = "Compétences";
             this.toolStripSkills.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStripSkills_DropDownItemClicked);
@@ -93,9 +93,9 @@
             this.toolStripRight.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStripRight.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ButtonInventoryConsumable});
-            this.toolStripRight.Location = new System.Drawing.Point(346, 0);
+            this.toolStripRight.Location = new System.Drawing.Point(686, 0);
             this.toolStripRight.Name = "toolStripRight";
-            this.toolStripRight.Size = new System.Drawing.Size(64, 71);
+            this.toolStripRight.Size = new System.Drawing.Size(64, 140);
             this.toolStripRight.TabIndex = 1;
             this.toolStripRight.Text = "toolStrip2";
             // 
@@ -111,7 +111,7 @@
             // 
             // ButtonRunAway
             // 
-            this.ButtonRunAway.Location = new System.Drawing.Point(354, 24);
+            this.ButtonRunAway.Location = new System.Drawing.Point(699, 24);
             this.ButtonRunAway.Name = "ButtonRunAway";
             this.ButtonRunAway.Size = new System.Drawing.Size(48, 31);
             this.ButtonRunAway.TabIndex = 2;
@@ -123,7 +123,7 @@
             this.labelCharName.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelCharName.Location = new System.Drawing.Point(94, 0);
             this.labelCharName.Name = "labelCharName";
-            this.labelCharName.Size = new System.Drawing.Size(252, 13);
+            this.labelCharName.Size = new System.Drawing.Size(592, 13);
             this.labelCharName.TabIndex = 3;
             this.labelCharName.Text = "Nom du personnage";
             this.labelCharName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -132,7 +132,7 @@
             // 
             this.progressBarHP.BackColor = System.Drawing.Color.Cyan;
             this.progressBarHP.ForeColor = System.Drawing.Color.Red;
-            this.progressBarHP.Location = new System.Drawing.Point(142, 24);
+            this.progressBarHP.Location = new System.Drawing.Point(324, 24);
             this.progressBarHP.Name = "progressBarHP";
             this.progressBarHP.Size = new System.Drawing.Size(137, 10);
             this.progressBarHP.TabIndex = 4;
@@ -141,7 +141,7 @@
             // 
             this.progressBarStamina.BackColor = System.Drawing.Color.Cyan;
             this.progressBarStamina.ForeColor = System.Drawing.Color.Red;
-            this.progressBarStamina.Location = new System.Drawing.Point(142, 40);
+            this.progressBarStamina.Location = new System.Drawing.Point(324, 40);
             this.progressBarStamina.Name = "progressBarStamina";
             this.progressBarStamina.Size = new System.Drawing.Size(137, 10);
             this.progressBarStamina.TabIndex = 5;
@@ -150,7 +150,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.PowderBlue;
+            this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.progressBarStamina);
             this.Controls.Add(this.progressBarHP);
             this.Controls.Add(this.labelCharName);
@@ -158,7 +158,7 @@
             this.Controls.Add(this.toolStripRight);
             this.Controls.Add(this.toolStripLeft);
             this.Name = "FightMenu";
-            this.Size = new System.Drawing.Size(410, 71);
+            this.Size = new System.Drawing.Size(750, 140);
             this.toolStripLeft.ResumeLayout(false);
             this.toolStripLeft.PerformLayout();
             this.toolStripRight.ResumeLayout(false);

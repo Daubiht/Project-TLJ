@@ -6,40 +6,43 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using GraphicalInterface;
 using LogicalGame;
 
-namespace Services
+namespace GraphicalInterface
 {
     public partial class CharacterInformations : UserControl
     {
         Character c;
         Team t;
+<<<<<<< HEAD
+        Controller _ctrler;
+=======
         MainForm _contextForm;
+        Image _img;
+>>>>>>> Graphical_stuff
         int[] statsUped = new int[] { 0, 0, 0, 0, 0, 0 };
         int statPoint;
-        List<Character> _listCha = new List<Character>();
 
-        public CharacterInformations(Character chara, Team team, MainForm contextForm, List<Character> randomCharacterList)
+        public CharacterInformations(Character chara, Team team, Controller ctrler)
         {
             t = team;
             c = chara;
-            _contextForm = contextForm;
+            _ctrler = ctrler;
             statPoint = c.StatsPoint;
+<<<<<<< HEAD
+=======
             _listCha = randomCharacterList;
+            _img = Image.FromFile(@"../../../Ressources/treetest.png");
+>>>>>>> Graphical_stuff
 
             InitializeComponent();
+            label1.Location = new Point(panel1.Width / 2 - label1.Width / 2, label1.Top);
         }
 
         private void IGCharactereManagement_Load(object sender, EventArgs e)
         {
-            ToolTip toolTip = new ToolTip();
-            toolTip.InitialDelay = 250;
-            toolTip.ReshowDelay = 500;
-            toolTip.ShowAlways = true;
-
-            LRace.Text = c.Race;
-            LLevel.Text = "Niveau " + c.Level;
+            LRace.Text = c.Race.ToLower();
+            LLevel.Text = "niv. " + c.Level;
             LXP.Text = c.CurentXp + " / " + c.NextLevel;
             LName.Text = c.Name;
             LHealth.Text = c.Health.ToString();
@@ -48,23 +51,19 @@ namespace Services
             LDodge.Text = c.Dodge.ToString();
             LPhysical.Text = c.PhysicalAttack.ToString();
             LMagic.Text = c.MagicAttack.ToString();
-            label8.Text = c.Race;
+
         }
 
 
         private void Retour_Click(object sender, EventArgs e)
         {
-            GraphicalInterface.Taverne uc = new GraphicalInterface.Taverne(t, _contextForm, _listCha);
-            _contextForm.ChangeUC(uc, true, true);
+            LogicalGame.Taverne service = new LogicalGame.Taverne();
+            _ctrler.ToService(service);
         }
-<<<<<<< HEAD
-=======
-
         private void BSkills_Click(object sender, EventArgs e)
         {
             skillsForm skillsform = new skillsForm(c);
             skillsform.ShowDialog();
         }
->>>>>>> Corrections_and_ameliorations_Léo
     }
 }

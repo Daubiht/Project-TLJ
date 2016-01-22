@@ -44,12 +44,12 @@ namespace LogicalGame.Test
             Assert.IsTrue(m.DepositBody(b));
             Assert.IsTrue(m.DepositBody(c));
             Assert.IsTrue(m.DepositBody(d));
-            Assert.IsTrue(m.DepositBody(e));
-            Assert.IsTrue(m.DepositBody(f));
-            Assert.IsTrue(m.DepositBody(g));
-            Assert.IsTrue(m.DepositBody(h));
-            Assert.IsTrue(m.DepositBody(i));
-            Assert.IsTrue(m.DepositBody(j));
+            Assert.IsFalse(m.DepositBody(e));
+            Assert.IsFalse(m.DepositBody(f));
+            Assert.IsFalse(m.DepositBody(g));
+            Assert.IsFalse(m.DepositBody(h));
+            Assert.IsFalse(m.DepositBody(i));
+            Assert.IsFalse(m.DepositBody(j));
             Assert.IsFalse(m.DepositBody(k));
         }
     }

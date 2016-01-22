@@ -147,7 +147,7 @@ namespace LogicalGame.Test
                 w = (MapWorld)formatter.Deserialize(stream);
             }
 
-            for (int i = 0; i < 38; i++)
+            for (int i = 0; i < 40; i++)
             {
                 Item item = new Item("Plop"+i, 2, 100, "testdefolie", "typetest");
                 w.Team.Invent.AddItem(item, 1);

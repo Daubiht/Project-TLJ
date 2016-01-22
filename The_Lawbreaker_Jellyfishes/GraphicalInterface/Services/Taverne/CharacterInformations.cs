@@ -15,6 +15,7 @@ namespace GraphicalInterface
         Character c;
         Team t;
         Controller _ctrler;
+        Image _img;
         int[] statsUped = new int[] { 0, 0, 0, 0, 0, 0 };
         int statPoint;
 
@@ -24,19 +25,16 @@ namespace GraphicalInterface
             c = chara;
             _ctrler = ctrler;
             statPoint = c.StatsPoint;
+            _img = Image.FromFile(@"../../../Ressources/treetest.png");
 
             InitializeComponent();
+            label1.Location = new Point(panel1.Width / 2 - label1.Width / 2, label1.Top);
         }
 
         private void IGCharactereManagement_Load(object sender, EventArgs e)
         {
-            ToolTip toolTip = new ToolTip();
-            toolTip.InitialDelay = 250;
-            toolTip.ReshowDelay = 500;
-            toolTip.ShowAlways = true;
-
-            LRace.Text = c.Race;
-            LLevel.Text = "Niveau " + c.Level;
+            LRace.Text = c.Race.ToLower();
+            LLevel.Text = "niv. " + c.Level;
             LXP.Text = c.CurentXp + " / " + c.NextLevel;
             LName.Text = c.Name;
             LHealth.Text = c.Health.ToString();

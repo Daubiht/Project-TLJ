@@ -8,7 +8,7 @@ namespace GraphicalInterface
     {
         Team _team;
         Character _c;
-        object _contextForm;
+        object _ctrler;
         string _filtre;
         string _place;
         bool _inFight;
@@ -20,7 +20,7 @@ namespace GraphicalInterface
             _inFight = InFight;
             _c = chara;
             _filtre = type;
-            _contextForm = contextForm;
+            _ctrler = contextForm;
             InitializeComponent();
         }
 
@@ -28,11 +28,11 @@ namespace GraphicalInterface
         {
             if (_inFight)
             {
-                ((FiltredInventoryForm)_contextForm).Close();
+                ((FiltredInventoryForm)_ctrler).Close();
             }
             else
             {
-                ((Controller)_contextForm).ToCharacterManagement(_c);
+                ((Controller)_ctrler).ToCharacterManagement(_c);
             }
         }
 

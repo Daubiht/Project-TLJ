@@ -28,7 +28,7 @@ namespace LogicalGame.Test
             MapIsland i = null;
             foreach(MapIsland island in Islands.Values)
             {
-                if(island.IslandName == "island1")
+                if(island.IslandName == "Poniénne")
                 {
                     world.ChangeActualIsland(island, true);
                     i = island;
@@ -40,7 +40,7 @@ namespace LogicalGame.Test
             //change island
             foreach (MapIsland island in Islands.Values)
             {
-                if (island.IslandName == "island2")
+                if (island.IslandName == "Belegaer")
                 {
                     world.ChangeActualIsland(island, true);
                     i = island;
@@ -53,14 +53,14 @@ namespace LogicalGame.Test
             //change city
             world.ActualPosition = world.Islands[((MapIsland)world.ActualPosition).IslandName].IslandCity;
 
-            Assert.AreEqual("City2",((MapCity)world.ActualPosition).CityName);
+            Assert.AreEqual("Genefort", ((MapCity)world.ActualPosition).CityName);
 
             //change instance
-            world.ActualPosition = world.Islands["island1"];
+            world.ActualPosition = world.Islands["Poniénne"];
             List<MapInstance> listinstance = world.Islands[((MapIsland)world.ActualPosition).IslandName].IslandInstances;
             foreach(MapInstance instance in listinstance)
             {
-                if (instance.InstanceName == "island1_instance_1")
+                if (instance.InstanceName == "Bois polaire")
                 {
                     world.ActualPosition = instance;
                     Assert.AreEqual(instance, world.ActualPosition);

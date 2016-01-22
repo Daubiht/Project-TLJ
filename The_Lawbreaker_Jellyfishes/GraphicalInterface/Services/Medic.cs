@@ -7,12 +7,12 @@ namespace GraphicalInterface
     public partial class Medic : UserControl
     {
         Controller _ctrler;
-        MapWorld _contextWorld;
+        MapWorld _ctrlerWorld;
 
         public Medic(Controller ctrler, MapWorld contextWorld)
         {
             InitializeComponent();
-            _contextWorld = contextWorld;
+            _ctrlerWorld = contextWorld;
             _ctrler = ctrler;
 
             Reload();
@@ -48,9 +48,9 @@ namespace GraphicalInterface
                     break;
             }
 
-            _contextWorld.Team.Invent.RemoveGold(cost);
+            _ctrlerWorld.Team.Invent.RemoveGold(cost);
 
-            foreach (Character chara in _contextWorld.Team.Members)
+            foreach (Character chara in _ctrlerWorld.Team.Members)
             {
                 if (chara.HealthPoint < chara.MaxHealthPoint * (heal / 100))
                 {
@@ -68,7 +68,7 @@ namespace GraphicalInterface
             int totalCost = 0;
             Label label = null;
 
-            LMoney.Text = _contextWorld.Team.Invent.GetGold + " PO";
+            LMoney.Text = _ctrlerWorld.Team.Invent.GetGold + " PO";
 
             for (int i = 0; i < heal.Length; i++)
             {
@@ -95,7 +95,7 @@ namespace GraphicalInterface
                         break;
                 }
 
-                foreach (Character chara in _contextWorld.Team.Members)
+                foreach (Character chara in _ctrlerWorld.Team.Members)
                 {
                     if (chara.HealthPoint < chara.MaxHealthPoint * (heal[i] / 100))
                     {

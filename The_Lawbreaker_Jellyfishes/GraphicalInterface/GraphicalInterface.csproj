@@ -340,6 +340,9 @@
     <EmbeddedResource Include="Menu\Team\FiltredInventory.resx">
       <DependentUpon>FiltredInventory.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Menu\Team\FiltredInventoryForm.resx">
+      <DependentUpon>FiltredInventoryForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Menu\Team\SkillsTree.resx">
       <DependentUpon>SkillsTree.cs</DependentUpon>
     </EmbeddedResource>
@@ -402,7 +405,9 @@
       <Name>LogicalGame</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\world2.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

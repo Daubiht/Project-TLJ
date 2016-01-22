@@ -20,27 +20,42 @@ namespace GraphicalInterface
 
         public Meet(int result, Controller ctrler, MapWorld World, MapZone zone)
         {
-            InitializeComponent();
             _ctrler = ctrler;
             _world = World;
             _result = result;
             _mapZone = zone;
+            InitializeComponent();
 
             if (result == 1)
             {
                 //merchant
-                label5.Text = "Ah ! Mais que vois-je ? Je suis un marchand ambulant, venez voir mes marchandises !";
-                label1.Text = "Non, merci.";
-                label2.Text = "Oui, bien sûr !";
-                label3.Text = "Et si je me servais gratuitement ?";
-                pictureBox1.BackgroundImage = Image.FromFile(@"../../../Ressources/marchand.jpg");
+                if(_mapZone.Context.Between)
+                {
+                    label5.Text = "Vous apercevez au loin une embarcation, vous décidez de vous en approcher et découvrez qu'il s'agit d'une embarcation marchande.";
+                }
+                else
+                {
+                    label5.Text = "Une silhouette se forme à l'horizon. A mesure que vous vous en approchez, la silhouette fini par devenir une carriole de marchand ambulant.";
+                }
+
+                label1.Text = "Passer votre chemin";
+                label2.Text = "Engager la conversation avec le marchand";
+                label3.Text = "Attaquer le marchand";
+                pictureBox1.BackgroundImage = Image.FromFile(@"../../../Ressources/img-thing.png");
             }
             else if (result == 2)
             {
                 //vieux
                 string[] elder = zone.EventElder();
 
-                label5.Text = "Seriez-vous intéressé par une enigme ? La voilà : " + Environment.NewLine + elder[0];
+                if (_mapZone.Context.Between)
+                {
+                    label5.Text = "Un canoé s'approche de vous et vous y décrouvrez un vieille homme à son bord. Il décide de vous proposer une énigme : " + Environment.NewLine + elder[0];
+                }
+                else
+                {
+                    label5.Text = "Un vieille homme s'approche de vous, vous fixe étrangement du regarde puis vous propose une énigme : " + Environment.NewLine + elder[0];
+                }
                 label1.Text = "Non, merci.";
 
                 Label[] listlabel = { label2, label3, label4 };
@@ -67,23 +82,30 @@ namespace GraphicalInterface
                     }
                 }
 
-                pictureBox1.BackgroundImage = Image.FromFile(@"../../../Ressources/elder.png");
+                pictureBox1.BackgroundImage = Image.FromFile(@"../../../Ressources/img-thing.png");
             }
             else if (result == 3)
             {
                 //rien
                 label5.Text = "La zone semble déserte.";
                 label1.Text = "Quitter";
-                pictureBox1.BackgroundImage = Image.FromFile(@"../../../Ressources/desert.png");
+                pictureBox1.BackgroundImage = Image.FromFile(@"../../../Ressources/img-thing.png");
             }
             else if (result == 5)
             {
                 //bandit
-                label5.Text = "Halte là ! La bourse ou la vie ?!";
-                label1.Text = "Fuir";
-                label2.Text = "Oui, tenez " + _world.Team.Invent.GetGold * 25 / 100 + " pièces d'or.";
-                label3.Text = "Jamais !";
-                pictureBox1.BackgroundImage = Image.FromFile(@"../../../Ressources/bandit.jpg");
+                if (_mapZone.Context.Between)
+                {
+                    label5.Text = "Un navire s'approche dangereusement de vous. Vous apercevez un pavillon pirate puis des silouhettes s'apprêter à vous aborder.";
+                }
+                else
+                {
+                    label5.Text = "Une silhouette se forme à l'horizon. A mesure que vous vous en approchez, la silhouette fini par devenir une carriole de marchand ambulant.";
+                }
+                label1.Text = "Tenter de fuir";
+                label2.Text = "Vous soumettre et donner " + _world.Team.Invent.GetGold * 25 / 100 + " pièces d'or";
+                label3.Text = "Combattre les assailants";
+                pictureBox1.BackgroundImage = Image.FromFile(@"../../../Ressources/img-thing.png");
             }
             label5.Location = new Point(label5.Parent.Width / 2 - label5.Width / 2, label5.Parent.Height / 2 - label5.Height / 2);
         }
@@ -108,11 +130,11 @@ namespace GraphicalInterface
                     c.EarnXp(c.Level * 10);
                 }
 
-                label5.Text = "Pas mal petit. Tiens, quelques pièces pour ta route." + Environment.NewLine + "Expérience gagnée, " + plusGold + " pièces d'or gagnées.";
+                label5.Text = "Vous répondez avec succés à l'énigme, le vieille homme vous récompense : " + Environment.NewLine + "Expérience gagnée, " + plusGold + " pièces d'or gagnées.";
             }
             else
             {
-                label5.Text = "Elle était facile pourtant... Dommage.";
+                label5.Text = "Vous échouez à l'énigme posée, le vieille homme reprend sa route.";
             }
 
             label1.Text = "Quitter";

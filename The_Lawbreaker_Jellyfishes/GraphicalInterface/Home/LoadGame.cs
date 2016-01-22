@@ -12,8 +12,8 @@ namespace GraphicalInterface
         Controller _ctrler;
         public LoadGame(Controller ctrler)
         {
-            InitializeComponent();
             _ctrler = ctrler;
+            InitializeComponent();
             Button[] listSlot = {slot1, slot2, slot3, slot4, slot5};
             string[] fileName = Directory.GetFiles(@"../../../Saves");
 
@@ -47,6 +47,7 @@ namespace GraphicalInterface
             }
 
             _ctrler.ToWorld(w, false);
+            w.TavernCharactersChange();
         }
 
         private void retour_Click(object sender, EventArgs e)

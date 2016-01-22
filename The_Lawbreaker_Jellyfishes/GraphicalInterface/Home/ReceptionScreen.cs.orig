@@ -1,0 +1,51 @@
+﻿using System;
+using System.Drawing;
+using System.Windows.Forms;
+
+namespace GraphicalInterface
+{
+    public partial class ReceptionScreen : UserControl
+    {
+
+<<<<<<< HEAD
+        private Controller _ctrler;
+=======
+        internal MainForm _context;
+>>>>>>> Graphical_stuff
+           
+        public ReceptionScreen(Controller ctrler)
+        {
+<<<<<<< HEAD
+            InitializeComponent();
+            _ctrler = ctrler;
+=======
+            _context = context;
+            InitializeComponent();
+
+            quitButton.Location = new Point(Width / 2 - quitButton.Width / 2, 250);
+            ChargeParty.Location = new Point(Width / 2 - ChargeParty.Width / 2, 150);
+            NewParty.Location = new Point(Width / 2 - NewParty.Width / 2, 50);
+>>>>>>> Graphical_stuff
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+<<<<<<< HEAD
+            _ctrler.ToCreateMainCharacter1();
+=======
+            CreateMainCharacter1 uc = new CreateMainCharacter1(_context);
+            _context.ChangeUC(uc, false);
+>>>>>>> Graphical_stuff
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            _ctrler.ToLoadGame();
+        }
+
+        private void Leave_Click(object sender, EventArgs e)
+        {
+            _ctrler.Quit();
+        }
+    }
+}

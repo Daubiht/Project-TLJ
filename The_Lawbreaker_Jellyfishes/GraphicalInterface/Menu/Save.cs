@@ -9,14 +9,17 @@ namespace GraphicalInterface
     public partial class Save : UserControl
     {
         Controller _ctrler;
-        MapWorld _contextWorld;
+        MapWorld _ctrlerWorld;
 
         public Save(MapWorld contextWorld, Controller ctrler)
         {
-            InitializeComponent();
             _ctrler = ctrler;
-            _contextWorld = contextWorld;
+            _ctrlerWorld = contextWorld;
+            InitializeComponent();
+        }
 
+        public void Save_Load(object sender, EventArgs e)
+        {
             RadioButton[] radioButtons = { radioButton1, radioButton2, radioButton3, radioButton4, radioButton5 };
             string[] fileName = Directory.GetFiles(@"../../../Saves");
 
@@ -35,11 +38,11 @@ namespace GraphicalInterface
                 if (btn.Checked)
                 {
                     int plop = (int) Char.GetNumericValue(btn.Name[btn.Name.Length - 1]);
-                    _contextWorld.Save(plop);
+                    _ctrlerWorld.Save(plop);
                     label1.Visible = true;
                 }
             }
-
+            Save_Load(null, null);
         }
 
         private void retour_Click(object sender, EventArgs e)
