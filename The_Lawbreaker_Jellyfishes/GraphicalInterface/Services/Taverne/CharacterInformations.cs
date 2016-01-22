@@ -43,9 +43,7 @@ namespace GraphicalInterface
             LDodge.Text = c.Dodge.ToString();
             LPhysical.Text = c.PhysicalAttack.ToString();
             LMagic.Text = c.MagicAttack.ToString();
-
         }
-
 
         private void Retour_Click(object sender, EventArgs e)
         {

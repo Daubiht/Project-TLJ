@@ -190,10 +190,6 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "Attaque Magique :";
             this.label3.Font = new System.Drawing.Font(_ctrler.Font.Families[1], 15);
-            
-            
-            
-            
             // 
             // LHealth
             // 
@@ -599,35 +595,36 @@
             // 
             // button1
             // 
-            this.button1.AutoSize = true;
             this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.BackgroundImage = _img;
+            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.Size = new System.Drawing.Size(50, 50);
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Location = new System.Drawing.Point(250, 290);
-            this.button1.FlatAppearance.BorderSize = 1;
+            this.button1.Location = new System.Drawing.Point(300, 290);
+            this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font(_ctrler.Font.Families[0], 20);
-            this.button1.Name = "BComp";
-            this.button1.TabIndex = 3;
-            this.button1.Text = "c";
+            this.button1.Font = new System.Drawing.Font(_ctrler.Font.Families[0], 30);
+            this.button1.Name = "BSkills";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // BConsomable
             // 
-            this.BConsomable.AutoSize = true;
             this.BConsomable.BackColor = System.Drawing.Color.Transparent;
+            this.BConsomable.BackgroundImage = _img2;
+            this.BConsomable.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.BConsomable.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BConsomable.Size = new System.Drawing.Size(55, 55);
             this.BConsomable.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BConsomable.Location = new System.Drawing.Point(350, 290);
-            this.BConsomable.FlatAppearance.BorderSize = 1;
+            this.BConsomable.Location = new System.Drawing.Point(400, 290);
+            this.BConsomable.FlatAppearance.BorderSize = 0;
             this.BConsomable.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.BConsomable.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.BConsomable.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BConsomable.Font = new System.Drawing.Font(_ctrler.Font.Families[0], 20);
-            this.BConsomable.Name = "BConsummable";
-            this.BConsomable.TabIndex = 3;
-            this.BConsomable.Text = "p";
+            this.BConsomable.Font = new System.Drawing.Font(_ctrler.Font.Families[0], 30);
             this.BConsomable.UseVisualStyleBackColor = true;
             this.BConsomable.Click += new System.EventHandler(this.button2_Click);
             // 

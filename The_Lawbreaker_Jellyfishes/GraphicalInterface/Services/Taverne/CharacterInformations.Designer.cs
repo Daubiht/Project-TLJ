@@ -236,7 +236,6 @@
             this.BSkills.Font = new System.Drawing.Font(_ctrler.Font.Families[0], 30);
             this.BSkills.Location = new System.Drawing.Point(100, 250);
             this.BSkills.Name = "BSkills";
-            this.BSkills.TabIndex = 14;
             this.BSkills.UseVisualStyleBackColor = true;
             this.BSkills.Click += new System.EventHandler(this.BSkills_Click);
             // 
