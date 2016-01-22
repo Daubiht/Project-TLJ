@@ -41,8 +41,8 @@
             // LName
             // 
             this.LName.AutoSize = true;
-            this.LName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LName.Location = new System.Drawing.Point(3, 21);
+            this.LName.Font = new System.Drawing.Font(_ctrler.Font.Families[1], 20);
+            this.LName.Location = new System.Drawing.Point(3, 15);
             this.LName.Name = "LName";
             this.LName.Size = new System.Drawing.Size(41, 15);
             this.LName.TabIndex = 0;
@@ -51,7 +51,8 @@
             // LLevel
             // 
             this.LLevel.AutoSize = true;
-            this.LLevel.Location = new System.Drawing.Point(64, 23);
+            this.LLevel.Font = new System.Drawing.Font(_ctrler.Font.Families[1], 17);
+            this.LLevel.Location = new System.Drawing.Point(110, 15);
             this.LLevel.Name = "LLevel";
             this.LLevel.Size = new System.Drawing.Size(33, 13);
             this.LLevel.TabIndex = 1;
@@ -59,7 +60,7 @@
             // 
             // PBHealth
             // 
-            this.PBHealth.Location = new System.Drawing.Point(176, 10);
+            this.PBHealth.Location = new System.Drawing.Point(295, 10);
             this.PBHealth.Maximum = 147;
             this.PBHealth.Name = "PBHealth";
             this.PBHealth.Size = new System.Drawing.Size(100, 16);
@@ -67,26 +68,34 @@
             // 
             // PBStamina
             // 
-            this.PBStamina.Location = new System.Drawing.Point(176, 35);
+            this.PBStamina.Location = new System.Drawing.Point(295, 35);
             this.PBStamina.Name = "PBStamina";
             this.PBStamina.Size = new System.Drawing.Size(100, 16);
             this.PBStamina.TabIndex = 3;
             // 
             // BInfos
             // 
-            this.BInfos.Location = new System.Drawing.Point(343, 11);
+            this.BInfos.AutoSize = true;
+            this.BInfos.BackColor = System.Drawing.Color.Transparent;
+            this.BInfos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BInfos.Location = new System.Drawing.Point(550, 8);
+            this.BInfos.FlatAppearance.BorderSize = 0;
+            this.BInfos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.BInfos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.BInfos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BInfos.Font = new System.Drawing.Font(_ctrler.Font.Families[0], 19);
             this.BInfos.Name = "BInfos";
-            this.BInfos.Size = new System.Drawing.Size(47, 37);
-            this.BInfos.TabIndex = 4;
-            this.BInfos.Text = "Infos";
+            this.BInfos.TabIndex = 3;
+            this.BInfos.Text = "infos";
             this.BInfos.UseVisualStyleBackColor = true;
             this.BInfos.Click += new System.EventHandler(this.Info_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(128, 10);
+            this.label1.Location = new System.Drawing.Point(235, 10);
             this.label1.Name = "label1";
+            this.label1.Font = new System.Drawing.Font(_ctrler.Font.Families[1], 12);
             this.label1.Size = new System.Drawing.Size(28, 13);
             this.label1.TabIndex = 5;
             this.label1.Text = "Vie :";
@@ -94,7 +103,8 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(128, 37);
+            this.label2.Location = new System.Drawing.Point(235, 37);
+            this.label2.Font = new System.Drawing.Font(_ctrler.Font.Families[1], 12);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(48, 13);
             this.label2.TabIndex = 6;
@@ -102,10 +112,17 @@
             // 
             // BPosition
             // 
-            this.BPosition.Location = new System.Drawing.Point(290, 11);
+            this.BPosition.AutoSize = true;
+            this.BPosition.BackColor = System.Drawing.Color.Transparent;
+            this.BPosition.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BPosition.Location = new System.Drawing.Point(415, 8);
+            this.BPosition.FlatAppearance.BorderSize = 0;
+            this.BPosition.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.BPosition.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.BPosition.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BPosition.Font = new System.Drawing.Font(_ctrler.Font.Families[0], 19);
             this.BPosition.Name = "BPosition";
-            this.BPosition.Size = new System.Drawing.Size(47, 37);
-            this.BPosition.TabIndex = 7;
+            this.BPosition.TabIndex = 3;
             this.BPosition.Text = "Pos";
             this.BPosition.UseVisualStyleBackColor = true;
             this.BPosition.Click += new System.EventHandler(this.BPosition_Click);
@@ -124,7 +141,7 @@
             this.Controls.Add(this.LLevel);
             this.Controls.Add(this.LName);
             this.Name = "CharacterBar";
-            this.Size = new System.Drawing.Size(396, 58);
+            this.Size = new System.Drawing.Size(650, 58);
             this.ResumeLayout(false);
             this.PerformLayout();
 

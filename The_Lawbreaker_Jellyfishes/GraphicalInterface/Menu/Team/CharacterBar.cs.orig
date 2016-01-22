@@ -41,8 +41,13 @@ namespace GraphicalInterface
             ModifyProgressBarColor.SetState(PBHealth, 2); // 1 = green, 2 = yellow, 3 = red
             ModifyProgressBarColor.SetState(PBStamina, 3); // 1 = green, 2 = yellow, 3 = red
 
+<<<<<<< HEAD
+            if (c.FrontPosition) BPosition.Text = "CaC";
+            else BPosition.Text = "Dist";
+=======
             if (c.FrontPosition) BPosition.Text = "au front";
-            else BPosition.Text = "distance";
+            else BPosition.Text = "arriere";
+>>>>>>> graphics_from_Leo
         }
 
         internal void Info_Click(object sender, EventArgs e)
@@ -69,8 +74,13 @@ namespace GraphicalInterface
 
             c.FrontPosition = !c.FrontPosition;
 
+<<<<<<< HEAD
+            if (c.FrontPosition) button.Text = "CaC";
+            else button.Text = "Dist";
+=======
             if (c.FrontPosition) button.Text = "au front";
-            else button.Text = "distance";
+            else button.Text = "arriere";
+>>>>>>> graphics_from_Leo
 
             if (!c.FrontPosition)
             {

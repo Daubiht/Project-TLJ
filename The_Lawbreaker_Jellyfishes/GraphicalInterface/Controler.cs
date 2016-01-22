@@ -248,7 +248,7 @@ namespace GraphicalInterface
 
         public void ToFiltredInventory(Team t, Character c, string type, bool InFight)
         {
-            FiltredInventory uc = new FiltredInventory(t, c, type, this, false);
+            FiltredInventory uc = new FiltredInventory(t, c, type, this, false, _font);
             ChangeUC(uc, false, true);
         }
     }

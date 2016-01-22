@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using LogicalGame;
+using System.Drawing.Text;
 
 namespace GraphicalInterface
 {
@@ -8,19 +9,21 @@ namespace GraphicalInterface
     {
         Team _team;
         Character _c;
-        object _ctrler;
+        object _contextForm;
         string _filtre;
         string _place;
         bool _inFight;
+        PrivateFontCollection _font;
 
-
-        public FiltredInventory(Team team, Character chara, string type, object contextForm, bool InFight)
+        public FiltredInventory(Team team, Character chara, string type, object contextForm, bool InFight, PrivateFontCollection Font)
         {
-            this._team = team;
+            _team = team;
             _inFight = InFight;
             _c = chara;
             _filtre = type;
-            _ctrler = contextForm;
+            _contextForm = contextForm;
+            _font = Font;
+
             InitializeComponent();
         }
 
@@ -28,11 +31,11 @@ namespace GraphicalInterface
         {
             if (_inFight)
             {
-                ((FiltredInventoryForm)_ctrler).Close();
+                ((FiltredInventoryForm)_contextForm).Close();
             }
             else
             {
-                ((Controller)_ctrler).ToCharacterManagement(_c);
+                ((Controller)_contextForm).ToCharacterManagement(_c);
             }
         }
 
@@ -161,8 +164,7 @@ namespace GraphicalInterface
             if (_filtre == "consommable")
             {
                 PInfoOldItem.Visible = false;
-                PInfoItem.Width = Parent.Width - 30;
-                PInfoItem.Left = 5;
+                PInfoItem.Top = 120;
                 BEquip.Text = "Utiliser";
             }
 

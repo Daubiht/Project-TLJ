@@ -149,7 +149,7 @@ namespace GraphicalInterface
             // if the member hasn't played yet, he can open the inventory of consumable
             if(_selectedMember.DidMemberPlay == false  && _selectedMember.isAlive)
             {
-                FiltredInventory FIClass = new FiltredInventory(_fight.GetTeam, _selectedMember, "consommable", _ctrler, true);
+                FiltredInventory FIClass = new FiltredInventory(_fight.GetTeam, _selectedMember, "consommable", _ctrler, true, _ctrler.Font);
                 FiltredInventoryForm FIForm = new FiltredInventoryForm(FIClass, _panelCharacterList, _fight);
                 // Display the windows if the inventory consumables
                 FIForm.ShowDialog();

@@ -102,12 +102,12 @@ namespace GraphicalInterface
                 }
             }
 
-            stuffstat1.Text = "(+" + HealthStatStuff + ")";
-            stuffstat2.Text = "(+" + StaminaStatStuff + ")";
-            stuffstat3.Text = "(+" + RobustnessStatStuff + ")";
-            stuffstat4.Text = "(+" + DodgeStatStuff + ")";
-            stuffstat5.Text = "(+" + PhysicalStatStuff + ")";
-            stuffstat6.Text = "(+" + MagicStatStuff + ")";
+            stuffstat1.Text = "( " + HealthStatStuff + " )";
+            stuffstat2.Text = "( " + StaminaStatStuff + " )";
+            stuffstat3.Text = "( " + RobustnessStatStuff + " )";
+            stuffstat4.Text = "( " + DodgeStatStuff + " )";
+            stuffstat5.Text = "( " + PhysicalStatStuff + " )";
+            stuffstat6.Text = "( " + MagicStatStuff + " )";
 
             if (c.IsMain) BFired.Visible = false;
 

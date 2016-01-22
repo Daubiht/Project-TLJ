@@ -36,36 +36,43 @@
             // 
             // PTeam
             // 
-            this.PTeam.Location = new System.Drawing.Point(3, 54);
+            this.PTeam.Location = new System.Drawing.Point(50, 56);
             this.PTeam.Name = "PTeam";
-            this.PTeam.Size = new System.Drawing.Size(397, 312);
+            this.PTeam.Size = new System.Drawing.Size(651, 279);
             this.PTeam.TabIndex = 0;
             // 
             // Retour
             // 
-            this.Retour.Location = new System.Drawing.Point(322, 3);
-            this.Retour.Name = "Retour";
-            this.Retour.Size = new System.Drawing.Size(75, 23);
-            this.Retour.TabIndex = 1;
-            this.Retour.Text = "Retour";
+            this.Retour.AutoSize = true;
+            this.Retour.BackColor = System.Drawing.Color.Transparent;
+            this.Retour.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Retour.Location = new System.Drawing.Point(600, 0);
+            this.Retour.FlatAppearance.BorderSize = 0;
+            this.Retour.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.Retour.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.Retour.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Retour.Font = new System.Drawing.Font(_ctrler.Font.Families[0], 30);
+            this.Retour.Name = "retour";
+            this.Retour.TabIndex = 3;
+            this.Retour.Text = "retour";
             this.Retour.UseVisualStyleBackColor = true;
             this.Retour.Click += new System.EventHandler(this.Retour_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(156, 10);
+            this.label1.Font = new System.Drawing.Font(_ctrler.Font.Families[1], 30);
+            this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(79, 25);
-            this.label1.TabIndex = 2;
+            this.label1.Size = new System.Drawing.Size(156, 42);
+            this.label1.TabIndex = 0;
             this.label1.Text = "Equipe";
             // 
             // LError
             // 
             this.LError.AutoSize = true;
             this.LError.ForeColor = System.Drawing.Color.Red;
-            this.LError.Location = new System.Drawing.Point(7, 35);
+            this.LError.Location = new System.Drawing.Point(175, 36);
             this.LError.Name = "LError";
             this.LError.Size = new System.Drawing.Size(29, 13);
             this.LError.TabIndex = 3;
