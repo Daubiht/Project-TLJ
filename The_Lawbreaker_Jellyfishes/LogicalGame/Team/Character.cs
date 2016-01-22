@@ -377,7 +377,10 @@ namespace LogicalGame
             _staminaPoint = _maxStaminaPoint;
             _healthPoint = _maxHealthPoint;
 
-            _team.World.Notifs.AddNotif(_name, "Votre personnage vient de passer niveau " + _level + ".");
+            if(_team != null)
+            {
+                _team.World.Notifs.AddNotif(_name, "Votre personnage vient de passer niveau " + _level + ".");
+            }
             return _level;
         }
 
