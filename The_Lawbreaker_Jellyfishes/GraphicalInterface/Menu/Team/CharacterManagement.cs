@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using GraphicalInterface;
 using LogicalGame;
+using System.Drawing;
 
 namespace GraphicalInterface
 {
@@ -10,6 +11,9 @@ namespace GraphicalInterface
         Character c;
         Team t;
         Controller _ctrler;
+        Image _img;
+        Image _img2;
+
         int[] statsUped = new int[] { 0, 0, 0, 0, 0, 0 };
         int statPoint;
 
@@ -19,6 +23,8 @@ namespace GraphicalInterface
             t = team;
             _ctrler = ctrler;
             statPoint = c.StatsPoint;
+            _img2 = Image.FromFile(@"../../../Ressources/pot.png");
+            _img = Image.FromFile(@"../../../Ressources/treetest.png");
 
             InitializeComponent();
 

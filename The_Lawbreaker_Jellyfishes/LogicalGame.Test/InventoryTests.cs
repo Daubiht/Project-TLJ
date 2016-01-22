@@ -105,7 +105,7 @@ namespace LogicalGame.Test
             ListItems listitems = new ListItems();
 
             List<Item> wantedList = new List<Item>();
-            Item item2 = new Item("Bandage", 1, 5, "Bandage rudimentaire permettant d'arreter un saignement", "consommable");
+            Item item2 = new Item("Bandage", 1, 10, "Bandage rudimentaire permettant d'arreter un saignement", "consommable");
             item2.AddStats("vie", 10);
             wantedList.Add(item2);
 
