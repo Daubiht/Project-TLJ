@@ -28,35 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.PictureBoxBackground = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxBackground)).BeginInit();
             this.SuspendLayout();
             // 
-            // pictureBox1
+            // PictureBoxBackground
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 50);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.PictureBoxBackground.Location = new System.Drawing.Point(0, 0);
+            this.PictureBoxBackground.Name = "PictureBoxBackground";
+            this.PictureBoxBackground.Size = new System.Drawing.Size(100, 50);
+            this.PictureBoxBackground.TabIndex = 0;
+            this.PictureBoxBackground.TabStop = false;
             // 
             // FightUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.PictureBoxBackground);
             this.Location = new System.Drawing.Point(60, 50);
             this.Name = "FightUserControl";
             this.Size = new System.Drawing.Size(750, 380);
             this.Load += new System.EventHandler(this.FightUserControl_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxBackground)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox PictureBoxBackground;
     }
 }

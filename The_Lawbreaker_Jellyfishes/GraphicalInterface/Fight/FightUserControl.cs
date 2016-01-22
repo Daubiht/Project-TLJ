@@ -54,8 +54,9 @@ namespace GraphicalInterface
             _context = context;
             InitializeComponent();
 
-            //pictureBox1.BackgroundImage = Image.FromFile(@"../../../Ressources/Mob/gif1.png");
-            //pictureBox1.Size = new Size( Width, Height );
+            PictureBoxBackground.BackgroundImage = Image.FromFile(@"../../../Ressources/Background/Forest/4.gif");
+            PictureBoxBackground.Size = new Size( Width, Height-70 );
+
             // Get the monsters list and and team
             _monsters = MonstersToKill;
             _team = TeamWhoFight;
@@ -138,6 +139,7 @@ namespace GraphicalInterface
                 }
             }
             ChangeColorPanel();
+            PictureBoxBackground.SendToBack();
         }
 
         private void FightUserControl_Load(object sender, EventArgs e)
