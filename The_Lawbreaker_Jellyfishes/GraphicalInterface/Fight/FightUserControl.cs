@@ -36,13 +36,13 @@ namespace GraphicalInterface
         List<Monster> _hiddenMonsters = new List<Monster>();
 
         // Set X positions of members and monsters
-        int _posX1Member = 170, _posX2Member = 130, _posX3Member = 85, _posX4Member = 45;
+        int _posX1Member = 350, _posX2Member = 200, _posX3Member = 200, _posX4Member = 130;
         // Set Y position of monsters
-        int _posYFrontMonster = 112, _posYHiddenMonster = 25;
+        int _posYFrontMonster = 90, _posYHiddenMonster = 0;
         // Set Y position of members
-        int _posYFrontMember = 214, _posYHiddenMember = 293;
+        int _posYFrontMember = 190, _posYHiddenMember = 250;
         // Set the space between each panel
-        int _spaceBetweenPanels = 85;
+        int _spaceBetweenPanels = 150;
 
         // This bools are used to avoid bugs, if 4 members/monsters are set to hidden position, they will be set in front position
         bool _isAllMembersFrontPositionFalse;
@@ -52,6 +52,9 @@ namespace GraphicalInterface
         public FightUserControl(List<Monster> MonstersToKill, Team TeamWhoFight, Controller ctrler)
         {
             InitializeComponent();
+
+            //pictureBox1.BackgroundImage = Image.FromFile(@"../../../Ressources/Mob/gif1.png");
+            //pictureBox1.Size = new Size( Width, Height );
             // Get the monsters list and and team
             _monsters = MonstersToKill;
             _team = TeamWhoFight;
@@ -149,20 +152,26 @@ namespace GraphicalInterface
             if (MonsterOrMemberList.Count == 1)
             {
                 int localPosX1Member = _posX1Member;
-                foreach (T t in MonsterOrMemberList)
+                foreach ( T t in MonsterOrMemberList)
                 {
                     PanelCharacter p = new PanelCharacter(t, _fight, this, _ctrler);
+                    int localPosXMonster = 375 - p.Width/2;
                     p.Location = new Point(localPosX1Member, posY);
                     Controls.Add(p);
                     if ( t is Character )
                         _panelMembers.Add(p);
-                    else _panelMonsters.Add(p);
+                    else
+                    {
+                        p.Location = new Point(localPosXMonster, p.Location.Y);
+                        _panelMonsters.Add(p);
+                    }
                 }
             }
             // Place the 2 front members/monster in the middle
             else if (MonsterOrMemberList.Count == 2)
             {
                 int localPosX2Member = _posX2Member;
+                int localPosXMonster = 250;
                 foreach (T t in MonsterOrMemberList)
                 {
                     PanelCharacter p = new PanelCharacter(t, _fight, this, _ctrler);
@@ -171,14 +180,21 @@ namespace GraphicalInterface
                     localPosX2Member += _spaceBetweenPanels;
                     if ( t is Character )
                         _panelMembers.Add(p);
-                    else _panelMonsters.Add(p);
+                    else
+                    {
+                        p.Location = new Point(localPosXMonster,p.Location.Y);
+                        localPosXMonster += p.Width + 10;
+                        _panelMonsters.Add(p);
+                    }
                 }
             }
             // Place 3 front members/monster in the middle
             else if (MonsterOrMemberList.Count == 3)
             {
                 int localPosX3Member = _posX3Member;
-                foreach (T t in MonsterOrMemberList)
+                int localPosXMonster = 200;
+
+                foreach ( T t in MonsterOrMemberList)
                 {
                     PanelCharacter p = new PanelCharacter(t, _fight, this, _ctrler);
                     p.Location = new Point(localPosX3Member, posY);
@@ -186,14 +202,20 @@ namespace GraphicalInterface
                     localPosX3Member += _spaceBetweenPanels;
                     if ( t is Character )
                         _panelMembers.Add(p);
-                    else _panelMonsters.Add(p);
+                    else
+                    {
+                        p.Location = new Point(localPosXMonster, p.Location.Y);
+                        localPosXMonster += p.Width + 10;
+                        _panelMonsters.Add(p);
+                    }
                 }
             }
             // Place 4 front members/monster
             else if (MonsterOrMemberList.Count == 4)
             {
                 int localPosX4Member = _posX4Member;
-                foreach (T t in MonsterOrMemberList)
+                int localPosXMonster = 20;
+                foreach ( T t in MonsterOrMemberList)
                 {
                     PanelCharacter p = new PanelCharacter(t, _fight, this, _ctrler);
                     p.Location = new Point(localPosX4Member, posY);
@@ -201,7 +223,12 @@ namespace GraphicalInterface
                     localPosX4Member += _spaceBetweenPanels;
                     if ( t is Character )
                         _panelMembers.Add(p);
-                    else _panelMonsters.Add(p);
+                    else
+                    {
+                        p.Location = new Point(localPosXMonster, p.Location.Y);
+                        localPosXMonster += p.Width + 10;
+                        _panelMonsters.Add(p);
+                    }
                 }
             }
         }
@@ -310,12 +337,28 @@ namespace GraphicalInterface
 
             foreach (PanelCharacter pC in GetMonsterPanel )
             {
-                // LIGHT BLUE If the MONSTER is ALIVE
-                if ( pC.GetMonster.Alive ) pC.BackColor = Color.LightSkyBlue;
+                //// LIGHT BLUE If the MONSTER is ALIVE
+                //if ( pC.GetMonster.Alive ) pC.Information.BackColor = Color.LightSkyBlue;
+                //// BLACK If the member is DEAD
+                //if ( (pC.GetMonster != null && !pC.GetMonster.Alive) ) { pC.Visible = false; pC.GetMonster.DamageReceived = 0; }
+                //// BLUE FONCE if panel is selected
+                //if ( pC.GetMonster == _fight.SelectedMonster ) { pC.Information.BackColor = Color.Brown; }
+
+
                 // BLACK If the member is DEAD
-                if ( (pC.GetMonster != null && !pC.GetMonster.Alive) ) pC.BackColor = Color.Black;
+                if ( (pC.GetMonster != null && !pC.GetMonster.Alive) ) { pC.Visible = false; pC.GetMonster.DamageReceived = 0; }
                 // BLUE FONCE if panel is selected
-                if ( pC.GetMonster == _fight.SelectedMonster ) pC.BackColor = Color.Brown;
+                if ( pC.GetMonster == _fight.SelectedMonster ) { pC.BorderStyle = BorderStyle.FixedSingle; }
+                else if (pC.GetMonster != _fight.SelectedMonster) { pC.BorderStyle = BorderStyle.None; }
+
+                // Decrease progress bar
+                if (pC.ProgressBarHp.Value - pC.GetMonster.DamageReceived < 0 ) 
+                pC.ProgressBarHp.Value =0;
+                else if( pC.ProgressBarHp.Value - pC.GetMonster.DamageReceived > 0 )
+                {
+                    pC.ProgressBarHp.Value -= pC.GetMonster.DamageReceived;
+                    pC.GetMonster.DamageReceived = 0;
+                }
             }
         }
 

@@ -37,6 +37,15 @@ namespace GraphicalInterface
                 labelCharName.Text = _character.Name;
                 labelHPResult.Text = _character.HealthPoint.ToString();
                 labelStaminaResult.Text = _character.Stamina.ToString();
+                labelCharName.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+                // Height of character's panel
+                Height = 50;
+                Width = 62;
+                panelInformation.Width = Width;
+                panelInformation.Height = Height;
+                panelInformation.Location = new Point(0, 0);
+                labelCharName.Height = 13;
+                BarHp.Visible = false;
             }
             // if the object is a monster, we create a monster's panel
             else if ( obj is Monster)
@@ -47,13 +56,25 @@ namespace GraphicalInterface
                 labelCharName.Text = _monster.Name;
                 labelHPResult.Text = _monster.Health.ToString();
                 labelStaminaResult.Text = _monster.Stamina.ToString();
-                Width = Image.FromFile(@"../../../Ressources/Mob/Bat/Resized/2.png").Width + 70; 
-                Height = Image.FromFile(@"../../../Ressources/Mob/Bat/Resized/2.png").Height; 
+                Width = Image.FromFile(@"../../../Ressources/Mob/"+_monster.Race+@"/"+_monster.Name+".png").Width + 70; 
+                Height = Image.FromFile(@"../../../Ressources/Mob/" + _monster.Race + @"/" + _monster.Name + ".png").Height; 
                 pictureBox1.Visible = true;
 
-                pictureBox1.BackgroundImage = Image.FromFile(@"../../../Ressources/Mob/Bat/Resized/2.png");
-                pictureBox1.Size = new Size(Image.FromFile(@"../../../Ressources/Mob/Bat/Resized/2.png").Width, Image.FromFile(@"../../../Ressources/Mob/Bat/Resized/2.png").Height);
+                pictureBox1.BackgroundImage = Image.FromFile(@"../../../Ressources/Mob/" + _monster.Race + @"/" + _monster.Name + ".png");
+                pictureBox1.Size = new Size(Image.FromFile(@"../../../Ressources/Mob/" + _monster.Race + @"/" + _monster.Name + ".png").Width, Image.FromFile(@"../../../Ressources/Mob/" + _monster.Race + @"/" + _monster.Name + ".png").Height);
+
+                panelInformation.Location = new Point(pictureBox1.BackgroundImage.Width, 0);
+                panelInformation.Height = pictureBox1.BackgroundImage.Height;
+
+                // We set the value of the HP BAR
+                BarHp.Maximum = _monster.MaxHealthPoint;
+                BarHp.Value = _monster.Health;
+                ModifyProgressBarColor.SetState(BarHp, 1); // 1 = green, 2 = yellow, 3 = red
+
             }
+            labelHPResult.BringToFront();
+
+
         }
 
         // Call the method from Fight.cs and give him the character
@@ -149,6 +170,8 @@ namespace GraphicalInterface
 
         public Character GetCharacter{get { return _character; }}
         public Monster GetMonster { get { return _monster; } }
+        public Panel Information { get { return panelInformation; } set { panelInformation = value; }}
+        public ProgressBar ProgressBarHp { get { return BarHp; } set { BarHp = value; } }
 
     }
 }

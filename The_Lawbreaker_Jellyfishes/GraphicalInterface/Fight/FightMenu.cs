@@ -31,7 +31,7 @@ namespace GraphicalInterface
             // Display the name of the character
             labelCharName.Text = selectedMember.Name;
             // Set the X and Y location of the fight menu
-            Location = new Point(0, 440-Height);
+            Location = new Point(0, 455-Height);
             // By default an arrow is displayd near the toolstrip, here we hide the arrows
             toolStripSkills.ShowDropDownArrow = false;
             // We set the value of the HP BAR

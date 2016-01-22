@@ -6,6 +6,8 @@ namespace LogicalGame
     [Serializable]
     public class Monster
     {
+        int _damgeReceived;
+
         readonly string _name;
         readonly string _race;
 
@@ -187,6 +189,8 @@ namespace LogicalGame
             set { _maxHealthPoint = value; }
         }
 
+        public int DamageReceived { get { return _damgeReceived; } set { _damgeReceived = value; } }
+
         //======================================
         //           Treatement of data
         //======================================
@@ -240,7 +244,7 @@ namespace LogicalGame
             {
                 throw new ArgumentException();
             }
-
+            _damgeReceived = damage;
             // Chance to dodge the the attack
             Random r = new Random();
             // Random between 0 and 100
