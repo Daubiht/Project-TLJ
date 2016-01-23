@@ -114,6 +114,10 @@ namespace GraphicalInterface
                         j++;
                     }
                 }
+                else
+                {
+                    ((Button)sender).Text = i.GetName + " - " + _inventory.Inventory[i];
+                }
             }
         }
         private void jeter_Click(object sender, EventArgs e)
