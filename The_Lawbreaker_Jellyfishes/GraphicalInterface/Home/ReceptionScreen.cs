@@ -7,11 +7,13 @@ namespace GraphicalInterface
     public partial class ReceptionScreen : UserControl
     {
 
-        private Controller _ctrler;
+        Controller _ctrler;
+        Image _img;
            
         public ReceptionScreen(Controller ctrler)
         {
             _ctrler = ctrler;
+            _img = Image.FromFile(@"../../../Ressources/tampon.png");
             InitializeComponent();
 
             quitButton.Location = new Point(Width / 2 - quitButton.Width / 2, 250);

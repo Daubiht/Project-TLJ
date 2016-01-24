@@ -33,12 +33,18 @@
             // 
             // Retour
             // 
-            this.Retour.Enabled = false;
-            this.Retour.Location = new System.Drawing.Point(322, 3);
-            this.Retour.Name = "Retour";
-            this.Retour.Size = new System.Drawing.Size(75, 23);
-            this.Retour.TabIndex = 3;
-            this.Retour.Text = "Retour";
+            this.Retour.AutoSize = true;
+            this.Retour.BackColor = System.Drawing.Color.Transparent;
+            this.Retour.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Retour.Location = new System.Drawing.Point(600, 0);
+            this.Retour.FlatAppearance.BorderSize = 0;
+            this.Retour.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.Retour.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.Retour.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Retour.Font = new System.Drawing.Font(_ctrler.Font.Families[0], 30);
+            this.Retour.Name = "retour";
+            this.Retour.TabIndex = 2;
+            this.Retour.Text = "retour";
             this.Retour.UseVisualStyleBackColor = true;
             this.Retour.Click += new System.EventHandler(this.Retour_Click);
             // 

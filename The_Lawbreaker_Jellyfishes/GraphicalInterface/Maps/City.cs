@@ -18,10 +18,10 @@ namespace GraphicalInterface
 
         public City(Controller ctrler, MapWorld world, MapCity City)
         {
-            InitializeComponent();
             _ctrler = ctrler;
             _world = world;
             _city = City;
+            InitializeComponent();
         }
 
         private void Retour_Click(object sender, EventArgs e)
