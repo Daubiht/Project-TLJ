@@ -37,16 +37,16 @@ namespace LogicalGame.Test
             zone1.PointY = 0;
 
             MapZone zone2 = new MapZone(instance1, true, 2);
-            zone2.PointX = 50;
+            zone2.PointX = 100;
             zone2.PointY = 0;
 
             MapZone zone3 = new MapZone(instance1, true, 2);
-            zone3.PointX = 100;
+            zone3.PointX = 200;
             zone3.PointY = 0;
 
             MapZone zone4 = new MapZone(instance1, true, 2);
-            zone3.PointX = 150;
-            zone3.PointY = 0;
+            zone4.PointX = 300;
+            zone4.PointY = 0;
 
             List<MapZone> listlink = new List<MapZone>();
             listlink.Add(zone2);
@@ -75,8 +75,8 @@ namespace LogicalGame.Test
             instance1.listZones = listZone_instance1;
 
             MapInstance instance2 = new MapInstance(island, "Carverne écailleuse", false);
-            instance1.PointX = 50;
-            instance1.PointY = 0;
+            instance2.PointX = 100;
+            instance2.PointY = 0;
 
             //list zone for instance on the island
             List<MapZone> listZone_instance2 = new List<MapZone>();
@@ -85,20 +85,20 @@ namespace LogicalGame.Test
             zone1.PointY = 0;
 
             zone2 = new MapZone(instance2, true, 1);
-            zone2.PointX = 50;
+            zone2.PointX = 100;
             zone2.PointY = 0;
 
             zone3 = new MapZone(instance2, true, 2);
-            zone3.PointX = 100;
+            zone3.PointX = 200;
             zone3.PointY = 0;
 
             MapZone zone3_1 = new MapZone(instance2, true, 2);
-            zone3.PointX = 100;
-            zone3.PointY = 50;
+            zone3_1.PointX = 200;
+            zone3_1.PointY = 100;
 
             zone4 = new MapZone(instance2, true, 3);
-            zone3.PointX = 150;
-            zone3.PointY = 0;
+            zone4.PointX = 300;
+            zone4.PointY = 0;
 
             listlink = new List<MapZone>();
             listlink.Add(zone2);
@@ -134,7 +134,7 @@ namespace LogicalGame.Test
 
             //Instance for the Island
             MapInstance instance3 = new MapInstance(island, "Ancien mégalithe", false);
-            instance3.PointX = 150;
+            instance3.PointX = 200;
             instance3.PointY = 0;
 
             //list zone for instance on the island
@@ -144,24 +144,24 @@ namespace LogicalGame.Test
             zone1.PointY = 0;
 
             zone2 = new MapZone(instance3, true, 2);
-            zone2.PointX = 50;
+            zone2.PointX = 100;
             zone2.PointY = 0;
 
             MapZone zone2_1 = new MapZone(instance3, true, 3);
-            zone2.PointX = 50;
-            zone2.PointY = 50;
+            zone2.PointX = 100;
+            zone2.PointY = 100;
 
             zone3 = new MapZone(instance3, true, 3);
-            zone3.PointX = 100;
+            zone3.PointX = 200;
             zone3.PointY = 0;
 
             zone3_1 = new MapZone(instance3, true, 4);
-            zone3_1.PointX = 100;
-            zone3_1.PointY = 50;
+            zone3_1.PointX = 200;
+            zone3_1.PointY = 100;
 
             zone4 = new MapZone(instance3, true, 4);
-            zone3.PointX = 150;
-            zone3.PointY = 0;
+            zone4.PointX = 300;
+            zone4.PointY = 0;
 
             listlink = new List<MapZone>();
             listlink.Add(zone2);
@@ -201,7 +201,7 @@ namespace LogicalGame.Test
 
             //city for the island
             MapCity city = new MapCity(island, "Ponyo");
-            city.PointX = 200;
+            city.PointX = 300;
             city.PointY = 0;
             island.AddCity(city);
 
@@ -215,8 +215,8 @@ namespace LogicalGame.Test
                 });
 
             Merchant merch1 = new Merchant("Vendeur général", itemsSell);
-            merch1.PointX = 50;
-            merch1.PointY = 50;
+            merch1.PointX = 0;
+            merch1.PointY = 0;
             merch1.Invent = world.Team.Invent;
 
             itemsSell = listI.Items.FindAll
@@ -226,8 +226,8 @@ namespace LogicalGame.Test
                 });
 
             Merchant merch2 = new Merchant("herboriste", itemsSell);
-            merch2.PointX = 100;
-            merch2.PointY = 50;
+            merch2.PointX = 0;
+            merch2.PointY = 100;
             merch2.Invent = world.Team.Invent;
 
             itemsSell = listI.Items.FindAll
@@ -237,8 +237,8 @@ namespace LogicalGame.Test
                 });
 
             Merchant merch3 = new Merchant("Forgeron", itemsSell);
-            merch3.PointX = 150;
-            merch3.PointY = 50;
+            merch3.PointX = 0;
+            merch3.PointY = 200;
             merch3.Invent = world.Team.Invent;
 
             itemsSell = listI.Items.FindAll
@@ -248,22 +248,22 @@ namespace LogicalGame.Test
                 });
 
             Merchant merch4 = new Merchant("Tailleur/cordonnier", itemsSell);
-            merch4.PointX = 200;
-            merch4.PointY = 50;
+            merch4.PointX = 0;
+            merch4.PointY = 300;
             merch4.Invent = world.Team.Invent;
 
             //Add services
             Mortuary s1 = new Mortuary(city);
-            s1.PointX = 50;
+            s1.PointX = 100;
             s1.PointY = 100;
 
             Taverne s2 = new Taverne();
             s2.PointX = 100;
-            s2.PointY = 100;
+            s2.PointY = 200;
 
             Militia s3 = new Militia(city);
-            s3.PointX = 150;
-            s3.PointY = 100;
+            s3.PointX = 100;
+            s3.PointY = 300;
 
             //list merchant for city
             List<object> listservices = new List<object>();

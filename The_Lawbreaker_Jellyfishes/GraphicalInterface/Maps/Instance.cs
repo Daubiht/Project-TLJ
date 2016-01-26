@@ -14,11 +14,11 @@ namespace GraphicalInterface
 
         public Instance(Controller ctrler, MapWorld world, MapInstance instance)
         {
-            InitializeComponent();
             _ctrler = ctrler;
             _world = world;
             _instance = instance;
             _world.ActualPosition = _instance.listZones[0];
+            InitializeComponent();
 
             ToolTip toolTip = new ToolTip();
             toolTip.ReshowDelay = 500;
@@ -87,13 +87,13 @@ namespace GraphicalInterface
 
             if (_world.ActualPosition == listZones[0])
             {
-                Retour.Text = "Retour";
+                Retour.Text = "retour";
                 Retour.Enabled = true;
             }
             else if(_world.ActualPosition == listZones[listZones.Count - 1])
             {
                 Retour.Enabled = true;
-                Retour.Text = "Retour";
+                Retour.Text = "retour";
                 if (_instance.Between)
                 {
                     Retour.Text = "Rejoindre l'île";
@@ -102,7 +102,7 @@ namespace GraphicalInterface
             }
             else
             {
-                Retour.Text = "Retour";
+                Retour.Text = "retour";
                 Retour.Enabled = false;
             }
 

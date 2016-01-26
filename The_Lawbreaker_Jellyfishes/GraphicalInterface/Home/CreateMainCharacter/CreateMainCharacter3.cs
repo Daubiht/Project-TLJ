@@ -18,7 +18,6 @@ namespace GraphicalInterface
         // Constructor
         public CreateMainCharacter3(Character CreatedCharacter, Controller ctrler, int[] stat)
         {
-            InitializeComponent();
             _C1 = CreatedCharacter;
             _ctrler = ctrler;
             _statsFromScreen2 = stat;

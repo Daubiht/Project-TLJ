@@ -22,9 +22,9 @@ namespace GraphicalInterface
         // CONSTRUCTOR
         public CreateMainCharacter1(Controller ctrler)
         {
-            InitializeComponent();
 
             _ctrler = ctrler;
+            InitializeComponent();
 
             // Validate button is grey
             ValidButton.Enabled = false;

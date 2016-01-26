@@ -18,10 +18,10 @@ namespace GraphicalInterface
 
         public Island(Controller ctrler, MapWorld world, MapIsland island)
         {
-            InitializeComponent();
             _ctrler = ctrler;
             _world = world;
             _island = island;
+            InitializeComponent();
         }
 
         private void Retour_Click(object sender, EventArgs e)
