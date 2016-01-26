@@ -48,7 +48,7 @@
             this.Controls.Add(this.PictureBoxBackground);
             this.Location = new System.Drawing.Point(60, 50);
             this.Name = "FightUserControl";
-            this.Size = new System.Drawing.Size(750, 380);
+            this.Size = new System.Drawing.Size(750, 459);
             this.Load += new System.EventHandler(this.FightUserControl_Load);
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxBackground)).EndInit();
             this.ResumeLayout(false);

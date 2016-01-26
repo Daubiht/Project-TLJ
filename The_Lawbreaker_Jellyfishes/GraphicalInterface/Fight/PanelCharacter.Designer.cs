@@ -28,6 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            Font = new System.Drawing.Font(_context.Font.Families[1], 9);
+
+            ForeColor = System.Drawing.SystemColors.HotTrack;
+
             this.labelCharName = new System.Windows.Forms.Label();
             this.labelHPText = new System.Windows.Forms.Label();
             this.labelHPResult = new System.Windows.Forms.Label();
@@ -42,6 +46,7 @@
             // 
             // labelCharName
             // 
+            this.labelCharName.BackColor = System.Drawing.Color.Transparent;
             this.labelCharName.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelCharName.Enabled = false;
             this.labelCharName.Location = new System.Drawing.Point(0, 0);
@@ -108,6 +113,7 @@
             // 
             // panelInformation
             // 
+            this.panelInformation.BackColor = System.Drawing.Color.Transparent;
             this.panelInformation.Controls.Add(this.BarHp);
             this.panelInformation.Controls.Add(this.labelCharName);
             this.panelInformation.Controls.Add(this.labelHPText);

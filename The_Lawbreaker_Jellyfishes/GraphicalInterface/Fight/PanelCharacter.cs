@@ -38,6 +38,7 @@ namespace GraphicalInterface
                 labelHPResult.Text = _character.HealthPoint.ToString();
                 labelStaminaResult.Text = _character.Stamina.ToString();
                 labelCharName.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+
                 // Height of character's panel
                 Height = 50;
                 Width = 62;
@@ -65,6 +66,7 @@ namespace GraphicalInterface
 
                 panelInformation.Location = new Point(pictureBox1.BackgroundImage.Width, 0);
                 panelInformation.Height = pictureBox1.BackgroundImage.Height;
+                panelInformation.BackColor = System.Drawing.Color.Sienna;
 
                 // We set the value of the HP BAR
                 BarHp.Maximum = _monster.MaxHealthPoint;

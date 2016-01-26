@@ -31,7 +31,7 @@ namespace GraphicalInterface
             // Display the name of the character
             labelCharName.Text = selectedMember.Name;
             // Set the X and Y location of the fight menu
-            Location = new Point(0, 455-Height);
+            Location = new Point(0, 320);
             // By default an arrow is displayd near the toolstrip, here we hide the arrows
             toolStripSkills.ShowDropDownArrow = false;
             // We set the value of the HP BAR
@@ -54,6 +54,8 @@ namespace GraphicalInterface
             {
                 if (!selectedMember.Skills[skill].IsPassif) toolStripSkills.DropDownItems.Add(skill);
             }
+            BackgroundImage = Image.FromFile(@"../../../Ressources/Menu background/2.png");
+            BackgroundImageLayout = ImageLayout.Stretch;
 
         }
         // Lunch a basic attack
