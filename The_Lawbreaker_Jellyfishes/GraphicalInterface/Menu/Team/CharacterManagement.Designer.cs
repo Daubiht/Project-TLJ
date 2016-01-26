@@ -707,7 +707,7 @@
             this.Retour.Click += new System.EventHandler(this.Retour_Click);
             // 
             // BFired
-            // 
+            //
             this.BFired.AutoSize = true;
             this.BFired.BackColor = System.Drawing.Color.Transparent;
             this.BFired.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -734,10 +734,10 @@
             this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font(_ctrler.Font.Families[0], 20);
-            this.button3.Name = "levelUp";
             this.button3.TabIndex = 3;
-            this.button3.Text = "level up";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Name = "levelUp";
+            this.button3.Text = "level up";
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // BKill
@@ -751,7 +751,7 @@
             this.BKill.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.BKill.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BKill.Font = new System.Drawing.Font(_ctrler.Font.Families[0], 20);
-            this.BKill.Name = "retour";
+            this.BKill.Name = "BKill";
             this.BKill.TabIndex = 3;
             this.BKill.Text = "tuer";
             this.BKill.UseVisualStyleBackColor = true;

@@ -43,6 +43,7 @@
             // 
             // PInfoOldItem
             // 
+            this.PInfoOldItem.Font = new System.Drawing.Font(_font.Families[1], 15);
             this.PInfoOldItem.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.PInfoOldItem.Controls.Add(this.BDesequip);
             this.PInfoOldItem.Controls.Add(this.LOldName);
@@ -53,13 +54,19 @@
             // 
             // BDesequip
             // 
-            this.BDesequip.Location = new System.Drawing.Point(58, 112);
-            this.BDesequip.Name = "BDesequip";
-            this.BDesequip.Size = new System.Drawing.Size(75, 23);
-            this.BDesequip.TabIndex = 2;
-            this.BDesequip.Text = "Déséquiper";
+            this.BDesequip.AutoSize = true;
+            this.BDesequip.BackColor = System.Drawing.Color.Transparent;
+            this.BDesequip.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BDesequip.Location = new System.Drawing.Point(45, 100);
+            this.BDesequip.FlatAppearance.BorderSize = 0;
+            this.BDesequip.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.BDesequip.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.BDesequip.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BDesequip.Font = new System.Drawing.Font(_font.Families[0], 20);
+            this.BDesequip.TabIndex = 3;
             this.BDesequip.UseVisualStyleBackColor = true;
-            this.BDesequip.Visible = false;
+            this.BDesequip.Name = "BEquip";
+            this.BDesequip.Text = "desequiper";
             this.BDesequip.Click += new System.EventHandler(this.Desequip_Click);
             // 
             // LOldName
@@ -73,6 +80,7 @@
             // 
             // PInfoItem
             // 
+            this.PInfoItem.Font = new System.Drawing.Font(_font.Families[1], 15);
             this.PInfoItem.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.PInfoItem.Controls.Add(this.BEquip);
             this.PInfoItem.Controls.Add(this.LNewName);
@@ -83,13 +91,19 @@
             // 
             // BEquip
             // 
-            this.BEquip.Location = new System.Drawing.Point(58, 112);
-            this.BEquip.Name = "BEquip";
-            this.BEquip.Size = new System.Drawing.Size(75, 23);
-            this.BEquip.TabIndex = 1;
-            this.BEquip.Text = "Equiper";
+            this.BEquip.AutoSize = true;
+            this.BEquip.BackColor = System.Drawing.Color.Transparent;
+            this.BEquip.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BEquip.Location = new System.Drawing.Point(45, 100);
+            this.BEquip.FlatAppearance.BorderSize = 0;
+            this.BEquip.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.BEquip.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.BEquip.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BEquip.Font = new System.Drawing.Font(_font.Families[0], 20);
+            this.BEquip.TabIndex = 3;
             this.BEquip.UseVisualStyleBackColor = true;
-            this.BEquip.Visible = false;
+            this.BEquip.Name = "BEquip";
+            this.BEquip.Text = "equiper";
             this.BEquip.Click += new System.EventHandler(this.Equip_Click);
             // 
             // LNewName
@@ -146,7 +160,7 @@
             this.Controls.Add(this.inventory);
             this.Controls.Add(this.PInfoItem);
             this.Controls.Add(this.PInfoOldItem);
-            this.Location = new System.Drawing.Point(50, 60);
+            this.Location = new System.Drawing.Point(60, 50);
             this.Name = "FiltredInventory";
             this.Size = new System.Drawing.Size(750, 338);
             this.Load += new System.EventHandler(this.IGFiltredInventory_Load);

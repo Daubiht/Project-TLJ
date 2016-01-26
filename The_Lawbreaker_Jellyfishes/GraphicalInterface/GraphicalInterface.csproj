@@ -196,10 +196,10 @@
     <Compile Include="Menu\Team\FiltredInventory.Designer.cs">
       <DependentUpon>FiltredInventory.cs</DependentUpon>
     </Compile>
-    <Compile Include="Menu\Team\SkillsTree.cs">
+    <Compile Include="Menu\Team\Skills\SkillsTree.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Menu\Team\SkillsTree.Designer.cs">
+    <Compile Include="Menu\Team\Skills\SkillsTree.Designer.cs">
       <DependentUpon>SkillsTree.cs</DependentUpon>
     </Compile>
     <Compile Include="Menu\Team\TeamManagement.cs">
@@ -258,7 +258,7 @@
     <Compile Include="Services\Taverne\Taverne.Designer.cs">
       <DependentUpon>Taverne.cs</DependentUpon>
     </Compile>
-    <Compile Include="Menu\Team\SkillsDisplay.cs">
+    <Compile Include="Menu\Team\Skills\SkillsDisplay.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <EmbeddedResource Include="Fight\EndFightDefeat.resx">
@@ -279,16 +279,16 @@
     <EmbeddedResource Include="Event\Meet.resx">
       <DependentUpon>Meet.cs</DependentUpon>
     </EmbeddedResource>
-    <Compile Include="Menu\Team\SkillsDisplay.Designer.cs">
+    <Compile Include="Menu\Team\Skills\SkillsDisplay.Designer.cs">
       <DependentUpon>SkillsDisplay.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Fight\PanelCharacter.resx">
       <DependentUpon>PanelCharacter.cs</DependentUpon>
     </EmbeddedResource>
-    <Compile Include="Menu\Team\skillsForm.cs">
+    <Compile Include="Menu\Team\Skills\skillsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Menu\Team\skillsForm.Designer.cs">
+    <Compile Include="Menu\Team\Skills\skillsForm.Designer.cs">
       <DependentUpon>skillsForm.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Home\CreateMainCharacter\CreateMainCharacter1.resx">
@@ -343,7 +343,7 @@
     <EmbeddedResource Include="Menu\Team\FiltredInventoryForm.resx">
       <DependentUpon>FiltredInventoryForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Menu\Team\SkillsTree.resx">
+    <EmbeddedResource Include="Menu\Team\Skills\SkillsTree.resx">
       <DependentUpon>SkillsTree.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu\Team\TeamManagement.resx">
@@ -383,10 +383,10 @@
     <EmbeddedResource Include="Services\Taverne\Taverne.resx">
       <DependentUpon>Taverne.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Menu\Team\SkillsDisplay.resx">
+    <EmbeddedResource Include="Menu\Team\Skills\SkillsDisplay.resx">
       <DependentUpon>SkillsDisplay.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Menu\Team\skillsForm.resx">
+    <EmbeddedResource Include="Menu\Team\Skills\skillsForm.resx">
       <DependentUpon>skillsForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">

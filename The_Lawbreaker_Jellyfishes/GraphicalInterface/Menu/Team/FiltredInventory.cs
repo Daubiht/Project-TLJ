@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using LogicalGame;
 using System.Drawing.Text;
+using System.Drawing;
 
 namespace GraphicalInterface
 {
@@ -123,6 +124,12 @@ namespace GraphicalInterface
             Item item = (Item)button.Tag;
             Object[] tag = new Object[2];
 
+            button.BackColor = Color.Transparent;
+            button.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            button.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            button.Font = new System.Drawing.Font(_font.Families[1], 11);
+
             string infoItem = item.GetName + Environment.NewLine;
             tag[0] = item;
             if (item.GetRequired.Count != 0)
@@ -221,7 +228,11 @@ namespace GraphicalInterface
                 if (item.Type == ffiltre || (ffiltre == "consommable" && item.Type == "resurrection"))
                 {
                     Button b = new Button();
-
+                    b.BackColor = Color.Transparent;
+                    b.FlatAppearance.MouseDownBackColor = Color.Transparent;
+                    b.FlatAppearance.MouseOverBackColor = Color.Transparent;
+                    b.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+                    b.Font = new System.Drawing.Font(_font.Families[1], 11);
                     string infoItem = item.GetName + " " + "(" + item.Type + ")" + Environment.NewLine + item.GetDescription + Environment.NewLine + "Valeur : " + item.GetValue + Environment.NewLine + "Poids : " + item.GetWeight;
 
                     if (item.GetRequired.Count != 0)
