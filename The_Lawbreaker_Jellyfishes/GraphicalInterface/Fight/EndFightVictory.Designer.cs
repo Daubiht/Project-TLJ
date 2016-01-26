@@ -34,12 +34,14 @@
             this.LGolds = new System.Windows.Forms.Label();
             this.LInfo = new System.Windows.Forms.Label();
             this.LXP = new System.Windows.Forms.Label();
+            this.pictureWax = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureWax)).BeginInit();
             this.SuspendLayout();
             // 
             // labelVictory
             // 
             this.labelVictory.AutoSize = true;
-            this.labelVictory.Location = new System.Drawing.Point(156, 35);
+            this.labelVictory.Location = new System.Drawing.Point(236, 35);
             this.labelVictory.Name = "labelVictory";
             this.labelVictory.Size = new System.Drawing.Size(57, 13);
             this.labelVictory.TabIndex = 0;
@@ -47,7 +49,7 @@
             // 
             // buttonNext
             // 
-            this.buttonNext.Location = new System.Drawing.Point(298, 47);
+            this.buttonNext.Location = new System.Drawing.Point(548, 73);
             this.buttonNext.Name = "buttonNext";
             this.buttonNext.Size = new System.Drawing.Size(75, 23);
             this.buttonNext.TabIndex = 1;
@@ -57,25 +59,26 @@
             // 
             // PDrop
             // 
-            this.PDrop.Location = new System.Drawing.Point(18, 151);
+            this.PDrop.Location = new System.Drawing.Point(87, 180);
             this.PDrop.Name = "PDrop";
-            this.PDrop.Size = new System.Drawing.Size(355, 182);
+            this.PDrop.Size = new System.Drawing.Size(348, 70);
             this.PDrop.TabIndex = 2;
             // 
             // LGolds
             // 
             this.LGolds.AutoSize = true;
-            this.LGolds.Location = new System.Drawing.Point(167, 103);
+            this.LGolds.Location = new System.Drawing.Point(236, 102);
             this.LGolds.Name = "LGolds";
             this.LGolds.Size = new System.Drawing.Size(34, 13);
             this.LGolds.TabIndex = 3;
             this.LGolds.Text = "Golds";
+            this.LGolds.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.LGolds.Click += new System.EventHandler(this.LGolds_Click);
             // 
             // LInfo
             // 
             this.LInfo.AutoSize = true;
-            this.LInfo.Location = new System.Drawing.Point(139, 73);
+            this.LInfo.Location = new System.Drawing.Point(219, 73);
             this.LInfo.Name = "LInfo";
             this.LInfo.Size = new System.Drawing.Size(96, 13);
             this.LInfo.TabIndex = 4;
@@ -84,17 +87,27 @@
             // LXP
             // 
             this.LXP.AutoSize = true;
-            this.LXP.Location = new System.Drawing.Point(153, 129);
+            this.LXP.Location = new System.Drawing.Point(222, 128);
             this.LXP.Name = "LXP";
             this.LXP.Size = new System.Drawing.Size(60, 13);
             this.LXP.TabIndex = 5;
             this.LXP.Text = "Experience";
+            this.LXP.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pictureWax
+            // 
+            this.pictureWax.Location = new System.Drawing.Point(524, 129);
+            this.pictureWax.Name = "pictureWax";
+            this.pictureWax.Size = new System.Drawing.Size(151, 108);
+            this.pictureWax.TabIndex = 6;
+            this.pictureWax.TabStop = false;
             // 
             // EndFightVictory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
+            this.Controls.Add(this.pictureWax);
             this.Controls.Add(this.LXP);
             this.Controls.Add(this.LInfo);
             this.Controls.Add(this.LGolds);
@@ -105,6 +118,7 @@
             this.Name = "EndFightVictory";
             this.Size = new System.Drawing.Size(750, 338);
             this.Load += new System.EventHandler(this.EndFightVictory_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureWax)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -118,5 +132,6 @@
         private System.Windows.Forms.Label LGolds;
         private System.Windows.Forms.Label LInfo;
         private System.Windows.Forms.Label LXP;
+        private System.Windows.Forms.PictureBox pictureWax;
     }
 }
