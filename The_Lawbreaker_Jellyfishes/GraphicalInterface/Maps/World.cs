@@ -77,6 +77,8 @@ namespace GraphicalInterface
                 Button isl_Button = new Button();
 
                 isl_Button.BackColor = Color.Transparent;
+                isl_Button.BackgroundImage = Image.FromFile(@"../../../Ressources/sign.png");
+                isl_Button.BackgroundImageLayout = ImageLayout.Stretch;
                 isl_Button.Cursor = Cursors.Hand;
                 isl_Button.FlatStyle = FlatStyle.Flat;
                 isl_Button.FlatAppearance.BorderSize = 0;
@@ -84,8 +86,8 @@ namespace GraphicalInterface
                 isl_Button.FlatAppearance.MouseOverBackColor = Color.Transparent;
                 isl_Button.Location = new Point(island.PointX, island.PointY);
                 isl_Button.Name = island.IslandName;
-                isl_Button.Size = new Size(300, 225);
-                isl_Button.Font = new Font(_ctrler.Font.Families[0], 40);
+                isl_Button.Size = new Size(150, 112);
+                isl_Button.Font = new Font(_ctrler.Font.Families[0], 20);
                 isl_Button.Text = island.IslandName;
                 isl_Button.UseVisualStyleBackColor = true;
                 isl_Button.Click += new EventHandler(Isl_Click);
@@ -99,19 +101,36 @@ namespace GraphicalInterface
 
                 if (island == _w.ActualPosition) isl_Button.ForeColor = SystemColors.HotTrack;
             }
+
+            if(((MapIsland)_w.ActualPosition).IslandName == "Poniénne")
+            {
+                pictureBox1.Location = new Point(-75, -175);
+            }
+            else if(((MapIsland)_w.ActualPosition).IslandName == "Belegaer")
+            {
+                pictureBox1.Location = new Point(-75, -550);
+            }
+            else
+            {
+                pictureBox1.Location = new Point(-575, -650);
+            }
+
         }
 
         public void Reload()
         {
-            foreach (Button isl_Button in Controls)
+            foreach (var isl_Button in panel1.Controls)
             {
-                if (isl_Button.Text == ((MapIsland)_w.ActualPosition).IslandName)
-                {
-                    isl_Button.ForeColor = SystemColors.HotTrack;
-                }
-                else
-                {
-                    isl_Button.ForeColor = SystemColors.ControlText;
+                if (isl_Button is Button)
+                { 
+                    if (((Button)isl_Button).Text == ((MapIsland)_w.ActualPosition).IslandName)
+                    {
+                        ((Button)isl_Button).ForeColor = SystemColors.HotTrack;
+                    }
+                    else
+                    {
+                        ((Button)isl_Button).ForeColor = SystemColors.ControlText;
+                    }
                 }
             }
         }
@@ -136,11 +155,8 @@ namespace GraphicalInterface
                                 instance.Target = island;
                                 _ctrler.ToInstance(instance);
                             }
-                            else
-                            {
-                                Reload();
-                            }
-                            _militia = false;
+                            Reload();
+                            _militia = false;      
                         }
                     }
                 }

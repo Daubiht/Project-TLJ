@@ -96,7 +96,7 @@ namespace GraphicalInterface
                 Retour.Text = "retour";
                 if (_instance.Between)
                 {
-                    Retour.Text = "Rejoindre l'île";
+                    Retour.Text = "rejoindre";
                 }
 
             }
