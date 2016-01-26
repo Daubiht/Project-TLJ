@@ -33,7 +33,7 @@ namespace LogicalGame
             merchantName.Add("jambes");
             merchantName.Add("corps");
             merchantName.Add("tete");
-            augmentation.Add("forgeron", merchantName);
+            augmentation.Add("Forgeron", merchantName);
 
             merchantName.Clear();
             merchantName.Add("consommable");
@@ -46,6 +46,7 @@ namespace LogicalGame
             merchantName.Add("consommable");
             augmentation.Add("Marchand itinérant", merchantName);
 
+            if (augmentation.ContainsKey(_name))
             for (int i = 0; i < augmentation[_name].Count; i++)
             {
                 if (augmentation[_name][i] == item.Type) increase = false;

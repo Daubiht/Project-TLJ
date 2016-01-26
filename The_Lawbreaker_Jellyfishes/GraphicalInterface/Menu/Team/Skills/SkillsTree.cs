@@ -66,7 +66,7 @@ namespace GraphicalInterface
             }
             else if (_chara.AddSkill(skill.Name, skill) != null)
             {
-                ((SkillsDisplay)(Parent.Parent.Parent)).SkillPoint.Text = _chara.SkillPoint + " restant";
+                _SD.SkillPoint.Text = _chara.SkillPoint + " restant";
                 Reload();
             }
             else

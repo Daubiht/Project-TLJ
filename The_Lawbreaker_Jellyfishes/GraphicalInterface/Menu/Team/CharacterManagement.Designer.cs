@@ -601,7 +601,7 @@
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button1.Size = new System.Drawing.Size(50, 50);
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Location = new System.Drawing.Point(300, 290);
+            this.button1.Location = new System.Drawing.Point(600, 290);
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
@@ -619,7 +619,7 @@
             this.BConsomable.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.BConsomable.Size = new System.Drawing.Size(55, 55);
             this.BConsomable.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BConsomable.Location = new System.Drawing.Point(400, 290);
+            this.BConsomable.Location = new System.Drawing.Point(680, 290);
             this.BConsomable.FlatAppearance.BorderSize = 0;
             this.BConsomable.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.BConsomable.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
