@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using LogicalGame;
+using System.Drawing.Text;
 
 namespace GraphicalInterface
 {
@@ -18,12 +19,15 @@ namespace GraphicalInterface
         Character _chara;
         bool _isShown = false;
         ToolTip _toolTip = new ToolTip();
+        SkillsDisplay _SD;
+        PrivateFontCollection _font;
 
-        public SkillsTree(int statToDisplay, Character chara)
+        public SkillsTree(int statToDisplay, Character chara, SkillsDisplay SD, PrivateFontCollection font)
         {
             _chara = chara;
             stat = statToDisplay;
-
+            _SD = SD;
+            _font = font;
             InitializeComponent();
         }
 
@@ -94,7 +98,7 @@ namespace GraphicalInterface
             SkillList sl = new SkillList();
             ToolTip toolTip = new ToolTip();
 
-            ((SkillsDisplay)(Parent.Parent.Parent)).SkillPoint.Text = _chara.SkillPoint + " restant";
+            _SD.SkillPoint.Text = _chara.SkillPoint + " restant";
 
             PanelToCenter.Controls.Clear();
             usedSkills.Clear();
@@ -154,6 +158,11 @@ namespace GraphicalInterface
                             BSkill.Height = 50;
                             BSkill.Width = 100;
                             BSkill.Top = 100 * i;
+                            BSkill.BackColor = Color.Transparent;
+                            BSkill.FlatAppearance.MouseDownBackColor = Color.Transparent;
+                            BSkill.FlatAppearance.MouseOverBackColor = Color.Transparent;
+                            BSkill.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+                            BSkill.Font = new System.Drawing.Font(_font.Families[1], 13);
                             BSkill.Left = (k - 1) * (BSkill.Width + 5);
                             BSkill.Text = usedSkills[i][j][k].Name;
                             BSkill.Tag = usedSkills[i][j][k];
@@ -175,8 +184,6 @@ namespace GraphicalInterface
                             {
                                 BSkill.Click += AddSkill;
                             }
-
-                            
 
                             PanelToCenter.Controls.Add(BSkill);
                         }
@@ -211,6 +218,11 @@ namespace GraphicalInterface
                                     
                                 }
                                 Button newButton = new Button();
+                                newButton.BackColor = Color.Transparent;
+                                newButton.FlatAppearance.MouseDownBackColor = Color.Transparent;
+                                newButton.FlatAppearance.MouseOverBackColor = Color.Transparent;
+                                newButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+                                newButton.Font = new System.Drawing.Font(_font.Families[1], 13);
                                 newButton.Height = 50;
                                 newButton.Width = 100;
                                 newButton.Top = 100 * i;
@@ -259,6 +271,11 @@ namespace GraphicalInterface
 
                                 }
                                 Button newButton = new Button();
+                                newButton.BackColor = Color.Transparent;
+                                newButton.FlatAppearance.MouseDownBackColor = Color.Transparent;
+                                newButton.FlatAppearance.MouseOverBackColor = Color.Transparent;
+                                newButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+                                newButton.Font = new System.Drawing.Font(_font.Families[1], 13);
                                 newButton.Height = 50;
                                 newButton.Width = 100;
                                 newButton.Top = 100 * i;

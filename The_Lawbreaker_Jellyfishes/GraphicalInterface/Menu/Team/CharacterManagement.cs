@@ -308,7 +308,7 @@ namespace GraphicalInterface
 
         private void button1_Click(object sender, EventArgs e)
         {
-            skillsForm skillsform = new skillsForm(c);
+            skillsForm skillsform = new skillsForm(c, _ctrler.Font);
             skillsform.Show();
         }
 

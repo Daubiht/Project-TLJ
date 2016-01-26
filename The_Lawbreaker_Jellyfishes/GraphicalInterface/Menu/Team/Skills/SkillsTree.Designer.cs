@@ -20,6 +20,7 @@
             base.Dispose(disposing);
         }
 
+
         #region Code généré par le Concepteur de composants
 
         /// <summary> 
@@ -55,13 +56,14 @@
             // 
             // SkillsTree
             // 
+            this.BackColor = System.Drawing.Color.Transparent;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.Controls.Add(this.PanelToCenter);
             this.Controls.Add(this.LError);
             this.Name = "SkillsTree";
-            this.Size = new System.Drawing.Size(638, 508);
+            this.Size = new System.Drawing.Size(491, 508);
             this.Load += new System.EventHandler(this.SkillsTree_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

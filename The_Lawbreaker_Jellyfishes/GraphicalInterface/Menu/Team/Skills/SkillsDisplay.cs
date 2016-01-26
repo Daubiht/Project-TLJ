@@ -7,16 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using LogicalGame;
+using System.Drawing.Text;
 
 namespace GraphicalInterface
 {
     public partial class SkillsDisplay : UserControl
     {
         Character _chara;
+        PrivateFontCollection _font;
 
-        public SkillsDisplay(Character chara)
+        public SkillsDisplay(Character chara, PrivateFontCollection font)
         {
             _chara = chara;
+            _font = font;
 
             InitializeComponent();
         }
@@ -28,14 +31,16 @@ namespace GraphicalInterface
 
         private void SkillTree_Load(object sender, EventArgs e)
         {
-            SkillsTab.SelectedTab.Controls.Clear();
-            SkillsTab.SelectedTab.Controls.Add(new SkillsTree(int.Parse((string)SkillsTab.SelectedTab.Tag), _chara));
+            PSkills.Controls.Clear();
+            PSkills.Controls.Add(new SkillsTree(0, _chara, this, _font));
         }
 
         private void SkillsTab_SelectedIndexChanged(object sender, EventArgs e)
         {
-            SkillsTab.SelectedTab.Controls.Clear();
-            SkillsTab.SelectedTab.Controls.Add(new SkillsTree(int.Parse((string)SkillsTab.SelectedTab.Tag), _chara));
+            Button button = (Button)sender;
+            int stat = int.Parse((string)button.Tag);
+            PSkills.Controls.Clear();
+            PSkills.Controls.Add(new SkillsTree(stat, _chara, this, _font));
         }
     }
 }
