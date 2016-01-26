@@ -22,8 +22,8 @@ namespace LogicalGame.Test
 
             //island 1 ------------------------------------------------------------
             MapIsland island = new MapIsland(world, "Poniénne");
-            island.PointX = -200;
-            island.PointY = -250;
+            island.PointX = 150;
+            island.PointY = -100;
 
             //Instance for the Island
             MapInstance instance1 = new MapInstance(island, "Bois polaire", false);
@@ -281,8 +281,8 @@ namespace LogicalGame.Test
 
             //island 2 ------------------------------------------------------------
             island = new MapIsland(world, "Belegaer");
-            island.PointX = 0;
-            island.PointY = 100;
+            island.PointX = 50;
+            island.PointY = 290;
 
             //Instance for the Island
             instance1 = new MapInstance(island, "Oasis des rois", false);
@@ -494,8 +494,8 @@ namespace LogicalGame.Test
 
             //island 3 ------------------------------------------------------------
             island = new MapIsland(world, "Finebaie");
-            island.PointX = 0;
-            island.PointY = 150;
+            island.PointX = 500;
+            island.PointY = 400;
 
             //Instance for the Island
             instance1 = new MapInstance(island, "Forêt désolée", false);

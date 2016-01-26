@@ -15,9 +15,11 @@ namespace GraphicalInterface
         Controller _ctrler;
         MapWorld _world;
         MapIsland _island;
+        ComponentResourceManager resources;
 
         public Island(Controller ctrler, MapWorld world, MapIsland island)
         {
+           resources = new ComponentResourceManager(typeof(Island));
             _ctrler = ctrler;
             _world = world;
             _island = island;
@@ -31,6 +33,19 @@ namespace GraphicalInterface
 
         private void Island_Load(object sender, EventArgs e)
         {
+            if(_island.IslandName == "Poniénne")
+            {
+                this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("poni")));
+            }
+            else if(_island.IslandName == "Belegaer")
+            {
+                this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("bele")));
+            }
+            else
+            {
+                this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("fine")));
+            }
+
             foreach (MapInstance instance in _island.IslandInstances)
             {
                 CreateButton(instance.InstanceName, instance.PointX, instance.PointY, instance);
@@ -48,7 +63,7 @@ namespace GraphicalInterface
             b.Text = name;
             b.UseVisualStyleBackColor = true;
             b.Click += new EventHandler(OnClick);
-            Controls.Add(b);
+            pictureBox1.Controls.Add(b);
         }
 
         public void OnClick(object sender, EventArgs e)

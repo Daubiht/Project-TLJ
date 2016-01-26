@@ -33,7 +33,7 @@ namespace LogicalGame
             merchantName.Add("jambes");
             merchantName.Add("corps");
             merchantName.Add("tete");
-            augmentation.Add("forgeron", merchantName);
+            augmentation.Add("Forgeron", merchantName);
 
             merchantName.Clear();
             merchantName.Add("consommable");

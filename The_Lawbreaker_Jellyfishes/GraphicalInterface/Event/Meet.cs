@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using LogicalGame;
+using System.Threading;
 
 namespace GraphicalInterface
 {
@@ -218,24 +219,29 @@ namespace GraphicalInterface
                 ListMonsters Mobs = new ListMonsters();
                 List<Monster> ListM = new List<Monster>();
 
-                Monster M = Mobs.GetListMonsters.Find(
+                List<Monster> M = Mobs.GetListMonsters.FindAll(
                     delegate (Monster m)
                     {
                         return m.Name == "Marchand";
                     }
                 );
-                M.FrontPosition = false;
-                ListM.Add(M);
+                M[0].FrontPosition = false;
+                ListM.Add(M[0]);
 
-                M = Mobs.GetListMonsters.Find(
+                M = Mobs.GetListMonsters.FindAll(
                     delegate (Monster m)
                     {
-                        return m.Name == "Mercenaire";
+                        return m.Race == "Merchant" && m.Name != "Marchand";
                     }
                 );
-                ListM.Add(new Monster(M.Name, M.Level, M.Race, M.PhysicalAttack, M.MagicAttack, M.Health, M.Stamina, M.Robustness, M.Dodge));
-                ListM.Add(new Monster(M.Name, M.Level, M.Race, M.PhysicalAttack, M.MagicAttack, M.Health, M.Stamina, M.Robustness, M.Dodge));
-                ListM.Add(new Monster(M.Name, M.Level, M.Race, M.PhysicalAttack, M.MagicAttack, M.Health, M.Stamina, M.Robustness, M.Dodge));
+
+                Random r = new Random();
+
+                for(int i = 0; i < 3; i++)
+                {
+                    ListM.Add(M[r.Next(0, M.Count)]);
+                    Thread.Sleep(50);
+                }
 
                 _ctrler.ToFight(ListM);
             }

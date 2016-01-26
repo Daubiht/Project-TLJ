@@ -7,7 +7,7 @@ using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 
-namespace LogicalGame.Test.Creation
+namespace LogicalGame.Test
 {
     [TestFixture]
     public class CreateSkills
