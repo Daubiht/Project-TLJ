@@ -87,12 +87,12 @@ namespace GraphicalInterface
         }
 
         // Define the treatment of the left click event on a panel
-        public void SelectMemberMonster(object sender, EventArgs e)
+        public void SelectMemberMonster( object sender, EventArgs e )
         {
             // If the player clicks on a character's panel, we create a menu which display information about the member, and change his bordel style
             if ( _obj is Character )
             {
-                if (_fight.SelectedSkill == null)
+                if ( _fight.SelectedSkill == null )
                 {
                     // Create the fight menu of the selected member
                     _FightUserControl.CreateFightMenu(_character);
@@ -102,45 +102,32 @@ namespace GraphicalInterface
                 }
                 else
                 {
-                    if (_fight.SelectedCharacter.DidMemberPlay == false && _fight.SelectedCharacter.isAlive)
+                    if ( _fight.SelectedCharacter.DidMemberPlay == false && _fight.SelectedCharacter.isAlive )
                     {
-                        if( _fight.SelectedSkill.Target == 0 )
+                        if ( _fight.SelectedCharacter.UseSkill(_fight.SelectedSkill, _character) )
                         {
-                            if ( _fight.SelectedCharacter.UseSkill(_fight.SelectedSkill, _fight.SelectedCharacter) )
-                            {
-                                _fight.SelectedCharacter.DidMemberPlay = true;
-                                _FightUserControl.NextMember();
-                                _fight.SelectedSkill = null;
-                                if ( _fight.DidAllMemberPlay() )
-                                {
-                                    _fight.MonsterAttack();
-                                    foreach ( PanelCharacter pC in _FightUserControl.GetCharacterPanel ) pC.RefreshInformation();
-                                }
-                                RefreshInformation();
-                                _FightUserControl.ChangeColorPanel();
-                            }
+                            _fight.SelectedCharacter.DidMemberPlay = true;
+                            _FightUserControl.NextMember();
+                            _FightUserControl.ChangeColorPanel();
+                            RefreshInformation();
                         }
-                        else if ( _fight.SelectedSkill.Target == 1 )
-                        {
-                            if ( _fight.SelectedCharacter.UseSkill(_fight.SelectedSkill, _character) )
-                            {
-                                _fight.SelectedCharacter.DidMemberPlay = true;
-                                _FightUserControl.NextMember();
-                                _fight.SelectedSkill = null;
-                                if ( _fight.DidAllMemberPlay() )
-                                {
-                                    _fight.MonsterAttack();
-                                    foreach ( PanelCharacter pC in _FightUserControl.GetCharacterPanel ) pC.RefreshInformation();
-                                }
-                                RefreshInformation();
-                                _FightUserControl.ChangeColorPanel();
+                    }
+                    _fight.SelectedSkill = null;
+                }
+            }
 
-                            }
-                        }
-                    }
+            // If the player clicks on a monster's panel, the member attacks the monster
+            else if ( _obj is Monster )
+            {
+                if ( _fight.SelectedSkill == null )
+                {
+                    // We save the selected the monster
+                    _fight.SelectedMonster = _monster;
+                    // Color the selected monster
+                    _FightUserControl.ChangeColorPanel();
                 }
-                    }
-                }
+            }
+        }
 
         // Method who dislays actulized informations of monster and character panels, like HP, Stamina etc.
         public void RefreshInformation()
