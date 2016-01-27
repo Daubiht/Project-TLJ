@@ -394,7 +394,7 @@ namespace LogicalGame.Test
             listlink.Add(zone3_1);
             listlink.Add(zone2_1);
             listlink.Add(zone4);
-            zone3.ListLink = listlink;
+            zone3_2.ListLink = listlink;
 
             listlink = new List<MapZone>();
             listlink.Add(zone3_1);
