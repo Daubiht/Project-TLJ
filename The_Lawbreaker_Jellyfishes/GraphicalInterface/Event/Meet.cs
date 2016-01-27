@@ -269,11 +269,13 @@ namespace GraphicalInterface
                     }
                 );
 
+
                 Random r = new Random();
 
                 for(int i = 0; i < 3; i++)
                 {
-                    ListM.Add(M[r.Next(0, M.Count)]);
+                    Monster monster = M[r.Next(0, M.Count)];
+                    ListM.Add(new Monster(monster.Name, monster.Level, monster.Race, monster.PhysicalAttack, monster.MagicAttack, monster.Health, monster.Stamina, monster.Robustness, monster.Dodge));
                     Thread.Sleep(50);
                 }
 
