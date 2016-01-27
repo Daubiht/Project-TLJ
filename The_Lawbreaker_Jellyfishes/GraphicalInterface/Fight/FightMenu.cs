@@ -170,13 +170,26 @@ namespace GraphicalInterface
         private void toolStripSkills_DropDownItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
             // if the member and monsters are alive
-            if ( _fight.SelectedCharacter.DidMemberPlay == false && _fight.SelectedCharacter.isAlive )
+            if ( _fight.SelectedCharacter.DidMemberPlay == false && _fight.SelectedCharacter.isAlive && _fight.SelectedMonster.Alive )
             {
                 string skillName = e.ClickedItem.Text;
                 _fight.SelectedSkill = _selectedMember.Skills[skillName];
 
-                        foreach (PanelCharacter pc in _FUC.GetMonsterPanel) pc.RefreshInformation();
-
+                if ( _fight.SelectedCharacter.UseSkill(_fight.SelectedSkill, _fight.SelectedMonster) )
+                {
+                    _fight.SelectedCharacter.DidMemberPlay = true;
+                    foreach ( PanelCharacter pc in _FUC.GetMonsterPanel ) pc.RefreshInformation();
+                    if ( _fight.DidAllMemberPlay() )
+                    {
+                        _fight.MonsterAttack();
+                        foreach ( PanelCharacter pC in _panelCharacterList ) pC.RefreshInformation();
+                    }
+                }
+                _FUC.NextMonster();
+                _FUC.NextMember();
+                _FUC.ChangeColorPanel();
+                _fight.SelectedSkill = null;
+                _FUC.EndFight();
             }
         }
     }
