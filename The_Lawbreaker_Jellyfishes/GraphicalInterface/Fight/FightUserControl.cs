@@ -53,7 +53,7 @@ namespace GraphicalInterface
         {
             InitializeComponent();
 
-            if( Location != null )
+            if( !string.IsNullOrEmpty(Location) || !string.IsNullOrWhiteSpace(Location) )
             {
                 BackgroundImage = Image.FromFile(@"../../../Ressources/Background/" + Location + @"/1.png");
                 BackgroundImageLayout = ImageLayout.Stretch;
