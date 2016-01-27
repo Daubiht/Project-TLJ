@@ -197,6 +197,41 @@ namespace GraphicalInterface
 
         private void label3_Click(object sender, EventArgs e)
         {
+            string Location;
+
+            if (_mapZone.Context.Between)
+            {
+                Location = "boat";
+            }
+            else if(_mapZone.Context.InstanceName == "Bois polaire")
+            {
+                Location = "forest snow";
+            }
+            else if (_mapZone.Context.InstanceName == "Caverne écailleuse")
+            {
+                Location = "cave";
+            }
+            else if (_mapZone.Context.InstanceName == "Ancien mégalithe")
+            {
+                Location = "rock snow";
+            }
+            else if (_mapZone.Context.InstanceName == "Grotte abrasive")
+            {
+                Location = "cave";
+            }
+            else if (_mapZone.Context.InstanceName == "Mine infestée")
+            {
+                Location = "cave";
+            }
+            else if(_mapZone.Context.InstanceName == "Forêt désolée")
+            {
+                Location = "dark forest";
+            }
+            else if(_mapZone.Context.InstanceName == "Oasis des rois")
+            {
+                Location = "oasis desert";
+            }
+
             //Attaquer
             if (_result == 2)
             {
