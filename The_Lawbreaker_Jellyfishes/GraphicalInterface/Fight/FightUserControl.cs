@@ -49,13 +49,16 @@ namespace GraphicalInterface
         bool _isAllMonstersFrontPositionFalse;
 
         // CONSTRUCTOR
-        public FightUserControl(List<Monster> MonstersToKill, Team TeamWhoFight, Controller ctrler)
+        public FightUserControl(List<Monster> MonstersToKill, Team TeamWhoFight, Controller ctrler, string Location)
         {
             InitializeComponent();
 
-            BackgroundImage = Image.FromFile(@"../../../Ressources/Background/cave/1.png");
-            Size = new Size (750, 390);
-            BackgroundImageLayout = ImageLayout.Stretch;
+            if( Location != null )
+            {
+                BackgroundImage = Image.FromFile(@"../../../Ressources/" + Location + @"/1.png");
+                BackgroundImageLayout = ImageLayout.Stretch;
+           }
+            Size = new Size(750, 390);
 
             // Get the monsters list and and team
             _monsters = MonstersToKill;
