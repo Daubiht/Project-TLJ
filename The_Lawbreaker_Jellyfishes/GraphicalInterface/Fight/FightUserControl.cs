@@ -53,8 +53,10 @@ namespace GraphicalInterface
         {
             InitializeComponent();
 
-            //pictureBox1.BackgroundImage = Image.FromFile(@"../../../Ressources/Mob/gif1.png");
-            //pictureBox1.Size = new Size( Width, Height );
+            BackgroundImage = Image.FromFile(@"../../../Ressources/Background/cave/1.png");
+            Size = new Size (750, 390);
+            BackgroundImageLayout = ImageLayout.Stretch;
+
             // Get the monsters list and and team
             _monsters = MonstersToKill;
             _team = TeamWhoFight;
@@ -138,6 +140,7 @@ namespace GraphicalInterface
                 }
             }
             ChangeColorPanel();
+            PictureBoxBackground.SendToBack();
         }
 
         private void FightUserControl_Load(object sender, EventArgs e)
@@ -325,25 +328,19 @@ namespace GraphicalInterface
         {   // If false, Remove all border style of all members
             foreach ( PanelCharacter pC in GetCharacterPanel )
             {
+
                 // BLACK If the member is DEAD
-                if ((pC.GetCharacter !=null && !pC.GetCharacter.isAlive)) pC.BackColor = Color.Black;
+                if ( (pC.GetCharacter !=null && !pC.GetCharacter.isAlive)) pC.BackColor = Color.Black;
                 // LIGHT BLUE If the member is ALIVE
-                if ( pC.GetCharacter.isAlive == true ) pC.BackColor = Color.LightSkyBlue;
+                if ( pC.GetCharacter.isAlive == true ) pC.BackColor = Color.SteelBlue;
                 // GRAY color If the member is ALIVE and already PLAYED
                 if ( pC.GetCharacter.DidMemberPlay == true && pC.GetCharacter.isAlive == true ) pC.BackColor = Color.Gray;
                 // BLUE FONCE if panel is selected
-                if ( pC.GetCharacter == _fight.SelectedCharacter ) pC.BackColor = Color.SteelBlue;
+                if ( pC.GetCharacter == _fight.SelectedCharacter ) pC.BackColor = Color.Blue;
             }
 
             foreach (PanelCharacter pC in GetMonsterPanel )
             {
-                //// LIGHT BLUE If the MONSTER is ALIVE
-                //if ( pC.GetMonster.Alive ) pC.Information.BackColor = Color.LightSkyBlue;
-                //// BLACK If the member is DEAD
-                //if ( (pC.GetMonster != null && !pC.GetMonster.Alive) ) { pC.Visible = false; pC.GetMonster.DamageReceived = 0; }
-                //// BLUE FONCE if panel is selected
-                //if ( pC.GetMonster == _fight.SelectedMonster ) { pC.Information.BackColor = Color.Brown; }
-
 
                 // BLACK If the member is DEAD
                 if ( (pC.GetMonster != null && !pC.GetMonster.Alive) ) { pC.Visible = false; pC.GetMonster.DamageReceived = 0; }

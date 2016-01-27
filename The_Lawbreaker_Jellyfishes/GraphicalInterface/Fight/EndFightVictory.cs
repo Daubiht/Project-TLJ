@@ -33,6 +33,14 @@ namespace GraphicalInterface
             _xp = 0;
             _isRunAway = isRunAway;
 
+
+            pictureWax.Width = 120;
+            pictureWax.Height = 120;
+
+            pictureWax.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureWax.BackgroundImage = Image.FromFile(@"../../../Ressources/Wax seal/wax seal.png");
+            
+
             if (!_isRunAway)
             {
                 foreach (Monster monster in _monsters)
