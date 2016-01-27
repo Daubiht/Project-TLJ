@@ -16,6 +16,7 @@ namespace GraphicalInterface
         Controller _ctrler;
         MapWorld _world;
         MapZone _mapZone;
+        string _location = "";
         int _result;
         string _answerRiddle;
 
@@ -26,6 +27,39 @@ namespace GraphicalInterface
             _result = result;
             _mapZone = zone;
             InitializeComponent();
+
+            if (_mapZone.Context.Between)
+            {
+                _location = "boat";
+            }
+            else if (_mapZone.Context.InstanceName == "Bois polaire")
+            {
+                _location = "forest snow";
+            }
+            else if (_mapZone.Context.InstanceName == "Caverne écailleuse")
+            {
+                _location = "cave";
+            }
+            else if (_mapZone.Context.InstanceName == "Ancien mégalithe")
+            {
+                _location = "rock snow";
+            }
+            else if (_mapZone.Context.InstanceName == "Grotte abrasive")
+            {
+                _location = "cave";
+            }
+            else if (_mapZone.Context.InstanceName == "Mine infestée")
+            {
+                _location = "cave";
+            }
+            else if (_mapZone.Context.InstanceName == "Forêt désolée")
+            {
+                _location = "dark forest";
+            }
+            else if (_mapZone.Context.InstanceName == "Oasis des rois")
+            {
+                _location = "oasis desert";
+            }
 
             if (result == 1)
             {
@@ -197,41 +231,6 @@ namespace GraphicalInterface
 
         private void label3_Click(object sender, EventArgs e)
         {
-            string Location;
-
-            if (_mapZone.Context.Between)
-            {
-                Location = "boat";
-            }
-            else if(_mapZone.Context.InstanceName == "Bois polaire")
-            {
-                Location = "forest snow";
-            }
-            else if (_mapZone.Context.InstanceName == "Caverne écailleuse")
-            {
-                Location = "cave";
-            }
-            else if (_mapZone.Context.InstanceName == "Ancien mégalithe")
-            {
-                Location = "rock snow";
-            }
-            else if (_mapZone.Context.InstanceName == "Grotte abrasive")
-            {
-                Location = "cave";
-            }
-            else if (_mapZone.Context.InstanceName == "Mine infestée")
-            {
-                Location = "cave";
-            }
-            else if(_mapZone.Context.InstanceName == "Forêt désolée")
-            {
-                Location = "dark forest";
-            }
-            else if(_mapZone.Context.InstanceName == "Oasis des rois")
-            {
-                Location = "oasis desert";
-            }
-
             //Attaquer
             if (_result == 2)
             {
@@ -247,7 +246,7 @@ namespace GraphicalInterface
                     }
                 );
 
-                _ctrler.ToFight(ListM);
+                _ctrler.ToFight(ListM, _location);
             }
             else if(_result == 1)
             {
@@ -278,7 +277,7 @@ namespace GraphicalInterface
                     Thread.Sleep(50);
                 }
 
-                _ctrler.ToFight(ListM);
+                _ctrler.ToFight(ListM, _location);
             }
         }
 
@@ -286,7 +285,7 @@ namespace GraphicalInterface
         {
             if(_result == 4)
             {
-                _ctrler.ToFight(_mapZone.EventFightRandom(0, null));
+                _ctrler.ToFight(_mapZone.EventFightRandom(0, null), _location);
             }
         }
     }

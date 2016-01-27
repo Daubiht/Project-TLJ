@@ -185,9 +185,9 @@ namespace GraphicalInterface
             ToMenu(uc, false);
         }
 
-        public void ToFight(List<Monster> listMob)
+        public void ToFight(List<Monster> listMob, string Location)
         {
-            FightUserControl uc = new FightUserControl(listMob, _w.Team, this);
+            FightUserControl uc = new FightUserControl(listMob, _w.Team, this, Location);
             ChangeUC(uc, false, true);
         }
 
