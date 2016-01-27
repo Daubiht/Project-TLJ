@@ -55,7 +55,7 @@ namespace GraphicalInterface
 
             if( Location != null )
             {
-                BackgroundImage = Image.FromFile(@"../../../Ressources/" + Location + @"/1.png");
+                BackgroundImage = Image.FromFile(@"../../../Ressources/Background/" + Location + @"/1.png");
                 BackgroundImageLayout = ImageLayout.Stretch;
            }
             Size = new Size(750, 390);

@@ -96,7 +96,7 @@ namespace LogicalGame.Test
             zone3_1.PointX = 200;
             zone3_1.PointY = 100;
 
-            zone4 = new MapZone(instance2, true, 3);
+            zone4 = new MapZone(instance2, true, 1);
             zone4.PointX = 300;
             zone4.PointY = 0;
 
@@ -155,11 +155,11 @@ namespace LogicalGame.Test
             zone3.PointX = 200;
             zone3.PointY = 0;
 
-            zone3_1 = new MapZone(instance3, true, 4);
+            zone3_1 = new MapZone(instance3, true, 1);
             zone3_1.PointX = 200;
             zone3_1.PointY = 100;
 
-            zone4 = new MapZone(instance3, true, 4);
+            zone4 = new MapZone(instance3, true, 1);
             zone4.PointX = 300;
             zone4.PointY = 0;
 
@@ -291,15 +291,15 @@ namespace LogicalGame.Test
 
             //list zone for instance on the island
             listZone_instance1 = new List<MapZone>();
-            zone1 = new MapZone(instance1, true, 6);
+            zone1 = new MapZone(instance1, true, 1);
             zone1.PointX = 0;
             zone1.PointY = 50;
 
-            zone2 = new MapZone(instance1, true, 7);
+            zone2 = new MapZone(instance1, true, 1);
             zone2.PointX = 0;
             zone2.PointY = 100;
 
-            zone3 = new MapZone(instance1, true, 8);
+            zone3 = new MapZone(instance1, true, 1);
             zone3.PointX = 0;
             zone3.PointY = 150;
 
@@ -329,31 +329,31 @@ namespace LogicalGame.Test
 
             //list zone for instance on the island
             listZone_instance2 = new List<MapZone>();
-            zone1 = new MapZone(instance2, true, 6);
+            zone1 = new MapZone(instance2, true, 1);
             zone1.PointX = 0;
             zone1.PointY = 0;
 
-            zone2 = new MapZone(instance2, true, 6);
+            zone2 = new MapZone(instance2, true, 1);
             zone2.PointX = 0;
             zone2.PointY = 100;
 
-            zone2_1 = new MapZone(instance2, true, 7);
+            zone2_1 = new MapZone(instance2, true, 1);
             zone2_1.PointX = 50;
             zone2_1.PointY = 100;
 
-            zone3 = new MapZone(instance2, true, 8);
+            zone3 = new MapZone(instance2, true, 1);
             zone3.PointX = 0;
             zone3.PointY = 150;
 
-            zone3_1 = new MapZone(instance2, true, 9);
+            zone3_1 = new MapZone(instance2, true, 1);
             zone3_1.PointX = 50;
             zone3_1.PointY = 150;
 
-            MapZone zone3_2 = new MapZone(instance2, true, 10);
+            MapZone zone3_2 = new MapZone(instance2, true, 1);
             zone3_2.PointX = 100;
             zone3_2.PointY = 150;
 
-            zone4 = new MapZone(instance2, true, 10);
+            zone4 = new MapZone(instance2, true, 1);
             zone4.PointX = 0;
             zone4.PointY = 200;
 
@@ -504,31 +504,31 @@ namespace LogicalGame.Test
 
             //list zone for instance on the island
             listZone_instance1 = new List<MapZone>();
-            zone1 = new MapZone(instance1, true, 12);
+            zone1 = new MapZone(instance1, true, 1);
             zone1.PointX = 0;
             zone1.PointY = 50;
 
-            zone2 = new MapZone(instance1, true, 12);
+            zone2 = new MapZone(instance1, true, 1);
             zone2.PointX = 0;
             zone2.PointY = 100;
 
-            zone2_1 = new MapZone(instance1, true, 12);
+            zone2_1 = new MapZone(instance1, true, 1);
             zone2_1.PointX = 50;
             zone2_1.PointY = 100;
 
-            zone3 = new MapZone(instance1, true, 12);
+            zone3 = new MapZone(instance1, true, 1);
             zone3.PointX = 0;
             zone3.PointY = 150;
 
-            zone4 = new MapZone(instance1, true, 12);
+            zone4 = new MapZone(instance1, true, 1);
             zone4.PointX = 0;
             zone4.PointY = 200;
 
-            MapZone zone4_1 = new MapZone(instance1, true, 13);
+            MapZone zone4_1 = new MapZone(instance1, true, 1);
             zone4_1.PointX = 50;
             zone4_1.PointY = 200;
 
-            MapZone zone5 = new MapZone(instance1, true, 13);
+            MapZone zone5 = new MapZone(instance1, true, 1);
             zone5.PointX = 0;
             zone5.PointY = 250;
 
@@ -574,67 +574,67 @@ namespace LogicalGame.Test
 
             //list zone for instance on the island
             listZone_instance2 = new List<MapZone>();
-            zone1 = new MapZone(instance2, true, 15);
+            zone1 = new MapZone(instance2, true, 1);
             zone1.PointX = 0;
             zone1.PointY = 0;
 
-            zone2 = new MapZone(instance2, true, 15);
+            zone2 = new MapZone(instance2, true, 1);
             zone2.PointX = 0;
             zone2.PointY = 100;
 
-            zone2_1 = new MapZone(instance2, true, 15);
+            zone2_1 = new MapZone(instance2, true, 1);
             zone2_1.PointX = 50;
             zone2_1.PointY = 100;
 
-            MapZone zone2_2 = new MapZone(instance2, true, 16);
+            MapZone zone2_2 = new MapZone(instance2, true, 1);
             zone2_2.PointX = 100;
             zone2_2.PointY = 100;
 
-            zone3 = new MapZone(instance2, true, 16);
+            zone3 = new MapZone(instance2, true, 1);
             zone3.PointX = 0;
             zone3.PointY = 150;
 
-            zone3_2 = new MapZone(instance2, true, 17);
+            zone3_2 = new MapZone(instance2, true, 1);
             zone3_2.PointX = 100;
             zone3_2.PointY = 150;
 
-            MapZone zone3_3 = new MapZone(instance2, true, 17);
+            MapZone zone3_3 = new MapZone(instance2, true, 1);
             zone3_3.PointX = 150;
             zone3_3.PointY = 150;
 
-            MapZone zone3_4 = new MapZone(instance2, true, 17);
+            MapZone zone3_4 = new MapZone(instance2, true, 1);
             zone3_4.PointX = 200;
             zone3_4.PointY = 150;
 
-            zone4 = new MapZone(instance2, true, 17);
+            zone4 = new MapZone(instance2, true, 1);
             zone4.PointX = 0;
             zone4.PointY = 200;
 
-            zone4_1 = new MapZone(instance2, true, 17);
+            zone4_1 = new MapZone(instance2, true, 1);
             zone4_1.PointX = 50;
             zone4_1.PointY = 200;
 
-            MapZone zone4_2 = new MapZone(instance2, true, 18);
+            MapZone zone4_2 = new MapZone(instance2, true, 1);
             zone4_2.PointX = 100;
             zone4_2.PointY = 200;
 
-            MapZone zone4_3 = new MapZone(instance2, true, 18);
+            MapZone zone4_3 = new MapZone(instance2, true, 1);
             zone4_3.PointX = 150;
             zone4_3.PointY = 200;
 
-            zone5 = new MapZone(instance2, true, 18);
+            zone5 = new MapZone(instance2, true, 1);
             zone5.PointX = 0;
             zone5.PointY = 250;
 
-            MapZone zone5_1 = new MapZone(instance2, true, 18);
+            MapZone zone5_1 = new MapZone(instance2, true, 1);
             zone5_1.PointX = 50;
             zone5_1.PointY = 250;
 
-            MapZone zone5_2 = new MapZone(instance2, true, 19);
+            MapZone zone5_2 = new MapZone(instance2, true, 1);
             zone5_2.PointX = 100;
             zone5_2.PointY = 250;
 
-            MapZone zone5_3 = new MapZone(instance2, true, 19);
+            MapZone zone5_3 = new MapZone(instance2, true, 1);
             zone5_3.PointX = 150;
             zone5_3.PointY = 250;
 

@@ -28,9 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Font = new System.Drawing.Font(_context.Font.Families[1], 9);
-
-            ForeColor = System.Drawing.SystemColors.HotTrack;
 
             this.labelCharName = new System.Windows.Forms.Label();
             this.labelHPText = new System.Windows.Forms.Label();
@@ -140,8 +137,10 @@
             this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.panelInformation);
             this.Controls.Add(this.pictureBox1);
+            this.Font = new System.Drawing.Font(_ctrler.Font.Families[1], 9);
             this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Name = "PanelCharacter";
+            this.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.Size = new System.Drawing.Size(274, 142);
             this.Load += new System.EventHandler(this.PanelCharacter_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
