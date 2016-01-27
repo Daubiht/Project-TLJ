@@ -508,7 +508,7 @@ namespace LogicalGame.Test
             //Instance for the Island
             instance1 = new MapInstance(island, "Forêt désolée", false);
             instance1.PointX = 0;
-            instance1.PointY = 0;
+            instance1.PointY = 100;
 
             //list zone for instance on the island
             listZone_instance1 = new List<MapZone>();
@@ -578,7 +578,7 @@ namespace LogicalGame.Test
             //Instance for the Island
             instance2 = new MapInstance(island, "Mine infestée", false);
             instance2.PointX = 0;
-            instance2.PointY = 50;
+            instance2.PointY = 200;
 
             //list zone for instance on the island
             listZone_instance2 = new List<MapZone>();
@@ -841,6 +841,7 @@ namespace LogicalGame.Test
 
             listlinkis = new List<MapIsland>();
             listlinkis.Add(Islands["Poniénne"]);
+            listlinkis.Add(Islands["Belegaer"]);
             Islands["Belegaer"].ListLink = listlinkis;
 
             listlinkis = new List<MapIsland>();
