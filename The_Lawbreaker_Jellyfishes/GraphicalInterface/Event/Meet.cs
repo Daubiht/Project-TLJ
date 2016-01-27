@@ -246,7 +246,16 @@ namespace GraphicalInterface
                     }
                 );
 
-                _ctrler.ToFight(ListM, _location);
+                Random ran = new Random();
+                List<Monster> ListMonster = new List<Monster>();
+                while(ListMonster.Count < 4)
+                {
+                    if (!ListMonster.Contains(ListM[ran.Next(0, ListM.Count)]))
+                    {
+                        ListMonster.Add(ListM[ran.Next(0, ListM.Count)]);
+                    }
+                }
+                _ctrler.ToFight(ListMonster, _location);
             }
             else if(_result == 1)
             {
