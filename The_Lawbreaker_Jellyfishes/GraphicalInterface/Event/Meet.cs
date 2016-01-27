@@ -89,7 +89,7 @@ namespace GraphicalInterface
                 }
                 else
                 {
-                    label5.Text = "Un vieille homme s'approche de vous, vous fixe étrangement du regarde puis vous propose une énigme : " + Environment.NewLine + elder[0];
+                    label5.Text = "Un vieil homme s'approche de vous, vous fixe étrangement du regarde puis vous propose une énigme : " + Environment.NewLine + elder[0];
                 }
                 label1.Text = "Non, merci.";
 
@@ -242,7 +242,7 @@ namespace GraphicalInterface
                 List<Monster> ListM =  Mobs.GetListMonsters.FindAll(
                     delegate (Monster m)
                     {
-                        return m.Name != "Marchand" && m.Race == "Humain";
+                        return m.Name != "Marchand" && m.Race == "Thief";
                     }
                 );
 

@@ -38,7 +38,9 @@ namespace LogicalGame.Test
             }
 
             w.Notifs.AddNotif("Invasion", "Des démons attaquent la ville de Ponyo !");
+            w.Team.Invent.AddGold(6000);
 
+            
             Assert.IsNotEmpty(w.Notifs.ListNotif);
 
             using (Stream stream = new FileStream("../../../Saves/1 - Plopi.save", FileMode.Create, FileAccess.Write, FileShare.None))

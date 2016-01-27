@@ -77,7 +77,7 @@ namespace LogicalGame
                 List<Monster> M = EntirelistM.GetListMonsters.FindAll(
                     delegate (Monster m)
                 {
-                    return m.Level < _zoneLevel + 2 && m.Level > _zoneLevel - 2 && m.Race != "Merchant";
+                    return m.Race != "Merchant";
                 });
 
                 race = M[_rand.Next(0, M.Count)].Race;
