@@ -175,9 +175,7 @@ namespace GraphicalInterface
             // 
             // SkillsDisplay
             // 
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(skillsForm));
-
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackColor = Color.Transparent;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;

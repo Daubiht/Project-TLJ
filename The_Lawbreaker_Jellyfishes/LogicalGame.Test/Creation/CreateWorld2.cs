@@ -148,8 +148,8 @@ namespace LogicalGame.Test
             zone2.PointY = 0;
 
             MapZone zone2_1 = new MapZone(instance3, true, 3);
-            zone2.PointX = 100;
-            zone2.PointY = 100;
+            zone2_1.PointX = 100;
+            zone2_1.PointY = 100;
 
             zone3 = new MapZone(instance3, true, 3);
             zone3.PointX = 200;
@@ -175,9 +175,17 @@ namespace LogicalGame.Test
 
             listlink = new List<MapZone>();
             listlink.Add(zone2);
+            zone2_1.ListLink = listlink;
+
+            listlink = new List<MapZone>();
+            listlink.Add(zone2);
             listlink.Add(zone3_1);
             listlink.Add(zone4);
             zone3.ListLink = listlink;
+
+            listlink = new List<MapZone>();
+            listlink.Add(zone3);
+            zone3_1.ListLink = listlink;
 
             listlink = new List<MapZone>();
             listlink.Add(zone3);
