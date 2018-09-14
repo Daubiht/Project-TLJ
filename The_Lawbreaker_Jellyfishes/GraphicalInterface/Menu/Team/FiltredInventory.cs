@@ -43,6 +43,9 @@ namespace GraphicalInterface
         private void Equip_Click (object sender, EventArgs e)
         {
             Button button = (Button)sender;
+            if ((Item)((Object[])button.Tag)[0] == null)
+                return;
+
             Item item = (Item)((Object[])button.Tag)[0];
             Object[] tag;
 
